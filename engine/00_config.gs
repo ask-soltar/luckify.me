@@ -17,6 +17,10 @@
 
 const ENGINE_VERSION = "golf_v1.0";
 
+const SHEET_PLAYERS = "Birthdays";
+const SHEET_EVENTS  = "Event_Data";
+const SHEET_GOLF    = "Golf_Analytics";
+
 /* =========================
    GOLF ANALYTICS SHEET CONFIG
    Column numbers for the Golf_Analytics sheet.
