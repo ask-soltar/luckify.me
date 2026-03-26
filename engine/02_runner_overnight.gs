@@ -131,11 +131,12 @@ function OVERNIGHT_CHUNK() {
     } else {
       Logger.log("Paused at row " + startRow + "; next trigger will continue.");
     }
+
+    logRun_(getEngineVersion_(), started, Date.now(), startRow - GA.START_ROW, "");
   } catch (err) {
-    PropertiesService.getScriptProperties().setProperty(
-      PROP_LAST_ERROR,
-      err && err.message ? err.message : String(err)
-    );
+    const errMsg = err && err.message ? err.message : String(err);
+    PropertiesService.getScriptProperties().setProperty(PROP_LAST_ERROR, errMsg);
+    logRun_(getEngineVersion_(), started, Date.now(), startRow - GA.START_ROW, errMsg);
     throw err;
   } finally {
     lock.releaseLock();
