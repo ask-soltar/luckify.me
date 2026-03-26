@@ -17,9 +17,10 @@
 
 const ENGINE_VERSION = "golf_v1.0";
 
-const SHEET_PLAYERS = "Birthdays";
-const SHEET_EVENTS  = "Event_Data";
+const SHEET_PLAYERS = "PLAYERS";
+const SHEET_EVENTS  = "EVENTS";
 const SHEET_GOLF    = "Golf_Analytics";
+const SHEET_RESULTS = "RESULTS_RAW";
 
 const ID_PREFIXES = {
   player: "PLY_",
@@ -29,15 +30,128 @@ const ID_PREFIXES = {
 };
 
 /* =========================
+   PLAYERS SHEET CONFIG (Birthdays)
+   Column numbers for player registry.
+========================= */
+
+const PLAYERS = {
+  SHEET: "PLAYERS",
+  START_ROW: 2,
+
+  COL_PLAYER_ID:    1,    // A  (to be filled with PLY_XXXX)
+  COL_NAME:         2,    // B
+  COL_BIRTHDAY:     3,    // C
+  COL_BIRTHPLACE:   4,    // D
+  COL_GMT:          5,    // E
+  COL_HUMAN_CHECK:  6,    // F
+  COL_ELEMENT:      7,    // G
+  COL_HOROSCOPE:    8,    // H
+  COL_HORO_BUCKET:  9,    // I
+  COL_FIRST_RED:    10,   // J
+  COL_PERS_CARD:    11,   // K
+  COL_SOUL_CARD:    12,   // L
+  COL_BC_PATTERN:   13,   // M
+  COL_NUMER_BUCKET: 14,   // N
+  COL_TITHI_NUM:    15,   // O
+  COL_TITHI_TYPE:   16    // P
+};
+
+/* =========================
+   EVENTS SHEET CONFIG (Event_Data)
+   Column numbers for event registry.
+========================= */
+
+const EVENTS = {
+  SHEET: "EVENTS",
+  START_ROW: 2,
+
+  COL_EVENT_ID:     1,    // A  (to be filled with EVT_XXXX)
+  COL_TOUR:         2,    // B
+  COL_R1_DATE:      3,    // C
+  COL_R2_DATE:      4,    // D
+  COL_R3_DATE:      5,    // E
+  COL_R4_DATE:      6,    // F
+  COL_GMT:          7,    // G
+  COL_EVENT_TITLE:  8,    // H
+  COL_VENUE:        9,    // I
+  COL_LOCATION:     10,   // J
+  COL_START_TIME:   11,   // K
+  COL_LATITUDE:     12,   // L
+  COL_LONGITUDE:    13,   // M
+  COL_MOON_R1_10C:  14,   // N
+  COL_MOON_R2_10C:  15,   // O
+  COL_MOON_R3_10C:  16,   // P
+  COL_MOON_R4_10C:  17,   // Q
+  COL_MOON_R1_8C:   18,   // R
+  COL_MOON_R2_8C:   19,   // S
+  COL_MOON_R3_8C:   20,   // T
+  COL_MOON_R4_8C:   21,   // U
+  COL_TITHI_R1:     22,   // V
+  COL_TITHI_R2:     23,   // W
+  COL_TITHI_R3:     24,   // X
+  COL_TITHI_R4:     25,   // Y
+  COL_TYPE_R1:      26,   // Z
+  COL_TYPE_R2:      27,   // AA
+  COL_TYPE_R3:      28,   // AB
+  COL_TYPE_R4:      29,   // AC
+  COL_ASCDEC_R1:    30,   // AD
+  COL_ASCDEC_R2:    31,   // AE
+  COL_ASCDEC_R3:    32,   // AF
+  COL_ASCDEC_R4:    33,   // AG
+  COL_WS_D1:        34,   // AH
+  COL_WS_D2:        35,   // AI
+  COL_WS_D3:        36,   // AJ
+  COL_WS_D4:        37,   // AK
+  COL_RND1_BUCKET:  38,   // AL
+  COL_RND2_BUCKET:  39,   // AM
+  COL_RND3_BUCKET:  40,   // AN
+  COL_RND4_BUCKET:  41,   // AO
+  COL_R1_AVG:       42,   // AP
+  COL_R2_AVG:       43,   // AQ
+  COL_R3_AVG:       44,   // AR
+  COL_R4_AVG:       45,   // AS
+  COL_YEAR:         46,   // AT
+
+  // CONDITIONS (moved from far-right to dedicated columns)
+  COL_COND_R1:      34,   // AH (Calm/Moderate/Tough for R1)
+  COL_COND_R2:      35,   // AI
+  COL_COND_R3:      36,   // AJ
+  COL_COND_R4:      37    // AK
+};
+
+/* =========================
+   RESULTS_RAW SHEET CONFIG (new)
+   Column numbers for raw golf scores / results.
+========================= */
+
+const RESULTS_RAW = {
+  SHEET: "RESULTS_RAW",
+  START_ROW: 2,
+
+  COL_RESULT_ID:   1,    // A
+  COL_PLAYER_ID:   2,    // B
+  COL_EVENT_ID:    3,    // C
+  COL_R1_SCORE:    4,    // D
+  COL_R2_SCORE:    5,    // E
+  COL_R3_SCORE:    6,    // F
+  COL_R4_SCORE:    7,    // G
+  COL_TOTAL:       8,    // H
+  COL_STATUS:      9,    // I
+  COL_NOTES:       10,   // J
+  COL_CREATED_AT:  11    // K
+};
+
+/* =========================
    GOLF ANALYTICS SHEET CONFIG
    Column numbers for the Golf_Analytics sheet.
-   K=11, L=12, M=13 etc. — never use raw numbers in logic.
+   Mapping to current actual layout.
 ========================= */
 
 const GA = {
   SHEET: "Golf_Analytics",
   START_ROW: 2,
 
+  // Input columns (read by engine) — columns K:Q
   COL_BIRTHDAY:     11,   // K
   COL_BDAY_GMT:     12,   // L
   COL_RD1:          13,   // M
@@ -46,13 +160,32 @@ const GA = {
   COL_RD4:          16,   // P
   COL_VENUE_GMT:    17,   // Q
 
-  COL_COLOR_START:  18,   // R:S:T:U  (round colors)
-  COL_SCORE_START:  22,   // V:AG     (exec/upside/peak)
-  COL_BEST_ROUND:   34,   // AH
+  // Output columns (written by engine)
+  COL_COLOR_START:  18,   // R:U (round 1-4 colors)
+  COL_SCORE_START:  22,   // V:AH (exec/upside/peak for rounds 1-4)
+  COL_BEST_ROUND:   34,   // AH (best upside round label)
 
-  READ_START_COL:   11,   // K  — first column we read
+  // Display/reference columns (already in sheet, engine doesn't touch)
+  COL_YEAR:         1,    // A
+  COL_VENUE:        2,    // B
+  COL_PLAYER:       3,    // C
+  COL_R1:           4,    // D (actual score R1)
+  COL_R2:           5,    // E
+  COL_R3:           6,    // F
+  COL_R4:           7,    // G
+  COL_TOT:          8,    // H
+  COL_STATUS:       9,    // I
+  COL_DEDUPE_KEY:   10,   // J
+
+  // Conditions pulled from Event_Data
+  COL_COND_R1:      44,   // AR
+  COL_COND_R2:      45,   // AS
+  COL_COND_R3:      46,   // AT
+  COL_COND_R4:      47,   // AU
+
+  READ_START_COL:   11,   // K  — first column we read for engine
   READ_NUM_COLS:    7,    // K:Q — how many columns we read
-  OUTPUT_NUM_COLS:  16,   // R:AG — how many columns we write
+  OUTPUT_NUM_COLS:  16,   // R:AH — how many columns we write
 
   TEEOFF_TIME:  "9:00",
   BOUNDARY:     "ZI",
