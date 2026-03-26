@@ -12,4 +12,6 @@ function _safeKey_(v) {
   return String(v || "");
 }
 
-// TODO P2: add generatePlayerId(), generateEventId(), generateCalcId()
+function generateId_(prefix, n) {
+  return prefix + String(n).padStart(4, "0");
+}
