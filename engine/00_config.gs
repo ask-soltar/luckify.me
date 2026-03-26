@@ -21,6 +21,13 @@ const SHEET_PLAYERS = "Birthdays";
 const SHEET_EVENTS  = "Event_Data";
 const SHEET_GOLF    = "Golf_Analytics";
 
+const ID_PREFIXES = {
+  player: "PLY_",
+  event:  "EVT_",
+  result: "RES_",
+  calc:   "CALC_"
+};
+
 /* =========================
    GOLF ANALYTICS SHEET CONFIG
    Column numbers for the Golf_Analytics sheet.
