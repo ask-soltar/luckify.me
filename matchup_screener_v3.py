@@ -34,26 +34,31 @@ def american_to_implied(odds):
     else:
         return 100 / (odds + 100)
 
-def kelly_criterion(edge, implied_prob):
+def kelly_criterion(our_prob, market_implied_prob, odds):
     """
-    Calculate Kelly fraction (full Kelly)
-    edge = our predicted prob - market implied prob
+    Calculate Kelly fraction for 2-ball matchup
+    our_prob = our model probability of winning
+    market_implied_prob = market implied probability
+    odds = American odds (e.g., -120, +100)
     Returns as percentage of bankroll
     """
-    if edge <= 0:
+    if our_prob <= market_implied_prob:
         return 0.0
 
-    prob_win = implied_prob + edge
-    prob_loss = 1 - prob_win
+    edge = our_prob - market_implied_prob
 
-    # Kelly formula: f* = (bp - q) / b
-    # Simplified for -110 odds (b=1): f* = 2p - 1
-    # For general case with odds:
-    if prob_win >= 1.0 or prob_win <= 0:
+    # Convert American odds to decimal
+    if odds < 0:
+        decimal_odds = 1 + (100 / abs(odds))
+    else:
+        decimal_odds = 1 + (odds / 100)
+
+    # Kelly formula: f* = (p * b - 1) / (b - 1)
+    # where p = probability, b = decimal odds
+    if decimal_odds <= 1:
         return 0.0
 
-    # Using simplified Kelly for even-money-ish bets
-    kelly = prob_win - prob_loss
+    kelly = (our_prob * decimal_odds - 1) / (decimal_odds - 1)
     return max(0, kelly)
 
 try:
@@ -121,11 +126,23 @@ try:
             model_prob_a = score_a['final_score']
             model_prob_b = score_b['final_score']
 
-            edge_a = model_prob_a - implied_a
-            edge_b = model_prob_b - implied_b
+            # Matchup differentials
+            market_diff = implied_a - implied_b
+            model_diff = model_prob_a - model_prob_b
+            matchup_edge = model_diff - market_diff
 
-            kelly_a = kelly_criterion(edge_a, implied_a) / 4  # Quarter Kelly
-            kelly_b = kelly_criterion(edge_b, implied_b) / 4  # Quarter Kelly
+            # Determine which side has edge
+            if matchup_edge > 0:
+                # Edge on A
+                kelly_full = kelly_criterion(model_prob_a, implied_a, ml_a)
+                kelly_qtr = kelly_full / 4
+                bet_side = 'A'
+            else:
+                # Edge on B
+                kelly_full = kelly_criterion(model_prob_b, implied_b, ml_b)
+                kelly_qtr = kelly_full / 4
+                bet_side = 'B'
+                matchup_edge = abs(matchup_edge)
 
             results.append({
                 'matchup_num': idx + 1,
@@ -133,16 +150,15 @@ try:
                 'ml_a': ml_a,
                 'implied_a': round(implied_a * 100, 1),
                 'model_a': round(model_prob_a * 100, 1),
-                'edge_a': round(edge_a * 100, 1),
-                'kelly_a': round(kelly_a * 100, 2),
                 'spec_a': 'YES' if score_a['has_specialization'] else '',
                 'player_b': score_b['name'],
                 'ml_b': ml_b,
                 'implied_b': round(implied_b * 100, 1),
                 'model_b': round(model_prob_b * 100, 1),
-                'edge_b': round(edge_b * 100, 1),
-                'kelly_b': round(kelly_b * 100, 2),
                 'spec_b': 'YES' if score_b['has_specialization'] else '',
+                'matchup_edge': round(matchup_edge * 100, 1),
+                'bet_side': bet_side,
+                'kelly_qtr': round(kelly_qtr * 100, 2),
             })
 
         except Exception as e:
@@ -153,7 +169,7 @@ try:
 
     # Display results
     print("="*160)
-    print("MATCHUP RESULTS - SIDE BY SIDE")
+    print("MATCHUP RESULTS - MARKET EDGE ANALYSIS")
     print("="*160)
     print()
 
@@ -164,18 +180,17 @@ try:
         print(f"MATCHUP #{int(row['matchup_num'])}:")
         print()
         print(f"  {row['player_a']:<30} {spec_a_str}")
-        print(f"    Market (ML {row['ml_a']:>5}): {row['implied_a']:>5.1f}% implied")
+        print(f"    Market (ML {row['ml_a']:>5}): {row['implied_a']:>5.1f}%")
         print(f"    Our Model:          {row['model_a']:>5.1f}%")
-        print(f"    Edge:               {row['edge_a']:>+5.1f}pp")
-        print(f"    Quarter Kelly:      {row['kelly_a']:>5.2f}% of bankroll")
         print()
         print(f"  vs")
         print()
         print(f"  {row['player_b']:<30} {spec_b_str}")
-        print(f"    Market (ML {row['ml_b']:>5}): {row['implied_b']:>5.1f}% implied")
+        print(f"    Market (ML {row['ml_b']:>5}): {row['implied_b']:>5.1f}%")
         print(f"    Our Model:          {row['model_b']:>5.1f}%")
-        print(f"    Edge:               {row['edge_b']:>+5.1f}pp")
-        print(f"    Quarter Kelly:      {row['kelly_b']:>5.2f}% of bankroll")
+        print()
+        print(f"  MATCHUP EDGE: {row['matchup_edge']:>+5.1f}pp (favor {row['bet_side']})")
+        print(f"  QUARTER KELLY: {row['kelly_qtr']:>5.2f}% of bankroll")
         print()
         print("-" * 160)
         print()
@@ -186,25 +201,47 @@ try:
     print(f"[OK] Results exported to: {output_file}")
     print()
 
-    # Summary
+    # Bet Summary
+    print("="*160)
+    print("BET SUMMARY - ACTIONABLE RECOMMENDATIONS")
+    print("="*160)
+    print()
+
+    for _, row in results_df.iterrows():
+        edge = row['matchup_edge']
+        kelly = row['kelly_qtr']
+        side = row['bet_side']
+        player = row['player_a'] if side == 'A' else row['player_b']
+        spec = f" [SPEC]" if (row['spec_a'] if side == 'A' else row['spec_b']) else ""
+
+        if kelly < 0.25:
+            recommendation = f"PASS - Edge too small ({edge:.1f}pp)"
+        elif kelly < 0.5:
+            recommendation = f"SMALL - {kelly:.2f}% on {player}{spec}"
+        elif kelly < 1.0:
+            recommendation = f"MEDIUM - {kelly:.2f}% on {player}{spec}"
+        else:
+            recommendation = f"LARGE - {kelly:.2f}% on {player}{spec}"
+
+        print(f"#{int(row['matchup_num']):2}: {recommendation}")
+
+    print()
     print("="*160)
     print("SUMMARY")
     print("="*160)
     print()
 
-    positive_edge_a = len(results_df[results_df['edge_a'] > 0])
-    positive_edge_b = len(results_df[results_df['edge_b'] > 0])
-    avg_edge_a = results_df['edge_a'].mean()
-    avg_edge_b = results_df['edge_b'].mean()
-    avg_kelly = (results_df['kelly_a'].mean() + results_df['kelly_b'].mean()) / 2
+    positive_edges = len(results_df[results_df['matchup_edge'] > 0])
+    avg_edge = results_df['matchup_edge'].mean()
+    avg_kelly = results_df['kelly_qtr'].mean()
+    total_kelly = results_df['kelly_qtr'].sum()
 
     print(f"Total Matchups:        {len(results_df)}")
-    print(f"Player A Positive Edge: {positive_edge_a} ({positive_edge_a/len(results_df)*100:.0f}%)")
-    print(f"Player B Positive Edge: {positive_edge_b} ({positive_edge_b/len(results_df)*100:.0f}%)")
+    print(f"Positive Edges:        {positive_edges} ({positive_edges/len(results_df)*100:.0f}%)")
     print()
-    print(f"Avg Edge (A):          +{avg_edge_a:.1f}pp")
-    print(f"Avg Edge (B):          +{avg_edge_b:.1f}pp")
+    print(f"Avg Matchup Edge:      +{avg_edge:.1f}pp")
     print(f"Avg Quarter Kelly:     {avg_kelly:.2f}%")
+    print(f"Total Kelly Allocation: {total_kelly:.2f}% of bankroll")
     print()
 
 except Exception as e:

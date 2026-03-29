@@ -264,16 +264,16 @@ try:
                 <div class="value">{len(df)}</div>
             </div>
             <div class="summary-card">
-                <div class="label">Avg Edge</div>
-                <div class="value">{df[['edge_a', 'edge_b']].abs().mean().mean():+.1f}pp</div>
-            </div>
-            <div class="summary-card">
-                <div class="label">Avg Quarter Kelly</div>
-                <div class="value">{df[['kelly_a', 'kelly_b']].mean().mean():.2f}%</div>
-            </div>
-            <div class="summary-card">
                 <div class="label">Positive Edges</div>
-                <div class="value">{len(df[(df['edge_a'] > 0) | (df['edge_b'] > 0)])}</div>
+                <div class="value">{len(df[df['matchup_edge'] > 0])}</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Avg Edge</div>
+                <div class="value">{df['matchup_edge'].mean():+.1f}pp</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Avg Kelly</div>
+                <div class="value">{df['kelly_qtr'].mean():.2f}%</div>
             </div>
         </div>
 
@@ -284,8 +284,15 @@ try:
         spec_a = f'<span class="spec-badge">SPEC</span>' if row['spec_a'] == 'YES' else ''
         spec_b = f'<span class="spec-badge">SPEC</span>' if row['spec_b'] == 'YES' else ''
 
-        edge_a_class = 'edge' if row['edge_a'] >= 0 else 'edge negative'
-        edge_b_class = 'edge' if row['edge_b'] >= 0 else 'edge negative'
+        edge_class = 'edge' if row['matchup_edge'] >= 0 else 'edge negative'
+
+        # Determine bet side and player
+        if row['bet_side'] == 'A':
+            bet_player = row['player_a']
+            bet_spec = row['spec_a'] == 'YES'
+        else:
+            bet_player = row['player_b']
+            bet_spec = row['spec_b'] == 'YES'
 
         html += f"""
             <div class="matchup-card">
@@ -302,14 +309,6 @@ try:
                                 <span class="stat-label">Our Model:</span>
                                 <span class="stat-value model">{row['model_a']:.1f}%</span>
                             </div>
-                            <div class="stat-row">
-                                <span class="stat-label">Edge:</span>
-                                <span class="stat-value {edge_a_class}">{row['edge_a']:+.1f}pp</span>
-                            </div>
-                            <div class="stat-row">
-                                <span class="stat-label">Quarter Kelly:</span>
-                                <span class="stat-value kelly">{row['kelly_a']:.2f}%</span>
-                            </div>
                         </div>
                         <div class="vs">vs</div>
                         <div class="player-box">
@@ -322,25 +321,69 @@ try:
                                 <span class="stat-label">Our Model:</span>
                                 <span class="stat-value model">{row['model_b']:.1f}%</span>
                             </div>
-                            <div class="stat-row">
-                                <span class="stat-label">Edge:</span>
-                                <span class="stat-value {edge_b_class}">{row['edge_b']:+.1f}pp</span>
-                            </div>
-                            <div class="stat-row">
-                                <span class="stat-label">Quarter Kelly:</span>
-                                <span class="stat-value kelly">{row['kelly_b']:.2f}%</span>
-                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e9ecef;">
+                        <div class="stat-row">
+                            <span class="stat-label">Matchup Edge:</span>
+                            <span class="stat-value {edge_class}">{row['matchup_edge']:+.1f}pp (favor {row['bet_side']})</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Quarter Kelly:</span>
+                            <span class="stat-value kelly">{row['kelly_qtr']:.2f}% on {bet_player}</span>
                         </div>
                     </div>
                 </div>
             </div>
 """
 
+    html += """
+        </div>
+
+        <div style="padding: 40px; background: #f8f9fa; border-top: 1px solid #e9ecef;">
+            <h2 style="color: #333; margin-bottom: 20px;">Bet Summary & Recommendations</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: #667eea; color: white;">
+                        <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">#</th>
+                        <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Matchup</th>
+                        <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Recommendation</th>
+                    </tr>
+                </thead>
+                <tbody>
+"""
+
+    for idx, row in df.iterrows():
+        edge = row['matchup_edge']
+        kelly = row['kelly_qtr']
+        side = row['bet_side']
+        player = row['player_a'] if side == 'A' else row['player_b']
+        spec = f" [SPEC]" if (row['spec_a'] if side == 'A' else row['spec_b']) else ""
+
+        if kelly < 0.25:
+            recommendation = f"<span style='color: #999;'>PASS</span> - Edge too small ({edge:.1f}pp)"
+        elif kelly < 0.5:
+            recommendation = f"<span style='color: #17a2b8;'>SMALL</span> - {kelly:.2f}% on {player}{spec}"
+        elif kelly < 1.0:
+            recommendation = f"<span style='color: #667eea;'>MEDIUM</span> - {kelly:.2f}% on {player}{spec}"
+        else:
+            recommendation = f"<span style='color: #28a745;'>LARGE</span> - {kelly:.2f}% on {player}{spec}"
+
+        html += f"""
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 12px; border: 1px solid #ddd;">#{int(row['matchup_num'])}</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">{row['player_a']} vs {row['player_b']}</td>
+                        <td style="padding: 12px; border: 1px solid #ddd;">{recommendation}</td>
+                    </tr>
+"""
+
     html += f"""
+                </tbody>
+            </table>
         </div>
 
         <div class="footer">
-            <p><strong>Market Edge Analysis Report</strong></p>
+            <p><strong>Market Edge Analysis Report - V3</strong></p>
             <p class="timestamp">Generated {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
         </div>
     </div>
