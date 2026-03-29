@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soltar Golf 2026 - High Confidence Matchups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid #667eea;
+        }
+
+        .summary-card .label {
+            font-size: 0.9em;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .summary-card .value {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .bets-container {
+            padding: 40px;
+        }
+
+        .bet-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .bet-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
+        }
+
+        .bet-number {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .bet-content {
+            margin-left: 60px;
+        }
+
+        .matchup {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+
+        .player {
+            flex: 1;
+            text-align: center;
+        }
+
+        .player-name {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .player-score {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .vs {
+            font-weight: 700;
+            color: #6c757d;
+            font-size: 1.2em;
+        }
+
+        .bet-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .edge {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #28a745;
+        }
+
+        .confidence {
+            font-size: 0.95em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #667eea;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #333;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .table-wrapper {
+            padding: 40px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: #f8f9fa;
+            border-bottom: 2px solid #667eea;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #667eea;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 30px 40px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.95em;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .timestamp {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .matchup {
+                flex-direction: column;
+            }
+
+            .bet-stats {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⛳ Soltar Golf 2026</h1>
+            <p>High Confidence Matchup Predictions</p>
+        </div>
+
+        <div class="summary">
+            <div class="summary-card">
+                <div class="label">Total Bets</div>
+                <div class="value">6</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Avg Differential</div>
+                <div class="value">+11.9pp</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Highest Edge</div>
+                <div class="value">+23.7pp</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">With Bonus</div>
+                <div class="value">1</div>
+            </div>
+        </div>
+
+        <div class="bets-container">
+            <div class="bet-card">
+                <div class="bet-number">1</div>
+                <div class="bet-content">
+                    <div class="matchup">
+                        <div class="player">
+                            <div class="player-name">Stephan Jaeger</div>
+                            <div class="player-score">69.9%</div>
+                        </div>
+                        <div class="vs">vs</div>
+                        <div class="player">
+                            <div class="player-name">Tony Finau</div>
+                            <div class="player-score">46.2%</div>
+                        </div>
+                    </div>
+                    <div class="bet-stats">
+                        <div>
+                            <div class="edge">+23.7pp</div>
+                        </div>
+                        <div>
+                            <div class="confidence">
+                                HIGH CONFIDENCE
+                                <span class="badge">SPECIALIZATION BONUS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bet-card">
+                <div class="bet-number">2</div>
+                <div class="bet-content">
+                    <div class="matchup">
+                        <div class="player">
+                            <div class="player-name">Jason Day</div>
+                            <div class="player-score">50.8%</div>
+                        </div>
+                        <div class="vs">vs</div>
+                        <div class="player">
+                            <div class="player-name">Sudarshan Yellamaraju</div>
+                            <div class="player-score">35.0%</div>
+                        </div>
+                    </div>
+                    <div class="bet-stats">
+                        <div>
+                            <div class="edge">+15.8pp</div>
+                        </div>
+                        <div>
+                            <div class="confidence">HIGH CONFIDENCE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bet-card">
+                <div class="bet-number">3</div>
+                <div class="bet-content">
+                    <div class="matchup">
+                        <div class="player">
+                            <div class="player-name">Jordan Smith</div>
+                            <div class="player-score">51.7%</div>
+                        </div>
+                        <div class="vs">vs</div>
+                        <div class="player">
+                            <div class="player-name">Chris Kirk</div>
+                            <div class="player-score">41.1%</div>
+                        </div>
+                    </div>
+                    <div class="bet-stats">
+                        <div>
+                            <div class="edge">+10.5pp</div>
+                        </div>
+                        <div>
+                            <div class="confidence">HIGH CONFIDENCE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bet-card">
+                <div class="bet-number">4</div>
+                <div class="bet-content">
+                    <div class="matchup">
+                        <div class="player">
+                            <div class="player-name">Thorbjorn Olesen</div>
+                            <div class="player-score">50.0%</div>
+                        </div>
+                        <div class="vs">vs</div>
+                        <div class="player">
+                            <div class="player-name">Ricky Castillo</div>
+                            <div class="player-score">41.9%</div>
+                        </div>
+                    </div>
+                    <div class="bet-stats">
+                        <div>
+                            <div class="edge">+8.1pp</div>
+                        </div>
+                        <div>
+                            <div class="confidence">HIGH CONFIDENCE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bet-card">
+                <div class="bet-number">5</div>
+                <div class="bet-content">
+                    <div class="matchup">
+                        <div class="player">
+                            <div class="player-name">Adrien Dumont De Chassart</div>
+                            <div class="player-score">50.0%</div>
+                        </div>
+                        <div class="vs">vs</div>
+                        <div class="player">
+                            <div class="player-name">Tom Kim</div>
+                            <div class="player-score">42.7%</div>
+                        </div>
+                    </div>
+                    <div class="bet-stats">
+                        <div>
+                            <div class="edge">+7.3pp</div>
+                        </div>
+                        <div>
+                            <div class="confidence">HIGH CONFIDENCE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bet-card">
+                <div class="bet-number">6</div>
+                <div class="bet-content">
+                    <div class="matchup">
+                        <div class="player">
+                            <div class="player-name">Sam Burns</div>
+                            <div class="player-score">49.3%</div>
+                        </div>
+                        <div class="vs">vs</div>
+                        <div class="player">
+                            <div class="player-name">Jake Knapp</div>
+                            <div class="player-score">43.6%</div>
+                        </div>
+                    </div>
+                    <div class="bet-stats">
+                        <div>
+                            <div class="edge">+5.7pp</div>
+                        </div>
+                        <div>
+                            <div class="confidence">HIGH CONFIDENCE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <h2 style="margin-bottom: 20px; color: #333;">Detailed Breakdown</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bet</th>
+                        <th>Favorite</th>
+                        <th>Score</th>
+                        <th>vs</th>
+                        <th>Underdog</th>
+                        <th>Score</th>
+                        <th>Edge</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#1</td>
+                        <td>Stephan Jaeger</td>
+                        <td>69.9%</td>
+                        <td>vs</td>
+                        <td>Tony Finau</td>
+                        <td>46.2%</td>
+                        <td><strong style="color: #28a745;">+23.7pp</strong></td>
+                        <td><span class="badge">SPEC</span></td>
+                    </tr>
+                    <tr>
+                        <td>#2</td>
+                        <td>Jason Day</td>
+                        <td>50.8%</td>
+                        <td>vs</td>
+                        <td>Sudarshan Yellamaraju</td>
+                        <td>35.0%</td>
+                        <td><strong style="color: #28a745;">+15.8pp</strong></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>#3</td>
+                        <td>Jordan Smith</td>
+                        <td>51.7%</td>
+                        <td>vs</td>
+                        <td>Chris Kirk</td>
+                        <td>41.1%</td>
+                        <td><strong style="color: #28a745;">+10.5pp</strong></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>#4</td>
+                        <td>Thorbjorn Olesen</td>
+                        <td>50.0%</td>
+                        <td>vs</td>
+                        <td>Ricky Castillo</td>
+                        <td>41.9%</td>
+                        <td><strong style="color: #28a745;">+8.1pp</strong></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>#5</td>
+                        <td>Adrien Dumont De Chassart</td>
+                        <td>50.0%</td>
+                        <td>vs</td>
+                        <td>Tom Kim</td>
+                        <td>42.7%</td>
+                        <td><strong style="color: #28a745;">+7.3pp</strong></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>#6</td>
+                        <td>Sam Burns</td>
+                        <td>49.3%</td>
+                        <td>vs</td>
+                        <td>Jake Knapp</td>
+                        <td>43.6%</td>
+                        <td><strong style="color: #28a745;">+5.7pp</strong></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p><strong>Soltar Golf 2026 - Matchup Analysis Report</strong></p>
+            <p class="timestamp">Generated with V2 Scoring System (Element + Zodiac + Player Specialization)</p>
+        </div>
+    </div>
+</body>
+</html>
