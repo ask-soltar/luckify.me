@@ -14,8 +14,13 @@ from player_scoring_system_v2 import PlayerScorerV2
 
 scorer = PlayerScorerV2(enable_player_history=True, enable_specialization=True)
 
+# Load historical player data
+print("Loading historical player data...")
+historical_df = pd.read_csv('D:\\Projects\\luckify-me\\player_tables\\player_by_condition_roundtype.csv')
+print(f"[OK] Loaded {len(historical_df)} historical records\n")
+
 print("="*160)
-print("2-BALL MATCHUP SCREENER - V3 (MARKET-BASED EDGE)")
+print("2-BALL MATCHUP SCREENER - V3 (MARKET-BASED EDGE WITH HISTORICAL VALIDATION)")
 print("="*160)
 print()
 
@@ -68,6 +73,19 @@ try:
 
     print(f"[OK] Loaded {len(df)} matchups")
     print(f"[OK] Columns: {df.columns.tolist()}\n")
+
+    # Helper to get historical win rate
+    def get_historical_wr(player_name, condition, round_type):
+        """Get player's historical win rate for condition+roundtype combo"""
+        match = historical_df[
+            (historical_df['player_name'] == player_name) &
+            (historical_df['condition'] == condition) &
+            (historical_df['round_type'] == round_type)
+        ]
+        if len(match) > 0:
+            row = match.iloc[0]
+            return row['win_rate'], int(row['events'])
+        return None, 0
 
     # Helper to round buckets
     def round_to_bucket(value):
@@ -126,23 +144,45 @@ try:
             model_prob_a = score_a['final_score']
             model_prob_b = score_b['final_score']
 
+            # Get historical data for validation
+            hist_a, n_a = get_historical_wr(score_a['name'], row['Condition'], row['Round Type'])
+            hist_b, n_b = get_historical_wr(score_b['name'], row['Condition'], row['Round Type'])
+
+            # Historical matchup edge (if both have data)
+            historical_edge = None
+            data_quality = 'LIMITED'
+
+            if hist_a is not None and hist_b is not None:
+                if n_a >= 5 and n_b >= 5:
+                    historical_edge = hist_a - hist_b
+                    data_quality = 'FULL'
+                else:
+                    historical_edge = hist_a - hist_b
+                    data_quality = 'LIMITED'
+
             # Matchup differentials
             market_diff = implied_a - implied_b
             model_diff = model_prob_a - model_prob_b
             matchup_edge = model_diff - market_diff
 
-            # Determine which side has edge
+            # Determine which side has edge and if we can Kelly
             if matchup_edge > 0:
-                # Edge on A
-                kelly_full = kelly_criterion(model_prob_a, implied_a, ml_a)
-                kelly_qtr = kelly_full / 4
                 bet_side = 'A'
             else:
-                # Edge on B
-                kelly_full = kelly_criterion(model_prob_b, implied_b, ml_b)
-                kelly_qtr = kelly_full / 4
                 bet_side = 'B'
                 matchup_edge = abs(matchup_edge)
+
+            # Kelly sizing: only if we have high-quality data
+            if data_quality == 'FULL':
+                if bet_side == 'A':
+                    kelly_full = kelly_criterion(model_prob_a, implied_a, ml_a)
+                else:
+                    kelly_full = kelly_criterion(model_prob_b, implied_b, ml_b)
+                kelly_qtr = kelly_full / 4
+                action_type = 'KELLY'
+            else:
+                kelly_qtr = 0.0
+                action_type = 'LEAN'
 
             results.append({
                 'matchup_num': idx + 1,
@@ -150,15 +190,22 @@ try:
                 'ml_a': ml_a,
                 'implied_a': round(implied_a * 100, 1),
                 'model_a': round(model_prob_a * 100, 1),
+                'n_a': n_a,
+                'hist_a': round(hist_a * 100, 1) if hist_a is not None else None,
                 'spec_a': 'YES' if score_a['has_specialization'] else '',
                 'player_b': score_b['name'],
                 'ml_b': ml_b,
                 'implied_b': round(implied_b * 100, 1),
                 'model_b': round(model_prob_b * 100, 1),
+                'n_b': n_b,
+                'hist_b': round(hist_b * 100, 1) if hist_b is not None else None,
                 'spec_b': 'YES' if score_b['has_specialization'] else '',
                 'matchup_edge': round(matchup_edge * 100, 1),
+                'historical_edge': round(historical_edge * 100, 1) if historical_edge is not None else None,
                 'bet_side': bet_side,
                 'kelly_qtr': round(kelly_qtr * 100, 2),
+                'action_type': action_type,
+                'data_quality': data_quality,
             })
 
         except Exception as e:
@@ -177,20 +224,25 @@ try:
         spec_a_str = " [SPEC]" if row['spec_a'] else ""
         spec_b_str = " [SPEC]" if row['spec_b'] else ""
 
+        hist_a_str = f" [HIST: {row['hist_a']:.1f}%, N={int(row['n_a'])}]" if row['hist_a'] is not None else " [NO HISTORY]"
+        hist_b_str = f" [HIST: {row['hist_b']:.1f}%, N={int(row['n_b'])}]" if row['hist_b'] is not None else " [NO HISTORY]"
+
         print(f"MATCHUP #{int(row['matchup_num'])}:")
         print()
         print(f"  {row['player_a']:<30} {spec_a_str}")
         print(f"    Market (ML {row['ml_a']:>5}): {row['implied_a']:>5.1f}%")
-        print(f"    Our Model:          {row['model_a']:>5.1f}%")
+        print(f"    Our Model:          {row['model_a']:>5.1f}%{hist_a_str}")
         print()
         print(f"  vs")
         print()
         print(f"  {row['player_b']:<30} {spec_b_str}")
         print(f"    Market (ML {row['ml_b']:>5}): {row['implied_b']:>5.1f}%")
-        print(f"    Our Model:          {row['model_b']:>5.1f}%")
+        print(f"    Our Model:          {row['model_b']:>5.1f}%{hist_b_str}")
         print()
-        print(f"  MATCHUP EDGE: {row['matchup_edge']:>+5.1f}pp (favor {row['bet_side']})")
-        print(f"  QUARTER KELLY: {row['kelly_qtr']:>5.2f}% of bankroll")
+        print(f"  MODEL EDGE: {row['matchup_edge']:>+5.1f}pp (favor {row['bet_side']})")
+        if row['historical_edge'] is not None:
+            print(f"  HISTORICAL EDGE: {row['historical_edge']:>+5.1f}pp [{row['data_quality']}]")
+        print(f"  ACTION: {row['action_type']:6} {row['kelly_qtr']:>5.2f}%")
         print()
         print("-" * 160)
         print()
@@ -213,8 +265,11 @@ try:
         side = row['bet_side']
         player = row['player_a'] if side == 'A' else row['player_b']
         spec = f" [SPEC]" if (row['spec_a'] if side == 'A' else row['spec_b']) else ""
+        action = row['action_type']
 
-        if kelly < 0.25:
+        if action == 'LEAN':
+            recommendation = f"LEAN {side} - {edge:.1f}pp (limited history data)"
+        elif kelly < 0.25:
             recommendation = f"PASS - Edge too small ({edge:.1f}pp)"
         elif kelly < 0.5:
             recommendation = f"SMALL - {kelly:.2f}% on {player}{spec}"
@@ -232,15 +287,20 @@ try:
     print()
 
     positive_edges = len(results_df[results_df['matchup_edge'] > 0])
+    full_data = len(results_df[results_df['data_quality'] == 'FULL'])
+    limited_data = len(results_df[results_df['data_quality'] == 'LIMITED'])
     avg_edge = results_df['matchup_edge'].mean()
-    avg_kelly = results_df['kelly_qtr'].mean()
-    total_kelly = results_df['kelly_qtr'].sum()
+    kelly_bets = results_df[results_df['action_type'] == 'KELLY']
+    avg_kelly = kelly_bets['kelly_qtr'].mean() if len(kelly_bets) > 0 else 0
+    total_kelly = kelly_bets['kelly_qtr'].sum() if len(kelly_bets) > 0 else 0
 
     print(f"Total Matchups:        {len(results_df)}")
     print(f"Positive Edges:        {positive_edges} ({positive_edges/len(results_df)*100:.0f}%)")
+    print(f"Full Data (KELLY):     {full_data} ({full_data/len(results_df)*100:.0f}%)")
+    print(f"Limited Data (LEAN):   {limited_data} ({limited_data/len(results_df)*100:.0f}%)")
     print()
     print(f"Avg Matchup Edge:      +{avg_edge:.1f}pp")
-    print(f"Avg Quarter Kelly:     {avg_kelly:.2f}%")
+    print(f"Avg Quarter Kelly:     {avg_kelly:.2f}% (when KELLY only)")
     print(f"Total Kelly Allocation: {total_kelly:.2f}% of bankroll")
     print()
 
