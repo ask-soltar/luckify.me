@@ -71,7 +71,7 @@ function START_OVERNIGHT_FROM_ROW() {
     if (!isNaN(startRow) && startRow >= GA.START_ROW) {
       const props = PropertiesService.getScriptProperties();
       props.setProperty(PROP_PROGRESS, String(startRow));
-      _startOvernightRun_(false, true, true);
+      _startOvernightRun_(false, true, true, false);  // resetProgress=false: keep custom row
     } else {
       ui.alert("Invalid row number. Must be >= " + GA.START_ROW);
     }

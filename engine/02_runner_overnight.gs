@@ -95,6 +95,9 @@ function OVERNIGHT_CHUNK() {
   const lock = LockService.getScriptLock();
   if (!lock.tryLock(5000)) return;
 
+  // Hoisted so catch block can reference it even if the error fires early
+  let startRow = GA.START_ROW;
+
   try {
     const started = Date.now();
     const props = PropertiesService.getScriptProperties();
@@ -104,7 +107,7 @@ function OVERNIGHT_CHUNK() {
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(GA.SHEET);
     const lastRow = sheet.getLastRow();
 
-    let startRow = Number(props.getProperty(PROP_PROGRESS) || GA.START_ROW);
+    startRow = Number(props.getProperty(PROP_PROGRESS) || GA.START_ROW);
     const force = props.getProperty(PROP_FORCE) === "true";
     const doColors = props.getProperty(PROP_DO_COLORS) !== "false";
     const doScores = props.getProperty(PROP_DO_SCORES) !== "false";
@@ -147,11 +150,14 @@ function OVERNIGHT_CHUNK() {
    PRIVATE HELPERS
 ========================= */
 
-function _startOvernightRun_(force, doColors, doScores) {
+function _startOvernightRun_(force, doColors, doScores, resetProgress = true) {
   _deleteOvernightTriggers_();
 
   const props = PropertiesService.getScriptProperties();
-  props.setProperty(PROP_PROGRESS, String(GA.START_ROW));
+  // Only reset progress if not coming from START_OVERNIGHT_FROM_ROW
+  if (resetProgress) {
+    props.setProperty(PROP_PROGRESS, String(GA.START_ROW));
+  }
   props.setProperty(PROP_FORCE, force ? "true" : "false");
   props.setProperty(PROP_DO_COLORS, doColors ? "true" : "false");
   props.setProperty(PROP_DO_SCORES, doScores ? "true" : "false");
