@@ -21,6 +21,7 @@ const SHEET_PLAYERS = "PLAYERS";
 const SHEET_EVENTS  = "EVENTS";
 const SHEET_GOLF    = "Golf_Analytics";
 const SHEET_RESULTS = "RESULTS_RAW";
+const SHEET_BIRTHDAY_VERIFY = "BIRTHDAY_VERIFY";
 
 const ID_PREFIXES = {
   player: "PLY_",
@@ -75,7 +76,7 @@ const EVENTS = {
   COL_EVENT_TITLE:  8,    // H
   COL_VENUE:        9,    // I
   COL_LOCATION:     10,   // J
-  COL_START_TIME:   11,   // K
+  COL_START_TIME:   11,   // K  (tee-off time for the event)
   COL_LATITUDE:     12,   // L
   COL_LONGITUDE:    13,   // M
   COL_MOON_R1_10C:  14,   // N
@@ -98,10 +99,12 @@ const EVENTS = {
   COL_ASCDEC_R2:    31,   // AE
   COL_ASCDEC_R3:    32,   // AF
   COL_ASCDEC_R4:    33,   // AG
-  COL_WS_D1:        34,   // AH
-  COL_WS_D2:        35,   // AI
-  COL_WS_D3:        36,   // AJ
-  COL_WS_D4:        37,   // AK
+  // DEPRECATED: COL_WS_D1–D4 were superseded by COL_COND_R1–R4 (same columns).
+  // Kept as aliases only — do not use in new code.
+  COL_WS_D1:        34,   // AH — now Conditions R1
+  COL_WS_D2:        35,   // AI — now Conditions R2
+  COL_WS_D3:        36,   // AJ — now Conditions R3
+  COL_WS_D4:        37,   // AK — now Conditions R4
   COL_RND1_BUCKET:  38,   // AL
   COL_RND2_BUCKET:  39,   // AM
   COL_RND3_BUCKET:  40,   // AN
@@ -112,8 +115,25 @@ const EVENTS = {
   COL_R4_AVG:       45,   // AS
   COL_YEAR:         46,   // AT
 
-  // CONDITIONS (moved from far-right to dedicated columns)
-  COL_COND_R1:      34,   // AH (Calm/Moderate/Tough for R1)
+  // Average scores by condition (Calm/Moderate/Tough)
+  COL_R1_AVG_CALM:  47,   // AU
+  COL_R2_AVG_CALM:  48,   // AV
+  COL_R3_AVG_CALM:  49,   // AW
+  COL_R4_AVG_CALM:  50,   // AX
+  COL_R1_AVG_MOD:   51,   // AY
+  COL_R2_AVG_MOD:   52,   // AZ
+  COL_R3_AVG_MOD:   53,   // BA
+  COL_R4_AVG_MOD:   54,   // BB
+  COL_R1_AVG_TOU:   55,   // BC
+  COL_R2_AVG_TOU:   56,   // BD
+  COL_R3_AVG_TOU:   57,   // BE
+  COL_R4_AVG_TOU:   58,   // BF
+
+  // CONDITIONS — Calm/Moderate/Tough labels for each round.
+  // These occupy cols 34–37 (AH–AK), which previously held COL_WS_D1–D4.
+  // COL_WS_D1–D4 above are now stale aliases pointing to the same slots.
+  // Do not use COL_WS_D* in new code — use COL_COND_R* instead.
+  COL_COND_R1:      34,   // AH
   COL_COND_R2:      35,   // AI
   COL_COND_R3:      36,   // AJ
   COL_COND_R4:      37    // AK
@@ -142,6 +162,81 @@ const RESULTS_RAW = {
 };
 
 /* =========================
+   BIRTHDAY_VERIFY SHEET CONFIG
+   Column numbers for birthday verification / ESPN lookup results.
+========================= */
+
+const BIRTHDAY_VERIFY = {
+  SHEET: "BIRTHDAY_VERIFY",
+  START_ROW: 2,
+
+  COL_PLAYER_ID:           1,    // A
+  COL_NAME:                2,    // B
+  COL_CURRENT_BDAY:        3,    // C
+  COL_ESPN_BDAY:           4,    // D
+  COL_WIKIDATA_BDAY:       5,    // E
+  COL_BDAY_STATUS:         6,    // F
+  COL_CURRENT_BIRTHPLACE:  7,    // G
+  COL_ESPN_BIRTHPLACE:     8,    // H
+  COL_WIKIDATA_BIRTHPLACE: 9,    // I
+  COL_BIRTHPLACE_STATUS:   10,   // J
+  COL_ESPN_ID:             11,   // K
+  COL_ACTION_BDAY:         12,   // L  (UPDATE / KEEP / SKIP)
+  COL_ACTION_BIRTHPLACE:   13,   // M  (UPDATE / KEEP / SKIP)
+  COL_NOTES:               14    // N
+};
+
+/* =========================
+   ANALYSIS SHEET CONFIG
+   Benchmark & threshold analysis layer.
+   One row per round played.
+========================= */
+
+const COURSES = {
+  SHEET: "COURSES",
+  START_ROW: 2,
+
+  COL_COURSE_ID:     1,    // A
+  COL_COURSE_NAME:   2,    // B
+  COL_LOCATION:      3,    // C
+  COL_NOTES:         4     // D
+};
+
+const EVENTS_COURSES = {
+  SHEET: "EVENTS_COURSES",
+  START_ROW: 2,
+
+  COL_EVENT_ID:         1,    // A
+  COL_COURSE_ID:        2,    // B
+  COL_YEAR:             3,    // C
+  COL_PAR:              4,    // D
+  COL_COURSE_SEQUENCE:  5,    // E (1st course, 2nd course, etc.)
+  COL_NOTES:            6,    // F
+  COL_STATUS:           7     // G (Confirmed / Pending / etc.)
+};
+
+const ANALYSIS = {
+  SHEET: "ANALYSIS",
+  START_ROW: 2,
+
+  COL_PLAYER_ID:           1,    // A
+  COL_PLAYER_NAME:         2,    // B
+  COL_EVENT_ID:            3,    // C
+  COL_EVENT_NAME:          4,    // D
+  COL_ROUND_NUM:           5,    // E
+  COL_SCORE:               6,    // F
+  COL_PAR:                 7,    // G
+  COL_COURSE_AVG:          8,    // H
+  COL_DIFF_COURSE_AVG:     9,    // I
+  COL_CONDITION:           10,   // J
+  COL_COLOR:               11,   // K
+  COL_EXEC:                12,   // L
+  COL_UPSIDE:              13,   // M
+  COL_PLAYER_HIST_PAR:     14,   // N
+  COL_DIFF_PLAYER_HIST_PAR: 15   // O
+};
+
+/* =========================
    GOLF ANALYTICS SHEET CONFIG
    Column numbers for the Golf_Analytics sheet.
    Mapping to current actual layout.
@@ -151,41 +246,84 @@ const GA = {
   SHEET: "Golf_Analytics",
   START_ROW: 2,
 
-  // Input columns (read by engine) — columns K:Q
-  COL_BIRTHDAY:     11,   // K
-  COL_BDAY_GMT:     12,   // L
-  COL_RD1:          13,   // M
-  COL_RD2:          14,   // N
-  COL_RD3:          15,   // O
-  COL_RD4:          16,   // P
-  COL_VENUE_GMT:    17,   // Q
+  // ── Display columns (A:J) — engine never writes these ──
+  COL_YEAR:         1,    // A  Year
+  COL_VENUE:        2,    // B  Event name (match key → EVENTS.COL_EVENT_TITLE)
+  COL_PLAYER:       3,    // C  Player name (match key → PLAYERS.COL_NAME)
+  COL_R1:           4,    // D  Actual R1 score
+  COL_R2:           5,    // E  Actual R2 score
+  COL_R3:           6,    // F  Actual R3 score
+  COL_R4:           7,    // G  Actual R4 score
+  COL_TOT:          8,    // H  Total score
+  COL_STATUS:       9,    // I  Finish / Withdrawn / CUT
+  COL_DEDUPE_KEY:   10,   // J  Deduplication key
 
-  // Output columns (written by engine)
-  COL_COLOR_START:  18,   // R:U (round 1-4 colors)
-  COL_SCORE_START:  22,   // V:AH (exec/upside/peak for rounds 1-4)
-  COL_BEST_ROUND:   34,   // AH (best upside round label)
+  // ── Input columns (K:Q) — engine reads these ──
+  COL_BIRTHDAY:     11,   // K  =VLOOKUP player birthday from PLAYERS
+  COL_BDAY_GMT:     12,   // L  =VLOOKUP birth GMT from PLAYERS
+  COL_RD1:          13,   // M  =INDEX/MATCH R1 date from EVENTS
+  COL_RD2:          14,   // N  =INDEX/MATCH R2 date from EVENTS
+  COL_RD3:          15,   // O  =INDEX/MATCH R3 date from EVENTS
+  COL_RD4:          16,   // P  =INDEX/MATCH R4 date from EVENTS
+  COL_VENUE_GMT:    17,   // Q  =INDEX/MATCH venue GMT from EVENTS
 
-  // Display/reference columns (already in sheet, engine doesn't touch)
-  COL_YEAR:         1,    // A
-  COL_VENUE:        2,    // B
-  COL_PLAYER:       3,    // C
-  COL_R1:           4,    // D (actual score R1)
-  COL_R2:           5,    // E
-  COL_R3:           6,    // F
-  COL_R4:           7,    // G
-  COL_TOT:          8,    // H
-  COL_STATUS:       9,    // I
-  COL_DEDUPE_KEY:   10,   // J
+  // ── Engine output (R:AH) — engine writes these ──
+  COL_COLOR_START:  18,   // R  R1 Rhythm (color); S=R2, T=R3, U=R4
+  COL_SCORE_START:  22,   // V  R1 Exec; W=R1 Upside; X=R1 Peak
+                          // Y=R2 Exec; Z=R2 Upside; AA=R2 Peak
+                          // AB=R3 Exec; AC=R3 Upside; AD=R3 Peak
+                          // AE=R4 Exec; AF=R4 Upside; AG=R4 Peak
+  COL_BEST_ROUND:   34,   // AH Best Upside round label
 
-  // Conditions pulled from Event_Data
-  COL_COND_R1:      44,   // AR
-  COL_COND_R2:      45,   // AS
-  COL_COND_R3:      46,   // AT
-  COL_COND_R4:      47,   // AU
+  // ── Post-engine reference columns (AI:AP) — filled by analysis scripts ──
+  COL_COURSE_AVG_R1: 35,  // AI Course Avg R1 (field average for that round)
+  COL_COURSE_AVG_R2: 36,  // AJ Course Avg R2
+  COL_COURSE_AVG_R3: 37,  // AK Course Avg R3
+  COL_COURSE_AVG_R4: 38,  // AL Course Avg R4
+  COL_VS_AVG_R1:    39,   // AM R1 vs Avg (score − course avg)
+  COL_VS_AVG_R2:    40,   // AN R2 vs Avg
+  COL_VS_AVG_R3:    41,   // AO R3 vs Avg
+  COL_VS_AVG_R4:    42,   // AP R4 vs Avg
 
-  READ_START_COL:   11,   // K  — first column we read for engine
-  READ_NUM_COLS:    7,    // K:Q — how many columns we read
-  OUTPUT_NUM_COLS:  16,   // R:AH — how many columns we write
+  // ── Conditions (AQ:AT) — Calm / Moderate / Tough per round ──
+  COL_COND_R1:      43,   // AQ R1 Course Condition
+  COL_COND_R2:      44,   // AR R2 Course Condition
+  COL_COND_R3:      45,   // AS R3 Course Condition
+  COL_COND_R4:      46,   // AT R4 Course Condition
+
+  // ── Round type (AU:AX) — Open / Positioning / Closing / REMOVE ──
+  COL_TYPE_R1:      47,   // AU Round Type R1
+  COL_TYPE_R2:      48,   // AV Round Type R2
+  COL_TYPE_R3:      49,   // AW Round Type R3
+  COL_TYPE_R4:      50,   // AX Round Type R4
+
+  // ── Moon phase 10-cat (AY:BB) ──
+  COL_MOON_R1:      51,   // AY Moon R1
+  COL_MOON_R2:      52,   // AZ Moon R2
+  COL_MOON_R3:      53,   // BA Moon R3
+  COL_MOON_R4:      54,   // BB Moon R4
+
+  // ── Divination columns (BC:BL) — player-level, same value every round ──
+  COL_WU_XING:      55,   // BC Wu Xing Element
+  COL_ZODIAC:       56,   // BD Chinese Zodiac
+  COL_DESTINY_CARD: 57,   // BE Destiny Card
+  COL_HOROSCOPE:    58,   // BF Horoscope (Western)
+  COL_MOONWEST_R1:  59,   // BG MoonWest R1 (8-cat)
+  COL_MOONWEST_R2:  60,   // BH MoonWest R2 (8-cat)
+  COL_MOONWEST_R3:  61,   // BI MoonWest R3 (8-cat)
+  COL_MOONWEST_R4:  62,   // BJ MoonWest R4 (8-cat)
+  COL_LIFE_PATH:    63,   // BK Life Path
+  COL_TITHI:        64,   // BL Tithi
+
+  // ── Other signals ──
+  COL_GAP_R1:       65,   // BM R1 GAP
+  COL_ROUND_WD:     66,   // BN Round Withdrawn
+  COL_TOUR:         67,   // BO Tour (PGA Tour / LIV Golf / DP World Tour / other)
+
+  // ── Engine read/write range metadata ──
+  READ_START_COL:   11,   // K  — first column read by engine
+  READ_NUM_COLS:    7,    // K:Q — columns read (7 total)
+  OUTPUT_NUM_COLS:  16,   // R:AH — columns written by engine (16 total)
 
   TEEOFF_TIME:  "9:00",
   BOUNDARY:     "ZI",

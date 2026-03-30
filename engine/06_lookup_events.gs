@@ -53,7 +53,7 @@ function _loadAllEvents_() {
       event_title:   row[EVENTS.COL_EVENT_TITLE - 1],
       venue:         row[EVENTS.COL_VENUE - 1],
       location:      row[EVENTS.COL_LOCATION - 1],
-      start_time:    row[EVENTS.COL_START_TIME - 1],
+      start_time:    row[EVENTS.COL_START_TIME - 1],  // col 11 (K)
       latitude:      row[EVENTS.COL_LATITUDE - 1],
       longitude:     row[EVENTS.COL_LONGITUDE - 1],
       moon_r1_10c:   row[EVENTS.COL_MOON_R1_10C - 1],

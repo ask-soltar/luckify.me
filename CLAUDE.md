@@ -394,6 +394,19 @@ Format for entries:
 **Verification:** Overnight Status should now show correct starting row (e.g., 24658, not 2)
 **Commit:** `d4e9964`
 
+### 2026-03-30 — Config Audit: EVENTS, PLAYERS, COURSES, EVENTS_COURSES sheets
+**Status:** Done — config updated
+**Findings:**
+- **PLAYERS:** ✓ All 16 columns match config perfectly
+- **COURSES:** ✓ All 4 columns match config perfectly
+- **EVENTS_COURSES:** ✓ Found 1 extra column (COL_STATUS at col 7) — added to config
+- **EVENTS:** ✓ Fixed COL_START_TIME (col 11, not COL_COURSE_ID) + added 12 missing average columns (cols 47–58: R1–R4 avg_calm/avg_mod/avg_tou)
+**Changes:**
+- `00_config.gs` EVENTS: Changed col 11 from COL_COURSE_ID → COL_START_TIME; added COL_R1–R4_AVG_CALM (47–50), COL_R1–R4_AVG_MOD (51–54), COL_R1–R4_AVG_TOU (55–58)
+- `00_config.gs` EVENTS_COURSES: Added COL_STATUS (7)
+- `06_lookup_events.gs`: Updated start_time field to use COL_START_TIME instead of COL_COURSE_ID
+**Next:** ANALYSIS sheet config audit (already verified earlier to be correct)
+
 ### 2026-03-30 — Debug & verify "Start Overnight from Row X" functionality
 **Status:** Done
 **Finding:** Feature is working correctly. Issue was not a bug but missing data.
