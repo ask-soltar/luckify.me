@@ -158,6 +158,7 @@ function _startOvernightRun_(force, doColors, doScores, resetProgress = true) {
   if (resetProgress) {
     props.setProperty(PROP_PROGRESS, String(GA.START_ROW));
   }
+
   props.setProperty(PROP_FORCE, force ? "true" : "false");
   props.setProperty(PROP_DO_COLORS, doColors ? "true" : "false");
   props.setProperty(PROP_DO_SCORES, doScores ? "true" : "false");

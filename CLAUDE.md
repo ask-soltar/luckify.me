@@ -394,6 +394,21 @@ Format for entries:
 **Verification:** Overnight Status should now show correct starting row (e.g., 24658, not 2)
 **Commit:** `d4e9964`
 
+### 2026-03-30 — Debug & verify "Start Overnight from Row X" functionality
+**Status:** Done
+**Finding:** Feature is working correctly. Issue was not a bug but missing data.
+**What happened:**
+- User reported "Start Overnight from Row X" was resetting to row 2 instead of keeping custom row
+- Added debug logging to trace the issue
+- Execution logs showed: DEBUG logs confirmed `resetProgress=false` was working, PROP_PROGRESS was set to 24658 and preserved
+- Root cause: New rows (24658+) had missing/invalid birthday data (columns K, L blank or "N/A")
+- Engine correctly skipped those rows and logged "missing required input"
+**Resolution:**
+- Removed debug logging (cleanup)
+- Feature is production-ready
+- User must fill columns K (Birthday) + L (GMT offset) for new rows before engine can fill colors/scores
+**Commit:** cleanup pushed
+
 **Open item:** Verify whether `start_time` truly lives in col K of EVENTS, or if it has moved.
 If it has its own column, add `COL_START_TIME: <correct_col>` back to `00_config.gs` EVENTS block
 and update `06_lookup_events.gs` accordingly.
