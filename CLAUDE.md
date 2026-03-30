@@ -383,6 +383,17 @@ Format for entries:
 **How:** Menu → "🌙 Start Overnight from Row X" → enter row number → run
 **Validation:** Checks that row ≥ GA.START_ROW (2), otherwise alerts error
 
+### 2026-03-30 — Bug fix: preserve custom start row (don't reset to 2)
+**Status:** Done
+**Bug:** `_startOvernightRun_()` was unconditionally resetting PROP_PROGRESS to row 2, overwriting the custom row set by `START_OVERNIGHT_FROM_ROW()`.
+**Fix:**
+- Modified `_startOvernightRun_(force, doColors, doScores, resetProgress = true)` to accept optional `resetProgress` parameter
+- If `resetProgress = false`, progress row is preserved (used by START_OVERNIGHT_FROM_ROW)
+- If `resetProgress = true` (default), progress resets to row 2 (used by START_OVERNIGHT)
+- Updated `START_OVERNIGHT_FROM_ROW()` to call `_startOvernightRun_(..., false)` after setting custom row
+**Verification:** Overnight Status should now show correct starting row (e.g., 24658, not 2)
+**Commit:** `d4e9964`
+
 **Open item:** Verify whether `start_time` truly lives in col K of EVENTS, or if it has moved.
 If it has its own column, add `COL_START_TIME: <correct_col>` back to `00_config.gs` EVENTS block
 and update `06_lookup_events.gs` accordingly.
