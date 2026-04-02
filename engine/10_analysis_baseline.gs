@@ -822,12 +822,20 @@ function _populateAnalysisV3Batch_(startRow, endRow) {
   }
 
   // Write all rows (append after existing data)
-  // SIMPLIFIED: Trust progress tracking instead of reading all existing rows (was too slow)
+  // OPTIMIZATION: Batch writes in 5k-row chunks to avoid timeout on large datasets
   if (analysisRows.length > 0) {
+    var batchSize = 5000;
     var analysisLastRow = analysisSheet.getLastRow();
     var insertRow = Math.max(ANALYSIS_V3.START_ROW, analysisLastRow + 1);
-    var writeRange = analysisSheet.getRange(insertRow, 1, analysisRows.length, analysisRows[0].length);
-    writeRange.setValues(analysisRows);
-    console.log("  ✓ Wrote " + analysisRows.length + " rows");
+
+    for (var b = 0; b < analysisRows.length; b += batchSize) {
+      var endIdx = Math.min(b + batchSize, analysisRows.length);
+      var batch = analysisRows.slice(b, endIdx);
+      var writeRange = analysisSheet.getRange(insertRow + b, 1, batch.length, batch[0].length);
+      writeRange.setValues(batch);
+      console.log("  ✓ Wrote rows " + (insertRow + b) + "–" + (insertRow + endIdx - 1));
+    }
+
+    console.log("  ✓ Total: " + analysisRows.length + " rows");
   }
 }
