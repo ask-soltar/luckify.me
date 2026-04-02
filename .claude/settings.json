@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find d:/Projects/luckify-me -name *.gs -type f)",
+      "Bash(grep -l \"PROP_PROGRESS\\\\|setProperty.*PROGRESS\" d:/Projects/luckify-me/docs/*.gs)",
+      "Bash(where python3:*)",
+      "Bash(\"C:\\\\Users\\\\crzzy\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\python3.exe\" k_optimization_statistical_analysis.py)",
+      "Bash(get-command python*)",
+      "Bash(ls -1 d:/Projects/luckify-me/*SIGNAL* d:/Projects/luckify-me/*COMBO* d:/Projects/luckify-me/*ANALYSIS*)",
+      "Bash(find d:/Projects/luckify-me -maxdepth 1 -type f -name *FINAL* -o -name *SIGNAL* -o -name *combo*)",
+      "Bash(python3.13 comprehensive_combo_analysis.py)",
+      "Bash(python3.13:*)",
+      "Read(//d/Projects/luckify-me/**)",
+      "Bash(ls -la validate*.py)",
+      "Bash(ls -la build_color*.py)",
+      "Bash(/c/Users/crzzy/.conda/envs/ChatDev_conda_env/python.exe analyze_with_diff_filter.py)",
+      "Bash(ls -lh 2ball_scored*)",
+      "Bash(py:*)",
+      "Bash(python analyze_wood_element_by_tournament.py)",
+      "Bash(python3 analyze_wood_element_by_tournament.py)",
+      "Bash(/c/Users/crzzy/AppData/Local/Programs/Python/Python311/Scripts/python.exe analyze_wood_element_by_tournament.py)",
+      "Bash(python3:*)",
+      "Bash(grep -r \"gspread\\\\|google.auth\\\\|push.*sheets\\\\|to_csv\\\\|gsheet\" d:Projectsluckify-me*.py)",
+      "Bash(grep -l \"import gspread\\\\|from google\" d:Projectsluckify-meengine*.py)",
+      "Bash(grep -E \"\\\\.gs$|\\\\.js$\")"
+    ],
+    "additionalDirectories": [
+      "d:\\Users\\crzzy\\.claude\\projects\\d--Projects-luckify-me\\memory",
+      "\\tmp"
+    ]
+  }
+}

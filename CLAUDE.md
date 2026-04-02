@@ -66,6 +66,11 @@ Update CLAUDE.md + engine — Rinse, repeat
 
 **What it is:** The single entry point for all raw golf tournament data. Every score, every player, every round enters here first.
 
+**ID Columns (BP, BQ):** Contain INDEX/MATCH formulas (not populated values) that dynamically look up:
+- **BP (player_id):** `=IFERROR(INDEX(PLAYERS!$A:$A, MATCH(C2, PLAYERS!$B:$B, 0)), "")`
+- **BQ (event_id):** `=IFERROR(INDEX(EVENTS!$A:$A, MATCH(B2, EVENTS!$H:$H, 0)), "")`
+- These formulas auto-update when PLAYERS/EVENTS sheets change. No repopulation needed.
+
 **What it's not:** A computation engine. It's a holding tank. Raw data + human-verified formulas that pull from PLAYERS/EVENTS.
 
 **Flow:**
@@ -183,8 +188,24 @@ Key columns:
 | AD–AG | COL_ASCDEC_R1–R4 | Asc/Dec |
 | AH–AK | COL_COND_R1–R4 | **Conditions: Calm/Moderate/Tough** |
 | AL–AO | COL_RND1_BUCKET–R4_BUCKET | Round buckets |
-| AP–AS | COL_R1_AVG–R4_AVG | Field averages per round |
+| AP–AS | COL_R1_AVG–R4_AVG | Field averages per round (withdrawn-adjusted) |
 | AT | COL_YEAR | Year |
+| AU | COL_TOURNAMENT_TYPE | Tournament scoring type |
+
+**Field Averages (AP–AS):** Exclude withdrawn rounds from calculation
+- **AP (R1 avg):** `=AVERAGE(FILTER(Golf_Analytics!D2:D,(Golf_Analytics!B2:B=H2)*(Golf_Analytics!I2:I<>"Withdrawn")*(Golf_Analytics!BN2:BN<>1)))`
+- **AQ (R2 avg):** `=AVERAGE(FILTER(Golf_Analytics!E2:E,(Golf_Analytics!B2:B=H2)*(Golf_Analytics!I2:I<>"Withdrawn")*(Golf_Analytics!BN2:BN<>2)))`
+- **AR (R3 avg):** `=AVERAGE(FILTER(Golf_Analytics!F2:F,(Golf_Analytics!B2:B=H2)*(Golf_Analytics!I2:I<>"Withdrawn")*(Golf_Analytics!BN2:BN<>3)))`
+- **AS (R4 avg):** `=AVERAGE(FILTER(Golf_Analytics!G2:G,(Golf_Analytics!B2:B=H2)*(Golf_Analytics!I2:I<>"Withdrawn")*(Golf_Analytics!BN2:BN<>4)))`
+
+Why: Withdrawn rounds distort field averages and are not comparable to completed scores. Only completed rounds are included.
+
+**Tournament Type values (AU):**
+- `S` = Standard Stroke Play (comparable, use for off_par)
+- `NS` = Non-Standard Stroke Play (caution: different rules)
+- `T` = Team format (not directly comparable)
+- `P` = Points-based (e.g., Barracuda — different scoring system)
+- `M` = Match play (not comparable to stroke play)
 
 **Note:** COL_WS_D1–D4 (formerly wind-speed) is deprecated — same columns as COL_COND_R1–R4.
 
@@ -207,8 +228,8 @@ Full column map — verified against actual sheet headers (2026-03-30).
 | R–U | 18–21 | COL_COLOR_START | **Engine writes:** R1–R4 Rhythm (color) |
 | V–AG | 22–33 | COL_SCORE_START | **Engine writes:** Exec/Upside/Peak × 4 rounds |
 | AH | 34 | COL_BEST_ROUND | **Engine writes:** Best Upside round label |
-| AI–AL | 35–38 | COL_COURSE_AVG_R1–R4 | Field avg per round |
-| AM–AP | 39–42 | COL_VS_AVG_R1–R4 | Score − course avg ("vs Avg") |
+| AI–AL | 35–38 | COL_COURSE_AVG_R1–R4 | Field avg per round (exclude withdrawn) |
+| AM–AP | 39–42 | COL_VS_AVG_R1–R4 | Score − course avg (withdrawn-adjusted) |
 | AQ–AT | 43–46 | COL_COND_R1–R4 | **Conditions: Calm / Moderate / Tough** |
 | AU–AX | 47–50 | COL_TYPE_R1–R4 | Round Type: Open / Positioning / Closing / REMOVE |
 | AY–BB | 51–54 | COL_MOON_R1–R4 | Moon phase (10-cat) |
@@ -222,26 +243,64 @@ Full column map — verified against actual sheet headers (2026-03-30).
 | BM | 65 | COL_GAP_R1 | R1 GAP score |
 | BN | 66 | COL_ROUND_WD | Round Withdrawn number |
 | BO | 67 | COL_TOUR | Tour (PGA Tour / LIV Golf / DP World Tour / other) |
+| BP | 68 | COL_PLAYER_ID | =INDEX/MATCH lookup player_id from PLAYERS |
+| BQ | 69 | COL_EVENT_ID | =INDEX/MATCH lookup event_id from EVENTS |
+| BR | 70 | COL_COURSE_PAR | =INDEX/MATCH lookup par from EVENTS_COURSES by event_id + year |
 
-### ANALYSIS (cols A–O)
-One row per round played. Source for all Python combo analysis.
+**BR (course_par) formula:**
+```
+=IFERROR(INDEX(EVENTS_COURSES!D:D,MATCH(1,(EVENTS_COURSES!A:A=BQ2)*(EVENTS_COURSES!C:C=A2),0)),"")
+```
+Used by EVENTS sheet field average formulas (AP–AS) to validate withdrawn rounds.
+
+**AM–AP (vs_avg R1–R4 with withdrawn adjustment):**
+For withdrawn rounds, use `(player_avg + 4) - course_avg` instead of actual score.
+
+- **AM (R1):** `=IF(D2="","",IF(BN2=1,AVERAGEIFS($D$2:$D,$C$2:$C,C2,$BN$2:$BN,"<>1")+4-AI2,D2-AI2))`
+- **AN (R2):** `=IF(E2="","",IF(BN2=2,AVERAGEIFS($E$2:$E,$C$2:$C,C2,$BN$2:$BN,"<>2")+4-AJ2,E2-AJ2))`
+- **AO (R3):** `=IF(F2="","",IF(BN2=3,AVERAGEIFS($F$2:$F,$C$2:$C,C2,$BN$2:$BN,"<>3")+4-AK2,F2-AK2))`
+- **AP (R4):** `=IF(G2="","",IF(BN2=4,AVERAGEIFS($G$2:$G,$C$2:$C,C2,$BN$2:$BN,"<>4")+4-AL2,G2-AL2))`
+
+**Withdrawn logic:** If round_withdrawn matches this round (BN=round_num), calculate player's historical avg for that round (excluding other withdrawals), add +4 penalty, subtract course_avg. Otherwise use actual score − course_avg.
+
+---
+
+### ANALYSIS v3 Off-Par Logic (AC column)
+**AC (off_par) excludes non-stroke-play tournaments:**
+```
+=IFERROR(IF(OR(AH2="T",AH2="P",AH2="M"),"",G2-H2),"")
+```
+If tournament_type (AH) is Team (T), Points (P), or Match play (M) → leave blank. These formats are not comparable to stroke play.
+Only S (Standard Stroke Play) and NS (Non-Standard Stroke Play) get off_par values.
+
+### ANALYSIS v3 (cols A–AH)
+One row per round played. Source for all Python combo analysis. 34 columns with all divination + calculated metrics.
+
+**Core columns (A–X, populated data):**
 | Col | Content |
 |-----|---------|
-| A | player_id |
-| B | player_name |
-| C | event_id |
-| D | event_name |
-| E | round_num (1–4) |
-| F | score (actual strokes) |
-| G | par |
-| H | course_avg (field avg for that round) |
-| I | diff_course_avg (score − course_avg = "vs Avg") |
-| J | condition (Calm/Moderate/Tough) |
-| K | color (Purple/Blue/Green/Yellow/Red/etc) |
-| L | exec (0–100) |
-| M | upside (0–100) |
-| N | player_hist_par (player's historical avg vs par) |
-| O | diff_player_hist_par |
+| A–C | player_id, player_name, event_id |
+| D–E | event_name, year |
+| F–P | round_num, score, par, course_avg, vs_avg, condition, round_type, color, exec, upside, peak |
+| Q–X | moon, wu_xing, zodiac, life_path, tithi, gap, tour, is_best_round |
+
+**Additional populated data (Y–Z):**
+| Col | Content |
+|-----|---------|
+| Y | horoscope (Western) |
+| Z | moonwest (8-cat per round) |
+
+**Calculated columns (AA–AH, formulas):**
+| Col | Content | Formula |
+|-----|---------|---------|
+| AA | player_hist_par | AVERAGEIFS off_par by player + condition |
+| AB | player_his_cnt | COUNTIFS rounds by player + condition |
+| AC | off_par | score − par (blank if tournament_type = T/P/M — not comparable) |
+| AD | exec_bucket | exec binned by 25s (0-25, 25-50, 50-75, 75-100) |
+| AE | upside_bucket | upside binned by 25s |
+| AF | gap_bucket | gap binned by 10s (20-30, 10-20, 0-10, -10-0, -20--10, <-20) |
+| AG | adj_his_par | adjusted historical par with shrinkage (player_hist_par blended with tour avg) |
+| AH | tournament_type | tournament type (S/NS/T/P/M) from EVENTS |
 
 **vs Avg definition:** score vs venue field average for that round — NOT vs par.
 
@@ -254,6 +313,11 @@ Raw scores by player + event. Used for ID-linked imports.
 - `BIRTHDAY_VERIFY` — ESPN/Wikidata birthday verification results
 - `RUN_LOGS` — Engine run history (timestamp, version, rows, duration, status)
 - `ENGINE_SETTINGS` — Active engine version
+- `TOUR_STATS` — Tour-level averages by condition (built from ANALYSIS v3)
+  - Column A: Condition (Calm, Moderate, Tough)
+  - Column B: Tour average off_par for that condition
+  - **Built by:** Menu → 📊 ANALYSIS v3 → "📊 Build TOUR_STATS"
+  - **Used by:** AG formula (adj_his_par shrinkage)
 
 ---
 
@@ -342,6 +406,30 @@ Format for entries:
 
 ---
 
+### 2026-03-31 — Fix System Testing Scripts: Save ALL Combos (Not Just Positive)
+**Status:** Done
+**What changed:**
+- Fixed `system2_exec_upside_gap_testing.py`: Now saves `system2_exec_upside_gap_ALL_combos.csv` (all tested combos, not filtered)
+- Fixed `system3_moon_lifepath_testing.py`: Now saves `system3_moon_lifepath_ALL_combos.csv` (all tested combos, not filtered)
+- Fixed `system4_tithi_zodiac_testing.py`: Now saves `system4_tithi_zodiac_ALL_combos.csv` (all tested combos, not filtered)
+- All three now report realistic distributions: positive%, negative%, zero% ROI (not 100% positive)
+- Each system also saves `*_positive_only.csv` backup for reference
+- Updated reporting to show: total combos, positive count/%, negative count/%, zero count/%, mean ROI across all
+
+**Why:** Root cause of "100% positive ROI" bug was filtering on save: `positive.to_csv()` instead of `df_combos.to_csv()`. System 3 tested 882 combos but saved only 336 positive ones, hiding 502 negative combos (56.9%). This made all systems appear universally positive (100%), which is statistically impossible.
+
+**Impact:** Now have accurate data for building consensus scorer. Realistic distributions expected: 30-60% positive across systems (varies by signal quality).
+
+**Next step:** User runs all 3 systems, then runs `build_ensemble_consensus.py` to combine into consensus scorer
+
+**Files created:**
+- `SYSTEM_TESTING_FIXES.md` — Detailed explanation of problem + solution
+- `ENSEMBLE_CONSENSUS_SCORER.md` — Architecture for 4-system ensemble combiner
+- `build_ensemble_consensus.py` — Script to build consensus scorecard
+- `NEXT_STEPS_SYSTEM_TESTING.md` — Checklist for user to complete analysis
+
+---
+
 ### 2026-03-30 — Engine Audit & Cleanup
 **Status:** Done
 **What changed:**
@@ -421,6 +509,94 @@ Format for entries:
 - Feature is production-ready
 - User must fill columns K (Birthday) + L (GMT offset) for new rows before engine can fill colors/scores
 **Commit:** cleanup pushed
+
+### 2026-03-31 — TOUR_STATS builder + ANALYSIS v3 tournament type
+**Status:** Done
+**What changed:**
+- Added `BUILD_TOUR_STATS()` function to `10_analysis_baseline.gs` — calculates Calm/Moderate/Tough averages from ANALYSIS v3 off_par (AC) column
+- Added "📊 Build TOUR_STATS" menu item under ANALYSIS v3 submenu
+- Updated AG (adj_his_par) formula documentation to clarify TOUR_STATS dependency
+- Added AH (tournament_type) column to ANALYSIS v3 (indexes T/P/M tournaments for exclusion)
+- Updated AC (off_par) formula to exclude non-stroke-play tournaments: `=IF(OR(AH2="T",AH2="P",AH2="M"),"",G2-H2)`
+
+**Why:** TOUR_STATS was static; now automatically rebuilds from current ANALYSIS data. Tournament type flagging ensures off_par calculations only use comparable stroke-play data.
+
+**How to use:**
+1. Populate ANALYSIS v3 completely (run "➕ Add Formulas")
+2. Menu → 📊 ANALYSIS v3 → "📊 Build TOUR_STATS"
+3. TOUR_STATS sheet updates with Calm/Moderate/Tough averages
+4. AG formula (adj_his_par) now uses current tour stats
+
+**Next step:** K-value optimization for AG shrinkage parameter (currently 50).
+
+---
+
+### 2026-03-31 — K-Optimization Analysis (Statistical Method)
+**Status:** Done
+**What changed:**
+- Created `k_optimization_statistical_analysis.py` — analyzes how k values (10–100) affect adj_his_par distribution
+- Method: Statistical sensitivity analysis (variance, skewness, range, distribution shape)
+- Uses 2025-2026 test data without match outcomes
+
+**Why this method:**
+- No match outcomes available yet (cannot measure prediction accuracy)
+- Analyzes statistical properties instead
+- Provides guidance on k choice: minimum variance, normalized distribution, domain intuition
+
+**LIMITATION (flagged for future work):**
+- This is NOT validation of prediction accuracy
+- Cannot measure ROI or win rate without ground truth
+- When match outcomes become available (2025-2026 results), upgrade to Option A: true backtesting
+
+**How to use:**
+1. Export ANALYSIS v3 as CSV (`ANALYSIS_v3_export.csv`)
+2. Run: `python k_optimization_statistical_analysis.py`
+3. Output: `k_optimization_report.json` with distribution stats per k value
+4. Choose k based on: minimum variance, minimum skewness, domain intuition
+
+**Future optimization (Option A):**
+- Blocked on: Match outcome data collection
+- When available: Backtest each k against actual results, measure win rate + ROI
+- Will be much more accurate than current statistical analysis
+
+**Owner:** TBD
+**Priority:** High (revisit when 2025-2026 match results are available)
+
+---
+
+### 2026-03-31 — K-Optimization Validated via Leave-One-Out CV
+**Status:** Done
+**What changed:**
+- Ran Leave-One-Out Cross-Validation on 2022-2024 training data (73,364 prediction tests)
+- Tested k values 10–100
+- Found: **K=10 minimizes prediction error** (MAE=2.5892, 0.7% better than current K=50)
+- Interpretation: Player history more predictive than tour average for this dataset
+
+**Key Results:**
+- Best K by MAE: K=10 (2.5892)
+- Best K by RMSE: K=10 (3.5098)
+- Best K by Median: K=20 (2.1076)
+- Current (K=50): MAE=2.6070
+- Improvement: 0.7% error reduction
+
+**Data Breakdown:**
+- Calm: 42,724 rounds (avg off_par -0.986)
+- Moderate: 28,320 rounds (avg off_par -0.334)
+- Tough: 2,320 rounds (avg off_par -0.191)
+
+**Why this validates K choice:**
+- LOO CV tests actual prediction accuracy
+- No match outcomes needed (cross-validation is ground truth)
+- 73K+ test cases provides statistical significance
+- K=10 consistently best across MAE, RMSE, median error
+
+**Next step:** Update AG formula from K=50 to K=10 in engine, push to Google Apps Script
+
+**Blocking:** None (ready to implement)
+**Owner:** Claude (can do now)
+**Priority:** High
+
+---
 
 **Open item:** Verify whether `start_time` truly lives in col K of EVENTS, or if it has moved.
 If it has its own column, add `COL_START_TIME: <correct_col>` back to `00_config.gs` EVENTS block

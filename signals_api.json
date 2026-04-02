@@ -1,0 +1,57 @@
+{
+  "signals": [
+    {
+      "rank": 1,
+      "name": "Calm x Mixed x Yellow x Earth",
+      "condition": "Calm",
+      "round_type": "Mixed",
+      "color": "Yellow",
+      "element": "Earth",
+      "test_edge": 15.5,
+      "test_n": 44,
+      "test_ratio": 2.81,
+      "confidence": "HIGH",
+      "bet_size": "LARGE"
+    },
+    {
+      "rank": 2,
+      "name": "Calm x REMOVE x Purple x Water",
+      "condition": "Calm",
+      "round_type": "REMOVE",
+      "color": "Purple",
+      "element": "Water",
+      "test_edge": 13.4,
+      "test_n": 30,
+      "test_ratio": 1.46,
+      "confidence": "HIGH",
+      "bet_size": "LARGE"
+    },
+    {
+      "rank": 3,
+      "name": "Calm x Positioning x Green x Metal",
+      "condition": "Calm",
+      "round_type": "Positioning",
+      "color": "Green",
+      "element": "Metal",
+      "test_edge": 11.3,
+      "test_n": 58,
+      "test_ratio": 1.98,
+      "confidence": "MEDIUM-HIGH",
+      "bet_size": "MEDIUM"
+    },
+    {
+      "rank": 4,
+      "name": "Calm x Closing x Blue x Fire",
+      "condition": "Calm",
+      "round_type": "Closing",
+      "color": "Blue",
+      "element": "Fire",
+      "test_edge": 8.1,
+      "test_n": 102,
+      "test_ratio": 1.14,
+      "confidence": "MEDIUM",
+      "bet_size": "SMALL"
+    }
+  ],
+  "transfer_rate": 43.1
+}

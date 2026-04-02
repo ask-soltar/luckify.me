@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golf Analytics - Mobile Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 10px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: #667eea;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .metric {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin: 5px 5px 0 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .signals-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .signal-card {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+            transition: transform 0.2s;
+        }
+
+        .signal-card:active {
+            transform: scale(0.98);
+        }
+
+        .signal-rank {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .signal-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .signal-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .detail {
+            background: #f8f8f8;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .detail-label {
+            color: #999;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .edge-positive {
+            color: #22c55e;
+        }
+
+        .signal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .confidence {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: #f0f0f0;
+        }
+
+        .confidence.high {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .confidence.medium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .bet-size {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: #f0f0f0;
+        }
+
+        .bet-size.large {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .bet-size.medium {
+            background: #fef08a;
+            color: #713f12;
+        }
+
+        .bet-size.small {
+            background: #fee2e2;
+            color: #7f1d1d;
+        }
+
+        .avoid-section {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #ef4444;
+        }
+
+        .avoid-title {
+            font-weight: 600;
+            color: #ef4444;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .avoid-item {
+            background: #fef2f2;
+            padding: 8px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: #7f1d1d;
+            line-height: 1.4;
+        }
+
+        .footer {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .next-steps {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .next-steps h3 {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .next-steps ol {
+            margin-left: 20px;
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .next-steps li {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⛳ Golf Analytics</h1>
+            <div class="subtitle">4D Element Analysis</div>
+            <div style="margin-top: 10px;">
+                <span class="metric">43.1% Transfer Rate</span>
+                <span class="metric">4 Signals</span>
+            </div>
+        </header>
+
+        <div class="signals-container">
+            <!-- SIGNAL 1 -->
+            <div class="signal-card">
+                <div class="signal-rank">1</div>
+                <div class="signal-name">Calm × Mixed × Yellow × Earth</div>
+                <div class="signal-details">
+                    <div class="detail">
+                        <div class="detail-label">Edge</div>
+                        <div class="detail-value edge-positive">+15.5%</div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Sample</div>
+                        <div class="detail-value">N=44</div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Ratio</div>
+                        <div class="detail-value">2.81</div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Status</div>
+                        <div class="detail-value">✓ Validated</div>
+                    </div>
+                </div>
+                <div class="signal-footer">
+                    <span class="confidence high">HIGH</span>
+                    <span class="bet-size large">LARGE BET</span>
+                </div>
+            </div>
+
+            <!-- SIGNAL 2 -->
+            <div class="signal-card">
+                <div class="signal-rank">2</div>
+                <div class="signal-name">Calm × REMOVE × Purple × Water</div>
+                <div class="signal-details">
+                    <div class="detail">
+                        <div class="detail-label">Edge</div>
+                        <div class="detail-value edge-positive">+13.4%</div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Sample</div>
+                        <div class="detail-value">N=30</div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Ratio</div>
+                        <div class="detail-value">1.46</div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Status</div>
+                        <div class="detail-value">✓ Validated</div>
+                    </div>
+                </div>
+                <div class="signal-footer">
+                    <span class="confidence high">HIGH</span>
+                    <span class="bet-size large">LARGE BET</span>
+                </div>
+            </div>
+
+            <!-- SIGNAL 3 -->
+            <div class="signal-card">
+                <div class="signal-rank">3</div>
+                <div class="signal-name">Calm × Positioning × Green × Metal</div>
+                <div class="signal-details">
+                    <div class="detail">
+                        <div class="detail-label">Edge</div>
+                        <div class="detail-value edge-positive">+11.3%</div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Sample</div>
+                        <div class="detail-value">N=58</div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Ratio</div>
+                        <div class="detail-value">1.98</div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Status</div>
+                        <div class="detail-value">✓ Validated</div>
+                    </div>
+                </div>
+                <div class="signal-footer">
+                    <span class="confidence medium">MEDIUM-HIGH</span>
+                    <span class="bet-size medium">MEDIUM BET</span>
+                </div>
+            </div>
+
+            <!-- SIGNAL 4 -->
+            <div class="signal-card">
+                <div class="signal-rank">4</div>
+                <div class="signal-name">Calm × Closing × Blue × Fire</div>
+                <div class="signal-details">
+                    <div class="detail">
+                        <div class="detail-label">Edge</div>
+                        <div class="detail-value edge-positive">+8.1%</div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Sample</div>
+                        <div class="detail-value">N=102</div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Ratio</div>
+                        <div class="detail-value">1.14</div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Status</div>
+                        <div class="detail-value">✓ Validated</div>
+                    </div>
+                </div>
+                <div class="signal-footer">
+                    <span class="confidence medium">MEDIUM</span>
+                    <span class="bet-size small">SMALL BET</span>
+                </div>
+            </div>
+
+            <!-- AVOID SECTION -->
+            <div class="avoid-section">
+                <div class="avoid-title">⚠️ Signals to Avoid</div>
+                <div class="avoid-item">Moderate × Positioning × Purple × Metal: -8.9% edge</div>
+                <div class="avoid-item">Calm × Survival × Blue × Metal: -8.6% edge</div>
+                <div class="avoid-item">Calm × Mixed × Yellow × Fire: -6.5% edge</div>
+            </div>
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>📋 Next Steps</h3>
+                <ol>
+                    <li><strong>Implement betting rules</strong> — size bets by edge %</li>
+                    <li><strong>Build matching system</strong> — player+event → signal</li>
+                    <li><strong>Create dashboard</strong> — track performance</li>
+                    <li><strong>Go live</strong> — test on 2025-2026 data first</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Last Updated: 2026-03-28 | Transfer Rate: 43.1% | Analysis: 4D Element</p>
+            <p style="margin-top: 8px;">📁 Full report: FINAL_ANALYSIS_REPORT.md</p>
+        </div>
+    </div>
+</body>
+</html>

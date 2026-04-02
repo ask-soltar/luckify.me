@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-Ball Matchup Analysis Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid #667eea;
+        }
+
+        .summary-card .label {
+            font-size: 0.9em;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .summary-card .value {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .matchups-container {
+            padding: 40px;
+        }
+
+        .matchup-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .matchup-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
+        }
+
+        .matchup-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .three-way-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .player-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .player-name {
+            font-weight: 700;
+            font-size: 1.05em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            font-size: 0.9em;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .stat-value {
+            font-weight: 700;
+            color: #333;
+        }
+
+        .component-edges {
+            background: #f0f7ff;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .component-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 0.9em;
+        }
+
+        .component-label {
+            color: #6c757d;
+        }
+
+        .component-edge {
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .combined-values {
+            background: #fff8e1;
+            padding: 20px;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+        }
+
+        .combined-title {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .combined-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.95em;
+        }
+
+        .combined-player {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .combined-value {
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .best-pick {
+            background: #e7f5ff;
+            border: 2px solid #667eea;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .best-pick-label {
+            font-size: 0.85em;
+            color: #667eea;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .best-pick-value {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 30px 40px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.95em;
+            border-top: 1px solid #e9ecef;
+        }
+
+        @media (max-width: 768px) {
+            .three-way-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>3-Ball Matchup Analysis</h1>
+            <p>Component 2-Ball Edges + Combined Values + Kelly Sizing</p>
+        </div>
+
+        <div class="summary">
+            <div class="summary-card">
+                <div class="label">Total 3-Balls</div>
+                <div class="value">5</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Kelly Picks</div>
+                <div class="value">4</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Lean Picks</div>
+                <div class="value">1</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Total 1/4 Kelly</div>
+                <div class="value">26.43%</div>
+            </div>
+        </div>
+
+        <div class="matchups-container">
+
+            <div class="matchup-card">
+                <div class="matchup-number">#11</div>
+                <div class="three-way-grid">
+                    <div class="player-box">
+                        <div class="player-name">Keith Mitchell</div>
+                        <div class="stat-row">
+                            <span class="stat-label">Model:</span>
+                            <span class="stat-value">46.2%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Market:</span>
+                            <span class="stat-value">32.8%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Samples:</span>
+                            <span class="stat-value">N=46</span>
+                        </div>
+                    </div>
+                    <div class="player-box">
+                        <div class="player-name">Jake Knapp</div>
+                        <div class="stat-row">
+                            <span class="stat-label">Model:</span>
+                            <span class="stat-value">43.6%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Market:</span>
+                            <span class="stat-value">36.7%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Samples:</span>
+                            <span class="stat-value">N=21</span>
+                        </div>
+                    </div>
+                    <div class="player-box">
+                        <div class="player-name"><span style='color: #28a745; font-weight: 700;'>Jordan Smith</span></div>
+                        <div class="stat-row">
+                            <span class="stat-label">Model:</span>
+                            <span class="stat-value">51.7%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Market:</span>
+                            <span class="stat-value">30.6%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Samples:</span>
+                            <span class="stat-value">N=9</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-edges">
+                    <div class="component-row">
+                        <span class="component-label">Keith Mitchell vs Jake Knapp</span>
+                        <span class="component-edge">+6.5pp</span>
+                    </div>
+                    <div class="component-row">
+                        <span class="component-label">Keith Mitchell vs Jordan Smith</span>
+                        <span class="component-edge">-7.7pp</span>
+                    </div>
+                    <div class="component-row">
+                        <span class="component-label">Jake Knapp vs Jordan Smith</span>
+                        <span class="component-edge">-14.2pp</span>
+                    </div>
+                </div>
+
+                <div class="combined-values">
+                    <div class="combined-title">Combined 3-Ball Values</div>
+                    <div class="combined-row">
+                        <span class="combined-player">Keith Mitchell</span>
+                        <span class="combined-value" style="color: #333;">-1.2pp</span>
+                    </div>
+                    <div class="combined-row">
+                        <span class="combined-player">Jake Knapp</span>
+                        <span class="combined-value" style="color: #333;">-20.7pp</span>
+                    </div>
+                    <div class="combined-row">
+                        <span class="combined-player">Jordan Smith</span>
+                        <span class="combined-value" style="color: #28a745;">+21.9pp</span>
+                    </div>
+
+                    <div class="best-pick">
+                        <div class="best-pick-label">Best Pick</div>
+                        <div class="best-pick-value">Jordan Smith (+21.1pp)</div>
+                        <div style="margin-top: 10px; font-size: 0.85em; color: #667eea;">
+                            Data Quality: <strong>FULL</strong> |
+                            Kelly: Full 27.52% -> 1/4 Kelly 6.88% |
+                            Action: <strong style="color: #17a2b8;">KELLY</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="matchup-card">
+                <div class="matchup-number">#14</div>
+                <div class="three-way-grid">
+                    <div class="player-box">
+                        <div class="player-name"><span style='color: #28a745; font-weight: 700;'>Erik van Rooyen</span></div>
+                        <div class="stat-row">
+                            <span class="stat-label">Model:</span>
+                            <span class="stat-value">45.0%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Market:</span>
+                            <span class="stat-value">26.3%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Samples:</span>
+                            <span class="stat-value">N=24</span>
+                        </div>
+                    </div>
+                    <div class="player-box">
+                        <div class="player-name">John Parry</div>
+                        <div class="stat-row">
+                            <span class="stat-label">Model:</span>
+                            <span class="stat-value">39.3%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Market:</span>
+                            <span class="stat-value">32.8%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Samples:</span>
+                            <span class="stat-value">N=7</span>
+                        </div>
+                    </div>
+                    <div class="player-box">
+                        <div class="player-name">Harris English</div>
+                        <div class="stat-row">
+                            <span class="stat-label">Model:</span>
+                            <span class="stat-value">42.2%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Market:</span>
+                            <span class="stat-value">40.9%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Samples:</span>
+                            <span class="stat-value">N=46</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-edges">
+                    <div class="component-row">
+                        <span class="component-label">Erik van Rooyen vs John Parry</span>
+                        <span class="component-edge">+12.3pp</span>
+                    </div>
+                    <div class="component-row">
+                        <span class="component-label">Erik van Rooyen vs Harris English</span>
+                        <span class="component-edge">+17.4pp</span>
+                    </div>
+                    <div class="component-row">
+                        <span class="component-label">John Parry vs Harris English</span>
+                        <span class="component-edge">+5.1pp</span>
+                    </div>
+                </div>
+
+                <div class="combined-values">
+                    <div class="combined-title">Combined 3-Ball Values</div>
+                    <div class="combined-row">
+                        <span class="combined-player">Erik van Rooyen</span>
+                        <span class="combined-value" style="color: #28a745;">+29.7pp</span>
+                    </div>
+                    <div class="combined-row">
+                        <span class="combined-player">John Parry</span>
+                        <span class="combined-value" style="color: #333;">-7.1pp</span>
+                    </div>
+                    <div class="combined-row">
+                        <span class="combined-player">Harris English</span>
+                        <span class="combined-value" style="color: #333;">-22.6pp</span>
+                    </div>
+
+                    <div class="best-pick">
+                        <div class="best-pick-label">Best Pick</div>
+                        <div class="best-pick-value">Erik van Rooyen (+18.7pp)</div>
+                        <div style="margin-top: 10px; font-size: 0.85em; color: #667eea;">
+                            Data Quality: <strong>FULL</strong> |
+                            Kelly: Full 22.99% -> 1/4 Kelly 5.75% |
+                            Action: <strong style="color: #17a2b8;">KELLY</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="matchup-card">
+                <div class="matchup-number">#15</div>
+                <div class="three-way-grid">
+                    <div class="player-box">
+                        <div class="player-name">Max McGreevy</div>
+                        <div class="stat-row">
+                            <span class="stat-label">Model:</span>
+                            <span class="stat-value">45.5%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Market:</span>
+                            <span class="stat-value">36.6%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Samples:</span>
+                            <span class="stat-value">N=20</span>
+                        </div>
+                    </div>
+                    <div class="player-box">
+                        <div class="player-name">Adrien Dumont De Chassart</div>
+                        <div class="stat-row">
+                            <span class="stat-label">Model:</span>
+                            <span class="stat-value">50.0%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Market:</span>
+                            <span class="stat-value">35.2%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Samples:</span>
+                            <span class="stat-value">N=0</span>
+                        </div>
+                    </div>
+                    <div class="player-box">
+                        <div class="player-name"><span style='color: #28a745; font-weight: 700;'>Karl Vilips</span></div>
+                        <div class="stat-row">
+                            <span class="stat-label">Model:</span>
+                            <span class="stat-value">44.2%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Market:</span>
+                            <span class="stat-value">28.2%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Samples:</span>
+                            <span class="stat-value">N=13</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-edges">
+                    <div class="component-row">
+                        <span class="component-label">Max McGreevy vs Adrien Dumont De Cha</span>
+                        <span class="component-edge">-5.9pp</span>
+                    </div>
+                    <div class="component-row">
+                        <span class="component-label">Max McGreevy vs Karl Vilips</span>
+                        <span class="component-edge">-7.2pp</span>
+                    </div>
+                    <div class="component-row">
+                        <span class="component-label">Adrien Dumont De Cha vs Karl Vilips</span>
+                        <span class="component-edge">-1.3pp</span>
+                    </div>
+                </div>
+
+                <div class="combined-values">
+                    <div class="combined-title">Combined 3-Ball Values</div>
+                    <div class="combined-row">
+                        <span class="combined-player">Max McGreevy</span>
+                        <span class="combined-value" style="color: #333;">-13.1pp</span>
+                    </div>
+                    <div class="combined-row">
+                        <span class="combined-player">Adrien Dumont De Chassart</span>
+                        <span class="combined-value" style="color: #333;">+4.6pp</span>
+                    </div>
+                    <div class="combined-row">
+                        <span class="combined-player">Karl Vilips</span>
+                        <span class="combined-value" style="color: #28a745;">+8.5pp</span>
+                    </div>
+
+                    <div class="best-pick">
+                        <div class="best-pick-label">Best Pick</div>
+                        <div class="best-pick-value">Karl Vilips (+16.1pp)</div>
+                        <div style="margin-top: 10px; font-size: 0.85em; color: #667eea;">
+                            Data Quality: <strong>VERY LIMITED</strong> |
+                            Kelly: Full 19.46% -> 1/4 Kelly 4.86% |
+                            Action: <strong style="color: #ffc107;">LEAN</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="matchup-card">
+                <div class="matchup-number">#16</div>
+                <div class="three-way-grid">
+                    <div class="player-box">
+                        <div class="player-name"><span style='color: #28a745; font-weight: 700;'>Steven Fisk</span></div>
+                        <div class="stat-row">
+                            <span class="stat-label">Model:</span>
+                            <span class="stat-value">51.9%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Market:</span>
+                            <span class="stat-value">30.4%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Samples:</span>
+                            <span class="stat-value">N=8</span>
+                        </div>
+                    </div>
+                    <div class="player-box">
+                        <div class="player-name">Austin Eckroat</div>
+                        <div class="stat-row">
+                            <span class="stat-label">Model:</span>
+                            <span class="stat-value">39.4%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Market:</span>
+                            <span class="stat-value">31.5%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Samples:</span>
+                            <span class="stat-value">N=34</span>
+                        </div>
+                    </div>
+                    <div class="player-box">
+                        <div class="player-name">Tom Kim</div>
+                        <div class="stat-row">
+                            <span class="stat-label">Model:</span>
+                            <span class="stat-value">42.7%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Market:</span>
+                            <span class="stat-value">38.1%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Samples:</span>
+                            <span class="stat-value">N=35</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-edges">
+                    <div class="component-row">
+                        <span class="component-label">Steven Fisk vs Austin Eckroat</span>
+                        <span class="component-edge">+13.6pp</span>
+                    </div>
+                    <div class="component-row">
+                        <span class="component-label">Steven Fisk vs Tom Kim</span>
+                        <span class="component-edge">+16.8pp</span>
+                    </div>
+                    <div class="component-row">
+                        <span class="component-label">Austin Eckroat vs Tom Kim</span>
+                        <span class="component-edge">+3.3pp</span>
+                    </div>
+                </div>
+
+                <div class="combined-values">
+                    <div class="combined-title">Combined 3-Ball Values</div>
+                    <div class="combined-row">
+                        <span class="combined-player">Steven Fisk</span>
+                        <span class="combined-value" style="color: #28a745;">+30.4pp</span>
+                    </div>
+                    <div class="combined-row">
+                        <span class="combined-player">Austin Eckroat</span>
+                        <span class="combined-value" style="color: #333;">-10.3pp</span>
+                    </div>
+                    <div class="combined-row">
+                        <span class="combined-player">Tom Kim</span>
+                        <span class="combined-value" style="color: #333;">-20.1pp</span>
+                    </div>
+
+                    <div class="best-pick">
+                        <div class="best-pick-label">Best Pick</div>
+                        <div class="best-pick-value">Steven Fisk (+21.5pp)</div>
+                        <div style="margin-top: 10px; font-size: 0.85em; color: #667eea;">
+                            Data Quality: <strong>FULL</strong> |
+                            Kelly: Full 27.90% -> 1/4 Kelly 6.97% |
+                            Action: <strong style="color: #17a2b8;">KELLY</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="matchup-card">
+                <div class="matchup-number">#24</div>
+                <div class="three-way-grid">
+                    <div class="player-box">
+                        <div class="player-name">Michael Thorbjornsen</div>
+                        <div class="stat-row">
+                            <span class="stat-label">Model:</span>
+                            <span class="stat-value">49.3%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Market:</span>
+                            <span class="stat-value">38.7%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Samples:</span>
+                            <span class="stat-value">N=23</span>
+                        </div>
+                    </div>
+                    <div class="player-box">
+                        <div class="player-name">Sam Stevens</div>
+                        <div class="stat-row">
+                            <span class="stat-label">Model:</span>
+                            <span class="stat-value">43.5%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Market:</span>
+                            <span class="stat-value">31.7%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Samples:</span>
+                            <span class="stat-value">N=46</span>
+                        </div>
+                    </div>
+                    <div class="player-box">
+                        <div class="player-name"><span style='color: #28a745; font-weight: 700;'>Jason Day</span></div>
+                        <div class="stat-row">
+                            <span class="stat-label">Model:</span>
+                            <span class="stat-value">50.8%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Market:</span>
+                            <span class="stat-value">29.6%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Samples:</span>
+                            <span class="stat-value">N=34</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-edges">
+                    <div class="component-row">
+                        <span class="component-label">Michael Thorbjornsen vs Sam Stevens</span>
+                        <span class="component-edge">-1.2pp</span>
+                    </div>
+                    <div class="component-row">
+                        <span class="component-label">Michael Thorbjornsen vs Jason Day</span>
+                        <span class="component-edge">-10.5pp</span>
+                    </div>
+                    <div class="component-row">
+                        <span class="component-label">Sam Stevens vs Jason Day</span>
+                        <span class="component-edge">-9.3pp</span>
+                    </div>
+                </div>
+
+                <div class="combined-values">
+                    <div class="combined-title">Combined 3-Ball Values</div>
+                    <div class="combined-row">
+                        <span class="combined-player">Michael Thorbjornsen</span>
+                        <span class="combined-value" style="color: #333;">-11.8pp</span>
+                    </div>
+                    <div class="combined-row">
+                        <span class="combined-player">Sam Stevens</span>
+                        <span class="combined-value" style="color: #333;">-8.1pp</span>
+                    </div>
+                    <div class="combined-row">
+                        <span class="combined-player">Jason Day</span>
+                        <span class="combined-value" style="color: #28a745;">+19.9pp</span>
+                    </div>
+
+                    <div class="best-pick">
+                        <div class="best-pick-label">Best Pick</div>
+                        <div class="best-pick-value">Jason Day (+21.1pp)</div>
+                        <div style="margin-top: 10px; font-size: 0.85em; color: #667eea;">
+                            Data Quality: <strong>FULL</strong> |
+                            Kelly: Full 27.32% -> 1/4 Kelly 6.83% |
+                            Action: <strong style="color: #17a2b8;">KELLY</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="padding: 40px; background: #f8f9fa; border-top: 1px solid #e9ecef;">
+            <h2 style="color: #333; margin-bottom: 15px;">Analysis Summary</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div>
+                    <h3 style="color: #667eea; font-size: 0.95em; margin-bottom: 10px; font-weight: 600;">Data Quality</h3>
+                    <p style="font-size: 0.9em; margin-bottom: 6px;">Full: 4 (80%)</p>
+                    <p style="font-size: 0.9em; margin-bottom: 6px;">Limited: 0 (0%)</p>
+                    <p style="font-size: 0.9em;">Very Limited: 1 (20%)</p>
+                </div>
+                <div>
+                    <h3 style="color: #667eea; font-size: 0.95em; margin-bottom: 10px; font-weight: 600;">Actions</h3>
+                    <p style="font-size: 0.9em; margin-bottom: 6px;">Kelly: 4 (80%)</p>
+                    <p style="font-size: 0.9em; margin-bottom: 6px;">Lean: 1 (20%)</p>
+                    <p style="font-size: 0.9em;">Pass: 0 (0%)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>3-Ball Matchup Analysis Report</strong></p>
+            <p style="color: #999; font-size: 0.85em; margin-top: 10px;">Generated 2026-03-29 01:19:05 | Component 2-Ball Breakdown + Combined Values + Kelly Sizing</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -9,20 +9,20 @@
  ****************************************************/
 
 var CONDITIONS_CONFIG = {
-  sheetName:      "Event_Data",
-  latCol:         11,       // K
-  lonCol:         12,       // L
-  gmtCol:         6,        // F
+  sheetName:      "EVENTS",
+  latCol:         12,       // L (COL_LATITUDE)
+  lonCol:         13,       // M (COL_LONGITUDE)
+  gmtCol:         7,        // G (COL_GMT)
   startRow:       2,
   triggerMinutes: 1,
   batchSize:      200,
   maxRunMillis:   330000,   // ~5.5 min
 
   datePairs: [
-    { dateCol: 2, outputCol: 33 }, // B -> AG
-    { dateCol: 3, outputCol: 34 }, // C -> AH
-    { dateCol: 4, outputCol: 35 }, // D -> AI
-    { dateCol: 5, outputCol: 36 }  // E -> AJ
+    { dateCol: 3, outputCol: 34 }, // C (COL_R1_DATE) -> AH (COL_COND_R1)
+    { dateCol: 4, outputCol: 35 }, // D (COL_R2_DATE) -> AI (COL_COND_R2)
+    { dateCol: 5, outputCol: 36 }, // E (COL_R3_DATE) -> AJ (COL_COND_R3)
+    { dateCol: 6, outputCol: 37 }  // F (COL_R4_DATE) -> AK (COL_COND_R4)
   ]
 };
 

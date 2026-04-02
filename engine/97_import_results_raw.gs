@@ -55,7 +55,7 @@ function IMPORT_RESULTS_FROM_GOLF_ANALYTICS() {
     return;
   }
 
-  const gaRange = gaSheet.getRange(GA.START_ROW, 1, lastRow - GA.START_ROW + 1, 200);
+  const gaRange = gaSheet.getRange(GA.START_ROW, 1, lastRow - GA.START_ROW + 1, 9); // A:I only
   const gaValues = gaRange.getValues();
 
   // Column indices (0-based, since we're reading from column 1)

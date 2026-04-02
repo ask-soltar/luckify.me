@@ -237,6 +237,65 @@ const ANALYSIS = {
 };
 
 /* =========================
+   ANALYSIS v3 SHEET CONFIG (Expanded)
+   Full data export — one row per round played.
+   24 columns A–X: all available scoring, divination, and event data.
+========================= */
+
+const ANALYSIS_V3 = {
+  SHEET: "ANALYSIS",
+  START_ROW: 2,
+
+  // Basic identifiers
+  COL_PLAYER_ID:        1,    // A
+  COL_PLAYER_NAME:      2,    // B
+  COL_EVENT_ID:         3,    // C
+  COL_EVENT_NAME:       4,    // D
+  COL_YEAR:             5,    // E
+  COL_ROUND_NUM:        6,    // F
+
+  // Core scoring
+  COL_SCORE:            7,    // G
+  COL_PAR:              8,    // H
+  COL_COURSE_AVG:       9,    // I
+  COL_VS_AVG:           10,   // J
+
+  // Round conditions & engine output
+  COL_CONDITION:        11,   // K  (Calm/Moderate/Tough)
+  COL_ROUND_TYPE:       12,   // L  (Open/Positioning/Closing/REMOVE)
+  COL_COLOR:            13,   // M  (Purple/Blue/Green/etc.)
+  COL_EXEC:             14,   // N  (0–100)
+  COL_UPSIDE:           15,   // O  (0–100)
+  COL_PEAK:             16,   // P  (0.0–1.0)
+
+  // Divination & cosmic data
+  COL_MOON:             17,   // Q  (Moon phase 10-cat)
+  COL_WU_XING:          18,   // R  (Wu Xing element)
+  COL_ZODIAC:           19,   // S  (Chinese zodiac)
+  COL_LIFE_PATH:        20,   // T  (Numerology)
+  COL_TITHI:            21,   // U  (Hindu lunar day)
+
+  // Other signals
+  COL_GAP:              22,   // V  (vs field in R1 only, blank for R2–R4)
+  COL_TOUR:             23,   // W  (PGA Tour / LIV Golf / DP World Tour)
+  COL_IS_BEST_ROUND:    24,   // X  (1 if this is best upside round, else 0)
+
+  // Populated data columns (Y–Z): horoscope, moonwest
+  // (No constants needed; populated directly by _populateAnalysisV3Batch_)
+  // COL_HOROSCOPE:      25,   // Y (Western horoscope from PLAYERS)
+  // COL_MOONWEST:       26,   // Z (Western moon phase per-round, 8-cat)
+
+  // Formula columns (added via ADD_ANALYSIS_V3_FORMULAS)
+  COL_PLAYER_HIST_PAR:  27,   // AA (formula: player's avg vs_avg by condition)
+  COL_PLAYER_HIS_CNT:   28,   // AB (formula: count of player's rounds by condition)
+  COL_OFF_PAR:          29,   // AC (formula: score - par)
+  COL_EXEC_BUCKET:      30,   // AD (formula: exec binned by 25s)
+  COL_UPSIDE_BUCKET:    31,   // AE (formula: upside binned by 25s)
+  COL_GAP_BUCKET:       32,   // AF (formula: gap binned by 10s)
+  COL_ADJ_HIS_PAR:      33    // AG (formula: adjusted historical par with shrinkage)
+};
+
+/* =========================
    GOLF ANALYTICS SHEET CONFIG
    Column numbers for the Golf_Analytics sheet.
    Mapping to current actual layout.
@@ -319,6 +378,10 @@ const GA = {
   COL_GAP_R1:       65,   // BM R1 GAP
   COL_ROUND_WD:     66,   // BN Round Withdrawn
   COL_TOUR:         67,   // BO Tour (PGA Tour / LIV Golf / DP World Tour / other)
+
+  // ── ID columns (BP:BQ) — for linking to PLAYERS and EVENTS ──
+  COL_PLAYER_ID:    68,   // BP Player ID (PLY_XXXX)
+  COL_EVENT_ID:     69,   // BQ Event ID (EVT_XXXX)
 
   // ── Engine read/write range metadata ──
   READ_START_COL:   11,   // K  — first column read by engine
@@ -526,3 +589,49 @@ const GEN_CYCLE = ["Wood","Fire","Earth","Metal","Water"];
 const KE_CYCLE  = ["Wood","Earth","Water","Fire","Metal"];
 
 const TIGER_MONTH_STEM_BASE_BY_YEAR_GROUP = { 0:3, 1:5, 2:7, 3:9, 4:1 };
+
+/* =========================
+   3BMATCHUP SHEET CONFIG
+   Three-ball matchup betting data.
+   One row per matchup, three players (A/B/C).
+   Engine computes color + scores (V:AG) for each player.
+========================= */
+
+const SHEET_3BMATCHUP = "3BMatchup";
+const PROP_PROGRESS_3BM    = "3BM_OVERNIGHT_ROW";
+const PROP_FORCE_3BM       = "3BM_OVERNIGHT_FORCE";
+const PROP_DO_COLORS_3BM   = "3BM_RUN_COLORS_ONLY";
+const PROP_DO_SCORES_3BM   = "3BM_RUN_SCORES_ONLY";
+const PROP_LAST_START_3BM  = "3BM_OVERNIGHT_LAST_START";
+const PROP_LAST_DONE_3BM   = "3BM_OVERNIGHT_LAST_DONE";
+const PROP_LAST_ERROR_3BM  = "3BM_OVERNIGHT_LAST_ERROR";
+
+const TRIGGER_FN_3BM = "OVERNIGHT_CHUNK_3BM";
+
+const COLS_3BM = {
+  EVENT_DATE:   5,      // E
+  EVENT_GMT:    6,      // F
+  PLAYER_A:     8,      // H
+  PLAYER_B:     9,      // I
+  PLAYER_C:     10,     // J
+  BIRTHDAY_A:   14,     // N
+  GMT_A:        15,     // O
+  BIRTHDAY_B:   16,     // P
+  GMT_B:        17,     // Q
+  BIRTHDAY_C:   18,     // R
+  GMT_C:        19,     // S
+  CONDITION:    20,     // T
+  ROUND_TYPE:   21,     // U
+  COLOR_A:      23,     // W
+  EXEC_A:       24,     // X
+  UPSIDE_A:     25,     // Y
+  PEAK_A:       26,     // Z
+  COLOR_B:      27,     // AA
+  EXEC_B:       28,     // AB
+  UPSIDE_B:     29,     // AC
+  PEAK_B:       30,     // AD
+  COLOR_C:      31,     // AE
+  EXEC_C:       32,     // AF
+  UPSIDE_C:     33,     // AG
+  PEAK_C:       34      // AH
+};

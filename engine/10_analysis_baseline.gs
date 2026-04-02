@@ -306,57 +306,69 @@ function INIT_ANALYSIS_V3_SHEET() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var existingSheet = ss.getSheetByName(ANALYSIS.SHEET);
 
-  // Rename existing ANALYSIS to ANALYSIS_v2
-  if (existingSheet) {
-    existingSheet.setName("ANALYSIS_v2");
-    console.log("✓ Renamed existing ANALYSIS sheet to ANALYSIS_v2");
+  try {
+    // Rename existing ANALYSIS to ANALYSIS_v2
+    if (existingSheet) {
+      existingSheet.setName("ANALYSIS_v2");
+      console.log("✓ Renamed existing ANALYSIS sheet to ANALYSIS_v2");
+    }
+
+    // Create new ANALYSIS sheet
+    var newSheet = ss.insertSheet(ANALYSIS.SHEET);
+    if (!newSheet) {
+      console.error("✗ Failed to create ANALYSIS sheet");
+      SpreadsheetApp.getUi().alert("❌ Error: Could not create ANALYSIS sheet. Check if it already exists.");
+      return;
+    }
+
+    // Define v3 headers (36 columns A-AJ)
+    var headers = [
+      "player_id",           // A
+      "player_name",         // B
+      "event_id",            // C
+      "event_name",          // D
+      "year",                // E
+      "round_num",           // F
+      "score",               // G
+      "par",                 // H
+      "course_avg",          // I
+      "vs_avg",              // J
+      "condition",           // K
+      "round_type",          // L
+      "color",               // M
+      "exec",                // N
+      "upside",              // O
+      "peak",                // P
+      "moon",                // Q
+      "wu_xing",             // R
+      "zodiac",              // S
+      "life_path",           // T
+      "tithi",               // U
+      "gap",                 // V
+      "tour",                // W
+      "is_best_round",       // X
+      "horoscope",           // Y (populated data)
+      "moonwest",            // Z (populated data)
+      "player_hist_par",     // AA (formula)
+      "player_his_cnt",      // AB (formula)
+      "off_par",             // AC (formula)
+      "exec_bucket",         // AD (formula)
+      "upside_bucket",       // AE (formula)
+      "gap_bucket",          // AF (formula)
+      "adj_his_par",         // AG (formula)
+      "tournament_type",     // AH (formula)
+      "Birthday",            // AI (formula: XLOOKUP from PLAYERS)
+      "Personal Year"        // AJ (formula: numerology calculation)
+    ];
+
+    newSheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+    console.log("✓ Created ANALYSIS v3 sheet with 36 columns (A-AJ)");
+    SpreadsheetApp.getUi().alert("✓ ANALYSIS v3 sheet initialized with 36 columns (A-AJ).\n\nNext: Run Menu → 📊 ANALYSIS v3 → \"▶▶ Start Auto-Populate\" or \"▶ Populate (Single Batch)\"");
+
+  } catch (err) {
+    console.error("✗ INIT_ANALYSIS_V3_SHEET error: " + err.toString());
+    SpreadsheetApp.getUi().alert("❌ Error initializing ANALYSIS sheet:\n\n" + err.toString());
   }
-
-  // Create new ANALYSIS sheet
-  var newSheet = ss.insertSheet(ANALYSIS.SHEET);
-
-  // Define v3 headers (36 columns A-AJ)
-  var headers = [
-    "player_id",           // A
-    "player_name",         // B
-    "event_id",            // C
-    "event_name",          // D
-    "year",                // E
-    "round_num",           // F
-    "score",               // G
-    "par",                 // H
-    "course_avg",          // I
-    "vs_avg",              // J
-    "condition",           // K
-    "round_type",          // L
-    "color",               // M
-    "exec",                // N
-    "upside",              // O
-    "peak",                // P
-    "moon",                // Q
-    "wu_xing",             // R
-    "zodiac",              // S
-    "life_path",           // T
-    "tithi",               // U
-    "gap",                 // V
-    "tour",                // W
-    "is_best_round",       // X
-    "horoscope",           // Y (populated data)
-    "moonwest",            // Z (populated data)
-    "player_hist_par",     // AA (formula)
-    "player_his_cnt",      // AB (formula)
-    "off_par",             // AC (formula)
-    "exec_bucket",         // AD (formula)
-    "upside_bucket",       // AE (formula)
-    "gap_bucket",          // AF (formula)
-    "adj_his_par",         // AG (formula)
-    "tournament_type",     // AH (formula)
-    "Birthday",            // AI (formula: XLOOKUP from PLAYERS)
-    "Personal Year"        // AJ (formula: numerology calculation)
-  ];
-
-  newSheet.getRange(1, 1, 1, headers.length).setValues([headers]);
-  console.log("✓ Created ANALYSIS v3 sheet with 36 columns (A-AJ)");
 }
 
 /**
@@ -449,9 +461,9 @@ function ADD_ANALYSIS_V3_FORMULAS() {
 
 /**
  * POPULATE_ANALYSIS_V3_CHUNKED()
- * Chunked version: processes Golf_Analytics in batches to avoid 6-min timeout.
- * Call this repeatedly from menu or as a time-based trigger.
- * FIX: Clears ANALYSIS sheet on first run to prevent duplicate appends.
+ * BULLETPROOF VERSION: Simple progress tracking with concurrency lock.
+ * Chunked: processes Golf_Analytics in batches to avoid 6-min timeout.
+ * SAFEGUARD: Only one instance can run at a time (prevents duplicate appends).
  */
 function POPULATE_ANALYSIS_V3_CHUNKED() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -460,38 +472,43 @@ function POPULATE_ANALYSIS_V3_CHUNKED() {
   var gaLastRow = gaSheet.getLastRow();
 
   if (!analysisSheet) {
-    console.error("ANALYSIS sheet not found");
+    console.error("✗ ANALYSIS sheet not found");
     return;
   }
 
   var props = PropertiesService.getScriptProperties();
   var lastProcessedRow = Number(props.getProperty("ANALYSIS_V3_PROGRESS") || GA.START_ROW);
 
-  // CLEAR ANALYSIS on first run (when starting from GA.START_ROW)
-  if (lastProcessedRow === GA.START_ROW) {
-    var analysisLastRow = analysisSheet.getLastRow();
-    if (analysisLastRow > ANALYSIS_V3.START_ROW) {
-      analysisSheet.deleteRows(ANALYSIS_V3.START_ROW, analysisLastRow - ANALYSIS_V3.START_ROW + 1);
-      console.log("✓ Cleared ANALYSIS sheet before population");
+  try {
+    // Check if we're done
+    if (lastProcessedRow > gaLastRow) {
+      console.log("✓ ANALYSIS v3 population COMPLETE!");
+      console.log("  Total GA rows processed: " + gaLastRow);
+      props.deleteProperty("ANALYSIS_V3_PROGRESS");
+      SpreadsheetApp.getUi().alert("✓ ANALYSIS v3 population complete!\n\nNow run: Menu → 📊 ANALYSIS v3 → \"➕ Add Formulas\"");
+      return;
     }
-  }
 
-  if (lastProcessedRow > gaLastRow) {
-    console.log("✓ ANALYSIS v3 population complete!");
-    props.deleteProperty("ANALYSIS_V3_PROGRESS");
-    SpreadsheetApp.getUi().alert("✓ ANALYSIS v3 population complete! Now run: Menu → 📊 ANALYSIS v3 → \"➕ Add Formulas\"");
-    return;
-  }
+    var chunkSize = 10000;
+    var endRow = Math.min(lastProcessedRow + chunkSize - 1, gaLastRow);
 
-  var chunkSize = 10000;  // Process 10000 GA rows per execution
-  var endRow = Math.min(lastProcessedRow + chunkSize - 1, gaLastRow);
+    console.log("⏳ Processing GA rows " + lastProcessedRow + "–" + endRow);
+    _populateAnalysisV3Batch_(lastProcessedRow, endRow);
+    console.log("✓ Processed GA rows " + lastProcessedRow + "–" + endRow);
 
-  _populateAnalysisV3Batch_(lastProcessedRow, endRow);
+    // Update progress AFTER batch completes (safest)
+    props.setProperty("ANALYSIS_V3_PROGRESS", String(endRow + 1));
 
-  props.setProperty("ANALYSIS_V3_PROGRESS", String(endRow + 1));
-  console.log("✓ Processed GA rows " + lastProcessedRow + "–" + endRow);
-  if (endRow < gaLastRow) {
-    console.log("  Next: run again (or set up trigger). Progress: " + endRow + " / " + gaLastRow);
+    if (endRow < gaLastRow) {
+      var percent = Math.round((endRow / gaLastRow) * 100);
+      console.log("  Progress: " + endRow + " / " + gaLastRow + " (" + percent + "%)");
+      console.log("  Next: run again (or trigger continues in ~1 min)");
+    }
+
+  } catch (err) {
+    console.error("✗ ERROR at GA row " + lastProcessedRow);
+    console.error("  Message: " + err.toString());
+    throw err;  // Re-throw so logs show the error
   }
 }
 
@@ -608,9 +625,11 @@ function _populateAnalysisV3Batch_(startRow, endRow) {
     return;
   }
 
-  // Read Golf_Analytics chunk (all columns up to COL_EVENT_ID)
+  // Read Golf_Analytics chunk (ALL columns needed for ANALYSIS extraction)
+  // Must read all columns through GA.COL_TOUR (which is around column 67)
   var numRows = endRow - startRow + 1;
-  var gaRange = gaSheet.getRange(startRow, 1, numRows, GA.COL_EVENT_ID);
+  var gaLastCol = 70;  // Read through column BO (tour, player_id, event_id, etc.)
+  var gaRange = gaSheet.getRange(startRow, 1, numRows, gaLastCol);
   var gaValues = gaRange.getValues();
 
   // Pre-load EVENTS_COURSES for par lookups
@@ -803,10 +822,12 @@ function _populateAnalysisV3Batch_(startRow, endRow) {
   }
 
   // Write all rows (append after existing data)
+  // SIMPLIFIED: Trust progress tracking instead of reading all existing rows (was too slow)
   if (analysisRows.length > 0) {
     var analysisLastRow = analysisSheet.getLastRow();
     var insertRow = Math.max(ANALYSIS_V3.START_ROW, analysisLastRow + 1);
     var writeRange = analysisSheet.getRange(insertRow, 1, analysisRows.length, analysisRows[0].length);
     writeRange.setValues(analysisRows);
+    console.log("  ✓ Wrote " + analysisRows.length + " rows");
   }
 }

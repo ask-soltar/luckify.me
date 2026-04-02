@@ -1,0 +1,92 @@
+================================================================================
+AUDIT FINDINGS: Element Tier Analysis Methodology
+Date: 2026-04-01
+================================================================================
+
+PROBLEM DISCOVERED
+──────────────────
+Earlier analysis showed two different Top 40 element rankings:
+- Initial report: Earth 42.1%, Water 40.2% (Earth/Water dominate)
+- New analysis: Metal 34.2%, Fire 33.0% (Metal/Fire dominate)
+- Difference: ~8-10 percentage points per element
+
+This 8-10pp variance is statistically significant and flips the betting interpretation.
+
+
+ROOT CAUSE IDENTIFIED
+─────────────────────
+Earlier script (top20_vs_top40_analysis.py) contained hardcoded values at line 78-84:
+  top40_by_element = {
+    'Earth': 0.421,   ← Outdated (likely from June 2024)
+    'Water': 0.402,   ← Outdated
+    'Wood': 0.382,    ← Outdated
+    'Metal': 0.372,   ← Outdated
+    'Fire': 0.358,    ← Outdated
+  }
+
+These hardcoded values were used in the AUDIT section (lines 207-214) for interpretation.
+However, the script ALSO calculates fresh rates in the main loop (lines 43-97).
+The main loop calculations were correct; the hardcoded values were just stale references.
+
+
+VERIFICATION CONDUCTED
+──────────────────────
+Both scripts run fresh on current data:
+  ✓ Same data source: Golf Historics v3 - ANALYSIS (2).csv
+  ✓ Same aggregation: 11,420 player-tournament records
+  ✓ Same methodology: per-venue rates averaged across venues
+  ✓ IDENTICAL RESULTS produced
+
+Scripts verified:
+  - top20_vs_top40_analysis.py ✓
+  - top5_top10_detailed_analysis.py ✓
+
+
+AUTHORITATIVE NUMBERS (VERIFIED)
+────────────────────────────────
+
+Tier        Metal    Fire     Wood     Water    Earth
+Top 5       3.8%     4.3%     3.6%     4.2%     3.6%
+Top 10      8.4%     7.9%     7.7%     8.1%     8.0%
+Top 20      18.6%    17.4%    16.9%    16.7%    16.4%
+Top 40      34.2%    33.0%    32.8%    31.5%    31.3%
+
+Key insight: Metal dominates Top 10+ tier. Fire peaks at Top 5 elite.
+
+
+BETTING SIGNAL IMPLICATIONS
+────────────────────────────
+1. TOP 40 is predictable: Metal/Fire +2.9pp over Earth/Water
+   → Use in tournament finish predictions
+   → Weight Metal +0.3x in ensemble models
+
+2. TOP 5-10 is NOT predictable: <1pp spread, all under-represented
+   → Do NOT use element alone
+   → Combine with Exec/Upside thresholds only
+
+3. TOP 20 mixed: Metal strong, others clustered
+   → Secondary filter only
+
+
+DOCUMENTATION CREATED
+─────────────────────
+1. analysis_methodology_audit.md (in memory/)
+   - Explains methodology
+   - Shows discrepancy root cause
+   - Provides guidance for future analysis
+
+2. ELEMENT_TIER_ANALYSIS_VERIFIED.md (in project root)
+   - Quick reference for betting signal development
+   - Current numbers with interpretations
+   - How to use for predictions
+
+USE GOING FORWARD
+─────────────────
+✓ Run scripts fresh for all future analysis
+✓ Do NOT trust hardcoded values elsewhere in codebase
+✓ Reference ELEMENT_TIER_ANALYSIS_VERIFIED.md for tier breakdowns
+✓ Both scripts are authoritative; they agree with each other
+
+If numbers diverge in future: Re-run scripts. They are the source of truth.
+
+================================================================================

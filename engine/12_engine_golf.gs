@@ -154,6 +154,8 @@ function _GOLF_hiddenMult_(peak) {
 }
 
 function _GOLF_plateauBonus_(peak) {
+  // Shape: ramps up → plateau at 1.0 (p=0.45–0.65) → drops to 0.45 floor at p>0.82.
+  // The drop at p>0.65 is intentional: extreme peakiness = volatile env = upside risk.
   const p = Math.max(0, Math.min(1, Number(peak || 0)));
   if (p <= 0.20) return p / 0.20 * 0.35;
   if (p <= 0.45) return 0.35 + ((p - 0.20) / 0.25) * 0.65;

@@ -1,0 +1,6 @@
+element,count,pct_of_data,avg_off_par,vs_others_avg_off_par,off_par_advantage,win_rate_%,vs_others_win_rate_%,win_rate_advantage_%
+Metal,18653,18.7,-0.776,-0.947,0.17,32.8,30.9,1.9
+Wood,16202,16.3,-0.908,-0.916,0.008,31.6,31.2,0.4
+Water,19531,19.6,-0.95,-0.907,-0.043,30.3,31.5,-1.1
+Fire,25089,25.2,-0.957,-0.901,-0.056,31.0,31.3,-0.3
+Earth,20146,20.2,-0.962,-0.903,-0.059,30.7,31.4,-0.6

@@ -222,3 +222,4 @@ function _needsScores_(existingRow, scoreOffset, forceAll) {
     existingRow[scoreOffset + 1] === "" || existingRow[scoreOffset + 1] == null ||
     existingRow[scoreOffset + 2] === "" || existingRow[scoreOffset + 2] == null;
 }
+

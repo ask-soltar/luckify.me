@@ -1,0 +1,277 @@
+player_a,player_b,condition,round_type,prediction,actual_winner,gap,score_a,score_b,result,correct
+Andrew Novak,Rico Hoey,Tough,Closing,Rico Hoey,Andrew Novak,-16.9,-16.9,0.0,LOSS,False
+J.T. Poston,Jacob Bridgeman,Tough,Closing,SKIP,Jacob Bridgeman,2.299999999999999,-9.9,-12.2,SKIP,
+Ben Griffin,Jake Knapp,Tough,Closing,Jake Knapp,Push,-10.4,-12.0,-1.6,PUSH,
+Kurt Kitayama,Sahith Theegala,Tough,Closing,Kurt Kitayama,Push,10.4,-1.7,-12.1,PUSH,
+Jordan Spieth,Matt McCarty,Tough,Closing,Matt McCarty,Push,-6.200000000000001,-14.3,-8.1,PUSH,
+Keegan Bradley,Pierceson Coody,Tough,Closing,Pierceson Coody,Pierceson Coody,-12.1,-12.1,0.0,WIN,True
+Michael Kim,Patrick Rodgers,Tough,Closing,SKIP,Patrick Rodgers,3.5,-10.8,-14.3,SKIP,
+Ludvig Aberg,Sam Burns,Tough,Closing,Ludvig Aberg,Sam Burns,11.2,3.1,-8.1,LOSS,False
+Akshay Bhatia,Shane Lowry,Tough,Closing,SKIP,Akshay Bhatia,1.6999999999999993,-10.4,-12.1,SKIP,
+Maverick McNealy,Adam Scott,Tough,Closing,SKIP,Maverick McNealy,3.0,0.0,-3.0,SKIP,
+Tommy Fleetwood,Cameron Young,Tough,Closing,SKIP,Tommy Fleetwood,1.6999999999999993,-10.4,-12.1,SKIP,
+Collin Morikawa,Viktor Hovland,Tough,Closing,SKIP,Collin Morikawa,0.0,-8.3,-8.3,SKIP,
+Rory McIlroy,Hideki Matsuyama,Tough,Closing,Rory McIlroy,Rory McIlroy,10.8,0.0,-10.8,WIN,True
+J.J. Spaun,Ryan Gerard,Tough,Closing,Ryan Gerard,Ryan Gerard,-6.1,-3.0,3.1,WIN,True
+Sam Stevens,Corey Conners,Tough,Closing,SKIP,Corey Conners,2.799999999999999,-8.3,-11.1,SKIP,
+Rickie Fowler,Jason Day,Tough,Closing,SKIP,Rickie Fowler,-0.1999999999999993,-12.2,-12.0,SKIP,
+Matt Fitzpatrick,Harris English,Tough,Closing,Matt Fitzpatrick,Matt Fitzpatrick,10.6,-1.6,-12.2,WIN,True
+Harry Hall,Ryo Hisatsune,Tough,Closing,SKIP,Push,1.8000000000000007,-8.1,-9.9,PUSH,
+Alex Noren,Nick Taylor,Tough,Open,SKIP,Nick Taylor,4.9,6.7,1.8,SKIP,
+Xander Schauffele,Russell Henley,Tough,Open,SKIP,Xander Schauffele,-3.3000000000000003,1.1,4.4,SKIP,
+Scottie Scheffler,Patrick Cantlay,Tough,Open,SKIP,Patrick Cantlay,-0.2999999999999998,6.4,6.7,SKIP,
+Sepp Straka,Justin Rose,Tough,Open,SKIP,Sepp Straka,2.5,1.1,-1.4,SKIP,
+Si Woo Kim,Chris Gotterup,Tough,Open,SKIP,Si Woo Kim,-0.40000000000000013,1.4,1.8,SKIP,
+Min Woo Lee,Wyndham Clark,Tough,Open,SKIP,Wyndham Clark,-6.0,1.8,7.8,SKIP,
+Joel Girrbach,Tapio Pulkkanen,Calm,Open,SKIP,Tapio Pulkkanen,3.0999999999999996,-3.0,-6.1,SKIP,
+Nathan Kimsey,Ben Schmidt,Calm,Open,Ben Schmidt,Nathan Kimsey,-9.5,-8.3,1.2,LOSS,False
+Antoine Rozner,JC Ritchie,Calm,Open,SKIP,Antoine Rozner,4.299999999999999,-7.4,-11.7,SKIP,
+Dan Bradbury,Joost Luiten,Calm,Open,SKIP,Joost Luiten,0.0,-4.2,-4.2,SKIP,
+Wenyi Ding,Alejandro Del Rey,Calm,Open,SKIP,Wenyi Ding,-0.7000000000000002,-4.9,-4.2,SKIP,
+Jorge Campillo,Francesco Laporta,Calm,Open,SKIP,Francesco Laporta,-3.1999999999999993,-10.7,-7.5,SKIP,
+Angel Ayora,Calum Hill,Calm,Open,SKIP,Angel Ayora,-3.5999999999999996,-7.8,-4.2,SKIP,
+Todd Clements,Romain Langasque,Calm,Open,SKIP,Romain Langasque,1.0,-10.7,-11.7,SKIP,
+Manuel Elvira,Ricardo Gouveia,Calm,Open,SKIP,Ricardo Gouveia,-1.6000000000000005,-5.7,-4.1,SKIP,
+Alex Fitzpatrick,Casey Jarvis,Calm,Open,Casey Jarvis,Casey Jarvis,-12.2,-11.0,1.2,WIN,True
+Frederic Lacroix,Joakim Lagergren,Calm,Open,SKIP,Joakim Lagergren,-1.7000000000000002,-7.8,-6.1,SKIP,
+Niklas Norgaard,Daniel van Tonder,Calm,Open,SKIP,Daniel van Tonder,3.0999999999999996,-3.0,-6.1,SKIP,
+Thriston Lawrence,Hennie du Plessis,Calm,Open,SKIP,Thriston Lawrence,0.0,-5.7,-5.7,SKIP,
+Jacob Olesen,Jacques Kruyswijk,Calm,Open,SKIP,Push,4.1000000000000005,-4.2,-8.3,PUSH,
+Ewen Ferguson,Mikael Lindberg,Calm,Open,SKIP,Mikael Lindberg,1.0999999999999996,-5.7,-6.8,SKIP,
+Freddy Schott,Guido Migliozzi,Calm,Open,SKIP,Freddy Schott,1.2000000000000002,-4.5,-5.7,SKIP,
+J.T. Poston,Kurt Kitayama,Tough,Open,Kurt Kitayama,Kurt Kitayama,-7.8,0.0,7.8,WIN,True
+Jake Knapp,Sam Burns,Tough,Open,SKIP,Sam Burns,-5.0,1.4,6.4,SKIP,
+Nico Echavarria,Matt McCarty,Tough,Open,Nico Echavarria,Nico Echavarria,15.5,15.5,0.0,WIN,True
+Taylor Pendrith,Pierceson Coody,Tough,Open,SKIP,Pierceson Coody,4.0,4.0,0.0,SKIP,
+Tom Hoge,Sahith Theegala,Tough,Open,SKIP,Tom Hoge,1.8,1.8,0.0,SKIP,
+Ben Griffin,Maverick McNealy,Tough,Open,SKIP,Maverick McNealy,1.1,1.1,0.0,SKIP,
+Keegan Bradley,Akshay Bhatia,Tough,Open,SKIP,Akshay Bhatia,1.3,1.3,0.0,SKIP,
+Jacob Bridgeman,J.J. Spaun,Tough,Open,SKIP,Jacob Bridgeman,1.8,1.8,0.0,SKIP,
+Cameron Young,Viktor Hovland,Tough,Open,SKIP,Cameron Young,1.3,1.3,0.0,SKIP,
+Shane Lowry,Adam Scott,Tough,Open,SKIP,Adam Scott,1.3,1.3,0.0,SKIP,
+Hideki Matsuyama,Collin Morikawa,Tough,Open,SKIP,Collin Morikawa,1.1,1.1,0.0,SKIP,
+Ludvig Aberg,Rickie Fowler,Tough,Open,SKIP,Rickie Fowler,-1.5,-1.5,0.0,SKIP,
+Tommy Fleetwood,Rory McIlroy,Tough,Open,SKIP,Rory McIlroy,4.0,4.0,0.0,SKIP,
+Ryan Gerard,Max Homa,Tough,Open,SKIP,Max Homa,-1.5,-1.5,0.0,SKIP,
+Patrick Rodgers,Sam Stevens,Tough,Open,Patrick Rodgers,Patrick Rodgers,6.7,6.7,0.0,WIN,True
+Denny McCarthy,Ryan Fox,Tough,Open,Denny McCarthy,Ryan Fox,7.8,7.8,0.0,LOSS,False
+Max Greyserman,Max McGreevy,Tough,Open,Max Greyserman,Max Greyserman,15.5,15.5,0.0,WIN,True
+Matt Fitzpatrick,Jason Day,Tough,Open,SKIP,Matt Fitzpatrick,3.5,3.5,0.0,SKIP,
+Alex Noren,Ryo Hisatsune,Tough,Open,Alex Noren,Alex Noren,6.7,6.7,0.0,WIN,True
+Nick Taylor,Corey Conners,Tough,Open,SKIP,Nick Taylor,1.8,1.8,0.0,SKIP,
+Russell Henley,Harris English,Tough,Open,SKIP,Russell Henley,4.4,4.4,0.0,SKIP,
+Patrick Cantlay,Chris Gotterup,Tough,Open,Patrick Cantlay,Chris Gotterup,6.7,6.7,0.0,LOSS,False
+Robert MacIntyre,Justin Rose,Tough,Open,SKIP,Justin Rose,1.3,1.3,0.0,SKIP,
+Scottie Scheffler,Xander Schauffele,Tough,Open,Scottie Scheffler,Xander Schauffele,6.4,6.4,0.0,LOSS,False
+Zander Lombard,Daniel Van Tonder,Calm,Open,SKIP,Zander Lombard,-4.2,-4.2,0.0,SKIP,
+Alex Fitzpatrick,Jacob Olesen,Calm,Open,Jacob Olesen,Push,-11.0,-11.0,0.0,PUSH,
+Niklas Norgaard,Ewen Ferguson,Calm,Open,SKIP,Niklas Norgaard,-3.0,-3.0,0.0,SKIP,
+Guido Migliozzi,Freddy Schott,Calm,Open,SKIP,Freddy Schott,-5.7,-5.7,0.0,SKIP,
+Joakim Lagergren,Jacques Kruyswijk,Calm,Open,Jacques Kruyswijk,Joakim Lagergren,-6.1,-6.1,0.0,LOSS,False
+Thriston Lawrence,Casey Jarvis,Calm,Open,SKIP,Casey Jarvis,-5.7,-5.7,0.0,SKIP,
+Doug Ghim,Garrick Higgo,Calm,Open,Garrick Higgo,Garrick Higgo,-8.4,-8.4,0.0,WIN,True
+Johnny Keefer,Mac Meissner,Calm,Open,Mac Meissner,Johnny Keefer,-6.1,-6.1,0.0,LOSS,False
+Keith Mitchell,Max McGreevy,Calm,Open,Max McGreevy,Push,-6.1,-6.1,0.0,PUSH,
+Jordan Smith,Rico Hoey,Calm,Open,Rico Hoey,Jordan Smith,-8.3,-8.3,0.0,LOSS,False
+Kevin Yu,Matt Wallace,Calm,Open,Matt Wallace,Kevin Yu,-9.7,-9.7,0.0,LOSS,False
+Shane Lowry,Nicolai Hojgaard,Calm,Open,SKIP,Push,-5.7,-5.7,0.0,PUSH,
+Aaron Rai,Davis Thompson,Calm,Open,Davis Thompson,Aaron Rai,-11.7,-11.7,0.0,LOSS,False
+Nico Echavarria,Chris Kirk,Calm,Open,SKIP,Nico Echavarria,-4.2,-4.2,0.0,SKIP,
+Ricky Castillo,Stephan Jaeger,Calm,Open,SKIP,Ricky Castillo,-4.5,-4.5,0.0,SKIP,
+Rasmus Neergaard-Petersen,Alex Smalley,Calm,Open,SKIP,Rasmus Neergaard-Petersen,-4.2,-4.2,0.0,SKIP,
+Ryan Gerard,Rasmus Hojgaard,Calm,Open,Rasmus Hojgaard,Rasmus Hojgaard,-9.7,-9.7,0.0,WIN,True
+Kristoffer Reitan,Michael Brennan,Calm,Open,Michael Brennan,Kristoffer Reitan,-9.3,-9.3,0.0,LOSS,False
+Sami Valimaki,Max Homa,Calm,Open,SKIP,Max Homa,-4.2,-4.2,0.0,SKIP,
+Daniel Berger,Michael Thorbjornsen,Calm,Open,Michael Thorbjornsen,Daniel Berger,-8.3,-8.3,0.0,LOSS,False
+Thorbjorn Olesen,Will Zalatoris,Calm,Open,Will Zalatoris,nan,-9.3,-9.3,0.0,LOSS,False
+John Parry,Tom Kim,Calm,Open,SKIP,John Parry,-5.7,-5.7,0.0,SKIP,
+Seamus Power,Mackenzie Hughes,Calm,Open,Mackenzie Hughes,Seamus Power,-10.7,-10.7,0.0,LOSS,False
+Christiaan Bezuidenhout,Haotong Li,Calm,Open,SKIP,Push,-4.2,-4.2,0.0,PUSH,
+Ewen Ferguson,Matthew Jordan,Calm,Open,SKIP,Push,-5.7,-5.7,0.0,PUSH,
+Justin Walters,Louis Albertse,Calm,Open,SKIP,Louis Albertse,-4.1,-4.1,0.0,SKIP,
+Angel Ayora,Antoine Rozner,Calm,Open,SKIP,Angel Ayora,-1.4,-1.4,0.0,SKIP,
+Jayden Schaper,Thriston Lawrence,Calm,Open,SKIP,Push,-4.5,-4.5,0.0,PUSH,
+Casey Jarvis,Dan Bradbury,Calm,Open,Dan Bradbury,Casey Jarvis,-8.3,-8.3,0.0,LOSS,False
+Joost Luiten,Jacques Kruyswijk,Calm,Open,Jacques Kruyswijk,Joost Luiten,-11.7,-11.7,0.0,LOSS,False
+Marcus Armitage,Alejandro Del Rey,Calm,Open,SKIP,Alejandro Del Rey,-5.7,-5.7,0.0,SKIP,
+Dean Burmester,Hennie du Plessis,Calm,Open,SKIP,Dean Burmester,-4.2,-4.2,0.0,SKIP,
+Jorge Campillo,Martin Couvra,Calm,Open,SKIP,Jorge Campillo,-5.7,-5.7,0.0,SKIP,
+Jacob Olesen,Julien Guerrier,Calm,Open,SKIP,Julien Guerrier,-4.2,-4.2,0.0,SKIP,
+Wenyi Ding,Alex Fitzpatrick,Calm,Open,SKIP,Alex Fitzpatrick,-1.4,-1.4,0.0,SKIP,
+Calum Hill,Frederic Lacroix,Calm,Open,Frederic Lacroix,Frederic Lacroix,-11.7,-11.7,0.0,WIN,True
+Oliver Lindell,Charl Schwartzel,Calm,Open,SKIP,Oliver Lindell,-4.2,-4.2,0.0,SKIP,
+Patrick Reed,Branden Grace,Calm,Open,SKIP,Branden Grace,-4.5,-4.5,0.0,SKIP,
+Francesco Laporta,Nathan Kimsey,Calm,Open,SKIP,Push,-4.1,-4.1,0.0,PUSH,
+JC Ritchie,Brandon Stone,Calm,Open,SKIP,nan,-4.2,-4.2,0.0,SKIP,
+Jacob Olesen,Martin Couvra,Moderate,Open,SKIP,Jacob Olesen,-3.6,-3.6,0.0,SKIP,
+JC Ritchie,Rafa Cabrera Bello,Moderate,Open,Rafa Cabrera Bello,Rafa Cabrera Bello,-11.0,-11.0,0.0,WIN,True
+Alejandro Del Rey,Julien Guerrier,Moderate,Open,SKIP,Push,-3.6,-3.6,0.0,PUSH,
+Patrick Reed,Alex Fitzpatrick,Moderate,Open,Alex Fitzpatrick,Alex Fitzpatrick,-6.3,-6.3,0.0,WIN,True
+Andy Sullivan,Jacques Kruyswijk,Moderate,Open,SKIP,Jacques Kruyswijk,1.1,1.1,0.0,SKIP,
+Jayden Schaper,Hennie du Plessis,Moderate,Open,SKIP,Jayden Schaper,-5.1,-5.1,0.0,SKIP,
+Richard Sterne,Deon Germishuys,Moderate,Open,Deon Germishuys,Richard Sterne,-6.5,-6.5,0.0,LOSS,False
+Brandon Stone,Romain Langasque,Moderate,Open,Romain Langasque,Romain Langasque,-6.9,-6.9,0.0,WIN,True
+Antoine Rozner,Marcus Armitage,Moderate,Open,Marcus Armitage,Marcus Armitage,-7.4,-7.4,0.0,WIN,True
+Dan Bradbury,Johannes Veerman,Moderate,Open,Johannes Veerman,Dan Bradbury,-13.1,-13.1,0.0,LOSS,False
+Jason Scrivener,Joe Dean,Moderate,Open,SKIP,Joe Dean,-3.6,-3.6,0.0,SKIP,
+Sam Bairstow,Ugo Coussaud,Moderate,Open,SKIP,Push,-3.6,-3.6,0.0,PUSH,
+Calum Hill,Ewen Ferguson,Moderate,Open,Ewen Ferguson,Push,-7.8,-7.8,0.0,PUSH,
+Angel Ayora,Casey Jarvis,Moderate,Open,Casey Jarvis,Angel Ayora,-7.8,-7.8,0.0,LOSS,False
+Francesco Laporta,Thriston Lawrence,Moderate,Open,SKIP,Francesco Laporta,-1.9,-1.9,0.0,SKIP,
+Kieran Vincent,Jorge Campillo,Moderate,Open,Jorge Campillo,Kieran Vincent,-10.9,-10.9,0.0,LOSS,False
+Daniel Bennett,Joel Dahmen,Calm,Open,SKIP,Daniel Bennett,-4.2,-4.2,0.0,SKIP,
+Jhonattan Vegas,Tom Hoge,Calm,Open,SKIP,Jhonattan Vegas,-4.2,-4.2,0.0,SKIP,
+Ryan Fox,Billy Horschel,Calm,Open,SKIP,Ryan Fox,-5.7,-5.7,0.0,SKIP,
+Brian Campbell,Patrick Rodgers,Calm,Open,Patrick Rodgers,Brian Campbell,-6.8,-6.8,0.0,LOSS,False
+Matt McCarty,Max Greyserman,Calm,Open,SKIP,Max Greyserman,-5.7,-5.7,0.0,SKIP,
+Taylor Moore,Andrew Putnam,Calm,Open,Andrew Putnam,Taylor Moore,-8.3,-8.3,0.0,LOSS,False
+Daniel Berger,Alex Noren,Calm,Open,Alex Noren,Daniel Berger,-6.8,-6.8,0.0,LOSS,False
+Min Woo Lee,Michael Thorbjornsen,Calm,Open,Michael Thorbjornsen,Min Woo Lee,-11.0,-11.0,0.0,LOSS,False
+Harry Hall,Corey Conners,Calm,Open,SKIP,Corey Conners,-5.7,-5.7,0.0,SKIP,
+Cameron Young,Sepp Straka,Calm,Open,SKIP,Cameron Young,-5.7,-5.7,0.0,SKIP,
+Harris English,Patrick Cantlay,Calm,Open,Patrick Cantlay,Harris English,-9.7,-9.7,0.0,LOSS,False
+Andrew Novak,Robert MacIntyre,Calm,Open,SKIP,Robert MacIntyre,-4.2,-4.2,0.0,SKIP,
+Brian Harman,Akshay Bhatia,Calm,Open,SKIP,Akshay Bhatia,-5.7,-5.7,0.0,SKIP,
+Collin Morikawa,Justin Rose,Calm,Open,Justin Rose,Collin Morikawa,-10.3,-10.3,0.0,LOSS,False
+Xander Schauffele,Shane Lowry,Calm,Open,SKIP,Xander Schauffele,1.2,1.2,0.0,SKIP,
+Scottie Scheffler,Russell Henley,Calm,Open,SKIP,Push,-5.7,-5.7,0.0,PUSH,
+Aldrich Potgieter,Adam Scott,Calm,Open,SKIP,Adam Scott,-4.2,-4.2,0.0,SKIP,
+J.T. Poston,Keith Mitchell,Calm,Open,Keith Mitchell,Keith Mitchell,-8.3,-8.3,0.0,WIN,True
+Nicolai Hojgaard,Austin Smotherman,Calm,Open,SKIP,nan,-4.1,-4.1,0.0,SKIP,
+Si Woo Kim,Bud Cauley,Calm,Open,SKIP,Bud Cauley,-4.2,-4.2,0.0,SKIP,
+Lucas Glover,Ryo Hisatsune,Calm,Open,Ryo Hisatsune,Ryo Hisatsune,-9.3,-9.3,0.0,WIN,True
+Ryan Gerard,Jason Day,Calm,Open,Jason Day,Jason Day,-11.0,-11.0,0.0,WIN,True
+Taylor Pendrith,Denny McCarthy,Calm,Open,SKIP,Denny McCarthy,-4.5,-4.5,0.0,SKIP,
+Kurt Kitayama,Pierceson Coody,Calm,Open,Pierceson Coody,Kurt Kitayama,-6.8,-6.8,0.0,LOSS,False
+Jordan Spieth,Sam Stevens,Calm,Open,Sam Stevens,Jordan Spieth,-8.3,-8.3,0.0,LOSS,False
+Jake Knapp,Matt Fitzpatrick,Calm,Open,Matt Fitzpatrick,Jake Knapp,-7.8,-7.8,0.0,LOSS,False
+Sam Burns,Sungjae Im,Calm,Open,SKIP,Sam Burns,-5.7,-5.7,0.0,SKIP,
+J.J. Spaun,Nick Taylor,Calm,Open,SKIP,Nick Taylor,-4.5,-4.5,0.0,SKIP,
+Keegan Bradley,Maverick McNealy,Calm,Open,Maverick McNealy,Maverick McNealy,-10.3,-10.3,0.0,WIN,True
+Ben Griffin,Tommy Fleetwood,Calm,Open,Tommy Fleetwood,Ben Griffin,-10.3,-10.3,0.0,LOSS,False
+Nico Echavarria,Ludvig Aberg,Calm,Open,SKIP,Ludvig Aberg,-4.2,-4.2,0.0,SKIP,
+Jacob Bridgeman,Chris Gotterup,Calm,Open,SKIP,Chris Gotterup,-4.2,-4.2,0.0,SKIP,
+Justin Thomas,Hideki Matsuyama,Calm,Open,Hideki Matsuyama,Hideki Matsuyama,-8.3,-8.3,0.0,WIN,True
+Rory McIlroy,Viktor Hovland,Calm,Open,Viktor Hovland,Rory McIlroy,-9.7,-9.7,0.0,LOSS,False
+Rickie Fowler,Michael Kim,Calm,Open,SKIP,Rickie Fowler,-4.2,-4.2,0.0,SKIP,
+Chris Kirk,Sahith Theegala,Calm,Open,Sahith Theegala,Sahith Theegala,-7.8,-7.8,0.0,WIN,True
+Abraham Ancer,Carlos Ortiz,Calm,Open,SKIP,Carlos Ortiz,-4.5,-4.5,0.0,SKIP,
+Sergio Garcia,Peter Uihlein,Calm,Open,Peter Uihlein,Push,-9.3,-9.3,0.0,PUSH,
+Talor Gooch,Byeong-Hun An,Calm,Open,Byeong-Hun An,Talor Gooch,-6.1,-6.1,0.0,LOSS,False
+Dustin Johnson,Paul Casey,Calm,Open,SKIP,Paul Casey,-4.9,-4.9,0.0,SKIP,
+Marc Leishman,Elvis Smylie,Calm,Open,SKIP,Marc Leishman,1.2,1.2,0.0,SKIP,
+Sebastian Munoz,Joaquin Niemann,Calm,Open,Joaquin Niemann,Joaquin Niemann,-8.3,-8.3,0.0,WIN,True
+Thomas Pieters,Anthony Kim,Calm,Open,SKIP,Anthony Kim,-4.5,-4.5,0.0,SKIP,
+David Puig,Tyrrell Hatton,Calm,Open,SKIP,Tyrrell Hatton,-4.5,-4.5,0.0,SKIP,
+Jon Rahm,Bryson DeChambeau,Calm,Open,SKIP,Push,-4.2,-4.2,0.0,PUSH,
+Cameron Smith,Lucas Herbert,Calm,Open,SKIP,Cameron Smith,-3.0,-3.0,0.0,SKIP,
+Byeong-Hun An,Branden Grace,Moderate,Open,SKIP,Branden Grace,-1.9,-1.9,0.0,SKIP,
+Richard Bland,Charl Schwartzel,Moderate,Open,Charl Schwartzel,Push,-6.9,-6.9,0.0,PUSH,
+Dean Burmester,Thomas Pieters,Moderate,Open,SKIP,Push,-3.6,-3.6,0.0,PUSH,
+Bryson DeChambeau,Tyrrell Hatton,Moderate,Open,SKIP,Bryson DeChambeau,-2.2,-2.2,0.0,SKIP,
+Thomas Detry,Marc Leishman,Moderate,Open,Marc Leishman,Push,-7.4,-7.4,0.0,PUSH,
+Sergio Garcia,Talor Gooch,Moderate,Open,SKIP,Talor Gooch,-2.0,-2.0,0.0,SKIP,
+Lucas Herbert,Cameron Smith,Moderate,Open,Cameron Smith,Cameron Smith,-7.8,-7.8,0.0,WIN,True
+Anirban Lahiri,Jason Kokrak,Moderate,Open,SKIP,Push,2.6,2.6,0.0,PUSH,
+Sebastian Munoz,Joaquin Niemann,Moderate,Open,Joaquin Niemann,Joaquin Niemann,-6.9,-6.9,0.0,WIN,True
+Victor Perez,Dustin Johnson,Moderate,Open,Dustin Johnson,Victor Perez,-7.4,-7.4,0.0,LOSS,False
+Jon Rahm,David Puig,Moderate,Open,SKIP,Jon Rahm,1.2,1.2,0.0,SKIP,
+Elvis Smylie,Abraham Ancer,Moderate,Open,SKIP,Elvis Smylie,-2.2,-2.2,0.0,SKIP,
+Caleb Surratt,Anthony Kim,Moderate,Open,Anthony Kim,Push,-11.0,-11.0,0.0,PUSH,
+Peter Uihlein,Paul Casey,Moderate,Open,Paul Casey,Paul Casey,-13.1,-13.1,0.0,WIN,True
+Harold Varner III,Jose Luis Ballester,Moderate,Open,Jose Luis Ballester,Harold Varner III,-6.5,-6.5,0.0,LOSS,False
+Matthew Wolff,Richard T. Lee,Moderate,Open,SKIP,Richard T. Lee,-3.6,-3.6,0.0,SKIP,
+Christiaan Bezuidenhout,Thorbjorn Olesen,Moderate,Open,Thorbjorn Olesen,Christiaan Bezuidenhout,-7.8,-7.8,0.0,LOSS,False
+Bud Cauley,Mac Meissner,Moderate,Open,SKIP,Bud Cauley,-1.9,-1.9,0.0,SKIP,
+Daniel Berger,Alex Noren,Moderate,Open,Alex Noren,Alex Noren,-6.9,-6.9,0.0,WIN,True
+Ryan Gerard,Michael Thorbjornsen,Moderate,Open,SKIP,Ryan Gerard,-3.6,-3.6,0.0,SKIP,
+Max Homa,Kristoffer Reitan,Moderate,Open,Kristoffer Reitan,Max Homa,-6.5,-6.5,0.0,LOSS,False
+Taylor Pendrith,Rasmus Hojgaard,Moderate,Open,Rasmus Hojgaard,Taylor Pendrith,-6.5,-6.5,0.0,LOSS,False
+Akshay Bhatia,Viktor Hovland,Moderate,Open,Viktor Hovland,Viktor Hovland,-6.5,-6.5,0.0,WIN,True
+Patrick Cantlay,Maverick McNealy,Moderate,Open,Maverick McNealy,Maverick McNealy,-6.9,-6.9,0.0,WIN,True
+Ludvig Aberg,Russell Henley,Moderate,Open,SKIP,Russell Henley,-2.0,-2.0,0.0,SKIP,
+Tommy Fleetwood,Si Woo Kim,Moderate,Open,SKIP,Tommy Fleetwood,-1.9,-1.9,0.0,SKIP,
+Scottie Scheffler,Collin Morikawa,Moderate,Open,SKIP,Scottie Scheffler,2.6,2.6,0.0,SKIP,
+Harris English,Robert MacIntyre,Moderate,Open,SKIP,Robert MacIntyre,-3.6,-3.6,0.0,SKIP,
+Matt Fitzpatrick,Jake Knapp,Moderate,Open,SKIP,Matt Fitzpatrick,3.6,3.6,0.0,SKIP,
+Jacob Bridgeman,Pierceson Coody,Moderate,Open,SKIP,Jacob Bridgeman,-3.6,-3.6,0.0,SKIP,
+Ryan Fox,Alex Smalley,Moderate,Open,SKIP,Alex Smalley,2.6,2.6,0.0,SKIP,
+Kurt Kitayama,Ben Griffin,Moderate,Open,Ben Griffin,Ben Griffin,-7.4,-7.4,0.0,WIN,True
+Adam Scott,Harry Hall,Moderate,Open,SKIP,Adam Scott,-1.9,-1.9,0.0,SKIP,
+Rickie Fowler,Shane Lowry,Moderate,Open,SKIP,Push,-3.6,-3.6,0.0,PUSH,
+Aaron Rai,Keegan Bradley,Moderate,Open,Keegan Bradley,Aaron Rai,-7.8,-7.8,0.0,LOSS,False
+Jordan Spieth,J.J. Spaun,Moderate,Open,SKIP,J.J. Spaun,1.2,1.2,0.0,SKIP,
+Sepp Straka,Chris Gotterup,Moderate,Open,Chris Gotterup,Sepp Straka,-6.9,-6.9,0.0,LOSS,False
+Nico Echavarria,Wyndham Clark,Moderate,Open,SKIP,Wyndham Clark,1.2,1.2,0.0,SKIP,
+Nick Taylor,Max McGreevy,Moderate,Open,SKIP,Max McGreevy,-3.6,-3.6,0.0,SKIP,
+Sahith Theegala,Justin Rose,Moderate,Open,SKIP,Sahith Theegala,-3.6,-3.6,0.0,SKIP,
+Hideki Matsuyama,Min Woo Lee,Moderate,Open,Min Woo Lee,Hideki Matsuyama,-6.9,-6.9,0.0,LOSS,False
+Xander Schauffele,Cameron Young,Moderate,Open,SKIP,Cameron Young,1.2,1.2,0.0,SKIP,
+Sam Burns,Jason Day,Moderate,Open,SKIP,Jason Day,-3.6,-3.6,0.0,SKIP,
+Davis Thompson,Corey Conners,Moderate,Open,SKIP,Corey Conners,-3.6,-3.6,0.0,SKIP,
+Darius van Driel,Freddy Schott,Calm,Open,SKIP,Darius van Driel,-4.2,-4.2,0.0,SKIP,
+Tobias Jonsson,Nathan Kimsey,Calm,Open,Nathan Kimsey,Tobias Jonsson,-6.1,-6.1,0.0,LOSS,False
+Zander Lombard,James Morrison,Calm,Open,James Morrison,Zander Lombard,-11.7,-11.7,0.0,LOSS,False
+Ashun Wu,Francesco Molinari,Calm,Open,Francesco Molinari,Ashun Wu,-11.7,-11.7,0.0,LOSS,False
+Albin Bergstrom,Andreas Halvorsen,Calm,Open,SKIP,Albin Bergstrom,-4.2,-4.2,0.0,SKIP,
+nan,nan,nan,nan,SKIP,Angel Ayora,0.0,0.0,0.0,SKIP,
+Thriston Lawrence,Zhao Jin,Calm,Open,SKIP,Thriston Lawrence,-5.7,-5.7,0.0,SKIP,
+Oliver Lindell,Jorge Campillo,Calm,Open,SKIP,Jorge Campillo,-4.2,-4.2,0.0,SKIP,
+Eugenio Chacarra,Taichi Kho,Calm,Open,SKIP,Eugenio Chacarra,-4.5,-4.5,0.0,SKIP,
+Calum Hill,Brandon Robinson Thompson,Calm,Open,Brandon Robinson Thompson,Calum Hill,-11.7,-11.7,0.0,LOSS,False
+Frederic Lacroix,Martin Couvra,Calm,Open,SKIP,Martin Couvra,-4.9,-4.9,0.0,SKIP,
+Wenyi Ding,Yanhan Zhou,Calm,Open,SKIP,Wenyi Ding,-4.2,-4.2,0.0,SKIP,
+Grant Forrest,Junghwan Lee,Calm,Open,SKIP,Junghwan Lee,-3.0,-3.0,0.0,SKIP,
+Joost Luiten,Joel Girrbach,Calm,Open,Joel Girrbach,Joost Luiten,-11.7,-11.7,0.0,LOSS,False
+Dan Bradbury,Niklas Norgaard,Calm,Open,SKIP,Dan Bradbury,-4.2,-4.2,0.0,SKIP,
+Nacho Elvira,Sean Crocker,Calm,Open,SKIP,Nacho Elvira,-5.7,-5.7,0.0,SKIP,
+Jeong Weon Ko,Taehoon Ok,Calm,Open,SKIP,Taehoon Ok,-4.2,-4.2,0.0,SKIP,
+Ugo Coussaud,Sebastian Garcia Rodriguez,Calm,Open,SKIP,Sebastian Garcia Rodriguez,-3.0,-3.0,0.0,SKIP,
+Cameron Adam,Matthew Baldwin,Calm,Open,SKIP,Matthew Baldwin,-3.0,-3.0,0.0,SKIP,
+Marcus Armitage,Jason Scrivener,Calm,Open,SKIP,Jason Scrivener,-5.7,-5.7,0.0,SKIP,
+Niklas Lemke,Ivan Cantero Gutierrez,Calm,Open,SKIP,Ivan Cantero Gutierrez,-4.2,-4.2,0.0,SKIP,
+Kiradech Aphibarnrat,Shubhankar Sharma,Calm,Open,SKIP,Shubhankar Sharma,-4.2,-4.2,0.0,SKIP,
+Oihan Guillamoundeguy,Rocco Repetto Taylor,Calm,Open,SKIP,Rocco Repetto Taylor,-4.2,-4.2,0.0,SKIP,
+Andy Sullivan,Rafa Cabrera Bello,Calm,Open,SKIP,Rafa Cabrera Bello,-5.7,-5.7,0.0,SKIP,
+Adrian Otaegui,Dylan Frittelli,Calm,Open,Dylan Frittelli,Push,-6.8,-6.8,0.0,PUSH,
+Jordan Gumberg,David Law,Calm,Open,SKIP,Jordan Gumberg,-4.9,-4.9,0.0,SKIP,
+Tom Vaillant,Kazuma Kobori,Calm,Open,Kazuma Kobori,Push,-6.1,-6.1,0.0,PUSH,
+Aaron Cockerill,Stefano Mazzoli,Calm,Open,Stefano Mazzoli,Aaron Cockerill,-8.3,-8.3,0.0,LOSS,False
+Matt Killeen,Adri Arnaus,Calm,Open,SKIP,Adri Arnaus,-4.1,-4.1,0.0,SKIP,
+Jack Senior,Felix Mory,Calm,Open,SKIP,Jack Senior,-4.2,-4.2,0.0,SKIP,
+Maximilian Steinlechner,Joshua Berry,Calm,Open,SKIP,Maximilian Steinlechner,-4.2,-4.2,0.0,SKIP,
+Nathan Kimsey,Niklas Norgaard,Calm,Open,SKIP,Nathan Kimsey,1.2,1.2,0.0,SKIP,
+Angel Ayora,Oliver Lindell,Calm,Open,SKIP,Oliver Lindell,-4.2,-4.2,0.0,SKIP,
+Jorge Campillo,Adrian Otaegui,Calm,Open,SKIP,Jorge Campillo,-5.7,-5.7,0.0,SKIP,
+Thriston Lawrence,Frederic Lacroix,Calm,Open,SKIP,Thriston Lawrence,-5.7,-5.7,0.0,SKIP,
+Wenyi Ding,Eugenio Chacarra,Calm,Open,SKIP,Wenyi Ding,-4.2,-4.2,0.0,SKIP,
+Mikael Lindberg,Martin Couvra,Calm,Open,Martin Couvra,Martin Couvra,-8.3,-8.3,0.0,WIN,True
+Grant Forrest,Dan Bradbury,Calm,Open,SKIP,Dan Bradbury,-3.0,-3.0,0.0,SKIP,
+Joost Luiten,Sean Crocker,Calm,Open,Sean Crocker,Joost Luiten,-11.7,-11.7,0.0,LOSS,False
+Jose Luis Ballester,Sergio Garcia,Calm,Open,Sergio Garcia,Sergio Garcia,-6.8,-6.8,0.0,WIN,True
+Bryson DeChambeau,Joaquin Niemann,Calm,Open,Joaquin Niemann,Bryson DeChambeau,-7.4,-7.4,0.0,LOSS,False
+Talor Gooch,Dustin Johnson,Calm,Open,SKIP,Talor Gooch,-4.1,-4.1,0.0,SKIP,
+Tyrrell Hatton,Thomas Pieters,Calm,Open,SKIP,Thomas Pieters,-4.5,-4.5,0.0,SKIP,
+Marc Leishman,Louis Oosthuizen,Calm,Open,Louis Oosthuizen,Louis Oosthuizen,-6.8,-6.8,0.0,WIN,True
+Sebastian Munoz,Thomas Detry,Calm,Open,Thomas Detry,Thomas Detry,-6.8,-6.8,0.0,WIN,True
+Carlos Ortiz,Tom McKibbin,Calm,Open,SKIP,Carlos Ortiz,-4.1,-4.1,0.0,SKIP,
+David Puig,Dean Burmester,Calm,Open,SKIP,David Puig,-4.1,-4.1,0.0,SKIP,
+Cameron Smith,Lucas Herbert,Calm,Open,Lucas Herbert,Cameron Smith,-6.8,-6.8,0.0,LOSS,False
+Elvis Smylie,Branden Grace,Calm,Open,Branden Grace,Branden Grace,-8.3,-8.3,0.0,WIN,True
+Caleb Surratt,Richard T. Lee,Calm,Open,SKIP,Push,-4.2,-4.2,0.0,PUSH,
+Ricky Castillo,Alex Smalley,Calm,Open,SKIP,Push,-4.5,-4.5,0.0,PUSH,
+Austin Smotherman,Christiaan Bezuidenhout,Calm,Open,SKIP,Christiann Bezuidenhout,-4.2,-4.2,0.0,SKIP,
+Matt Wallace,Matti Schmid,Calm,Open,Matti Schmid,Push,-6.1,-6.1,0.0,PUSH,
+Keegan Bradley,Aaron Rai,Calm,Open,Aaron Rai,Aaron Rai,-10.7,-10.7,0.0,WIN,True
+Patrick Cantlay,Corey Conners,Calm,Open,Corey Conners,Corey Conners,-8.3,-8.3,0.0,WIN,True
+Brooks Koepka,J.J. Spaun,Calm,Open,SKIP,Brooks Koepka,-4.5,-4.5,0.0,SKIP,
+Xander Schauffele,Viktor Hovland,Calm,Open,Viktor Hovland,Xander Schauffele,-6.8,-6.8,0.0,LOSS,False
+Davis Thompson,Matt McCarty,Calm,Open,SKIP,Davis Thompson,-4.2,-4.2,0.0,SKIP,
+Eric Cole,Kevin Roy,Calm,Open,SKIP,Push,-4.2,-4.2,0.0,PUSH,
+Doug Ghim,Austin Eckroat,Calm,Open,SKIP,Doug Ghim,-5.7,-5.7,0.0,SKIP,
+Jordan Spieth,Rasmus Hojgaard,Calm,Open,Rasmus Hojgaard,Jordan Spieth,-8.3,-8.3,0.0,LOSS,False
+Bud Cauley,Michael Kim,Calm,Open,SKIP,Bud Cauley,-4.5,-4.5,0.0,SKIP,
+Nicolai Hojgaard,Sahith Theegala,Calm,Open,SKIP,Nicolai Hojgaard,-4.5,-4.5,0.0,SKIP,
+Jacob Bridgeman,Justin Thomas,Calm,Open,Justin Thomas,Jacob Bridgeman,-9.7,-9.7,0.0,LOSS,False
+Ben Griffin,Wyndham Clark,Calm,Open,SKIP,Push,-5.7,-5.7,0.0,PUSH,
+Tony Finau,Jordan Smith,Calm,Open,SKIP,Push,-0.2,-0.2,0.0,PUSH,

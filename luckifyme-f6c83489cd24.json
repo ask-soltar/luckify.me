@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "luckifyme",
+  "private_key_id": "f6c83489cd24fe52cb0e44d179d395b8b576d73a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDA5TIV7ZvEFWx8\nILMCjyfcNXfAwocKxZOz4njmXAApNiGw3Bai1/OVjfOrqbezq/3+4eoU0rJ+9C10\nZESHROc2YND0OfZ2nMwAKz4slKJCYmnxRIU0BiWtroEy6/l80HjZysmuz9G7mHTE\nBbD9n56G2bGdXwCdrwZJhuFDJC5vhLsC5b8Zn36xr1679fBEzhYl17QTLYVAFeVa\nlU9IShPFvrtbXIlxryYeRi+xpeyeJf0Tj02/IsmXb8NqDoVFGYz1TpWmujehMHBf\nEFtLBju/ELemdNhk1gMSWaYE690H7av0DBFNqzGixSjX9sVNl4nSqGnJWDq6RDkH\nZ/+Gqq6lAgMBAAECggEAAgONO961Mkf++p9y/v+fLOoNjAQYWbn+ylTiTc5GwUPW\nTcPzzsU1hg0WBC7Lbb+tRoWD9MpdddHazdsrd4tn8wKAMxc4t7vbydPGMbwRv2LK\nwpZO/pkp1N/uMrfnF5SBKvFhDo5kcmRH+SMOExtZ9XYEYOx0xWmQ0+ew0QtNNwfw\nKxjwaixEwivJ7yHbvzDIAPbz/ezDf/p8nG/quDCsCzi3UPVijNIrBsc6Gw7Ozoo2\nXh0txYCDiLzCvRyDj/A4O+CYAyqFTyPpjlTJvQgCfgLl7KJNvg3pIRDgOLjidcey\n3fF11xs1dU2DNPUTrqWKgpsKqOAKQg42/g+LWpx+AQKBgQD3H3Yw5Ipjk2gJv5KK\n9E/XktXxDUKYufWVtvQ5QNH4oOi3TYJORWEuCMsP7vh6UBYFOwMGzfm6ecio63IM\ndQFoTn49X1c6hkPOLQOA3riztMemQdl8bGzGtlVLxpIxwVSMN1mjIOwLXTMyYBw9\nualKWMBzupHTTzH9AwkVZPWuQQKBgQDH0w7K0aLZr5NeiQ/sR7tS9Nd/2NIHmcDO\nwMgQQJE2CgdeTcb1lnXE2IZZsDXaZUs+JYroEc/09M1L2MT127ufazj7KhY8QUun\n7Kmi81bwS3Lp00TqQwmtJyK3mSUturDTy1/IgajnuPF4fuXY6bFz4pXscbQv7O5s\nTcCUBP8vZQKBgQCq8FtcJKpJiMx9ecOPVMHp10sf69E2PePPxPcYp2rWtc9kBDxv\nkfRP2ItGIUJFsSIaSiCk01O8FsOjfQGt9j2b/je6kjmPZRKACokS2n0e6Zz0tzYO\nqB1yMuu7d8bmndmzCBJ8EajVj4l7fhnq5INixxOQuexnI6/rWO8ummCLQQKBgCDq\n18j5d8Y8ch5kncbimi00QDvDT/YIkgZ9I3fp6wHn7QbP8TKLsqLWuGsV6AkuHpMC\nRDuuk39axGb2Mpv9so60bxKRAFC0wO3MwrUhOPUkuK1kLDobCQEJLWLpS4KY+oAp\nRIIXOefSQ5UB8oMlHCJm9SOaJ4CtmykkNdEscY0xAoGBALPPmD0jH+wt4QTDHs8u\n01BrwMbpbyWErPWNvfvE9zj/aP/G89NkUTv0eOQkZ6pXkEKWgvE5PraD/Bo5piDv\ntbdwmBrwgpNNtpMH705JwVK8jqh0oipYsXPeW5jv748PNO9Pny7NpLnqsM2fEWnU\nhcYifoHGLtvxkBPmvYQZ7ATZ\n-----END PRIVATE KEY-----\n",
+  "client_email": "golf-analytics@luckifyme.iam.gserviceaccount.com",
+  "client_id": "116292704061837686115",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/golf-analytics%40luckifyme.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

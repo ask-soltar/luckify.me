@@ -264,16 +264,16 @@ try:
                 <div class="value">{len(df)}</div>
             </div>
             <div class="summary-card">
-                <div class="label">Positive Edges</div>
-                <div class="value">{len(df[df['matchup_edge'] > 0])}</div>
+                <div class="label">Kelly Bets</div>
+                <div class="value">{len(df[df['action_type'] == 'KELLY'])}</div>
             </div>
             <div class="summary-card">
-                <div class="label">Avg Edge</div>
-                <div class="value">{df['matchup_edge'].mean():+.1f}pp</div>
+                <div class="label">Lean Bets</div>
+                <div class="value">{len(df[df['action_type'] == 'LEAN'])}</div>
             </div>
             <div class="summary-card">
-                <div class="label">Avg Kelly</div>
-                <div class="value">{df['kelly_qtr'].mean():.2f}%</div>
+                <div class="label">Total 1/4 Kelly</div>
+                <div class="value">{df[df['action_type'] == 'KELLY']['kelly_qtr'].sum():.2f}%</div>
             </div>
         </div>
 
@@ -286,6 +286,10 @@ try:
 
         edge_class = 'edge' if row['matchup_edge'] >= 0 else 'edge negative'
 
+        # Historical data display
+        hist_a_display = f"{row['hist_a']:.1f}% (N={int(row['n_a'])})" if pd.notna(row['hist_a']) else "No Data"
+        hist_b_display = f"{row['hist_b']:.1f}% (N={int(row['n_b'])})" if pd.notna(row['hist_b']) else "No Data"
+
         # Determine bet side and player
         if row['bet_side'] == 'A':
             bet_player = row['player_a']
@@ -293,6 +297,9 @@ try:
         else:
             bet_player = row['player_b']
             bet_spec = row['spec_b'] == 'YES'
+
+        # Kelly display
+        kelly_display = f"Full Kelly: {row['kelly_full']:.2f}% → 1/4 Kelly: {row['kelly_qtr']:.2f}%"
 
         html += f"""
             <div class="matchup-card">
@@ -303,11 +310,15 @@ try:
                             <div class="player-name">{row['player_a']}{spec_a}</div>
                             <div class="stat-row">
                                 <span class="stat-label">Market (ML {row['ml_a']}):</span>
-                                <span class="stat-value market">{row['implied_a']:.1f}%</span>
+                                <span class="stat-value market">{row['implied_a']:.1f}% implied</span>
                             </div>
                             <div class="stat-row">
                                 <span class="stat-label">Our Model:</span>
                                 <span class="stat-value model">{row['model_a']:.1f}%</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Historical:</span>
+                                <span class="stat-value model">{hist_a_display}</span>
                             </div>
                         </div>
                         <div class="vs">vs</div>
@@ -315,22 +326,38 @@ try:
                             <div class="player-name">{row['player_b']}{spec_b}</div>
                             <div class="stat-row">
                                 <span class="stat-label">Market (ML {row['ml_b']}):</span>
-                                <span class="stat-value market">{row['implied_b']:.1f}%</span>
+                                <span class="stat-value market">{row['implied_b']:.1f}% implied</span>
                             </div>
                             <div class="stat-row">
                                 <span class="stat-label">Our Model:</span>
                                 <span class="stat-value model">{row['model_b']:.1f}%</span>
                             </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Historical:</span>
+                                <span class="stat-value model">{hist_b_display}</span>
+                            </div>
                         </div>
                     </div>
-                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e9ecef;">
+                    <div style="margin-top: 20px; padding: 15px; background: #f0f7ff; border-left: 4px solid #667eea; border-radius: 4px;">
                         <div class="stat-row">
-                            <span class="stat-label">Matchup Edge:</span>
+                            <span class="stat-label">Model Edge:</span>
                             <span class="stat-value {edge_class}">{row['matchup_edge']:+.1f}pp (favor {row['bet_side']})</span>
                         </div>
                         <div class="stat-row">
-                            <span class="stat-label">Quarter Kelly:</span>
-                            <span class="stat-value kelly">{row['kelly_qtr']:.2f}% on {bet_player}</span>
+                            <span class="stat-label">Historical Edge:</span>
+                            <span class="stat-value {edge_class}">{row['historical_edge']:+.1f}pp</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Data Quality:</span>
+                            <span class="stat-value" style="color: #667eea;">{row['data_quality']}</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Kelly Sizing:</span>
+                            <span class="kelly">{kelly_display}</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Action:</span>
+                            <span class="stat-value" style="color: #17a2b8; font-weight: 700;">{row['action_type']}</span>
                         </div>
                     </div>
                 </div>
@@ -359,15 +386,24 @@ try:
         side = row['bet_side']
         player = row['player_a'] if side == 'A' else row['player_b']
         spec = f" [SPEC]" if (row['spec_a'] if side == 'A' else row['spec_b']) else ""
+        action = row['action_type']
+        quality = row['data_quality']
 
-        if kelly < 0.25:
-            recommendation = f"<span style='color: #999;'>PASS</span> - Edge too small ({edge:.1f}pp)"
-        elif kelly < 0.5:
-            recommendation = f"<span style='color: #17a2b8;'>SMALL</span> - {kelly:.2f}% on {player}{spec}"
-        elif kelly < 1.0:
-            recommendation = f"<span style='color: #667eea;'>MEDIUM</span> - {kelly:.2f}% on {player}{spec}"
-        else:
-            recommendation = f"<span style='color: #28a745;'>LARGE</span> - {kelly:.2f}% on {player}{spec}"
+        if action == 'PASS':
+            recommendation = f"<span style='color: #999;'>PASS</span> - No edge"
+        elif action == 'LEAN':
+            recommendation = f"<span style='color: #ffc107;'>LEAN {side}</span> {edge:+.1f}pp on {player}{spec} [{quality}]"
+        else:  # KELLY
+            if kelly < 0.5:
+                rec_type = "SMALL"
+                color = "#17a2b8"
+            elif kelly < 1.0:
+                rec_type = "MEDIUM"
+                color = "#667eea"
+            else:
+                rec_type = "LARGE"
+                color = "#28a745"
+            recommendation = f"<span style='color: {color};'>{rec_type}</span> - 1/4 Kelly {kelly:.2f}% on {player}{spec}"
 
         html += f"""
                     <tr style="border-bottom: 1px solid #ddd;">
@@ -377,13 +413,37 @@ try:
                     </tr>
 """
 
-    html += f"""
+    html += """
                 </tbody>
             </table>
         </div>
 
+        <div style="padding: 40px; background: #f8f9fa; border-top: 1px solid #e9ecef;">
+            <h2 style="color: #333; margin-bottom: 15px;">Analysis Summary</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div>
+                    <h3 style="color: #667eea; font-size: 0.95em; margin-bottom: 10px; font-weight: 600;">Data Quality Breakdown</h3>"""
+
+    full_count = len(df[df['data_quality'] == 'FULL'])
+    limited_count = len(df[df['data_quality'] == 'LIMITED'])
+    very_limited_count = len(df[df['data_quality'] == 'VERY LIMITED'])
+
+    html += f"""
+                    <p style="font-size: 0.9em; margin-bottom: 6px;">Full (N≥5 both): {full_count} ({full_count/len(df)*100:.0f}%)</p>
+                    <p style="font-size: 0.9em; margin-bottom: 6px;">Limited (one <5): {limited_count} ({limited_count/len(df)*100:.0f}%)</p>
+                    <p style="font-size: 0.9em;">Very Limited (one <2): {very_limited_count} ({very_limited_count/len(df)*100:.0f}%)</p>
+                </div>
+                <div>
+                    <h3 style="color: #667eea; font-size: 0.95em; margin-bottom: 10px; font-weight: 600;">Action Breakdown</h3>
+                    <p style="font-size: 0.9em; margin-bottom: 6px;">Kelly (sized): {len(df[df['action_type'] == 'KELLY'])} ({len(df[df['action_type'] == 'KELLY'])/len(df)*100:.0f}%)</p>
+                    <p style="font-size: 0.9em; margin-bottom: 6px;">Lean (directional): {len(df[df['action_type'] == 'LEAN'])} ({len(df[df['action_type'] == 'LEAN'])/len(df)*100:.0f}%)</p>
+                    <p style="font-size: 0.9em;">Pass (no edge): {len(df[df['action_type'] == 'PASS'])} ({len(df[df['action_type'] == 'PASS'])/len(df)*100:.0f}%)</p>
+                </div>
+            </div>
+        </div>
+
         <div class="footer">
-            <p><strong>Market Edge Analysis Report - V3</strong></p>
+            <p><strong>Market Edge Analysis Report - V3 with Historical Validation</strong></p>
             <p class="timestamp">Generated {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
         </div>
     </div>

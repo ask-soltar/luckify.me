@@ -172,16 +172,31 @@ try:
                 bet_side = 'B'
                 matchup_edge = abs(matchup_edge)
 
-            # Kelly sizing: only if we have high-quality data
-            if data_quality == 'FULL':
-                if bet_side == 'A':
-                    kelly_full = kelly_criterion(model_prob_a, implied_a, ml_a)
-                else:
-                    kelly_full = kelly_criterion(model_prob_b, implied_b, ml_b)
-                kelly_qtr = kelly_full / 4
+            # Determine data quality level
+            if hist_a is None or hist_b is None:
+                data_quality = 'VERY LIMITED'
+            elif n_a < 2 or n_b < 2:
+                data_quality = 'VERY LIMITED'
+            elif n_a < 5 or n_b < 5:
+                data_quality = 'LIMITED'
+            else:
+                data_quality = 'FULL'
+
+            # Kelly sizing and action determination
+            if bet_side == 'A':
+                kelly_full = kelly_criterion(model_prob_a, implied_a, ml_a)
+            else:
+                kelly_full = kelly_criterion(model_prob_b, implied_b, ml_b)
+
+            kelly_qtr = kelly_full / 4
+
+            # Action based on edge and data quality
+            if matchup_edge < 0.01:  # Essentially zero or negative edge
+                action_type = 'PASS'
+                kelly_qtr = 0.0
+            elif data_quality == 'FULL':
                 action_type = 'KELLY'
             else:
-                kelly_qtr = 0.0
                 action_type = 'LEAN'
 
             results.append({
@@ -203,6 +218,7 @@ try:
                 'matchup_edge': round(matchup_edge * 100, 1),
                 'historical_edge': round(historical_edge * 100, 1) if historical_edge is not None else None,
                 'bet_side': bet_side,
+                'kelly_full': round(kelly_full * 100, 2),
                 'kelly_qtr': round(kelly_qtr * 100, 2),
                 'action_type': action_type,
                 'data_quality': data_quality,
@@ -224,25 +240,29 @@ try:
         spec_a_str = " [SPEC]" if row['spec_a'] else ""
         spec_b_str = " [SPEC]" if row['spec_b'] else ""
 
-        hist_a_str = f" [HIST: {row['hist_a']:.1f}%, N={int(row['n_a'])}]" if row['hist_a'] is not None else " [NO HISTORY]"
-        hist_b_str = f" [HIST: {row['hist_b']:.1f}%, N={int(row['n_b'])}]" if row['hist_b'] is not None else " [NO HISTORY]"
+        hist_a_str = f"{row['hist_a']:.1f}% (N={int(row['n_a'])})" if row['hist_a'] is not None else "No Data"
+        hist_b_str = f"{row['hist_b']:.1f}% (N={int(row['n_b'])})" if row['hist_b'] is not None else "No Data"
 
         print(f"MATCHUP #{int(row['matchup_num'])}:")
         print()
         print(f"  {row['player_a']:<30} {spec_a_str}")
-        print(f"    Market (ML {row['ml_a']:>5}): {row['implied_a']:>5.1f}%")
-        print(f"    Our Model:          {row['model_a']:>5.1f}%{hist_a_str}")
+        print(f"    Market (ML {row['ml_a']:>5}): {row['implied_a']:>5.1f}% implied")
+        print(f"    Our Model:          {row['model_a']:>5.1f}%")
+        print(f"    Historical:         {hist_a_str}")
         print()
         print(f"  vs")
         print()
         print(f"  {row['player_b']:<30} {spec_b_str}")
-        print(f"    Market (ML {row['ml_b']:>5}): {row['implied_b']:>5.1f}%")
-        print(f"    Our Model:          {row['model_b']:>5.1f}%{hist_b_str}")
+        print(f"    Market (ML {row['ml_b']:>5}): {row['implied_b']:>5.1f}% implied")
+        print(f"    Our Model:          {row['model_b']:>5.1f}%")
+        print(f"    Historical:         {hist_b_str}")
         print()
-        print(f"  MODEL EDGE: {row['matchup_edge']:>+5.1f}pp (favor {row['bet_side']})")
+        print(f"  MODEL EDGE:       {row['matchup_edge']:>+5.1f}pp (favor {row['bet_side']})")
         if row['historical_edge'] is not None:
-            print(f"  HISTORICAL EDGE: {row['historical_edge']:>+5.1f}pp [{row['data_quality']}]")
-        print(f"  ACTION: {row['action_type']:6} {row['kelly_qtr']:>5.2f}%")
+            print(f"  HISTORICAL EDGE:  {row['historical_edge']:>+5.1f}pp")
+        print(f"  DATA QUALITY:     {row['data_quality']}")
+        print(f"  FULL KELLY:       {row['kelly_qtr'] * 4:>5.2f}% → 1/4 KELLY: {row['kelly_qtr']:>5.2f}%")
+        print(f"  ACTION:           {row['action_type']}")
         print()
         print("-" * 160)
         print()
@@ -266,17 +286,24 @@ try:
         player = row['player_a'] if side == 'A' else row['player_b']
         spec = f" [SPEC]" if (row['spec_a'] if side == 'A' else row['spec_b']) else ""
         action = row['action_type']
+        quality = row['data_quality']
 
-        if action == 'LEAN':
-            recommendation = f"LEAN {side} - {edge:.1f}pp (limited history data)"
-        elif kelly < 0.25:
-            recommendation = f"PASS - Edge too small ({edge:.1f}pp)"
-        elif kelly < 0.5:
-            recommendation = f"SMALL - {kelly:.2f}% on {player}{spec}"
-        elif kelly < 1.0:
-            recommendation = f"MEDIUM - {kelly:.2f}% on {player}{spec}"
-        else:
-            recommendation = f"LARGE - {kelly:.2f}% on {player}{spec}"
+        if action == 'PASS':
+            recommendation = f"PASS - No edge"
+        elif action == 'LEAN':
+            if quality == 'VERY LIMITED':
+                recommendation = f"LEAN {side} {edge:+.1f}pp on {player}{spec} [{quality}]"
+            else:
+                recommendation = f"LEAN {side} {edge:+.1f}pp on {player}{spec} [LIMITED]"
+        else:  # KELLY
+            if kelly < 0.25:
+                recommendation = f"SMALL - 1/4 Kelly {kelly:.2f}% on {player}{spec}"
+            elif kelly < 0.5:
+                recommendation = f"SMALL - 1/4 Kelly {kelly:.2f}% on {player}{spec}"
+            elif kelly < 1.0:
+                recommendation = f"MEDIUM - 1/4 Kelly {kelly:.2f}% on {player}{spec}"
+            else:
+                recommendation = f"LARGE - 1/4 Kelly {kelly:.2f}% on {player}{spec}"
 
         print(f"#{int(row['matchup_num']):2}: {recommendation}")
 
@@ -289,19 +316,33 @@ try:
     positive_edges = len(results_df[results_df['matchup_edge'] > 0])
     full_data = len(results_df[results_df['data_quality'] == 'FULL'])
     limited_data = len(results_df[results_df['data_quality'] == 'LIMITED'])
+    very_limited = len(results_df[results_df['data_quality'] == 'VERY LIMITED'])
+
+    kelly_count = len(results_df[results_df['action_type'] == 'KELLY'])
+    lean_count = len(results_df[results_df['action_type'] == 'LEAN'])
+    pass_count = len(results_df[results_df['action_type'] == 'PASS'])
+
     avg_edge = results_df['matchup_edge'].mean()
     kelly_bets = results_df[results_df['action_type'] == 'KELLY']
     avg_kelly = kelly_bets['kelly_qtr'].mean() if len(kelly_bets) > 0 else 0
     total_kelly = kelly_bets['kelly_qtr'].sum() if len(kelly_bets) > 0 else 0
 
-    print(f"Total Matchups:        {len(results_df)}")
-    print(f"Positive Edges:        {positive_edges} ({positive_edges/len(results_df)*100:.0f}%)")
-    print(f"Full Data (KELLY):     {full_data} ({full_data/len(results_df)*100:.0f}%)")
-    print(f"Limited Data (LEAN):   {limited_data} ({limited_data/len(results_df)*100:.0f}%)")
+    print(f"Total Matchups:              {len(results_df)}")
+    print(f"Positive Edges:              {positive_edges} ({positive_edges/len(results_df)*100:.0f}%)")
     print()
-    print(f"Avg Matchup Edge:      +{avg_edge:.1f}pp")
-    print(f"Avg Quarter Kelly:     {avg_kelly:.2f}% (when KELLY only)")
-    print(f"Total Kelly Allocation: {total_kelly:.2f}% of bankroll")
+    print(f"DATA QUALITY BREAKDOWN:")
+    print(f"  Full (N>=5 both):          {full_data} ({full_data/len(results_df)*100:.0f}%)")
+    print(f"  Limited (one <5):          {limited_data} ({limited_data/len(results_df)*100:.0f}%)")
+    print(f"  Very Limited (one <2):     {very_limited} ({very_limited/len(results_df)*100:.0f}%)")
+    print()
+    print(f"ACTION BREAKDOWN:")
+    print(f"  Kelly (sized):             {kelly_count} ({kelly_count/len(results_df)*100:.0f}%)")
+    print(f"  Lean (directional):        {lean_count} ({lean_count/len(results_df)*100:.0f}%)")
+    print(f"  Pass (no edge):            {pass_count} ({pass_count/len(results_df)*100:.0f}%)")
+    print()
+    print(f"Avg Model Edge:              +{avg_edge:.1f}pp")
+    print(f"Avg 1/4 Kelly (Kelly only):  {avg_kelly:.2f}%")
+    print(f"Total Bankroll Allocation:   {total_kelly:.2f}%")
     print()
 
 except Exception as e:

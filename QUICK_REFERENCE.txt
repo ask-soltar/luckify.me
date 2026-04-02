@@ -1,0 +1,175 @@
+================================================================================
+GOLF ANALYTICS - QUICK REFERENCE (2026-03-28)
+================================================================================
+
+STATUS: Analysis Complete - 4 Validated Betting Signals Ready
+
+================================================================================
+THE 4 SIGNALS (Use These)
+================================================================================
+
+RANK 1: Calm x Mixed x Yellow x Earth
+  Test Edge: +15.5% (44 rounds)
+  Confidence: HIGH (best test improvement)
+  → Back with largest bet size
+
+RANK 2: Calm x REMOVE x Purple x Water  
+  Test Edge: +13.4% (30 rounds)
+  Confidence: HIGH (strong consistency)
+  → Back with large bet size
+
+RANK 3: Calm x Positioning x Green x Metal
+  Test Edge: +11.3% (58 rounds)
+  Confidence: MEDIUM-HIGH (good sample)
+  → Back with medium bet size
+
+RANK 4: Calm x Closing x Blue x Fire
+  Test Edge: +8.1% (102 rounds)
+  Confidence: MEDIUM (largest sample = stable)
+  → Back with smaller bet size
+
+================================================================================
+WHY 4D ELEMENT IS BEST
+================================================================================
+
+Transfer Rate Comparison:
+  4D Element:       43.1% ← BEST, use this
+  3D Foundation:    35%
+  5D Element+Gap:   13.2% (fragmentation)
+  4D Gap:          15% (fragmentation)
+  4D Moon:         0% (no signal)
+  4D Exec+Upsize:  10% (weak)
+
+Key: 4D Element works without fragmentation. Adding Gap/Moon/Exec kills it.
+
+================================================================================
+IMMEDIATE ACTIONS (In Order)
+================================================================================
+
+CRITICAL - Do These First:
+  [ ] 1. Implement bet sizing rules (size by edge %)
+  [ ] 2. Build automated matching system (player+event → signal)
+  [ ] 3. Create performance dashboard
+  [ ] 4. Test on 2025 data before going live
+  [ ] 5. Set up quarterly re-validation
+
+OPTIONAL - Do If Time:
+  [ ] 6. Explore Chinese Zodiac dimension (exploratory)
+  [ ] 7. Explore Life Path (exploratory)
+
+================================================================================
+AVOID THESE SIGNALS
+================================================================================
+
+Top Negative Edges (Don't back):
+  Moderate x Positioning x Purple x Metal: -8.9%
+  Calm x Survival x Blue x Metal: -8.6%
+  Calm x Mixed x Yellow x Fire: -6.5%
+
+================================================================================
+KEY NUMBERS
+================================================================================
+
+Training Data: 49,308 rounds (2022-2024)
+Test Data: 49,308 rounds (2025-2026)
+Total: 98,616 rounds
+
+4D Element Results:
+  Training: 271 combos tested
+  Test: 200 combos, 43.1% transfer rate
+  Validated: 28 combos with positive edges
+
+New Columns Added:
+  V = Gap (exec - upside)
+  W = Gap_bucket (signed size 10)
+  X = Moon (round-specific R1-R4)
+  Y = Element (Wood/Fire/Earth/Metal/Water)
+  
+  All: 98,616 rows (100% coverage)
+
+================================================================================
+PERFORMANCE BASELINE
+================================================================================
+
+Expected ROI: 62.57% (from scoring model)
+Model: EU + (Gap × 0.5), Kelly table applied
+
+Use this to compare against actual betting results.
+If actual performance drops, investigate signal degradation.
+
+================================================================================
+WHERE TO FIND THINGS
+================================================================================
+
+REPORTS:
+  D:\Projects\luckify-me\FINAL_ANALYSIS_REPORT.md
+  D:\Projects\luckify-me\ANALYSIS_WORK_LOG.md
+
+SCRIPTS (Ready to Use):
+  D:\Projects\luckify-me\engine\combo_analysis_4d_element.py
+  
+OTHER ANALYSIS SCRIPTS (For Reference):
+  combo_analysis_3d_foundation.py
+  combo_analysis_4d_moon.py (validated: 0% transfer)
+  combo_analysis_4d_gap.py (validated: 15% transfer)
+  combo_analysis_5d_element_gap.py (fragmentation test)
+
+OUTPUT DATA:
+  D:\Projects\luckify-me\outputs\combo\4d_element_2022_2024.csv (training)
+  D:\Projects\luckify-me\outputs\combo\4d_element_2025_2026.csv (test)
+
+GOOGLE SHEET:
+  Sheet ID: 1K4Zfb3VDZsnOitxmc4w3yoIi0Ng7dPby32fQLAl9lok
+  Tabs: ANALYSIS_v2, Golf_Analytics
+
+MEMORY (Auto-recalled):
+  project_final_validated_signals.md
+  project_analysis_complete.md
+  project_pending_work.md
+
+================================================================================
+WHAT WAS TESTED & REJECTED
+================================================================================
+
+Moon Dimension:
+  - 0% transfer rate → NO SIGNAL
+  - Reason: Too many sparse combinations
+  - Decision: Do not use
+
+Gap Dimension:
+  - 15% transfer rate alone, 13.2% with Element
+  - Reason: Causes fragmentation
+  - Decision: Do not use
+
+Exec+Upside Buckets:
+  - 10% transfer rate
+  - Reason: Weak signal, high fragmentation
+  - Decision: Do not use
+
+5D Combinations:
+  - All degrade below 20% transfer
+  - Reason: Fundamental fragmentation problem
+  - Decision: Stop at 4D, do not add more dimensions
+
+================================================================================
+NEXT STEP?
+================================================================================
+
+Choose one:
+
+A) "Implement betting rules"
+   → Define bet sizes, Kelly fraction, test on 2025 data
+
+B) "Explore more dimensions"
+   → Create 4D Chinese Zodiac analysis (exploratory)
+
+C) "Deploy to production"
+   → Build weekly refresh pipeline, live matching system
+
+D) "Understand the model better"
+   → Read FINAL_ANALYSIS_REPORT.md
+
+E) "Monitor signal health"
+   → Set up quarterly re-validation, degradation alerts
+
+================================================================================

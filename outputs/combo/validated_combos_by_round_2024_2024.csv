@@ -1,0 +1,10 @@
+color,condition,exec_bucket,upside_bucket,round_type,n,good_pct,bad_pct,good_edge,ratio
+Yellow,Calm,50,25,Open,31,41.9,16.1,0.0,1.0
+Orange,Moderate,25,50,Closing,47,29.8,17.0,0.0,1.0
+Orange,Moderate,25,50,Open,52,28.8,21.2,0.0,1.0
+Orange,Moderate,25,50,Positioning,51,31.4,19.6,0.0,1.0
+Orange,Moderate,25,50,Survival,79,22.8,22.8,0.0,1.0
+Purple,Calm,25,50,Closing,44,29.5,13.6,0.0,1.0
+Purple,Calm,25,50,Open,100,28.0,13.0,0.0,1.0
+Purple,Calm,25,50,Positioning,42,11.9,28.6,0.0,1.0
+Purple,Calm,25,50,Survival,41,39.0,17.1,0.0,1.0
