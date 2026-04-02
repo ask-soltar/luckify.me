@@ -315,7 +315,7 @@ function INIT_ANALYSIS_V3_SHEET() {
   // Create new ANALYSIS sheet
   var newSheet = ss.insertSheet(ANALYSIS.SHEET);
 
-  // Define v3 headers (34 columns A-AH)
+  // Define v3 headers (36 columns A-AJ)
   var headers = [
     "player_id",           // A
     "player_name",         // B
@@ -350,11 +350,13 @@ function INIT_ANALYSIS_V3_SHEET() {
     "upside_bucket",       // AE (formula)
     "gap_bucket",          // AF (formula)
     "adj_his_par",         // AG (formula)
-    "tournament_type"      // AH (formula)
+    "tournament_type",     // AH (formula)
+    "Birthday",            // AI (formula: XLOOKUP from PLAYERS)
+    "Personal Year"        // AJ (formula: numerology calculation)
   ];
 
   newSheet.getRange(1, 1, 1, headers.length).setValues([headers]);
-  console.log("✓ Created ANALYSIS v3 sheet with 34 columns (A-AH)");
+  console.log("✓ Created ANALYSIS v3 sheet with 36 columns (A-AJ)");
 }
 
 /**
@@ -418,11 +420,13 @@ function ADD_ANALYSIS_V3_FORMULAS() {
     AE: '=IFERROR(IF(O2<25,"0-25",IF(O2<50,"25-50",IF(O2<75,"50-75","75-100"))),"")',
     AF: '=IFERROR(IF(V2>=20,"20-30",IF(V2>=10,"10-20",IF(V2>=0,"0-10",IF(V2>=-10,"-10-0",IF(V2>=-20,"-20--10","<-20"))))),"")',
     AG: '=IFERROR(IF(AB2<2,"",(AA2*AB2+VLOOKUP(K2,TOUR_STATS!$A$2:$B$4,2,0)*10)/(AB2+10)),"")',
-    AH: '=IFERROR(INDEX(EVENTS!BG:BG,MATCH(C2,EVENTS!A:A,0)),"")'
+    AH: '=IFERROR(INDEX(EVENTS!BG:BG,MATCH(C2,EVENTS!A:A,0)),"")',
+    AI: '=IFERROR(XLOOKUP(A2,PLAYERS!A:A,PLAYERS!C:C,""),"")',
+    AJ: '=IF(OR(AI2="",E2=""),"",LET(b,AI2,y,E2,mRed,MOD(MONTH(b)-1,9)+1,dRed,MOD(DAY(b)-1,9)+1,yRed,MOD(SUMPRODUCT(MID(y&"",SEQUENCE(LEN(y&"")),1)*1)-1,9)+1,total,mRed+dRed+yRed,IF(MOD(total,9)=0,9,MOD(total,9))))'
   };
 
-  // Column index mapping (AA=27, AB=28, AC=29, AD=30, AE=31, AF=32, AG=33, AH=34)
-  var colMap = {AA: 27, AB: 28, AC: 29, AD: 30, AE: 31, AF: 32, AG: 33, AH: 34};
+  // Column index mapping (AA=27, AB=28, AC=29, AD=30, AE=31, AF=32, AG=33, AH=34, AI=35, AJ=36)
+  var colMap = {AA: 27, AB: 28, AC: 29, AD: 30, AE: 31, AF: 32, AG: 33, AH: 34, AI: 35, AJ: 36};
 
   // Add formulas for each column
   for (var col in formulas) {
@@ -439,8 +443,8 @@ function ADD_ANALYSIS_V3_FORMULAS() {
     sourceRange.copyTo(targetRange);
   }
 
-  console.log("✓ Added formulas to columns AA, AB, AC, AD, AE, AF, AG, AH");
-  SpreadsheetApp.getUi().alert("✓ Formulas added to ANALYSIS v3 (columns AA-AH). All rows updated.");
+  console.log("✓ Added formulas to columns AA, AB, AC, AD, AE, AF, AG, AH, AI, AJ");
+  SpreadsheetApp.getUi().alert("✓ Formulas added to ANALYSIS v3 (columns AA-AJ). All rows updated.");
 }
 
 /**
