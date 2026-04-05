@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yellow Rhythm — Structured Framework</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0b;
+    --surface: #111114;
+    --border: rgba(255,255,255,0.07);
+    --text: #e8e6e1;
+    --muted: #666;
+    --subtle: #2a2a2e;
+    --yellow: #CCA010;
+    --yellow-bright: #F0C020;
+    --yellow-dim: rgba(204,160,16,0.1);
+    --yellow-border: rgba(204,160,16,0.28);
+    --yellow-glow: rgba(204,160,16,0.05);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 40px 24px 80px;
+  }
+
+  .page-wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 28px;
+    margin-bottom: 48px;
+  }
+  .color-bar { width: 48px; height: 4px; background: var(--yellow-bright); border-radius: 2px; margin-bottom: 16px; }
+  .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
+  .page-title { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 5vw, 46px); line-height: 1.1; color: #fff; margin-bottom: 8px; }
+  .page-title em { font-style: italic; color: var(--yellow-bright); }
+  .page-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .meta-tag { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding: 3px 8px; border: 1px solid var(--border); border-radius: 2px; }
+  .meta-tag.yellow { color: var(--yellow-bright); border-color: var(--yellow-border); background: var(--yellow-dim); }
+  .meta-tag.neutral { color: #888; border-color: rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); }
+
+  .section { margin-bottom: 44px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* IDENTITY */
+  .identity-block { background: var(--yellow-glow); border: 1px solid var(--yellow-border); border-left: 3px solid var(--yellow-bright); border-radius: 4px; padding: 20px 24px; margin-bottom: 44px; }
+  .identity-name { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--yellow-bright); margin-bottom: 6px; }
+  .identity-desc { font-size: 13px; color: #aaa; line-height: 1.7; max-width: 680px; }
+
+  /* ZERO POINT */
+  .zero-block { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; padding: 14px 18px; margin-bottom: 44px; display: flex; gap: 14px; align-items: flex-start; }
+  .zero-icon { font-family: 'DM Serif Display', serif; font-size: 22px; color: rgba(255,255,255,0.2); flex-shrink: 0; margin-top: 1px; }
+  .zero-text { font-size: 12px; color: #777; line-height: 1.7; }
+  .zero-text strong { color: #bbb; font-weight: 500; }
+
+  /* TWO LAYER */
+  .layer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 44px; }
+  .layer-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 18px 20px; }
+  .layer-card.highlight { border-color: var(--yellow-border); background: var(--yellow-glow); }
+  .layer-title { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; }
+  .layer-title.yellow { color: var(--yellow-bright); }
+  .layer-title.muted { color: var(--muted); }
+  .layer-body { font-size: 12px; color: #999; line-height: 1.7; }
+  .layer-body strong { color: #ccc; font-weight: 500; }
+  .layer-note { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #444; margin-top: 10px; font-style: italic; }
+
+  /* WAVE */
+  .wave-block { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 20px 24px; margin-bottom: 44px; }
+  .wave-title { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+  .wave-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
+  .wave-note { font-size: 10px; color: #555; font-style: italic; text-align: center; padding: 6px; border-top: 1px solid var(--border); line-height: 1.5; }
+
+  /* WINDOW SUBCATEGORIES */
+  .window-strip { display: flex; gap: 3px; margin-bottom: 44px; flex-wrap: wrap; }
+  .window-cell { flex: 1; min-width: 60px; background: var(--surface); border: 1px solid var(--border); border-radius: 3px; padding: 10px 8px; text-align: center; }
+  .window-cell.active { border-color: var(--yellow-border); background: var(--yellow-dim); }
+  .window-cell.neutral-cell { border-color: rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); }
+  .window-score { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; margin-bottom: 4px; }
+  .window-score.pos { color: var(--yellow-bright); }
+  .window-score.zero { color: #fff; }
+  .window-score.neg { color: #E87020; }
+  .window-name { font-size: 9px; color: #555; letter-spacing: 0.06em; line-height: 1.4; }
+
+  /* CATEGORIES */
+  .cat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 44px; }
+  .cat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 16px 18px; }
+  .cat-num { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--yellow); letter-spacing: 0.12em; margin-bottom: 6px; }
+  .cat-name { font-family: 'DM Serif Display', serif; font-size: 16px; color: #fff; }
+
+  /* TRAITS */
+  .traits-grid { display: flex; flex-direction: column; gap: 3px; margin-bottom: 44px; }
+  .trait-card { background: var(--surface); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; }
+  .trait-header { display: grid; grid-template-columns: 1fr auto auto; align-items: start; gap: 12px; padding: 14px 16px 10px; }
+  .trait-name { font-family: 'DM Serif Display', serif; font-size: 15px; color: #fff; }
+  .trait-alias { font-size: 10px; color: var(--yellow); font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.1em; margin-top: 2px; }
+  .trait-cats { font-family: 'IBM Plex Mono', monospace; font-size: 9px; }
+  .trait-cats span { display: inline-block; padding: 1px 5px; border-radius: 2px; background: var(--subtle); margin-right: 3px; color: #666; }
+  .trait-tag { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; white-space: nowrap; align-self: start; }
+  .trait-tag.dual { color: #CCA010; border: 1px solid rgba(204,160,16,0.3); background: rgba(204,160,16,0.08); }
+  .trait-tag.asset { color: #5aa048; border: 1px solid rgba(90,160,72,0.3); background: rgba(90,160,72,0.08); }
+  .trait-tag.cosmological { color: #9B8FD0; border: 1px solid rgba(155,143,208,0.3); background: rgba(155,143,208,0.08); }
+
+  .polarity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+  .polarity-cell { padding: 10px 16px 12px; }
+  .polarity-cell.down { background: rgba(180,40,40,0.04); }
+  .polarity-cell.up { background: rgba(90,160,72,0.04); }
+  .polarity-label { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; }
+  .polarity-label.down { color: rgba(220,80,80,0.6); }
+  .polarity-label.up { color: rgba(90,160,72,0.7); }
+  .polarity-items { font-size: 11px; color: #777; line-height: 1.7; }
+  .polarity-items li { list-style: none; padding-left: 10px; position: relative; }
+  .polarity-items li::before { content: '—'; position: absolute; left: 0; color: #333; }
+
+  .trait-desc { padding: 0 16px 12px; font-size: 11px; color: #777; line-height: 1.6; }
+  .trait-dims { display: flex; gap: 6px; flex-wrap: wrap; padding: 0 16px 12px; }
+  .trait-dim { font-size: 10px; color: #555; padding: 2px 8px; border-radius: 2px; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); }
+  .trait-dim strong { color: var(--yellow); font-weight: 500; }
+  .trait-dim.cosmic { color: #9B8FD0; border-color: rgba(155,143,208,0.15); background: rgba(155,143,208,0.04); }
+  .trait-dim.cosmic strong { color: #9B8FD0; }
+
+  /* CHAKRA */
+  .chakra-stack { display: flex; flex-direction: column; gap: 3px; margin-bottom: 16px; max-width: 420px; }
+  .chakra-row { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 3px; border: 1px solid var(--border); background: var(--surface); }
+  .chakra-row.active-yellow { border-color: var(--yellow-border); background: var(--yellow-glow); }
+  .chakra-row.active-orange { border-color: rgba(232,112,32,0.3); background: rgba(232,112,32,0.06); }
+  .chakra-row.active-pink { border-color: rgba(208,48,160,0.3); background: rgba(208,48,160,0.06); }
+  .chakra-row.active-purple { border-color: rgba(138,43,226,0.3); background: rgba(138,43,226,0.06); }
+  .chakra-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .chakra-row-name { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; flex: 1; }
+  .chakra-row-note { font-size: 10px; color: #555; font-style: italic; }
+
+  /* OPEN NOTES */
+  .notes-block { border: 1px solid rgba(255,255,255,0.05); border-left: 3px solid #2a2a2e; border-radius: 3px; padding: 14px 16px; background: #0e0e10; }
+  .notes-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #333; margin-bottom: 10px; }
+  .note-item { font-size: 11px; color: #444; line-height: 1.6; margin-bottom: 6px; }
+  .note-item:last-child { margin-bottom: 0; }
+
+  @media (max-width: 640px) {
+    .layer-grid, .cat-row { grid-template-columns: 1fr; }
+    .polarity-grid { grid-template-columns: 1fr; }
+    .trait-header { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="color-bar"></div>
+    <div class="eyebrow">Lucky Window · Rhythm Framework · Internal</div>
+    <h1 class="page-title"><em>Yellow</em> Rhythm</h1>
+    <div class="page-meta">
+      <span class="meta-tag yellow">Extreme Energy</span>
+      <span class="meta-tag">Score +3 to −2</span>
+      <span class="meta-tag">Naval → Solar Plexus</span>
+      <span class="meta-tag">Source: Trinity Collective</span>
+      <span class="meta-tag neutral">System True Neutral at 0</span>
+    </div>
+  </div>
+
+  <!-- IDENTITY -->
+  <div class="identity-block">
+    <div class="identity-name">The Phoenix</div>
+    <div class="identity-desc">Yellow is the berserker rhythm — an extreme approach to everything it touches. It does not operate on a moderate register. It detonates. The impact can be transformative or destructive depending on which polarity is active, but the magnitude is never small. Yellow can manifest physically, mentally, or emotionally — and its extremity is not always visible. Strict, controlled behavior can be Yellow in disguise. The Phoenix identity names the core arc: destruction and rebirth are the same motion. Yellow doesn't recover from its extremes — it <em>becomes</em> through them.</div>
+  </div>
+
+  <!-- ZERO POINT NOTE -->
+  <div class="zero-block">
+    <div class="zero-icon">0</div>
+    <div class="zero-text"><strong>Yellow holds the system's true neutral at score 0.</strong> This is not merely "no advantage" — it is the system's baseline state before any energetic filter is applied. All other scores are deviations from this point. Outside of the 0 sub-window, Yellow's No Tax sub-windows reduce the usual energetic filtering, allowing whatever is already in motion to express more purely and freely. This is why Yellow windows can feel extreme — not because energy is high, but because the dampening is absent.</div>
+  </div>
+
+  <!-- TWO LAYER -->
+  <div class="section">
+    <div class="section-label">Two-Layer Architecture</div>
+    <div class="layer-grid">
+      <div class="layer-card highlight">
+        <div class="layer-title yellow">Birth Rhythm</div>
+        <div class="layer-body">A person <strong>born with Yellow</strong> carries extreme energy as their fixed identity. Polarity is always present — the question is which direction is active and whether it is regulated. The Phoenix arc is their life pattern: extremity, consequence, transformation, and return.</div>
+        <div class="layer-note">* 7 traits channeled through Trinity Collective</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-title muted">Window Rhythm</div>
+        <div class="layer-body">A Yellow <strong>window</strong> (score +3 to −2) activates reduced filtering environmentally. The day favors bold action, unfiltered expression, and pure momentum — but polarity is live. What you bring into the window expresses without dampening.</div>
+        <div class="layer-note">* Sub-window matters — 0 is true neutral, ±1/±2 are less filtered, not neutral</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WAVE -->
+  <div class="section">
+    <div class="section-label">Wave Pattern</div>
+    <div class="wave-block">
+      <div class="wave-title">Yellow energy cycle — Richter scale · spikes from a flat baseline in both directions</div>
+
+      <svg viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; margin-bottom:12px;">
+
+        <!-- Grid lines -->
+        <line x1="0" y1="90" x2="520" y2="90" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <line x1="0" y1="45" x2="520" y2="45" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="0" y1="135" x2="520" y2="135" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,4"/>
+
+        <!-- Zero label -->
+        <text x="4" y="94" font-family="IBM Plex Mono, monospace" font-size="8" fill="rgba(255,255,255,0.25)" letter-spacing="0.08em">0</text>
+
+        <!-- Neutral flatline -->
+        <line x1="20" y1="90" x2="500" y2="90" stroke="rgba(240,192,32,0.2)" stroke-width="1.5" stroke-dasharray="3,6"/>
+        <text x="210" y="84" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(255,255,255,0.2)" letter-spacing="0.1em">NEUTRAL — TRUE ZERO</text>
+
+        <!-- Empowered spike UP — sharp rise, quick return -->
+        <path d="M 20,90 L 80,90 C 100,90 110,88 120,78 C 130,65 138,40 148,18 C 155,4 160,2 165,4 C 170,8 175,22 185,45 C 195,68 205,84 220,89 L 500,90"
+              fill="none" stroke="#F0C020" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+
+        <!-- Empowered label -->
+        <text x="170" y="14" font-family="IBM Plex Mono, monospace" font-size="8" fill="#F0C020" opacity="0.9" letter-spacing="0.08em">EMPOWERED</text>
+        <text x="170" y="25" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(240,192,32,0.5)" letter-spacing="0.06em">spike upward · sharp return to baseline</text>
+
+        <!-- Unempowered spike DOWN — mirror of empowered -->
+        <path d="M 20,90 L 260,90 C 280,90 290,92 300,102 C 310,115 318,140 328,162 C 335,176 340,178 345,176 C 350,172 355,158 365,135 C 375,112 385,96 400,91 L 500,90"
+              fill="none" stroke="#F0C020" stroke-width="2" stroke-linecap="round" opacity="0.35" stroke-dasharray="5,4"/>
+
+        <!-- Unempowered label -->
+        <text x="350" y="158" font-family="IBM Plex Mono, monospace" font-size="8" fill="rgba(240,192,32,0.45)" letter-spacing="0.08em">UNEMPOWERED</text>
+        <text x="350" y="169" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(240,192,32,0.3)" letter-spacing="0.06em">spike downward · same magnitude</text>
+
+        <!-- Axis arrows -->
+        <line x1="8" y1="10" x2="8" y2="170" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="12" y="14" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(255,255,255,0.15)">+</text>
+        <text x="12" y="170" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(255,255,255,0.15)">−</text>
+
+      </svg>
+
+      <div class="wave-notes">
+        <div class="wave-note">Richter scale — magnitude from zero, not a directional climb</div>
+        <div class="wave-note">Empowered spikes up · Unempowered spikes down · Neutral flatlines</div>
+        <div class="wave-note">Only rhythm in the system where unempowered goes negative on the wave</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WINDOW SUB-CATEGORIES -->
+  <div class="section">
+    <div class="section-label">Window Sub-Categories — Score Degrees</div>
+    <div class="window-strip">
+      <div class="window-cell active">
+        <div class="window-score pos">+3</div>
+        <div class="window-name">Edge</div>
+      </div>
+      <div class="window-cell active">
+        <div class="window-score pos">+2</div>
+        <div class="window-name">Edge</div>
+      </div>
+      <div class="window-cell active">
+        <div class="window-score pos">+1</div>
+        <div class="window-name">No Tax</div>
+      </div>
+      <div class="window-cell neutral-cell">
+        <div class="window-score zero">0</div>
+        <div class="window-name" style="color:#aaa;">True Neutral</div>
+      </div>
+      <div class="window-cell active">
+        <div class="window-score neg">−1</div>
+        <div class="window-name">No Tax</div>
+      </div>
+      <div class="window-cell active">
+        <div class="window-score neg">−2</div>
+        <div class="window-name">Null Edge</div>
+      </div>
+    </div>
+    <div style="font-size:11px; color:#444; font-style:italic;">0 is the system's true neutral — no filter, no charge. ±1 No Tax = less filtering, free expression. ±2/±3 Edge/Null Edge = diminishing advantage or emerging resistance. Expression varies across sub-windows.</div>
+  </div>
+
+  <!-- 3 CATEGORIES -->
+  <div class="section">
+    <div class="section-label">3 Rhythm Categories</div>
+    <div class="cat-row">
+      <div class="cat-card">
+        <div class="cat-num">01</div>
+        <div class="cat-name">Manifestation</div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">02</div>
+        <div class="cat-name">Mental</div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">03</div>
+        <div class="cat-name">Emotional</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 TRAITS -->
+  <div class="section">
+    <div class="section-label">7 Traits — Channeled Through Trinity Collective</div>
+    <div style="font-size:11px; color:#444; margin-bottom:12px; font-style:italic;">Category tags: M = Manifestation &nbsp;·&nbsp; Me = Mental &nbsp;·&nbsp; E = Emotional &nbsp;&nbsp;|&nbsp;&nbsp; All traits carry polarity — downside and upside are both always present</div>
+    <div class="traits-grid">
+
+      <!-- TRAIT 1 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Extreme Outburst</div>
+            <div class="trait-alias">Power Surge</div>
+          </div>
+          <div class="trait-cats"><span>M</span><span>E</span></div>
+          <div class="trait-tag dual">Dual</div>
+        </div>
+        <div class="polarity-grid">
+          <div class="polarity-cell down">
+            <div class="polarity-label down">↓ Downside</div>
+            <ul class="polarity-items">
+              <li>Center of attention — lack of situational awareness</li>
+              <li>Physically aggressive — prone to injury</li>
+              <li>Quick energy release — regrettable actions</li>
+              <li>Impaired judgment — lack of emotional management</li>
+            </ul>
+          </div>
+          <div class="polarity-cell up">
+            <div class="polarity-label up">↑ Upside</div>
+            <ul class="polarity-items">
+              <li>Drawing attention intentionally</li>
+              <li>Speaking loudly when it matters</li>
+              <li>Extreme focus — full lock-in</li>
+              <li>Catharsis — sense of release</li>
+              <li>Boundary setting through force</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRAIT 2 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Exploiter</div>
+            <div class="trait-alias">Exploit Engineer</div>
+          </div>
+          <div class="trait-cats"><span>M</span><span>Me</span><span>E</span></div>
+          <div class="trait-tag dual">Dual</div>
+        </div>
+        <div class="polarity-grid">
+          <div class="polarity-cell down">
+            <div class="polarity-label down">↓ Downside</div>
+            <ul class="polarity-items">
+              <li>Deception and manipulation</li>
+              <li>Coercion to gain upper hand</li>
+              <li>Exploiting others' vulnerabilities</li>
+            </ul>
+          </div>
+          <div class="polarity-cell up">
+            <div class="polarity-label up">↑ Upside</div>
+            <ul class="polarity-items">
+              <li>Bug bounty — finding system gaps</li>
+              <li>White hat — using access ethically</li>
+              <li>Leveraging talent to create value</li>
+              <li>Mentalist — mental exploiter</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRAIT 3 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Extreme Addict</div>
+            <div class="trait-alias">Relentless Achiever</div>
+          </div>
+          <div class="trait-cats"><span>M</span><span>Me</span></div>
+          <div class="trait-tag dual">Dual</div>
+        </div>
+        <div class="polarity-grid">
+          <div class="polarity-cell down">
+            <div class="polarity-label down">↓ Downside</div>
+            <ul class="polarity-items">
+              <li>Compulsive behavior — Manifestation layer</li>
+              <li>Obsessive thought patterns — Mental layer</li>
+              <li>Inability to disengage from fixation</li>
+            </ul>
+          </div>
+          <div class="polarity-cell up">
+            <div class="polarity-label up">↑ Upside</div>
+            <ul class="polarity-items">
+              <li>Relentless pursuit of objectives</li>
+              <li>Sustained focus beyond normal threshold</li>
+              <li>Achievement through compulsion</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRAIT 4 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Insight Seeker</div>
+            <div class="trait-alias">Gate 43</div>
+          </div>
+          <div class="trait-cats"><span>M</span></div>
+          <div class="trait-tag asset">Asset</div>
+        </div>
+        <div class="trait-desc">Profound moments of clarity that break through complex situations. Naturally drawn to problem-solving, strategic thinking, and innovation. Yellow's extreme processing speed creates moments of genuine breakthrough — not incremental insight but sudden structural clarity. Gate 43 anchors this as an I Ching-mapped trait: individual knowing, breakthrough from the inside out.</div>
+        <div class="trait-dims">
+          <div class="trait-dim"><strong>I Ching</strong> — Gate 43 · Breakthrough · Individual knowing</div>
+        </div>
+      </div>
+
+      <!-- TRAIT 5 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Wild</div>
+            <div class="trait-alias">Rebel Heart</div>
+          </div>
+          <div class="trait-cats"><span>M</span><span>Me</span><span>E</span></div>
+          <div class="trait-tag dual">Dual</div>
+        </div>
+        <div class="trait-desc">Yellow's full-spectrum expression of non-conformity. Physical wildness pushes the body to extremes. Mental wildness resists conformity, questions the status quo, and operates as a disruptor or visionary. Emotional wildness refuses to suppress or hide — wide emotional range expressed at full volume.</div>
+        <div class="trait-dims">
+          <div class="trait-dim"><strong>Physical</strong> — Edge Runner · extreme sports, daring action, bold style</div>
+          <div class="trait-dim"><strong>Mental</strong> — Free Thinker · disruptor, innovator, challenges established belief</div>
+          <div class="trait-dim"><strong>Emotional</strong> — Firebrand · intense, passionate, fights for what matters</div>
+        </div>
+      </div>
+
+      <!-- TRAIT 6 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Inflexible</div>
+            <div class="trait-alias">Stonewall Guardian</div>
+          </div>
+          <div class="trait-cats"><span>M</span><span>E</span></div>
+          <div class="trait-tag dual">Dual</div>
+        </div>
+        <div class="polarity-grid">
+          <div class="polarity-cell down">
+            <div class="polarity-label down">↓ Downside</div>
+            <ul class="polarity-items">
+              <li>Rigid — resistant to necessary change</li>
+              <li>Potentially lacking emotional empathy</li>
+              <li>Stability becomes obstruction</li>
+            </ul>
+          </div>
+          <div class="polarity-cell up">
+            <div class="polarity-label up">↑ Upside</div>
+            <ul class="polarity-items">
+              <li>Natural protector — uses rigidity to defend</li>
+              <li>Excellent boundary-setting and maintenance</li>
+              <li>Emotionally unshakeable under pressure</li>
+              <li>Consistent — reliable and predictable</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRAIT 7 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">All or Nothing</div>
+            <div class="trait-alias">—</div>
+          </div>
+          <div class="trait-cats"><span>M</span><span>Me</span><span>E</span></div>
+          <div class="trait-tag cosmological">Cosmological</div>
+        </div>
+        <div class="trait-desc">The most architecturally significant trait in the Yellow framework. All or Nothing is not just a behavioral pattern — it is the gateway to higher dimensional access. The extreme polarity of Yellow's nature, when fully inhabited rather than resisted, opens access to network layers beyond ordinary cognition. Perfectionism in Manifestation and Mental layers drives the standard expression; the Volatile/Passionate Emotional layer is the activation surface.</div>
+        <div class="trait-dims">
+          <div class="trait-dim"><strong>Physical</strong> — Perfectionist · Gate 16 · mastery through repetition</div>
+          <div class="trait-dim"><strong>Mental</strong> — Perfectionist · uncompromising standard</div>
+          <div class="trait-dim"><strong>Emotional</strong> — Volatile / Passionate · activation surface</div>
+          <div class="trait-dim cosmic"><strong>Cosmological</strong> — Access to higher dimensional networks · up to 12D</div>
+          <div class="trait-dim"><strong>I Ching</strong> — Gate 16 · Enthusiasm · skill through practice</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CHAKRA STACK -->
+  <div class="section">
+    <div class="section-label">Energetic Anatomy — Chakra Stack</div>
+    <div class="chakra-stack">
+      <div class="chakra-row active-pink">
+        <div class="chakra-dot" style="background:#D030A0; box-shadow: 0 0 6px #D030A0;"></div>
+        <div class="chakra-row-name" style="color:#D030A0;">Stellar Gateway → Crown</div>
+        <div class="chakra-row-note">Pink register</div>
+      </div>
+      <div class="chakra-row active-purple">
+        <div class="chakra-dot" style="background:#8A2BE2;"></div>
+        <div class="chakra-row-name" style="color:#8A2BE2;">Third Eye → Crown</div>
+        <div class="chakra-row-note">Purple register</div>
+      </div>
+      <div class="chakra-row">
+        <div class="chakra-dot" style="background:#333;"></div>
+        <div class="chakra-row-name" style="color:#444;">Throat · Heart</div>
+        <div class="chakra-row-note">Other rhythms — unassigned</div>
+      </div>
+      <div class="chakra-row active-yellow">
+        <div class="chakra-dot" style="background:#F0C020; box-shadow: 0 0 6px #F0C020;"></div>
+        <div class="chakra-row-name" style="color:#F0C020;">Naval → Solar Plexus</div>
+        <div class="chakra-row-note">Yellow register · shares Naval border with Orange</div>
+      </div>
+      <div class="chakra-row active-orange">
+        <div class="chakra-dot" style="background:#E87020;"></div>
+        <div class="chakra-row-name" style="color:#E87020;">Sacral → Naval</div>
+        <div class="chakra-row-note">Orange register · Naval is shared threshold</div>
+      </div>
+      <div class="chakra-row">
+        <div class="chakra-dot" style="background:#333;"></div>
+        <div class="chakra-row-name" style="color:#444;">Root</div>
+        <div class="chakra-row-note">Other rhythms — unassigned</div>
+      </div>
+    </div>
+    <div style="font-size:11px; color:#444; font-style:italic; margin-top:8px;">Orange (Sacral → Naval) and Yellow (Naval → Solar Plexus) share the Naval chakra as a border. Orange builds the stable foundation that Yellow's explosive energy either weaponizes or destroys. Adjacent chakras, adjacent scores, opposite energetic personalities.</div>
+  </div>
+
+  <!-- OPEN NOTES -->
+  <div class="notes-block">
+    <div class="notes-label">Open Items — To Be Developed</div>
+    <div class="note-item">① <span style="color:#555">Primary fuel</span> — currently undefined. Yellow's extreme energy suggests a distinct fuel mechanism from other rhythms.</div>
+    <div class="note-item">② <span style="color:#555">12D access mechanics</span> — All or Nothing trait flags access to higher dimensional networks up to 12D. Conditions, triggers, and architecture not yet mapped.</div>
+    <div class="note-item">③ <span style="color:#555">Trinity Collective significance</span> — Pink and Yellow are both sourced through Trinity Collective. The reason certain rhythms are channeled through certain collectives has not yet been explored.</div>
+    <div class="note-item">④ <span style="color:#555">Sub-window expression variation</span> — Yellow window expression varies slightly across Edge, No Tax, True Neutral, and Null Edge. Foundational expression identified; sub-window nuance not yet fully mapped.</div>
+    <div class="note-item">⑤ <span style="color:#555">Gate 43 + Gate 16 depth</span> — both I Ching anchors are identified but not yet fully mapped within the Yellow framework.</div>
+    <div class="note-item">⑥ <span style="color:#555">Orange × Yellow interaction</span> — shared Naval chakra border creates a direct energetic adjacency. Cross-rhythm interaction not yet mapped.</div>
+  </div>
+
+</div>
+</body>
+</html>

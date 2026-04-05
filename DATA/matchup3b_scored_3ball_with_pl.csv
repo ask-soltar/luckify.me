@@ -1,0 +1,336 @@
+player_a,player_b,player_c,prediction,predicted_ml,actual_winner,is_push,recommendation,edge,result_type,pl
+Haotong Li,Zecheng Dou,Jordan Smith,Jordan Smith,162.0,Haotong Li,False,STRONG: Bet C,14.71238148644814,LOSS,-100.0
+Haotong Li,Zecheng Dou,Jordan Smith,Jordan Smith,170.0,Haotong Li,False,STRONG: Bet C,14.71238148644814,LOSS,-100.0
+Haotong Li,Zecheng Dou,Jordan Smith,Jordan Smith,162.0,Haotong Li,False,STRONG: Bet C,14.71238148644814,LOSS,-100.0
+Haotong Li,Zecheng Dou,Jordan Smith,Jordan Smith,170.0,Haotong Li,False,STRONG: Bet C,14.71238148644814,LOSS,-100.0
+Min Woo Lee,Jordan Spieth,Daniel Berger,Min Woo Lee,130.0,Min Woo Lee,False,STRONG: Bet A,10.447552743096194,WIN,130.0
+Brendan Steele,Scott Vincent,Victor Perez,Brendan Steele,220.0,Scott Vincent,False,STRONG: Bet A,10.404418564870593,LOSS,-100.0
+Adrien Saddier,Paul Waring,Christo Lamprecht,Adrien Saddier,137.0,Adrien Saddier,False,STRONG: Bet A,10.314071799512886,WIN,137.0
+Angel Ayora,Francesco Laporta,Shaun Norris,Francesco Laporta,162.0,Angel Ayora,False,STRONG: Bet B,10.306332534768194,LOSS,-100.0
+Sam Horsfield,Miguel Tabuena,Younghan Song,Younghan Song,145.0,,True,STRONG: Bet C,10.240411674951456,2WAY_PUSH_WIN,72.5
+Brian Campbell,Cameron Davis,Patrick Rodgers,Cameron Davis,240.0,Patrick Rodgers,False,STRONG: Bet B,9.978026667696232,LOSS,-100.0
+Cameron Adam,Frederico Biondi Figueiredo,Daniel Nduva,Cameron Adam,105.0,Frederico Biondi Figueiredo,False,STRONG: Bet A,9.83853355189179,LOSS,-100.0
+Kevin Yu,Cameron Davis,Gary Woodland,Kevin Yu,140.0,Gary Woodland,False,STRONG: Bet A,9.59200265006088,LOSS,-100.0
+Kevin Yu,Cameron Davis,Gary Woodland,Kevin Yu,150.0,Gary Woodland,False,STRONG: Bet A,9.59200265006088,LOSS,-100.0
+Kevin Yu,Cameron Davis,Gary Woodland,Kevin Yu,140.0,Gary Woodland,False,STRONG: Bet A,9.59200265006088,LOSS,-100.0
+Kevin Yu,Cameron Davis,Gary Woodland,Kevin Yu,150.0,Gary Woodland,False,STRONG: Bet A,9.59200265006088,LOSS,-100.0
+Jacob Bridgeman,Ben Griffin,Adam Scott,Adam Scott,175.0,,True,STRONG: Bet C,9.59200265006088,2WAY_PUSH_LOSS,-100.0
+Matteo Manassero,Jack Buchanan,Matthew Jordan,Matteo Manassero,175.0,Matthew Jordan,False,STRONG: Bet A,9.02719910266565,LOSS,-100.0
+Joel Girrbach,JJ Senekal,Davis Bryant,Joel Girrbach,137.0,,True,STRONG: Bet A,9.02719910266565,2WAY_PUSH_WIN,68.5
+Garrick Higgo,Karl Vilips,Davis Riley,Karl Vilips,180.0,Karl Vilips,False,STRONG: Bet B,9.02719910266565,WIN,180.0
+Sergio Garcia,Lucas Herbert,Sebastian Munoz,Sergio Garcia,200.0,Sergio Garcia,False,STRONG: Bet A,8.904029995377595,WIN,200.0
+Ben Griffin,Sahith Theegala,Tony Finau,Ben Griffin,150.0,Tony Finau,False,STRONG: Bet A,8.695785029375676,LOSS,-100.0
+Xander Schauffele,Rory McIlroy,Hideki Matsuyama,Xander Schauffele,180.0,Xander Schauffele,False,STRONG: Bet A,8.645035256667688,WIN,180.0
+Joaquin Niemann,Dean Burmester,Thomas Detry,Dean Burmester,170.0,Thomas Detry,False,STRONG: Bet B,8.471868350223245,LOSS,-100.0
+Taylor Moore,Joel Dahmen,Ryo Hisatsune,Ryo Hisatsune,162.0,Taylor Moore,False,STRONG: Bet C,8.451902275529566,LOSS,-100.0
+Cameron Young,Davis Thompson,Sam Burns,Cameron Young,137.0,Cameron Young,False,STRONG: Bet A,8.451902275529566,WIN,137.0
+J.J. Spaun,Sepp Straka,Shane Lowry,J.J. Spaun,200.0,Sepp Straka,False,STRONG: Bet A,8.451902275529566,LOSS,-100.0
+Sahith Theegala,Rickie Fowler,Jordan Spieth,Jordan Spieth,187.0,Sahith Theegala,False,STRONG: Bet C,8.451902275529566,LOSS,-100.0
+Richard Bland,Ben Campbell,Danny Lee,Danny Lee,275.0,Richard Bland,False,STRONG: Bet C,8.394514065333103,LOSS,-100.0
+Thorbjorn Olesen,Chandler Phillips,Hank Lebioda,Chandler Phillips,210.0,,True,STRONG: Bet B,8.329231824371302,2WAY_PUSH_WIN,105.0
+Austin Eckroat,Doug Ghim,David Lipsky,Doug Ghim,150.0,Doug Ghim,False,STRONG: Bet B,8.329231824371302,WIN,150.0
+Franklin Manchest,Justin Walters,Thanda Mavundla,Thanda Mavundla,350.0,Justin Walters,False,STRONG: Bet C,8.238885059013597,LOSS,-100.0
+Camilo Villegas,Joel Dahmen,Sam Ryder,Camilo Villegas,260.0,Joel Dahmen,False,STRONG: Bet A,8.238885059013597,LOSS,-100.0
+Francesco Laporta,Connor Syme,Daniel van Tonder,Daniel van Tonder,190.0,Francesco Laporta,False,STRONG: Bet C,8.238885059013597,LOSS,-100.0
+Jesper Svensson,Zach Bauchou,Jeffrey Kang,Zach Bauchou,160.0,,True,STRONG: Bet B,8.144491344380413,2WAY_PUSH_LOSS,-100.0
+Rafael Campos,Seamus Power,Rasmus Hojgaard,Seamus Power,150.0,Rasmus Hojgaard,False,STRONG: Bet B,8.144491344380413,LOSS,-100.0
+Zecheng Dou,Jackson Suber,Neal Shipley,Jackson Suber,190.0,Zecheng Dou,False,STRONG: Bet B,8.144491344380413,LOSS,-100.0
+Lee Hodges,Mark Hubbard,Henrik Norlander,Henrik Norlander,210.0,Lee Hodges,False,STRONG: Bet C,8.144491344380413,LOSS,-100.0
+Ricky Castillo,J.J. Spaun,Billy Horschel,Ricky Castillo,175.0,Billy Horschel,False,STRONG: Bet A,8.144491344380413,LOSS,-100.0
+Aaron Rai,Shane Lowry,Billy Horschel,Shane Lowry,120.0,Aaron Rai,False,STRONG: Bet B,8.054144579022708,LOSS,-100.0
+Steven Fisk,Nico Echavarria,Kevin Yu,Nico Echavarria,145.0,Nico Echavarria,False,STRONG: Bet B,8.054144579022708,WIN,145.0
+Austin Smotherman,Jordan Smith,Chandler Blanchet,Chandler Blanchet,200.0,Austin Smotherman,False,STRONG: Bet C,8.054144579022708,LOSS,-100.0
+Steven Fisk,Nick Taylor,Aaron Rai,Aaron Rai,160.0,Aaron Rai,False,STRONG: Bet C,8.054144579022708,WIN,160.0
+Viktor Hovland,Brooks Koepka,Corey Conners,Viktor Hovland,145.0,Corey Conners,False,STRONG: Bet A,8.054144579022708,LOSS,-100.0
+Brandon Stone,Marcel Schneider,Pieter Moolman,Brandon Stone,130.0,Brandon Stone,False,STRONG: Bet A,8.054144579022708,WIN,130.0
+Jeong Weon Ko,Ryggs Johnston,JC Ritchie,JC Ritchie,100.0,JC Ritchie,False,STRONG: Bet C,8.054144579022708,WIN,100.0
+Bjorn Hellgren,Michael La Sasso,Luis Masaveu,Michael La Sasso,240.0,Luis Masaveu,False,STRONG: Bet B,8.054144579022708,LOSS,-100.0
+Jean Hugo,Adrian Otaegui,Jovan Rebula,Adrian Otaegui,137.0,Adrian Otaegui,False,STRONG: Bet B,8.054144579022708,WIN,137.0
+Jacob Olesen,Rikuya Hoshino,Calum Hill,Jacob Olesen,150.0,Rikuya Hoshino,False,STRONG: Bet A,8.054144579022708,LOSS,-100.0
+Ugo Coussaud,Wenyi Ding,Nathan Kimsey,Nathan Kimsey,160.0,Nathan Kimsey,False,STRONG: Bet C,8.054144579022708,WIN,160.0
+Davis Thompson,Stephan Jaeger,Webb Simpson,Stephan Jaeger,162.0,Davis Thompson,False,STRONG: Bet B,8.054144579022708,LOSS,-100.0
+Mark Hubbard,Eric Cole,Alex Smalley,Alex Smalley,130.0,Mark Hubbard,False,STRONG: Bet C,8.054144579022708,LOSS,-100.0
+Kris Ventura,Dan Brown,Pontus Nyholm,Dan Brown,137.0,Pontus Nyholm,False,STRONG: Bet B,8.054144579022708,LOSS,-100.0
+Sami Valimaki,Cameron Davis,Matt Kuchar,Sami Valimaki,120.0,,True,STRONG: Bet A,8.054144579022708,2WAY_PUSH_LOSS,-100.0
+Adam Schenk,William Mouw,Aaron Wise,Adam Schenk,175.0,William Mouw,False,STRONG: Bet A,8.054144579022708,LOSS,-100.0
+Jesper Svensson,Kensei Hirata,Luke Clanton,Jesper Svensson,137.0,Jesper Svensson,False,STRONG: Bet A,8.054144579022708,WIN,137.0
+Altin van der Merwe,Louis Albertse,Ruan Korb,Louis Albertse,125.0,Altin van der Merwe,False,STRONG: Bet B,8.054144579022708,LOSS,-100.0
+Chan Kim,John Parry,Gordon Sargent,Gordon Sargent,250.0,Chan Kim,False,STRONG: Bet C,8.054144579022708,LOSS,-100.0
+Kota Kaneko,Jeff Winther,Scott Jamieson,Scott Jamieson,175.0,Jeff Winther,False,STRONG: Bet C,8.054144579022708,LOSS,-100.0
+Sebastian Garcia Rodriguez,Martin Vorster,Hennie O'Kennedy,Martin Vorster,162.0,Sebastian Garcia Rodriguez,False,STRONG: Bet B,8.006395332442086,LOSS,-100.0
+Michael Hollick,Zander Lombard,Nikhil Rama,Michael Hollick,175.0,Zander Lombard,False,MODERATE: Lean A,7.978374331138544,LOSS,-100.0
+Angel Hidalgo,Jaco Ahlers,Darius van Driel,Angel Hidalgo,187.0,Darius van Driel,False,MODERATE: Lean A,7.802991198304032,LOSS,-100.0
+David Law,Jaco Prinsloo,Ugo Coussaud,David Law,190.0,,True,MODERATE: Lean A,7.639320279823491,2WAY_PUSH_WIN,95.0
+Frederic Lacroix,Zander Lombard,Alex Fitzpatrick,Zander Lombard,210.0,Frederic Lacroix,False,MODERATE: Lean B,7.373178764048808,LOSS,-100.0
+Joe Dean,Bernd Wiesberger,Nikhil Rama,Bernd Wiesberger,130.0,Joe Dean,False,MODERATE: Lean B,7.288407289977307,LOSS,-100.0
+Emiliano Grillo,Charley Hoffman,Danny Willett,Charley Hoffman,162.0,Emiliano Grillo,False,MODERATE: Lean B,7.210719092870855,LOSS,-100.0
+Ben Schmidt,Kyle McClatchie,Luke Jerling,Kyle McClatchie,250.0,Ben Schmidt,False,MODERATE: Lean B,7.059427939048896,LOSS,-100.0
+Ricardo Gouveia,James Morrison,Keenan Davidse,Keenan Davidse,230.0,James Morrison,False,MODERATE: Lean C,7.059427939048896,LOSS,-100.0
+Cameron Tringale,Adrian Meronk,Laurie Canter,Adrian Meronk,187.0,Adrian Meronk,False,MODERATE: Lean B,7.05931232263431,WIN,187.0
+Branden Grace,Tyrrell Hatton,Harold Varner III,Harold Varner III,260.0,Branden Grace,False,MODERATE: Lean C,7.05931232263431,LOSS,-100.0
+Russell Henley,Harris English,Corey Conners,Harris English,150.0,Corey Conners,False,MODERATE: Lean B,7.048564530335091,LOSS,-100.0
+Russell Henley,Harris English,Corey Conners,Harris English,160.0,Corey Conners,False,MODERATE: Lean B,7.048564530335091,LOSS,-100.0
+Aldrich Potgieter,Ryan Fox,Sam Stevens,Aldrich Potgieter,225.0,Ryan Fox,False,MODERATE: Lean A,7.048564530335091,LOSS,-100.0
+Russell Henley,Harris English,Corey Conners,Harris English,150.0,Corey Conners,False,MODERATE: Lean B,7.048564530335091,LOSS,-100.0
+Russell Henley,Harris English,Corey Conners,Harris English,160.0,Corey Conners,False,MODERATE: Lean B,7.048564530335091,LOSS,-100.0
+Sam Stevens,Ryan Fox,Aldrich Potgieter,Aldrich Potgieter,250.0,Ryan Fox,False,MODERATE: Lean C,7.048564530335091,LOSS,-100.0
+Manuel Elvira,Marcus Kinhult,Sam Bairstow,Sam Bairstow,160.0,Sam Bairstow,False,MODERATE: Lean C,6.968965557276605,WIN,160.0
+Darius van Driel,Ryan Van Velzen,Austin Bautista,Ryan Van Velzen,145.0,Ryan Van Velzen,False,MODERATE: Lean B,6.968965557276605,WIN,145.0
+Peter Malnati,Brice Garnett,Lanto Griffin,Lanto Griffin,150.0,Lanto Griffin,False,MODERATE: Lean C,6.968965557276605,WIN,150.0
+Taylor Pendrith,Matt McCarty,Jhonattan Vegas,Jhonattan Vegas,350.0,,True,MODERATE: Lean C,6.91489361702128,2WAY_PUSH_WIN,175.0
+Matt McCarty,Jhonattan Vegas,Taylor Pendrith,Jhonattan Vegas,300.0,,True,MODERATE: Lean B,6.91489361702128,2WAY_PUSH_WIN,150.0
+Jeong Weon Ko,Herman Loubser,Sam Bairstow,Sam Bairstow,110.0,Sam Bairstow,False,MODERATE: Lean C,6.884044806214384,WIN,110.00000000000001
+David Puig,Lee Westwood,Louis Oosthuizen,Lee Westwood,333.0,Lee Westwood,False,MODERATE: Lean B,6.755318884463737,WIN,333.0
+Adam Schenk,Garrick Higgo,Matt McCarty,Adam Schenk,300.0,Matt McCarty,False,MODERATE: Lean A,6.613258421519908,LOSS,-100.0
+Adam Schenk,Garrick Higgo,Matt McCarty,Adam Schenk,320.0,Matt McCarty,False,MODERATE: Lean A,6.613258421519908,LOSS,-100.0
+Keegan Bradley,Ryan Fox,Chris Kirk,Ryan Fox,170.0,,False,MODERATE: Lean B,6.613258421519908,LOSS,-100.0
+Adam Schenk,Garrick Higgo,Matt McCarty,Adam Schenk,300.0,Matt McCarty,False,MODERATE: Lean A,6.613258421519908,LOSS,-100.0
+Adam Schenk,Garrick Higgo,Matt McCarty,Adam Schenk,320.0,Matt McCarty,False,MODERATE: Lean A,6.613258421519908,LOSS,-100.0
+Joel Girrbach,Scott Jamieson,Nathan Kimsey,Joel Girrbach,175.0,Nathan Kimsey,False,MODERATE: Lean A,6.613220757029375,LOSS,-100.0
+David Wakhu,Lukas Nemecz,Jonathan Broomhead,David Wakhu,450.0,Lukas Nemecz,False,MODERATE: Lean A,6.337014317382706,LOSS,-100.0
+Maverick McNealy,Akshay Bhatia,Jacob Bridgeman,Akshay Bhatia,170.0,Jacob Bridgeman,False,MODERATE: Lean B,6.316075321623597,LOSS,-100.0
+Maverick McNealy,Akshay Bhatia,Jacob Bridgeman,Akshay Bhatia,185.0,Jacob Bridgeman,False,MODERATE: Lean B,6.316075321623597,LOSS,-100.0
+Maverick McNealy,Akshay Bhatia,Jacob Bridgeman,Akshay Bhatia,170.0,Jacob Bridgeman,False,MODERATE: Lean B,6.316075321623597,LOSS,-100.0
+Maverick McNealy,Akshay Bhatia,Jacob Bridgeman,Akshay Bhatia,185.0,Jacob Bridgeman,False,MODERATE: Lean B,6.316075321623597,LOSS,-100.0
+Renato Paratore,Trevor Fisher Jr,Ross Fisher,Ross Fisher,187.0,Ross Fisher,False,MODERATE: Lean C,6.220053393138668,WIN,187.0
+Daniel van Tonder,Justin Harding,Angel Hidalgo,Daniel van Tonder,130.0,Justin Harding,False,MODERATE: Lean A,6.168979354918548,LOSS,-100.0
+Quim Vidal,Quentin Debove,Robin Williams,Quentin Debove,187.0,Quim Vidal,False,MODERATE: Lean B,6.168979354918548,LOSS,-100.0
+Veer Ahlawat,Joshua Berry,Adri Arnaus,Veer Ahlawat,160.0,,True,MODERATE: Lean A,6.152273837391816,2WAY_PUSH_WIN,80.0
+Matteo Manassero,Njoroge Njunge Kibugu,Dan Bradbury,Matteo Manassero,170.0,Njoroge Njunge Kibugu,False,MODERATE: Lean A,6.152273837391816,LOSS,-100.0
+Marcel Siem,Brandon Stone,Antoine Rozner,Brandon Stone,145.0,Brandon Stone,False,MODERATE: Lean B,6.1285935595181895,WIN,145.0
+Haydn Porteous,Joost Luiten,Neil Schietekat,Joost Luiten,-105.0,Joost Luiten,False,MODERATE: Lean B,6.1285935595181895,WIN,95.23809523809523
+Euan Walker,Andrew Johnston,Justin Harding,Euan Walker,200.0,Justin Harding,False,MODERATE: Lean A,6.1285935595181895,LOSS,-100.0
+Mark Hubbard,Thorbjorn Olesen,Mac Meissner,Mac Meissner,160.0,Mac Meissner,False,MODERATE: Lean C,6.067346229780453,WIN,160.0
+Mark Hubbard,Thorbjorn Olesen,Mac Meissner,Mac Meissner,150.0,Mac Meissner,False,MODERATE: Lean C,6.067346229780453,WIN,150.0
+Mark Hubbard,Thorbjorn Olesen,Mac Meissner,Mac Meissner,160.0,Mac Meissner,False,MODERATE: Lean C,6.067346229780453,WIN,160.0
+Mark Hubbard,Thorbjorn Olesen,Mac Meissner,Mac Meissner,150.0,Mac Meissner,False,MODERATE: Lean C,6.067346229780453,WIN,150.0
+Ryan Van Velzen,Andres Gallegos,Sadom Kaewkanjana,Ryan Van Velzen,162.0,,True,MODERATE: Lean A,6.061927072034112,2WAY_PUSH_WIN,81.0
+Makhetha Mazibuko,Graham van der Merwe,Hugo Townsend,Graham van der Merwe,150.0,Hugo Townsend,False,MODERATE: Lean B,6.015713678151821,LOSS,-100.0
+Adrian Otaegui,Oliver Bekker,David Ravetto,Adrian Otaegui,150.0,David Ravetto,False,MODERATE: Lean A,5.827791147439937,LOSS,-100.0
+Rasmus Hojgaard,Danny Walker,Kristoffer Reitan,Danny Walker,320.0,Danny Walker,False,MODERATE: Lean B,5.808351491070546,WIN,320.0
+Rasmus Hojgaard,Danny Walker,Kristoffer Reitan,Danny Walker,260.0,Danny Walker,False,MODERATE: Lean B,5.808351491070546,WIN,260.0
+Matti Schmid,Max McGreevy,Takumi Kanaya,Takumi Kanaya,187.0,Matti Schmid,False,MODERATE: Lean C,5.808351491070546,LOSS,-100.0
+Rasmus Hojgaard,Danny Walker,Kristoffer Reitan,Danny Walker,320.0,Danny Walker,False,MODERATE: Lean B,5.808351491070546,WIN,320.0
+Rasmus Hojgaard,Danny Walker,Kristoffer Reitan,Danny Walker,260.0,Danny Walker,False,MODERATE: Lean B,5.808351491070546,WIN,260.0
+Erik van Rooyen,Tom Kim,Zac Blair,Tom Kim,137.0,Tom Kim,False,MODERATE: Lean B,5.709629481841819,WIN,137.0
+Kurt Kitayama,Harry Hall,Stephan Jaeger,Harry Hall,150.0,Kurt Kitayama,False,MODERATE: Lean B,5.666291028126717,LOSS,-100.0
+Martin Kaymer,Tom McKibbin,Ian Poulter,Martin Kaymer,375.0,Ian Poulter,False,MODERATE: Lean A,5.603598928553207,LOSS,-100.0
+Joost Luiten,Samuel Simpson,Dan Bradbury,Joost Luiten,145.0,Dan Bradbury,False,MODERATE: Lean A,5.53194864163942,LOSS,-100.0
+Lee Hodges,Matt Wallace,Mac Meissner,Mac Meissner,140.0,Lee Hodges,False,MODERATE: Lean C,5.53194864163942,LOSS,-100.0
+Rafael Campos,Nicolai Hojgaard,S.H. Kim,Rafael Campos,400.0,Nicolai Hojgaard,False,MODERATE: Lean A,5.53194864163942,LOSS,-100.0
+Jordan Gumberg,Pieter Moolman,Louis Albertse,Jordan Gumberg,187.0,Jordan Gumberg,False,MODERATE: Lean A,5.528159059628758,WIN,187.0
+Nico Echavarria,Jason Day,Corey Conners,Corey Conners,162.0,Corey Conners,False,MODERATE: Lean C,5.473158046988595,WIN,162.0
+Chad Ramey,Alex Smalley,Pierceson Coody,Chad Ramey,240.0,Alex Smalley,False,MODERATE: Lean A,5.473158046988595,LOSS,-100.0
+Jovan Rebula,Rafa Cabrera Bello,Benjamin Follett-Smith,Benjamin Follett-Smith,180.0,Jovan Rebula,False,MODERATE: Lean C,5.340236528916874,LOSS,-100.0
+Clement Charmasson,Adrian Otaegui,Mike Toorop,Adrian Otaegui,130.0,Mike Toorop,False,MODERATE: Lean B,5.190397260333692,LOSS,-100.0
+Bernd Wiesberger,Jason Scrivener,Wenyi Ding,Bernd Wiesberger,225.0,Jason Scrivener,False,MODERATE: Lean A,5.190397260333692,LOSS,-100.0
+Aldrich Potgieter,Jake Knapp,Sungjae Im,Jake Knapp,110.0,Aldrich Potgieter,False,MODERATE: Lean B,5.120378836387262,LOSS,-100.0
+Aldrich Potgieter,Jake Knapp,Sungjae Im,Jake Knapp,115.0,Aldrich Potgieter,False,MODERATE: Lean B,5.120378836387262,LOSS,-100.0
+Chris Gotterup,Justin Rose,Min Woo Lee,Chris Gotterup,175.0,Chris Gotterup,False,MODERATE: Lean A,5.120378836387262,WIN,175.0
+Aldrich Potgieter,Jake Knapp,Sungjae Im,Jake Knapp,110.0,Aldrich Potgieter,False,MODERATE: Lean B,5.120378836387262,LOSS,-100.0
+Aldrich Potgieter,Jake Knapp,Sungjae Im,Jake Knapp,115.0,Aldrich Potgieter,False,MODERATE: Lean B,5.120378836387262,LOSS,-100.0
+Max Homa,Denny McCarthy,Kevin Yu,Denny McCarthy,175.0,Max Homa,False,SLIGHT: B favored,4.9893851586045255,LOSS,-100.0
+Kevin Yu,Max Homa,Denny McCarthy,Denny McCarthy,175.0,Max Homa,False,SLIGHT: C favored,4.9893851586045255,LOSS,-100.0
+Tony Finau,Max McGreevy,Lucas Glover,Max McGreevy,160.0,Max McGreevy,False,SLIGHT: B favored,4.9893851586045255,WIN,160.0
+Brian Campbell,Wyndham Clark,Marco Penge,Wyndham Clark,120.0,Marco Penge,False,SLIGHT: B favored,4.9893851586045255,LOSS,-100.0
+Lucas Glover,Tony Finau,Max McGreevy,Max McGreevy,160.0,Max McGreevy,False,SLIGHT: C favored,4.9893851586045255,WIN,160.0
+Sahith Theegala,Michael Kim,Pierceson Coody,Michael Kim,220.0,,True,SLIGHT: B favored,4.984091390211347,2WAY_PUSH_WIN,110.00000000000001
+Pierceson Coody,Sahith Theegala,Michael Kim,Michael Kim,235.0,Pierceson Coody,False,SLIGHT: C favored,4.984091390211347,LOSS,-100.0
+Brian Harman,Maverick McNealy,Davis Riley,Davis Riley,300.0,Maverick McNealy,False,SLIGHT: C favored,4.98404551090333,LOSS,-100.0
+Brian Harman,Maverick McNealy,Davis Riley,Davis Riley,425.0,Maverick McNealy,False,SLIGHT: C favored,4.98404551090333,LOSS,-100.0
+Matthew Wolff,Elvis Smylie,Dean Burmester,Elvis Smylie,170.0,Matthew Wolff,False,SLIGHT: B favored,4.98404551090333,LOSS,-100.0
+Brian Harman,Maverick McNealy,Davis Riley,Davis Riley,300.0,Maverick McNealy,False,SLIGHT: C favored,4.98404551090333,LOSS,-100.0
+Brian Harman,Maverick McNealy,Davis Riley,Davis Riley,425.0,Maverick McNealy,False,SLIGHT: C favored,4.98404551090333,LOSS,-100.0
+Cameron Tringale,Luis Masaveu,Sam Horsfield,Sam Horsfield,250.0,Cameron Tringale,False,SLIGHT: C favored,4.98404551090333,LOSS,-100.0
+Matthieu Pavon,S.H. Kim,Austin Smotherman,Matthieu Pavon,225.0,Austin Smotherman,False,SLIGHT: A favored,4.951961143419403,LOSS,-100.0
+Ricky Castillo,Ryan Gerard,Patrick Cantlay,Ricky Castillo,220.0,Ricky Castillo,False,SLIGHT: A favored,4.951961143419403,WIN,220.00000000000003
+Ricky Castillo,Ryan Gerard,Patrick Cantlay,Ricky Castillo,220.0,Ricky Castillo,False,SLIGHT: A favored,4.951961143419403,WIN,220.00000000000003
+Emiliano Grillo,Christiaan Bezuidenhout,Max Greyserman,Emiliano Grillo,250.0,,True,SLIGHT: A favored,4.951961143419403,2WAY_PUSH_LOSS,-100.0
+Emiliano Grillo,Christiaan Bezuidenhout,Max Greyserman,Emiliano Grillo,280.0,,True,SLIGHT: A favored,4.951961143419403,2WAY_PUSH_LOSS,-100.0
+Emiliano Grillo,Christiaan Bezuidenhout,Max Greyserman,Emiliano Grillo,250.0,,True,SLIGHT: A favored,4.951961143419403,2WAY_PUSH_LOSS,-100.0
+Emiliano Grillo,Christiaan Bezuidenhout,Max Greyserman,Emiliano Grillo,280.0,,True,SLIGHT: A favored,4.951961143419403,2WAY_PUSH_LOSS,-100.0
+Ricky Castillo,Ryan Gerard,Patrick Cantlay,Ricky Castillo,220.0,Ricky Castillo,False,SLIGHT: A favored,4.951961143419403,WIN,220.00000000000003
+Ricky Castillo,Ryan Gerard,Patrick Cantlay,Ricky Castillo,220.0,Ricky Castillo,False,SLIGHT: A favored,4.951961143419403,WIN,220.00000000000003
+Brice Garnett,Dylan Wu,Max Meissner,Dylan Wu,210.0,Dylan Wu,False,SLIGHT: B favored,4.878296857601944,WIN,210.0
+Sepp Straka,Harry Hall,Patrick Cantlay,Harry Hall,220.0,,True,SLIGHT: B favored,4.870959067150574,2WAY_PUSH_WIN,110.00000000000001
+Patrick Cantlay,Sepp Straka,Harry Hall,Harry Hall,240.0,,True,SLIGHT: C favored,4.870959067150574,2WAY_PUSH_WIN,120.0
+Ben Griffin,Keegan Bradley,Sam Burns,Sam Burns,160.0,Sam Burns,False,SLIGHT: C favored,4.870959067150574,WIN,160.0
+Ben Griffin,Sam Burns,Keegan Bradley,Sam Burns,170.0,Sam Burns,False,SLIGHT: B favored,4.870959067150574,WIN,170.0
+Francesco Laporta,Joe Dean,Marcus Kinhult,Joe Dean,210.0,Francesco Laporta,False,SLIGHT: B favored,4.849148682168941,LOSS,-100.0
+Viktor Hovland,Russell Henley,Robert MacIntyre,Robert MacIntyre,200.0,Russell Henley,False,SLIGHT: C favored,4.838124440726401,LOSS,-100.0
+Viktor Hovland,Russell Henley,Robert MacIntyre,Robert MacIntyre,210.0,Russell Henley,False,SLIGHT: C favored,4.838124440726401,LOSS,-100.0
+Erik van Rooyen,Keith Mitchell,Michael Kim,Keith Mitchell,115.0,Keith Mitchell,False,SLIGHT: B favored,4.838124440726401,WIN,114.99999999999999
+Viktor Hovland,Russell Henley,Robert MacIntyre,Robert MacIntyre,200.0,Russell Henley,False,SLIGHT: C favored,4.838124440726401,LOSS,-100.0
+Viktor Hovland,Russell Henley,Robert MacIntyre,Robert MacIntyre,210.0,Russell Henley,False,SLIGHT: C favored,4.838124440726401,LOSS,-100.0
+Ockie Strydom,Justin Harding,Johannes Veerman,Johannes Veerman,-105.0,Johannes Veerman,False,SLIGHT: C favored,4.771438736246076,WIN,95.23809523809523
+Taylor Moore,Harry Higgs,Hank Lebioda,Hank Lebioda,187.0,Taylor Moore,False,SLIGHT: C favored,4.766211352594019,LOSS,-100.0
+Jason Day,Alex Noren,Ryo Hisatsune,Jason Day,150.0,Ryo Hisatsune,False,SLIGHT: A favored,4.719977828508734,LOSS,-100.0
+Jason Day,Alex Noren,Ryo Hisatsune,Jason Day,145.0,Ryo Hisatsune,False,SLIGHT: A favored,4.719977828508734,LOSS,-100.0
+Jason Day,Alex Noren,Ryo Hisatsune,Jason Day,150.0,Ryo Hisatsune,False,SLIGHT: A favored,4.719977828508734,LOSS,-100.0
+Jason Day,Alex Noren,Ryo Hisatsune,Jason Day,145.0,Ryo Hisatsune,False,SLIGHT: A favored,4.719977828508734,LOSS,-100.0
+Jastas Madoya Asena,Davis Bryant,Callum Tarren,Callum Tarren,-105.0,Davis Bryant,False,SLIGHT: C favored,4.648136291558098,LOSS,-100.0
+Yurav Premall,Felix Mory,Dismas Indiza Anyonyi,Yurav Premall,110.0,Yurav Premall,False,SLIGHT: A favored,4.648136291558098,WIN,110.00000000000001
+Collin Morikawa,Ludvig Aberg,Si Woo Kim,Si Woo Kim,170.0,,False,SLIGHT: C favored,4.640041506641476,LOSS,-100.0
+Peter Uihlein,Cameron Smith,Byeong-Hun An,Byeong-Hun An,180.0,Cameron Smith,False,SLIGHT: C favored,4.608766672164808,LOSS,-100.0
+JJ Senekal,MJ Daffue,Jorge Campillo,MJ Daffue,175.0,,True,SLIGHT: B favored,4.558756115038163,2WAY_PUSH_LOSS,-100.0
+Patrick Reed,Martin Couvra,Charl Schwartzel,Martin Couvra,240.0,Patrick Reed,False,SLIGHT: B favored,4.446769619893317,LOSS,-100.0
+Scottie Scheffler,Xander Schauffele,Si Woo Kim,Xander Schauffele,240.0,,True,SLIGHT: B favored,4.370028272953805,2WAY_PUSH_WIN,120.0
+Scottie Scheffler,Xander Schauffele,Si Woo Kim,Xander Schauffele,250.0,,True,SLIGHT: B favored,4.370028272953805,2WAY_PUSH_WIN,125.0
+Scottie Scheffler,Xander Schauffele,Si Woo Kim,Xander Schauffele,240.0,,True,SLIGHT: B favored,4.370028272953805,2WAY_PUSH_WIN,120.0
+Scottie Scheffler,Xander Schauffele,Si Woo Kim,Xander Schauffele,250.0,,True,SLIGHT: B favored,4.370028272953805,2WAY_PUSH_WIN,125.0
+Patrick Rodgers,Kevin Roy,Marco Penge,Patrick Rodgers,175.0,Patrick Rodgers,False,SLIGHT: A favored,4.150151786043117,WIN,175.0
+Cameron Young,Viktor Hovland,Shane Lowry,Viktor Hovland,175.0,Viktor Hovland,False,SLIGHT: B favored,3.927393913517872,WIN,175.0
+Cameron Young,Viktor Hovland,Shane Lowry,Viktor Hovland,180.0,Viktor Hovland,False,SLIGHT: B favored,3.927393913517872,WIN,180.0
+Cameron Young,Viktor Hovland,Shane Lowry,Viktor Hovland,175.0,Viktor Hovland,False,SLIGHT: B favored,3.927393913517872,WIN,175.0
+Cameron Young,Viktor Hovland,Shane Lowry,Viktor Hovland,180.0,Viktor Hovland,False,SLIGHT: B favored,3.927393913517872,WIN,180.0
+Jon Rahm,Thomas Detry,Talor Gooch,Talor Gooch,275.0,Jon Rahm,False,SLIGHT: C favored,3.919984484474265,LOSS,-100.0
+Scott Vincent,Marc Leishman,Jason Kokrak,Jason Kokrak,225.0,Marc Leishman,False,SLIGHT: C favored,3.919984484474265,LOSS,-100.0
+Younghan Song,Charl Schwartzel,Richard Bland,Charl Schwartzel,162.0,,True,SLIGHT: B favored,3.919984484474265,2WAY_PUSH_WIN,81.0
+Joaquin Niemann,Dustin Johnson,Bryson DeChambeau,Joaquin Niemann,162.0,Bryson DeChambeau,False,SLIGHT: A favored,3.919984484474265,LOSS,-100.0
+Miguel Tabuena,Bjorn Hellgren,Yosuke Asaji,Miguel Tabuena,170.0,Bjorn Hellgren,False,SLIGHT: A favored,3.919984484474265,LOSS,-100.0
+John Parry,John Vanderlaan,Marcelo Rozo,Marcelo Rozo,300.0,John Vanderlaan,False,SLIGHT: C favored,3.876094158526,LOSS,-100.0
+Charles Howell III,Jason Kokrak,Caleb Surratt,Charles Howell III,187.0,Charles Howell III,False,SLIGHT: A favored,3.876094158526,WIN,187.0
+Caleb Surratt,Victor Perez,Jose Luis Ballester,Jose Luis Ballester,187.0,,True,SLIGHT: C favored,3.86169498467563,2WAY_PUSH_LOSS,-100.0
+Graeme McDowell,Peter Uihlein,Branden Grace,Graeme McDowell,240.0,Graeme McDowell,False,SLIGHT: A favored,3.86169498467563,WIN,240.0
+Bubba Watson,Ian Poulter,Brendan Steele,Ian Poulter,250.0,Brendan Steele,False,SLIGHT: B favored,3.86169498467563,LOSS,-100.0
+Jhonattan Vegas,Taylor Pendrith,Alex Noren,Alex Noren,115.0,Alex Noren,False,SLIGHT: C favored,3.698024066195088,WIN,114.99999999999999
+Jhonattan Vegas,Taylor Pendrith,Alex Noren,Alex Noren,110.0,Alex Noren,False,SLIGHT: C favored,3.698024066195088,WIN,110.00000000000001
+Jhonattan Vegas,Taylor Pendrith,Alex Noren,Alex Noren,115.0,Alex Noren,False,SLIGHT: C favored,3.698024066195088,WIN,114.99999999999999
+Jhonattan Vegas,Taylor Pendrith,Alex Noren,Alex Noren,110.0,Alex Noren,False,SLIGHT: C favored,3.698024066195088,WIN,110.00000000000001
+J.J. Spaun,Ludvig Aberg,Hideki Matsuyama,Hideki Matsuyama,140.0,Hideki Matsuyama,False,SLIGHT: C favored,3.5326591260749147,WIN,140.0
+Hideki Matsuyama,Ludvig Aberg,J.J. Spaun,Hideki Matsuyama,130.0,Hideki Matsuyama,False,SLIGHT: A favored,3.5326591260749147,WIN,130.0
+Bryson DeChambeau,Dustin Johnson,Louis Oosthuizen,Bryson DeChambeau,105.0,Bryson DeChambeau,False,SLIGHT: A favored,3.4865738143515097,WIN,105.0
+Stephen Ferreira,Franklin Manchest,Joel Girrbach,Joel Girrbach,-150.0,Joel Girrbach,False,SLIGHT: C favored,3.3971826649029744,WIN,66.66666666666666
+Richard Sterne,Marcel Schneider,Hennie Otto,Richard Sterne,145.0,Richard Sterne,False,SLIGHT: A favored,3.203184392649928,WIN,145.0
+Mackenzie Hughes,Eric Cole,Rico Hoey,Rico Hoey,162.0,Eric Cole,False,SLIGHT: C favored,3.1430222114709085,LOSS,-100.0
+Mackenzie Hughes,Eric Cole,Rico Hoey,Rico Hoey,175.0,Eric Cole,False,SLIGHT: C favored,3.1430222114709085,LOSS,-100.0
+Marc Leishman,Jose Luis Ballester,Paul Casey,Paul Casey,230.0,Jose Luis Ballester,False,SLIGHT: C favored,2.942321907016442,LOSS,-100.0
+Angel Ayora,Antoine Rozner,Pablo Larrazabal,Pablo Larrazabal,400.0,Angel Ayora,False,SLIGHT: C favored,2.854758857241704,LOSS,-100.0
+Shubhankar Sharma,Jordan Gumberg,David Ravetto,David Ravetto,137.0,Jordan Gumberg,False,SLIGHT: C favored,2.713205190857032,LOSS,-100.0
+Brian Campbell,Karl Vilips,Aaron Rai,Karl Vilips,240.0,Karl Vilips,False,SLIGHT: B favored,2.565774427607179,WIN,240.0
+Tom Kim,Rickie Fowler,Max Greyserman,Tom Kim,240.0,Max Greyserman,False,SLIGHT: A favored,2.544865344067474,LOSS,-100.0
+Rickie Fowler,Max Greyserman,Tom Kim,Tom Kim,250.0,Max Greyserman,False,SLIGHT: C favored,2.544865344067474,LOSS,-100.0
+Jayden Schaper,Patrick Reed,Andy Sullivan,Andy Sullivan,280.0,Jayden Schaper,False,SLIGHT: C favored,2.4627546693871585,LOSS,-100.0
+Chris Gotterup,Robert MacIntyre,Justin Rose,Justin Rose,200.0,Chris Gotterup,False,SLIGHT: C favored,2.390816048292825,LOSS,-100.0
+Chris Gotterup,Justin Rose,Robert MacIntyre,Justin Rose,180.0,Chris Gotterup,False,SLIGHT: B favored,2.390816048292825,LOSS,-100.0
+Yurav Premall,Estiaan Conradie,Rhys Enoch,Yurav Premall,150.0,,True,SLIGHT: A favored,2.274832138675274,2WAY_PUSH_WIN,75.0
+Adam Svensson,Rico Hoey,Max McGreevy,Adam Svensson,280.0,Max McGreevy,False,SLIGHT: A favored,2.2599272204901784,LOSS,-100.0
+Marcus Armitage,Herman Loubser,Angel Hidalgo,Marcus Armitage,105.0,Herman Loubser,False,SLIGHT: A favored,2.2599272204901784,LOSS,-100.0
+Matt Wallace,Matti Schmid,S.H. Kim,Matti Schmid,160.0,S.H. Kim,False,SLIGHT: B favored,2.2599272204901784,LOSS,-100.0
+Xander Schauffele,Keegan Bradley,Patrick Cantlay,Keegan Bradley,275.0,Xander Schauffele,False,SLIGHT: B favored,2.1862670959287485,LOSS,-100.0
+Michael Hollick,Romain Langasque,Casey Jarvis,Casey Jarvis,130.0,Casey Jarvis,False,SLIGHT: C favored,2.1601307863921626,WIN,130.0
+Garrick Higgo,Aaron Rai,Matt Fitzpatrick,Garrick Higgo,220.0,Aaron Rai,False,SLIGHT: A favored,2.064473140123744,LOSS,-100.0
+Matt Fitzpatrick,Garrick Higgo,Aaron Rai,Garrick Higgo,250.0,Aaron Rai,False,SLIGHT: B favored,2.064473140123744,LOSS,-100.0
+Tobias Jonsson,Aaron Cockerill,Sebastian Garcia Rodriguez,Tobias Jonsson,180.0,,True,SLIGHT: A favored,2.055431230828982,2WAY_PUSH_WIN,90.0
+Tom Vaillant,Mike Kisia,Dan Erickson,Dan Erickson,137.0,Tom Vaillant,False,SLIGHT: C favored,1.9650844654712776,LOSS,-100.0
+Maximilian Kieffer,Yannik Paul,Lucas Bjerregaard,Maximilian Kieffer,150.0,,True,SLIGHT: A favored,1.9650844654712776,2WAY_PUSH_WIN,75.0
+Kurt Kitayama,Nico Echavarria,Jake Knapp,Kurt Kitayama,175.0,Kurt Kitayama,False,SLIGHT: A favored,1.9308022268099323,WIN,175.0
+Jake Knapp,Kurt Kitayama,Nico Echavarria,Kurt Kitayama,175.0,Kurt Kitayama,False,SLIGHT: B favored,1.9308022268099323,WIN,175.0
+Seamus Power,Charley Hoffman,Christiaan Bezuidenhout,Christiaan Bezuidenhout,125.0,,True,SLIGHT: C favored,1.83353532331582,2WAY_PUSH_WIN,62.5
+Jacob Olesen,Greg Snow,Niklas Norgaard,Greg Snow,550.0,Jacob Olesen,False,SLIGHT: B favored,1.764072074860434,LOSS,-100.0
+Gary Woodland,Brandt Snedeker,David Lipsky,David Lipsky,170.0,David Lipsky,False,SLIGHT: C favored,1.7387918126883424,WIN,170.0
+Matthew Jordan,Marcel Siem,JC Ritchie,JC Ritchie,130.0,Matthew Jordan,False,SLIGHT: C favored,1.688878025824608,LOSS,-100.0
+Bud Cauley,Vince Whaley,Chandler Phillips,Bud Cauley,130.0,Bud Cauley,False,SLIGHT: A favored,1.6612972781005046,WIN,130.0
+Bud Cauley,Vince Whaley,Chandler Phillips,Bud Cauley,105.0,Bud Cauley,False,SLIGHT: A favored,1.6612972781005046,WIN,105.0
+Sami Valimaki,Lucas Glover,Matt Fitzpatrick,Matt Fitzpatrick,100.0,,True,SLIGHT: C favored,1.6612972781005046,2WAY_PUSH_WIN,50.0
+Sami Valimaki,Lucas Glover,Matt Fitzpatrick,Matt Fitzpatrick,-110.0,,True,SLIGHT: C favored,1.6612972781005046,2WAY_PUSH_WIN,45.45454545454545
+Bud Cauley,Vince Whaley,Chandler Phillips,Bud Cauley,130.0,Bud Cauley,False,SLIGHT: A favored,1.6612972781005046,WIN,130.0
+Bud Cauley,Vince Whaley,Chandler Phillips,Bud Cauley,105.0,Bud Cauley,False,SLIGHT: A favored,1.6612972781005046,WIN,105.0
+Sami Valimaki,Lucas Glover,Matt Fitzpatrick,Matt Fitzpatrick,100.0,,True,SLIGHT: C favored,1.6612972781005046,2WAY_PUSH_WIN,50.0
+Sami Valimaki,Lucas Glover,Matt Fitzpatrick,Matt Fitzpatrick,-110.0,,True,SLIGHT: C favored,1.6612972781005046,2WAY_PUSH_WIN,45.45454545454545
+Lee Westwood,Jon Rahm,Charl Schwartzel,Charl Schwartzel,280.0,Jon Rahm,False,SLIGHT: C favored,1.6364727067413662,LOSS,-100.0
+Kris Ventura,Kensei Hirata,Adrien Saddier,Kensei Hirata,240.0,,True,SLIGHT: B favored,1.6364727067413662,2WAY_PUSH_LOSS,-100.0
+Rocco Repetto Taylor,Connor McKinney,Mohit Mediratta,Rocco Repetto Taylor,-115.0,Rocco Repetto Taylor,False,SLIGHT: A favored,1.526128928107811,WIN,86.95652173913044
+Hugo Townsend,Tapio Pulkkanen,Ryggs Johnston,Hugo Townsend,160.0,Ryggs Johnston,False,SLIGHT: A favored,1.5041375458337187,LOSS,-100.0
+Nick Dunlap,Rico Hoey,Chandler Blanchet,Rico Hoey,137.0,Chandler Blanchet,False,SLIGHT: B favored,1.4850659365048209,LOSS,-100.0
+Michael Hollick,Ivan Cantero Gutierrez,Eddie Pepperell,Eddie Pepperell,170.0,Michael Hollick,False,SLIGHT: C favored,1.4263324940097952,LOSS,-100.0
+Manuel Elvira,Thanda Mavundla,Scott Jamieson,Scott Jamieson,125.0,Scott Jamieson,False,SLIGHT: C favored,1.4065010106127107,WIN,125.0
+Eddie Pepperell,Darren Fichardt,Kyle Barker,Eddie Pepperell,115.0,Darren Fichardt,False,SLIGHT: A favored,1.3989403152884714,LOSS,-100.0
+Patrick Fishburn,Zach Bauchou,Sudarshan Yellamaraju,Sudarshan Yellamaraju,175.0,Sudarshan Yellamaraju,False,SLIGHT: C favored,1.2699195017369922,WIN,175.0
+Merrick Bremner,Lyle Rowe,Kieron van Wyk,Lyle Rowe,145.0,,True,SLIGHT: B favored,1.2699195017369922,2WAY_PUSH_WIN,72.5
+Adam Svensson,Michael Kim,Bud Cauley,Adam Svensson,230.0,Bud Cauley,False,SLIGHT: A favored,1.0851790217461028,LOSS,-100.0
+Tom Kim,Michael Thorbjornsen,Rasmus Hojgaard,Michael Thorbjornsen,160.0,Rasmus Hojgaard,False,SLIGHT: B favored,1.0851790217461028,LOSS,-100.0
+Stephen Ferreira,Ricardo Gouveia,Maximilian Steinlechner,Stephen Ferreira,375.0,Maximilian Steinlechner,False,SLIGHT: A favored,1.0851790217461028,LOSS,-100.0
+Brandon Robinson Thompson,Pablo Larrazabal,Luis Carrera,Brandon Robinson Thompson,105.0,Luis Carrera,False,SLIGHT: A favored,1.0851790217461028,LOSS,-100.0
+Nick Bachem,Jens Dantorp,Daniel Cronje,Nick Bachem,260.0,Daniel Cronje,False,SLIGHT: A favored,1.0851790217461028,LOSS,-100.0
+Casey Jarvis,Jayden Schaper,Angel Ayora,Casey Jarvis,225.0,,True,SLIGHT: A favored,1.0851790217461028,2WAY_PUSH_WIN,112.5
+Emiliano Grillo,Kevin Roy,Danny Walker,Emiliano Grillo,137.0,Kevin Roy,False,SLIGHT: A favored,1.0851790217461028,LOSS,-100.0
+Connor Syme,Alejandro Del Rey,Brandon Robinson Thompson,Alejandro Del Rey,145.0,,True,SLIGHT: B favored,0.9748352431125475,2WAY_PUSH_LOSS,-100.0
+Robin Williams,Alex Fitzpatrick,Frederic Lacroix,Robin Williams,275.0,,True,SLIGHT: A favored,0.9730545236429418,2WAY_PUSH_WIN,137.5
+Jimmy Stanger,Neal Shipley,Jeffrey Kang,Jeffrey Kang,190.0,Jimmy Stanger,False,SLIGHT: C favored,0.9730545236429418,LOSS,-100.0
+Zecheng Dou,David Ford,Justin Hicks,David Ford,110.0,,True,SLIGHT: B favored,0.9730545236429418,2WAY_PUSH_WIN,55.00000000000001
+Mutahi Kibugu,Filippo Celli,David Law,Mutahi Kibugu,750.0,David Law,False,SLIGHT: A favored,0.9730545236429418,LOSS,-100.0
+Jeff Winther,Adam Blomme,Celestin Nsazuwera,Jeff Winther,110.0,Celestin Nsazuwera,False,SLIGHT: A favored,0.95634900611621,LOSS,-100.0
+Mackenzie Hughes,Denny McCarthy,Austin Smotherman,Mackenzie Hughes,200.0,Denny McCarthy,False,SLIGHT: A favored,0.9337722515095574,LOSS,-100.0
+Paul Peterson,Paul Waring,Blades Brown,Paul Waring,240.0,Paul Peterson,False,SLIGHT: B favored,0.9337722515095574,LOSS,-100.0
+Ewen Ferguson,Robin Williams,Rikuya Hoshino,Ewen Ferguson,120.0,Ewen Ferguson,False,SLIGHT: A favored,0.9308343795307064,WIN,120.0
+Kota Kaneko,Musliwalo Nethunzwi,Kieran Vincent,Musliwalo Nethunzwi,475.0,Kieran Vincent,False,SLIGHT: B favored,0.9189463920896482,LOSS,-100.0
+Wilco Nienaber,Hennie du Plessis,Julien Guerrier,Wilco Nienaber,260.0,Hennie du Plessis,False,SLIGHT: A favored,0.9189463920896482,LOSS,-100.0
+Joe Dean,Jonathan Broomhead,Brandon Robinson Thompson,Brandon Robinson Thompson,160.0,Brandon Robinson Thompson,False,SLIGHT: C favored,0.8976346629355104,WIN,160.0
+Casey Jarvis,Calum Hill,Thriston Lawrence,Casey Jarvis,130.0,,True,SLIGHT: A favored,0.8633557875177935,2WAY_PUSH_WIN,65.0
+Jackson Suber,Johnny Keefer,Blades Brown,Johnny Keefer,125.0,Jackson Suber,False,SLIGHT: B favored,0.860480799672878,LOSS,-100.0
+Lucas Herbert,Thomas Pieters,Richard T. Lee,Thomas Pieters,162.0,,True,SLIGHT: B favored,0.8434254861518529,2WAY_PUSH_WIN,81.0
+Jacob Bridgeman,Wyndham Clark,Jordan Spieth,Jacob Bridgeman,130.0,Jacob Bridgeman,False,SLIGHT: A favored,0.8434254861518529,WIN,130.0
+Matthieu Pavon,Eric Cole,Kevin Roy,Matthieu Pavon,240.0,Matthieu Pavon,False,SLIGHT: A favored,0.8434254861518529,WIN,240.0
+Steven Fisk,William Mouw,Joe Highsmith,Steven Fisk,160.0,William Mouw,False,SLIGHT: A favored,0.8338937248602134,LOSS,-100.0
+Oliver Bekker,Antoine Rozner,Richard Sterne,Richard Sterne,190.0,Antoine Rozner,False,SLIGHT: C favored,0.7883140436520524,LOSS,-100.0
+Allen John,Wil Enfer,Cameron Adam,Cameron Adam,137.0,Allen John,False,SLIGHT: C favored,0.7657372890454006,LOSS,-100.0
+Ivan Cantero Gutierrez,MJ Viljoen,Richie Ramsay,Ivan Cantero Gutierrez,162.0,Richie Ramsay,False,SLIGHT: A favored,0.7601686847245732,LOSS,-100.0
+Sean Crocker,Martin Rohwer,Jacques Blaauw,Martin Rohwer,230.0,Sean Crocker,False,SLIGHT: B favored,0.7529691211401426,LOSS,-100.0
+Adam Schenk,Kevin Yu,Webb Simpson,Webb Simpson,187.0,Webb Simpson,False,SLIGHT: C favored,0.7463400059161494,WIN,187.0
+Mackenzie Hughes,Eric Cole,Rico Hoey,Eric Cole,200.0,Eric Cole,False,SLIGHT: B favored,0.7200570221672109,WIN,200.0
+Mackenzie Hughes,Eric Cole,Rico Hoey,Eric Cole,187.0,Eric Cole,False,SLIGHT: B favored,0.7200570221672109,WIN,187.0
+Max Homa,Daniel Berger,Michael Thorbjornsen,Max Homa,220.0,Max Homa,False,SLIGHT: A favored,0.7200570221672109,WIN,220.00000000000003
+Max Homa,Daniel Berger,Michael Thorbjornsen,Max Homa,210.0,Max Homa,False,SLIGHT: A favored,0.7200570221672109,WIN,210.0
+Akshay Bhatia,Brooks Koepka,Tony Finau,Akshay Bhatia,125.0,Tony Finau,False,SLIGHT: A favored,0.7200570221672109,LOSS,-100.0
+Akshay Bhatia,Brooks Koepka,Tony Finau,Akshay Bhatia,115.0,Tony Finau,False,SLIGHT: A favored,0.7200570221672109,LOSS,-100.0
+Max Homa,Daniel Berger,Michael Thorbjornsen,Max Homa,220.0,Max Homa,False,SLIGHT: A favored,0.7200570221672109,WIN,220.00000000000003
+Max Homa,Daniel Berger,Michael Thorbjornsen,Max Homa,210.0,Max Homa,False,SLIGHT: A favored,0.7200570221672109,WIN,210.0
+Akshay Bhatia,Brooks Koepka,Tony Finau,Akshay Bhatia,125.0,Tony Finau,False,SLIGHT: A favored,0.7200570221672109,LOSS,-100.0
+Akshay Bhatia,Brooks Koepka,Tony Finau,Akshay Bhatia,115.0,Tony Finau,False,SLIGHT: A favored,0.7200570221672109,LOSS,-100.0
+Michael Brennan,Harris English,J.T. Poston,Michael Brennan,225.0,Michael Brennan,False,SLIGHT: A favored,0.6879726546832838,WIN,225.0
+Michael Brennan,Harris English,J.T. Poston,Michael Brennan,210.0,Michael Brennan,False,SLIGHT: A favored,0.6879726546832838,WIN,210.0
+Michael Brennan,Harris English,J.T. Poston,Michael Brennan,225.0,Michael Brennan,False,SLIGHT: A favored,0.6879726546832838,WIN,225.0
+Michael Brennan,Harris English,J.T. Poston,Michael Brennan,210.0,Michael Brennan,False,SLIGHT: A favored,0.6879726546832838,WIN,210.0
+John Lejirma,Fabrizio Zanotti,Andreas Halvorsen,Andreas Halvorsen,-125.0,Andreas Halvorsen,False,SLIGHT: C favored,0.6559932405584448,WIN,80.0
+Elvis Smylie,Anthony Kim,Sergio Garcia,Anthony Kim,200.0,Sergio Garcia,False,SLIGHT: B favored,0.641640450352968,LOSS,-100.0
+Bubba Watson,Abraham Ancer,Graeme McDowell,Abraham Ancer,130.0,Abraham Ancer,False,SLIGHT: B favored,0.641640450352968,WIN,130.0
+Jeremy Paul,A.J. Ewart,Gordon Sargent,A.J. Ewart,162.0,A.J. Ewart,False,SLIGHT: B favored,0.641640450352968,WIN,162.0
+CJ Wangai,Renato Paratore,Mikael Lindberg,Renato Paratore,170.0,Mikael Lindberg,False,SLIGHT: B favored,0.641640450352968,LOSS,-100.0
+Collin Morikawa,Tommy Fleetwood,Rory McIlroy,Rory McIlroy,145.0,Rory McIlroy,False,SLIGHT: C favored,0.6193568856507214,WIN,145.0
+Rory McIlroy,Tommy Fleetwood,Collin Morikawa,Rory McIlroy,150.0,Rory McIlroy,False,SLIGHT: A favored,0.6193568856507214,WIN,150.0
+Rocco Repetto Taylor,Alex Fitzpatrick,Mark Maart,Alex Fitzpatrick,-188.0,,True,SLIGHT: B favored,0.5917803282156537,2WAY_PUSH_WIN,26.595744680851062
+Altin van der Merwe,Quim Vidal,Gerhard Pepler,Quim Vidal,170.0,Quim Vidal,False,SLIGHT: B favored,0.5917803282156537,WIN,170.0
+Andrew Novak,Karl Vilips,Sungjae Im,Sungjae Im,140.0,Sungjae Im,False,SLIGHT: C favored,0.5512936849952634,WIN,140.0
+Benjamin Follett-Smith,James Morrison,Euan Walker,Benjamin Follett-Smith,137.0,,True,SLIGHT: A favored,0.5512936849952634,2WAY_PUSH_WIN,68.5
+Yanhan Zhou,Yuvraj Sandhu,Anthony Quayle,Yanhan Zhou,145.0,Yuvraj Sandhu,False,SLIGHT: A favored,0.5345881674685318,LOSS,-100.0
+Rikuya Hoshino,Joost Luiten,Darius van Driel,Joost Luiten,130.0,Joost Luiten,False,SLIGHT: B favored,0.5121076040053829,WIN,130.0
+Jacques Kruyswijk,Yuto Katsuragawa,Alejandro Del Rey,Yuto Katsuragawa,300.0,Jacques Kruyswijk,False,SLIGHT: B favored,0.4948396735451599,LOSS,-100.0
+Luke Brown,Marcus Armitage,Keelan van Wyk,Keelan van Wyk,450.0,Marcus Armitage,False,SLIGHT: C favored,0.4875546185230625,LOSS,-100.0
+Andrew Novak,Nick Taylor,Wyndham Clark,Andrew Novak,220.0,Wyndham Clark,False,SLIGHT: A favored,0.4521277198480291,LOSS,-100.0
+JC Ritchie,Ryggs Johnston,Deon Germishuys,JC Ritchie,125.0,Ryggs Johnston,False,SLIGHT: A favored,0.4249493421752035,LOSS,-100.0
+Michael Karanga,Manuel Elvira,Sebastian Soderberg,Manuel Elvira,-105.0,Sebastian Soderberg,False,SLIGHT: B favored,0.4217608386476783,LOSS,-100.0
+Richard Sterne,Marcel Schneider,David Micheluzzi,Marcel Schneider,162.0,,True,SLIGHT: B favored,0.4217608386476783,2WAY_PUSH_WIN,81.0
+Brendon Todd,Kevin Streelman,Vince Whaley,Brendon Todd,200.0,Kevin Streelman,False,SLIGHT: A favored,0.3194417327007022,LOSS,-100.0
+Jorge Campillo,George Coetzee,Yurav Premall,George Coetzee,300.0,Jorge Campillo,False,SLIGHT: B favored,0.3194417327007022,LOSS,-100.0
+Julien Guerrier,Andy Sullivan,Dean Burmester,Dean Burmester,125.0,Dean Burmester,False,SLIGHT: C favored,0.3194417327007022,WIN,125.0
+Joe Highsmith,Davis Riley,Pierceson Coody,Davis Riley,180.0,Pierceson Coody,False,SLIGHT: B favored,0.2750872453485939,LOSS,-100.0
+David Skinns,Dan Brown,Davis Chatfield,Davis Chatfield,210.0,David Skinns,False,SLIGHT: C favored,0.2750872453485939,LOSS,-100.0
+Kiradech Aphibarnrat,Oihan Guillamoundeguy,Francis Epe,Kiradech Aphibarnrat,120.0,Kiradech Aphibarnrat,False,SLIGHT: A favored,0.2750872453485939,WIN,120.0
+Ivan Cantero Gutierrez,Daniel Young,Jack Senior,Jack Senior,200.0,,True,SLIGHT: C favored,0.2750872453485939,2WAY_PUSH_LOSS,-100.0
+Kyle De Beer,Allen John,Bjorn Akesson,Bjorn Akesson,140.0,,True,SLIGHT: C favored,0.2589947387099069,2WAY_PUSH_LOSS,-100.0
+Benjamin Follett-Smith,Marcel Siem,Alejandro Del Rey,Benjamin Follett-Smith,210.0,Alejandro Del Rey,False,SLIGHT: A favored,0.1847404799908893,LOSS,-100.0
+Brandt Snedeker,Christiaan Bezuidenhout,Takumi Kanaya,Christiaan Bezuidenhout,120.0,Brandt Snedeker,False,SLIGHT: B favored,0.1847404799908893,LOSS,-100.0
+Branden Grace,Oliver Lindell,Shaun Norris,Oliver Lindell,170.0,Oliver Lindell,False,SLIGHT: B favored,0.1847404799908893,WIN,170.0
+Todd Clements,MJ Daffue,Luke Jerling,Todd Clements,105.0,Todd Clements,False,SLIGHT: A favored,0.1847404799908893,WIN,105.0
+Matti Schmid,Dylan Wu,Takumi Kanaya,Takumi Kanaya,175.0,Matti Schmid,False,SLIGHT: C favored,0.1847404799908893,LOSS,-100.0
+Sebastian Soderberg,Lyle Rowe,Jason Scrivener,Lyle Rowe,275.0,Sebastian Soderberg,False,SLIGHT: B favored,0.1753831328345114,LOSS,-100.0
+Max Homa,Kevin Streelman,Danny Walker,Danny Walker,230.0,,True,SLIGHT: C favored,0.1070522828844362,2WAY_PUSH_WIN,114.99999999999999
+Stefano Mazzoli,Hennie du Plessis,Maximilian Steinlechner,Hennie du Plessis,100.0,Maximilian Steinlechner,False,SLIGHT: B favored,0.0903467653577045,LOSS,-100.0
+Garrick Higgo,Taylor Pendrith,Ryo Hisatsune,Ryo Hisatsune,125.0,Ryo Hisatsune,False,SLIGHT: C favored,0.0903467653577045,WIN,125.0
+Matt McCarty,Davis Thompson,Matt Kuchar,Davis Thompson,150.0,Davis Thompson,False,SLIGHT: B favored,0.0903467653577045,WIN,150.0
+Ewen Ferguson,Guido Migliozzi,Joakim Lagergren,Ewen Ferguson,140.0,Joakim Lagergren,False,SLIGHT: A favored,0.0903467653577045,LOSS,-100.0
+Minkyu Kim,Anirban Lahiri,Yosuke Asaji,Anirban Lahiri,120.0,Anirban Lahiri,False,SLIGHT: B favored,0.0903467653577045,WIN,120.0
+Daniel Kiragu,Matthew Baldwin,Ryan Peake,Daniel Kiragu,1200.0,Matthew Baldwin,False,SLIGHT: A favored,0.0903467653577045,LOSS,-100.0
+Sami Valimaki,J.T. Poston,Rico Hoey,J.T. Poston,137.0,Sami Valimaki,False,SLIGHT: B favored,0.0203783824608372,LOSS,-100.0
+Edwin Mudanyi,Albin Bergstrom,Jovan Rebula,Albin Bergstrom,-105.0,Albin Bergstrom,False,SLIGHT: B favored,0.0167055175267316,WIN,95.23809523809523

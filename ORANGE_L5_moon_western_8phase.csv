@@ -1,0 +1,9 @@
+combo,dimension,value,n,mean_vs_avg,std,beat_field_pct,beat_field_count,p_value,excess_vs_baseline,signal_quality
+moonwest=Waxing Crescent,moonwest,Waxing Crescent,2007,-0.2251,2.8782,54.9,1101,0.0005,-0.0339,rock_solid
+moonwest=New Moon,moonwest,New Moon,491,-0.9089,2.8736,63.7,313,0.0,-0.7488,rock_solid
+moonwest=Waning Crescent,moonwest,Waning Crescent,1870,-0.0798,2.9691,52.0,972,0.2453,0.1468,weak
+moonwest=Last Quarter,moonwest,Last Quarter,489,0.0506,2.8674,51.7,253,0.6963,0.2621,weak
+moonwest=Waning Gibbous,moonwest,Waning Gibbous,1790,-0.1224,2.9343,53.4,955,0.0778,0.093,weak
+moonwest=Waxing Gibbous,moonwest,Waxing Gibbous,1945,-0.1947,2.979,54.0,1051,0.004,0.0043,acceptable
+moonwest=Full Moon,moonwest,Full Moon,468,-0.4218,2.9512,61.3,287,0.0021,-0.235,rock_solid
+moonwest=First Quarter,moonwest,First Quarter,599,-0.1614,3.0676,55.9,335,0.1984,0.0393,weak

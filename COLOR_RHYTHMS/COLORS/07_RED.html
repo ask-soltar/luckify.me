@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Red Rhythm — Structured Framework</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0b;
+    --surface: #111114;
+    --border: rgba(255,255,255,0.07);
+    --text: #e8e6e1;
+    --muted: #666;
+    --subtle: #2a2a2e;
+    --red: #C03020;
+    --red-bright: #E04030;
+    --red-dim: rgba(192,48,32,0.1);
+    --red-border: rgba(192,48,32,0.28);
+    --red-glow: rgba(192,48,32,0.05);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 40px 24px 80px;
+  }
+
+  .page-wrap { max-width: 900px; margin: 0 auto; }
+
+  .header { border-bottom: 1px solid var(--border); padding-bottom: 28px; margin-bottom: 48px; }
+  .color-bar { width: 48px; height: 4px; background: var(--red-bright); border-radius: 2px; margin-bottom: 16px; }
+  .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
+  .page-title { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 5vw, 46px); line-height: 1.1; color: #fff; margin-bottom: 8px; }
+  .page-title em { font-style: italic; color: var(--red-bright); }
+  .page-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .meta-tag { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding: 3px 8px; border: 1px solid var(--border); border-radius: 2px; }
+  .meta-tag.red { color: var(--red-bright); border-color: var(--red-border); background: var(--red-dim); }
+  .meta-tag.warn { color: #CCA010; border-color: rgba(204,160,16,0.25); background: rgba(204,160,16,0.06); }
+
+  .section { margin-bottom: 44px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* IDENTITY */
+  .identity-block { background: var(--red-glow); border: 1px solid var(--red-border); border-left: 3px solid var(--red-bright); border-radius: 4px; padding: 20px 24px; margin-bottom: 44px; }
+  .identity-name { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--red-bright); margin-bottom: 6px; }
+  .identity-desc { font-size: 13px; color: #aaa; line-height: 1.7; max-width: 680px; }
+
+  /* AUTHORITY NOTE */
+  .authority-block { background: rgba(204,160,16,0.04); border: 1px solid rgba(204,160,16,0.15); border-radius: 4px; padding: 14px 18px; margin-bottom: 44px; display: flex; gap: 14px; align-items: flex-start; }
+  .authority-icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+  .authority-text { font-size: 12px; color: #777; line-height: 1.7; }
+  .authority-text strong { color: #CCA010; font-weight: 500; }
+
+  /* TWO LAYER */
+  .layer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 44px; }
+  .layer-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 18px 20px; }
+  .layer-card.highlight { border-color: var(--red-border); background: var(--red-glow); }
+  .layer-title { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; }
+  .layer-title.red { color: var(--red-bright); }
+  .layer-title.muted { color: var(--muted); }
+  .layer-body { font-size: 12px; color: #999; line-height: 1.7; }
+  .layer-body strong { color: #ccc; font-weight: 500; }
+  .layer-note { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #444; margin-top: 10px; font-style: italic; }
+
+  /* WAVE */
+  .wave-block { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 20px 24px; margin-bottom: 44px; }
+  .wave-title { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+  .wave-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
+  .wave-note { font-size: 10px; color: #555; font-style: italic; text-align: center; padding: 6px; border-top: 1px solid var(--border); line-height: 1.5; }
+
+  /* TRIGGER SYSTEM */
+  .trigger-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 44px; }
+  .trigger-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 14px 16px; }
+  .trigger-num { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--red); letter-spacing: 0.12em; margin-bottom: 6px; }
+  .trigger-name { font-family: 'DM Serif Display', serif; font-size: 15px; color: #fff; margin-bottom: 4px; }
+  .trigger-desc { font-size: 11px; color: #777; line-height: 1.6; }
+
+  /* CHAKRA EXPRESSIONS */
+  .chakra-expressions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
+  .chakra-exp-card { background: var(--surface); border: 1px solid var(--red-border); border-radius: 4px; padding: 14px 16px; background: var(--red-glow); text-align: center; }
+  .chakra-exp-location { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--red); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
+  .chakra-exp-name { font-family: 'DM Serif Display', serif; font-size: 14px; color: #fff; margin-bottom: 4px; }
+  .chakra-exp-desc { font-size: 10px; color: #666; line-height: 1.5; }
+
+  /* TRAITS */
+  .traits-grid { display: flex; flex-direction: column; gap: 3px; margin-bottom: 44px; }
+  .trait-card { background: var(--surface); border: 1px solid var(--border); border-radius: 3px; padding: 14px 16px; }
+  .trait-card.incomplete { border-color: rgba(255,255,255,0.04); opacity: 0.7; }
+  .trait-header { display: grid; grid-template-columns: 1fr auto auto; align-items: start; gap: 12px; margin-bottom: 10px; }
+  .trait-name { font-family: 'DM Serif Display', serif; font-size: 15px; color: #fff; }
+  .trait-alias { font-size: 10px; color: var(--red); font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.1em; margin-top: 2px; }
+  .trait-cats { font-family: 'IBM Plex Mono', monospace; font-size: 9px; }
+  .trait-cats span { display: inline-block; padding: 1px 5px; border-radius: 2px; background: var(--subtle); margin-right: 3px; color: #666; }
+  .trait-tag { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; white-space: nowrap; align-self: start; }
+  .trait-tag.asset { color: #5aa048; border: 1px solid rgba(90,160,72,0.3); background: rgba(90,160,72,0.08); }
+  .trait-tag.dual { color: #CCA010; border: 1px solid rgba(204,160,16,0.3); background: rgba(204,160,16,0.08); }
+  .trait-tag.incomplete { color: #444; border: 1px solid rgba(255,255,255,0.08); background: transparent; }
+  .trait-desc { font-size: 11px; color: #888; line-height: 1.6; margin-bottom: 10px; }
+  .trait-dims { display: flex; gap: 6px; flex-wrap: wrap; }
+  .trait-dim { font-size: 10px; color: #555; padding: 2px 8px; border-radius: 2px; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); line-height: 1.5; }
+  .trait-dim strong { color: var(--red); font-weight: 500; }
+  .trait-dim.iching { color: #888; border-color: rgba(192,48,32,0.2); background: rgba(192,48,32,0.04); }
+  .trait-dim.iching strong { color: #E04030; }
+
+  /* GATE SUB-EXPRESSIONS */
+  .gate-grid { display: flex; flex-direction: column; gap: 4px; margin: 8px 0; }
+  .gate-row { display: grid; grid-template-columns: 80px 1fr; gap: 10px; align-items: start; padding: 6px 10px; background: rgba(192,48,32,0.04); border: 1px solid rgba(192,48,32,0.1); border-radius: 3px; }
+  .gate-id { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--red); letter-spacing: 0.08em; }
+  .gate-trigger { font-size: 9px; color: #444; margin-bottom: 2px; font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.06em; }
+  .gate-desc { font-size: 10px; color: #777; line-height: 1.5; }
+
+  /* CHAKRA STACK */
+  .chakra-stack { display: flex; flex-direction: column; gap: 3px; margin-bottom: 16px; max-width: 420px; }
+  .chakra-row-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 3px; border: 1px solid var(--border); background: var(--surface); }
+  .chakra-row-item.active-red { border-color: var(--red-border); background: var(--red-glow); }
+  .chakra-row-item.active-green { border-color: rgba(90,160,72,0.3); background: rgba(90,160,72,0.06); }
+  .chakra-row-item.active-yellow { border-color: rgba(240,192,32,0.3); background: rgba(240,192,32,0.06); }
+  .chakra-row-item.active-orange { border-color: rgba(232,112,32,0.3); background: rgba(232,112,32,0.06); }
+  .chakra-row-item.active-pink { border-color: rgba(208,48,160,0.3); background: rgba(208,48,160,0.06); }
+  .chakra-row-item.active-purple { border-color: rgba(138,43,226,0.3); background: rgba(138,43,226,0.06); }
+  .chakra-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .chakra-row-name { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; flex: 1; }
+  .chakra-row-note { font-size: 10px; color: #555; font-style: italic; }
+
+  /* OPEN NOTES */
+  .notes-block { border: 1px solid rgba(255,255,255,0.05); border-left: 3px solid #2a2a2e; border-radius: 3px; padding: 14px 16px; background: #0e0e10; }
+  .notes-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #333; margin-bottom: 10px; }
+  .note-item { font-size: 11px; color: #444; line-height: 1.6; margin-bottom: 6px; }
+  .note-item:last-child { margin-bottom: 0; }
+
+  @media (max-width: 640px) {
+    .layer-grid, .trigger-grid, .chakra-expressions { grid-template-columns: 1fr; }
+    .trait-header { grid-template-columns: 1fr; }
+    .gate-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="color-bar"></div>
+    <div class="eyebrow">Lucky Window · Rhythm Framework · Internal</div>
+    <h1 class="page-title"><em>Red</em> Rhythm</h1>
+    <div class="page-meta">
+      <span class="meta-tag red">The Catalyst</span>
+      <span class="meta-tag">Score −16 to −29</span>
+      <span class="meta-tag">Palm · Feet · Root Chakras</span>
+      <span class="meta-tag">Source: Andromedian Database</span>
+      <span class="meta-tag warn">Authority Required</span>
+    </div>
+  </div>
+
+  <!-- IDENTITY -->
+  <div class="identity-block">
+    <div class="identity-name">The Catalyst</div>
+    <div class="identity-desc">Red is the weapon rhythm — dynamic, forceful, and direct. Its nature is rapid onset and equally fast dissipation. A Red firing launches into both the personal and environmental field, leaving a residue bump that shifts the baseline — up or down — regardless of the direction of the original impact. A negative provocation can produce a positive field shift. A positive firing can destabilize. The individual impact looks small. But Red accumulates. Each firing shifts the ambient baseline slightly, and repeated firings compound that shift until the environment reaches a threshold — and detonates. <em>The bomb is not the strike. It is the accumulation.</em></div>
+  </div>
+
+  <!-- AUTHORITY NOTE -->
+  <div class="authority-block">
+    <div class="authority-icon">⚠</div>
+    <div class="authority-text"><strong>Authority Requirement:</strong> Without the use of proper authority, Red acts as an energy drain rather than a catalyst. The same force that launches outward turns inward and depletes. Red requires conscious alignment with its own authority to fire constructively. This is the central regulatory challenge of the Red birth rhythm — not suppressing the energy, but ensuring it fires with authorization rather than reactively.</div>
+  </div>
+
+  <!-- TWO LAYER -->
+  <div class="section">
+    <div class="section-label">Two-Layer Architecture</div>
+    <div class="layer-grid">
+      <div class="layer-card highlight">
+        <div class="layer-title red">Birth Rhythm</div>
+        <div class="layer-body">A person <strong>born with Red</strong> carries catalytic weapon energy as their fixed identity. Their presence shifts fields. Their impacts accumulate in environments. Authority management is the core life practice — Red without authority drains; Red with authority catalyzes.</div>
+        <div class="layer-note">* 10 traits channeled through Andromedian Database</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-title muted">Window Rhythm</div>
+        <div class="layer-body">A Red <strong>window</strong> (score −16 to −29) activates catalytic conditions environmentally. Unstable Swing is the category name — the longest band in the system at 14 degrees. The day carries accumulated field pressure. Actions have outsized residue effects. Proceed with authority or not at all.</div>
+        <div class="layer-note">* Widest single window band in the system — 14 degrees of Unstable Swing</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WAVE -->
+  <div class="section">
+    <div class="section-label">Wave Pattern</div>
+    <div class="wave-block">
+      <div class="wave-title">Red energy cycle — vertical impacts · residue accumulation · threshold detonation</div>
+
+      <svg viewBox="0 0 520 160" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; margin-bottom:12px;">
+
+        <!-- Baseline reference -->
+        <line x1="0" y1="110" x2="520" y2="110" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="4" y="107" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(255,255,255,0.2)">BASE</text>
+
+        <!-- Accumulating baseline shift — subtle upward drift -->
+        <path d="M 20,110 C 80,110 100,108 140,107 C 180,106 220,104 280,102 C 320,101 370,99 430,97 C 460,96 490,95 510,94"
+              fill="none" stroke="rgba(224,64,48,0.25)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3,5"/>
+        <text x="330" y="91" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(224,64,48,0.3)" letter-spacing="0.08em">ACCUMULATING BASELINE SHIFT</text>
+
+        <!-- Impact 1 — small vertical spike -->
+        <line x1="80" y1="110" x2="80" y2="82" stroke="#E04030" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+        <line x1="75" y1="82" x2="85" y2="82" stroke="#E04030" stroke-width="2" opacity="0.7"/>
+
+        <!-- Impact 2 -->
+        <line x1="160" y1="108" x2="160" y2="74" stroke="#E04030" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
+        <line x1="155" y1="74" x2="165" y2="74" stroke="#E04030" stroke-width="2" opacity="0.75"/>
+
+        <!-- Impact 3 -->
+        <line x1="240" y1="106" x2="240" y2="64" stroke="#E04030" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+        <line x1="235" y1="64" x2="245" y2="64" stroke="#E04030" stroke-width="2" opacity="0.8"/>
+
+        <!-- Impact 4 — growing -->
+        <line x1="320" y1="103" x2="320" y2="52" stroke="#E04030" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+        <line x1="315" y1="52" x2="325" y2="52" stroke="#E04030" stroke-width="2" opacity="0.85"/>
+
+        <!-- Impact 5 — near threshold -->
+        <line x1="400" y1="100" x2="400" y2="36" stroke="#E04030" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+        <line x1="395" y1="36" x2="405" y2="36" stroke="#E04030" stroke-width="2" opacity="0.9"/>
+
+        <!-- DETONATION — threshold breach -->
+        <line x1="480" y1="96" x2="480" y2="8" stroke="#E04030" stroke-width="3.5" stroke-linecap="round" opacity="1"/>
+        <!-- Explosion spread lines -->
+        <line x1="480" y1="8" x2="460" y2="18" stroke="#E04030" stroke-width="1.5" opacity="0.6"/>
+        <line x1="480" y1="8" x2="500" y2="18" stroke="#E04030" stroke-width="1.5" opacity="0.6"/>
+        <line x1="480" y1="8" x2="468" y2="4" stroke="#E04030" stroke-width="1.5" opacity="0.4"/>
+        <line x1="480" y1="8" x2="492" y2="4" stroke="#E04030" stroke-width="1.5" opacity="0.4"/>
+        <text x="440" y="28" font-family="IBM Plex Mono, monospace" font-size="8" fill="#E04030" letter-spacing="0.1em">THRESHOLD</text>
+        <text x="445" y="38" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(224,64,48,0.6)" letter-spacing="0.08em">DETONATION</text>
+
+        <!-- Impact labels -->
+        <text x="60" y="144" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(255,255,255,0.15)" letter-spacing="0.06em">IMPACT 1</text>
+        <text x="140" y="144" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(255,255,255,0.15)" letter-spacing="0.06em">IMPACT 2</text>
+        <text x="220" y="144" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(255,255,255,0.15)" letter-spacing="0.06em">IMPACT 3</text>
+        <text x="300" y="144" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(255,255,255,0.15)" letter-spacing="0.06em">IMPACT 4</text>
+        <text x="380" y="144" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(255,255,255,0.15)" letter-spacing="0.06em">IMPACT 5</text>
+        <text x="462" y="144" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(224,64,48,0.5)" letter-spacing="0.06em">DETONATE</text>
+
+        <!-- Residue bump note -->
+        <text x="60" y="156" font-family="IBM Plex Mono, monospace" font-size="6.5" fill="rgba(224,64,48,0.25)" letter-spacing="0.06em">each impact leaves a residue bump · direction not determined by launch direction</text>
+
+      </svg>
+
+      <div class="wave-notes">
+        <div class="wave-note">Vertical impacts — no arc, no curve. Red strikes and dissipates immediately.</div>
+        <div class="wave-note">Residue accumulates — each impact shifts the baseline. Compound over time.</div>
+        <div class="wave-note">Threshold detonation — the bomb is the accumulation, not the individual strike.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 ACTIVATION TRIGGERS -->
+  <div class="section">
+    <div class="section-label">4 Activation Triggers — Conditions That Fire Red</div>
+    <div style="font-size:11px; color:#444; margin-bottom:12px; font-style:italic;">These are not expression categories — they are the conditions that activate Red energy. Each trait specifies which triggers apply.</div>
+    <div class="trigger-grid">
+      <div class="trigger-card">
+        <div class="trigger-num">T-Dopamine</div>
+        <div class="trigger-name">Pleasure / Reward Drive</div>
+        <div class="trigger-desc">Actions driven by desire for pleasurable sensations or rewards. Red fires in pursuit of the hit.</div>
+      </div>
+      <div class="trigger-card">
+        <div class="trigger-num">T-Confusion</div>
+        <div class="trigger-name">Busy Mind</div>
+        <div class="trigger-desc">Mental noise activates Red. Gate 64 anchors this trigger — the pressure of unresolved complexity launching action.</div>
+      </div>
+      <div class="trigger-card">
+        <div class="trigger-num">T-Adrenaline</div>
+        <div class="trigger-name">Stress Hormones</div>
+        <div class="trigger-desc">Physical stress response fires Red. Fight-or-flight chemistry becomes catalytic energy.</div>
+      </div>
+      <div class="trigger-card">
+        <div class="trigger-num">T-Emotion</div>
+        <div class="trigger-name">Specific Emotion</div>
+        <div class="trigger-desc">A targeted emotional state — annoyance, frustration, passion — acts as the ignition condition for Red.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAKRA EXPRESSIONS -->
+  <div class="section">
+    <div class="section-label">3 Chakra Locations — Distinct Expressions of Red</div>
+    <div style="font-size:11px; color:#444; margin-bottom:12px; font-style:italic;">Red is the only rhythm in the system with multiple chakra locations. Each represents a distinct expression — not simultaneous firing.</div>
+    <div class="chakra-expressions">
+      <div class="chakra-exp-card">
+        <div class="chakra-exp-location">Palm Chakras</div>
+        <div class="chakra-exp-name">Touch Expression</div>
+        <div class="chakra-exp-desc">Red transmitted through hands — physical action, creation, direct contact with the environment.</div>
+      </div>
+      <div class="chakra-exp-card">
+        <div class="chakra-exp-location">Feet Chakras</div>
+        <div class="chakra-exp-name">Grounded Expression</div>
+        <div class="chakra-exp-desc">Red expressed through movement, stance, and connection to ground — positioning and trajectory.</div>
+      </div>
+      <div class="chakra-exp-card">
+        <div class="chakra-exp-location">Root Chakra</div>
+        <div class="chakra-exp-name">Core Expression</div>
+        <div class="chakra-exp-desc">Red fired from the survival and instinct center — primal, territorial, foundational drive.</div>
+      </div>
+    </div>
+    <div style="font-size:11px; color:#333; font-style:italic; margin-top:8px;">Note: Palm and Feet chakras are identified as distinct chakra systems in certain traditions. Their inclusion here reflects that framework.</div>
+  </div>
+
+  <!-- 10 TRAITS -->
+  <div class="section">
+    <div class="section-label">10 Traits — Channeled Through Andromedian Database</div>
+    <div style="font-size:11px; color:#444; margin-bottom:12px; font-style:italic;">Sub-category tags reference Manifestation sub-types: 1 = Dopamine · 2 = Confusion · 3 = Adrenaline · 4 = Specific Emotion · 5 = General Manifestation</div>
+    <div class="traits-grid">
+
+      <!-- TRAIT 1 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Opportunist</div>
+            <div class="trait-alias">Adaptive to Environment</div>
+          </div>
+          <div class="trait-cats"><span>1</span></div>
+          <div class="trait-tag dual">Dual</div>
+        </div>
+        <div class="trait-desc">Red reads environments in real time and adapts positioning to extract advantage. The Opportunist does not plan ahead — it responds to what emerges. Fast environmental reading, faster repositioning.</div>
+        <div class="trait-dims">
+          <div class="trait-dim iching"><strong>Gate 10.4</strong> ☀/🏞 · Treading · Behavior aligned with nature</div>
+          <div class="trait-dim"><strong>Trigger</strong> — T-Dopamine · reward-seeking drives environmental scanning</div>
+        </div>
+      </div>
+
+      <!-- TRAIT 2 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Provocateur</div>
+            <div class="trait-alias">Barrier Breaker</div>
+          </div>
+          <div class="trait-cats"><span>2</span><span>3</span><span>5</span></div>
+          <div class="trait-tag dual">Dual</div>
+        </div>
+        <div class="trait-desc">Red's instinctual assault on obstacles — direct, relentless, adaptive. The Provocateur does not negotiate with barriers. It tests, probes, and breaks through. Three distinct Gate expressions govern how this trait fires depending on trigger state.</div>
+        <div class="gate-grid">
+          <div class="gate-row">
+            <div>
+              <div class="gate-id">Gate 39.2</div>
+              <div class="gate-trigger">T-Emotion 💧/🏔️</div>
+            </div>
+            <div class="gate-desc">Flexibility and adaptability in the face of obstacles. Open to adjusting strategy mid-encounter. Direct assault modulated by emotional intelligence.</div>
+          </div>
+          <div class="gate-row">
+            <div>
+              <div class="gate-id">Gate 39.1</div>
+              <div class="gate-trigger">T-Confusion 💧/🏔️</div>
+            </div>
+            <div class="gate-desc">Recognition of obstacles. Caution and introspection before striking. Gathering inner strength and resolve. The pause before the impact.</div>
+          </div>
+          <div class="gate-row">
+            <div>
+              <div class="gate-id">Gate 39.6</div>
+              <div class="gate-trigger">T-Dopamine 💧/🏔️</div>
+            </div>
+            <div class="gate-desc">Significant triumph after struggle. Perseverance pays off. Transformative growth through the obstacle itself. Ability to guide and nurture others from a place of hard-won clarity.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRAIT 3 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Jester</div>
+            <div class="trait-alias">Bait Master · The Joker</div>
+          </div>
+          <div class="trait-cats"><span>1</span><span>2</span><span>4</span></div>
+          <div class="trait-tag dual">Dual</div>
+        </div>
+        <div class="trait-desc">Playful, mischievous, entertaining — Red's humor expression. Natural entertainers who use the body and environment as tools for fun. The Bait Master dangles irresistible temptations to draw others in. The Joker deploys humor as a weapon and a shield simultaneously. Laughter as a catalytic mechanism.</div>
+        <div class="trait-dims">
+          <div class="trait-dim"><strong>Triggers</strong> — Dopamine (pleasure of the reaction) · Confusion (chaos as comedy) · Emotion (annoyance redirected)</div>
+        </div>
+      </div>
+
+      <!-- TRAIT 4 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Advocacy</div>
+            <div class="trait-alias">Truth Shaker</div>
+          </div>
+          <div class="trait-cats"><span>4</span></div>
+          <div class="trait-tag dual">Dual</div>
+        </div>
+        <div class="trait-desc">Red fired in service of truth — insight that challenges and undermines established values. The Truth Shaker does not persuade gently. It disrupts. Provokes reconsideration by making the old framing untenable.</div>
+        <div class="trait-dims">
+          <div class="trait-dim iching"><strong>Gate 23.1</strong> · Splitting Apart · Insight that dismantles what no longer serves</div>
+          <div class="trait-dim"><strong>Trigger</strong> — T-Adrenaline · urgency and conviction drive the challenge</div>
+        </div>
+      </div>
+
+      <!-- TRAIT 5 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Vitality</div>
+            <div class="trait-alias">Heartfire</div>
+          </div>
+          <div class="trait-cats"><span>2</span></div>
+          <div class="trait-tag asset">Asset</div>
+        </div>
+        <div class="trait-desc">The love of life as a catalytic force. Red's most purely positive expression — vitality as fuel rather than weapon. Heartfire fires not from stress or emotion but from genuine aliveness. The joy of being in the game.</div>
+        <div class="trait-dims">
+          <div class="trait-dim iching"><strong>Gate 58.1</strong> · Joyousness · The love of life as foundation</div>
+          <div class="trait-dim"><strong>Trigger</strong> — T-Dopamine · pleasure of existence itself</div>
+        </div>
+      </div>
+
+      <!-- TRAIT 6 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Free Spirit</div>
+            <div class="trait-alias">Faithful Explorer</div>
+          </div>
+          <div class="trait-cats"><span>1</span><span>3</span><span>4</span></div>
+          <div class="trait-tag dual">Dual</div>
+        </div>
+        <div class="trait-desc">Manifestation idealism in motion. The Faithful Explorer pursues goals with endurance and a dreamchaser's willingness to be gullible toward their own vision — not naivety, but a deliberate openness to possibility that keeps momentum alive when logic would quit.</div>
+        <div class="trait-dims">
+          <div class="trait-dim iching"><strong>Gate 16.6</strong> 🏔️/🌎 · Enthusiasm · Endurance through idealism</div>
+          <div class="trait-dim"><strong>Trigger</strong> — Dopamine · Adrenaline · Emotion · multiple activation paths</div>
+        </div>
+      </div>
+
+      <!-- TRAIT 7 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Tactician</div>
+            <div class="trait-alias">—</div>
+          </div>
+          <div class="trait-cats"><span>2</span><span>3</span></div>
+          <div class="trait-tag asset">Asset</div>
+        </div>
+        <div class="trait-desc">Red's strategic layer — the weapon operating with deliberate precision rather than reactive force. The Tactician knows when to provoke and when to hold. Measured, deliberate, persistent. The energy to provoke at exactly the right time.</div>
+        <div class="gate-grid">
+          <div class="gate-row">
+            <div>
+              <div class="gate-id">Gate 39.5</div>
+              <div class="gate-trigger">T-Confusion 💧/🏔️</div>
+            </div>
+            <div class="gate-desc">Persistence and unwavering determination. Staying committed to goals through obstacles. Measured steps over rushed assault.</div>
+          </div>
+          <div class="gate-row">
+            <div>
+              <div class="gate-id">Gate 39.4</div>
+              <div class="gate-trigger">T-Confusion 💧/🏔️</div>
+            </div>
+            <div class="gate-desc">Careful evaluation before action. Timing precision — the energy to provoke at exactly the right moment, not before.</div>
+          </div>
+          <div class="gate-row">
+            <div>
+              <div class="gate-id">Gate 39.3</div>
+              <div class="gate-trigger">T-Emotion 💧/🏔️</div>
+            </div>
+            <div class="gate-desc">Awareness of potential obstacles before they emerge. Vigilance. Avoidance of confrontation when failure would put others at risk.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRAIT 8 — INCOMPLETE -->
+      <div class="trait-card incomplete">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Energizer</div>
+            <div class="trait-alias">Energy Catalyst</div>
+          </div>
+          <div class="trait-cats"><span>1</span><span>2</span><span>3</span><span>5</span></div>
+          <div class="trait-tag incomplete">Incomplete</div>
+        </div>
+        <div class="trait-desc">Four sub-expressions identified: Energy Catalyst (Physical), Pleasure Junkie (T-Dopamine), Knowledge Feeder (T-Confusion), Passion Feeder (T-Emotion). Full development pending further channeling.</div>
+        <div class="trait-dims">
+          <div class="trait-dim iching"><strong>Gate 9</strong> 💨/☀ · The Taming Power of the Small · Focus and accumulation</div>
+          <div class="trait-dim"><strong>Sub-expressions</strong> — Energy Catalyst · Pleasure Junkie · Knowledge Feeder · Passion Feeder</div>
+        </div>
+      </div>
+
+      <!-- TRAIT 9 — INCOMPLETE -->
+      <div class="trait-card incomplete">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Skeptic</div>
+            <div class="trait-alias">—</div>
+          </div>
+          <div class="trait-cats"><span>3</span><span>4</span><span>5</span></div>
+          <div class="trait-tag incomplete">Incomplete</div>
+        </div>
+        <div class="trait-desc">Three sub-expressions identified: Doubt Seeker, Pressure Critic, Heart Analyst. Red's critical intelligence — questioning, stress-testing, refusing to accept without scrutiny. Full development pending further channeling.</div>
+        <div class="trait-dims">
+          <div class="trait-dim"><strong>Sub-expressions</strong> — Doubt Seeker · Pressure Critic · Heart Analyst</div>
+        </div>
+      </div>
+
+      <!-- TRAIT 10 — INCOMPLETE -->
+      <div class="trait-card incomplete">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Hot-Head</div>
+            <div class="trait-alias">Fire Driven</div>
+          </div>
+          <div class="trait-cats"><span>2</span><span>3</span><span>4</span><span>5</span></div>
+          <div class="trait-tag incomplete">Incomplete</div>
+        </div>
+        <div class="trait-desc">Domination impulse — power over, king of the hill. Stubborn but deeply loyal. Red's most combustible expression. Full development pending further channeling.</div>
+        <div class="trait-dims">
+          <div class="trait-dim"><strong>Poles</strong> — Domination (power over) · Loyalty (fierce attachment)</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FULL CHAKRA STACK -->
+  <div class="section">
+    <div class="section-label">Energetic Anatomy — Chakra Stack</div>
+    <div class="chakra-stack">
+      <div class="chakra-row-item active-pink">
+        <div class="chakra-dot" style="background:#D030A0; box-shadow: 0 0 6px #D030A0;"></div>
+        <div class="chakra-row-name" style="color:#D030A0;">Stellar Gateway → Crown</div>
+        <div class="chakra-row-note">Pink register</div>
+      </div>
+      <div class="chakra-row-item active-purple">
+        <div class="chakra-dot" style="background:#8A2BE2;"></div>
+        <div class="chakra-row-name" style="color:#8A2BE2;">Third Eye → Crown</div>
+        <div class="chakra-row-note">Purple register</div>
+      </div>
+      <div class="chakra-row-item">
+        <div class="chakra-dot" style="background:#333;"></div>
+        <div class="chakra-row-name" style="color:#444;">Throat</div>
+        <div class="chakra-row-note">Unassigned rhythm</div>
+      </div>
+      <div class="chakra-row-item active-green">
+        <div class="chakra-dot" style="background:#6EC25A;"></div>
+        <div class="chakra-row-name" style="color:#6EC25A;">Heart</div>
+        <div class="chakra-row-note">Green register</div>
+      </div>
+      <div class="chakra-row-item active-yellow">
+        <div class="chakra-dot" style="background:#F0C020;"></div>
+        <div class="chakra-row-name" style="color:#F0C020;">Solar Plexus → Naval</div>
+        <div class="chakra-row-note">Yellow register</div>
+      </div>
+      <div class="chakra-row-item active-orange">
+        <div class="chakra-dot" style="background:#E87020;"></div>
+        <div class="chakra-row-name" style="color:#E87020;">Sacral → Naval</div>
+        <div class="chakra-row-note">Orange register</div>
+      </div>
+      <div class="chakra-row-item active-red">
+        <div class="chakra-dot" style="background:#E04030; box-shadow: 0 0 6px #E04030;"></div>
+        <div class="chakra-row-name" style="color:#E04030;">Root · Palm · Feet</div>
+        <div class="chakra-row-note">Red register · 3 distinct expressions · only multi-location rhythm</div>
+      </div>
+    </div>
+    <div style="font-size:11px; color:#444; font-style:italic; margin-top:8px;">Red sits at the base and extremities of the body — Root, Palms, Feet. It is the only rhythm with multiple chakra locations, each representing a distinct expression rather than simultaneous firing. Red is the body's most distributed energetic mechanism.</div>
+  </div>
+
+  <!-- OPEN NOTES -->
+  <div class="notes-block">
+    <div class="notes-label">Open Items — To Be Developed</div>
+    <div class="note-item">① <span style="color:#555">Traits 8, 9, 10</span> — Energizer, Skeptic, Hot-Head are partially channeled. Sub-expressions identified but full development pending.</div>
+    <div class="note-item">② <span style="color:#555">Primary fuel</span> — not yet defined. Red has 4 distinct activation triggers but the underlying fuel source that sustains the rhythm is unidentified.</div>
+    <div class="note-item">③ <span style="color:#555">Authority mechanics</span> — the authority requirement is flagged as the central regulatory challenge. What constitutes "proper authority" for Red and how it is accessed is not yet mapped.</div>
+    <div class="note-item">④ <span style="color:#555">Chakra expression depth</span> — Palm, Feet, and Root are identified as distinct Red expressions. What each expression produces in practice — behaviorally, energetically — is not yet fully developed.</div>
+    <div class="note-item">⑤ <span style="color:#555">Residue bump directionality</span> — a negative Red firing can produce a positive field bump and vice versa. The conditions that determine bump direction are not yet mapped.</div>
+    <div class="note-item">⑥ <span style="color:#555">Red × Brown relationship</span> — Red is the human interface of Brown. The mechanics of that relationship and what it means for Red birth holders navigating Brown windows is not yet developed.</div>
+    <div class="note-item">⑦ <span style="color:#555">Gate 64</span> — flagged as the anchor for T-Confusion trigger. Full mapping within Red framework pending.</div>
+  </div>
+
+</div>
+</body>
+</html>

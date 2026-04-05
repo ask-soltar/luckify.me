@@ -1,0 +1,4 @@
+combo,dimension,value,n,mean_vs_avg,std,beat_field_pct,beat_field_count,p_value,excess_vs_baseline,signal_quality
+condition=Calm,condition,Calm,5668,-0.3342,2.9356,56.8,3218,0.0,-0.3293,rock_solid
+condition=Moderate,condition,Moderate,3712,-0.019,2.9464,51.6,1914,0.6945,0.2911,weak
+condition=Tough,condition,Tough,279,0.1814,3.0147,48.4,135,0.3156,0.3909,weak

@@ -1,0 +1,31 @@
+player_name,condition,round_type,color,element,exec_bucket,upside_bucket,chinese_zodiac,combo_events,combo_wr,baseline_wr,delta,delta_pct
+Taylor Pendrith,Calm,Open,Yellow,Metal,50,50,Goat,9,0.667,0.281,0.386,38.6
+Andrew Novak,Calm,Open,Purple,Wood,25,50,Pig,8,0.625,0.265,0.36,36.0
+Brandon Wu,Calm,Survival,Yellow,Fire,50,50,Ox,9,0.556,0.213,0.3430000000000001,34.3
+Beau Hossler,Calm,Open,Yellow,Wood,50,50,Pig,10,0.6,0.269,0.33099999999999996,33.1
+S.Y. Noh,Calm,REMOVE,Yellow,Metal,50,50,Goat,8,0.5,0.178,0.322,32.2
+Maverick McNealy,Calm,Survival,Orange,Wood,25,50,Pig,8,0.625,0.342,0.283,28.3
+Jhonattan Vegas,Calm,Open,Yellow,Wood,50,50,Rat,8,0.5,0.223,0.277,27.7
+Taylor Pendrith,Calm,Open,Purple,Metal,25,50,Goat,9,0.556,0.281,0.275,27.5
+Adam Hadwin,Calm,Open,Green,Fire,50,50,Rabbit,9,0.556,0.284,0.2720000000000001,27.2
+Justin Lower,Calm,Open,Yellow,Earth,50,50,Snake,8,0.5,0.237,0.263,26.3
+Eric Cole,Calm,Survival,Yellow,Earth,50,50,Dragon,9,0.556,0.3,0.25600000000000006,25.6
+Stephan Jaeger,Calm,Closing,Yellow,Earth,50,75,Snake,11,0.545,0.292,0.25300000000000006,25.3
+Adam Svensson,Calm,Open,Yellow,Water,50,75,Rooster,11,0.545,0.294,0.25100000000000006,25.1
+Lanto Griffin,Calm,Open,Yellow,Earth,50,75,Dragon,8,0.5,0.249,0.251,25.1
+Xander Schauffele,Calm,Positioning,Yellow,Water,50,50,Rooster,9,0.667,0.422,0.24500000000000005,24.5
+Andrew Novak,Calm,Open,Yellow,Wood,50,50,Pig,8,0.5,0.265,0.235,23.5
+Austin Eckroat,Calm,Open,Yellow,Earth,50,50,Tiger,8,0.5,0.267,0.23299999999999998,23.3
+Sam Ryder,Calm,Open,Blue,Earth,50,50,Snake,9,0.444,0.213,0.231,23.1
+Michael Kim,Calm,Open,Purple,Water,50,50,Rooster,9,0.556,0.326,0.23000000000000004,23.0
+Christiaan Bezuidenhout,Calm,Closing,Yellow,Wood,50,50,Dog,8,0.5,0.276,0.22399999999999998,22.4
+Ryo Hisatsune,Calm,Open,Yellow,Water,50,50,Horse,12,0.5,0.281,0.21899999999999997,21.9
+Stephan Jaeger,Calm,Open,Purple,Earth,25,50,Snake,8,0.5,0.292,0.20800000000000002,20.8
+Rasmus Højgaard,Calm,Open,Yellow,Metal,50,50,Snake,8,0.5,0.293,0.20700000000000002,20.7
+Gary Woodland,Calm,Open,Yellow,Wood,50,50,Rat,9,0.444,0.237,0.20700000000000002,20.7
+Justin Lower,Calm,Open,Green,Earth,50,50,Snake,9,0.444,0.237,0.20700000000000002,20.7
+Adam Svensson,Calm,Survival,Yellow,Water,50,75,Rooster,14,0.5,0.294,0.20600000000000002,20.6
+Byeong Hun An,Calm,Open,Yellow,Metal,50,50,Goat,13,0.462,0.262,0.2,20.0
+Will Zalatoris,Calm,Closing,Yellow,Fire,50,75,Rat,8,0.5,0.3,0.2,20.0
+Sungjae Im,Calm,Open,Yellow,Earth,50,75,Tiger,9,0.556,0.359,0.19700000000000006,19.7
+Andrew Putnam,Calm,Open,Yellow,Earth,25,75,Dragon,9,0.444,0.248,0.196,19.6

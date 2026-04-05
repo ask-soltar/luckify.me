@@ -1,0 +1,5 @@
+combo,dimension,value,n,mean_vs_avg,std,beat_field_pct,beat_field_count,p_value,excess_vs_baseline,signal_quality
+moon_group=Waxing,moon_group,Waxing,4551,-0.2037,2.9464,54.6,2487,0.0,-0.0104,rock_solid
+moon_group=Waning,moon_group,Waning,4149,-0.0828,2.942,52.5,2180,0.0699,0.2023,weak
+moon_group=Full Moon,moon_group,Full Moon,468,-0.4218,2.9512,61.3,287,0.0021,-0.235,rock_solid
+moon_group=New Moon,moon_group,New Moon,491,-0.9089,2.8736,63.7,313,0.0,-0.7488,rock_solid

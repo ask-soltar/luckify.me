@@ -1,0 +1,99 @@
+================================================================================
+PROJECT STRUCTURE — Clean Reorganization (2026-04-04)
+================================================================================
+
+/d/Projects/luckify-me/
+├── 📌 PROJECT_README.md ...................... START HERE (master index)
+├── 📌 STRUCTURE.txt .......................... This file
+├── 📖 CLAUDE.md ............................. Project master reference
+├── 📖 FINAL_BETTING_SIGNALS.md .............. Active deployed signals
+├── 📖 CONSISTENCY_INSIGHT_EXPANDED.md ....... Key finding on signal consistency
+├── 📖 GOLF_ANALYTICS_DATA_DICTIONARY.md .... Column definitions
+├── 📖 AUDIT_FRAMEWORK.md ................... 5-layer verification system
+├── 📖 DATA_INTAKE_CHECKLIST.md ............. Tournament import process
+│
+├── 📁 /engine/ ............................. Google Apps Script code
+│   ├── 00_config.gs
+│   ├── 01_menu.gs
+│   ├── 02_runner_overnight.gs
+│   └── [20+ more engine files]
+│
+├── 📁 /ANALYSES/ ........................... Timestamped analysis outputs
+│   ├── INDEX.md ........................... Analysis index (read this first)
+│   ├── 20260404_color_personalday_findings.md
+│   ├── 20260404_color_personalday_combos.csv
+│   ├── 20260404_backtest_summary.txt
+│   ├── 20260404_consistency_insight_expanded.md
+│   └── [14+ more analysis files from 2026-04-04]
+│
+├── 📁 /SCRIPTS/ ............................ Python analysis scripts (168 total)
+│   ├── INDEX.md ........................... Script index (recommended scripts)
+│   ├── matchup_screener_v3.py ............. MAIN: 2-ball/3-ball screener
+│   ├── combo_analysis_4d_element.py ....... MAIN: Validated +4.6% signals
+│   ├── backtest_color_personal_day.py .... MAIN: Train/test validation
+│   └── [165+ more analysis/experimental scripts]
+│
+├── 📁 /DATA/ ............................... Reference data files (122 total)
+│   ├── INDEX.md ........................... Data index (what each file is)
+│   ├── Golf Historics v3 - ANALYSIS (7).csv MAIN: 62k rounds, all columns
+│   ├── ANALYSIS_v3_export.csv ............. Full export with formulas
+│   ├── ANALYSIS_v3_CLEAN.csv .............. Cleaned duplicates removed
+│   └── [119+ more data CSVs]
+│
+├── 📁 /ARCHIVE/ ............................ Old/superseded work
+│   └── [10+ archived analysis files]
+│
+├── 📁 /.claude/ ............................ Claude Code configuration
+│   ├── settings.json
+│   └── /projects/.../memory/ .............. PERSISTENT MEMORY (critical!)
+│       ├── MEMORY.md ....................... Memory index (ALWAYS READ)
+│       ├── workflow_daily_analysis_structure.md
+│       ├── feedback_key_insights_always.md
+│       ├── reference_memory_navigation_guide.md
+│       └── [10+ more guidance files]
+│
+└── 📁 /engine/ ............................. (Google Apps Script code)
+
+================================================================================
+HOW TO USE THIS STRUCTURE
+================================================================================
+
+1. START HERE:
+   → Read PROJECT_README.md (overview + navigation)
+   → Read .claude/memory/MEMORY.md (decisions + prior work)
+   → Read .claude/memory/reference_memory_navigation_guide.md (find anything)
+
+2. WHEN RUNNING ANALYSIS:
+   → Check CLAUDE.md work log (what's been done)
+   → Use SCRIPTS/combo_analysis_4d_element.py as template
+   → Read DATA/INDEX.md to find input data
+   → Save output to /ANALYSES/YYYYMMDD_[topic]_*
+
+3. WHEN LOOKING FOR SOMETHING:
+   → Check /ANALYSES/INDEX.md for past analyses
+   → Check /SCRIPTS/INDEX.md for available scripts
+   → Check /DATA/INDEX.md for data files
+   → Check .claude/memory/MEMORY.md for decisions/findings
+
+================================================================================
+KEY RULES
+================================================================================
+
+✓ All analysis outputs go to /ANALYSES/ with timestamp (YYYYMMDD_...)
+✓ All Python scripts in /SCRIPTS/ (reusable, not one-off)
+✓ All data files in /DATA/ (reference only, don't edit)
+✓ Memory decisions in .claude/memory/ (persistent across sessions)
+✓ Work log in CLAUDE.md (what changed and why)
+✓ Old work in /ARCHIVE/ (reference only)
+
+================================================================================
+FAST FACTS
+================================================================================
+
+Primary data:        Golf Historics v3 - ANALYSIS (7).csv (62k rounds)
+Main validated signal: 4D Element combos (+4.6-5.9% edges)
+Most recent analysis: Color × Personal Day (failed, reference only)
+Active scripts:      matchup_screener_v3.py, combo_analysis_4d_element.py
+Standard filters:    Calm/Moderate/Tough + Open/Positioning/Closing/Survival + S/NS
+
+================================================================================

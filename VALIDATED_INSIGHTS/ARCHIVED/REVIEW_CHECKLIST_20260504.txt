@@ -1,0 +1,33 @@
+ARCHIVED THEORY REVIEW CHECKLIST
+Date to Review: 2026-05-04 (1 month from archival)
+
+Theory: Master Numbers × Colors Signal
+Archived: 2026-04-04
+Status: PENDING_REVALIDATION
+
+INSTRUCTIONS FOR REVIEW:
+1. Load latest tournament data from 2026
+2. Run: test_master_numbers_colors.py on 2026-current data only
+3. Check PD 22 mean vs_avg and p-value
+4. Compare to 2022-2024 baseline (mean=-0.35 to -0.46, p=0.007-0.086)
+
+DECISION TREE:
+- If p < 0.10: Effect returning! Move back to NEEDS_TESTING
+- If 0.10 < p < 0.20: Weakening effect, extend archive, recheck in 3 months
+- If p > 0.20: Effect still gone, extend archive, recheck in 3 months
+- If pattern changed (different colors/rounds): Create NEW theory file
+
+HYPOTHESIS TO INVESTIGATE:
+Why did effect disappear? Check:
+1. Market adaptation to Master Numbers knowledge?
+2. LIV Golf cohort changes player composition?
+3. Tournament scheduling changes Calm/R2 frequency?
+4. Random variance (2022-2024 was lucky)?
+
+NEXT REVIEW DATES (Auto-Schedule):
+- 2026-05-04 — First quarterly check
+- 2026-07-04 — Second quarterly check
+- 2026-10-04 — Decision point (archive indefinitely or resurrect?)
+
+OWNER: User (decide if worth investigating)
+PRIORITY: Low (effect not current, but interesting if it returns)

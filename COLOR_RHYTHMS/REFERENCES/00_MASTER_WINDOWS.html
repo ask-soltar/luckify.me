@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucky Window — Master Architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #09090b;
+    --surface: #111114;
+    --surface2: #17171a;
+    --border: rgba(255,255,255,0.07);
+    --text: #e4e2dc;
+    --muted: #555;
+    --subtle: rgba(255,255,255,0.03);
+    /* Colors */
+    --pink:   #D030A0;
+    --orange: #E87020;
+    --blue:   #4080E0;
+    --yellow: #F0C020;
+    --green:  #6EC25A;
+    --purple: #8A2BE2;
+    --red:    #E04030;
+    --brown:  #A97040;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 40px 24px 100px;
+  }
+
+  .page { max-width: 1020px; margin: 0 auto; }
+
+  /* ── HEADER ── */
+  .header { padding-bottom: 32px; margin-bottom: 52px; border-bottom: 1px solid var(--border); }
+  .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase; margin-bottom: 12px; }
+  .page-title { font-family: 'DM Serif Display', serif; font-size: clamp(30px, 5vw, 52px); line-height: 1.05; color: #fff; margin-bottom: 10px; }
+  .page-subtitle { font-size: 13px; color: #555; max-width: 680px; line-height: 1.7; }
+  .doc-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .doc-tag { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); padding: 3px 8px; border: 1px solid var(--border); border-radius: 2px; }
+
+  /* ── SECTION HEADERS ── */
+  .section { margin-bottom: 60px; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .section-num { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #333; letter-spacing: 0.1em; }
+  .section-title { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+  .section-header::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* ── COLOR IDENTITY GRID ── */
+  .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+  .color-card { border: 1px solid var(--border); border-radius: 3px; padding: 14px 16px; background: var(--surface); position: relative; overflow: hidden; }
+  .color-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; }
+  .color-card.pink::before   { background: var(--pink); }
+  .color-card.orange::before { background: var(--orange); }
+  .color-card.blue::before   { background: var(--blue); }
+  .color-card.yellow::before { background: var(--yellow); }
+  .color-card.green::before  { background: var(--green); }
+  .color-card.purple::before { background: var(--purple); }
+  .color-card.red::before    { background: var(--red); }
+  .color-card.brown::before  { background: var(--brown); }
+  .cc-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .cc-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .cc-name { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; }
+  .cc-archetype { font-size: 11px; color: #666; font-style: italic; margin-bottom: 6px; }
+  .cc-identity { font-size: 12.5px; color: #c8c6c0; line-height: 1.55; }
+  .cc-score { font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; color: #333; margin-top: 8px; letter-spacing: 0.08em; }
+
+  /* ── WINDOW TABLE ── */
+  .window-table { width: 100%; border-collapse: collapse; }
+  .window-table th { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.16em; text-transform: uppercase; color: #333; padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  .window-table td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.03); vertical-align: top; font-size: 12px; }
+  .window-table tr:hover td { background: rgba(255,255,255,0.015); }
+  .wt-color { width: 4px; padding: 0 !important; }
+  .wt-name { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; white-space: nowrap; }
+  .wt-score { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #444; white-space: nowrap; }
+  .wt-directive { color: #aaa; line-height: 1.55; font-size: 12px; max-width: 220px; }
+  .wt-bar { display: inline-block; width: 4px; height: 4px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+
+  /* ── GUIDANCE BLOCKS ── */
+  .guidance-section { margin-bottom: 52px; }
+  .guidance-intro { font-size: 12.5px; color: #555; line-height: 1.7; margin-bottom: 24px; max-width: 720px; }
+
+  .guidance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 700px) { .guidance-grid { grid-template-columns: 1fr; } }
+
+  .guidance-card { border: 1px solid var(--border); border-radius: 3px; background: var(--surface); overflow: hidden; }
+  .gc-header { display: flex; align-items: center; gap: 10px; padding: 12px 14px 10px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .gc-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .gc-window { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .gc-score { font-family: 'IBM Plex Mono', monospace; font-size: 8px; color: #333; margin-left: auto; }
+  .gc-body { padding: 12px 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .gc-cat { }
+  .gc-cat-label { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: #333; margin-bottom: 6px; }
+  .gc-cat-label.poker { color: rgba(240,192,32,0.5); }
+  .gc-cat-label.life  { color: rgba(110,194,90,0.4); }
+  .gc-text { font-size: 11.5px; color: #888; line-height: 1.6; }
+
+  /* ── WEAVE LOGIC ── */
+  .logic-block { background: var(--surface); border: 1px solid var(--border); border-radius: 3px; padding: 18px 20px; margin-bottom: 12px; }
+  .logic-title { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #444; margin-bottom: 10px; }
+  .logic-body { font-size: 12.5px; color: #777; line-height: 1.7; }
+  .logic-body strong { color: #bbb; font-weight: 500; }
+  .logic-formula { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #555; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 2px; padding: 10px 14px; margin-top: 10px; line-height: 1.8; }
+  .logic-formula span { color: #888; }
+  .logic-formula em { font-style: normal; color: #aaa; }
+
+  /* ── BROWN OVERLAY ── */
+  .brown-overlay { background: rgba(169,112,64,0.04); border: 1px solid rgba(169,112,64,0.2); border-radius: 3px; padding: 18px 20px; }
+  .bo-title { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(169,112,64,0.6); margin-bottom: 10px; }
+  .bo-body { font-size: 12.5px; color: #777; line-height: 1.7; }
+  .bo-body strong { color: var(--brown); font-weight: 500; }
+  .bo-example { border: 1px solid rgba(169,112,64,0.15); border-radius: 2px; padding: 10px 14px; margin-top: 12px; background: rgba(169,112,64,0.03); }
+  .bo-ex-label { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.12em; color: #444; margin-bottom: 6px; }
+  .bo-ex-text { font-size: 12px; color: #666; line-height: 1.6; font-style: italic; }
+
+  /* ── OUTPUT FORMAT ── */
+  .format-block { border: 1px solid var(--border); border-radius: 3px; padding: 16px 20px; background: var(--surface2); margin-bottom: 10px; }
+  .format-label { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: #333; margin-bottom: 8px; }
+  .format-example { font-size: 13px; color: #999; line-height: 1.7; font-style: italic; }
+  .format-breakdown { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+  .fb-item { border-top: 1px solid var(--border); padding-top: 8px; }
+  .fb-num { font-family: 'IBM Plex Mono', monospace; font-size: 8px; color: #333; margin-bottom: 3px; }
+  .fb-desc { font-size: 11px; color: #555; line-height: 1.5; }
+
+  /* Utility */
+  .note { font-size: 11px; color: #333; font-style: italic; margin-top: 12px; line-height: 1.6; }
+  .divider { height: 1px; background: var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="eyebrow">Lucky Window · Internal Reference · v1.0</div>
+    <h1 class="page-title">Master Architecture</h1>
+    <p class="page-subtitle">Single source of truth for rhythm color identities, window directives, and daily guidance logic. This document sits between the rhythm frameworks and the calendar output layer. All daily guidance text is generated by combining the three layers below: Color Energy + Window Directive + Category Focus.</p>
+    <div class="doc-tags">
+      <span class="doc-tag">8 Rhythms</span>
+      <span class="doc-tag">17 Named Windows</span>
+      <span class="doc-tag">2 Categories: Poker · Daily Life</span>
+      <span class="doc-tag">2–3 Sentence Output</span>
+      <span class="doc-tag">Brown = Environmental Overlay</span>
+    </div>
+  </div>
+
+  <!-- ── SECTION 1: COLOR IDENTITIES ── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">Rhythm Color Identities — Calendar-Ready</span>
+    </div>
+    <p style="font-size:12.5px; color:#555; margin-bottom:18px; line-height:1.7;">One-sentence core identity per color. These are the energy descriptions that appear in calendar copy. Language is direct, poker-aware, and avoids generic self-help framing.</p>
+
+    <div class="color-grid">
+
+      <div class="color-card pink">
+        <div class="cc-top">
+          <div class="cc-dot" style="background:var(--pink);"></div>
+          <div class="cc-name" style="color:var(--pink);">Pink</div>
+        </div>
+        <div class="cc-archetype">The Sparkplug</div>
+        <div class="cc-identity">Fast ignition energy — the kind that starts things, reads the room before others do, and burns bright in short bursts. Dopamine is high. Momentum is available. The window rewards action over analysis.</div>
+        <div class="cc-score">Score +14 to +20 · Noise window · Crown → Stellar Gateway</div>
+      </div>
+
+      <div class="color-card orange">
+        <div class="cc-top">
+          <div class="cc-dot" style="background:var(--orange);"></div>
+          <div class="cc-name" style="color:var(--orange);">Orange</div>
+        </div>
+        <div class="cc-archetype">The Metaphysical Shield</div>
+        <div class="cc-identity">Protective creative energy — steady, body-level, and safe. The floor is higher here. Even when things don't go as planned, Orange softens the blow and keeps structure intact. The best-case window for building without risk of collapse.</div>
+        <div class="cc-score">Score +7 to +13 · Prime window · Sacral → Naval</div>
+      </div>
+
+      <div class="color-card blue">
+        <div class="cc-top">
+          <div class="cc-dot" style="background:var(--blue);"></div>
+          <div class="cc-name" style="color:var(--blue);">Blue</div>
+        </div>
+        <div class="cc-archetype">The Pursuer</div>
+        <div class="cc-identity">Curiosity-driven motion energy — always rising toward something. Blue cycles through phases: rising, landing, resetting. It questions, pursues, and locks in with intensity. The window rewards going deeper, not wider.</div>
+        <div class="cc-score">Score +4/+6, −12/−13, −14/−15 · Sub-Prime / Variance / Stable Swing</div>
+      </div>
+
+      <div class="color-card yellow">
+        <div class="cc-top">
+          <div class="cc-dot" style="background:var(--yellow);"></div>
+          <div class="cc-name" style="color:var(--yellow);">Yellow</div>
+        </div>
+        <div class="cc-archetype">The Phoenix</div>
+        <div class="cc-identity">Extreme energy with no middle register — spikes up or spikes down from a flat baseline. Yellow is the system's true neutral and its most volatile zone. The window is either high-output or a dead zone. There is no coasting in Yellow.</div>
+        <div class="cc-score">Score +3 to −2 · Edge / No Tax / Neutral / Null Edge · Naval → Solar Plexus</div>
+      </div>
+
+      <div class="color-card green">
+        <div class="cc-top">
+          <div class="cc-dot" style="background:var(--green);"></div>
+          <div class="cc-name" style="color:var(--green);">Green</div>
+        </div>
+        <div class="cc-archetype">Cosmic</div>
+        <div class="cc-identity">The system's stabilizer — operates through balance, attunement, and quiet influence. Green energy works on environments and other people more than on the self. The window rewards presence, objectivity, and letting things self-correct.</div>
+        <div class="cc-score">Score −3/−4, −10/−11 · Survivor / Growth · Heart</div>
+      </div>
+
+      <div class="color-card purple">
+        <div class="cc-top">
+          <div class="cc-dot" style="background:var(--purple);"></div>
+          <div class="cc-name" style="color:var(--purple);">Purple</div>
+        </div>
+        <div class="cc-archetype">The Cautious</div>
+        <div class="cc-identity">Purpose-driven but momentum-dependent — Purple needs a running start and resists disruption once moving. The window sits in identity territory: things feel more significant, more personal, more charged. That charge is data, not direction.</div>
+        <div class="cc-score">Score −5 to −9 · Unstable / Identity / Stable Identity · Third Eye → Crown</div>
+      </div>
+
+      <div class="color-card red">
+        <div class="cc-top">
+          <div class="cc-dot" style="background:var(--red);"></div>
+          <div class="cc-name" style="color:var(--red);">Red</div>
+        </div>
+        <div class="cc-archetype">The Catalyst</div>
+        <div class="cc-identity">Weapon energy — forceful, accumulating, and catalytic. Red fires in impacts, not arcs. Each strike adds residue. The window builds pressure over time toward a threshold. The direction of the detonation is not guaranteed by the direction of the firing.</div>
+        <div class="cc-score">Score −16 to −29 · Unstable Swing · Root / Palm / Feet</div>
+      </div>
+
+      <div class="color-card brown">
+        <div class="cc-top">
+          <div class="cc-dot" style="background:var(--brown);"></div>
+          <div class="cc-name" style="color:var(--brown);">Brown</div>
+        </div>
+        <div class="cc-archetype">The Earth · Environmental Overlay</div>
+        <div class="cc-identity">Not a human rhythm — the elemental environment itself. Brown is the Earth moving. When this window is active, elemental forces are dominant and human control is reduced. Things happen because the Earth decided. Outcomes can be extraordinary or disruptive; the mechanism is the same either way.</div>
+        <div class="cc-score">Score −30 to −40 · Luck · Earth Star Chakra · No birth holders</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── SECTION 2: WINDOW DIRECTIVES ── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">Window Directives — Behavioral Layer</span>
+    </div>
+    <p style="font-size:12.5px; color:#555; margin-bottom:18px; line-height:1.7;">What each named window calls for behaviorally. This is the action layer — what to do (or not do) when this window is active, independent of category. Category-specific guidance in Section 3.</p>
+
+    <table class="window-table">
+      <thead>
+        <tr>
+          <th class="wt-color"></th>
+          <th>Window</th>
+          <th>Score</th>
+          <th>Directive</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="wt-color" style="background:var(--pink);"></td>
+          <td class="wt-name" style="color:var(--pink);">Noise</td>
+          <td class="wt-score">+14 to +20</td>
+          <td class="wt-directive">Full ignition. Highest-energy window in the system. Move fast, trust first reads, size up. The energy itself is the edge — don't overthink it.</td>
+        </tr>
+        <tr>
+          <td class="wt-color" style="background:var(--orange);"></td>
+          <td class="wt-name" style="color:var(--orange);">Prime</td>
+          <td class="wt-score">+7 to +13</td>
+          <td class="wt-directive">Engaged and protected. Safest window for sustained effort. Build, create, engage fully. The safety floor is active — worst case is stagnant, not collapse.</td>
+        </tr>
+        <tr>
+          <td class="wt-color" style="background:var(--blue);"></td>
+          <td class="wt-name" style="color:var(--blue);">Sub-Prime</td>
+          <td class="wt-score">+4 to +6</td>
+          <td class="wt-directive">Rising or descending — motion is active. Pursue one thing with intensity. Not the window for spreading attention; go deeper on a single target.</td>
+        </tr>
+        <tr>
+          <td class="wt-color" style="background:var(--yellow);"></td>
+          <td class="wt-name" style="color:var(--yellow);">Edge</td>
+          <td class="wt-score">+3 to +2</td>
+          <td class="wt-directive">Slight positive charge. Available energy but not full ignition. Play with intention — this window rewards sharpness over volume.</td>
+        </tr>
+        <tr>
+          <td class="wt-color" style="background:var(--yellow);"></td>
+          <td class="wt-name" style="color:var(--yellow);">No Tax</td>
+          <td class="wt-score">+1 / −1</td>
+          <td class="wt-directive">Reduced energetic filtering — free expression with minimal drag in either direction. What you put in is close to what you get out. Straightforward day.</td>
+        </tr>
+        <tr>
+          <td class="wt-color" style="background:var(--yellow);"></td>
+          <td class="wt-name" style="color:var(--yellow);">Neutral</td>
+          <td class="wt-score">0</td>
+          <td class="wt-directive">True zero — the system's baseline. No energetic amplification or suppression. Execution determines outcome. A clean day to be precise and deliberate.</td>
+        </tr>
+        <tr>
+          <td class="wt-color" style="background:var(--yellow);"></td>
+          <td class="wt-name" style="color:var(--yellow);">Null Edge</td>
+          <td class="wt-score">−2</td>
+          <td class="wt-directive">Slight negative drag. Energy is available but requires more input for the same output. Play tighter, spend less, conserve where possible.</td>
+        </tr>
+        <tr>
+          <td class="wt-color" style="background:var(--green);"></td>
+          <td class="wt-name" style="color:var(--green);">Survivor</td>
+          <td class="wt-score">−3 / −4</td>
+          <td class="wt-directive">Stable pocket just below neutral — Green energy is stabilizing. Stay present, don't force moves. The environment rewards composure over ambition.</td>
+        </tr>
+        <tr>
+          <td class="wt-color" style="background:var(--purple);"></td>
+          <td class="wt-name" style="color:var(--purple);">Unstable Identity</td>
+          <td class="wt-score">−5</td>
+          <td class="wt-directive">Entering identity territory — things may feel more personal or charged than they are. Name what you're feeling before acting. Separate the signal from the story.</td>
+        </tr>
+        <tr>
+          <td class="wt-color" style="background:var(--purple);"></td>
+          <td class="wt-name" style="color:var(--purple);">Identity</td>
+          <td class="wt-score">−6 to −8</td>
+          <td class="wt-directive">Full identity window — activation is the norm here. Slower decision-making is not weakness, it's calibration. Momentum exists but requires a running start.</td>
+        </tr>
+        <tr>
+          <td class="wt-color" style="background:var(--purple);"></td>
+          <td class="wt-name" style="color:var(--purple);">Stable Identity</td>
+          <td class="wt-score">−9</td>
+          <td class="wt-directive">Deepest identity window before Green's recovery pocket. Most regulated position in the Identity band. Move deliberately. Vision is available but the map is not the territory.</td>
+        </tr>
+        <tr>
+          <td class="wt-color" style="background:var(--green);"></td>
+          <td class="wt-name" style="color:var(--green);">Growth</td>
+          <td class="wt-score">−10 / −11</td>
+          <td class="wt-directive">Second stable Green pocket below Identity. Recovery and integration energy. What was activated in Purple can settle here. Process over performance.</td>
+        </tr>
+        <tr>
+          <td class="wt-color" style="background:var(--blue);"></td>
+          <td class="wt-name" style="color:var(--blue);">Variance</td>
+          <td class="wt-score">−12 / −13</td>
+          <td class="wt-directive">Landing zone — Blue is in its cup/catch phase. Outcomes may not reflect effort directly. This is a swing window; results vary. Stay in the hand, don't over-adjust.</td>
+        </tr>
+        <tr>
+          <td class="wt-color" style="background:var(--blue);"></td>
+          <td class="wt-name" style="color:var(--blue);">Stable Swing</td>
+          <td class="wt-score">−14 / −15</td>
+          <td class="wt-directive">Reset point — the Blue cycle is completing or preparing to rise again. Low-pressure day. Consolidate, review, refuel. The next rise begins from here.</td>
+        </tr>
+        <tr>
+          <td class="wt-color" style="background:var(--red);"></td>
+          <td class="wt-name" style="color:var(--red);">Unstable Swing</td>
+          <td class="wt-score">−16 to −29</td>
+          <td class="wt-directive">Red is accumulating. Pressure is building under the surface — the direction of the eventual release is not set by how today feels. Authority required. Without it, Red drains. Controlled engagement only.</td>
+        </tr>
+        <tr>
+          <td class="wt-color" style="background:var(--brown);"></td>
+          <td class="wt-name" style="color:var(--brown);">Luck</td>
+          <td class="wt-score">−30 to −40</td>
+          <td class="wt-directive">Elemental forces are dominant. Outcomes are governed by Earth energy, not execution. Reduce personal pressure — what happens today is larger than your hand. Stay agile, stay open, don't force.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── SECTION 3: DAILY GUIDANCE BY CATEGORY ── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">Daily Guidance — Poker &amp; Daily Life</span>
+    </div>
+    <p style="font-size:12.5px; color:#555; margin-bottom:24px; line-height:1.7;">2–3 sentence guidance per window per category. <strong style="color:#888;">Sentence 1:</strong> names the energy. <strong style="color:#888;">Sentence 2:</strong> gives the category-specific action or orientation. <strong style="color:#888;">Sentence 3 (when used):</strong> adds a precision note or the key thing to avoid.</p>
+
+    <div class="guidance-grid">
+
+      <!-- NOISE -->
+      <div class="guidance-card">
+        <div class="gc-header">
+          <div class="gc-dot" style="background:var(--pink);"></div>
+          <div class="gc-window" style="color:var(--pink);">Noise</div>
+          <div class="gc-score">+14 to +20</div>
+        </div>
+        <div class="gc-body">
+          <div class="gc-cat">
+            <div class="gc-cat-label poker">♠ Poker</div>
+            <div class="gc-text">The system is lit — this is your highest-energy window. Play your full sessions, size up on premium spots, and trust your reads without second-guessing. The one risk: Pink burns fast, so watch for the moment the edge shifts and don't chase it past its peak.</div>
+          </div>
+          <div class="gc-cat">
+            <div class="gc-cat-label life">◈ Daily Life</div>
+            <div class="gc-text">Your ignition is active — start the hard thing, make the call you've been putting off, show up with full presence. Energy is available before you have to earn it today. Use it early; Pink doesn't coast.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRIME -->
+      <div class="guidance-card">
+        <div class="gc-header">
+          <div class="gc-dot" style="background:var(--orange);"></div>
+          <div class="gc-window" style="color:var(--orange);">Prime</div>
+          <div class="gc-score">+7 to +13</div>
+        </div>
+        <div class="gc-body">
+          <div class="gc-cat">
+            <div class="gc-cat-label poker">♠ Poker</div>
+            <div class="gc-text">The safety floor is on — this is a build day. Run your full volume, play creatively, and engage pots you'd normally avoid. Even if the session underperforms, Orange prevents the structural damage that other windows can produce.</div>
+          </div>
+          <div class="gc-cat">
+            <div class="gc-cat-label life">◈ Daily Life</div>
+            <div class="gc-text">Protective energy is active — sustained effort is supported here. Take on projects that require staying power, engage with the people who matter, and build something that lasts. The environment is on your side today.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUB-PRIME -->
+      <div class="guidance-card">
+        <div class="gc-header">
+          <div class="gc-dot" style="background:var(--blue);"></div>
+          <div class="gc-window" style="color:var(--blue);">Sub-Prime</div>
+          <div class="gc-score">+4 to +6</div>
+        </div>
+        <div class="gc-body">
+          <div class="gc-cat">
+            <div class="gc-cat-label poker">♠ Poker</div>
+            <div class="gc-text">Blue is in motion — rising or resetting. Pick one game, one format, one target and pursue it with full attention. The edge today comes from depth, not spread. Diluted focus dilutes the window.</div>
+          </div>
+          <div class="gc-cat">
+            <div class="gc-cat-label life">◈ Daily Life</div>
+            <div class="gc-text">Curiosity is the fuel today — follow what pulls you and go deeper than usual. One project, one conversation, one thread. Blue rewards the person willing to pursue past the surface.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDGE -->
+      <div class="guidance-card">
+        <div class="gc-header">
+          <div class="gc-dot" style="background:var(--yellow);"></div>
+          <div class="gc-window" style="color:var(--yellow);">Edge</div>
+          <div class="gc-score">+3 to +2</div>
+        </div>
+        <div class="gc-body">
+          <div class="gc-cat">
+            <div class="gc-cat-label poker">♠ Poker</div>
+            <div class="gc-text">Slight positive charge — there's an edge available, but it's thin. Play sharp and deliberate; this isn't a volume day, it's a precision day. One clean session beats three scattered ones.</div>
+          </div>
+          <div class="gc-cat">
+            <div class="gc-cat-label life">◈ Daily Life</div>
+            <div class="gc-text">Small advantage available if you stay intentional. Focus on quality over quantity — one well-executed thing outperforms scattered effort. Yellow rewards sharpness today.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NO TAX -->
+      <div class="guidance-card">
+        <div class="gc-header">
+          <div class="gc-dot" style="background:var(--yellow);"></div>
+          <div class="gc-window" style="color:var(--yellow);">No Tax</div>
+          <div class="gc-score">+1 / −1</div>
+        </div>
+        <div class="gc-body">
+          <div class="gc-cat">
+            <div class="gc-cat-label poker">♠ Poker</div>
+            <div class="gc-text">Reduced energetic filtering — what you put in is close to what you get out. Play your normal game without forcing anything. No special adjustments needed; just clean, standard execution.</div>
+          </div>
+          <div class="gc-cat">
+            <div class="gc-cat-label life">◈ Daily Life</div>
+            <div class="gc-text">A clean, uncomplicated day — the energy isn't amplifying or suppressing. Show up as you are. Routine work, honest conversations, and clear decisions all flow without drag.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEUTRAL -->
+      <div class="guidance-card">
+        <div class="gc-header">
+          <div class="gc-dot" style="background:var(--yellow);"></div>
+          <div class="gc-window" style="color:var(--yellow);">Neutral</div>
+          <div class="gc-score">0</div>
+        </div>
+        <div class="gc-body">
+          <div class="gc-cat">
+            <div class="gc-cat-label poker">♠ Poker</div>
+            <div class="gc-text">True zero — no energetic tailwind or headwind. Execution is everything today. The player who makes the fewest mistakes wins, not the one running hottest. Stay fundamentally sound.</div>
+          </div>
+          <div class="gc-cat">
+            <div class="gc-cat-label life">◈ Daily Life</div>
+            <div class="gc-text">The baseline — no amplification in either direction. This is a day to be precise and deliberate. Decisions made at true zero carry no distortion; what you choose today is what it is.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NULL EDGE -->
+      <div class="guidance-card">
+        <div class="gc-header">
+          <div class="gc-dot" style="background:var(--yellow);"></div>
+          <div class="gc-window" style="color:var(--yellow);">Null Edge</div>
+          <div class="gc-score">−2</div>
+        </div>
+        <div class="gc-body">
+          <div class="gc-cat">
+            <div class="gc-cat-label poker">♠ Poker</div>
+            <div class="gc-text">Slight drag active — more input is required for the same output. Play tighter than usual, reduce session length if results aren't flowing, and avoid forcing action in marginal spots.</div>
+          </div>
+          <div class="gc-cat">
+            <div class="gc-cat-label life">◈ Daily Life</div>
+            <div class="gc-text">The day costs a little more than it gives back. Prioritize only what matters, conserve energy where you can, and don't start anything new that requires momentum you don't have yet.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SURVIVOR -->
+      <div class="guidance-card">
+        <div class="gc-header">
+          <div class="gc-dot" style="background:var(--green);"></div>
+          <div class="gc-window" style="color:var(--green);">Survivor</div>
+          <div class="gc-score">−3 / −4</div>
+        </div>
+        <div class="gc-body">
+          <div class="gc-cat">
+            <div class="gc-cat-label poker">♠ Poker</div>
+            <div class="gc-text">Green's stabilizing energy is active — the environment is calm but not advantaged. Play patient, conservative poker. Composure is the edge today; outlasting the table matters more than outplaying it.</div>
+          </div>
+          <div class="gc-cat">
+            <div class="gc-cat-label life">◈ Daily Life</div>
+            <div class="gc-text">A steady, grounded day — nothing is pushing hard in any direction. Show up with presence and let things self-regulate. Green energy rewards the person who doesn't add noise to a quiet room.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- UNSTABLE IDENTITY -->
+      <div class="guidance-card">
+        <div class="gc-header">
+          <div class="gc-dot" style="background:var(--purple);"></div>
+          <div class="gc-window" style="color:var(--purple);">Unstable Identity</div>
+          <div class="gc-score">−5</div>
+        </div>
+        <div class="gc-body">
+          <div class="gc-cat">
+            <div class="gc-cat-label poker">♠ Poker</div>
+            <div class="gc-text">Entering identity territory — things may start to feel more personal at the table. Name it before it runs. The hand is still just a hand; the story around it is where the leak starts.</div>
+          </div>
+          <div class="gc-cat">
+            <div class="gc-cat-label life">◈ Daily Life</div>
+            <div class="gc-text">Decisions and interactions may carry more emotional charge than usual today. Slow down before reacting. The charge is real but it's energy, not direction — let it inform you without steering you.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IDENTITY -->
+      <div class="guidance-card">
+        <div class="gc-header">
+          <div class="gc-dot" style="background:var(--purple);"></div>
+          <div class="gc-window" style="color:var(--purple);">Identity</div>
+          <div class="gc-score">−6 to −8</div>
+        </div>
+        <div class="gc-body">
+          <div class="gc-cat">
+            <div class="gc-cat-label poker">♠ Poker</div>
+            <div class="gc-text">Full identity window — the table will feel more significant than it is. Play only when you have clear structural edge and enough momentum to stay grounded. Slower decisions aren't weakness today; they're the skill.</div>
+          </div>
+          <div class="gc-cat">
+            <div class="gc-cat-label life">◈ Daily Life</div>
+            <div class="gc-text">Purpose energy is high but it needs a running start. Don't expect to cold-start into big work — build momentum first through small, clear actions. Once moving, Purple holds the line.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STABLE IDENTITY -->
+      <div class="guidance-card">
+        <div class="gc-header">
+          <div class="gc-dot" style="background:var(--purple);"></div>
+          <div class="gc-window" style="color:var(--purple);">Stable Identity</div>
+          <div class="gc-score">−9</div>
+        </div>
+        <div class="gc-body">
+          <div class="gc-cat">
+            <div class="gc-cat-label poker">♠ Poker</div>
+            <div class="gc-text">Deepest identity position before recovery — the most regulated day in the Purple band. Play only your clearest spots. Vision may feel sharp; verify the structure before trusting it as edge.</div>
+          </div>
+          <div class="gc-cat">
+            <div class="gc-cat-label life">◈ Daily Life</div>
+            <div class="gc-text">A deliberate day — insight is available but needs verification. Don't mistake clarity of vision for certainty of outcome. Move with intention and check your reads against the facts before acting on them.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GROWTH -->
+      <div class="guidance-card">
+        <div class="gc-header">
+          <div class="gc-dot" style="background:var(--green);"></div>
+          <div class="gc-window" style="color:var(--green);">Growth</div>
+          <div class="gc-score">−10 / −11</div>
+        </div>
+        <div class="gc-body">
+          <div class="gc-cat">
+            <div class="gc-cat-label poker">♠ Poker</div>
+            <div class="gc-text">Recovery pocket after Identity — the pressure has lifted. This is a good day to study, review hands, and integrate what the Purple window surfaced. Don't play for volume; play for understanding.</div>
+          </div>
+          <div class="gc-cat">
+            <div class="gc-cat-label life">◈ Daily Life</div>
+            <div class="gc-text">The Identity pressure has passed — what got activated is ready to be processed. Rest, reflect, and let things settle. Green at this depth rewards integration over action.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VARIANCE -->
+      <div class="guidance-card">
+        <div class="gc-header">
+          <div class="gc-dot" style="background:var(--blue);"></div>
+          <div class="gc-window" style="color:var(--blue);">Variance</div>
+          <div class="gc-score">−12 / −13</div>
+        </div>
+        <div class="gc-body">
+          <div class="gc-cat">
+            <div class="gc-cat-label poker">♠ Poker</div>
+            <div class="gc-text">Blue is in its landing zone — results won't map cleanly to effort today. Variance is the operating condition, not a malfunction. Stay in the hand, play your game, and don't over-adjust to short-term outcomes.</div>
+          </div>
+          <div class="gc-cat">
+            <div class="gc-cat-label life">◈ Daily Life</div>
+            <div class="gc-text">Outcomes may feel unpredictable today — that's the window, not a problem. Stay steady and don't read too much into results. Blue is landing; the next rise begins from this settling point.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STABLE SWING -->
+      <div class="guidance-card">
+        <div class="gc-header">
+          <div class="gc-dot" style="background:var(--blue);"></div>
+          <div class="gc-window" style="color:var(--blue);">Stable Swing</div>
+          <div class="gc-score">−14 / −15</div>
+        </div>
+        <div class="gc-body">
+          <div class="gc-cat">
+            <div class="gc-cat-label poker">♠ Poker</div>
+            <div class="gc-text">Reset point — Blue is at the base of its cycle. Low-pressure day; don't force volume or big action. Review your game, consolidate your bankroll thinking, and prepare for the next rise.</div>
+          </div>
+          <div class="gc-cat">
+            <div class="gc-cat-label life">◈ Daily Life</div>
+            <div class="gc-text">A natural resting point — the Blue cycle is completing and preparing to climb again. Refuel, consolidate, and don't push. What you restore here is what powers the next phase.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- UNSTABLE SWING -->
+      <div class="guidance-card">
+        <div class="gc-header">
+          <div class="gc-dot" style="background:var(--red);"></div>
+          <div class="gc-window" style="color:var(--red);">Unstable Swing</div>
+          <div class="gc-score">−16 to −29</div>
+        </div>
+        <div class="gc-body">
+          <div class="gc-cat">
+            <div class="gc-cat-label poker">♠ Poker</div>
+            <div class="gc-text">Red is accumulating pressure — the table will feel catalytic, charged, and potentially personal. Play with authority or don't play. Half-committed action in Red drains instead of builds. Know your trigger and watch for it.</div>
+          </div>
+          <div class="gc-cat">
+            <div class="gc-cat-label life">◈ Daily Life</div>
+            <div class="gc-text">Forceful energy is building beneath the surface today. Channel it deliberately — Red without direction becomes disruption. One clear target, full commitment. The detonation point is coming; choose where it lands.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LUCK -->
+      <div class="guidance-card">
+        <div class="gc-header">
+          <div class="gc-dot" style="background:var(--brown);"></div>
+          <div class="gc-window" style="color:var(--brown);">Luck</div>
+          <div class="gc-score">−30 to −40</div>
+        </div>
+        <div class="gc-body">
+          <div class="gc-cat">
+            <div class="gc-cat-label poker">♠ Poker</div>
+            <div class="gc-text">Elemental forces are running the table today, not you. Outcomes may exceed or miss your execution in ways that don't make logical sense — because Earth energy, not skill edge, is dominant. Stay light, stay agile, and don't over-invest in a narrative about your play.</div>
+          </div>
+          <div class="gc-cat">
+            <div class="gc-cat-label life">◈ Daily Life</div>
+            <div class="gc-text">Something larger than your effort is active today. Don't grip the wheel too hard — Brown windows are where things happen to you as much as through you. Stay open to what arrives unexpectedly; the Earth is moving and it doesn't need your permission.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── SECTION 4: WEAVE LOGIC ── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">Guidance Weave Logic</span>
+    </div>
+
+    <div class="logic-block">
+      <div class="logic-title">How the three layers combine into a daily output</div>
+      <div class="logic-body">
+        Every daily guidance output is the intersection of three data points: <strong>Color Energy</strong> (what rhythm is active), <strong>Window Directive</strong> (what behavioral position the score calls for), and <strong>Category Focus</strong> (how that energy expresses through Poker or Daily Life). The Color Energy sets the tone — it's the underlying feel of the day. The Window Directive narrows to the specific score band within that color. The Category Focus translates both into actionable language for the subscriber's chosen lens.
+      </div>
+      <div class="logic-formula">
+        <span>Daily Output =</span> <em>Color Energy</em> <span>+</span> <em>Window Directive</em> <span>+</span> <em>Category Lens</em><br/>
+        <span>Format:</span> <em>Sentence 1 — name the energy &nbsp;·&nbsp; Sentence 2 — category action &nbsp;·&nbsp; Sentence 3 — precision note or key avoid</em>
+      </div>
+    </div>
+
+    <div class="logic-block" style="margin-top:10px;">
+      <div class="logic-title">Tone rules by color</div>
+      <div class="logic-body">
+        <strong>Pink / Orange / Blue (positive windows)</strong> — Lead with what's available. Action-forward. Confident but not reckless.<br/><br/>
+        <strong>Yellow (neutral band)</strong> — Precision-first. No hype, no alarm. Name the exact condition — Edge, Neutral, Null Edge — and give the appropriate sized response.<br/><br/>
+        <strong>Green / Purple</strong> — Slower. More interior. Green = presence and attunement. Purple = identity-aware, momentum-dependent. Never catastrophize these windows.<br/><br/>
+        <strong>Red</strong> — Direct and honest about force. Don't soften it. Name the accumulation dynamic. Authority is the key variable.<br/><br/>
+        <strong>Brown</strong> — Atmospheric. Elemental. Never analytical about it — Brown is not something to optimize, only to navigate.
+      </div>
+    </div>
+
+    <div class="logic-block" style="margin-top:10px;">
+      <div class="logic-title">Modular category expansion (future)</div>
+      <div class="logic-body">The two-category system (Poker / Daily Life) is designed to be modular. When additional categories are added — Business, Relationships, Health, etc. — each receives its own guidance column in Section 3, following the same 2–3 sentence format. The Color Identity and Window Directive layers in Sections 1 and 2 remain unchanged; only the category translation layer expands. Subscribers will select one primary focus at signup with the option to switch.</div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 5: BROWN OVERLAY ── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <span class="section-title">Brown / Soltar — Environmental Overlay</span>
+    </div>
+
+    <div class="brown-overlay">
+      <div class="bo-title">Active on all windows when Brown score is present</div>
+      <div class="bo-body">
+        Brown is not a window that replaces the active color — it is an <strong>overlay</strong> that modifies any window when active. If a subscriber's day scores −30 to −40, Brown is present regardless of which human rhythm color is primary. The Luck window language is added as a second layer on top of the standard window guidance. <strong>Soltar</strong> is the voice of this layer in the Luckify product — weekly field intelligence reports are Soltar's expression of Earth energy active in the current period.<br/><br/>
+        When Brown is active: reduce personal pressure framing, increase elemental and environmental language, and always close with a note about staying open rather than optimizing.
+      </div>
+      <div class="bo-example">
+        <div class="bo-ex-label">Example — Brown active on a Prime (Orange) day · Poker</div>
+        <div class="bo-ex-text">"The creative floor is on and Orange is protecting your structural edge — engaged play is supported. At the same time, Earth energy is moving today, which means some outcomes will land outside your control in either direction. Play your full game and stay loose with the results; what happens today is partly yours, partly the table's, and partly something larger."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 6: OUTPUT FORMAT ── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <span class="section-title">Daily Output Format</span>
+    </div>
+
+    <div class="format-block">
+      <div class="format-label">Standard · 2–3 sentences · Poker · Prime window</div>
+      <div class="format-example">"The safety floor is on — this is a build day. Run your full volume, play creatively, and engage pots you'd normally avoid. Even if the session underperforms, Orange prevents the structural damage that other windows can produce."</div>
+      <div class="format-breakdown">
+        <div class="fb-item">
+          <div class="fb-num">Sentence 1</div>
+          <div class="fb-desc">Names the energy and sets the tone. No jargon. Direct.</div>
+        </div>
+        <div class="fb-item">
+          <div class="fb-num">Sentence 2</div>
+          <div class="fb-desc">Category-specific action. What to do, how to play, how to show up.</div>
+        </div>
+        <div class="fb-item">
+          <div class="fb-num">Sentence 3</div>
+          <div class="fb-desc">Precision note — either the key edge to maximize or the key thing to avoid.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="format-block" style="margin-top:10px;">
+      <div class="format-label">With Brown overlay · 3 sentences · Poker · Prime window</div>
+      <div class="format-example">"The creative floor is on and Orange is protecting your structural edge — engaged play is supported. Run your full volume and play confidently. Earth energy is also active today, meaning some outcomes land outside execution — stay loose with results and let what arrives, arrive."</div>
+    </div>
+
+    <p class="note">Future: the guidance text can be generated dynamically by an AI layer that takes Color + Window + Category + Brown-active as inputs and outputs the day's text, using this document as its source of truth and tone guide.</p>
+  </div>
+
+</div>
+</body>
+</html>

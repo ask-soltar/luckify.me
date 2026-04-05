@@ -1,0 +1,12 @@
+id,tier,n_expected,n_actual,historical_effect,actual_effect,effect_decay,std,beat_field_pct,beat_field_count,p_value,status,held
+orange_newmoon_calm,1,315,76,-1.1413,-0.9973,0.874,2.5285,64.5,49,0.001,HELD,True
+orange_newmoon_exec_25_50,1,209,35,-1.0348,-0.9093,0.879,2.6661,60.0,21,0.0516,WEAKENED,False
+orange_newmoon,1,491,76,-0.9089,-0.9973,1.097,2.5285,64.5,49,0.001,HELD,True
+orange_fullmoon_calm,2,299,82,-0.4477,-1.4273,3.188,2.475,78.0,64,0.0,HELD,True
+orange_waxing_calm,2,2901,781,-0.3913,-0.3663,0.936,2.9763,56.3,440,0.0006,HELD,True
+orange_calm,2,5668,1432,-0.3342,-0.2822,0.844,3.0376,56.2,805,0.0005,HELD,True
+red_exec_50_75_closing,2,92,46,-0.936,0.9275,0.991,3.2822,47.8,22,0.0617,REVERSED,False
+green_exec_75_100_wood,2,124,63,-0.876,0.8284,0.946,3.0542,38.1,24,0.0352,REVERSED,False
+orange_exec_75_100,1,775,138,0.2628,0.2676,1.018,2.7849,50.0,69,0.2609,WEAKENED,False
+orange_earth_exec_75_100,1,178,21,0.7713,1.1476,1.488,2.7577,33.3,7,0.071,WEAKENED,False
+libra_horoscope,2,287,707,0.5486,0.4133,0.753,3.2893,46.3,327,0.0009,HELD,True

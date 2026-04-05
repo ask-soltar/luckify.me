@@ -1,5 +1,0 @@
-name,condition,round_type,color,element,exec_bucket,upside_bucket,chinese_zodiac
-Player with 12 exec,Calm,Open,Yellow,Earth,12,75,Snake
-Player with exact 50,Calm,Open,Yellow,Earth,50,50,Rat
-Player with 37 exec,Calm,Open,Yellow,Earth,37,50,Rat
-Player with 65 upside,Calm,Open,Yellow,Earth,50,65,Tiger

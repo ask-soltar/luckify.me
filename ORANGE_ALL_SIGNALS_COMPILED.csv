@@ -1,0 +1,174 @@
+combo,dimension,value,n,mean_vs_avg,std,beat_field_pct,beat_field_count,p_value,excess_vs_baseline,signal_quality,level
+condition=Calm,condition,Calm,5668,-0.3342,2.9356,56.8,3218,0.0,-0.3293,rock_solid,L1
+condition=Moderate,condition,Moderate,3712,-0.019,2.9464,51.6,1914,0.6945,0.2911,weak,L1
+condition=Tough,condition,Tough,279,0.1814,3.0147,48.4,135,0.3156,0.3909,weak,L1
+round_type=Open,round_type,Open,3117,-0.2785,2.9416,57.1,1781,0.0,-0.1186,rock_solid,L2
+round_type=Positioning,round_type,Positioning,1783,-0.115,2.8765,52.4,935,0.0916,0.102,weak,L2
+round_type=Closing,round_type,Closing,1706,-0.217,2.8279,53.2,908,0.0016,-0.0228,rock_solid,L2
+round_type=Survival,round_type,Survival,2702,-0.148,3.0057,53.6,1448,0.0106,0.0697,acceptable,L2
+round_type=Mixed,round_type,Mixed,254,-0.0547,3.6162,51.2,130,0.8097,0.1474,weak,L2
+round_type=Elimination,round_type,Elimination,97,-0.591,2.7562,67.0,65,0.0373,-0.3968,acceptable,L2
+wu_xing=Earth,wu_xing,Earth,2013,-0.1919,2.8912,54.1,1089,0.0029,0.008,acceptable,L3
+wu_xing=Fire,wu_xing,Fire,2180,-0.21,2.9947,54.4,1186,0.0011,-0.0152,rock_solid,L3
+wu_xing=Metal,wu_xing,Metal,1857,-0.1277,2.9825,53.9,1000,0.0651,0.0872,weak,L3
+wu_xing=Water,wu_xing,Water,1916,-0.251,2.9708,55.6,1065,0.0002,-0.0658,rock_solid,L3
+wu_xing=Wood,wu_xing,Wood,1655,-0.2536,2.8752,55.6,920,0.0003,-0.0669,rock_solid,L3
+exec_bucket=0-25,exec_bucket,0-25,84,-0.5558,3.4031,59.5,50,0.1382,-0.3607,weak,L4
+exec_bucket=25-50,exec_bucket,25-50,4683,-0.2751,2.9013,55.7,2607,0.0,-0.1493,rock_solid,L4
+exec_bucket=50-75,exec_bucket,50-75,4117,-0.1902,2.97,54.0,2225,0.0,0.0139,acceptable,L4
+exec_bucket=75-100,exec_bucket,75-100,775,0.2628,2.9992,49.7,385,0.0149,0.5012,rock_solid,L4
+moonwest=Waxing Crescent,moonwest,Waxing Crescent,2007,-0.2251,2.8782,54.9,1101,0.0005,-0.0339,rock_solid,L5
+moonwest=New Moon,moonwest,New Moon,491,-0.9089,2.8736,63.7,313,0.0,-0.7488,rock_solid,L5
+moonwest=Waning Crescent,moonwest,Waning Crescent,1870,-0.0798,2.9691,52.0,972,0.2453,0.1468,weak,L5
+moonwest=Last Quarter,moonwest,Last Quarter,489,0.0506,2.8674,51.7,253,0.6963,0.2621,weak,L5
+moonwest=Waning Gibbous,moonwest,Waning Gibbous,1790,-0.1224,2.9343,53.4,955,0.0778,0.093,weak,L5
+moonwest=Waxing Gibbous,moonwest,Waxing Gibbous,1945,-0.1947,2.979,54.0,1051,0.004,0.0043,acceptable,L5
+moonwest=Full Moon,moonwest,Full Moon,468,-0.4218,2.9512,61.3,287,0.0021,-0.235,rock_solid,L5
+moonwest=First Quarter,moonwest,First Quarter,599,-0.1614,3.0676,55.9,335,0.1984,0.0393,weak,L5
+moon_group=Waxing,moon_group,Waxing,4551,-0.2037,2.9464,54.6,2487,0.0,-0.0104,rock_solid,L6
+moon_group=Waning,moon_group,Waning,4149,-0.0828,2.942,52.5,2180,0.0699,0.2023,weak,L6
+moon_group=Full Moon,moon_group,Full Moon,468,-0.4218,2.9512,61.3,287,0.0021,-0.235,rock_solid,L6
+moon_group=New Moon,moon_group,New Moon,491,-0.9089,2.8736,63.7,313,0.0,-0.7488,rock_solid,L6
+moon=Shukla Bhadra,moon,Shukla Bhadra,1019,0.1009,2.9948,50.8,518,0.2822,0.3344,weak,L7
+moon=Krishna Purna,moon,Krishna Purna,1012,-0.4148,3.0517,58.0,587,0.0,-0.2419,rock_solid,L7
+moon=Krishna Rikta,moon,Krishna Rikta,1033,0.064,2.819,47.9,495,0.4657,0.2936,weak,L7
+moon=Krishna Jaya,moon,Krishna Jaya,733,-0.3509,2.9555,58.7,430,0.0014,-0.1652,rock_solid,L7
+moon=Krishna Bhadra,moon,Krishna Bhadra,987,-0.0298,2.9182,50.9,502,0.7487,0.1876,weak,L7
+moon=Shukla Purna,moon,Shukla Purna,1096,-0.1293,2.9959,54.5,597,0.1534,0.0777,weak,L7
+moon=Shukla Rikta,moon,Shukla Rikta,1072,-0.2692,2.9129,56.2,603,0.0025,-0.0799,rock_solid,L7
+moon=Shukla Jaya,moon,Shukla Jaya,986,-0.4394,2.9059,57.9,571,0.0,-0.2687,rock_solid,L7
+moon=Shukla Nanda,moon,Shukla Nanda,904,-0.4726,2.8413,57.7,522,0.0,-0.3027,rock_solid,L7
+moon=Krishna Nanda,moon,Krishna Nanda,817,-0.1055,3.0084,54.1,442,0.3167,0.1013,weak,L7
+Calm -- Elimination,condition -- round_type,Calm -- Elimination,97,-0.591,2.7562,67.0,65,0.0373,-0.3968,acceptable,L8
+Calm -- Survival,condition -- round_type,Calm -- Survival,1310,-0.4718,2.9834,58.2,762,0.0,-0.3166,rock_solid,L8
+Tough -- Open,condition -- round_type,Tough -- Open,99,-0.3987,2.6952,61.6,61,0.1442,-0.2026,weak,L8
+Calm -- Open,condition -- round_type,Calm -- Open,1786,-0.3765,2.9385,58.7,1049,0.0,-0.2187,rock_solid,L8
+Calm -- Closing,condition -- round_type,Calm -- Closing,1125,-0.2601,2.8434,53.2,598,0.0022,-0.07,rock_solid,L8
+Calm -- Mixed,condition -- round_type,Calm -- Mixed,221,-0.2483,3.6314,53.4,118,0.3105,-0.0513,weak,L8
+Tough -- Closing,condition -- round_type,Tough -- Closing,29,-0.2356,3.4809,48.3,14,0.7182,-0.0375,weak,L8
+Calm -- Positioning,condition -- round_type,Calm -- Positioning,1129,-0.1764,2.8219,55.4,626,0.0359,0.0246,acceptable,L8
+Moderate -- Closing,condition -- round_type,Moderate -- Closing,552,-0.1282,2.7614,53.6,296,0.276,0.0743,weak,L8
+Moderate -- Open,condition -- round_type,Moderate -- Open,1232,-0.1269,2.9608,54.5,671,0.1328,0.0817,weak,L8
+Moderate -- Positioning,condition -- round_type,Moderate -- Positioning,579,-0.0499,2.9478,47.7,276,0.6837,0.1577,weak,L8
+Moderate -- Survival,condition -- round_type,Moderate -- Survival,1316,0.1098,2.9908,50.1,659,0.1832,0.3566,weak,L8
+Tough -- Positioning,condition -- round_type,Tough -- Positioning,75,0.3077,3.1201,44.0,33,0.3958,0.5098,weak,L8
+Tough -- Survival,condition -- round_type,Tough -- Survival,76,0.9717,2.9846,35.5,27,0.0058,1.1792,acceptable,L8
+Moderate -- Mixed,condition -- round_type,Moderate -- Mixed,33,1.2419,3.2764,36.4,12,0.0369,1.445,weak,L8
+Wood -- 0-25,wu_xing -- exec_bucket,Wood -- 0-25,14,-2.1273,3.4543,78.6,11,0.0384,-1.932,weak,L9
+Earth -- 0-25,wu_xing -- exec_bucket,Earth -- 0-25,26,-0.593,3.4355,61.5,16,0.3872,-0.3959,weak,L9
+Water -- 0-25,wu_xing -- exec_bucket,Water -- 0-25,17,-0.4847,3.4817,58.8,10,0.5739,-0.287,weak,L9
+Water -- 25-50,wu_xing -- exec_bucket,Water -- 25-50,866,-0.4036,2.9012,59.1,512,0.0,-0.2256,rock_solid,L9
+Wood -- 25-50,wu_xing -- exec_bucket,Wood -- 25-50,859,-0.3331,2.8631,56.2,483,0.0007,-0.148,rock_solid,L9
+Earth -- 25-50,wu_xing -- exec_bucket,Earth -- 25-50,1046,-0.2982,2.84,55.1,576,0.0007,-0.1122,rock_solid,L9
+Earth -- 50-75,wu_xing -- exec_bucket,Earth -- 50-75,763,-0.2572,2.8813,55.6,424,0.0139,-0.064,rock_solid,L9
+Fire -- 25-50,wu_xing -- exec_bucket,Fire -- 25-50,1009,-0.2556,2.9319,54.4,549,0.0057,-0.0641,rock_solid,L9
+Wood -- 50-75,wu_xing -- exec_bucket,Wood -- 50-75,688,-0.1995,2.8626,54.7,376,0.068,-0.0014,weak,L9
+Metal -- 50-75,wu_xing -- exec_bucket,Metal -- 50-75,837,-0.1911,2.984,54.1,453,0.0643,0.0078,weak,L9
+Fire -- 50-75,wu_xing -- exec_bucket,Fire -- 50-75,944,-0.1844,3.0823,54.3,513,0.0664,0.0153,weak,L9
+Water -- 50-75,wu_xing -- exec_bucket,Water -- 50-75,866,-0.1808,3.0003,52.9,458,0.0765,0.0191,weak,L9
+Metal -- 25-50,wu_xing -- exec_bucket,Metal -- 25-50,887,-0.123,2.9643,54.3,482,0.2168,0.0828,weak,L9
+Fire -- 0-25,wu_xing -- exec_bucket,Fire -- 0-25,20,-0.119,3.0834,55.0,11,0.8648,0.0794,weak,L9
+Fire -- 75-100,wu_xing -- exec_bucket,Fire -- 75-100,207,-0.1131,2.8994,54.6,113,0.5752,0.0869,weak,L9
+Metal -- 75-100,wu_xing -- exec_bucket,Metal -- 75-100,126,0.1798,3.0677,50.0,63,0.5117,0.383,weak,L9
+Water -- 75-100,wu_xing -- exec_bucket,Water -- 75-100,167,0.2004,3.086,50.9,85,0.4026,0.4056,weak,L9
+Wood -- 75-100,wu_xing -- exec_bucket,Wood -- 75-100,94,0.3552,2.8661,53.2,50,0.2326,0.5588,weak,L9
+Earth -- 75-100,wu_xing -- exec_bucket,Earth -- 75-100,178,0.7713,2.9918,41.0,73,0.0007,0.9877,rock_solid,L9
+New Moon -- Calm,moon_group -- condition,New Moon -- Calm,315,-1.1413,2.8063,66.0,208,0.0,-0.9749,rock_solid,L10
+New Moon -- Tough,moon_group -- condition,New Moon -- Tough,15,-0.5544,2.9883,60.0,9,0.4843,-0.3567,weak,L10
+New Moon -- Moderate,moon_group -- condition,New Moon -- Moderate,161,-0.4874,2.9589,59.6,96,0.0382,-0.2941,rock_solid,L10
+Full Moon -- Calm,moon_group -- condition,Full Moon -- Calm,299,-0.4477,2.9348,62.9,188,0.0088,-0.2575,rock_solid,L10
+Waxing -- Calm,moon_group -- condition,Waxing -- Calm,2901,-0.3913,2.9217,57.4,1666,0.0,-0.2759,rock_solid,L10
+Full Moon -- Moderate,moon_group -- condition,Full Moon -- Moderate,169,-0.376,2.9882,58.6,99,0.1037,-0.181,weak,L10
+Waning -- Calm,moon_group -- condition,Waning -- Calm,2153,-0.1236,2.9499,53.7,1156,0.0521,0.096,weak,L10
+Waning -- Moderate,moon_group -- condition,Waning -- Moderate,1889,-0.0488,2.9371,51.8,978,0.4702,0.1857,weak,L10
+Waxing -- Moderate,moon_group -- condition,Waxing -- Moderate,1493,0.1097,2.9457,49.6,741,0.1505,0.3641,weak,L10
+Waning -- Tough,moon_group -- condition,Waning -- Tough,107,0.1375,2.8805,43.0,46,0.6226,0.3394,weak,L10
+Waxing -- Tough,moon_group -- condition,Waxing -- Tough,157,0.2817,3.1135,51.0,80,0.2587,0.4878,weak,L10
+New Moon -- Mixed,moon_group -- round_type,New Moon -- Mixed,43,-1.7294,3.1251,69.8,30,0.0008,-1.5381,weak,L11
+New Moon -- Positioning,moon_group -- round_type,New Moon -- Positioning,80,-1.2568,2.7583,66.2,53,0.0001,-1.0674,acceptable,L11
+New Moon -- Survival,moon_group -- round_type,New Moon -- Survival,64,-1.0522,2.3474,62.5,40,0.0007,-0.8597,acceptable,L11
+Waxing -- Elimination,moon_group -- round_type,Waxing -- Elimination,31,-0.9795,3.4328,67.7,21,0.1226,-0.7839,weak,L11
+New Moon -- Open,moon_group -- round_type,New Moon -- Open,188,-0.9033,2.8863,66.0,124,0.0,-0.7191,rock_solid,L11
+Full Moon -- Open,moon_group -- round_type,Full Moon -- Open,185,-0.596,3.183,62.7,116,0.0117,-0.4056,rock_solid,L11
+Waning -- Elimination,moon_group -- round_type,Waning -- Elimination,66,-0.4086,2.3823,66.7,44,0.1683,-0.2118,weak,L11
+Full Moon -- Survival,moon_group -- round_type,Full Moon -- Survival,162,-0.3957,2.9063,63.0,102,0.085,-0.2009,weak,L11
+Waxing -- Open,moon_group -- round_type,Waxing -- Open,1380,-0.3174,2.8024,57.4,792,0.0,-0.139,rock_solid,L11
+Waxing -- Closing,moon_group -- round_type,Waxing -- Closing,863,-0.3112,2.9644,54.3,469,0.0021,-0.1241,rock_solid,L11
+New Moon -- Closing,moon_group -- round_type,New Moon -- Closing,116,-0.2951,3.0164,56.9,66,0.2943,-0.098,weak,L11
+Full Moon -- Positioning,moon_group -- round_type,Full Moon -- Positioning,62,-0.2869,2.8613,53.2,33,0.4328,-0.0893,weak,L11
+Waxing -- Mixed,moon_group -- round_type,Waxing -- Mixed,124,-0.1808,3.3095,54.8,68,0.5441,0.0176,weak,L11
+Waxing -- Survival,moon_group -- round_type,Waxing -- Survival,1291,-0.1106,3.0825,53.3,688,0.1975,0.1011,weak,L11
+Waning -- Open,moon_group -- round_type,Waning -- Open,1364,-0.11,3.0378,54.9,749,0.1812,0.1027,weak,L11
+Waning -- Survival,moon_group -- round_type,Waning -- Survival,1185,-0.1059,2.9597,52.2,618,0.2181,0.1052,weak,L11
+Waning -- Closing,moon_group -- round_type,Waning -- Closing,668,-0.093,2.6443,50.4,337,0.3638,0.113,weak,L11
+Full Moon -- Closing,moon_group -- round_type,Full Moon -- Closing,59,-0.089,2.3872,61.0,36,0.7756,0.1098,weak,L11
+Waning -- Positioning,moon_group -- round_type,Waning -- Positioning,779,-0.0792,2.8859,51.3,400,0.4437,0.1294,weak,L11
+Waxing -- Positioning,moon_group -- round_type,Waxing -- Positioning,862,-0.029,2.8619,52.1,449,0.7663,0.1858,weak,L11
+Waning -- Mixed,moon_group -- round_type,Waning -- Mixed,87,0.9527,3.9477,36.8,32,0.0269,1.1614,acceptable,L11
+New Moon -- Fire,moon_group -- wu_xing,New Moon -- Fire,92,-1.2431,2.8728,66.3,61,0.0001,-1.0549,acceptable,L12
+New Moon -- Earth,moon_group -- wu_xing,New Moon -- Earth,99,-0.9495,2.8043,63.6,63,0.0011,-0.7591,acceptable,L12
+New Moon -- Water,moon_group -- wu_xing,New Moon -- Water,115,-0.8842,2.9067,61.7,71,0.0015,-0.6942,rock_solid,L12
+New Moon -- Metal,moon_group -- wu_xing,New Moon -- Metal,101,-0.8547,2.8899,68.3,69,0.0037,-0.6634,rock_solid,L12
+New Moon -- Wood,moon_group -- wu_xing,New Moon -- Wood,81,-0.7182,2.8509,59.3,48,0.0261,-0.5244,acceptable,L12
+Full Moon -- Water,moon_group -- wu_xing,Full Moon -- Water,85,-0.5642,3.1505,60.0,51,0.1025,-0.3692,weak,L12
+Full Moon -- Wood,moon_group -- wu_xing,Full Moon -- Wood,105,-0.5516,2.8547,63.8,67,0.0504,-0.3572,weak,L12
+Full Moon -- Fire,moon_group -- wu_xing,Full Moon -- Fire,100,-0.537,2.8072,64.0,64,0.0586,-0.3424,weak,L12
+Waxing -- Water,moon_group -- wu_xing,Waxing -- Water,898,-0.3005,3.0222,57.1,513,0.003,-0.1128,rock_solid,L12
+Waxing -- Wood,moon_group -- wu_xing,Waxing -- Wood,792,-0.2819,2.9505,55.2,437,0.0073,-0.0912,rock_solid,L12
+Full Moon -- Metal,moon_group -- wu_xing,Full Moon -- Metal,86,-0.2372,3.1106,64.0,55,0.4814,-0.0394,weak,L12
+Full Moon -- Earth,moon_group -- wu_xing,Full Moon -- Earth,90,-0.2216,2.934,55.6,50,0.4756,-0.0236,weak,L12
+Waxing -- Fire,moon_group -- wu_xing,Waxing -- Fire,1043,-0.1946,2.9968,54.8,572,0.0362,0.0041,acceptable,L12
+Waxing -- Earth,moon_group -- wu_xing,Waxing -- Earth,949,-0.178,2.8143,53.3,506,0.0517,0.0224,weak,L12
+Waning -- Wood,moon_group -- wu_xing,Waning -- Wood,677,-0.1187,2.7868,54.4,368,0.268,0.0855,weak,L12
+Waning -- Earth,moon_group -- wu_xing,Waning -- Earth,875,-0.1182,2.9703,53.7,470,0.2395,0.088,weak,L12
+Waxing -- Metal,moon_group -- wu_xing,Waxing -- Metal,853,-0.1002,2.9518,53.5,456,0.322,0.1075,weak,L12
+Waning -- Fire,moon_group -- wu_xing,Waning -- Fire,945,-0.0918,3.0059,51.7,489,0.3482,0.118,weak,L12
+Waning -- Water,moon_group -- wu_xing,Waning -- Water,818,-0.075,2.8912,52.6,430,0.4585,0.1346,weak,L12
+Waning -- Metal,moon_group -- wu_xing,Waning -- Metal,817,-0.0552,3.005,51.4,420,0.5999,0.1562,weak,L12
+New Moon -- 75-100,moon_group -- exec_bucket,New Moon -- 75-100,28,-2.0852,2.8742,75.0,21,0.0007,-1.8925,weak,L13
+New Moon -- 25-50,moon_group -- exec_bucket,New Moon -- 25-50,209,-1.0348,2.8551,66.5,139,0.0,-0.8551,rock_solid,L13
+Waxing -- 0-25,moon_group -- exec_bucket,Waxing -- 0-25,60,-0.8612,3.3793,65.0,39,0.0531,-0.6671,weak,L13
+Full Moon -- 50-75,moon_group -- exec_bucket,Full Moon -- 50-75,199,-0.6973,3.0321,66.8,133,0.0014,-0.5096,rock_solid,L13
+New Moon -- 50-75,moon_group -- exec_bucket,New Moon -- 50-75,254,-0.6757,2.8616,60.2,153,0.0002,-0.4904,rock_solid,L13
+Waxing -- 25-50,moon_group -- exec_bucket,Waxing -- 25-50,2219,-0.2817,2.9201,55.4,1230,0.0,-0.1084,rock_solid,L13
+Full Moon -- 25-50,moon_group -- exec_bucket,Full Moon -- 25-50,248,-0.2611,2.8367,57.7,143,0.1485,-0.0645,weak,L13
+Waxing -- 50-75,moon_group -- exec_bucket,Waxing -- 50-75,1951,-0.1923,2.9492,54.5,1064,0.004,0.0073,acceptable,L13
+Waning -- 25-50,moon_group -- exec_bucket,Waning -- 25-50,2007,-0.1904,2.8835,54.6,1095,0.0031,0.0098,acceptable,L13
+Waning -- 50-75,moon_group -- exec_bucket,Waning -- 50-75,1713,-0.0569,2.9906,51.1,875,0.4311,0.1717,weak,L13
+Waning -- 0-25,moon_group -- exec_bucket,Waning -- 0-25,24,0.2077,3.4127,45.8,11,0.7682,0.4069,weak,L13
+Full Moon -- 75-100,moon_group -- exec_bucket,Full Moon -- 75-100,21,0.2902,3.3718,52.4,11,0.6974,0.4895,weak,L13
+Waning -- 75-100,moon_group -- exec_bucket,Waning -- 75-100,405,0.3238,2.965,49.1,199,0.0285,0.5449,rock_solid,L13
+Waxing -- 75-100,moon_group -- exec_bucket,Waxing -- 75-100,321,0.3888,2.9576,48.0,154,0.0191,0.6072,rock_solid,L13
+Personal Year 1,Personal Year,1.0,925,-0.2491,2.8893,53.5,495,0.0089,-0.0563,rock_solid,L14
+Personal Year 2,Personal Year,2.0,810,-0.1313,2.9169,54.8,444,0.2004,0.073,weak,L14
+Personal Year 3,Personal Year,3.0,865,-0.1568,2.8759,52.9,458,0.1092,0.0455,weak,L14
+Personal Year 4,Personal Year,4.0,1038,-0.4209,2.9502,57.6,598,0.0,-0.2496,rock_solid,L14
+Personal Year 5,Personal Year,5.0,1097,-0.1243,2.9907,55.7,611,0.1689,0.0834,weak,L14
+Personal Year 6,Personal Year,6.0,1194,-0.2137,3.0039,54.7,653,0.0141,-0.0176,rock_solid,L14
+Personal Year 7,Personal Year,7.0,1191,-0.0861,2.931,52.8,629,0.3107,0.1278,weak,L14
+Personal Year 8,Personal Year,8.0,1320,-0.2919,2.875,55.9,738,0.0002,-0.1085,rock_solid,L14
+Personal Year 9,Personal Year,9.0,1219,-0.103,3.0431,52.6,641,0.2374,0.1089,weak,L14
+zodiac=Rooster,zodiac,Rooster,835,-0.2335,2.9363,55.4,463,0.0218,-0.0387,rock_solid,L15
+zodiac=Rat,zodiac,Rat,1090,-0.2313,3.0216,55.0,599,0.0116,-0.0373,rock_solid,L15
+zodiac=Tiger,zodiac,Tiger,613,-0.431,2.8756,57.4,352,0.0002,-0.2486,rock_solid,L15
+zodiac=Ox,zodiac,Ox,536,-0.3279,2.925,55.2,296,0.0097,-0.1373,rock_solid,L15
+zodiac=Snake,zodiac,Snake,650,-0.5199,2.9951,58.8,382,0.0,-0.3449,rock_solid,L15
+zodiac=Rabbit,zodiac,Rabbit,785,-0.0843,2.87,52.0,408,0.4108,0.124,weak,L15
+zodiac=Monkey,zodiac,Monkey,769,-0.3101,3.0856,55.5,427,0.0055,-0.1216,rock_solid,L15
+zodiac=Horse,zodiac,Horse,1006,-0.2787,2.8881,55.6,559,0.0023,-0.0899,rock_solid,L15
+zodiac=Goat,zodiac,Goat,819,0.0806,2.9156,52.6,431,0.4289,0.3047,weak,L15
+zodiac=Dog,zodiac,Dog,564,-0.095,3.0408,55.0,310,0.4582,0.1095,weak,L15
+zodiac=Pig,zodiac,Pig,1115,-0.1878,2.8592,55.1,614,0.0285,0.0117,acceptable,L15
+zodiac=Dragon,zodiac,Dragon,839,0.03,2.9311,49.9,419,0.7666,0.25,weak,L15
+horoscope=SCORPIO,horoscope,SCORPIO,1179,-0.155,3.044,54.4,641,0.0807,0.0492,weak,L16
+horoscope=CAPRICORN,horoscope,CAPRICORN,1184,-0.1894,2.7635,55.7,659,0.0185,0.01,acceptable,L16
+horoscope=ARIES,horoscope,ARIES,955,-0.1158,2.9075,54.8,523,0.2189,0.0915,weak,L16
+horoscope=VIRGO,horoscope,VIRGO,700,-0.2666,2.8814,58.0,406,0.0146,-0.0738,rock_solid,L16
+horoscope=PISCES,horoscope,PISCES,1031,-0.5008,2.9903,57.2,590,0.0,-0.3387,rock_solid,L16
+horoscope=SAGITTARIUS,horoscope,SAGITTARIUS,854,-0.0275,3.0355,51.9,443,0.791,0.1872,weak,L16
+horoscope=AQUARIUS,horoscope,AQUARIUS,737,0.0494,2.844,51.3,378,0.6376,0.268,weak,L16
+horoscope=GEMINI,horoscope,GEMINI,644,-0.2331,3.0319,54.8,353,0.0515,-0.0374,weak,L16
+horoscope=LIBRA,horoscope,LIBRA,287,0.5486,3.0069,43.9,126,0.0022,0.7696,rock_solid,L16
+horoscope=TAURUS,horoscope,TAURUS,568,-0.194,3.0085,52.3,297,0.1249,0.0045,weak,L16
+horoscope=CANCER,horoscope,CANCER,832,-0.4848,2.9061,57.5,478,0.0,-0.3136,rock_solid,L16
+horoscope=LEO,horoscope,LEO,665,-0.3395,2.9434,55.2,367,0.003,-0.1517,rock_solid,L16

@@ -1,0 +1,11 @@
+combo,dimension,value,n,mean_vs_avg,std,beat_field_pct,beat_field_count,p_value,excess_vs_baseline,signal_quality
+moon=Shukla Bhadra,moon,Shukla Bhadra,1019,0.1009,2.9948,50.8,518,0.2822,0.3344,weak
+moon=Krishna Purna,moon,Krishna Purna,1012,-0.4148,3.0517,58.0,587,0.0,-0.2419,rock_solid
+moon=Krishna Rikta,moon,Krishna Rikta,1033,0.064,2.819,47.9,495,0.4657,0.2936,weak
+moon=Krishna Jaya,moon,Krishna Jaya,733,-0.3509,2.9555,58.7,430,0.0014,-0.1652,rock_solid
+moon=Krishna Bhadra,moon,Krishna Bhadra,987,-0.0298,2.9182,50.9,502,0.7487,0.1876,weak
+moon=Shukla Purna,moon,Shukla Purna,1096,-0.1293,2.9959,54.5,597,0.1534,0.0777,weak
+moon=Shukla Rikta,moon,Shukla Rikta,1072,-0.2692,2.9129,56.2,603,0.0025,-0.0799,rock_solid
+moon=Shukla Jaya,moon,Shukla Jaya,986,-0.4394,2.9059,57.9,571,0.0,-0.2687,rock_solid
+moon=Shukla Nanda,moon,Shukla Nanda,904,-0.4726,2.8413,57.7,522,0.0,-0.3027,rock_solid
+moon=Krishna Nanda,moon,Krishna Nanda,817,-0.1055,3.0084,54.1,442,0.3167,0.1013,weak

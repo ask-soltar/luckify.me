@@ -1,0 +1,21 @@
+Combo,Color,Personal_Day,Calm_count,Calm_beats_pct,Calm_avg_vs_avg,Calm_std_vs_avg,Moderate_count,Moderate_beats_pct,Moderate_avg_vs_avg,Moderate_std_vs_avg,Tough_count,Tough_beats_pct,Tough_avg_vs_avg,Tough_std_vs_avg,Pattern
+Red × Day 4,Red,4,87,34.5,-0.5,2.91,49,44.9,0.13,3.45,2,0.0,-0.55,0.29,CONSISTENT WEAK (all <45%)
+Red × Day 8,Red,8,114,37.7,-0.6,2.78,77,45.5,0.15,2.85,8,50.0,-0.75,2.74,MIXED PATTERN
+Red × Day 9,Red,9,123,47.2,-0.0,3.01,58,32.8,-0.41,3.04,9,33.3,-0.75,2.68,MIXED PATTERN
+Green × Day 2,Green,2,355,41.1,-0.41,3.11,216,46.8,-0.07,3.02,34,44.1,-0.09,2.63,MIXED PATTERN
+Green × Day 11,Green,11,153,38.6,-0.51,2.91,82,52.4,0.14,3.1,9,55.6,0.17,1.84,"SWITCHES DIRECTION: Weak on Calm, strong on Tough"
+Green × Day 22,Green,22,160,41.9,-0.5,2.73,77,41.6,-0.51,3.07,18,50.0,-0.02,2.92,MIXED PATTERN
+Purple × Day 1,Purple,1,566,43.6,-0.25,2.95,322,44.1,-0.18,2.83,33,51.5,0.27,2.83,MIXED PATTERN
+Purple × Day 3,Purple,3,570,41.4,-0.37,2.98,341,46.6,0.01,3.15,31,54.8,0.21,2.33,MIXED PATTERN
+Purple × Day 11,Purple,11,168,43.5,-0.55,2.93,97,41.2,-0.32,2.86,6,16.7,-1.05,3.65,CONSISTENT WEAK (all <45%)
+Orange × Day 1,Orange,1,555,40.0,-0.55,3.03,422,47.2,-0.07,3.08,27,55.6,0.5,3.95,"SWITCHES DIRECTION: Weak on Calm, strong on Tough"
+Orange × Day 33,Orange,33,156,40.4,-0.47,2.65,59,45.8,0.01,2.65,5,80.0,1.58,1.43,"SWITCHES DIRECTION: Weak on Calm, strong on Tough"
+Yellow × Day 22,Yellow,22,475,42.5,-0.47,2.9,300,44.3,-0.07,2.84,32,50.0,-0.1,2.94,MIXED PATTERN
+Blue × Day 2,Blue,2,520,46.5,-0.32,2.91,326,46.0,-0.13,2.95,31,48.4,0.3,2.72,FLAT ACROSS CONDITIONS (within ±5%)
+Blue × Day 7,Blue,7,812,46.1,-0.16,2.96,498,48.6,-0.0,3.12,53,49.1,-0.54,3.62,FLAT ACROSS CONDITIONS (within ±5%)
+Blue × Day 12,Blue,12,0,,,,0,,,,0,,,,INSUFFICIENT DATA
+Red × Day 7,Red,7,120,52.5,0.29,3.42,65,50.8,0.36,3.44,3,100.0,1.84,0.39,MIXED PATTERN
+Pink × Day 6,Pink,6,15,53.3,0.73,3.1,10,50.0,-0.6,2.43,1,100.0,4.1,,MIXED PATTERN
+Brown × Day 2,Brown,2,2,100.0,1.96,1.72,3,33.3,-0.61,5.18,0,,,,LIMITED DATA (only 2 conditions)
+Brown × Day 22,Brown,22,3,66.7,0.63,2.28,1,100.0,3.94,,0,,,,LIMITED DATA (only 2 conditions)
+Brown × Day 11,Brown,11,1,100.0,4.27,,0,,,,0,,,,VERY LIMITED DATA (only 1 condition)

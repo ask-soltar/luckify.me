@@ -1,0 +1,152 @@
+================================================================================
+COLOR & PERSONAL DAY +2/-2 THRESHOLD ANALYSIS - QUICK REFERENCE
+================================================================================
+Data: Golf Historics v3 - ANALYSIS (7).csv
+Analysis Date: 2026-04-04
+Records: 61,301 (filtered from 77,155)
+
+================================================================================
+STRONGEST POSITIVE SIGNALS (By Color)
+================================================================================
+
+Rank | Color  | Positive% | Mean  | Volume  | Strong+% | Interpretation
+-----|--------|-----------|-------|---------|----------|------------------
+1    | RED    | 45.53%    | -0.08 | 1,698   | 23.68%   | BEST quality upside
+2    | BLUE   | 46.35%    | -0.15 | 11,807  | 22.25%   | High volume + solid
+3    | YELLOW | 46.05%    | -0.19 | 22,252  | 21.78%   | Highest volume
+4    | PURPLE | 45.24%    | -0.24 | 8,370   | 21.58%   | Moderate edge
+5    | GREEN  | 45.16%    | -0.23 | 7,390   | 21.74%   | Slight edge
+6    | ORANGE | 45.32%    | -0.24 | 9,308   | 21.41%   | Slight edge
+7    | PINK   | 40.78%    | -0.30 | 385     | 21.30%   | PENALTY (low n)
+8    | BROWN  | 39.56%    | -0.26 | 91      | 20.88%   | PENALTY (very low n)
+
+KEY: Positive% = % of rounds scoring ≥0 vs field avg
+     Strong+% = % of rounds scoring 2+ above field avg
+
+RECOMMENDED FILTERS:
+- FAVOR: Red, Blue, Yellow (strong signal quality)
+- AVOID: Pink, Brown (penalty colors, low sample size)
+- NEUTRAL: Purple, Green, Orange (near-baseline)
+
+================================================================================
+STRONGEST NEGATIVE SIGNALS (By Color) - PENALTY COLORS
+================================================================================
+
+Rank | Color  | Negative% | Strong-% | Mean   | Notes
+-----|--------|-----------|----------|--------|-------------------
+1    | BROWN  | 60.44%    | 29.67%   | -0.26  | Severe penalty (n=91)
+2    | PINK   | 59.22%    | 31.43%   | -0.30  | Severe penalty (n=385)
+3    | GREEN  | 54.83%    | 27.86%   | -0.23  | Moderate penalty
+4    | PURPLE | 54.77%    | 28.04%   | -0.24  | Moderate penalty
+5    | ORANGE | 54.67%    | 27.69%   | -0.25  | Moderate penalty
+
+RULE: Avoid betting when Color is Pink or Brown
+      (>59% likelihood of underperformance)
+
+================================================================================
+STRONGEST POSITIVE SIGNALS (By Personal Day)
+================================================================================
+
+Rank | Day | Positive% | Mean  | Volume  | Strong+% | Interpretation
+-----|-----|-----------|-------|---------|----------|------------------
+1    | 6   | 47.04%    | -0.16 | 5,351   | 22.61%   | PREMIUM day
+2    | 5   | 46.80%    | -0.15 | 6,905   | 22.60%   | PREMIUM day (best mean)
+3    | 7   | 46.18%    | -0.17 | 6,837   | 22.30%   | PREMIUM day
+4    | 9   | 45.82%    | -0.16 | 6,798   | 21.65%   | Strong day
+5    | 8   | 45.40%    | -0.20 | 6,826   | 21.14%   | Good day
+6    | 11  | 45.70%    | -0.19 | 2,000   | 21.40%   | Good day (low n)
+7    | 4   | 45.43%    | -0.22 | 4,603   | 21.64%   | Baseline
+8    | 1   | 45.19%    | -0.21 | 6,766   | 22.27%   | Baseline
+9    | 33  | 44.89%    | -0.22 | 1,450   | 21.10%   | Weak (verify data)
+10   | 2   | 45.25%    | -0.27 | 4,822   | 20.99%   | Weak
+11   | 3   | 44.93%    | -0.25 | 6,752   | 21.77%   | Weak
+12   | 22  | 44.69%    | -0.27 | 2,191   | 20.68%   | PENALTY day
+
+SIGNAL TIERS:
+- PREMIUM (Days 5-7): All ≥46.8% positive, best means (-0.15 to -0.17)
+- STRONG (Days 8, 9): 45.4-45.8% positive
+- BASELINE (Days 1, 4, 11, 33): 45-45.7% positive (near overall average)
+- WEAK (Days 2, 3): 44.9-45.3% positive
+- PENALTY (Day 22): 44.69% positive (lowest), -0.27 mean
+
+================================================================================
+STRONGEST NEGATIVE SIGNALS (By Personal Day) - PENALTY DAYS
+================================================================================
+
+Rank | Day | Negative% | Strong-% | Mean   | Notes
+-----|-----|-----------|----------|--------|-------------------
+1    | 22  | 55.32%    | 29.08%   | -0.27  | PENALTY (avoid)
+2    | 3   | 55.07%    | 28.44%   | -0.25  | Weak (avoid)
+3    | 1   | 54.81%    | 27.69%   | -0.21  | Weak (avoid)
+4    | 2   | 54.76%    | 28.19%   | -0.27  | Weak (avoid)
+5    | 33  | 55.11%    | 25.73%   | -0.22  | Weak (verify)
+
+RULE: Avoid betting on Days 1-3, 22
+      (55%+ likelihood of underperformance)
+      Days 5-7 are BEST bets (47%+ positive)
+
+================================================================================
+COMBO RECOMMENDATIONS (Color × Personal Day)
+================================================================================
+
+STRONGEST POSITIVE COMBOS (Test First):
+- Red × Day 5: (45.53% × 46.80%) best quality × premium day
+- Red × Day 6: (45.53% × 47.04%) best quality × premium day
+- Blue × Day 5: (46.35% × 46.80%) high volume × premium day
+- Blue × Day 6: (46.35% × 47.04%) high volume × premium day
+- Yellow × Day 5: (46.05% × 46.80%) highest volume × premium day
+- Yellow × Day 6: (46.05% × 47.04%) highest volume × premium day
+
+STRONGEST NEGATIVE COMBOS (Avoid):
+- Pink × Day 22: (59.22% × 55.32%) worst × worst = severe penalty
+- Brown × Day 22: (60.44% × 55.32%) worst × worst = severe penalty
+- Pink × Days 1-3: (59.22% × 55%+) double penalty
+- Brown × Days 1-3: (60.44% × 55%+) double penalty
+
+================================================================================
+DATA QUALITY NOTES
+================================================================================
+
+LOW SAMPLE SIZES (Use with Caution):
+- Brown: 91 samples (0.15% of data) — exclude or validate separately
+- Pink: 385 samples (0.63% of data) — large confidence intervals
+- Day 11: 2,000 samples (3.3%) — moderate caution
+- Day 22: 2,191 samples (3.6%) — moderate sample but strong signal
+- Day 33: 1,450 samples (2.4%) — VERIFY DATA (Day 33 in month?)
+
+MISSING DATA:
+- Days 10, 12-21, 23-32 absent from dataset
+- Likely data calculation artifact or rare occurrences
+- Treat as missing, not negative
+
+METRIC DEFINITION:
+- metric = score - course_avg
+- This is FIELD RELATIVE performance, not par-relative
+- Positive = beat field; Negative = lose to field
+
+================================================================================
+NEXT STEPS
+================================================================================
+
+1. Run: analyze_color_personalday_combos.py (2D cross-tab analysis)
+2. Test: Chi-squared or logistic regression for statistical significance
+3. Validate: Pink/Brown colors on out-of-sample 2025-2026 data
+4. Verify: Day 33 data integrity (monthly day wrapping?)
+5. Backtest: Live betting on recommended combos (Red×Day5-7, Blue×Day5-7, etc.)
+
+================================================================================
+FILES GENERATED
+================================================================================
+
+1. frequency_by_color.csv (8 rows)
+   - Full distribution by color with all bin breakdowns
+2. frequency_by_personalday.csv (12 rows)
+   - Full distribution by personal day with all bin breakdowns
+3. analysis_color_personalday_filtered.csv (6 rows)
+   - Summary statistics (mean, median, std dev, counts)
+4. ANALYSIS_COLOR_PERSONALDAY_FINDINGS.md
+   - Detailed technical report with methodology and interpretations
+5. COLOR_PERSONALDAY_SIGNAL_SUMMARY.txt (this file)
+   - Quick reference guide for deployment
+
+================================================================================

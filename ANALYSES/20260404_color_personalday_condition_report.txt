@@ -1,0 +1,154 @@
+COLOR × PERSONAL DAY ANALYSIS BY CONDITION
+================================================================================
+Input: Golf Historics v3 - ANALYSIS (7).csv
+Total rows: 77155
+Filtered (Round Type + Tournament Type): 62215 rows
+
+Filters applied:
+  - Round Type: ['Open', 'Positioning', 'Closing', 'Survival']
+  - Tournament Type: ['S', 'NS']
+
+================================================================================
+SUMMARY: TOP 15 COMBOS
+================================================================================
+
+1. Red × Day 4
+   Calm:        34.5% (n=87)
+   Moderate:    44.9% (n=49)
+   Tough:        0.0% (n=2)
+   Pattern:   CONSISTENT WEAK (all <45%)
+
+2. Red × Day 8
+   Calm:        37.7% (n=114)
+   Moderate:    45.5% (n=77)
+   Tough:       50.0% (n=8)
+   Pattern:   MIXED PATTERN
+
+3. Red × Day 9
+   Calm:        47.2% (n=123)
+   Moderate:    32.8% (n=58)
+   Tough:       33.3% (n=9)
+   Pattern:   MIXED PATTERN
+
+4. Green × Day 2
+   Calm:        41.1% (n=355)
+   Moderate:    46.8% (n=216)
+   Tough:       44.1% (n=34)
+   Pattern:   MIXED PATTERN
+
+5. Green × Day 11
+   Calm:        38.6% (n=153)
+   Moderate:    52.4% (n=82)
+   Tough:       55.6% (n=9)
+   Pattern:   SWITCHES DIRECTION: Weak on Calm, strong on Tough
+
+6. Green × Day 22
+   Calm:        41.9% (n=160)
+   Moderate:    41.6% (n=77)
+   Tough:       50.0% (n=18)
+   Pattern:   MIXED PATTERN
+
+7. Purple × Day 1
+   Calm:        43.6% (n=566)
+   Moderate:    44.1% (n=322)
+   Tough:       51.5% (n=33)
+   Pattern:   MIXED PATTERN
+
+8. Purple × Day 3
+   Calm:        41.4% (n=570)
+   Moderate:    46.6% (n=341)
+   Tough:       54.8% (n=31)
+   Pattern:   MIXED PATTERN
+
+9. Purple × Day 11
+   Calm:        43.5% (n=168)
+   Moderate:    41.2% (n=97)
+   Tough:       16.7% (n=6)
+   Pattern:   CONSISTENT WEAK (all <45%)
+
+10. Orange × Day 1
+   Calm:        40.0% (n=555)
+   Moderate:    47.2% (n=422)
+   Tough:       55.6% (n=27)
+   Pattern:   SWITCHES DIRECTION: Weak on Calm, strong on Tough
+
+11. Orange × Day 33
+   Calm:        40.4% (n=156)
+   Moderate:    45.8% (n=59)
+   Tough:       80.0% (n=5)
+   Pattern:   SWITCHES DIRECTION: Weak on Calm, strong on Tough
+
+12. Yellow × Day 22
+   Calm:        42.5% (n=475)
+   Moderate:    44.3% (n=300)
+   Tough:       50.0% (n=32)
+   Pattern:   MIXED PATTERN
+
+13. Blue × Day 2
+   Calm:        46.5% (n=520)
+   Moderate:    46.0% (n=326)
+   Tough:       48.4% (n=31)
+   Pattern:   FLAT ACROSS CONDITIONS (within ±5%)
+
+14. Blue × Day 7
+   Calm:        46.1% (n=812)
+   Moderate:    48.6% (n=498)
+   Tough:       49.1% (n=53)
+   Pattern:   FLAT ACROSS CONDITIONS (within ±5%)
+
+15. Blue × Day 12
+   Calm:         nan% (n=0)
+   Moderate:     nan% (n=0)
+   Tough:        nan% (n=0)
+   Pattern:   INSUFFICIENT DATA
+
+================================================================================
+WORST 5 COMBOS
+================================================================================
+
+1. Red × Day 7
+   Calm:        52.5% (n=120)
+   Moderate:    50.8% (n=65)
+   Tough:      100.0% (n=3)
+   Pattern:   MIXED PATTERN
+
+2. Pink × Day 6
+   Calm:        53.3% (n=15)
+   Moderate:    50.0% (n=10)
+   Tough:      100.0% (n=1)
+   Pattern:   MIXED PATTERN
+
+3. Brown × Day 2
+   Calm:       100.0% (n=2)
+   Moderate:    33.3% (n=3)
+   Tough:        nan% (n=0)
+   Pattern:   LIMITED DATA (only 2 conditions)
+
+4. Brown × Day 22
+   Calm:        66.7% (n=3)
+   Moderate:   100.0% (n=1)
+   Tough:        nan% (n=0)
+   Pattern:   LIMITED DATA (only 2 conditions)
+
+5. Brown × Day 11
+   Calm:       100.0% (n=1)
+   Moderate:     nan% (n=0)
+   Tough:        nan% (n=0)
+   Pattern:   VERY LIMITED DATA (only 1 condition)
+
+================================================================================
+KEY FINDINGS
+================================================================================
+
+Consistent Strong (all conditions >55%): 0
+
+Consistent Weak (all conditions <45%): 2
+  - Red × Day 4
+  - Purple × Day 11
+
+Condition-Dependent (varies significantly): 0
+
+Switches Direction: 3
+  - Green × Day 11: SWITCHES DIRECTION: Weak on Calm, strong on Tough
+  - Orange × Day 1: SWITCHES DIRECTION: Weak on Calm, strong on Tough
+  - Orange × Day 33: SWITCHES DIRECTION: Weak on Calm, strong on Tough

@@ -382,6 +382,18 @@ const GA = {
   // ── ID columns (BP:BQ) — for linking to PLAYERS and EVENTS ──
   COL_PLAYER_ID:    68,   // BP Player ID (PLY_XXXX)
   COL_EVENT_ID:     69,   // BQ Event ID (EVT_XXXX)
+  COL_COURSE_PAR:   70,   // BR Course Par
+
+  // ── Event dates & Personal Day columns (BT:CB) — numerology analysis ──
+  COL_EVENT_DAY_R1: 72,   // BT Event day for Round 1 (from EVENTS.R1_DATE)
+  COL_EVENT_DAY_R2: 73,   // BU Event day for Round 2 (from EVENTS.R2_DATE)
+  COL_EVENT_DAY_R3: 74,   // BV Event day for Round 3 (from EVENTS.R3_DATE)
+  COL_EVENT_DAY_R4: 75,   // BW Event day for Round 4 (from EVENTS.R4_DATE)
+  COL_EVENT_GMT:    76,   // BX Event GMT (from EVENTS.GMT)
+  COL_PERSONAL_DAY_R1: 77, // BY Personal Day for Round 1 (numerology: PY + month + day)
+  COL_PERSONAL_DAY_R2: 78, // BZ Personal Day for Round 2 (numerology: PY + month + day)
+  COL_PERSONAL_DAY_R3: 79, // CA Personal Day for Round 3 (numerology: PY + month + day)
+  COL_PERSONAL_DAY_R4: 80, // CB Personal Day for Round 4 (numerology: PY + month + day)
 
   // ── Engine read/write range metadata ──
   READ_START_COL:   11,   // K  — first column read by engine

@@ -1,0 +1,15 @@
+combo,dimension,value,n,mean_vs_avg,std,beat_field_pct,beat_field_count,p_value,excess_vs_baseline,signal_quality
+New Moon -- 75-100,moon_group -- exec_bucket,New Moon -- 75-100,28,-2.0852,2.8742,75.0,21,0.0007,-1.8925,weak
+New Moon -- 25-50,moon_group -- exec_bucket,New Moon -- 25-50,209,-1.0348,2.8551,66.5,139,0.0,-0.8551,rock_solid
+Waxing -- 0-25,moon_group -- exec_bucket,Waxing -- 0-25,60,-0.8612,3.3793,65.0,39,0.0531,-0.6671,weak
+Full Moon -- 50-75,moon_group -- exec_bucket,Full Moon -- 50-75,199,-0.6973,3.0321,66.8,133,0.0014,-0.5096,rock_solid
+New Moon -- 50-75,moon_group -- exec_bucket,New Moon -- 50-75,254,-0.6757,2.8616,60.2,153,0.0002,-0.4904,rock_solid
+Waxing -- 25-50,moon_group -- exec_bucket,Waxing -- 25-50,2219,-0.2817,2.9201,55.4,1230,0.0,-0.1084,rock_solid
+Full Moon -- 25-50,moon_group -- exec_bucket,Full Moon -- 25-50,248,-0.2611,2.8367,57.7,143,0.1485,-0.0645,weak
+Waxing -- 50-75,moon_group -- exec_bucket,Waxing -- 50-75,1951,-0.1923,2.9492,54.5,1064,0.004,0.0073,acceptable
+Waning -- 25-50,moon_group -- exec_bucket,Waning -- 25-50,2007,-0.1904,2.8835,54.6,1095,0.0031,0.0098,acceptable
+Waning -- 50-75,moon_group -- exec_bucket,Waning -- 50-75,1713,-0.0569,2.9906,51.1,875,0.4311,0.1717,weak
+Waning -- 0-25,moon_group -- exec_bucket,Waning -- 0-25,24,0.2077,3.4127,45.8,11,0.7682,0.4069,weak
+Full Moon -- 75-100,moon_group -- exec_bucket,Full Moon -- 75-100,21,0.2902,3.3718,52.4,11,0.6974,0.4895,weak
+Waning -- 75-100,moon_group -- exec_bucket,Waning -- 75-100,405,0.3238,2.965,49.1,199,0.0285,0.5449,rock_solid
+Waxing -- 75-100,moon_group -- exec_bucket,Waxing -- 75-100,321,0.3888,2.9576,48.0,154,0.0191,0.6072,rock_solid

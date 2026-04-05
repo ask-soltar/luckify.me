@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blue Rhythm — Structured Framework</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0b;
+    --surface: #111114;
+    --border: rgba(255,255,255,0.07);
+    --text: #e8e6e1;
+    --muted: #666;
+    --subtle: #2a2a2e;
+    --blue: #2060C0;
+    --blue-bright: #4080E0;
+    --blue-dim: rgba(32,96,192,0.12);
+    --blue-border: rgba(32,96,192,0.3);
+    --blue-glow: rgba(32,96,192,0.06);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 40px 24px 80px;
+  }
+
+  .page-wrap { max-width: 900px; margin: 0 auto; }
+
+  .header { border-bottom: 1px solid var(--border); padding-bottom: 28px; margin-bottom: 48px; }
+  .color-bar { width: 48px; height: 4px; background: var(--blue-bright); border-radius: 2px; margin-bottom: 16px; }
+  .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
+  .page-title { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 5vw, 46px); line-height: 1.1; color: #fff; margin-bottom: 8px; }
+  .page-title em { font-style: italic; color: var(--blue-bright); }
+  .page-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .meta-tag { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding: 3px 8px; border: 1px solid var(--border); border-radius: 2px; }
+  .meta-tag.blue { color: var(--blue-bright); border-color: var(--blue-border); background: var(--blue-dim); }
+  .meta-tag.zeta { color: #88CCFF; border-color: rgba(136,204,255,0.2); background: rgba(136,204,255,0.05); }
+  .meta-tag.lyran { color: #CCAAFF; border-color: rgba(204,170,255,0.2); background: rgba(204,170,255,0.05); }
+
+  .section { margin-bottom: 44px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* IDENTITY */
+  .identity-block { background: var(--blue-glow); border: 1px solid var(--blue-border); border-left: 3px solid var(--blue-bright); border-radius: 4px; padding: 20px 24px; margin-bottom: 44px; }
+  .identity-name { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--blue-bright); margin-bottom: 6px; }
+  .identity-desc { font-size: 13px; color: #aaa; line-height: 1.7; max-width: 680px; }
+
+  /* SOURCE NOTE */
+  .source-block { background: rgba(136,204,255,0.03); border: 1px solid rgba(136,204,255,0.1); border-radius: 4px; padding: 14px 18px; margin-bottom: 44px; display: flex; gap: 14px; align-items: flex-start; }
+  .source-icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+  .source-text { font-size: 12px; color: #777; line-height: 1.7; }
+  .source-text strong { color: #88CCFF; font-weight: 500; }
+  .source-text em { color: #CCAAFF; font-style: normal; }
+
+  /* TWO LAYER */
+  .layer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 44px; }
+  .layer-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 18px 20px; }
+  .layer-card.highlight { border-color: var(--blue-border); background: var(--blue-glow); }
+  .layer-title { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; }
+  .layer-title.blue { color: var(--blue-bright); }
+  .layer-title.muted { color: var(--muted); }
+  .layer-body { font-size: 12px; color: #999; line-height: 1.7; }
+  .layer-body strong { color: #ccc; font-weight: 500; }
+  .layer-note { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #444; margin-top: 10px; font-style: italic; }
+
+  /* WAVE */
+  .wave-block { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 20px 24px; margin-bottom: 44px; }
+  .wave-title { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+  .wave-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
+  .wave-note { font-size: 10px; color: #555; font-style: italic; text-align: center; padding: 6px; border-top: 1px solid var(--border); line-height: 1.5; }
+
+  /* WINDOW PHASES */
+  .phase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 44px; }
+  .phase-card { background: var(--surface); border: 1px solid var(--blue-border); border-radius: 4px; padding: 16px; background: var(--blue-glow); }
+  .phase-num { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--blue); letter-spacing: 0.12em; margin-bottom: 6px; }
+  .phase-score { font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: var(--blue-bright); margin-bottom: 4px; }
+  .phase-window { font-size: 10px; color: #555; margin-bottom: 8px; font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.08em; }
+  .phase-name { font-family: 'DM Serif Display', serif; font-size: 15px; color: #fff; margin-bottom: 6px; }
+  .phase-desc { font-size: 11px; color: #777; line-height: 1.6; }
+  .phase-arrow { font-size: 18px; color: rgba(64,128,224,0.4); margin-bottom: 6px; }
+
+  /* CATEGORIES */
+  .cat-grid { display: flex; flex-direction: column; gap: 3px; margin-bottom: 44px; }
+  .cat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 3px; padding: 12px 16px; display: grid; grid-template-columns: 28px 1fr auto; align-items: center; gap: 12px; }
+  .cat-num { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--blue); letter-spacing: 0.12em; }
+  .cat-name { font-family: 'DM Serif Display', serif; font-size: 15px; color: #fff; }
+  .cat-trigger { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; white-space: nowrap; color: #CCA010; border: 1px solid rgba(204,160,16,0.3); background: rgba(204,160,16,0.08); }
+
+  /* TRAITS */
+  .traits-grid { display: flex; flex-direction: column; gap: 3px; margin-bottom: 44px; }
+  .trait-card { background: var(--surface); border: 1px solid var(--border); border-radius: 3px; padding: 14px 16px; }
+  .trait-header { display: grid; grid-template-columns: 1fr auto auto; align-items: start; gap: 12px; margin-bottom: 10px; }
+  .trait-name { font-family: 'DM Serif Display', serif; font-size: 15px; color: #fff; }
+  .trait-alias { font-size: 10px; color: var(--blue-bright); font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.1em; margin-top: 2px; }
+  .trait-cats { font-family: 'IBM Plex Mono', monospace; font-size: 9px; }
+  .trait-cats span { display: inline-block; padding: 1px 5px; border-radius: 2px; background: var(--subtle); margin-right: 3px; color: #666; }
+  .trait-tag { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; white-space: nowrap; align-self: start; }
+  .trait-tag.asset { color: #5aa048; border: 1px solid rgba(90,160,72,0.3); background: rgba(90,160,72,0.08); }
+  .trait-tag.dual { color: #CCA010; border: 1px solid rgba(204,160,16,0.3); background: rgba(204,160,16,0.08); }
+  .trait-desc { font-size: 11px; color: #888; line-height: 1.6; margin-bottom: 10px; }
+  .trait-dims { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .trait-dim { font-size: 10px; color: #555; padding: 2px 8px; border-radius: 2px; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); line-height: 1.5; }
+  .trait-dim strong { color: var(--blue-bright); font-weight: 500; }
+  .trait-dim.iching { color: #888; border-color: rgba(32,96,192,0.2); background: rgba(32,96,192,0.04); }
+  .trait-dim.iching strong { color: var(--blue-bright); }
+  .trait-dim.lyran { color: #CCAAFF; border-color: rgba(204,170,255,0.15); background: rgba(204,170,255,0.04); }
+  .trait-dim.lyran strong { color: #CCAAFF; }
+
+  /* POLARITY GRID */
+  .polarity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin: 8px 0; }
+  .polarity-cell { padding: 10px 12px; }
+  .polarity-cell.up { background: rgba(90,160,72,0.04); }
+  .polarity-cell.down { background: rgba(180,40,40,0.04); }
+  .polarity-label { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
+  .polarity-label.up { color: rgba(90,160,72,0.7); }
+  .polarity-label.down { color: rgba(220,80,80,0.6); }
+  .polarity-items { font-size: 11px; color: #777; line-height: 1.7; list-style: none; }
+  .polarity-items li { padding-left: 10px; position: relative; }
+  .polarity-items li::before { content: '—'; position: absolute; left: 0; color: #333; }
+
+  /* GATE LIST */
+  .gate-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; margin: 10px 0; }
+  .gate-item { background: rgba(32,96,192,0.05); border: 1px solid rgba(32,96,192,0.12); border-radius: 3px; padding: 7px 10px; }
+  .gate-num { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--blue-bright); letter-spacing: 0.08em; margin-bottom: 2px; }
+  .gate-name { font-size: 10px; color: #666; line-height: 1.4; }
+
+  /* CHAKRA STACK */
+  .chakra-stack { display: flex; flex-direction: column; gap: 3px; margin-bottom: 16px; max-width: 420px; }
+  .chakra-row-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 3px; border: 1px solid var(--border); background: var(--surface); }
+  .chakra-row-item.active-blue { border-color: var(--blue-border); background: var(--blue-glow); }
+  .chakra-row-item.active-green { border-color: rgba(90,160,72,0.3); background: rgba(90,160,72,0.06); }
+  .chakra-row-item.active-yellow { border-color: rgba(240,192,32,0.3); background: rgba(240,192,32,0.06); }
+  .chakra-row-item.active-orange { border-color: rgba(232,112,32,0.3); background: rgba(232,112,32,0.06); }
+  .chakra-row-item.active-pink { border-color: rgba(208,48,160,0.3); background: rgba(208,48,160,0.06); }
+  .chakra-row-item.active-purple { border-color: rgba(138,43,226,0.3); background: rgba(138,43,226,0.06); }
+  .chakra-row-item.active-red { border-color: rgba(224,64,48,0.3); background: rgba(224,64,48,0.06); }
+  .chakra-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .chakra-row-name { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; flex: 1; }
+  .chakra-row-note { font-size: 10px; color: #555; font-style: italic; }
+
+  /* OPEN NOTES */
+  .notes-block { border: 1px solid rgba(255,255,255,0.05); border-left: 3px solid #2a2a2e; border-radius: 3px; padding: 14px 16px; background: #0e0e10; }
+  .notes-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #333; margin-bottom: 10px; }
+  .note-item { font-size: 11px; color: #444; line-height: 1.6; margin-bottom: 6px; }
+  .note-item:last-child { margin-bottom: 0; }
+
+  @media (max-width: 640px) {
+    .layer-grid, .phase-grid, .gate-list { grid-template-columns: 1fr; }
+    .polarity-grid { grid-template-columns: 1fr; }
+    .trait-header { grid-template-columns: 1fr; }
+    .cat-card { grid-template-columns: 28px 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="color-bar"></div>
+    <div class="eyebrow">Lucky Window · Rhythm Framework · Internal</div>
+    <h1 class="page-title"><em>Blue</em> Rhythm</h1>
+    <div class="page-meta">
+      <span class="meta-tag blue">Pursuer · Curiosity</span>
+      <span class="meta-tag">Score +4/+6 · −12/−13 · −14/−15</span>
+      <span class="meta-tag">Throat → Third Eye</span>
+      <span class="meta-tag zeta">Primary: Zeta Collective</span>
+      <span class="meta-tag lyran">Consumed Trait: Lyran</span>
+    </div>
+  </div>
+
+  <!-- IDENTITY -->
+  <div class="identity-block">
+    <div class="identity-name">The Pursuer</div>
+    <div class="identity-desc">Blue is the rhythm of curiosity in motion — capable of a fast rise to success and equally susceptible to great falls. The Pursuer is always moving toward something: an environment to read, a goal to chase, a puzzle to solve, a connection to make. The cycle is its defining architecture. Rise steeply, cup at the peak, then restart or crash. Blue does not operate in a straight line — it operates in cycles that may connect across time itself, picking up where a previous arc left off across sessions, days, or years.</div>
+  </div>
+
+  <!-- SOURCE NOTE -->
+  <div class="source-block">
+    <div class="source-icon">◈</div>
+    <div class="source-text"><strong>Dual-Source Architecture:</strong> Blue is the only rhythm channeled through two distinct collectives. The primary framework comes through the <strong>Zeta Collective</strong> — a scientific intelligence, which explains Blue's heavy I Ching Gate structure and precision mapping. The Consumed trait specifically attracts <strong><em>Lyran</em></strong> channeling through its Lake Energy mechanism, suggesting Lyrans carry a different intelligence — possibly more experiential or intuitive — that complements Zeta's analytical precision. The relationship between these two collectives within Blue is an open architectural question with system-wide implications.</div>
+  </div>
+
+  <!-- TWO LAYER -->
+  <div class="section">
+    <div class="section-label">Two-Layer Architecture</div>
+    <div class="layer-grid">
+      <div class="layer-card highlight">
+        <div class="layer-title blue">Birth Rhythm</div>
+        <div class="layer-body">A person <strong>born with Blue</strong> carries the Pursuer cycle as their fixed identity. Fast rise, cup, restart or crash — this is not occasional behavior, it is the fundamental pattern of their life arc. Curiosity is the engine. The cycle is the teacher.</div>
+        <div class="layer-note">* 5 traits channeled through Zeta Collective · Consumed trait additionally channels Lyran</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-title muted">Window Rhythm</div>
+        <div class="layer-body">Blue window positions map directly to cycle phases. <strong>Sub-Prime</strong> is the rise or fall. <strong>Variance</strong> is the landing — usually a fall, sometimes a cup catch. <strong>Stable Swing</strong> is the reset point where the next cycle begins or concludes.</div>
+        <div class="layer-note">* Three window positions encode the three wave phases directly into the scoring architecture</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WAVE -->
+  <div class="section">
+    <div class="section-label">Wave Pattern</div>
+    <div class="wave-block">
+      <div class="wave-title">Blue energy cycle — steep rise · cup/catch · fork · stable swing (rises again) or crash (drops, can self-catch)</div>
+
+      <svg viewBox="0 -20 580 220" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; margin-bottom:12px;">
+
+        <!-- Baseline -->
+        <line x1="0" y1="170" x2="580" y2="170" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="0" y1="100" x2="580" y2="100" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,6"/>
+        <line x1="0" y1="40" x2="580" y2="40" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,6"/>
+
+        <!-- PHASE 1: Steep rise — bottom left climbing up -->
+        <path d="M 40,168 C 44,155 52,130 62,105 C 70,84 80,62 90,44 C 96,32 102,22 108,16"
+              fill="none" stroke="#4080E0" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+        <text x="28" y="158" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(64,128,224,0.5)" letter-spacing="0.08em">RISE</text>
+
+        <!-- PHASE 2: Cup / Catch — circular loop from top of rise -->
+        <path d="M 108,16 C 118,10 130,8 142,10 C 154,12 162,20 166,32 C 170,44 168,58 162,68 C 156,78 146,84 136,84 C 126,84 118,78 114,68 C 110,58 110,46 114,36 C 118,26 124,18 130,14 C 136,10 142,8 148,8"
+              fill="none" stroke="#4080E0" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+        <text x="170" y="52" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(64,128,224,0.5)" letter-spacing="0.08em">CUP / CATCH</text>
+
+        <!-- Fork point -->
+        <circle cx="148" cy="8" r="4" fill="#4080E0" opacity="0.9"/>
+        <text x="156" y="12" font-family="IBM Plex Mono, monospace" font-size="8" fill="rgba(64,128,224,0.8)" letter-spacing="0.1em">FORK</text>
+
+        <!-- PHASE 3A: Stable Swing — mirrors original rise, climbing steeply upward from fork -->
+        <path d="M 148,8 C 160,6 178,4 200,2 C 222,0 248,-2 272,-4 C 296,-6 318,-8 336,-10"
+              fill="none" stroke="#4080E0" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+        <!-- Arrow tip continuing upward -->
+        <polygon points="336,-10 330,-4 342,-4" fill="#4080E0" opacity="0.85"/>
+        <text x="250" y="14" font-family="IBM Plex Mono, monospace" font-size="8" fill="rgba(64,128,224,0.75)" letter-spacing="0.08em">STABLE SWING</text>
+        <text x="250" y="25" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(64,128,224,0.4)" letter-spacing="0.06em">rises again · mirrors the rise</text>
+
+        <!-- PHASE 3B: Crash — drops straight down from fork, cups at bottom -->
+        <path d="M 148,8 C 148,30 148,60 148,90 C 148,115 146,135 140,152 C 134,164 124,170 114,166 C 104,162 100,150 104,140 C 108,130 118,126 128,128"
+              fill="none" stroke="#4080E0" stroke-width="2" stroke-linecap="round" opacity="0.35" stroke-dasharray="5,4"/>
+        <text x="154" y="95" font-family="IBM Plex Mono, monospace" font-size="8" fill="rgba(64,128,224,0.35)" letter-spacing="0.08em">CRASH</text>
+        <text x="154" y="106" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(64,128,224,0.22)" letter-spacing="0.06em">drops · can cup/catch itself</text>
+
+        <!-- TIME BRIDGE — faint trail from stable swing -->
+        <path d="M 336,-10 C 380,10 440,40 490,65 C 510,76 528,84 540,88"
+              fill="none" stroke="rgba(64,128,224,0.1)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3,7"/>
+        <text x="390" y="58" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(64,128,224,0.18)" letter-spacing="0.07em">may reconnect across time</text>
+
+        <!-- Phase labels bottom -->
+        <text x="26" y="186" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(64,128,224,0.4)" letter-spacing="0.06em">SUB-PRIME</text>
+        <text x="26" y="195" font-family="IBM Plex Mono, monospace" font-size="6.5" fill="rgba(255,255,255,0.12)" letter-spacing="0.06em">+4 to +6</text>
+
+        <text x="100" y="186" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(64,128,224,0.4)" letter-spacing="0.06em">VARIANCE</text>
+        <text x="100" y="195" font-family="IBM Plex Mono, monospace" font-size="6.5" fill="rgba(255,255,255,0.12)" letter-spacing="0.06em">−12/−13</text>
+
+        <text x="310" y="186" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(64,128,224,0.4)" letter-spacing="0.06em">STABLE SWING</text>
+        <text x="310" y="195" font-family="IBM Plex Mono, monospace" font-size="6.5" fill="rgba(255,255,255,0.12)" letter-spacing="0.06em">−14/−15 · reset</text>
+
+      </svg>
+
+      <div class="wave-notes">
+        <div class="wave-note">Steep rise to peak — fast climb, curiosity-driven momentum</div>
+        <div class="wave-note">Cup / catch at peak — balance phase, decision moment approaching</div>
+        <div class="wave-note">Fork: Stable Swing rises again · Crash drops but can cup/catch itself · cycle repeats</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THREE WINDOW PHASES -->
+  <div class="section">
+    <div class="section-label">Three Window Positions — Cycle Phases Encoded in Score Architecture</div>
+    <div class="phase-grid">
+      <div class="phase-card">
+        <div class="phase-num">Phase 01</div>
+        <div class="phase-arrow">↑↓</div>
+        <div class="phase-score">+4 to +6</div>
+        <div class="phase-window">Sub-Prime</div>
+        <div class="phase-name">The Rise or Fall</div>
+        <div class="phase-desc">Active motion phase. Blue climbing toward peak or descending after the fork. Energy is directional and fast-moving.</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">Phase 02</div>
+        <div class="phase-arrow">⌣</div>
+        <div class="phase-score">−12 to −13</div>
+        <div class="phase-window">Variance</div>
+        <div class="phase-name">The Landing</div>
+        <div class="phase-desc">Result of expression ending. Usually a fall, sometimes a cup catch. Unpredictable landing zone — variance is the name because the outcome is genuinely uncertain here.</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">Phase 03</div>
+        <div class="phase-arrow">—</div>
+        <div class="phase-score">−14 to −15</div>
+        <div class="phase-window">Stable Swing</div>
+        <div class="phase-name">The Reset Point</div>
+        <div class="phase-desc">Stillness before the next decision. The cycle either restarts or concludes here. Stable because it is the pause — not because the energy is resolved.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 CATEGORIES -->
+  <div class="section">
+    <div class="section-label">4 Rhythm Categories</div>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-num">01</div>
+        <div class="cat-name">Short Term</div>
+        <div class="cat-trigger" style="display:none;"></div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">02</div>
+        <div class="cat-name">Long Term</div>
+        <div class="cat-trigger" style="display:none;"></div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">03</div>
+        <div class="cat-name">Mental</div>
+        <div class="cat-trigger">T-Dopamine</div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">04</div>
+        <div class="cat-name">Emotional</div>
+        <div class="cat-trigger" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 TRAITS -->
+  <div class="section">
+    <div class="section-label">5 Traits — Zeta Collective · Consumed additionally channels Lyran</div>
+    <div style="font-size:11px; color:#444; margin-bottom:12px; font-style:italic;">Category tags: 1 = Short Term &nbsp;·&nbsp; 2 = Long Term &nbsp;·&nbsp; 3 = Mental (T-Dopamine) &nbsp;·&nbsp; 4 = Emotional</div>
+    <div class="traits-grid">
+
+      <!-- TRAIT 1 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Provoke Until Tipping Point</div>
+            <div class="trait-alias">Directness</div>
+          </div>
+          <div class="trait-cats"><span>1</span><span>3</span></div>
+          <div class="trait-tag dual">Dual</div>
+        </div>
+        <div class="polarity-grid">
+          <div class="polarity-cell up">
+            <div class="polarity-label up">↑ Upside</div>
+            <ul class="polarity-items">
+              <li>Wisdom to find the shortest path to the goal</li>
+              <li>Power to stay on the direct route when things get tough</li>
+              <li>Cuts through complexity without unnecessary steps</li>
+            </ul>
+          </div>
+          <div class="polarity-cell down">
+            <div class="polarity-label down">↓ Downside</div>
+            <ul class="polarity-items">
+              <li>Directness perceived as lacking elegance</li>
+              <li>Bluntness upsets or bothers others</li>
+              <li>Provocation accumulates until the environment tips</li>
+            </ul>
+          </div>
+        </div>
+        <div class="trait-dims" style="margin-top:10px;">
+          <div class="trait-dim iching"><strong>Gate 29.4</strong> · Abysmal Water · Commitment to the direct path</div>
+        </div>
+      </div>
+
+      <!-- TRAIT 2 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Pursuer</div>
+            <div class="trait-alias">—</div>
+          </div>
+          <div class="trait-cats"><span>1</span><span>2</span><span>3</span></div>
+          <div class="trait-tag asset">Asset</div>
+        </div>
+        <div class="trait-desc">Blue's core expression — always in motion toward a target. The Pursuer reads environments in real time and repositions toward opportunity. In the short term it projects into environments; long term it achieves goals across 12-year Zodiac cycles; mentally it solves the unsolvable through dopamine-driven pattern recognition.</div>
+        <div class="trait-dims">
+          <div class="trait-dim"><strong>Short Term</strong> — Environmental Projection · reads and enters environments</div>
+          <div class="trait-dim"><strong>Long Term</strong> — Goal Achiever · 12-year Zodiac cycle orientation</div>
+          <div class="trait-dim"><strong>Mental</strong> — Quantum Puzzle Solver · T-Dopamine · breakthrough cognition</div>
+        </div>
+      </div>
+
+      <!-- TRAIT 3 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Negotiator</div>
+            <div class="trait-alias">Diplomacy Master</div>
+          </div>
+          <div class="trait-cats"><span>3</span><span>4</span></div>
+          <div class="trait-tag asset">Asset</div>
+        </div>
+        <div class="trait-desc">Blue's relational intelligence — connecting people, bridging interests, finding the path both sides can walk. The Diplomacy Master operates at the intersection of mental precision and emotional attunement. People Connector at the mental layer; Emotional Diplomacy at the emotional layer.</div>
+        <div class="trait-dims">
+          <div class="trait-dim"><strong>Mental</strong> — Diplomacy Master · People Connector · strategic bridge-building</div>
+          <div class="trait-dim"><strong>Emotional</strong> — Emotional Diplomacy · feeling the room · attuning to both sides</div>
+        </div>
+      </div>
+
+      <!-- TRAIT 4 — CONSUMED -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Consumed</div>
+            <div class="trait-alias">—</div>
+          </div>
+          <div class="trait-cats"><span>1</span><span>2</span><span>3</span><span>4</span></div>
+          <div class="trait-tag dual">Dual</div>
+        </div>
+        <div class="trait-desc">Blue's most architecturally complex trait. When Consumed Mental Energy activates (via Hyper-Focus / T-Dopamine), it attracts Lake Energy as understood through I Ching Gates — channeled specifically by the Lyran collective. The activated Gates attach to the consuming energy. This is the only trait in the system where a second collective is explicitly involved in a single trait's operation. Full mechanics not yet mapped.</div>
+        <div class="trait-dims">
+          <div class="trait-dim"><strong>Short Term</strong> — Adventure Seeker · daily consumed motion</div>
+          <div class="trait-dim"><strong>Long Term</strong> — Experimenter / Explorer · Gate 16 🏔️/🌎</div>
+          <div class="trait-dim"><strong>Mental</strong> — Hyper-Focused · T-Dopamine · activates Lake Energy / Lyran channel</div>
+          <div class="trait-dim"><strong>Emotional</strong> — Deep Empath · Emotional Consumption</div>
+        </div>
+        <div style="margin-top:10px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size:9px; color:#CCAAFF; letter-spacing:0.1em; margin-bottom:8px;">LAKE ENERGY GATES — Activated via Hyper-Focus · Channeled by Lyran</div>
+          <div class="gate-list">
+            <div class="gate-item"><div class="gate-num">Gate 38</div><div class="gate-name">Aliveness</div></div>
+            <div class="gate-item"><div class="gate-num">Gate 28</div><div class="gate-name">The Game Player</div></div>
+            <div class="gate-item"><div class="gate-num">Gate 43</div><div class="gate-name">Insight</div></div>
+            <div class="gate-item"><div class="gate-num">Gate 49</div><div class="gate-name">Principles / Revolution</div></div>
+            <div class="gate-item"><div class="gate-num">Gate 17</div><div class="gate-name">Opinions</div></div>
+            <div class="gate-item"><div class="gate-num">Gate 47</div><div class="gate-name">Realization</div></div>
+            <div class="gate-item"><div class="gate-num">Gate 31</div><div class="gate-name">Leading / Influence</div></div>
+            <div class="gate-item"><div class="gate-num">Gate 45</div><div class="gate-name">The Gatherer</div></div>
+            <div class="gate-item"><div class="gate-num">Gate 10</div><div class="gate-name">Behavior of the Self</div></div>
+            <div class="gate-item"><div class="gate-num">Gate 54</div><div class="gate-name">Ambition</div></div>
+            <div class="gate-item"><div class="gate-num">Gate 61</div><div class="gate-name">Mystery</div></div>
+            <div class="gate-item"><div class="gate-num">Gate 60</div><div class="gate-name">Acceptance / Limitation</div></div>
+            <div class="gate-item"><div class="gate-num">Gate 41</div><div class="gate-name">Contraction / Decrease</div></div>
+            <div class="gate-item"><div class="gate-num">Gate 19</div><div class="gate-name">Wanting / Approach</div></div>
+          </div>
+        </div>
+        <div class="trait-dims" style="margin-top:8px;">
+          <div class="trait-dim lyran"><strong>Lyran Channel</strong> — activated through Hyper-Focus / Consumed Mental state</div>
+        </div>
+      </div>
+
+      <!-- TRAIT 5 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Impulsive</div>
+            <div class="trait-alias">—</div>
+          </div>
+          <div class="trait-cats"><span>1</span><span>2</span><span>3</span></div>
+          <div class="trait-tag dual">Dual</div>
+        </div>
+        <div class="trait-desc">Two distinct expressions of Blue's impulsive nature depending on the category pairing. Short Term + Mental produces the Daily Risk Taker — fast decisions, immediate action, living at the edge of the cycle's rise. Long Term + Mental produces The Wanderer — impulsive across time, drawn from cycle to cycle without a fixed destination.</div>
+        <div class="trait-dims">
+          <div class="trait-dim"><strong>Short Term + Mental (1&3)</strong> — Daily Risk Taker · impulsive in the moment</div>
+          <div class="trait-dim"><strong>Long Term + Mental (2&3)</strong> — The Wanderer · impulsive across time and cycles</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CHAKRA STACK -->
+  <div class="section">
+    <div class="section-label">Energetic Anatomy — Chakra Stack</div>
+    <div class="chakra-stack">
+      <div class="chakra-row-item active-pink">
+        <div class="chakra-dot" style="background:#D030A0; box-shadow: 0 0 6px #D030A0;"></div>
+        <div class="chakra-row-name" style="color:#D030A0;">Stellar Gateway → Crown</div>
+        <div class="chakra-row-note">Pink register</div>
+      </div>
+      <div class="chakra-row-item active-purple">
+        <div class="chakra-dot" style="background:#8A2BE2;"></div>
+        <div class="chakra-row-name" style="color:#8A2BE2;">Third Eye → Crown</div>
+        <div class="chakra-row-note">Purple register</div>
+      </div>
+      <div class="chakra-row-item active-blue">
+        <div class="chakra-dot" style="background:#4080E0; box-shadow: 0 0 6px #4080E0;"></div>
+        <div class="chakra-row-name" style="color:#4080E0;">Throat → Third Eye</div>
+        <div class="chakra-row-note">Blue register · fills the gap between Green and Purple · curiosity as bridge</div>
+      </div>
+      <div class="chakra-row-item active-green">
+        <div class="chakra-dot" style="background:#6EC25A;"></div>
+        <div class="chakra-row-name" style="color:#6EC25A;">Heart</div>
+        <div class="chakra-row-note">Green register</div>
+      </div>
+      <div class="chakra-row-item active-yellow">
+        <div class="chakra-dot" style="background:#F0C020;"></div>
+        <div class="chakra-row-name" style="color:#F0C020;">Solar Plexus → Naval</div>
+        <div class="chakra-row-note">Yellow register</div>
+      </div>
+      <div class="chakra-row-item active-orange">
+        <div class="chakra-dot" style="background:#E87020;"></div>
+        <div class="chakra-row-name" style="color:#E87020;">Sacral → Naval</div>
+        <div class="chakra-row-note">Orange register</div>
+      </div>
+      <div class="chakra-row-item active-red">
+        <div class="chakra-dot" style="background:#E04030;"></div>
+        <div class="chakra-row-name" style="color:#E04030;">Root · Palm · Feet</div>
+        <div class="chakra-row-note">Red register</div>
+      </div>
+    </div>
+    <div style="font-size:11px; color:#444; font-style:italic; margin-top:8px;">Blue sits at Throat → Third Eye — directly below Purple and above Heart/Green. The Throat chakra was the last unassigned gap in the upper register. Blue fills it with curiosity and pursuit energy, bridging Green's relational intelligence upward into Purple's purpose and identity territory.</div>
+  </div>
+
+  <!-- OPEN NOTES -->
+  <div class="notes-block">
+    <div class="notes-label">Open Items — To Be Developed</div>
+    <div class="note-item">① <span style="color:#555">Primary fuel</span> — not yet defined. T-Dopamine triggers the Mental category but the underlying sustained fuel for the full rhythm is unidentified.</div>
+    <div class="note-item">② <span style="color:#555">Consumed / Lake Energy mechanics</span> — 14 Gates activated through Hyper-Focus state, channeled by Lyran. How these Gates attach to and operate within the consuming energy state is not yet fully mapped.</div>
+    <div class="note-item">③ <span style="color:#555">Time-crossing cycle mechanics</span> — Blue cycles may reconnect across time rather than completing sequentially. The mechanism by which a cycle resumes across sessions, days, or years is architecturally open.</div>
+    <div class="note-item">④ <span style="color:#555">Zeta × Lyran relationship</span> — two collectives operating within one rhythm. Zeta = scientific precision. Lyran = possibly experiential/intuitive. Their relationship and why they co-channel Blue specifically is a system-level open question.</div>
+    <div class="note-item">⑤ <span style="color:#555">Gate 16 on Long Term / Consumed</span> — flagged with 🏔️/🌎 but not fully mapped within Blue. Appears in Red (Gate 16.6) as well — cross-rhythm Gate connection worth noting.</div>
+    <div class="note-item">⑥ <span style="color:#555">Chakra gap resolved</span> — Blue fills the Throat chakra, completing the upper register stack. Root chakra remains unassigned and belongs to Brown.</div>
+  </div>
+
+</div>
+</body>
+</html>

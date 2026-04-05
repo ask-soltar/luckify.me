@@ -1,0 +1,21 @@
+combo,dimension,value,n,mean_vs_avg,std,beat_field_pct,beat_field_count,p_value,excess_vs_baseline,signal_quality
+New Moon -- Fire,moon_group -- wu_xing,New Moon -- Fire,92,-1.2431,2.8728,66.3,61,0.0001,-1.0549,acceptable
+New Moon -- Earth,moon_group -- wu_xing,New Moon -- Earth,99,-0.9495,2.8043,63.6,63,0.0011,-0.7591,acceptable
+New Moon -- Water,moon_group -- wu_xing,New Moon -- Water,115,-0.8842,2.9067,61.7,71,0.0015,-0.6942,rock_solid
+New Moon -- Metal,moon_group -- wu_xing,New Moon -- Metal,101,-0.8547,2.8899,68.3,69,0.0037,-0.6634,rock_solid
+New Moon -- Wood,moon_group -- wu_xing,New Moon -- Wood,81,-0.7182,2.8509,59.3,48,0.0261,-0.5244,acceptable
+Full Moon -- Water,moon_group -- wu_xing,Full Moon -- Water,85,-0.5642,3.1505,60.0,51,0.1025,-0.3692,weak
+Full Moon -- Wood,moon_group -- wu_xing,Full Moon -- Wood,105,-0.5516,2.8547,63.8,67,0.0504,-0.3572,weak
+Full Moon -- Fire,moon_group -- wu_xing,Full Moon -- Fire,100,-0.537,2.8072,64.0,64,0.0586,-0.3424,weak
+Waxing -- Water,moon_group -- wu_xing,Waxing -- Water,898,-0.3005,3.0222,57.1,513,0.003,-0.1128,rock_solid
+Waxing -- Wood,moon_group -- wu_xing,Waxing -- Wood,792,-0.2819,2.9505,55.2,437,0.0073,-0.0912,rock_solid
+Full Moon -- Metal,moon_group -- wu_xing,Full Moon -- Metal,86,-0.2372,3.1106,64.0,55,0.4814,-0.0394,weak
+Full Moon -- Earth,moon_group -- wu_xing,Full Moon -- Earth,90,-0.2216,2.934,55.6,50,0.4756,-0.0236,weak
+Waxing -- Fire,moon_group -- wu_xing,Waxing -- Fire,1043,-0.1946,2.9968,54.8,572,0.0362,0.0041,acceptable
+Waxing -- Earth,moon_group -- wu_xing,Waxing -- Earth,949,-0.178,2.8143,53.3,506,0.0517,0.0224,weak
+Waning -- Wood,moon_group -- wu_xing,Waning -- Wood,677,-0.1187,2.7868,54.4,368,0.268,0.0855,weak
+Waning -- Earth,moon_group -- wu_xing,Waning -- Earth,875,-0.1182,2.9703,53.7,470,0.2395,0.088,weak
+Waxing -- Metal,moon_group -- wu_xing,Waxing -- Metal,853,-0.1002,2.9518,53.5,456,0.322,0.1075,weak
+Waning -- Fire,moon_group -- wu_xing,Waning -- Fire,945,-0.0918,3.0059,51.7,489,0.3482,0.118,weak
+Waning -- Water,moon_group -- wu_xing,Waning -- Water,818,-0.075,2.8912,52.6,430,0.4585,0.1346,weak
+Waning -- Metal,moon_group -- wu_xing,Waning -- Metal,817,-0.0552,3.005,51.4,420,0.5999,0.1562,weak

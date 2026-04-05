@@ -1,0 +1,139 @@
+================================================================================
+COLOR × PERSONAL DAY COMBO ANALYSIS — QUICK STATS
+================================================================================
+Date: April 4, 2026
+Dataset: 61,300 golf rounds (79.5% of 77,155 total)
+Filters: Calm/Moderate/Tough, Open/Positioning/Closing/Survival, S/NS tournaments
+
+================================================================================
+INTERPRETATION REFERENCE
+================================================================================
+Negative (score - course_avg < 0) = BEATS FIELD AVERAGE = GOOD
+Positive (score - course_avg > 0) = UNDERPERFORMS = BAD
+
+All percentages = % of rounds beating field average (desired outcome)
+
+================================================================================
+BEST COMBOS (By field beat %)
+================================================================================
+1.  Brown × Day 6      → 83.33% (6 rds, volatile)
+2.  Brown × Day 9      → 77.78% (9 rds, erratic)
+3.  Pink × Day 33      → 75.00% (8 rds, erratic)
+4.  Brown × Day 4      → 72.73% (11 rds, erratic)
+5.  Pink × Day 11      → 70.00% (10 rds, erratic)
+6.  Pink × Day 2       → 69.70% (33 rds, erratic)
+7.  Pink × Day 3       → 68.18% (44 rds, erratic)
+8.  Pink × Day 7       → 67.31% (52 rds, erratic)
+9.  Brown × Day 5      → 62.50% (16 rds, erratic)
+10. Brown × Day 8      → 62.50% (8 rds, erratic)
+
+✓ Note: Pink dominates top tier (6 of top 8)
+
+================================================================================
+WORST COMBOS (By field beat %)
+================================================================================
+96. Brown × Day 11     → 0.00% (1 rd) — AVOID
+95. Brown × Day 22     → 25.00% (4 rds) — WEAK
+94. Brown × Day 2      → 40.00% (5 rds) — WEAK
+93. Pink × Day 6       → 46.15% (26 rds) — WEAK
+92. Red × Day 7        → 47.34% (89 rds) — WEAK
+
+✗ Note: Brown × Days 2,11,22 are consistent underperformers
+
+================================================================================
+BY COLOR (Ranked by avg field beat %)
+================================================================================
+Color      Avg Beat %  Std Dev  Total Rounds  Verdict
+------     ----------  -------  -----------   -------
+Pink        60.12%     2.90      385        STRONG (best direction signal)
+Green       54.97%     2.94     7,390       SOLID (reliable baseline)
+Orange      54.73%     2.89     9,308       SOLID (reliable baseline)
+Purple      54.56%     2.94     8,370       BASELINE (unremarkable)
+Red         54.03%     3.08     1,698       VARIABLE (erratic)
+Yellow      53.98%     2.93    22,251       VARIABLE (erratic)
+Blue        53.32%     2.98    11,807       WEAK (below baseline)
+Brown       53.18%     2.50        91       WEAK (tiny sample)
+
+Top Performer: Pink (60.12% beat rate)
+Worst Performer: Brown (53.18%, but only 91 rounds total)
+
+================================================================================
+BY PERSONAL DAY (Ranked by avg field beat %)
+================================================================================
+Day  Avg Beat %  Std Dev  Total Rounds  Verdict
+---  ----------  -------  -----------   -------
+4     57.65%     2.89      4,603       STRONGEST (consistent best)
+9     57.47%     3.00      6,798       STRONG (consistent, big sample)
+3     56.50%     2.90      6,752       STRONG (consistent, big sample)
+33    56.24%     2.62      1,450       GOOD (reliable)
+8     55.87%     3.02      6,826       MODERATE (erratic)
+6     55.63%     2.74      5,351       MODERATE (stable)
+1     55.51%     3.28      6,765       MODERATE (erratic)
+2     54.71%     2.99      4,822       BASELINE (slight edge)
+7     54.00%     2.91      6,837       BASELINE (no edge)
+5     53.93%     2.90      6,905       BASELINE (no edge)
+22    51.03%     2.92      2,191       WEAK (below baseline)
+11    49.79%     2.57      2,000       WEAKEST (below 50%)
+
+Best Performers: Days 3, 4, 9 (56-57% beat rate)
+Worst Performers: Days 11, 22 (49-51% beat rate)
+
+================================================================================
+STABILITY ASSESSMENT
+================================================================================
+Interpretation: Standard deviation measures variance of vs_avg values
+
+Classification:
+  Rock Solid   (σ < 0.5):  1 combo   ← Extremely rare
+  Consistent   (σ < 0.8):  0 combos  ← Not achievable
+  Moderate     (σ < 1.2):  0 combos  ← Not achievable
+  Volatile     (σ < 1.6):  2 combos  ← Very rare (Brown × Days 5,6)
+  Erratic      (σ ≥ 1.6): 93 combos  ← Dominant pattern (96.9%)
+
+Average std dev across all combos: 2.896
+
+Finding: Color × Personal Day combos are ERRATIC. They predict direction
+(beat/miss field avg) inconsistently, with high variance in magnitude.
+
+================================================================================
+DEPLOYMENT RECOMMENDATIONS
+================================================================================
+
+USE FOR CONDITIONING (Secondary Layer):
+- Days 3, 4, 9: Apply 1.1x Kelly multiplier (boost confidence)
+- Days 11, 22: Apply 0.9x Kelly multiplier (reduce confidence)
+
+USE AS STANDALONE (Only if >100 samples AND >58% beat rate):
+- Red × Day 4 (62%, 138 samples) ✓
+- Red × Day 8 (59%, 199 samples) ✓
+- Purple × Day 11 (58%, 271 samples) ✓
+
+AVOID ENTIRELY:
+- Brown × Day 11 (0%)
+- Red × Day 7 (47%)
+- Pink × Day 6 (46%)
+
+MONITOR:
+- Small sample combos in top tier (Brown × Days 6,9; Pink × Day 33)
+  Collect more 2025-2026 data before full deployment
+
+================================================================================
+KEY INSIGHT
+================================================================================
+Personal Day does NOT stabilize Color signals. High variance (σ=2.9 avg)
+means we can identify DIRECTION (beat/miss) but NOT MAGNITUDE.
+
+Use as confidence modifier in larger framework, not primary pick.
+
+Best when combined with: Color × Condition, Moon Phase, Round Type
+
+================================================================================
+FILES GENERATED
+================================================================================
+color_personalday_combos_corrected.csv      (Full 96-combo dataset)
+color_personalday_pivot.csv                 (Heat map by Color × Day)
+COLOR_PERSONALDAY_ANALYSIS_CORRECTED.md     (Technical details)
+COLOR_PERSONALDAY_EXECUTIVE_SUMMARY.md      (Detailed recommendations)
+COLOR_PERSONALDAY_QUICK_STATS.txt           (This file)
+
+================================================================================

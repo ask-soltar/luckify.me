@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orange Rhythm — Structured Framework</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0b;
+    --surface: #111114;
+    --border: rgba(255,255,255,0.07);
+    --text: #e8e6e1;
+    --muted: #666;
+    --subtle: #2a2a2e;
+    --orange: #E87020;
+    --orange-dim: rgba(232,112,32,0.12);
+    --orange-border: rgba(232,112,32,0.3);
+    --orange-glow: rgba(232,112,32,0.06);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 40px 24px 80px;
+  }
+
+  .page-wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 28px;
+    margin-bottom: 48px;
+  }
+  .color-bar { width: 48px; height: 4px; background: var(--orange); border-radius: 2px; margin-bottom: 16px; }
+  .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
+  .page-title { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 5vw, 46px); line-height: 1.1; color: #fff; margin-bottom: 8px; }
+  .page-title em { font-style: italic; color: var(--orange); }
+  .page-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .meta-tag { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding: 3px 8px; border: 1px solid var(--border); border-radius: 2px; }
+  .meta-tag.orange { color: var(--orange); border-color: var(--orange-border); background: var(--orange-dim); }
+  .meta-tag.axis { color: #CCA010; border-color: rgba(204,160,16,0.3); background: rgba(204,160,16,0.08); }
+
+  .section { margin-bottom: 44px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* IDENTITY */
+  .identity-block { background: var(--orange-glow); border: 1px solid var(--orange-border); border-left: 3px solid var(--orange); border-radius: 4px; padding: 20px 24px; margin-bottom: 44px; }
+  .identity-name { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--orange); margin-bottom: 6px; }
+  .identity-desc { font-size: 13px; color: #aaa; line-height: 1.7; max-width: 640px; }
+
+  /* AXIS NOTE */
+  .axis-block { background: rgba(204,160,16,0.04); border: 1px solid rgba(204,160,16,0.15); border-radius: 4px; padding: 14px 18px; margin-bottom: 44px; display: flex; gap: 14px; align-items: flex-start; }
+  .axis-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+  .axis-text { font-size: 12px; color: #888; line-height: 1.7; }
+  .axis-text strong { color: #CCA010; font-weight: 500; }
+
+  /* TWO LAYER */
+  .layer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 44px; }
+  .layer-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 18px 20px; }
+  .layer-card.highlight { border-color: var(--orange-border); background: var(--orange-glow); }
+  .layer-title { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; }
+  .layer-title.orange { color: var(--orange); }
+  .layer-title.muted { color: var(--muted); }
+  .layer-body { font-size: 12px; color: #999; line-height: 1.7; }
+  .layer-body strong { color: #ccc; font-weight: 500; }
+  .layer-note { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #444; margin-top: 10px; font-style: italic; }
+
+  /* WAVE */
+  .wave-block { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 20px 24px; margin-bottom: 44px; }
+  .wave-title { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+  .wave-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
+  .wave-note { font-size: 10px; color: #555; font-style: italic; text-align: center; padding: 6px; border-top: 1px solid var(--border); line-height: 1.5; }
+
+  /* ENERGY DRAW */
+  .draw-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 44px; }
+  .draw-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 14px 12px; text-align: center; }
+  .draw-num { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--orange); letter-spacing: 0.12em; margin-bottom: 6px; }
+  .draw-icon { font-size: 20px; margin-bottom: 6px; }
+  .draw-name { font-family: 'DM Serif Display', serif; font-size: 13px; color: #fff; margin-bottom: 4px; }
+  .draw-sub { font-size: 10px; color: #666; line-height: 1.4; }
+
+  /* CATEGORIES */
+  .cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 44px; }
+  .cat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 16px 18px; }
+  .cat-num { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--orange); letter-spacing: 0.12em; margin-bottom: 6px; }
+  .cat-name { font-family: 'DM Serif Display', serif; font-size: 16px; color: #fff; margin-bottom: 6px; }
+  .cat-desc { font-size: 11px; color: #888; line-height: 1.6; }
+
+  /* TALENTS */
+  .talents-grid { display: flex; flex-direction: column; gap: 3px; margin-bottom: 44px; }
+  .talent-card { background: var(--surface); border: 1px solid var(--border); border-radius: 3px; padding: 14px 16px; transition: border-color 0.2s; }
+  .talent-card:hover { border-color: rgba(255,255,255,0.12); }
+  .talent-header { display: grid; grid-template-columns: 1fr auto auto; align-items: start; gap: 12px; margin-bottom: 8px; }
+  .talent-name { font-family: 'DM Serif Display', serif; font-size: 15px; color: #fff; }
+  .talent-alias { font-size: 10px; color: var(--orange); font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.1em; margin-top: 2px; }
+  .talent-cats { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #555; letter-spacing: 0.06em; }
+  .talent-cats span { display: inline-block; padding: 1px 5px; border-radius: 2px; background: var(--subtle); margin-right: 3px; color: #666; }
+  .talent-tag { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; white-space: nowrap; }
+  .talent-tag.asset { color: #5aa048; border: 1px solid rgba(90,160,72,0.3); background: rgba(90,160,72,0.08); }
+  .talent-tag.dual { color: #CCA010; border: 1px solid rgba(204,160,16,0.3); background: rgba(204,160,16,0.08); }
+  .talent-desc { font-size: 11px; color: #888; line-height: 1.6; margin-bottom: 8px; }
+  .talent-dims { display: flex; gap: 6px; flex-wrap: wrap; }
+  .talent-dim { font-size: 10px; color: #555; padding: 2px 8px; border-radius: 2px; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); }
+  .talent-dim strong { color: var(--orange); font-weight: 500; }
+
+  /* CHAKRA STACK */
+  .chakra-stack { display: flex; flex-direction: column; gap: 3px; margin-bottom: 16px; max-width: 420px; }
+  .chakra-row { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 3px; border: 1px solid var(--border); background: var(--surface); }
+  .chakra-row.active-orange { border-color: var(--orange-border); background: var(--orange-glow); }
+  .chakra-row.active-pink { border-color: rgba(208,48,160,0.3); background: rgba(208,48,160,0.06); }
+  .chakra-row.active-purple { border-color: rgba(138,43,226,0.3); background: rgba(138,43,226,0.06); }
+  .chakra-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .chakra-row-name { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; flex: 1; }
+  .chakra-row-note { font-size: 10px; color: #555; font-style: italic; }
+
+  /* OPEN NOTES */
+  .notes-block { border: 1px solid rgba(255,255,255,0.05); border-left: 3px solid #2a2a2e; border-radius: 3px; padding: 14px 16px; background: #0e0e10; }
+  .notes-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #333; margin-bottom: 10px; }
+  .note-item { font-size: 11px; color: #444; line-height: 1.6; margin-bottom: 6px; }
+  .note-item:last-child { margin-bottom: 0; }
+
+  @media (max-width: 640px) {
+    .layer-grid, .cat-grid { grid-template-columns: 1fr; }
+    .draw-grid { grid-template-columns: repeat(3, 1fr); }
+    .talent-header { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="color-bar"></div>
+    <div class="eyebrow">Lucky Window · Rhythm Framework · Internal</div>
+    <h1 class="page-title"><em>Orange</em> Rhythm</h1>
+    <div class="page-meta">
+      <span class="meta-tag orange">Creativity</span>
+      <span class="meta-tag">Score +7 to +13</span>
+      <span class="meta-tag">Sacral → Naval</span>
+      <span class="meta-tag">Source: Andromedian Database</span>
+      <span class="meta-tag axis">Different Axis — Not Pink/Purple Stack</span>
+    </div>
+  </div>
+
+  <!-- IDENTITY -->
+  <div class="identity-block">
+    <div class="identity-name">The Metaphysical Shield</div>
+    <div class="identity-desc">Orange is the rhythm of creative foundation. It does not create through inspiration or impulse — it creates by building something stable enough to create from. Stability is Orange's defense mechanism and its methodology. The shield protects the creative process by eliminating instability before it can interfere. Orange works steadily, fills gaps, addresses the day-to-day, and constructs foundations that outlast the moment. <em>Creativity is the output. Security is the engine.</em></div>
+  </div>
+
+  <!-- AXIS NOTE -->
+  <div class="axis-block">
+    <div class="axis-icon">⚠</div>
+    <div class="axis-text"><strong>Different Axis:</strong> Orange does not sit on the same energetic spectrum as Pink and Purple. Pink and Purple operate in the upper register (Crown → Stellar Gateway, Third Eye → Crown). Orange operates from the body's core — Sacral → Naval. These are not comparable rhythms on a single scale. Orange is a body-level creative rhythm; Pink and Purple are upper-register expression and purpose rhythms. Their interaction across axes is to be mapped.</div>
+  </div>
+
+  <!-- TWO LAYER ARCHITECTURE -->
+  <div class="section">
+    <div class="section-label">Two-Layer Architecture</div>
+    <div class="layer-grid">
+      <div class="layer-card highlight">
+        <div class="layer-title orange">Birth Rhythm</div>
+        <div class="layer-body">
+          A person <strong>born with Orange</strong> carries creative foundation-building as their fixed energetic identity. Their dominant subset of the 6 talents is their personal expression — not all 6 operate equally. The shield is always active; what it protects and how it builds varies by the individual's talent profile.
+        </div>
+        <div class="layer-note">* Dominant talent subset varies per person — not all 6 equally active</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-title muted">Window Rhythm</div>
+        <div class="layer-body">
+          An Orange <strong>window</strong> (score +7 to +13) activates Orange energetics environmentally. The day favors practical creativity, gap-filling, foundation work, and protective action. Best used for building, repairing, stabilizing, and steady problem-solving.
+        </div>
+        <div class="layer-note">* Window calculable via Lucky Window scoring system</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WAVE PATTERN -->
+  <div class="section">
+    <div class="section-label">Wave Pattern</div>
+    <div class="wave-block">
+      <div class="wave-title">Orange energy cycle — continuous upward climb · no peak · no fall</div>
+
+      <svg viewBox="0 0 520 155" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; margin-bottom:12px;">
+        <line x1="0" y1="125" x2="520" y2="125" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="0" y1="85" x2="520" y2="85" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="0" y1="45" x2="520" y2="45" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,4"/>
+
+        <!-- Stable floor indicator -->
+        <line x1="20" y1="125" x2="500" y2="125" stroke="rgba(232,112,32,0.1)" stroke-width="1" stroke-dasharray="2,8"/>
+
+        <!-- Empowered — slow steady continuous climb across full width -->
+        <path d="M 20,123 C 120,118 220,105 320,82 C 390,65 450,44 500,18"
+              fill="none" stroke="#E87020" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+
+        <!-- Empowered arrow tip -->
+        <polygon points="500,18 494,24 506,24" fill="#E87020" opacity="0.7" transform="rotate(-55, 500, 18)"/>
+
+        <!-- Empowered label -->
+        <text x="340" y="62" font-family="IBM Plex Mono, monospace" font-size="8" fill="#E87020" opacity="0.9" letter-spacing="0.08em">EMPOWERED</text>
+        <text x="340" y="73" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(232,112,32,0.5)" letter-spacing="0.06em">slow continuous climb · always building</text>
+
+        <!-- Unempowered — flat or near-flat, very slight drift upward -->
+        <path d="M 20,123 C 150,122 300,121 450,119 C 470,119 488,118 500,118"
+              fill="none" stroke="#E87020" stroke-width="2" stroke-linecap="round" opacity="0.35" stroke-dasharray="5,4"/>
+
+        <!-- Unempowered label -->
+        <text x="180" y="112" font-family="IBM Plex Mono, monospace" font-size="8" fill="rgba(232,112,32,0.45)" letter-spacing="0.08em">UNEMPOWERED</text>
+        <text x="180" y="123" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(232,112,32,0.3)" letter-spacing="0.06em">flat or near-flat · stagnant, not falling</text>
+
+        <!-- Start marker -->
+        <circle cx="20" cy="123" r="3" fill="#E87020" opacity="0.5"/>
+
+        <!-- Safe floor label -->
+        <text x="20" y="141" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(232,112,32,0.2)" letter-spacing="0.08em">STABLE FLOOR — no peak to fall from</text>
+
+        <!-- Bottom axis labels -->
+        <text x="8" y="152" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="rgba(255,255,255,0.15)" letter-spacing="0.08em">START</text>
+        <text x="200" y="152" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="rgba(255,255,255,0.15)" letter-spacing="0.08em">SUSTAINED BUILD</text>
+        <text x="430" y="152" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="rgba(255,255,255,0.15)" letter-spacing="0.08em">ONGOING</text>
+      </svg>
+
+      <div class="wave-notes">
+        <div class="wave-note">No peak — Orange climbs continuously, never crests</div>
+        <div class="wave-note">Unempowered = stagnant, not falling. The floor is always stable.</div>
+        <div class="wave-note">Safest window in the system — worst case is no progress, not collapse</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 CATEGORIES -->
+  <div class="section">
+    <div class="section-label">2 Rhythm Categories</div>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-num">01</div>
+        <div class="cat-name">General Activities / Day-to-Day</div>
+        <div class="cat-desc">Orange expresses most naturally in the practical rhythm of daily life. Filling gaps, addressing what needs fixing, maintaining stability — these are not maintenance tasks for Orange, they are creative acts. The foundation is built one day at a time.</div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">02</div>
+        <div class="cat-name">Problem Solving</div>
+        <div class="cat-desc">Orange approaches problems methodically — addressing root causes, not symptoms. The goal is not a quick fix but a sturdy resolution. Orange's problem-solving is inherently protective: eliminate instability so that the creative process has solid ground to stand on.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENERGY DRAW SYSTEM -->
+  <div class="section">
+    <div class="section-label">Energy Draw System — 1 to 3 Sources Active Per Person</div>
+    <div style="font-size:11px; color:#444; margin-bottom:12px; font-style:italic;">Orange draws strength, inspiration, and motivation from external sources. Which sources are active depends on the person's dominant talent subset — not fixed universally.</div>
+    <div class="draw-grid">
+      <div class="draw-card">
+        <div class="draw-num">01</div>
+        <div class="draw-icon">🤝</div>
+        <div class="draw-name">People</div>
+        <div class="draw-sub">Emotional Energy · Connection</div>
+      </div>
+      <div class="draw-card">
+        <div class="draw-num">02</div>
+        <div class="draw-icon">⚡</div>
+        <div class="draw-name">Activities</div>
+        <div class="draw-sub">Experiences · Stimulation</div>
+      </div>
+      <div class="draw-card">
+        <div class="draw-num">03</div>
+        <div class="draw-icon">💡</div>
+        <div class="draw-name">Ideas</div>
+        <div class="draw-sub">Concepts · Freedom</div>
+      </div>
+      <div class="draw-card">
+        <div class="draw-num">04</div>
+        <div class="draw-icon">🌿</div>
+        <div class="draw-name">Nature</div>
+        <div class="draw-sub">Earth · Elemental contact</div>
+      </div>
+      <div class="draw-card">
+        <div class="draw-num">05</div>
+        <div class="draw-icon">🌱</div>
+        <div class="draw-name">Rebirth</div>
+        <div class="draw-sub">New life · Innocence · Benevolence</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 TALENTS -->
+  <div class="section">
+    <div class="section-label">6 Talents — Menu · Each Person Expresses a Dominant Subset</div>
+    <div style="font-size:11px; color:#444; margin-bottom:12px; font-style:italic;">Category tags: M = Manifestation &nbsp;·&nbsp; Me = Mental &nbsp;·&nbsp; E = Emotional &nbsp;&nbsp;|&nbsp;&nbsp; Not all 6 equally active per person</div>
+    <div class="talents-grid">
+
+      <div class="talent-card">
+        <div class="talent-header">
+          <div>
+            <div class="talent-name">Survivability / Softening the Blow</div>
+            <div class="talent-alias">Survivalist · Resilience Master</div>
+          </div>
+          <div class="talent-cats"><span>M</span><span>Me</span><span>E</span></div>
+          <div class="talent-tag asset">Asset</div>
+        </div>
+        <div class="talent-desc">The ability to adapt and persevere in challenging situations — adversity, danger, uncertainty. Orange does not break under pressure; it absorbs, adjusts, and continues building.</div>
+        <div class="talent-dims">
+          <div class="talent-dim"><strong>Physical</strong> — Naturalist · Physical survivability</div>
+          <div class="talent-dim"><strong>Mental</strong> — Survivor Mode · Calm under pressure · Sound decisions</div>
+          <div class="talent-dim"><strong>Emotional</strong> — Heart Wall · Manages own and others' emotions in difficulty</div>
+        </div>
+      </div>
+
+      <div class="talent-card">
+        <div class="talent-header">
+          <div>
+            <div class="talent-name">Strong Foundations</div>
+            <div class="talent-alias">Long Term Strategist · Legacy Forger</div>
+          </div>
+          <div class="talent-cats"><span>M</span><span>Me</span></div>
+          <div class="talent-tag asset">Asset</div>
+        </div>
+        <div class="talent-desc">Building through hard work, education, experience, and personal development. Includes the social environment — positive relationships, community, family. The foundation is both internal and relational.</div>
+        <div class="talent-dims">
+          <div class="talent-dim"><strong>Physical</strong> — Solid basis for physical well-being and safety</div>
+          <div class="talent-dim"><strong>Mental</strong> — Solid basis for mental well-being and clarity</div>
+        </div>
+      </div>
+
+      <div class="talent-card">
+        <div class="talent-header">
+          <div>
+            <div class="talent-name">Bonding with Earth and Elements</div>
+            <div class="talent-alias">Fixer · Groundkeeper</div>
+          </div>
+          <div class="talent-cats"><span>M</span><span>Me</span></div>
+          <div class="talent-tag asset">Asset</div>
+        </div>
+        <div class="talent-desc">A need to protect nature and bond with earthly elements. Expressed as a drive to repair, restore, and maintain — things, systems, environments. The Fixer sees what is broken and is compelled to address it.</div>
+        <div class="talent-dims">
+          <div class="talent-dim"><strong>Physical</strong> — Repairman · Loves to fix broken things</div>
+          <div class="talent-dim"><strong>Mental</strong> — Constant drive to fix or make things better</div>
+        </div>
+      </div>
+
+      <div class="talent-card">
+        <div class="talent-header">
+          <div>
+            <div class="talent-name">Emotional Flexibility</div>
+            <div class="talent-alias">Filler · Emotional Resilience</div>
+          </div>
+          <div class="talent-cats"><span>E</span></div>
+          <div class="talent-tag dual">Dual</div>
+        </div>
+        <div class="talent-desc">The ability to adapt and adjust emotional responses to changing circumstances. Orange moves with the emotional landscape rather than against it — filling the gaps others leave emotionally.</div>
+        <div class="talent-dims">
+          <div class="talent-dim"><strong>I Ching</strong> — Gate 51.4 · directional hint · mapping in progress</div>
+        </div>
+      </div>
+
+      <div class="talent-card">
+        <div class="talent-header">
+          <div>
+            <div class="talent-name">Low Visibility Booster</div>
+            <div class="talent-alias">Filler · Storyteller</div>
+          </div>
+          <div class="talent-cats"><span>Me</span></div>
+          <div class="talent-tag asset">Asset</div>
+        </div>
+        <div class="talent-desc">The ability to make things noticeable and easy for others to understand. Orange doesn't need the spotlight — it makes complexity accessible. The Storyteller translates the invisible into the visible.</div>
+        <div class="talent-dims">
+          <div class="talent-dim"><strong>I Ching</strong> — Gate 51.4 · directional hint · mapping in progress</div>
+        </div>
+      </div>
+
+      <div class="talent-card">
+        <div class="talent-header">
+          <div>
+            <div class="talent-name">Protector</div>
+            <div class="talent-alias">Caregiver</div>
+          </div>
+          <div class="talent-cats"><span>M</span><span>E</span></div>
+          <div class="talent-tag asset">Asset</div>
+        </div>
+        <div class="talent-desc">Keeping someone or something safe from harm. The Protector actively defends — as parent, guardian, caregiver, or simply the person who shows up when it matters. Looks beyond surfaces to underlying essence.</div>
+        <div class="talent-dims">
+          <div class="talent-dim"><strong>Physical</strong> — Determined · Active defense</div>
+          <div class="talent-dim"><strong>Emotional</strong> — Therapist · Deep understanding · Looks beyond the surface</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CHAKRA STACK -->
+  <div class="section">
+    <div class="section-label">Energetic Anatomy — Chakra Stack</div>
+    <div class="chakra-stack">
+      <div class="chakra-row active-pink">
+        <div class="chakra-dot" style="background:#D030A0; box-shadow: 0 0 6px #D030A0;"></div>
+        <div class="chakra-row-name" style="color:#D030A0;">Stellar Gateway → Crown</div>
+        <div class="chakra-row-note">Pink register</div>
+      </div>
+      <div class="chakra-row active-purple">
+        <div class="chakra-dot" style="background:#8A2BE2;"></div>
+        <div class="chakra-row-name" style="color:#8A2BE2;">Third Eye → Crown</div>
+        <div class="chakra-row-note">Purple register</div>
+      </div>
+      <div class="chakra-row">
+        <div class="chakra-dot" style="background:#333;"></div>
+        <div class="chakra-row-name" style="color:#444;">Throat · Heart</div>
+        <div class="chakra-row-note">Other rhythms — to be mapped</div>
+      </div>
+      <div class="chakra-row active-orange">
+        <div class="chakra-dot" style="background:#E87020; box-shadow: 0 0 6px #E87020;"></div>
+        <div class="chakra-row-name" style="color:#E87020;">Sacral → Naval</div>
+        <div class="chakra-row-note">Orange register · body-level creative energy</div>
+      </div>
+      <div class="chakra-row">
+        <div class="chakra-dot" style="background:#333;"></div>
+        <div class="chakra-row-name" style="color:#444;">Root</div>
+        <div class="chakra-row-note">Other rhythms — to be mapped</div>
+      </div>
+    </div>
+    <div style="font-size:11px; color:#444; font-style:italic; margin-top:8px;">Orange does not sit on the upper-register stack with Pink and Purple. It operates from the body's core — a fundamentally different energetic axis. Gap between Purple (Third Eye) and Orange (Sacral) contains unassigned rhythms.</div>
+  </div>
+
+  <!-- OPEN NOTES -->
+  <div class="notes-block">
+    <div class="notes-label">Open Items — To Be Developed</div>
+    <div class="note-item">① <span style="color:#555">Primary fuel</span> — not yet defined. Different axis from Pink/Purple suggests a body-level fuel source rather than neurochemical. To be channeled.</div>
+    <div class="note-item">② <span style="color:#555">I Ching mapping</span> — Gate 51.4 flagged for Emotional Flexibility and Low Visibility Booster. Work in progress across all rhythms.</div>
+    <div class="note-item">③ <span style="color:#555">Dominant talent subset identification</span> — how to determine which of the 6 talents are dominant for a given Orange birth holder. Not yet calculable.</div>
+    <div class="note-item">④ <span style="color:#555">Energy draw source identification</span> — which 1-3 sources are active for a given person is tied to talent subset. Mapping method not yet defined.</div>
+    <div class="note-item">⑤ <span style="color:#555">Cross-axis interaction</span> — how Orange (body-level, Sacral/Naval) interacts with Pink and Purple (upper register) in multi-color birth rhythm holders not yet mapped.</div>
+    <div class="note-item">⑥ <span style="color:#555">Chakra gap</span> — Throat and Heart centers sit between Purple (Third Eye) and Orange (Sacral). Which rhythms occupy this space is unassigned.</div>
+  </div>
+
+</div>
+</body>
+</html>

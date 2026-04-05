@@ -1,4 +1,0 @@
-tier,optimal_baseline_weight,optimal_form_weight,best_mae
-WEAK,0.5,0.5,11.930351016514043
-MEDIUM,0.5,0.5,6.378667306600663
-STRONG,0.5,0.5,3.494261421045938

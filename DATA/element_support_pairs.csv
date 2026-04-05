@@ -1,0 +1,6 @@
+supporter,supported,supporter_off_par,supported_off_par,off_par_diff,supporter_win_%,supported_win_%,win_rate_diff_%,description
+Earth,Metal,-0.962,-0.776,0.185,30.7,32.8,2.1,Earth feeds Metal (ore in earth)
+Water,Wood,-0.95,-0.908,0.042,30.3,31.6,1.2,Water feeds Wood (nourishes growth)
+Fire,Earth,-0.957,-0.962,-0.005,31.0,30.7,-0.3,Fire feeds Earth (ash creates soil)
+Wood,Fire,-0.908,-0.957,-0.049,31.6,31.0,-0.6,Wood feeds Fire (combustion)
+Metal,Water,-0.776,-0.95,-0.174,32.8,30.3,-2.5,Metal feeds Water (liquifies/holds water)

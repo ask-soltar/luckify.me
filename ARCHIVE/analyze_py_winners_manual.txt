@@ -1,0 +1,18 @@
+ANALYSIS: Personal Year Distribution in Tournament Top-10 Finishers
+
+Data Source: Golf Historics v3 - ANALYSIS (6).csv
+
+Running analysis to extract:
+1. Unique tournaments (event_name)
+2. For each tournament: top 10 finishers by lowest score
+3. Personal Year distribution among top 10s
+4. Comparison to baseline: Year 9 (42.795), Year 1 (42.879), Year 4 (43.871)
+
+Column mapping:
+  - Column 2: player_name
+  - Column 4: event_name
+  - Column 7: score
+  - Column 29: off_par
+  - Column 36: Personal Year
+
+Processing tournament top-10 analysis...

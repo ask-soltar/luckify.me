@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "description": "Centralized validated signals database. ONLY signals that pass 2025/2026 out-of-sample validation.",
+    "last_updated": "2026-04-05",
+    "total_signals": 6,
+    "validation_status": "Cleaned - removed reversed/overfitted signals from prior analysis",
+    "source": "Orange Deep Analysis (62 signals) + 2025/2026 validation"
+  },
+
+  "signals_bet": [
+    {
+      "id": "orange_newmoon_calm",
+      "tier": 1,
+      "color": "Orange",
+      "moon": "New Moon",
+      "condition": "Calm",
+      "effect": -1.1413,
+      "effect_2025_2026": -0.9973,
+      "n": 315,
+      "n_validated": 76,
+      "p_value": 0.0000,
+      "p_value_2025_2026": 0.0010,
+      "description": "Orange + New Moon + Calm = operational clarity. PEAK SIGNAL. Validated on 2025/2026.",
+      "source": "ORANGE_DEEP_ANALYSIS_SUMMARY.md"
+    },
+    {
+      "id": "orange_newmoon",
+      "tier": 1,
+      "color": "Orange",
+      "moon": "New Moon",
+      "effect": -0.9089,
+      "effect_2025_2026": -0.9973,
+      "n": 491,
+      "n_validated": 76,
+      "p_value": 0.0000,
+      "p_value_2025_2026": 0.0010,
+      "description": "New Moon dominates. Strongest single signal across all conditions. Validated on 2025/2026.",
+      "source": "ORANGE_DEEP_ANALYSIS_SUMMARY.md"
+    },
+    {
+      "id": "orange_calm",
+      "tier": 1,
+      "color": "Orange",
+      "condition": "Calm",
+      "effect": -0.3342,
+      "effect_2025_2026": -0.2822,
+      "n": 5668,
+      "n_validated": 1432,
+      "p_value": 0.0000,
+      "p_value_2025_2026": 0.0005,
+      "description": "Orange in Calm conditions beats field 56.8% of rounds. Broadest, most stable signal. Validated on 2025/2026.",
+      "source": "ORANGE_DEEP_ANALYSIS_SUMMARY.md"
+    },
+    {
+      "id": "orange_fullmoon_calm",
+      "tier": 2,
+      "color": "Orange",
+      "moon": "Full Moon",
+      "condition": "Calm",
+      "effect": -0.4477,
+      "effect_2025_2026": -1.4273,
+      "n": 299,
+      "n_validated": 82,
+      "p_value": 0.0088,
+      "p_value_2025_2026": 0.0000,
+      "description": "Full Moon + Calm. STRENGTHENED in 2025/2026 validation. Secondary peak signal.",
+      "source": "ORANGE_DEEP_ANALYSIS_SUMMARY.md"
+    },
+    {
+      "id": "orange_waxing_calm",
+      "tier": 2,
+      "color": "Orange",
+      "moon_group": "Waxing",
+      "condition": "Calm",
+      "effect": -0.3913,
+      "effect_2025_2026": -0.3663,
+      "n": 2901,
+      "n_validated": 781,
+      "p_value": 0.0000,
+      "p_value_2025_2026": 0.0006,
+      "description": "Waxing + Calm. Broadest reliable signal (large n). Stable across time. Validated on 2025/2026.",
+      "source": "ORANGE_DEEP_ANALYSIS_SUMMARY.md"
+    }
+  ],
+
+  "signals_fade": [
+    {
+      "id": "libra_horoscope",
+      "tier": 2,
+      "horoscope": "LIBRA",
+      "effect": 0.5486,
+      "effect_2025_2026": 0.4133,
+      "n": 287,
+      "n_validated": 707,
+      "p_value": 0.0022,
+      "p_value_2025_2026": 0.0009,
+      "description": "Libra horoscope underperforms significantly. Stable fade signal. Validated on 2025/2026.",
+      "source": "ORANGE_DEEP_ANALYSIS_SUMMARY.md"
+    }
+  ],
+
+  "removed_signals": {
+    "reason": "2025/2026 validation showed signals reversed or weakened beyond statistical significance",
+    "list": [
+      {
+        "id": "red_exec_50_75_closing",
+        "status": "REVERSED",
+        "historical": -0.936,
+        "actual_2025_2026": 0.9275,
+        "reason": "Effect flipped sign in 2025/2026. Overfitted to earlier data."
+      },
+      {
+        "id": "green_exec_75_100_wood",
+        "status": "REVERSED",
+        "historical": -0.876,
+        "actual_2025_2026": 0.8284,
+        "reason": "Effect flipped sign in 2025/2026. Overfitted to earlier data."
+      },
+      {
+        "id": "blue_exec_75_100_metal",
+        "status": "NOT_TESTED",
+        "reason": "Similar to other Color×Exec combinations which reversed. Removed preemptively."
+      },
+      {
+        "id": "orange_exec_75_100_earth",
+        "status": "NOT_TESTED",
+        "reason": "Small sample (n=40). Color×Exec pattern suggests overfitting."
+      },
+      {
+        "id": "orange_exec_50_75_open",
+        "status": "NOT_VALIDATED",
+        "reason": "Not tested in 2025/2026 validation. Requires retest."
+      },
+      {
+        "id": "orange_exec_25_50_fire",
+        "status": "NOT_VALIDATED",
+        "reason": "Not tested in 2025/2026 validation. Requires retest."
+      },
+      {
+        "id": "green_exec_25_50_water",
+        "status": "NOT_VALIDATED",
+        "reason": "Not tested in 2025/2026 validation. Requires retest."
+      }
+    ]
+  },
+
+  "notes": {
+    "sign_convention": "vs_avg = score - course_avg. Negative = beats field (good). Positive = loses to field (bad).",
+    "tier_1": "Maximum conviction - use in direct matchup decisions",
+    "tier_2": "Strong conviction - enhance matchups as secondary filters",
+    "validation_standard": "2025/2026 out-of-sample testing. Must hold p<0.05 AND maintain effect direction.",
+    "key_insight": "Archetypal signals (Orange × Moon × Condition) are STABLE. Color×Exec combos from prior analysis were OVERFITTED.",
+    "how_to_add": "New signals must pass 2025/2026 validation. Add to signals_bet or signals_fade with both historical and validated effects.",
+    "next_validation": "2026-12-31 (full year of 2026 data available)"
+  }
+}

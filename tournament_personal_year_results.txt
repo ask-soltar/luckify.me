@@ -1,0 +1,863 @@
+
+================================================================================
+TOURNAMENT TOP-10 WINNERS: PERSONAL YEAR ANALYSIS
+================================================================================
+
+3M Open:
+  Top 10 Finishers:
+     1. S.Y. Noh             | PY 6 | Score:  48 | Off-Par: -23.0
+     2. Kurt Kitayama        | PY 6 | Score:  60 | Off-Par: -11.0
+     3. Adam Svensson        | PY 7 | Score:  60 | Off-Par: -11.0
+     4. Beau Hossler         | PY 8 | Score:  62 | Off-Par: -9.0
+     5. Alex Noren           | PY 1 | Score:  62 | Off-Par: -9.0
+     6. Sam Stevens          | PY 2 | Score:  62 | Off-Par: -9.0
+     7. Thorbjørn Olesen     | PY 6 | Score:  62 | Off-Par: -9.0
+     8. Doug Ghim            | PY 9 | Score:  63 | Off-Par: -8.0
+     9. Lee Hodges           | PY 9 | Score:  63 | Off-Par: -8.0
+    10. Stewart Cink         | PY 6 | Score:  63 | Off-Par: -8.0
+
+AT&T Byron Nelson:
+  Top 10 Finishers:
+     1. S.Y. Noh             | PY 5 | Score:  60 | Off-Par: -11.0
+     2. Xander Schauffele    | PY 5 | Score:  61 | Off-Par: -10.0
+     3. James Hahn           | PY 1 | Score:  61 | Off-Par: -10.0
+     4. Jason Day            | PY 3 | Score:  62 | Off-Par: -9.0
+     5. C.T. Pan             | PY 3 | Score:  62 | Off-Par: -9.0
+     6. Hideki Matsuyama     | PY 6 | Score:  62 | Off-Par: -9.0
+     7. Ryan Palmer          | PY 7 | Score:  62 | Off-Par: -9.0
+     8. Carson Young         | PY 3 | Score:  63 | Off-Par: -8.0
+     9. Kevin Tway           | PY 1 | Score:  63 | Off-Par: -8.0
+    10. Adam Scott           | PY 3 | Score:  63 | Off-Par: -8.0
+
+AT&T Pebble Beach Pro-Am:
+  Top 10 Finishers:
+     1. Dylan Frittelli      | PY 9 | Score:  35 | Off-Par: -37.0
+     2. Doug Ghim            | PY 9 | Score:  36 | Off-Par: -36.0
+     3. Maverick McNealy     | PY 7 | Score:  38 | Off-Par: -34.0
+     4. Nate Lashley         | PY 4 | Score:  48 | Off-Par: -24.0
+     5. Kyle Stanley         | PY 1 | Score:  52 | Off-Par: -20.0
+     6. Carson Young         | PY 3 | Score:  56 | Off-Par: -16.0
+     7. Scott Gutschewski    | PY 8 | Score:  57 | Off-Par: -15.0
+     8. Jason Dufner         | PY 7 | Score:  58 | Off-Par: -14.0
+     9. Trey Mullinax        | PY 6 | Score:  58 | Off-Par: -14.0
+    10. Bill Haas            | PY 9 | Score:  60 | Off-Par: -12.0
+
+Arnold Palmer Invitational pres. by Mastercard:
+  Top 10 Finishers:
+     1. Austin Smotherman    | PY 7 | Score:  22 | Off-Par: -50.0
+     2. Daniel Berger        | PY 3 | Score:  63 | Off-Par: -9.0
+     3. Jason Day            | PY 5 | Score:  64 | Off-Par: -8.0
+     4. Keegan Bradley       | PY 4 | Score:  64 | Off-Par: -8.0
+     5. Jon Rahm             | PY 1 | Score:  65 | Off-Par: -7.0
+     6. Andrew Novak         | PY 7 | Score:  65 | Off-Par: -7.0
+     7. Rory McIlroy         | PY 6 | Score:  65 | Off-Par: -7.0
+     8. Davis Riley          | PY 9 | Score:  66 | Off-Par: -6.0
+     9. Webb Simpson         | PY 5 | Score:  66 | Off-Par: -6.0
+    10. Viktor Hovland       | PY 7 | Score:  66 | Off-Par: -6.0
+
+BMW Championship:
+  Top 10 Finishers:
+     1. Will Zalatoris       | PY 3 | Score:  15 | Off-Par: -56.0
+     2. Robert MacIntyre     | PY 1 | Score:  38 | Off-Par: -33.0
+     3. Viktor Hovland       | PY 7 | Score:  61 | Off-Par: -10.0
+     4. Max Homa             | PY 1 | Score:  62 | Off-Par: -9.0
+     5. Sam Burns            | PY 1 | Score:  62 | Off-Par: -9.0
+     6. Robert MacIntyre     | PY 2 | Score:  62 | Off-Par: -9.0
+     7. Tom Kim              | PY 7 | Score:  63 | Off-Par: -8.0
+     8. Russell Henley       | PY 5 | Score:  63 | Off-Par: -8.0
+     9. Ludvig Åberg         | PY 4 | Score:  63 | Off-Par: -8.0
+    10. Adam Scott           | PY 4 | Score:  63 | Off-Par: -8.0
+
+Bank of Utah Championship:
+  Top 10 Finishers:
+     1. Gordon Sargent       | PY #VALUE! | Score:  48 | Off-Par: -23.0
+     2. Emiliano Grillo      | PY 5 | Score:  58 | Off-Par: -13.0
+     3. Hayden Springer      | PY 1 | Score:  62 | Off-Par: -9.0
+     4. Camilo Villegas      | PY 8 | Score:  62 | Off-Par: -9.0
+     5. Jesper Svensson      | PY 8 | Score:  62 | Off-Par: -9.0
+     6. Rico Hoey            | PY 1 | Score:  63 | Off-Par: -8.0
+     7. Brandt Snedeker      | PY 2 | Score:  63 | Off-Par: -8.0
+     8. Kevin Yu             | PY 1 | Score:  63 | Off-Par: -8.0
+     9. Kurt Kitayama        | PY 6 | Score:  64 | Off-Par: -7.0
+    10. Patton Kizzire       | PY 6 | Score:  64 | Off-Par: -7.0
+
+Barbasol Championship:
+  Top 10 Finishers:
+     1. S.Y. Noh             | PY 5 | Score:  28 | Off-Par: -44.0
+     2. Andrew Wilson        | PY 2 | Score:  34 | Off-Par: -38.0
+     3. Richy Werenski       | PY 4 | Score:  38 | Off-Par: -34.0
+     4. George Coetzee       | PY 4 | Score:  54 | Off-Par: -18.0
+     5. Adam Svensson        | PY 4 | Score:  62 | Off-Par: -10.0
+     6. Trevor Cone          | PY 4 | Score:  63 | Off-Par: -9.0
+     7. Lucas Glover         | PY 3 | Score:  63 | Off-Par: -9.0
+     8. Max McGreevy         | PY 5 | Score:  63 | Off-Par: -9.0
+     9. Matti Schmid         | PY 8 | Score:  63 | Off-Par: -9.0
+    10. Nathan Kimsey        | PY 4 | Score:  64 | Off-Par: -8.0
+
+Barracuda Championship:
+  Top 10 Finishers:
+     1. Erik Barnes          | PY 5 | Score: -17 | Off-Par: N/A
+     2. Jordan Gumberg       | PY 9 | Score: -13 | Off-Par: N/A
+     3. Dylan Frittelli      | PY 9 | Score: -11 | Off-Par: N/A
+     4. Kiradech Aphibarnrat | PY 3 | Score: -11 | Off-Par: N/A
+     5. Ryan Brehm           | PY 7 | Score: -10 | Off-Par: N/A
+     6. Brian Stuard         | PY 2 | Score: -10 | Off-Par: N/A
+     7. Ben Crane            | PY 6 | Score:  -9 | Off-Par: N/A
+     8. Manuel Elvira        | PY 3 | Score:  -8 | Off-Par: N/A
+     9. Edoardo Molinari     | PY 3 | Score:  -7 | Off-Par: N/A
+    10. Camilo Villegas      | PY 8 | Score:  -7 | Off-Par: N/A
+
+Baycurrent Classic:
+  Top 10 Finishers:
+     1. Matt McCarty         | PY 5 | Score:  60 | Off-Par: -11.0
+     2. Takumi Kanaya        | PY 1 | Score:  62 | Off-Par: -9.0
+     3. Keith Mitchell       | PY 8 | Score:  62 | Off-Par: -9.0
+     4. Xander Schauffele    | PY 8 | Score:  63 | Off-Par: -8.0
+     5. Collin Morikawa      | PY 8 | Score:  63 | Off-Par: -8.0
+     6. Max Greyserman       | PY 9 | Score:  63 | Off-Par: -8.0
+     7. Rico Hoey            | PY 1 | Score:  63 | Off-Par: -8.0
+     8. William Mouw         | PY 5 | Score:  63 | Off-Par: -8.0
+     9. Keith Mitchell       | PY 8 | Score:  63 | Off-Par: -8.0
+    10. Xander Schauffele    | PY 8 | Score:  64 | Off-Par: -7.0
+
+Black Desert Championship:
+  Top 10 Finishers:
+     1. Michael Thorbjornsen | PY 6 | Score:  32 | Off-Par: -39.0
+     2. J.B. Holmes          | PY 2 | Score:  33 | Off-Par: -38.0
+     3. Ryan McCormick       | PY 8 | Score:  45 | Off-Par: -26.0
+     4. Adam Svensson        | PY 6 | Score:  60 | Off-Par: -11.0
+     5. Henrik Norlander     | PY 9 | Score:  62 | Off-Par: -9.0
+     6. Joe Highsmith        | PY 4 | Score:  62 | Off-Par: -9.0
+     7. Matt McCarty         | PY 4 | Score:  62 | Off-Par: -9.0
+     8. Matti Schmid         | PY 1 | Score:  62 | Off-Par: -9.0
+     9. Lucas Glover         | PY 4 | Score:  62 | Off-Par: -9.0
+    10. Philip Knowles       | PY 7 | Score:  63 | Off-Par: -8.0
+
+Butterfield Bermuda Championship:
+  Top 10 Finishers:
+     1. Scott Piercy         | PY 7 | Score:  36 | Off-Par: -35.0
+     2. Alex Noren           | PY 8 | Score:  61 | Off-Par: -10.0
+     3. Wesley Bryan         | PY 1 | Score:  61 | Off-Par: -10.0
+     4. Sam Ryder            | PY 8 | Score:  62 | Off-Par: -9.0
+     5. MJ Daffue            | PY 4 | Score:  62 | Off-Par: -9.0
+     6. Andrew Novak         | PY 6 | Score:  62 | Off-Par: -9.0
+     7. Rafael Campos        | PY 9 | Score:  62 | Off-Par: -9.0
+     8. Austin Smotherman    | PY 3 | Score:  62 | Off-Par: -9.0
+     9. Harrison Endycott    | PY 1 | Score:  62 | Off-Par: -9.0
+    10. Ben Crane            | PY 6 | Score:  62 | Off-Par: -9.0
+
+Cadence Bank Houston Open:
+  Top 10 Finishers:
+     1. Brendan Steele       | PY 6 | Score:  27 | Off-Par: -44.0
+     2. Hideki Matsuyama     | PY 6 | Score:  39 | Off-Par: -32.0
+     3. Erik van Rooyen      | PY 2 | Score:  48 | Off-Par: -23.0
+     4. Sam Burns            | PY 9 | Score:  50 | Off-Par: -21.0
+     5. Danny Willett        | PY 1 | Score:  54 | Off-Par: -17.0
+     6. Jim Herman           | PY 4 | Score:  55 | Off-Par: -16.0
+     7. Austin Smotherman    | PY 3 | Score:  58 | Off-Par: -13.0
+     8. Tony Finau           | PY 2 | Score:  62 | Off-Par: -9.0
+     9. Anders Albertson     | PY 2 | Score:  63 | Off-Par: -8.0
+    10. Patrick Rodgers      | PY 6 | Score:  63 | Off-Par: -8.0
+
+Charles Schwab Challenge:
+  Top 10 Finishers:
+     1. J.J. Spaun           | PY 8 | Score:  34 | Off-Par: -36.0
+     2. Harry Hall           | PY 3 | Score:  62 | Off-Par: -8.0
+     3. Michael Thorbjornsen | PY 7 | Score:  62 | Off-Par: -8.0
+     4. Scottie Scheffler    | PY 8 | Score:  63 | Off-Par: -7.0
+     5. Ben Griffin          | PY 2 | Score:  63 | Off-Par: -7.0
+     6. Matti Schmid         | PY 2 | Score:  63 | Off-Par: -7.0
+     7. John Pak             | PY 3 | Score:  63 | Off-Par: -7.0
+     8. Jackson Suber        | PY #VALUE! | Score:  63 | Off-Par: -7.0
+     9. Sungjae Im           | PY 5 | Score:  64 | Off-Par: -6.0
+    10. Davis Riley          | PY 1 | Score:  64 | Off-Par: -6.0
+
+Cognizant Classic:
+  Top 10 Finishers:
+     1. Erik van Rooyen      | PY 4 | Score:  63 | Off-Par: -7.0
+     2. S.H. Kim             | PY 7 | Score:  64 | Off-Par: -6.0
+     3. Chad Ramey           | PY 1 | Score:  64 | Off-Par: -6.0
+     4. David Skinns         | PY 2 | Score:  65 | Off-Par: -5.0
+     5. Chesson Hadley       | PY 2 | Score:  65 | Off-Par: -5.0
+     6. Beau Hossler         | PY 9 | Score:  65 | Off-Par: -5.0
+     7. Ryan Moore           | PY 7 | Score:  65 | Off-Par: -5.0
+     8. Jacob Bridgeman      | PY 8 | Score:  65 | Off-Par: -5.0
+     9. Garrick Higgo        | PY 7 | Score:  65 | Off-Par: -5.0
+    10. Austin Eckroat       | PY 3 | Score:  65 | Off-Par: -5.0
+
+Cognizant Classic in The Palm Beaches:
+  Top 10 Finishers:
+     1. Jake Knapp           | PY 9 | Score:  59 | Off-Par: -11.0
+     2. Austin Smotherman    | PY 7 | Score:  62 | Off-Par: -8.0
+     3. Doug Ghim            | PY 2 | Score:  63 | Off-Par: -7.0
+     4. Sami Välimäki        | PY 5 | Score:  63 | Off-Par: -7.0
+     5. Russell Henley       | PY 7 | Score:  63 | Off-Par: -7.0
+     6. Daniel Berger        | PY 2 | Score:  63 | Off-Par: -7.0
+     7. Patton Kizzire       | PY 7 | Score:  63 | Off-Par: -7.0
+     8. Nico Echavarria      | PY 3 | Score:  63 | Off-Par: -7.0
+     9. Shane Lowry          | PY 7 | Score:  63 | Off-Par: -7.0
+    10. Davis Riley          | PY 2 | Score:  64 | Off-Par: -6.0
+
+Corales Puntacana Championship:
+  Top 10 Finishers:
+     1. Ben Crane            | PY 9 | Score:  47 | Off-Par: -25.0
+     2. Joel Dahmen          | PY 4 | Score:  62 | Off-Par: -10.0
+     3. Akshay Bhatia        | PY 3 | Score:  63 | Off-Par: -9.0
+     4. Wesley Bryan         | PY 1 | Score:  63 | Off-Par: -9.0
+     5. Billy Horschel       | PY 9 | Score:  63 | Off-Par: -9.0
+     6. Michael Thorbjornsen | PY 7 | Score:  63 | Off-Par: -9.0
+     7. Brandon Wu           | PY 9 | Score:  64 | Off-Par: -8.0
+     8. Justin Lower         | PY 7 | Score:  64 | Off-Par: -8.0
+     9. Nico Echavarria      | PY 1 | Score:  64 | Off-Par: -8.0
+    10. Chad Ramey           | PY 1 | Score:  64 | Off-Par: -8.0
+
+Farmers Insurance Open:
+  Top 10 Finishers:
+     1. Nate Lashley         | PY 6 | Score:  25 | Off-Par: -47.0
+     2. Hayden Buckley       | PY 4 | Score:  40 | Off-Par: -32.0
+     3. Kevin Streelman      | PY 5 | Score:  41 | Off-Par: -31.0
+     4. Braden Thornberry    | PY 6 | Score:  43 | Off-Par: -29.0
+     5. Adam Schenk          | PY 6 | Score:  62 | Off-Par: -10.0
+     6. Alex Smalley         | PY 1 | Score:  62 | Off-Par: -10.0
+     7. Justin Rose          | PY 2 | Score:  62 | Off-Par: -10.0
+     8. Ludvig Åberg         | PY 5 | Score:  63 | Off-Par: -9.0
+     9. Doc Redman           | PY 9 | Score:  63 | Off-Par: -9.0
+    10. Billy Horschel       | PY 7 | Score:  63 | Off-Par: -9.0
+
+FedEx St. Jude Championship:
+  Top 10 Finishers:
+     1. Alex Noren           | PY 7 | Score:  20 | Off-Par: -50.0
+     2. Scott Piercy         | PY 5 | Score:  40 | Off-Par: -30.0
+     3. Justin Rose          | PY 8 | Score:  61 | Off-Par: -9.0
+     4. Akshay Bhatia        | PY 5 | Score:  62 | Off-Par: -8.0
+     5. J.J. Spaun           | PY 8 | Score:  62 | Off-Par: -8.0
+     6. Si Woo Kim           | PY 4 | Score:  62 | Off-Par: -8.0
+     7. Jordan Spieth        | PY 5 | Score:  63 | Off-Par: -7.0
+     8. Viktor Hovland       | PY 8 | Score:  63 | Off-Par: -7.0
+     9. Sam Burns            | PY 2 | Score:  63 | Off-Par: -7.0
+    10. Max Greyserman       | PY 8 | Score:  63 | Off-Par: -7.0
+
+Fortinet Championship:
+  Top 10 Finishers:
+     1. Lucas Herbert        | PY 6 | Score:  63 | Off-Par: -9.0
+     2. Justin Lower         | PY 5 | Score:  63 | Off-Par: -9.0
+     3. Sahith Theegala      | PY 5 | Score:  64 | Off-Par: -8.0
+     4. Danny Willett        | PY 1 | Score:  64 | Off-Par: -8.0
+     5. Taylor Montgomery    | PY 1 | Score:  64 | Off-Par: -8.0
+     6. Cam Davis            | PY 3 | Score:  65 | Off-Par: -7.0
+     7. Matt Kuchar          | PY 7 | Score:  65 | Off-Par: -7.0
+     8. Troy Merritt         | PY 6 | Score:  65 | Off-Par: -7.0
+     9. S.H. Kim             | PY 6 | Score:  65 | Off-Par: -7.0
+    10. Justin Thomas        | PY 4 | Score:  65 | Off-Par: -7.0
+
+Genesis Scottish Open:
+  Top 10 Finishers:
+     1. Christiaan Bezuidenhout | PY 4 | Score:  13 | Off-Par: -59.0
+     2. Justin Walters       | PY 4 | Score:  37 | Off-Par: -34.0
+     3. Séamus Power         | PY 5 | Score:  37 | Off-Par: -34.0
+     4. Paul Waring          | PY 2 | Score:  43 | Off-Par: -28.0
+     5. Paul Waring          | PY 4 | Score:  56 | Off-Par: -16.0
+     6. Vincent Norrman      | PY 8 | Score:  59 | Off-Par: -13.0
+     7. K.H. Lee             | PY 4 | Score:  59 | Off-Par: -13.0
+     8. Byeong Hun An        | PY 6 | Score:  61 | Off-Par: -10.0
+     9. Richard Mansell      | PY 9 | Score:  61 | Off-Par: -11.0
+    10. Chris Gotterup       | PY 9 | Score:  61 | Off-Par: -11.0
+
+Hero World Challenge:
+  Top 10 Finishers:
+     1. Tom Kim              | PY 8 | Score:  62 | Off-Par: -10.0
+     2. Viktor Hovland       | PY 7 | Score:  63 | Off-Par: -9.0
+     3. Scottie Scheffler    | PY 8 | Score:  63 | Off-Par: -9.0
+     4. Sepp Straka          | PY 4 | Score:  64 | Off-Par: -8.0
+     5. Cameron Young        | PY 2 | Score:  64 | Off-Par: -8.0
+     6. Scottie Scheffler    | PY 8 | Score:  64 | Off-Par: -8.0
+     7. Alex Noren           | PY 1 | Score:  64 | Off-Par: -8.0
+     8. Cameron Young        | PY 3 | Score:  64 | Off-Par: -8.0
+     9. Hideki Matsuyama     | PY 9 | Score:  64 | Off-Par: -8.0
+    10. Sepp Straka          | PY 6 | Score:  64 | Off-Par: -8.0
+
+ISCO Championship:
+  Top 10 Finishers:
+     1. Paul Waring          | PY 3 | Score:   4 | Off-Par: -68.0
+     2. Erik Barnes          | PY 5 | Score:  18 | Off-Par: -54.0
+     3. Pierceson Coody      | PY 7 | Score:  61 | Off-Par: -11.0
+     4. William Mouw         | PY 5 | Score:  61 | Off-Par: -11.0
+     5. Chan Kim             | PY 9 | Score:  61 | Off-Par: -11.0
+     6. Cooper Musselman     | PY #VALUE! | Score:  62 | Off-Par: -10.0
+     7. Sam Bairstow         | PY 1 | Score:  62 | Off-Par: -10.0
+     8. Chez Reavie          | PY 4 | Score:  62 | Off-Par: -10.0
+     9. Chan Kim             | PY 8 | Score:  63 | Off-Par: -9.0
+    10. Clément Sordet       | PY 4 | Score:  64 | Off-Par: -8.0
+
+John Deere Classic:
+  Top 10 Finishers:
+     1. Scott Piercy         | PY 6 | Score:  35 | Off-Par: -36.0
+     2. Andrew Putnam        | PY 8 | Score:  39 | Off-Par: -32.0
+     3. Tyler Duncan         | PY 8 | Score:  48 | Off-Par: -23.0
+     4. Hayden Springer      | PY 9 | Score:  59 | Off-Par: -12.0
+     5. Sami Välimäki        | PY 4 | Score:  61 | Off-Par: -10.0
+     6. Sepp Straka          | PY 4 | Score:  62 | Off-Par: -9.0
+     7. Alex Smalley         | PY 2 | Score:  62 | Off-Par: -9.0
+     8. Ben Griffin          | PY 1 | Score:  62 | Off-Par: -9.0
+     9. Davis Thompson       | PY 1 | Score:  62 | Off-Par: -9.0
+    10. Eric Cole            | PY 8 | Score:  62 | Off-Par: -9.0
+
+Masters Tournament:
+  Top 10 Finishers:
+     1. Rory McIlroy         | PY 6 | Score:  64 | Off-Par: -8.0
+     2. Phil Mickelson       | PY 2 | Score:  65 | Off-Par: -7.0
+     3. Viktor Hovland       | PY 7 | Score:  65 | Off-Par: -7.0
+     4. Brooks Koepka        | PY 6 | Score:  65 | Off-Par: -7.0
+     5. Jon Rahm             | PY 1 | Score:  65 | Off-Par: -7.0
+     6. Bryson DeChambeau    | PY 6 | Score:  65 | Off-Par: -7.0
+     7. Justin Rose          | PY 1 | Score:  65 | Off-Par: -7.0
+     8. Jordan Spieth        | PY 5 | Score:  66 | Off-Par: -6.0
+     9. Tom Kim              | PY 8 | Score:  66 | Off-Par: -6.0
+    10. Scottie Scheffler    | PY 8 | Score:  66 | Off-Par: -6.0
+
+Mexico Open at Vidanta:
+  Top 10 Finishers:
+     1. Max Greyserman       | PY 8 | Score:  45 | Off-Par: -26.0
+     2. Pierceson Coody      | PY 7 | Score:  49 | Off-Par: -22.0
+     3. Ben Kohles           | PY 7 | Score:  54 | Off-Par: -17.0
+     4. Jon Rahm             | PY 1 | Score:  61 | Off-Par: -10.0
+     5. Aldrich Potgieter    | PY 4 | Score:  61 | Off-Par: -10.0
+     6. Austin Smotherman    | PY 4 | Score:  63 | Off-Par: -8.0
+     7. Akshay Bhatia        | PY 3 | Score:  63 | Off-Par: -8.0
+     8. Ben Silverman        | PY 7 | Score:  63 | Off-Par: -8.0
+     9. Jake Knapp           | PY 8 | Score:  63 | Off-Par: -8.0
+    10. Erik van Rooyen      | PY 4 | Score:  63 | Off-Par: -8.0
+
+Myrtle Beach Classic:
+  Top 10 Finishers:
+     1. Thorbjørn Olesen     | PY 5 | Score:  61 | Off-Par: -10.0
+     2. Trace Crowe          | PY 9 | Score:  63 | Off-Par: -8.0
+     3. Ryan McCormick       | PY 8 | Score:  64 | Off-Par: -7.0
+     4. Alistair Docherty    | PY 4 | Score:  64 | Off-Par: -7.0
+     5. Beau Hossler         | PY 9 | Score:  64 | Off-Par: -7.0
+     6. Chris Gotterup       | PY 8 | Score:  64 | Off-Par: -7.0
+     7. Robert MacIntyre     | PY 1 | Score:  64 | Off-Par: -7.0
+     8. Matt Wallace         | PY 6 | Score:  64 | Off-Par: -7.0
+     9. Alistair Docherty    | PY 4 | Score:  65 | Off-Par: -6.0
+    10. Ben Silverman        | PY 7 | Score:  65 | Off-Par: -6.0
+
+ONEflight Myrtle Beach Classic:
+  Top 10 Finishers:
+     1. Mackenzie Hughes     | PY 7 | Score:  63 | Off-Par: -8.0
+     2. Carson Young         | PY 5 | Score:  64 | Off-Par: -7.0
+     3. Rico Hoey            | PY 1 | Score:  64 | Off-Par: -7.0
+     4. Niklas Norgaard      | PY 9 | Score:  64 | Off-Par: -7.0
+     5. Thorbjørn Olesen     | PY 6 | Score:  64 | Off-Par: -7.0
+     6. Séamus Power         | PY 7 | Score:  64 | Off-Par: -7.0
+     7. Norman Xiong         | PY 2 | Score:  65 | Off-Par: -6.0
+     8. Ryan Fox             | PY 5 | Score:  65 | Off-Par: -6.0
+     9. Kevin Yu             | PY 1 | Score:  65 | Off-Par: -6.0
+    10. Alejandro Tosti      | PY 8 | Score:  65 | Off-Par: -6.0
+
+PGA Championship:
+  Top 10 Finishers:
+     1. Patton Kizzire       | PY 6 | Score:  46 | Off-Par: -25.0
+     2. Xander Schauffele    | PY 7 | Score:  62 | Off-Par: -9.0
+     3. Shane Lowry          | PY 5 | Score:  62 | Off-Par: -9.0
+     4. Bubba Watson         | PY 4 | Score:  63 | Off-Par: -8.0
+     5. Bryson DeChambeau    | PY 6 | Score:  64 | Off-Par: -7.0
+     6. Jordan Smith         | PY 1 | Score:  64 | Off-Par: -7.0
+     7. Billy Horschel       | PY 9 | Score:  64 | Off-Par: -7.0
+     8. Justin Rose          | PY 9 | Score:  64 | Off-Par: -7.0
+     9. Jhonattan Vegas      | PY 9 | Score:  64 | Off-Par: -7.0
+    10. Si Woo Kim           | PY 7 | Score:  64 | Off-Par: -7.0
+
+PGA TOUR Q-School presented by Korn Ferry:
+  Top 10 Finishers:
+     1. Steven Fisk          | PY 1 | Score:  33 | Off-Par: -39.0
+     2. Brandon Matthews     | PY 7 | Score:  35 | Off-Par: -37.0
+     3. Sean O'Hair          | PY 7 | Score:  36 | Off-Par: -36.0
+     4. Trent Phillips       | PY #VALUE! | Score:  36 | Off-Par: -36.0
+     5. Ricky Castillo       | PY 9 | Score:  37 | Off-Par: -35.0
+     6. Cody Gribble         | PY 9 | Score:  39 | Off-Par: -33.0
+     7. S.Y. Noh             | PY 7 | Score:  41 | Off-Par: -31.0
+     8. Braden Thornberry    | PY 6 | Score:  42 | Off-Par: -30.0
+     9. Zach Bauchou         | PY 2 | Score:  54 | Off-Par: -18.0
+    10. Austin Smotherman    | PY 4 | Score:  57 | Off-Par: -15.0
+
+Procore Championship:
+  Top 10 Finishers:
+     1. Mackenzie Hughes     | PY 7 | Score:  63 | Off-Par: -9.0
+     2. Wilson Furr          | PY 5 | Score:  64 | Off-Par: -8.0
+     3. Corey Conners        | PY 6 | Score:  64 | Off-Par: -8.0
+     4. Matt Kuchar          | PY 8 | Score:  64 | Off-Par: -8.0
+     5. Ben Griffin          | PY 2 | Score:  64 | Off-Par: -8.0
+     6. Matt McCarty         | PY 5 | Score:  64 | Off-Par: -8.0
+     7. Scottie Scheffler    | PY 9 | Score:  64 | Off-Par: -8.0
+     8. Patrick Fishburn     | PY 9 | Score:  65 | Off-Par: -7.0
+     9. David Lipsky         | PY 2 | Score:  65 | Off-Par: -7.0
+    10. Chez Reavie          | PY 4 | Score:  65 | Off-Par: -7.0
+
+Puerto Rico Open:
+  Top 10 Finishers:
+     1. Jeff Overton         | PY 4 | Score:  15 | Off-Par: -57.0
+     2. Sangmoon Bae         | PY 9 | Score:  46 | Off-Par: -26.0
+     3. Kevin Roy            | PY 9 | Score:  62 | Off-Par: -10.0
+     4. Carson Young         | PY 3 | Score:  63 | Off-Par: -9.0
+     5. Ben Kohles           | PY 7 | Score:  63 | Off-Par: -9.0
+     6. Chris Gotterup       | PY 9 | Score:  63 | Off-Par: -9.0
+     7. Rasmus Neergaard-Petersen | PY 1 | Score:  63 | Off-Par: -9.0
+     8. Harry Hall           | PY 3 | Score:  64 | Off-Par: -8.0
+     9. Harry Higgs          | PY 5 | Score:  64 | Off-Par: -8.0
+    10. Davis Riley          | PY 2 | Score:  64 | Off-Par: -8.0
+
+RBC Canadian Open:
+  Top 10 Finishers:
+     1. Satoshi Kodaira      | PY 8 | Score:  32 | Off-Par: -39.0
+     2. Séamus Power         | PY 7 | Score:  36 | Off-Par: -35.0
+     3. Justin Rose          | PY 7 | Score:  60 | Off-Par: -11.0
+     4. Cristobal Del Solar  | PY 3 | Score:  61 | Off-Par: -10.0
+     5. Thorbjørn Olesen     | PY 6 | Score:  61 | Off-Par: -10.0
+     6. David Skinns         | PY 2 | Score:  62 | Off-Par: -9.0
+     7. Cameron Champ        | PY 3 | Score:  62 | Off-Par: -9.0
+     8. Andrew Putnam        | PY 8 | Score:  62 | Off-Par: -9.0
+     9. Sam Burns            | PY 3 | Score:  62 | Off-Par: -9.0
+    10. Tony Finau           | PY 2 | Score:  62 | Off-Par: -9.0
+
+RBC Heritage:
+  Top 10 Finishers:
+     1. Ryan Fox             | PY 3 | Score:  41 | Off-Par: -30.0
+     2. Dylan Frittelli      | PY 9 | Score:  46 | Off-Par: -25.0
+     3. Justin Thomas        | PY 6 | Score:  61 | Off-Par: -10.0
+     4. Aaron Rai            | PY 4 | Score:  63 | Off-Par: -8.0
+     5. Matt Fitzpatrick     | PY 8 | Score:  63 | Off-Par: -8.0
+     6. Scottie Scheffler    | PY 8 | Score:  63 | Off-Par: -8.0
+     7. J.T. Poston          | PY 6 | Score:  63 | Off-Par: -8.0
+     8. Byeong Hun An        | PY 8 | Score:  63 | Off-Par: -8.0
+     9. Cam Davis            | PY 2 | Score:  63 | Off-Par: -8.0
+    10. Cameron Young        | PY 9 | Score:  63 | Off-Par: -8.0
+
+Rocket Classic:
+  Top 10 Finishers:
+     1. Jake Knapp           | PY 9 | Score:  61 | Off-Par: -9.0
+     2. Kevin Roy            | PY 9 | Score:  62 | Off-Par: -8.0
+     3. Aldrich Potgieter    | PY 4 | Score:  62 | Off-Par: -8.0
+     4. Davis Riley          | PY 2 | Score:  63 | Off-Par: -7.0
+     5. Max Greyserman       | PY 9 | Score:  63 | Off-Par: -7.0
+     6. Min Woo Lee          | PY 7 | Score:  63 | Off-Par: -7.0
+     7. Mark Hubbard         | PY 2 | Score:  63 | Off-Par: -7.0
+     8. Collin Morikawa      | PY 8 | Score:  64 | Off-Par: -6.0
+     9. Philip Knowles       | PY 8 | Score:  64 | Off-Par: -6.0
+    10. David Skinns         | PY 3 | Score:  64 | Off-Par: -6.0
+
+Rocket Mortgage Classic:
+  Top 10 Finishers:
+     1. Will Zalatoris       | PY 5 | Score:  36 | Off-Par: -34.0
+     2. David Lipsky         | PY 2 | Score:  56 | Off-Par: -14.0
+     3. Alejandro Tosti      | PY 7 | Score:  57 | Off-Par: -13.0
+     4. Adam Hadwin          | PY 2 | Score:  63 | Off-Par: -7.0
+     5. Stephan Jaeger       | PY 6 | Score:  63 | Off-Par: -7.0
+     6. Cameron Young        | PY 9 | Score:  63 | Off-Par: -7.0
+     7. Tom Kim              | PY 6 | Score:  63 | Off-Par: -7.0
+     8. Collin Morikawa      | PY 6 | Score:  64 | Off-Par: -6.0
+     9. Taylor Moore         | PY 6 | Score:  64 | Off-Par: -6.0
+    10. Rickie Fowler        | PY 5 | Score:  64 | Off-Par: -6.0
+
+Sanderson Farms Championship:
+  Top 10 Finishers:
+     1. Taylor Montgomery    | PY 3 | Score:  24 | Off-Par: -48.0
+     2. David Skinns         | PY 2 | Score:  60 | Off-Par: -12.0
+     3. Ben Griffin          | PY 9 | Score:  63 | Off-Par: -9.0
+     4. Michael Thorbjornsen | PY 6 | Score:  63 | Off-Par: -9.0
+     5. Alex Smalley         | PY 3 | Score:  63 | Off-Par: -9.0
+     6. Taylor Montgomery    | PY 4 | Score:  63 | Off-Par: -9.0
+     7. Mackenzie Hughes     | PY 4 | Score:  63 | Off-Par: -9.0
+     8. Harry Higgs          | PY 5 | Score:  64 | Off-Par: -8.0
+     9. Chesson Hadley       | PY 1 | Score:  64 | Off-Par: -8.0
+    10. Ben Griffin          | PY 1 | Score:  64 | Off-Par: -8.0
+
+Sentry Tournament of Champions:
+  Top 10 Finishers:
+     1. Justin Thomas        | PY 3 | Score:  61 | Off-Par: -12.0
+     2. Jon Rahm             | PY 9 | Score:  61 | Off-Par: -12.0
+     3. Collin Morikawa      | PY 5 | Score:  62 | Off-Par: -11.0
+     4. Patrick Reed         | PY 1 | Score:  64 | Off-Par: -9.0
+     5. Cameron Smith        | PY 5 | Score:  64 | Off-Par: -9.0
+     6. Cameron Smith        | PY 5 | Score:  64 | Off-Par: -9.0
+     7. Sam Burns            | PY 9 | Score:  64 | Off-Par: -9.0
+     8. Sungjae Im           | PY 3 | Score:  65 | Off-Par: -8.0
+     9. Tony Finau           | PY 2 | Score:  65 | Off-Par: -8.0
+    10. Kevin Kisner         | PY 5 | Score:  65 | Off-Par: -8.0
+
+Shriners Children's Open:
+  Top 10 Finishers:
+     1. Gary Woodland        | PY 5 | Score:  32 | Off-Par: -39.0
+     2. Patrick Rodgers      | PY 7 | Score:  39 | Off-Par: -32.0
+     3. Cameron Champ        | PY 2 | Score:  39 | Off-Par: -32.0
+     4. Jim Herman           | PY 5 | Score:  42 | Off-Par: -29.0
+     5. Patrick Cantlay      | PY 8 | Score:  60 | Off-Par: -11.0
+     6. Taylor Pendrith      | PY 7 | Score:  61 | Off-Par: -10.0
+     7. Eric Cole            | PY 7 | Score:  62 | Off-Par: -9.0
+     8. Callum Tarren        | PY 1 | Score:  62 | Off-Par: -9.0
+     9. Ludvig Åberg         | PY 3 | Score:  62 | Off-Par: -9.0
+    10. Tom Kim              | PY 7 | Score:  62 | Off-Par: -9.0
+
+Sony Open in Hawaii:
+  Top 10 Finishers:
+     1. J.T. Poston          | PY 6 | Score:  61 | Off-Par: -9.0
+     2. Yuta Sugiura         | PY 4 | Score:  61 | Off-Par: -9.0
+     3. Nick Taylor          | PY 7 | Score:  62 | Off-Par: -8.0
+     4. Andrew Putnam        | PY 6 | Score:  62 | Off-Par: -8.0
+     5. Ben Griffin          | PY 1 | Score:  62 | Off-Par: -8.0
+     6. Cam Davis            | PY 4 | Score:  62 | Off-Par: -8.0
+     7. Kurt Kitayama        | PY 5 | Score:  62 | Off-Par: -8.0
+     8. Stephan Jaeger       | PY 8 | Score:  62 | Off-Par: -8.0
+     9. Russell Henley       | PY 4 | Score:  62 | Off-Par: -8.0
+    10. Nick Taylor          | PY 1 | Score:  62 | Off-Par: -8.0
+
+THE CJ CUP Byron Nelson:
+  Top 10 Finishers:
+     1. Matt Wallace         | PY 7 | Score:  33 | Off-Par: -38.0
+     2. C.T. Pan             | PY 4 | Score:  36 | Off-Par: -35.0
+     3. Norman Xiong         | PY 1 | Score:  38 | Off-Par: -33.0
+     4. Scottie Scheffler    | PY 9 | Score:  61 | Off-Par: -10.0
+     5. Troy Merritt         | PY 7 | Score:  62 | Off-Par: -9.0
+     6. Jordan Spieth        | PY 7 | Score:  62 | Off-Par: -9.0
+     7. Kevin Chappell       | PY 5 | Score:  63 | Off-Par: -8.0
+     8. Taylor Pendrith      | PY 7 | Score:  63 | Off-Par: -8.0
+     9. Vince Whaley         | PY 7 | Score:  63 | Off-Par: -8.0
+    10. Matt Wallace         | PY 6 | Score:  63 | Off-Par: -8.0
+
+THE CJ CUP in South Carolina:
+  Top 10 Finishers:
+     1. Taylor Montgomery    | PY 1 | Score:  62 | Off-Par: -9.0
+     2. Jon Rahm             | PY 9 | Score:  62 | Off-Par: -9.0
+     3. Kurt Kitayama        | PY 3 | Score:  65 | Off-Par: -6.0
+     4. Gary Woodland        | PY 5 | Score:  65 | Off-Par: -6.0
+     5. Tommy Fleetwood      | PY 8 | Score:  65 | Off-Par: -6.0
+     6. Max Homa             | PY 9 | Score:  65 | Off-Par: -6.0
+     7. Trey Mullinax        | PY 5 | Score:  65 | Off-Par: -6.0
+     8. Davis Riley          | PY 8 | Score:  66 | Off-Par: -5.0
+     9. Kurt Kitayama        | PY 3 | Score:  66 | Off-Par: -5.0
+    10. Aaron Wise           | PY 6 | Score:  66 | Off-Par: -5.0
+
+THE PLAYERS Championship:
+  Top 10 Finishers:
+     1. Collin Morikawa      | PY 9 | Score:   4 | Off-Par: -68.0
+     2. Garrick Higgo        | PY 7 | Score:  17 | Off-Par: -55.0
+     3. Luke List            | PY 3 | Score:  36 | Off-Par: -36.0
+     4. Tom Kim              | PY 8 | Score:  37 | Off-Par: -35.0
+     5. Wyndham Clark        | PY 3 | Score:  40 | Off-Par: -32.0
+     6. Billy Horschel       | PY 7 | Score:  52 | Off-Par: -20.0
+     7. Tom Hoge             | PY 1 | Score:  62 | Off-Par: -10.0
+     8. Justin Thomas        | PY 6 | Score:  62 | Off-Par: -10.0
+     9. Dustin Johnson       | PY 7 | Score:  63 | Off-Par: -9.0
+    10. Ludvig Åberg         | PY 6 | Score:  63 | Off-Par: -9.0
+
+TOUR Championship:
+  Top 10 Finishers:
+     1. Collin Morikawa      | PY 6 | Score:  61 | Off-Par: -9.0
+     2. Russell Henley       | PY 7 | Score:  61 | Off-Par: -9.0
+     3. Xander Schauffele    | PY 6 | Score:  62 | Off-Par: -8.0
+     4. Russell Henley       | PY 6 | Score:  62 | Off-Par: -8.0
+     5. Cameron Young        | PY 3 | Score:  62 | Off-Par: -8.0
+     6. Corey Conners        | PY 7 | Score:  62 | Off-Par: -8.0
+     7. Max Homa             | PY 9 | Score:  62 | Off-Par: -8.0
+     8. Adam Schenk          | PY 7 | Score:  63 | Off-Par: -7.0
+     9. Viktor Hovland       | PY 7 | Score:  63 | Off-Par: -7.0
+    10. Keegan Bradley       | PY 2 | Score:  63 | Off-Par: -7.0
+
+Texas Children's Houston Open:
+  Top 10 Finishers:
+     1. Scott Stallings      | PY 9 | Score:  45 | Off-Par: -26.0
+     2. Tony Finau           | PY 4 | Score:  62 | Off-Par: -9.0
+     3. Gary Woodland        | PY 8 | Score:  62 | Off-Par: -9.0
+     4. Sami Välimäki        | PY 5 | Score:  62 | Off-Par: -9.0
+     5. Scottie Scheffler    | PY 9 | Score:  62 | Off-Par: -9.0
+     6. Nicolai Højgaard     | PY 7 | Score:  62 | Off-Par: -9.0
+     7. Jake Knapp           | PY 1 | Score:  62 | Off-Par: -9.0
+     8. Nick Dunlap          | PY 7 | Score:  63 | Off-Par: -8.0
+     9. Kevin Yu             | PY 1 | Score:  63 | Off-Par: -8.0
+    10. Nico Echavarria      | PY 2 | Score:  63 | Off-Par: -8.0
+
+The American Express:
+  Top 10 Finishers:
+     1. Rico Hoey            | PY 2 | Score:  37 | Off-Par: -35.0
+     2. Nick Dunlap          | PY 7 | Score:  60 | Off-Par: -12.0
+     3. Blades Brown         | PY 9 | Score:  60 | Off-Par: -12.0
+     4. Andrew Putnam        | PY 9 | Score:  60 | Off-Par: -12.0
+     5. Dylan Wu             | PY 7 | Score:  61 | Off-Par: -11.0
+     6. Tyler McCumber       | PY 7 | Score:  61 | Off-Par: -11.0
+     7. Sam Burns            | PY 2 | Score:  61 | Off-Par: -11.0
+     8. Justin Thomas        | PY 5 | Score:  61 | Off-Par: -11.0
+     9. Will Zalatoris       | PY 3 | Score:  61 | Off-Par: -11.0
+    10. Xander Schauffele    | PY 6 | Score:  62 | Off-Par: -10.0
+
+The Genesis Invitational:
+  Top 10 Finishers:
+     1. Lanto Griffin        | PY 1 | Score:  35 | Off-Par: -36.0
+     2. Hideki Matsuyama     | PY 8 | Score:  62 | Off-Par: -9.0
+     3. Cameron Young        | PY 9 | Score:  62 | Off-Par: -9.0
+     4. Joaquín Niemann      | PY 6 | Score:  63 | Off-Par: -8.0
+     5. Joaquín Niemann      | PY 6 | Score:  63 | Off-Par: -8.0
+     6. Adam Scott           | PY 6 | Score:  63 | Off-Par: -8.0
+     7. Adam Scott           | PY 6 | Score:  63 | Off-Par: -8.0
+     8. Denny McCarthy       | PY 5 | Score:  64 | Off-Par: -7.0
+     9. Keith Mitchell       | PY 6 | Score:  64 | Off-Par: -7.0
+    10. Max Homa             | PY 1 | Score:  64 | Off-Par: -7.0
+
+The Honda Classic:
+  Top 10 Finishers:
+     1. Chris Kirk           | PY 2 | Score:  62 | Off-Par: -8.0
+     2. Ryan Gerard          | PY 8 | Score:  63 | Off-Par: -7.0
+     3. Jhonattan Vegas      | PY 7 | Score:  64 | Off-Par: -6.0
+     4. Justin Suh           | PY 7 | Score:  64 | Off-Par: -6.0
+     5. Ryan Brehm           | PY 7 | Score:  64 | Off-Par: -6.0
+     6. Brice Garnett        | PY 4 | Score:  64 | Off-Par: -6.0
+     7. Ben Martin           | PY 5 | Score:  64 | Off-Par: -6.0
+     8. Kurt Kitayama        | PY 3 | Score:  64 | Off-Par: -6.0
+     9. Sepp Straka          | PY 3 | Score:  64 | Off-Par: -6.0
+    10. Mark Hubbard         | PY 8 | Score:  64 | Off-Par: -6.0
+
+The Memorial Tournament pres. by Workday:
+  Top 10 Finishers:
+     1. Brendon Todd         | PY 9 | Score:  55 | Off-Par: -17.0
+     2. Keegan Bradley       | PY 2 | Score:  65 | Off-Par: -7.0
+     3. Hideki Matsuyama     | PY 7 | Score:  65 | Off-Par: -7.0
+     4. Xander Schauffele    | PY 6 | Score:  66 | Off-Par: -6.0
+     5. Justin Suh           | PY 7 | Score:  66 | Off-Par: -6.0
+     6. Davis Riley          | PY 9 | Score:  67 | Off-Par: -5.0
+     7. Sungjae Im           | PY 4 | Score:  67 | Off-Par: -5.0
+     8. Matt Kuchar          | PY 7 | Score:  67 | Off-Par: -5.0
+     9. Patrick Cantlay      | PY 9 | Score:  67 | Off-Par: -5.0
+    10. Scottie Scheffler    | PY 7 | Score:  67 | Off-Par: -5.0
+
+The Open:
+  Top 10 Finishers:
+     1. Romain Langasque     | PY 4 | Score:  36 | Off-Par: -35.0
+     2. Cameron Young        | PY 9 | Score:  64 | Off-Par: -7.0
+     3. Cameron Smith        | PY 5 | Score:  64 | Off-Par: -7.0
+     4. Cameron Smith        | PY 5 | Score:  64 | Off-Par: -7.0
+     5. Sam Burns            | PY 9 | Score:  64 | Off-Par: -7.0
+     6. Daniel Brown         | PY 2 | Score:  65 | Off-Par: -6.0
+     7. Thriston Lawrence    | PY 5 | Score:  65 | Off-Par: -6.0
+     8. Sam Burns            | PY 2 | Score:  65 | Off-Par: -6.0
+     9. Xander Schauffele    | PY 7 | Score:  65 | Off-Par: -6.0
+    10. Kevin Kisner         | PY 5 | Score:  65 | Off-Par: -6.0
+
+The Open Championship:
+  Top 10 Finishers:
+     1. Jon Rahm             | PY 1 | Score:  63 | Off-Par: -8.0
+     2. Bryson DeChambeau    | PY 7 | Score:  64 | Off-Par: -7.0
+     3. Scottie Scheffler    | PY 9 | Score:  64 | Off-Par: -7.0
+     4. Brian Harman         | PY 9 | Score:  65 | Off-Par: -6.0
+     5. Alex Fitzpatrick     | PY 1 | Score:  65 | Off-Par: -6.0
+     6. Bryson DeChambeau    | PY 7 | Score:  65 | Off-Par: -6.0
+     7. Wyndham Clark        | PY 3 | Score:  65 | Off-Par: -6.0
+     8. Brian Harman         | PY 2 | Score:  65 | Off-Par: -6.0
+     9. Rickie Fowler        | PY 7 | Score:  65 | Off-Par: -6.0
+    10. Chris Gotterup       | PY 9 | Score:  65 | Off-Par: -6.0
+
+The RSM Classic:
+  Top 10 Finishers:
+     1. Séamus Power         | PY 6 | Score:  19 | Off-Par: -53.0
+     2. S.Y. Noh             | PY 5 | Score:  38 | Off-Par: -34.0
+     3. C.T. Pan             | PY 3 | Score:  42 | Off-Par: -30.0
+     4. Davis Love III       | PY 7 | Score:  43 | Off-Par: -29.0
+     5. Mackenzie Hughes     | PY 5 | Score:  60 | Off-Par: -12.0
+     6. Doug Ghim            | PY 2 | Score:  60 | Off-Par: -12.0
+     7. Eric Cole            | PY 7 | Score:  61 | Off-Par: -11.0
+     8. Ludvig Åberg         | PY 3 | Score:  61 | Off-Par: -11.0
+     9. Ludvig Åberg         | PY 3 | Score:  61 | Off-Par: -11.0
+    10. Ben Griffin          | PY 9 | Score:  61 | Off-Par: -11.0
+
+The Sentry:
+  Top 10 Finishers:
+     1. Xander Schauffele    | PY 6 | Score:  32 | Off-Par: -41.0
+     2. Davis Riley          | PY 2 | Score:  38 | Off-Par: -35.0
+     3. Justin Rose          | PY 9 | Score:  61 | Off-Par: -12.0
+     4. Tyrrell Hatton       | PY 5 | Score:  62 | Off-Par: -11.0
+     5. Collin Morikawa      | PY 8 | Score:  62 | Off-Par: -11.0
+     6. Sungjae Im           | PY 6 | Score:  62 | Off-Par: -11.0
+     7. Hideki Matsuyama     | PY 9 | Score:  62 | Off-Par: -11.0
+     8. Max Homa             | PY 1 | Score:  63 | Off-Par: -10.0
+     9. Jon Rahm             | PY 1 | Score:  63 | Off-Par: -10.0
+    10. Ludvig Åberg         | PY 4 | Score:  63 | Off-Par: -10.0
+
+Travelers Championship:
+  Top 10 Finishers:
+     1. Viktor Hovland       | PY 9 | Score:   9 | Off-Par: -61.0
+     2. Matti Schmid         | PY 2 | Score:  18 | Off-Par: -52.0
+     3. Byeong Hun An        | PY 7 | Score:  29 | Off-Par: -41.0
+     4. Jordan Spieth        | PY 7 | Score:  51 | Off-Par: -19.0
+     5. Si Woo Kim           | PY 7 | Score:  53 | Off-Par: -17.0
+     6. Cameron Young        | PY 2 | Score:  59 | Off-Par: -11.0
+     7. Denny McCarthy       | PY 5 | Score:  60 | Off-Par: -10.0
+     8. Rickie Fowler        | PY 5 | Score:  60 | Off-Par: -10.0
+     9. Patrick Cantlay      | PY 9 | Score:  61 | Off-Par: -9.0
+    10. Sepp Straka          | PY 5 | Score:  61 | Off-Par: -9.0
+
+Truist Championship:
+  Top 10 Finishers:
+     1. Michael Kim          | PY 3 | Score:  50 | Off-Par: -21.0
+     2. Keith Mitchell       | PY 8 | Score:  61 | Off-Par: -10.0
+     3. Denny McCarthy       | PY 7 | Score:  62 | Off-Par: -9.0
+     4. Collin Morikawa      | PY 8 | Score:  63 | Off-Par: -8.0
+     5. Rickie Fowler        | PY 7 | Score:  63 | Off-Par: -8.0
+     6. Akshay Bhatia        | PY 5 | Score:  63 | Off-Par: -8.0
+     7. Hideki Matsuyama     | PY 9 | Score:  63 | Off-Par: -8.0
+     8. Sepp Straka          | PY 6 | Score:  63 | Off-Par: -8.0
+     9. Andrew Novak         | PY 7 | Score:  64 | Off-Par: -7.0
+    10. Sam Stevens          | PY 2 | Score:  64 | Off-Par: -7.0
+
+U.S. Open:
+  Top 10 Finishers:
+     1. Xander Schauffele    | PY 6 | Score:  62 | Off-Par: -8.0
+     2. Rickie Fowler        | PY 5 | Score:  62 | Off-Par: -8.0
+     3. Tommy Fleetwood      | PY 9 | Score:  63 | Off-Par: -7.0
+     4. Wyndham Clark        | PY 1 | Score:  64 | Off-Par: -6.0
+     5. Dustin Johnson       | PY 8 | Score:  64 | Off-Par: -6.0
+     6. Brian Harman         | PY 9 | Score:  65 | Off-Par: -5.0
+     7. Rory McIlroy         | PY 7 | Score:  65 | Off-Par: -5.0
+     8. Min Woo Lee          | PY 5 | Score:  65 | Off-Par: -5.0
+     9. Austin Eckroat       | PY 2 | Score:  65 | Off-Par: -5.0
+    10. Jon Rahm             | PY 1 | Score:  65 | Off-Par: -5.0
+
+Valero Texas Open:
+  Top 10 Finishers:
+     1. Hideki Matsuyama     | PY 6 | Score:  35 | Off-Par: -37.0
+     2. Davis Riley          | PY 9 | Score:  57 | Off-Par: -15.0
+     3. Akshay Bhatia        | PY 4 | Score:  63 | Off-Par: -9.0
+     4. Denny McCarthy       | PY 6 | Score:  63 | Off-Par: -9.0
+     5. Sam Ryder            | PY 9 | Score:  63 | Off-Par: -9.0
+     6. Corey Conners        | PY 5 | Score:  64 | Off-Par: -8.0
+     7. Keith Mitchell       | PY 8 | Score:  64 | Off-Par: -8.0
+     8. Peter Malnati        | PY 8 | Score:  65 | Off-Par: -7.0
+     9. Chez Reavie          | PY 3 | Score:  65 | Off-Par: -7.0
+    10. Rickie Fowler        | PY 7 | Score:  65 | Off-Par: -7.0
+
+Valspar Championship:
+  Top 10 Finishers:
+     1. Brian Campbell       | PY 1 | Score:  26 | Off-Par: -45.0
+     2. Patton Kizzire       | PY 6 | Score:  34 | Off-Par: -37.0
+     3. Charley Hoffman      | PY 3 | Score:  35 | Off-Par: -36.0
+     4. Matt NeSmith         | PY 8 | Score:  61 | Off-Par: -10.0
+     5. Davis Riley          | PY 8 | Score:  62 | Off-Par: -9.0
+     6. Kevin Streelman      | PY 5 | Score:  64 | Off-Par: -7.0
+     7. Jhonattan Vegas      | PY 6 | Score:  64 | Off-Par: -7.0
+     8. Adam Hadwin          | PY 1 | Score:  64 | Off-Par: -7.0
+     9. David Lipsky         | PY 9 | Score:  64 | Off-Par: -7.0
+    10. Sam Burns            | PY 9 | Score:  64 | Off-Par: -7.0
+
+WM Phoenix Open:
+  Top 10 Finishers:
+     1. Maverick McNealy     | PY 7 | Score:  21 | Off-Par: -50.0
+     2. Nick Taylor          | PY 8 | Score:  60 | Off-Par: -11.0
+     3. Scottie Scheffler    | PY 6 | Score:  62 | Off-Par: -9.0
+     4. Si Woo Kim           | PY 8 | Score:  62 | Off-Par: -9.0
+     5. Jordan Spieth        | PY 5 | Score:  63 | Off-Par: -8.0
+     6. Beau Hossler         | PY 8 | Score:  63 | Off-Par: -8.0
+     7. Emiliano Grillo      | PY 4 | Score:  63 | Off-Par: -8.0
+     8. Beau Hossler         | PY 1 | Score:  63 | Off-Par: -8.0
+     9. Michael Kim          | PY 3 | Score:  63 | Off-Par: -8.0
+    10. Maverick McNealy     | PY 9 | Score:  63 | Off-Par: -8.0
+
+Wells Fargo Championship:
+  Top 10 Finishers:
+     1. Nate Lashley         | PY 3 | Score:  50 | Off-Par: -21.0
+     2. Wyndham Clark        | PY 1 | Score:  63 | Off-Par: -8.0
+     3. Jason Day            | PY 2 | Score:  63 | Off-Par: -8.0
+     4. Xander Schauffele    | PY 6 | Score:  64 | Off-Par: -7.0
+     5. Xander Schauffele    | PY 7 | Score:  64 | Off-Par: -7.0
+     6. Joel Dahmen          | PY 1 | Score:  64 | Off-Par: -7.0
+     7. Brendon Todd         | PY 9 | Score:  65 | Off-Par: -6.0
+     8. Dylan Wu             | PY 7 | Score:  65 | Off-Par: -6.0
+     9. Andrew Putnam        | PY 6 | Score:  65 | Off-Par: -6.0
+    10. Tommy Fleetwood      | PY 9 | Score:  65 | Off-Par: -6.0
+
+World Wide Technology Championship:
+  Top 10 Finishers:
+     1. Camilo Villegas      | PY 8 | Score:  24 | Off-Par: -47.0
+     2. Luke Donald          | PY 9 | Score:  52 | Off-Par: -19.0
+     3. Carson Young         | PY 4 | Score:  61 | Off-Par: -10.0
+     4. Garrick Higgo        | PY 8 | Score:  61 | Off-Par: -10.0
+     5. Sami Välimäki        | PY 5 | Score:  61 | Off-Par: -10.0
+     6. Nick Dunlap          | PY 8 | Score:  61 | Off-Par: -10.0
+     7. Andrew Putnam        | PY 6 | Score:  62 | Off-Par: -9.0
+     8. Austin Cook          | PY 5 | Score:  62 | Off-Par: -9.0
+     9. Patton Kizzire       | PY 4 | Score:  63 | Off-Par: -8.0
+    10. Will Gordon          | PY 6 | Score:  63 | Off-Par: -8.0
+
+World Wide Technology Championship at Mayakoba:
+  Top 10 Finishers:
+     1. Brandon Matthews     | PY 4 | Score:  27 | Off-Par: -44.0
+     2. Will Gordon          | PY 5 | Score:  62 | Off-Par: -9.0
+     3. Harry Higgs          | PY 4 | Score:  62 | Off-Par: -9.0
+     4. Scottie Scheffler    | PY 6 | Score:  62 | Off-Par: -9.0
+     5. Collin Morikawa      | PY 5 | Score:  63 | Off-Par: -8.0
+     6. Russell Henley       | PY 4 | Score:  63 | Off-Par: -8.0
+     7. Russell Henley       | PY 4 | Score:  63 | Off-Par: -8.0
+     8. Séamus Power         | PY 4 | Score:  63 | Off-Par: -8.0
+     9. Scott Piercy         | PY 5 | Score:  64 | Off-Par: -7.0
+    10. Aaron Wise           | PY 6 | Score:  64 | Off-Par: -7.0
+
+Wyndham Championship:
+  Top 10 Finishers:
+     1. Si Woo Kim           | PY 4 | Score:  34 | Off-Par: -36.0
+     2. C.T. Pan             | PY 4 | Score:  36 | Off-Par: -34.0
+     3. Aaron Wise           | PY 9 | Score:  41 | Off-Par: -29.0
+     4. Tom Kim              | PY 9 | Score:  49 | Off-Par: -21.0
+     5. Isaiah Salinda       | PY 7 | Score:  52 | Off-Par: -18.0
+     6. Erik van Rooyen      | PY 5 | Score:  56 | Off-Par: -14.0
+     7. Akshay Bhatia        | PY 5 | Score:  59 | Off-Par: -11.0
+     8. Beau Hossler         | PY 9 | Score:  60 | Off-Par: -10.0
+     9. Max Greyserman       | PY 8 | Score:  60 | Off-Par: -10.0
+    10. Joel Dahmen          | PY 4 | Score:  61 | Off-Par: -9.0
+
+ZOZO CHAMPIONSHIP:
+  Top 10 Finishers:
+     1. Séamus Power         | PY 6 | Score:  62 | Off-Par: -8.0
+     2. Sungjae Im           | PY 5 | Score:  62 | Off-Par: -8.0
+     3. Andrew Putnam        | PY 5 | Score:  62 | Off-Par: -8.0
+     4. Collin Morikawa      | PY 6 | Score:  63 | Off-Par: -7.0
+     5. Taylor Moore         | PY 7 | Score:  63 | Off-Par: -7.0
+     6. Nate Lashley         | PY 5 | Score:  63 | Off-Par: -7.0
+     7. Yuto Katsuragawa     | PY 9 | Score:  63 | Off-Par: -7.0
+     8. Kurt Kitayama        | PY 5 | Score:  63 | Off-Par: -7.0
+     9. Lucas Herbert        | PY 5 | Score:  63 | Off-Par: -7.0
+    10. Sahith Theegala      | PY 4 | Score:  63 | Off-Par: -7.0
+
+the Memorial Tournament pres. by Workday:
+  Top 10 Finishers:
+     1. Brian Campbell       | PY 9 | Score:  64 | Off-Par: -8.0
+     2. Brandt Snedeker      | PY 2 | Score:  65 | Off-Par: -7.0
+     3. Ben Griffin          | PY 2 | Score:  65 | Off-Par: -7.0
+     4. Sam Burns            | PY 3 | Score:  65 | Off-Par: -7.0
+     5. Billy Horschel       | PY 7 | Score:  65 | Off-Par: -7.0
+     6. Adam Hadwin          | PY 3 | Score:  66 | Off-Par: -6.0
+     7. Ludvig Åberg         | PY 5 | Score:  66 | Off-Par: -6.0
+     8. Justin Rose          | PY 1 | Score:  66 | Off-Par: -6.0
+     9. Sepp Straka          | PY 6 | Score:  66 | Off-Par: -6.0
+    10. Sungjae Im           | PY 5 | Score:  67 | Off-Par: -5.0
+
+================================================================================
+SUMMARY: PERSONAL YEAR DISTRIBUTION IN TOURNAMENT TOP 10
+================================================================================
+
+Total Tournaments Analyzed: 64
+Total Top-10 Finisher Slots: 636
+
+Year  Top-10 Picks Avg Off-Par     Tournaments     % of Total     
+-----------------------------------------------------------------
+7     94         -13.266         94              14.8          %
+9     84         -12.429         84              13.2          %
+6     78         -12.756         78              12.3          %
+5     78         -11.410         78              12.3          %
+8     68         -11.118         68              10.7          %
+1     63         -10.762         63              9.9           %
+4     63         -14.175         63              9.9           %
+2     55         -11.873         55              8.6           %
+3     53         -13.472         53              8.3           %
+-----------------------------------------------------------------
+
+KEY FINDINGS:
+- Personal Years appearing most in tournament top 10
+- Off-par average shows performance relative to field
+- Compare to overall baseline: Year 9 (42.795), Year 1 (42.879), Year 4 (43.871)
+
+NOTE: Negative off-par = beat par; positive = worse than par

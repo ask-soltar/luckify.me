@@ -1,0 +1,63 @@
+combo,dimension,value,n,mean_vs_avg,std,beat_field_pct,beat_field_count,p_value,excess_vs_baseline,signal_quality,level
+New Moon -- Calm,moon_group -- condition,New Moon -- Calm,315,-1.1413,2.8063,66.0,208,0.0,-0.9749,rock_solid,L10
+New Moon -- 25-50,moon_group -- exec_bucket,New Moon -- 25-50,209,-1.0348,2.8551,66.5,139,0.0,-0.8551,rock_solid,L13
+moonwest=New Moon,moonwest,New Moon,491,-0.9089,2.8736,63.7,313,0.0,-0.7488,rock_solid,L5
+moon_group=New Moon,moon_group,New Moon,491,-0.9089,2.8736,63.7,313,0.0,-0.7488,rock_solid,L6
+New Moon -- Open,moon_group -- round_type,New Moon -- Open,188,-0.9033,2.8863,66.0,124,0.0,-0.7191,rock_solid,L11
+New Moon -- Water,moon_group -- wu_xing,New Moon -- Water,115,-0.8842,2.9067,61.7,71,0.0015,-0.6942,rock_solid,L12
+New Moon -- Metal,moon_group -- wu_xing,New Moon -- Metal,101,-0.8547,2.8899,68.3,69,0.0037,-0.6634,rock_solid,L12
+Full Moon -- 50-75,moon_group -- exec_bucket,Full Moon -- 50-75,199,-0.6973,3.0321,66.8,133,0.0014,-0.5096,rock_solid,L13
+New Moon -- 50-75,moon_group -- exec_bucket,New Moon -- 50-75,254,-0.6757,2.8616,60.2,153,0.0002,-0.4904,rock_solid,L13
+Full Moon -- Open,moon_group -- round_type,Full Moon -- Open,185,-0.596,3.183,62.7,116,0.0117,-0.4056,rock_solid,L11
+zodiac=Snake,zodiac,Snake,650,-0.5199,2.9951,58.8,382,0.0,-0.3449,rock_solid,L15
+horoscope=PISCES,horoscope,PISCES,1031,-0.5008,2.9903,57.2,590,0.0,-0.3387,rock_solid,L16
+New Moon -- Moderate,moon_group -- condition,New Moon -- Moderate,161,-0.4874,2.9589,59.6,96,0.0382,-0.2941,rock_solid,L10
+horoscope=CANCER,horoscope,CANCER,832,-0.4848,2.9061,57.5,478,0.0,-0.3136,rock_solid,L16
+moon=Shukla Nanda,moon,Shukla Nanda,904,-0.4726,2.8413,57.7,522,0.0,-0.3027,rock_solid,L7
+Calm -- Survival,condition -- round_type,Calm -- Survival,1310,-0.4718,2.9834,58.2,762,0.0,-0.3166,rock_solid,L8
+Full Moon -- Calm,moon_group -- condition,Full Moon -- Calm,299,-0.4477,2.9348,62.9,188,0.0088,-0.2575,rock_solid,L10
+moon=Shukla Jaya,moon,Shukla Jaya,986,-0.4394,2.9059,57.9,571,0.0,-0.2687,rock_solid,L7
+zodiac=Tiger,zodiac,Tiger,613,-0.431,2.8756,57.4,352,0.0002,-0.2486,rock_solid,L15
+moonwest=Full Moon,moonwest,Full Moon,468,-0.4218,2.9512,61.3,287,0.0021,-0.235,rock_solid,L5
+moon_group=Full Moon,moon_group,Full Moon,468,-0.4218,2.9512,61.3,287,0.0021,-0.235,rock_solid,L6
+Personal Year 4,Personal Year,4.0,1038,-0.4209,2.9502,57.6,598,0.0,-0.2496,rock_solid,L14
+moon=Krishna Purna,moon,Krishna Purna,1012,-0.4148,3.0517,58.0,587,0.0,-0.2419,rock_solid,L7
+Water -- 25-50,wu_xing -- exec_bucket,Water -- 25-50,866,-0.4036,2.9012,59.1,512,0.0,-0.2256,rock_solid,L9
+Waxing -- Calm,moon_group -- condition,Waxing -- Calm,2901,-0.3913,2.9217,57.4,1666,0.0,-0.2759,rock_solid,L10
+Calm -- Open,condition -- round_type,Calm -- Open,1786,-0.3765,2.9385,58.7,1049,0.0,-0.2187,rock_solid,L8
+moon=Krishna Jaya,moon,Krishna Jaya,733,-0.3509,2.9555,58.7,430,0.0014,-0.1652,rock_solid,L7
+horoscope=LEO,horoscope,LEO,665,-0.3395,2.9434,55.2,367,0.003,-0.1517,rock_solid,L16
+condition=Calm,condition,Calm,5668,-0.3342,2.9356,56.8,3218,0.0,-0.3293,rock_solid,L1
+Wood -- 25-50,wu_xing -- exec_bucket,Wood -- 25-50,859,-0.3331,2.8631,56.2,483,0.0007,-0.148,rock_solid,L9
+zodiac=Ox,zodiac,Ox,536,-0.3279,2.925,55.2,296,0.0097,-0.1373,rock_solid,L15
+Waxing -- Open,moon_group -- round_type,Waxing -- Open,1380,-0.3174,2.8024,57.4,792,0.0,-0.139,rock_solid,L11
+Waxing -- Closing,moon_group -- round_type,Waxing -- Closing,863,-0.3112,2.9644,54.3,469,0.0021,-0.1241,rock_solid,L11
+zodiac=Monkey,zodiac,Monkey,769,-0.3101,3.0856,55.5,427,0.0055,-0.1216,rock_solid,L15
+Waxing -- Water,moon_group -- wu_xing,Waxing -- Water,898,-0.3005,3.0222,57.1,513,0.003,-0.1128,rock_solid,L12
+Earth -- 25-50,wu_xing -- exec_bucket,Earth -- 25-50,1046,-0.2982,2.84,55.1,576,0.0007,-0.1122,rock_solid,L9
+Personal Year 8,Personal Year,8.0,1320,-0.2919,2.875,55.9,738,0.0002,-0.1085,rock_solid,L14
+Waxing -- Wood,moon_group -- wu_xing,Waxing -- Wood,792,-0.2819,2.9505,55.2,437,0.0073,-0.0912,rock_solid,L12
+Waxing -- 25-50,moon_group -- exec_bucket,Waxing -- 25-50,2219,-0.2817,2.9201,55.4,1230,0.0,-0.1084,rock_solid,L13
+zodiac=Horse,zodiac,Horse,1006,-0.2787,2.8881,55.6,559,0.0023,-0.0899,rock_solid,L15
+round_type=Open,round_type,Open,3117,-0.2785,2.9416,57.1,1781,0.0,-0.1186,rock_solid,L2
+exec_bucket=25-50,exec_bucket,25-50,4683,-0.2751,2.9013,55.7,2607,0.0,-0.1493,rock_solid,L4
+moon=Shukla Rikta,moon,Shukla Rikta,1072,-0.2692,2.9129,56.2,603,0.0025,-0.0799,rock_solid,L7
+horoscope=VIRGO,horoscope,VIRGO,700,-0.2666,2.8814,58.0,406,0.0146,-0.0738,rock_solid,L16
+Calm -- Closing,condition -- round_type,Calm -- Closing,1125,-0.2601,2.8434,53.2,598,0.0022,-0.07,rock_solid,L8
+Earth -- 50-75,wu_xing -- exec_bucket,Earth -- 50-75,763,-0.2572,2.8813,55.6,424,0.0139,-0.064,rock_solid,L9
+Fire -- 25-50,wu_xing -- exec_bucket,Fire -- 25-50,1009,-0.2556,2.9319,54.4,549,0.0057,-0.0641,rock_solid,L9
+wu_xing=Wood,wu_xing,Wood,1655,-0.2536,2.8752,55.6,920,0.0003,-0.0669,rock_solid,L3
+wu_xing=Water,wu_xing,Water,1916,-0.251,2.9708,55.6,1065,0.0002,-0.0658,rock_solid,L3
+Personal Year 1,Personal Year,1.0,925,-0.2491,2.8893,53.5,495,0.0089,-0.0563,rock_solid,L14
+zodiac=Rooster,zodiac,Rooster,835,-0.2335,2.9363,55.4,463,0.0218,-0.0387,rock_solid,L15
+zodiac=Rat,zodiac,Rat,1090,-0.2313,3.0216,55.0,599,0.0116,-0.0373,rock_solid,L15
+moonwest=Waxing Crescent,moonwest,Waxing Crescent,2007,-0.2251,2.8782,54.9,1101,0.0005,-0.0339,rock_solid,L5
+round_type=Closing,round_type,Closing,1706,-0.217,2.8279,53.2,908,0.0016,-0.0228,rock_solid,L2
+Personal Year 6,Personal Year,6.0,1194,-0.2137,3.0039,54.7,653,0.0141,-0.0176,rock_solid,L14
+wu_xing=Fire,wu_xing,Fire,2180,-0.21,2.9947,54.4,1186,0.0011,-0.0152,rock_solid,L3
+moon_group=Waxing,moon_group,Waxing,4551,-0.2037,2.9464,54.6,2487,0.0,-0.0104,rock_solid,L6
+exec_bucket=75-100,exec_bucket,75-100,775,0.2628,2.9992,49.7,385,0.0149,0.5012,rock_solid,L4
+Waning -- 75-100,moon_group -- exec_bucket,Waning -- 75-100,405,0.3238,2.965,49.1,199,0.0285,0.5449,rock_solid,L13
+Waxing -- 75-100,moon_group -- exec_bucket,Waxing -- 75-100,321,0.3888,2.9576,48.0,154,0.0191,0.6072,rock_solid,L13
+horoscope=LIBRA,horoscope,LIBRA,287,0.5486,3.0069,43.9,126,0.0022,0.7696,rock_solid,L16
+Earth -- 75-100,wu_xing -- exec_bucket,Earth -- 75-100,178,0.7713,2.9918,41.0,73,0.0007,0.9877,rock_solid,L9

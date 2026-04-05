@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Rhythm — Structured Framework</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0b;
+    --surface: #111114;
+    --border: rgba(255,255,255,0.07);
+    --text: #e8e6e1;
+    --muted: #666;
+    --subtle: #2a2a2e;
+    --green: #5aa048;
+    --green-bright: #6EC25A;
+    --green-dim: rgba(90,160,72,0.1);
+    --green-border: rgba(90,160,72,0.28);
+    --green-glow: rgba(90,160,72,0.05);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 40px 24px 80px;
+  }
+
+  .page-wrap { max-width: 900px; margin: 0 auto; }
+
+  .header { border-bottom: 1px solid var(--border); padding-bottom: 28px; margin-bottom: 48px; }
+  .color-bar { width: 48px; height: 4px; background: var(--green-bright); border-radius: 2px; margin-bottom: 16px; }
+  .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
+  .page-title { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 5vw, 46px); line-height: 1.1; color: #fff; margin-bottom: 8px; }
+  .page-title em { font-style: italic; color: var(--green-bright); }
+  .page-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .meta-tag { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding: 3px 8px; border: 1px solid var(--border); border-radius: 2px; }
+  .meta-tag.green { color: var(--green-bright); border-color: var(--green-border); background: var(--green-dim); }
+  .meta-tag.arc { color: #88BBDD; border-color: rgba(136,187,221,0.25); background: rgba(136,187,221,0.06); }
+
+  .section { margin-bottom: 44px; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* IDENTITY */
+  .identity-block { background: var(--green-glow); border: 1px solid var(--green-border); border-left: 3px solid var(--green-bright); border-radius: 4px; padding: 20px 24px; margin-bottom: 44px; }
+  .identity-name { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--green-bright); margin-bottom: 6px; }
+  .identity-desc { font-size: 13px; color: #aaa; line-height: 1.7; max-width: 680px; }
+
+  /* ARCHITECTURAL NOTE */
+  .arch-block { background: rgba(136,187,221,0.03); border: 1px solid rgba(136,187,221,0.12); border-radius: 4px; padding: 14px 18px; margin-bottom: 44px; display: flex; gap: 14px; align-items: flex-start; }
+  .arch-icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+  .arch-text { font-size: 12px; color: #777; line-height: 1.7; }
+  .arch-text strong { color: #88BBDD; font-weight: 500; }
+
+  /* TWO LAYER */
+  .layer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 44px; }
+  .layer-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 18px 20px; }
+  .layer-card.highlight { border-color: var(--green-border); background: var(--green-glow); }
+  .layer-title { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; }
+  .layer-title.green { color: var(--green-bright); }
+  .layer-title.muted { color: var(--muted); }
+  .layer-body { font-size: 12px; color: #999; line-height: 1.7; }
+  .layer-body strong { color: #ccc; font-weight: 500; }
+  .layer-note { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #444; margin-top: 10px; font-style: italic; }
+
+  /* WAVE */
+  .wave-block { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 20px 24px; margin-bottom: 44px; }
+  .wave-title { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+  .wave-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
+  .wave-note { font-size: 10px; color: #555; font-style: italic; text-align: center; padding: 6px; border-top: 1px solid var(--border); line-height: 1.5; }
+
+  /* WINDOW POSITIONS */
+  .window-positions { display: flex; gap: 8px; margin-bottom: 44px; flex-wrap: wrap; }
+  .window-pocket { background: var(--surface); border: 1px solid var(--green-border); border-radius: 4px; padding: 12px 16px; background: var(--green-glow); }
+  .pocket-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
+  .pocket-scores { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--green-bright); margin-bottom: 4px; }
+  .pocket-name { font-size: 11px; color: #666; }
+  .window-gap { background: var(--surface); border: 1px solid rgba(255,255,255,0.04); border-radius: 4px; padding: 12px 16px; flex: 1; display: flex; align-items: center; }
+  .gap-text { font-size: 11px; color: #333; font-style: italic; line-height: 1.5; }
+
+  /* CATEGORIES */
+  .cat-grid { display: flex; flex-direction: column; gap: 3px; margin-bottom: 44px; }
+  .cat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 3px; padding: 12px 16px; display: grid; grid-template-columns: 28px 1fr auto; align-items: center; gap: 12px; }
+  .cat-num { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--green); letter-spacing: 0.12em; }
+  .cat-name { font-family: 'DM Serif Display', serif; font-size: 15px; color: #fff; }
+  .cat-sub { font-size: 10px; color: #555; font-style: italic; }
+  .cat-type { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; white-space: nowrap; }
+  .cat-type.proj { color: #88BBDD; border: 1px solid rgba(136,187,221,0.25); background: rgba(136,187,221,0.06); }
+  .cat-type.match { color: var(--green); border: 1px solid var(--green-border); background: var(--green-dim); }
+
+  /* TRAITS */
+  .traits-grid { display: flex; flex-direction: column; gap: 3px; margin-bottom: 44px; }
+  .trait-card { background: var(--surface); border: 1px solid var(--border); border-radius: 3px; padding: 14px 16px; }
+  .trait-header { display: grid; grid-template-columns: 1fr auto auto; align-items: start; gap: 12px; margin-bottom: 10px; }
+  .trait-name { font-family: 'DM Serif Display', serif; font-size: 15px; color: #fff; }
+  .trait-alias { font-size: 10px; color: var(--green); font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.1em; margin-top: 2px; }
+  .trait-cats { font-family: 'IBM Plex Mono', monospace; font-size: 9px; }
+  .trait-cats span { display: inline-block; padding: 1px 5px; border-radius: 2px; background: var(--subtle); margin-right: 3px; color: #666; }
+  .trait-tag { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; white-space: nowrap; align-self: start; }
+  .trait-tag.asset { color: #5aa048; border: 1px solid rgba(90,160,72,0.3); background: rgba(90,160,72,0.08); }
+  .trait-tag.dual { color: #CCA010; border: 1px solid rgba(204,160,16,0.3); background: rgba(204,160,16,0.08); }
+  .trait-desc { font-size: 11px; color: #888; line-height: 1.6; margin-bottom: 10px; }
+  .trait-dims { display: flex; gap: 6px; flex-wrap: wrap; }
+  .trait-dim { font-size: 10px; color: #555; padding: 2px 8px; border-radius: 2px; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); }
+  .trait-dim strong { color: var(--green); font-weight: 500; }
+
+  /* HEALING GRID */
+  .healing-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin: 10px 0; }
+  .healing-cell { background: rgba(90,160,72,0.06); border: 1px solid rgba(90,160,72,0.15); border-radius: 3px; padding: 8px 10px; text-align: center; }
+  .healing-label { font-family: 'IBM Plex Mono', monospace; font-size: 8px; color: var(--green); letter-spacing: 0.08em; margin-bottom: 3px; }
+  .healing-name { font-size: 10px; color: #888; line-height: 1.4; }
+
+  /* CHAKRA */
+  .chakra-stack { display: flex; flex-direction: column; gap: 3px; margin-bottom: 16px; max-width: 420px; }
+  .chakra-row { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 3px; border: 1px solid var(--border); background: var(--surface); }
+  .chakra-row.active-green { border-color: var(--green-border); background: var(--green-glow); }
+  .chakra-row.active-orange { border-color: rgba(232,112,32,0.3); background: rgba(232,112,32,0.06); }
+  .chakra-row.active-yellow { border-color: rgba(240,192,32,0.3); background: rgba(240,192,32,0.06); }
+  .chakra-row.active-pink { border-color: rgba(208,48,160,0.3); background: rgba(208,48,160,0.06); }
+  .chakra-row.active-purple { border-color: rgba(138,43,226,0.3); background: rgba(138,43,226,0.06); }
+  .chakra-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .chakra-row-name { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; flex: 1; }
+  .chakra-row-note { font-size: 10px; color: #555; font-style: italic; }
+
+  /* OPEN NOTES */
+  .notes-block { border: 1px solid rgba(255,255,255,0.05); border-left: 3px solid #2a2a2e; border-radius: 3px; padding: 14px 16px; background: #0e0e10; }
+  .notes-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #333; margin-bottom: 10px; }
+  .note-item { font-size: 11px; color: #444; line-height: 1.6; margin-bottom: 6px; }
+  .note-item:last-child { margin-bottom: 0; }
+
+  @media (max-width: 640px) {
+    .layer-grid { grid-template-columns: 1fr; }
+    .healing-grid { grid-template-columns: repeat(3, 1fr); }
+    .trait-header { grid-template-columns: 1fr; }
+    .cat-card { grid-template-columns: 28px 1fr; }
+    .cat-type { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="color-bar"></div>
+    <div class="eyebrow">Lucky Window · Rhythm Framework · Internal</div>
+    <h1 class="page-title"><em>Green</em> Rhythm</h1>
+    <div class="page-meta">
+      <span class="meta-tag green">Balance · Connection</span>
+      <span class="meta-tag">Score −3/−4 · −10/−11</span>
+      <span class="meta-tag">Heart Chakra</span>
+      <span class="meta-tag arc">Source: Arcturian Collective</span>
+      <span class="meta-tag">Stable Pocket Architecture</span>
+    </div>
+  </div>
+
+  <!-- IDENTITY -->
+  <div class="identity-block">
+    <div class="identity-name">Cosmic</div>
+    <div class="identity-desc">Green is the rhythm of balance and connection — the first rhythm in the system that operates primarily on others and on environments rather than on the self. Where Pink ignites, Orange builds, and Yellow detonates, Green <em>attunes</em>. It reads what is out of equilibrium and moves toward resolution. The core mechanism is not expression but projection and matching — transmitting stabilizing energy outward and synchronizing with what is present. Green is the system's relational intelligence.</div>
+  </div>
+
+  <!-- ARCHITECTURAL NOTE -->
+  <div class="arch-block">
+    <div class="arch-icon">◈</div>
+    <div class="arch-text"><strong>Stable Pocket Architecture:</strong> Green does not occupy a clean continuous band in the window score system. It operates in stable equilibrium pockets between zones — the natural balance points the system returns to. This is not a scoring anomaly. It is Green doing precisely what Green does: finding and holding balance in the gaps. The Survivor (−3/−4) and Growth (−10/−11) positions bracket Purple's identity turbulence (−5 to −9) on both sides. Green is literally stabilizing the system's most destabilizing window.</div>
+  </div>
+
+  <!-- TWO LAYER -->
+  <div class="section">
+    <div class="section-label">Two-Layer Architecture</div>
+    <div class="layer-grid">
+      <div class="layer-card highlight">
+        <div class="layer-title green">Birth Rhythm</div>
+        <div class="layer-body">A person <strong>born with Green</strong> carries balance and relational attunement as their fixed identity. They naturally read environments, project stabilizing energy, and move toward resolution. Their presence is a regulating force — in rooms, in relationships, at the table.</div>
+        <div class="layer-note">* 5 traits channeled through Arcturian Collective</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-title muted">Window Rhythm</div>
+        <div class="layer-body">A Green <strong>window</strong> activates stabilizing conditions environmentally. The day favors healing, mediation, attuning to others, and finding equilibrium. Not a high-energy window — a <strong>high-coherence</strong> window. Best used for relationship work, recovery, and recalibration.</div>
+        <div class="layer-note">* Operates across both pocket positions — Survivor and Growth bands</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WAVE -->
+  <div class="section">
+    <div class="section-label">Wave Pattern</div>
+    <div class="wave-block">
+      <div class="wave-title">Green energy cycle — near-flat baseline · micro-variations · fast self-resolution</div>
+
+      <svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; margin-bottom:12px;">
+
+        <line x1="0" y1="60" x2="520" y2="60" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <line x1="0" y1="30" x2="520" y2="30" stroke="rgba(255,255,255,0.02)" stroke-width="1" stroke-dasharray="4,6"/>
+        <line x1="0" y1="90" x2="520" y2="90" stroke="rgba(255,255,255,0.02)" stroke-width="1" stroke-dasharray="4,6"/>
+
+        <!-- Near-flat line with subtle self-resolving bumps -->
+        <path d="M 20,60
+                 C 50,60 70,60 90,58
+                 C 105,56 115,50 125,48
+                 C 135,46 145,48 155,54
+                 C 165,59 175,61 195,60
+                 C 220,60 240,60 260,62
+                 C 272,64 280,68 290,70
+                 C 300,72 310,70 322,66
+                 C 334,62 344,60 370,60
+                 C 395,60 410,60 430,59
+                 C 442,58 450,55 460,54
+                 C 470,53 478,55 488,58
+                 C 496,60 504,61 520,60"
+              fill="none" stroke="#6EC25A" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+
+        <!-- Equilibrium label -->
+        <text x="200" y="54" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(110,194,90,0.35)" letter-spacing="0.1em">EQUILIBRIUM BASELINE</text>
+
+        <!-- Micro bump annotations -->
+        <line x1="125" y1="48" x2="125" y2="38" stroke="rgba(110,194,90,0.2)" stroke-width="1" stroke-dasharray="2,3"/>
+        <text x="100" y="36" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(110,194,90,0.3)" letter-spacing="0.06em">micro variation</text>
+
+        <line x1="290" y1="70" x2="290" y2="80" stroke="rgba(110,194,90,0.2)" stroke-width="1" stroke-dasharray="2,3"/>
+        <text x="268" y="92" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(110,194,90,0.3)" letter-spacing="0.06em">fast resolution</text>
+
+        <!-- Start marker -->
+        <circle cx="20" cy="60" r="3" fill="#6EC25A" opacity="0.4"/>
+
+        <!-- Bottom labels -->
+        <text x="8" y="112" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="rgba(255,255,255,0.15)" letter-spacing="0.08em">START</text>
+        <text x="200" y="112" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="rgba(255,255,255,0.15)" letter-spacing="0.08em">SUSTAINED BALANCE</text>
+        <text x="440" y="112" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="rgba(255,255,255,0.15)" letter-spacing="0.08em">ONGOING</text>
+      </svg>
+
+      <div class="wave-notes">
+        <div class="wave-note">Near-flat baseline — Green's default state is equilibrium</div>
+        <div class="wave-note">Micro-variations appear and resolve quickly — self-correcting by nature</div>
+        <div class="wave-note">Most stable wave in the system — opposite end of the spectrum from Yellow</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WINDOW POSITIONS -->
+  <div class="section">
+    <div class="section-label">Window Positions — Stable Pockets</div>
+    <div class="window-positions">
+      <div class="window-pocket">
+        <div class="pocket-label">Pocket 01</div>
+        <div class="pocket-scores">−3 · −4</div>
+        <div class="pocket-name">Survivor</div>
+      </div>
+      <div class="window-gap">
+        <div class="gap-text">Purple band sits here<br/>(−5 to −9 · Identity zone)<br/>Green brackets on both sides</div>
+      </div>
+      <div class="window-pocket">
+        <div class="pocket-label">Pocket 02</div>
+        <div class="pocket-scores">−10 · −11</div>
+        <div class="pocket-name">Growth</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 CATEGORIES -->
+  <div class="section">
+    <div class="section-label">5 Rhythm Categories</div>
+    <div style="font-size:11px; color:#444; margin-bottom:10px; font-style:italic;">Two mechanism types: Projection (outward transmission) · Adjustment Matching (attunement and synchronization)</div>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-num">01</div>
+        <div class="cat-name">Emotional Aura Projection</div>
+        <div class="cat-sub">Aura Influence</div>
+        <div class="cat-type proj">Projection</div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">02</div>
+        <div class="cat-name">Manifestation Touch Projection</div>
+        <div class="cat-sub">Touch Manifestation</div>
+        <div class="cat-type proj">Projection</div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">03</div>
+        <div class="cat-name">Manifestation Adjustment Matching</div>
+        <div class="cat-sub">Action Alignment</div>
+        <div class="cat-type match">Matching</div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">04</div>
+        <div class="cat-name">Mental Adjustment Matching</div>
+        <div class="cat-sub">Mindset Sync</div>
+        <div class="cat-type match">Matching</div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">05</div>
+        <div class="cat-name">Emotional Adjustment Matching</div>
+        <div class="cat-sub">Emotion Sync</div>
+        <div class="cat-type match">Matching</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 TRAITS -->
+  <div class="section">
+    <div class="section-label">5 Traits — Channeled Through Arcturian Collective</div>
+    <div style="font-size:11px; color:#444; margin-bottom:12px; font-style:italic;">Category tags: 1 = Aura Influence &nbsp;·&nbsp; 2 = Touch Manifestation &nbsp;·&nbsp; 3 = Action Alignment &nbsp;·&nbsp; 4 = Mindset Sync &nbsp;·&nbsp; 5 = Emotion Sync</div>
+    <div class="traits-grid">
+
+      <!-- TRAIT 1 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Rebalance / Healing / Advising</div>
+            <div class="trait-alias">Cosmic Healer</div>
+          </div>
+          <div class="trait-cats"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+          <div class="trait-tag asset">Asset</div>
+        </div>
+        <div class="trait-desc">Green's primary healing mechanism operates across all 5 categories — the only trait in the system with full-category reach. Each category has a distinct healing expression: emotional field influence, physical touch transmission, action-level realignment, mindset correction, and emotional resonance. The Cosmic healer does not fix by force — it restores by attuning.</div>
+        <div class="healing-grid">
+          <div class="healing-cell">
+            <div class="healing-label">Cat 1</div>
+            <div class="healing-name">Emotional Resonancer</div>
+          </div>
+          <div class="healing-cell">
+            <div class="healing-label">Cat 2</div>
+            <div class="healing-name">Energy Enhancer</div>
+          </div>
+          <div class="healing-cell">
+            <div class="healing-label">Cat 3</div>
+            <div class="healing-name">Action Alignment</div>
+          </div>
+          <div class="healing-cell">
+            <div class="healing-label">Cat 4</div>
+            <div class="healing-name">Mindset Sync</div>
+          </div>
+          <div class="healing-cell">
+            <div class="healing-label">Cat 5</div>
+            <div class="healing-name">Emotion Sync</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRAIT 2 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Objective / Unbias</div>
+            <div class="trait-alias">Clear Mirror</div>
+          </div>
+          <div class="trait-cats"><span>2</span><span>3</span><span>4</span><span>5</span></div>
+          <div class="trait-tag asset">Asset</div>
+        </div>
+        <div class="trait-desc">The ability to see without distortion — free from personal agenda, emotional charge, or preferential framing. Green's balance core produces natural impartiality. Mental Adjustment Matching is an expression of this trait: Green attunes its thinking to what is actually present rather than what it expects or wants. The Clear Mirror reflects accurately because it carries no image of its own.</div>
+        <div class="trait-dims">
+          <div class="trait-dim"><strong>Mental</strong> — Mental Adjustment Matching · Mindset Sync (Cat 4)</div>
+          <div class="trait-dim"><strong>Manifestation</strong> — Action impartiality · decisions free of bias</div>
+          <div class="trait-dim"><strong>Emotional</strong> — Emotional objectivity · reads without projection</div>
+        </div>
+      </div>
+
+      <!-- TRAIT 3 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Hospitable</div>
+            <div class="trait-alias">Host</div>
+          </div>
+          <div class="trait-cats"><span>2</span><span>3</span><span>5</span></div>
+          <div class="trait-tag asset">Asset</div>
+        </div>
+        <div class="trait-desc">Green creates environments where others feel welcome, safe, and at ease. The Host does not perform hospitality — it is a natural emanation of Green's balancing presence. People are drawn into equilibrium simply by being in proximity. "You do what feels right" is the operating principle — intuitive responsiveness to what the environment and people need in the moment.</div>
+        <div class="trait-dims">
+          <div class="trait-dim"><strong>Physical</strong> — Touch Manifestation · creating comfort through presence</div>
+          <div class="trait-dim"><strong>Manifestation</strong> — Action Alignment · doing what the moment calls for</div>
+          <div class="trait-dim"><strong>Emotional</strong> — Emotion Sync · reading and matching what others need</div>
+        </div>
+      </div>
+
+      <!-- TRAIT 4 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Negotiator / Mediator</div>
+            <div class="trait-alias">Harmony Architect</div>
+          </div>
+          <div class="trait-cats"><span>2</span><span>3</span><span>5</span></div>
+          <div class="trait-tag asset">Asset</div>
+        </div>
+        <div class="trait-desc">Green moves toward resolution in conflict, tension, and divergence. Not through force or persuasion but through attunement — identifying the underlying equilibrium that all parties can reach. The Harmony Architect sees the resolution before the parties do and creates the conditions for both sides to arrive there naturally.</div>
+        <div class="trait-dims">
+          <div class="trait-dim"><strong>Physical</strong> — Touch Manifestation · physical presence as de-escalation</div>
+          <div class="trait-dim"><strong>Manifestation</strong> — Action Alignment · right action at the right moment</div>
+          <div class="trait-dim"><strong>Emotional</strong> — Emotion Sync · feeling both sides simultaneously</div>
+        </div>
+      </div>
+
+      <!-- TRAIT 5 -->
+      <div class="trait-card">
+        <div class="trait-header">
+          <div>
+            <div class="trait-name">Harmony</div>
+            <div class="trait-alias">—</div>
+          </div>
+          <div class="trait-cats"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+          <div class="trait-tag asset">Asset</div>
+        </div>
+        <div class="trait-desc">Harmony is Green's overarching expression — the state the rhythm is always moving toward and emanating. It is not a goal but a natural condition of Green operating at full coherence. <strong>Mental Harmony = Mental Intelligence</strong> — when Green's balancing mechanism reaches the mental layer, it produces a distinct form of intelligence: the ability to hold complexity without distortion, see all sides without collapsing into any of them, and think from a place of genuine equilibrium.</div>
+        <div class="trait-dims">
+          <div class="trait-dim"><strong>Mental</strong> — Mental Harmony · Mental Intelligence · full-spectrum cognition</div>
+          <div class="trait-dim"><strong>Emotional</strong> — Aura Influence · harmony projected into the emotional field</div>
+          <div class="trait-dim"><strong>Manifestation</strong> — Harmonious action · natural alignment with what is</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CHAKRA STACK -->
+  <div class="section">
+    <div class="section-label">Energetic Anatomy — Chakra Stack</div>
+    <div class="chakra-stack">
+      <div class="chakra-row active-pink">
+        <div class="chakra-dot" style="background:#D030A0; box-shadow: 0 0 6px #D030A0;"></div>
+        <div class="chakra-row-name" style="color:#D030A0;">Stellar Gateway → Crown</div>
+        <div class="chakra-row-note">Pink register</div>
+      </div>
+      <div class="chakra-row active-purple">
+        <div class="chakra-dot" style="background:#8A2BE2;"></div>
+        <div class="chakra-row-name" style="color:#8A2BE2;">Third Eye → Crown</div>
+        <div class="chakra-row-note">Purple register</div>
+      </div>
+      <div class="chakra-row">
+        <div class="chakra-dot" style="background:#333;"></div>
+        <div class="chakra-row-name" style="color:#444;">Throat</div>
+        <div class="chakra-row-note">Unassigned rhythm</div>
+      </div>
+      <div class="chakra-row active-green">
+        <div class="chakra-dot" style="background:#6EC25A; box-shadow: 0 0 6px #6EC25A;"></div>
+        <div class="chakra-row-name" style="color:#6EC25A;">Heart</div>
+        <div class="chakra-row-note">Green register · system midpoint · relational center</div>
+      </div>
+      <div class="chakra-row active-yellow">
+        <div class="chakra-dot" style="background:#F0C020;"></div>
+        <div class="chakra-row-name" style="color:#F0C020;">Solar Plexus → Naval</div>
+        <div class="chakra-row-note">Yellow register</div>
+      </div>
+      <div class="chakra-row active-orange">
+        <div class="chakra-dot" style="background:#E87020;"></div>
+        <div class="chakra-row-name" style="color:#E87020;">Sacral → Naval</div>
+        <div class="chakra-row-note">Orange register</div>
+      </div>
+      <div class="chakra-row">
+        <div class="chakra-dot" style="background:#333;"></div>
+        <div class="chakra-row-name" style="color:#444;">Root</div>
+        <div class="chakra-row-note">Unassigned rhythm</div>
+      </div>
+    </div>
+    <div style="font-size:11px; color:#444; font-style:italic; margin-top:8px;">Green sits at the Heart chakra — the exact midpoint of the full stack. Above it: upper register rhythms (Throat, Third Eye, Crown). Below it: body core rhythms (Solar Plexus, Naval, Sacral, Root). Green is the bridge between registers. Its relational and balancing function makes it the natural center of the architecture.</div>
+  </div>
+
+  <!-- OPEN NOTES -->
+  <div class="notes-block">
+    <div class="notes-label">Open Items — To Be Developed</div>
+    <div class="note-item">① <span style="color:#555">Primary fuel</span> — not yet defined. Green's relational and projective mechanism suggests a fuel source tied to connection or field coherence rather than internal generation.</div>
+    <div class="note-item">② <span style="color:#555">Projection mechanics</span> — Aura Projection (Cat 1) and Touch Projection (Cat 2) are distinct transmission mechanisms. The conditions, range, and limits of each are not yet fully mapped.</div>
+    <div class="note-item">③ <span style="color:#555">Arcturian Collective significance</span> — Green is the first rhythm sourced through the Arcturian Collective. The pattern of which collectives channel which rhythms has not yet been explored.</div>
+    <div class="note-item">④ <span style="color:#555">Green × Purple interaction</span> — Green brackets Purple's window positions on both sides. What happens energetically when a Green birth holder moves through a Purple window, or vice versa, is not yet mapped.</div>
+    <div class="note-item">⑤ <span style="color:#555">Mental Harmony depth</span> — Mental Harmony = Mental Intelligence is flagged as significant. The full architecture of what this intelligence accesses or enables is not yet developed.</div>
+    <div class="note-item">⑥ <span style="color:#555">Throat chakra rhythm</span> — sits between Green (Heart) and Purple (Third Eye). Unassigned. Likely one of the remaining rhythms.</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pink Rhythm — Structured Framework</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0b;
+    --surface: #111114;
+    --surface2: #16161a;
+    --border: rgba(255,255,255,0.07);
+    --text: #e8e6e1;
+    --muted: #666;
+    --subtle: #2a2a2e;
+    --pink: #D030A0;
+    --pink-dim: rgba(208,48,160,0.12);
+    --pink-border: rgba(208,48,160,0.3);
+    --pink-glow: rgba(208,48,160,0.06);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 40px 24px 80px;
+  }
+
+  .page-wrap { max-width: 900px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 28px;
+    margin-bottom: 48px;
+    position: relative;
+  }
+  .color-bar {
+    width: 48px; height: 4px;
+    background: var(--pink);
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .page-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 5vw, 46px);
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .page-title em { font-style: italic; color: var(--pink); }
+  .page-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+  .meta-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+  .meta-tag.pink { color: var(--pink); border-color: var(--pink-border); background: var(--pink-dim); }
+
+  /* SECTION */
+  .section { margin-bottom: 44px; }
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* IDENTITY BLOCK */
+  .identity-block {
+    background: var(--pink-glow);
+    border: 1px solid var(--pink-border);
+    border-left: 3px solid var(--pink);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 44px;
+  }
+  .identity-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--pink);
+    margin-bottom: 6px;
+  }
+  .identity-desc {
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.7;
+    max-width: 600px;
+  }
+
+  /* TWO-LAYER ARCHITECTURE */
+  .layer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 44px;
+  }
+  .layer-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 18px 20px;
+  }
+  .layer-card.highlight { border-color: var(--pink-border); background: var(--pink-glow); }
+  .layer-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .layer-title.pink { color: var(--pink); }
+  .layer-title.muted { color: var(--muted); }
+  .layer-body { font-size: 12px; color: #999; line-height: 1.7; }
+  .layer-body strong { color: #ccc; font-weight: 500; }
+  .layer-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: #444;
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  /* BOOST STATE */
+  .boost-banner {
+    background: var(--pink-dim);
+    border: 1px solid var(--pink-border);
+    border-radius: 4px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 44px;
+  }
+  .boost-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--pink);
+    flex-shrink: 0;
+    box-shadow: 0 0 8px var(--pink);
+  }
+  .boost-text {
+    font-size: 12px;
+    color: #bbb;
+    line-height: 1.6;
+  }
+  .boost-text strong { color: var(--pink); }
+
+  /* WAVE DIAGRAM */
+  .wave-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 44px;
+  }
+  .wave-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .wave-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 56px;
+    margin-bottom: 10px;
+  }
+  .wave-stage {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    text-align: center;
+    position: relative;
+  }
+  .wave-stage-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .wave-bar {
+    width: 80%;
+    border-radius: 2px;
+    background: var(--pink);
+    opacity: 0.7;
+  }
+  .wave-notes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .wave-note {
+    font-size: 10px;
+    color: #555;
+    font-style: italic;
+    text-align: center;
+    padding: 6px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* 4 CATEGORIES */
+  .cat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 44px;
+  }
+  .cat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 18px;
+  }
+  .cat-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: var(--pink);
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+  }
+  .cat-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .cat-desc { font-size: 11px; color: #888; line-height: 1.6; }
+
+  /* TRAITS TABLE */
+  .traits-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 44px;
+  }
+  .trait-row {
+    display: grid;
+    grid-template-columns: 180px 80px 1fr;
+    align-items: center;
+    gap: 16px;
+    padding: 11px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-size: 12px;
+  }
+  .trait-row:hover { border-color: rgba(255,255,255,0.12); }
+  .trait-name { color: #ddd; font-weight: 500; }
+  .trait-nature {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    text-align: center;
+  }
+  .trait-nature.asset { color: #5aa048; border: 1px solid rgba(90,160,72,0.3); background: rgba(90,160,72,0.08); }
+  .trait-nature.liability { color: #D94030; border: 1px solid rgba(217,64,48,0.3); background: rgba(217,64,48,0.08); }
+  .trait-nature.dual { color: #CCA010; border: 1px solid rgba(204,160,16,0.3); background: rgba(204,160,16,0.08); }
+  .trait-cats {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: #555;
+    letter-spacing: 0.06em;
+  }
+  .trait-cats span {
+    display: inline-block;
+    padding: 1px 5px;
+    border-radius: 2px;
+    background: var(--subtle);
+    margin-right: 4px;
+    color: #666;
+  }
+
+  /* CHAKRA */
+  .chakra-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 44px;
+  }
+  .chakra-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 18px;
+  }
+  .chakra-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 8px;
+  }
+  .chakra-body { font-size: 12px; color: #888; line-height: 1.7; }
+  .chakra-body strong { color: #bbb; font-weight: 500; }
+
+  /* CROWN TYPES */
+  .crown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 44px;
+  }
+  .crown-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 18px;
+  }
+  .crown-type {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .crown-desc { font-size: 11px; color: #888; line-height: 1.6; }
+
+  /* OPEN NOTES */
+  .notes-block {
+    border: 1px solid rgba(255,255,255,0.05);
+    border-left: 3px solid #2a2a2e;
+    border-radius: 3px;
+    padding: 14px 16px;
+    background: #0e0e10;
+  }
+  .notes-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  .note-item { font-size: 11px; color: #444; line-height: 1.6; margin-bottom: 6px; }
+  .note-item:last-child { margin-bottom: 0; }
+
+  @media (max-width: 640px) {
+    .layer-grid, .cat-grid, .chakra-block, .crown-grid { grid-template-columns: 1fr; }
+    .trait-row { grid-template-columns: 1fr 70px; }
+    .trait-cats { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="color-bar"></div>
+    <div class="eyebrow">Lucky Window · Rhythm Framework · Internal</div>
+    <h1 class="page-title"><em>Pink</em> Rhythm</h1>
+    <div class="page-meta">
+      <span class="meta-tag pink">Self Expression</span>
+      <span class="meta-tag">Score +14 to +20</span>
+      <span class="meta-tag">Dominant Rhythm</span>
+      <span class="meta-tag">Crown → Stellar Gateway</span>
+      <span class="meta-tag">Source: Trinity Collective</span>
+    </div>
+  </div>
+
+  <!-- IDENTITY -->
+  <div class="identity-block">
+    <div class="identity-name">The Sparkplug</div>
+    <div class="identity-desc">Pink is the rhythm of self-expression at its most concentrated. It fires fast, moves first, and dominates its environment when fully activated. Its core identity is not performance — it is authentic energetic ignition. Pink does not build toward expression; Pink <em>is</em> expression. The burst is the nature, not a symptom of it.</div>
+  </div>
+
+  <!-- TWO-LAYER ARCHITECTURE -->
+  <div class="section">
+    <div class="section-label">Two-Layer Architecture</div>
+    <div class="layer-grid">
+      <div class="layer-card highlight">
+        <div class="layer-title pink">Birth Rhythm</div>
+        <div class="layer-body">
+          A person <strong>born with Pink</strong> as a core rhythm carries these traits as a fixed energetic identity for life. Birth rhythm is permanent and identifiable only through channeling — no calculation method exists yet.<br><br>
+          A person can hold <strong>up to 4 birth rhythm colors</strong> (rare). Pink, when present, is always dominant.
+        </div>
+        <div class="layer-note">* Calculation method: to be developed</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-title muted">Window Rhythm</div>
+        <div class="layer-body">
+          A Pink <strong>window</strong> (score +14 to +20) activates Pink energetics environmentally for anyone in that day — regardless of birth rhythm. The same traits apply, but at reduced intensity for non-Pink birth holders.
+        </div>
+        <div class="layer-note">* Window is calculable via the Lucky Window scoring system</div>
+      </div>
+    </div>
+
+    <!-- BOOST STATE -->
+    <div class="boost-banner">
+      <div class="boost-dot"></div>
+      <div class="boost-text">
+        <strong>Boosted State:</strong> When a person's birth rhythm is Pink AND they are in a Pink window — both layers are active simultaneously. All traits intensify, dominance is amplified, and the full Sparkplug expression is available. This is the highest-output state in the Pink framework.
+      </div>
+    </div>
+  </div>
+
+  <!-- WAVE PATTERN -->
+  <div class="section">
+    <div class="section-label">Burst Wave Pattern</div>
+    <div class="wave-block">
+      <div class="wave-title">Pink energy cycle — instant ignition · sharp peak · fork at the top</div>
+
+      <svg viewBox="0 0 520 150" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; margin-bottom:12px;">
+        <!-- Grid lines -->
+        <line x1="0" y1="125" x2="520" y2="125" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="0" y1="85" x2="520" y2="85" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="0" y1="45" x2="520" y2="45" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,4"/>
+
+        <!-- Shared rise — near-vertical ignition to peak -->
+        <path d="M 60,123 C 68,108 80,72 96,38 C 104,22 112,14 120,12"
+              fill="none" stroke="#D030A0" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+
+        <!-- Fork point marker -->
+        <circle cx="120" cy="12" r="4" fill="#D030A0" opacity="0.9"/>
+        <text x="128" y="10" font-family="IBM Plex Mono, monospace" font-size="8" fill="rgba(208,48,160,0.7)" letter-spacing="0.1em">PEAK · FORK</text>
+
+        <!-- Empowered release — long smooth bell taper -->
+        <path d="M 120,12 C 150,13 200,28 260,58 C 320,88 390,112 480,123"
+              fill="none" stroke="#D030A0" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+
+        <!-- Re-ignition ghost bump on empowered line -->
+        <path d="M 300,72 C 310,58 320,28 332,16 C 340,8 348,8 356,10 C 368,14 376,38 386,62 C 394,80 402,100 418,118"
+              fill="none" stroke="#D030A0" stroke-width="1.5" stroke-linecap="round" opacity="0.3" stroke-dasharray="3,4"/>
+        <text x="334" y="6" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(208,48,160,0.35)" letter-spacing="0.06em">RE-IGNITION</text>
+
+        <!-- Empowered label -->
+        <text x="230" y="50" font-family="IBM Plex Mono, monospace" font-size="8" fill="#D030A0" opacity="0.85" letter-spacing="0.08em">EMPOWERED</text>
+        <text x="230" y="61" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(208,48,160,0.5)" letter-spacing="0.06em">long taper · can re-ignite</text>
+
+        <!-- Unempowered release — steep symmetrical bell taper, mirrors rise -->
+        <path d="M 120,12 C 132,22 148,52 164,80 C 176,102 190,116 210,123"
+              fill="none" stroke="#D030A0" stroke-width="2" stroke-linecap="round" opacity="0.35" stroke-dasharray="5,4"/>
+
+        <!-- Unempowered label -->
+        <text x="168" y="72" font-family="IBM Plex Mono, monospace" font-size="8" fill="rgba(208,48,160,0.45)" letter-spacing="0.08em">UNEMPOWERED</text>
+        <text x="168" y="83" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(208,48,160,0.3)" letter-spacing="0.06em">mirrors the ignition</text>
+
+        <!-- Bottom phase labels -->
+        <circle cx="60" cy="123" r="3" fill="#D030A0" opacity="0.4"/>
+        <text x="30" y="142" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="rgba(255,255,255,0.2)" letter-spacing="0.08em">IGNITION</text>
+        <text x="100" y="142" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="rgba(255,255,255,0.2)" letter-spacing="0.08em">PEAK</text>
+        <text x="340" y="142" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="rgba(255,255,255,0.2)" letter-spacing="0.08em">RELEASE</text>
+      </svg>
+
+      <div class="wave-notes">
+        <div class="wave-note">Fires from any state — near-zero ramp time</div>
+        <div class="wave-note">Fork at peak — less time to catch it than Purple</div>
+        <div class="wave-note">Empowered: gradual release, can re-ignite if dopamine sustained</div>
+        <div class="wave-note">Spent energy absorbed by environment — full mechanics open</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 RHYTHM CATEGORIES -->
+  <div class="section">
+    <div class="section-label">4 Rhythm Categories — Trigger &amp; Expression Are Linked</div>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-num">01</div>
+        <div class="cat-name">Short-Term Cycles</div>
+        <div class="cat-desc">Day-to-day and week-to-week rhythm expression. Pink manifests most visibly here — quick starts, fast relationship arcs, habitual momentum, and rapid opinion shifts all operate on this timescale.</div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">02</div>
+        <div class="cat-name">Long-Term Cycles</div>
+        <div class="cat-desc">12-year Zodiac cycles. Pink's burst nature plays out at macro scale — major life initiations, relationship chapters, and identity pivots follow the same fast-ignite pattern across longer arcs.</div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">03</div>
+        <div class="cat-name">Dopamine Activation</div>
+        <div class="cat-desc">Dopamine is the primary fuel of Pink — not a byproduct. The rhythm is ignited by dopaminergic triggers and the cycle feeds back on itself. This creates the Sparkplug's characteristic urgency, momentum, and risk appetite.</div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">04</div>
+        <div class="cat-name">Body Energy Adaptation</div>
+        <div class="cat-desc">Pink requires physical consistency to regulate its rhythm. Without body-cycle anchoring, the burst pattern overextends and exhausts. Consistency is the stabilizer — not restraint.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 TRAITS -->
+  <div class="section">
+    <div class="section-label">7 Channeled Traits — Universal · Intensified in Birth Rhythm Holders</div>
+    <div style="font-size:11px; color:#444; margin-bottom:12px; font-style:italic;">Category tags: 1 = Short-Term &nbsp;·&nbsp; 2 = Long-Term &nbsp;·&nbsp; 3 = Dopamine &nbsp;·&nbsp; 4 = Body Cycle</div>
+    <div class="traits-grid">
+      <div class="trait-row">
+        <div class="trait-name">Manifestor / Quick Starter</div>
+        <div class="trait-nature asset">Asset</div>
+        <div class="trait-cats"><span>1</span><span>2</span></div>
+      </div>
+      <div class="trait-row">
+        <div class="trait-name">Good Anticipator</div>
+        <div class="trait-nature asset">Asset</div>
+        <div class="trait-cats"><span>3</span><span>4</span></div>
+      </div>
+      <div class="trait-row">
+        <div class="trait-name">Habitual</div>
+        <div class="trait-nature dual">Dual</div>
+        <div class="trait-cats"><span>1</span><span>2</span><span>4</span></div>
+      </div>
+      <div class="trait-row">
+        <div class="trait-name">Constantly Changing Opinions</div>
+        <div class="trait-nature dual">Dual</div>
+        <div class="trait-cats"><span>1</span><span>3</span></div>
+      </div>
+      <div class="trait-row">
+        <div class="trait-name">Short Relationships / Quick to Finish</div>
+        <div class="trait-nature dual">Dual</div>
+        <div class="trait-cats"><span>1</span><span>2</span></div>
+      </div>
+      <div class="trait-row" style="border-left: 2px solid rgba(208,48,160,0.3);">
+        <div class="trait-name">Fast Reflexes / Environmental Awareness <span style="font-size:10px; color:#555; font-style:italic; font-weight:400;">→ Alert → Precognition (elevated)</span></div>
+        <div class="trait-nature dual">Dual</div>
+        <div class="trait-cats"><span>1</span><span>3</span><span>4</span></div>
+      </div>
+      <div class="trait-row">
+        <div class="trait-name">Exhausting / Overextending</div>
+        <div class="trait-nature liability">Liability</div>
+        <div class="trait-cats"><span>1</span><span>3</span><span>4</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAKRA -->
+  <div class="section">
+    <div class="section-label">Energetic Anatomy</div>
+    <div class="chakra-block">
+      <div class="chakra-card">
+        <div class="chakra-name">Primary Channel</div>
+        <div class="chakra-body"><strong>Crown → Stellar Gateway</strong><br><br>Pink energy operates between these two centers. The Stellar Gateway is the highest-frequency access point — Pink's position here explains the burst ignition quality and its connection to transmission rather than processing.</div>
+      </div>
+      <div class="chakra-card">
+        <div class="chakra-name">Third Eye — Coalescence Point</div>
+        <div class="chakra-body"><strong>All energies meet at the Third Eye.</strong><br><br>The third eye is described as the center where all rhythms coalesce — making it the balancing point between reality and goals, with consideration of all energies present.</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top: 28px;">Crown Typology — Two Expressions</div>
+    <div class="crown-grid">
+      <div class="crown-card">
+        <div class="crown-type">Harmony Crown</div>
+        <div class="crown-desc">Oriented toward balance and wholeness. Focuses on holding the room, keeping peace, and maintaining energetic equilibrium. Pink in a Harmony Crown expression tends toward relational awareness and environmental attunement.</div>
+      </div>
+      <div class="crown-card">
+        <div class="crown-type">Wisdom Crown</div>
+        <div class="crown-desc">Goal-oriented, big-picture focused. Operates from a wider aperture. Pink in a Wisdom Crown expression tends toward strategic ignition — using the burst quality to initiate and drive toward defined outcomes.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPEN NOTES -->
+  <div class="notes-block">
+    <div class="notes-label">Open Items — To Be Developed</div>
+    <div class="note-item">① <span style="color:#555">Birth rhythm calculation method</span> — currently identifiable through channeling only. No mathematical framework yet.</div>
+    <div class="note-item">② <span style="color:#555">Multi-color birth rhythm interactions</span> — up to 4 colors possible. How Pink interacts with other birth colors (e.g. Pink + Purple) not yet mapped.</div>
+    <div class="note-item">③ <span style="color:#555">Crown type identification</span> — how to determine Harmony vs Wisdom crown for a given person is not yet defined.</div>
+    <div class="note-item">④ <span style="color:#555">Window × birth rhythm interaction matrix</span> — how Pink window affects non-Pink birth holders across each other birth color to be mapped.</div>
+    <div class="note-item">⑤ <span style="color:#555">Trait regulation polarity</span> — Fast Reflexes / Environmental Awareness has a confirmed three-tier arc: unregulated (reactive, pulled toward risk) → Alert (conscious, directed) → Precognition (ahead of real-time). Other traits evaluated individually — not assumed universal.</div>
+    <div class="note-item">⑥ <span style="color:#555">Energy absorption at burst completion</span> — energy is absorbed by the environment / nature. Full cosmological mechanics open. System-wide question, not Pink-specific.</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,6 +1,0 @@
-elem1,elem2,elem1_off_par,elem2_off_par,off_par_diff,elem1_win_%,elem2_win_%,win_rate_diff_%,description
-Metal,Wood,-0.776,-0.908,0.132,32.8,31.6,1.2,Metal opposes Wood
-Water,Fire,-0.95,-0.957,0.007,30.3,31.0,-0.7,Water extinguishes Fire
-Fire,Earth,-0.957,-0.962,0.005,31.0,30.7,0.3,Fire controlled by Earth
-Earth,Water,-0.962,-0.95,-0.012,30.7,30.3,0.4,Water floods Earth
-Wood,Metal,-0.908,-0.776,-0.132,31.6,32.8,-1.2,Metal cuts Wood

@@ -1,0 +1,5 @@
+combo,dimension,value,n,mean_vs_avg,std,beat_field_pct,beat_field_count,p_value,excess_vs_baseline,signal_quality
+exec_bucket=0-25,exec_bucket,0-25,84,-0.5558,3.4031,59.5,50,0.1382,-0.3607,weak
+exec_bucket=25-50,exec_bucket,25-50,4683,-0.2751,2.9013,55.7,2607,0.0,-0.1493,rock_solid
+exec_bucket=50-75,exec_bucket,50-75,4117,-0.1902,2.97,54.0,2225,0.0,0.0139,acceptable
+exec_bucket=75-100,exec_bucket,75-100,775,0.2628,2.9992,49.7,385,0.0149,0.5012,rock_solid

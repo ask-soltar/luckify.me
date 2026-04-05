@@ -1,0 +1,7 @@
+combo,dimension,value,n,mean_vs_avg,std,beat_field_pct,beat_field_count,p_value,excess_vs_baseline,signal_quality
+round_type=Open,round_type,Open,3117,-0.2785,2.9416,57.1,1781,0.0,-0.1186,rock_solid
+round_type=Positioning,round_type,Positioning,1783,-0.115,2.8765,52.4,935,0.0916,0.102,weak
+round_type=Closing,round_type,Closing,1706,-0.217,2.8279,53.2,908,0.0016,-0.0228,rock_solid
+round_type=Survival,round_type,Survival,2702,-0.148,3.0057,53.6,1448,0.0106,0.0697,acceptable
+round_type=Mixed,round_type,Mixed,254,-0.0547,3.6162,51.2,130,0.8097,0.1474,weak
+round_type=Elimination,round_type,Elimination,97,-0.591,2.7562,67.0,65,0.0373,-0.3968,acceptable

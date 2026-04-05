@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Purple Rhythm — Structured Framework</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0b;
+    --surface: #111114;
+    --border: rgba(255,255,255,0.07);
+    --text: #e8e6e1;
+    --muted: #666;
+    --subtle: #2a2a2e;
+    --purple: #8A2BE2;
+    --purple-dim: rgba(138,43,226,0.12);
+    --purple-border: rgba(138,43,226,0.3);
+    --purple-glow: rgba(138,43,226,0.06);
+    --pink: #D030A0;
+    --pink-dim: rgba(208,48,160,0.08);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 40px 24px 80px;
+  }
+
+  .page-wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 28px;
+    margin-bottom: 48px;
+  }
+  .color-bar {
+    width: 48px; height: 4px;
+    background: var(--purple);
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .page-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 5vw, 46px);
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .page-title em { font-style: italic; color: var(--purple); }
+  .page-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+  .meta-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+  .meta-tag.purple { color: var(--purple); border-color: var(--purple-border); background: var(--purple-dim); }
+  .meta-tag.pink { color: var(--pink); border-color: rgba(208,48,160,0.3); background: var(--pink-dim); }
+
+  .section { margin-bottom: 44px; }
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* IDENTITY */
+  .identity-block {
+    background: var(--purple-glow);
+    border: 1px solid var(--purple-border);
+    border-left: 3px solid var(--purple);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 44px;
+  }
+  .identity-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--purple);
+    margin-bottom: 6px;
+  }
+  .identity-desc {
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.7;
+    max-width: 640px;
+  }
+
+  /* DUAL ROLE ARCHITECTURE */
+  .dual-role-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .role-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 18px 20px;
+  }
+  .role-card.active { border-color: var(--purple-border); background: var(--purple-glow); }
+  .role-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .role-title.purple { color: var(--purple); }
+  .role-title.muted { color: var(--muted); }
+  .role-body { font-size: 12px; color: #999; line-height: 1.7; }
+  .role-body strong { color: #ccc; font-weight: 500; }
+  .role-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: #444;
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  /* PINK-PURPLE RELATIONSHIP */
+  .relationship-block {
+    background: #0e0e12;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 18px 20px;
+    margin-bottom: 44px;
+  }
+  .rel-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .rel-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 10px;
+  }
+  .rel-node {
+    padding: 8px 14px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+    min-width: 140px;
+  }
+  .rel-node.pink-node { background: var(--pink-dim); border: 1px solid rgba(208,48,160,0.3); color: var(--pink); }
+  .rel-node.purple-node { background: var(--purple-dim); border: 1px solid var(--purple-border); color: var(--purple); }
+  .rel-arrow {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    position: relative;
+    margin: 0 12px;
+  }
+  .rel-arrow::after {
+    content: '→';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .rel-desc {
+    display: grid;
+    grid-template-columns: 140px 1fr 140px;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .rel-desc-item { font-size: 11px; color: #555; line-height: 1.5; text-align: center; font-style: italic; }
+
+  /* WAVE / MOMENTUM DIAGRAM */
+  .momentum-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 44px;
+  }
+  .momentum-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .momentum-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  .momentum-bar {
+    flex: 1;
+    border-radius: 2px 2px 0 0;
+    background: var(--purple);
+    opacity: 0.7;
+  }
+  .momentum-labels {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
+    margin-bottom: 14px;
+  }
+  .momentum-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+  }
+  .momentum-notes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .momentum-note {
+    font-size: 10px;
+    color: #555;
+    font-style: italic;
+    text-align: center;
+    padding: 6px;
+    border-top: 1px solid var(--border);
+    line-height: 1.5;
+  }
+
+  /* 3 CATEGORIES */
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 44px;
+  }
+  .cat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 18px;
+  }
+  .cat-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: var(--purple);
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+  }
+  .cat-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .cat-desc { font-size: 11px; color: #888; line-height: 1.6; }
+
+  /* TRAITS */
+  .traits-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 44px;
+  }
+  .trait-row {
+    display: grid;
+    grid-template-columns: 1fr 80px 120px 160px;
+    align-items: start;
+    gap: 16px;
+    padding: 12px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-size: 12px;
+  }
+  .trait-row:hover { border-color: rgba(255,255,255,0.12); }
+  .trait-name { color: #ddd; font-weight: 500; line-height: 1.5; }
+  .trait-name .regulated {
+    display: block;
+    font-size: 10px;
+    color: #555;
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+  .trait-nature {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    text-align: center;
+    margin-top: 2px;
+    display: inline-block;
+  }
+  .trait-nature.asset { color: #5aa048; border: 1px solid rgba(90,160,72,0.3); background: rgba(90,160,72,0.08); }
+  .trait-nature.liability { color: #D94030; border: 1px solid rgba(217,64,48,0.3); background: rgba(217,64,48,0.08); }
+  .trait-nature.dual { color: #CCA010; border: 1px solid rgba(204,160,16,0.3); background: rgba(204,160,16,0.08); }
+  .trait-cats {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: #555;
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+  .trait-cats span {
+    display: inline-block;
+    padding: 1px 5px;
+    border-radius: 2px;
+    background: var(--subtle);
+    margin-right: 4px;
+    color: #666;
+  }
+  .trait-sub {
+    font-size: 10px;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 2px;
+  }
+  .trait-sub span { color: #777; }
+
+  /* VISION CLOUD */
+  .vision-block {
+    background: var(--purple-glow);
+    border: 1px solid var(--purple-border);
+    border-radius: 4px;
+    padding: 18px 20px;
+    margin-bottom: 44px;
+  }
+  .vision-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--purple);
+    margin-bottom: 6px;
+  }
+  .vision-subtitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 14px;
+  }
+  .vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .vision-half { font-size: 12px; color: #999; line-height: 1.7; }
+  .vision-half strong { font-weight: 500; }
+  .vision-half.asset strong { color: #5aa048; }
+  .vision-half.liability strong { color: #D94030; }
+
+  /* CHAKRA */
+  .chakra-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 44px;
+    max-width: 420px;
+  }
+  .chakra-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .chakra-row.active-purple { border-color: var(--purple-border); background: var(--purple-glow); }
+  .chakra-row.active-pink { border-color: rgba(208,48,160,0.3); background: var(--pink-dim); }
+  .chakra-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .chakra-row-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    flex: 1;
+  }
+  .chakra-row-note { font-size: 10px; color: #555; font-style: italic; }
+
+  /* OPEN NOTES */
+  .notes-block {
+    border: 1px solid rgba(255,255,255,0.05);
+    border-left: 3px solid #2a2a2e;
+    border-radius: 3px;
+    padding: 14px 16px;
+    background: #0e0e10;
+  }
+  .notes-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  .note-item { font-size: 11px; color: #444; line-height: 1.6; margin-bottom: 6px; }
+  .note-item:last-child { margin-bottom: 0; }
+
+  @media (max-width: 640px) {
+    .dual-role-grid, .cat-grid, .vision-grid { grid-template-columns: 1fr; }
+    .trait-row { grid-template-columns: 1fr 70px; }
+    .trait-sub, .trait-cats { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="color-bar"></div>
+    <div class="eyebrow">Lucky Window · Rhythm Framework · Internal</div>
+    <h1 class="page-title"><em>Purple</em> Rhythm</h1>
+    <div class="page-meta">
+      <span class="meta-tag purple">Purpose</span>
+      <span class="meta-tag">Score −5 to −9</span>
+      <span class="meta-tag">Third Eye → Crown</span>
+      <span class="meta-tag">Source: Andromedian Database</span>
+      <span class="meta-tag pink">Pink Shadow Parallel</span>
+    </div>
+  </div>
+
+  <!-- IDENTITY -->
+  <div class="identity-block">
+    <div class="identity-name">The Cautious</div>
+    <div class="identity-desc">Purple is the rhythm of purpose — slow-building, future-oriented, and deeply self-aware. Where Pink ignites in the present moment, Purple is already moving toward what's coming. It doesn't start fast — it builds until momentum is sufficient, then sustains with remarkable endurance. Its core identity is not caution for its own sake, but <em>purposeful deliberation</em> — knowing exactly what it's building toward before committing to the build.</div>
+  </div>
+
+  <!-- DUAL ROLE -->
+  <div class="section">
+    <div class="section-label">Dual Role Architecture</div>
+    <div class="dual-role-grid">
+      <div class="role-card active">
+        <div class="role-title purple">Role 1 — Standalone Birth Rhythm</div>
+        <div class="role-body">
+          A person <strong>born with Purple</strong> carries purpose-orientation as their fixed energetic identity. All 6 traits operate at full intensity. Purple birth holders build slowly, sustain deeply, and are pulled forward by a future vision that operates largely below conscious awareness.
+        </div>
+        <div class="role-note">* Up to 4 birth rhythm colors possible. Purple can coexist with Pink.</div>
+      </div>
+      <div class="role-card active">
+        <div class="role-title purple">Role 2 — Shadow Parallel to Pink</div>
+        <div class="role-body">
+          For <strong>Pink birth rhythm holders only</strong>, Purple operates as a background echo — a future-pull running parallel to every Pink burst. Pink ignites in the present. Purple is already oriented toward what comes next. The two rhythms are the same Purple — one as identity, one as undercurrent.
+        </div>
+        <div class="role-note">* Purple shadow is exclusive to Pink birth holders. Not present in other birth rhythms.</div>
+      </div>
+    </div>
+
+    <!-- PINK-PURPLE RELATIONSHIP -->
+    <div class="relationship-block">
+      <div class="rel-title">Pink × Purple Relationship — For Pink Birth Holders</div>
+      <div class="rel-row">
+        <div class="rel-node pink-node">Pink<br><span style="font-size:9px; opacity:0.7;">Present · Ignition</span></div>
+        <div class="rel-arrow"></div>
+        <div class="rel-node purple-node">Purple Shadow<br><span style="font-size:9px; opacity:0.7;">Future · Echo</span></div>
+      </div>
+      <div class="rel-desc">
+        <div class="rel-desc-item">Fires now. Self-expression in the moment. Dopamine-fueled burst.</div>
+        <div class="rel-desc-item" style="color:#444;">Purple runs parallel — pulling toward what Pink is unconsciously moving toward. An echo across time.</div>
+        <div class="rel-desc-item">Purpose-oriented future arc. Already oriented toward what comes next.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOMENTUM PATTERN -->
+  <div class="section">
+    <div class="section-label">Momentum Wave Pattern</div>
+    <div class="momentum-block">
+      <div class="momentum-title">Purple energy cycle — slow build · sustained peak · fork at the top</div>
+
+      <svg viewBox="0 0 520 140" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; margin-bottom:12px;">
+        <!-- Grid lines -->
+        <line x1="0" y1="120" x2="520" y2="120" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="0" y1="80" x2="520" y2="80" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="0" y1="40" x2="520" y2="40" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,4"/>
+
+        <!-- Shared build curve — slow rise to peak -->
+        <path d="M 20,118 C 60,116 100,110 150,90 C 190,74 220,30 260,18"
+              fill="none" stroke="#8A2BE2" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+
+        <!-- Fork point marker -->
+        <circle cx="260" cy="18" r="4" fill="#8A2BE2" opacity="0.9"/>
+        <text x="268" y="14" font-family="IBM Plex Mono, monospace" font-size="8" fill="rgba(138,43,226,0.7)" letter-spacing="0.1em">PEAK · FORK</text>
+
+        <!-- Release line 1: Empowered — long gradual release -->
+        <path d="M 260,18 C 310,20 360,50 420,90 C 450,108 480,116 510,119"
+              fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" opacity="0.8"
+              stroke-dasharray="0"/>
+        <!-- Empowered label -->
+        <text x="370" y="62" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8A2BE2" opacity="0.8" letter-spacing="0.08em">EMPOWERED</text>
+        <text x="370" y="73" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(138,43,226,0.5)" letter-spacing="0.06em">gradual release</text>
+
+        <!-- Release line 2: Unempowered — symmetrical steep drop -->
+        <path d="M 260,18 C 280,30 295,60 310,85 C 322,104 335,114 355,119"
+              fill="none" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" opacity="0.4"
+              stroke-dasharray="5,4"/>
+        <!-- Unempowered label -->
+        <text x="310" y="55" font-family="IBM Plex Mono, monospace" font-size="8" fill="rgba(138,43,226,0.5)" letter-spacing="0.08em">UNEMPOWERED</text>
+        <text x="310" y="66" font-family="IBM Plex Mono, monospace" font-size="7" fill="rgba(138,43,226,0.35)" letter-spacing="0.06em">mirrors the build</text>
+
+        <!-- Phase labels on x-axis -->
+        <text x="20" y="134" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="rgba(255,255,255,0.2)" letter-spacing="0.08em">SLOW START</text>
+        <text x="140" y="134" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="rgba(255,255,255,0.2)" letter-spacing="0.08em">BUILD</text>
+        <text x="230" y="134" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="rgba(255,255,255,0.2)" letter-spacing="0.08em">PEAK</text>
+        <text x="370" y="134" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="rgba(255,255,255,0.2)" letter-spacing="0.08em">RELEASE</text>
+      </svg>
+
+      <div class="momentum-notes">
+        <div class="momentum-note">Requires ramp-up — does not fire from zero like Pink</div>
+        <div class="momentum-note">Fork lives at peak — discernment holds or breaks here</div>
+        <div class="momentum-note">Unempowered: release mirrors the build — ends as fast as it began</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 CATEGORIES -->
+  <div class="section">
+    <div class="section-label">3 Rhythm Categories</div>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-num">01</div>
+        <div class="cat-name">Manifestation</div>
+        <div class="cat-desc">Purple's purpose-orientation drives long-arc manifestation. Goals are held with patience and built toward deliberately. The risk is attachment to outcomes narrowing the field of possibility.</div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">02</div>
+        <div class="cat-name">Mental</div>
+        <div class="cat-desc">Self-awareness is the mental anchor. Purple thinks within known parameters — highly effective inside its map, but susceptible to limited world view when the map isn't updated. Discernment is the primary cognitive tool.</div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">03</div>
+        <div class="cat-name">Emotional</div>
+        <div class="cat-desc">Loyalty and attachment drive the emotional layer. Empathy runs deep. Purple knows its emotional limits and breaking points — the risk is moving too fast once an emotional bond forms, bypassing its own discernment.</div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- 6 TRAITS -->
+  <div class="section">
+    <div class="section-label">6 Channeled Traits — Universal · Intensified in Birth Rhythm Holders</div>
+    <div style="font-size:11px; color:#444; margin-bottom:12px; font-style:italic;">Category tags: 1 = Manifestation &nbsp;·&nbsp; 2 = Mental &nbsp;·&nbsp; 3 = Emotional &nbsp;&nbsp;|&nbsp;&nbsp; Sub-dimensions: P = Physical &nbsp;·&nbsp; M = Mental &nbsp;·&nbsp; E = Emotional</div>
+    <div class="traits-grid">
+
+      <div class="trait-row">
+        <div class="trait-name">
+          Knows Their Limits / Understands Capacity
+          <span class="regulated">P: Resourceful &nbsp;·&nbsp; M: Self-Aware &nbsp;·&nbsp; E: Self-Aware</span>
+        </div>
+        <div class="trait-nature asset">Asset</div>
+        <div class="trait-cats"><span>1</span><span>2</span><span>3</span></div>
+        <div class="trait-sub">Operates within known parameters precisely. Resourceful physically, self-aware mentally and emotionally. The foundation of Purple's reliability.</div>
+      </div>
+
+      <div class="trait-row">
+        <div class="trait-name">
+          Needs Momentum to Start
+        </div>
+        <div class="trait-nature dual">Dual</div>
+        <div class="trait-cats"><span>1</span><span>2</span><span>3</span></div>
+        <div class="trait-sub">Requires ramp-up across all three categories. Not a weakness — a design. Purple builds correctly or not at all. Risk is slow starts in time-sensitive environments.</div>
+      </div>
+
+      <div class="trait-row">
+        <div class="trait-name">
+          Once Rhythmic — Resistant to New Things
+        </div>
+        <div class="trait-nature dual">Dual</div>
+        <div class="trait-cats"><span>1</span><span>2</span><span>3</span></div>
+        <div class="trait-sub">Hard to break established patterns once accustomed. Asset for consistency and mastery. Liability when adaptation is required or world view needs expanding.</div>
+      </div>
+
+      <div class="trait-row">
+        <div class="trait-name">
+          Can Perceive Breaking Points
+          <span class="regulated">Knows when enough is enough</span>
+        </div>
+        <div class="trait-nature asset">Asset</div>
+        <div class="trait-cats"><span>1</span><span>2</span><span>3</span></div>
+        <div class="trait-sub">
+          <span>P: Attentive &nbsp;·&nbsp; M: Discerning (I Ching 39.5 — mapping in progress) &nbsp;·&nbsp; E: Empathetic</span><br>
+          Purple senses when systems, relationships, or situations are at their limit. Knows when to stop, withdraw, or redirect before collapse.
+        </div>
+      </div>
+
+      <div class="trait-row">
+        <div class="trait-name">
+          May Move Too Fast After Loyalty / Attachment
+        </div>
+        <div class="trait-nature liability">Liability</div>
+        <div class="trait-cats"><span>1</span><span>2</span><span>3</span></div>
+        <div class="trait-sub">Once emotional bond forms, Purple's caution can bypass itself. Loyalty overrides discernment. The rhythm that builds slowly can commit too quickly once attached.</div>
+      </div>
+
+      <div class="trait-row">
+        <div class="trait-name">
+          Limited World View
+          <span class="regulated">Mechanism: Vision Cloud &nbsp;·&nbsp; Regulated: Hyper Focus</span>
+        </div>
+        <div class="trait-nature liability">Liability</div>
+        <div class="trait-cats"><span>2</span></div>
+        <div class="trait-sub">Mental category only. Purple maps reality carefully but risks mistaking its map for the territory — this is Vision Cloud. When the map isn't updated, Purple operates within a narrowed field without knowing it. Regulated, the same narrowing becomes Hyper Focus — intentional, directed, and purposeful.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CHAKRA STACK -->
+  <div class="section">
+    <div class="section-label">Energetic Anatomy — Chakra Stack</div>
+    <div class="chakra-stack">
+      <div class="chakra-row active-pink">
+        <div class="chakra-dot" style="background:#D030A0; box-shadow: 0 0 6px #D030A0;"></div>
+        <div class="chakra-row-name" style="color:#D030A0;">Stellar Gateway</div>
+        <div class="chakra-row-note">Pink upper bound</div>
+      </div>
+      <div class="chakra-row active-pink">
+        <div class="chakra-dot" style="background:#D030A0;"></div>
+        <div class="chakra-row-name" style="color:#D030A0;">Crown</div>
+        <div class="chakra-row-note">Pink lower bound · Purple upper bound</div>
+      </div>
+      <div class="chakra-row active-purple">
+        <div class="chakra-dot" style="background:#8A2BE2; box-shadow: 0 0 6px #8A2BE2;"></div>
+        <div class="chakra-row-name" style="color:#8A2BE2;">Third Eye</div>
+        <div class="chakra-row-note">Purple lower bound · All rhythms coalesce here</div>
+      </div>
+      <div class="chakra-row">
+        <div class="chakra-dot" style="background:#333;"></div>
+        <div class="chakra-row-name" style="color:#444;">Lower Centers</div>
+        <div class="chakra-row-note">Other rhythms — to be mapped</div>
+      </div>
+    </div>
+    <div style="font-size:11px; color:#444; font-style:italic; margin-top:-30px; margin-bottom:44px;">
+      Pink and Purple share the Crown — Pink moves upward through it toward Stellar Gateway. Purple moves downward through it toward Third Eye. The Crown is the shared threshold between these two rhythms.
+    </div>
+  </div>
+
+  <!-- OPEN NOTES -->
+  <div class="notes-block">
+    <div class="notes-label">Open Items — To Be Developed</div>
+    <div class="note-item">① <span style="color:#555">Primary fuel</span> — not dopamine, not a known neurotransmitter. Something distinct. To be channeled.</div>
+    <div class="note-item">② <span style="color:#555">I Ching mapping</span> — Gate 39.5 flagged next to Discerning (Mental). I Ching connections across all rhythms are a work in progress.</div>
+    <div class="note-item">③ <span style="color:#555">Vision Cloud conditions</span> — what specifically triggers the shift from Hyper Focus (regulated) to Limited World View (unregulated) not yet fully defined. Trait-level detail to be developed.</div>
+    <div class="note-item">④ <span style="color:#555">Pink × Purple interaction depth</span> — more to the echo/shadow relationship than currently defined. Channel left open deliberately.</div>
+    <div class="note-item">⑤ <span style="color:#555">Purple shadow in multi-color holders</span> — if someone holds Pink + Purple as birth rhythms, how does the shadow dynamic change when Purple is also a primary? Not yet mapped.</div>
+    <div class="note-item">⑥ <span style="color:#555">Momentum source</span> — whether Purple's momentum build is internally or externally sourced not yet confirmed.</div>
+  </div>
+
+</div>
+</body>
+</html>

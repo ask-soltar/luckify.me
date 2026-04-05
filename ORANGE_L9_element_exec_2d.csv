@@ -1,0 +1,20 @@
+combo,dimension,value,n,mean_vs_avg,std,beat_field_pct,beat_field_count,p_value,excess_vs_baseline,signal_quality
+Wood -- 0-25,wu_xing -- exec_bucket,Wood -- 0-25,14,-2.1273,3.4543,78.6,11,0.0384,-1.932,weak
+Earth -- 0-25,wu_xing -- exec_bucket,Earth -- 0-25,26,-0.593,3.4355,61.5,16,0.3872,-0.3959,weak
+Water -- 0-25,wu_xing -- exec_bucket,Water -- 0-25,17,-0.4847,3.4817,58.8,10,0.5739,-0.287,weak
+Water -- 25-50,wu_xing -- exec_bucket,Water -- 25-50,866,-0.4036,2.9012,59.1,512,0.0,-0.2256,rock_solid
+Wood -- 25-50,wu_xing -- exec_bucket,Wood -- 25-50,859,-0.3331,2.8631,56.2,483,0.0007,-0.148,rock_solid
+Earth -- 25-50,wu_xing -- exec_bucket,Earth -- 25-50,1046,-0.2982,2.84,55.1,576,0.0007,-0.1122,rock_solid
+Earth -- 50-75,wu_xing -- exec_bucket,Earth -- 50-75,763,-0.2572,2.8813,55.6,424,0.0139,-0.064,rock_solid
+Fire -- 25-50,wu_xing -- exec_bucket,Fire -- 25-50,1009,-0.2556,2.9319,54.4,549,0.0057,-0.0641,rock_solid
+Wood -- 50-75,wu_xing -- exec_bucket,Wood -- 50-75,688,-0.1995,2.8626,54.7,376,0.068,-0.0014,weak
+Metal -- 50-75,wu_xing -- exec_bucket,Metal -- 50-75,837,-0.1911,2.984,54.1,453,0.0643,0.0078,weak
+Fire -- 50-75,wu_xing -- exec_bucket,Fire -- 50-75,944,-0.1844,3.0823,54.3,513,0.0664,0.0153,weak
+Water -- 50-75,wu_xing -- exec_bucket,Water -- 50-75,866,-0.1808,3.0003,52.9,458,0.0765,0.0191,weak
+Metal -- 25-50,wu_xing -- exec_bucket,Metal -- 25-50,887,-0.123,2.9643,54.3,482,0.2168,0.0828,weak
+Fire -- 0-25,wu_xing -- exec_bucket,Fire -- 0-25,20,-0.119,3.0834,55.0,11,0.8648,0.0794,weak
+Fire -- 75-100,wu_xing -- exec_bucket,Fire -- 75-100,207,-0.1131,2.8994,54.6,113,0.5752,0.0869,weak
+Metal -- 75-100,wu_xing -- exec_bucket,Metal -- 75-100,126,0.1798,3.0677,50.0,63,0.5117,0.383,weak
+Water -- 75-100,wu_xing -- exec_bucket,Water -- 75-100,167,0.2004,3.086,50.9,85,0.4026,0.4056,weak
+Wood -- 75-100,wu_xing -- exec_bucket,Wood -- 75-100,94,0.3552,2.8661,53.2,50,0.2326,0.5588,weak
+Earth -- 75-100,wu_xing -- exec_bucket,Earth -- 75-100,178,0.7713,2.9918,41.0,73,0.0007,0.9877,rock_solid

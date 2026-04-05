@@ -1,0 +1,10 @@
+combo,dimension,value,n,mean_vs_avg,std,beat_field_pct,beat_field_count,p_value,excess_vs_baseline,signal_quality
+Personal Year 1,Personal Year,1.0,925,-0.2491,2.8893,53.5,495,0.0089,-0.0563,rock_solid
+Personal Year 2,Personal Year,2.0,810,-0.1313,2.9169,54.8,444,0.2004,0.073,weak
+Personal Year 3,Personal Year,3.0,865,-0.1568,2.8759,52.9,458,0.1092,0.0455,weak
+Personal Year 4,Personal Year,4.0,1038,-0.4209,2.9502,57.6,598,0.0,-0.2496,rock_solid
+Personal Year 5,Personal Year,5.0,1097,-0.1243,2.9907,55.7,611,0.1689,0.0834,weak
+Personal Year 6,Personal Year,6.0,1194,-0.2137,3.0039,54.7,653,0.0141,-0.0176,rock_solid
+Personal Year 7,Personal Year,7.0,1191,-0.0861,2.931,52.8,629,0.3107,0.1278,weak
+Personal Year 8,Personal Year,8.0,1320,-0.2919,2.875,55.9,738,0.0002,-0.1085,rock_solid
+Personal Year 9,Personal Year,9.0,1219,-0.103,3.0431,52.6,641,0.2374,0.1089,weak
