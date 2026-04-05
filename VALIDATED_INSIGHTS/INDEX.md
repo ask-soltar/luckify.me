@@ -96,9 +96,9 @@ See [HOW_TO_ADD_INSIGHT.md](HOW_TO_ADD_INSIGHT.md) for complete workflow.
 
 | # | Theory | Failure Reason | Sample Size | Date |
 |---|--------|---|---|---|
-| (none currently) | — | — | — | — |
+| 1 | Orange Talent Equalizer | Failed Tier 1 out-of-sample validation (2025/2026); pattern did not replicate forward | 2,009 (2025/2026) | 2026-04-05 |
 
-**Files:** `/REJECTED/`
+**Files:** `/REJECTED/orange_talent_equalizer_20260405.md`
 
 ---
 
