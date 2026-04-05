@@ -1,0 +1,141 @@
+{
+  "metadata": {
+    "description": "Signals filtered by relative peer comparison thresholds: >5pp for deployment, >2pp for consideration",
+    "last_updated": "2026-04-05",
+    "threshold_deployment": ">5pp relative advantage vs peer colors",
+    "threshold_consideration": ">2pp relative advantage vs peer colors",
+    "deployment_signals": 5,
+    "consideration_signals": 0,
+    "archived_signals": 3,
+    "validation_status": "Tier 4 relative peer comparison applied",
+    "benchmarking_standard": "See BENCHMARKING_STANDARDS.md",
+    "source": "TIER4_RELATIVE_PEER_COMPARISON_RESULTS.md"
+  },
+
+  "signals_deploy": [
+    {
+      "id": "orange_fullmoon_calm",
+      "tier": 1,
+      "color": "Orange",
+      "moon": "Full Moon",
+      "condition": "Calm",
+      "metric": "vs_avg",
+      "threshold": "< -2",
+      "beat_field_pct": 39.0,
+      "peer_median": 29.6,
+      "relative_advantage": 9.4,
+      "n": 82,
+      "p_value": 0.047,
+      "description": "Orange + Full Moon + Calm. +9.4pp vs peer colors (STRONGEST). Beats field by 2+ strokes 39% of rounds. Validated on 2025/2026.",
+      "source": "TIER4_RELATIVE_PEER_COMPARISON_RESULTS.md"
+    },
+    {
+      "id": "orange_newmoon_calm",
+      "tier": 1,
+      "color": "Orange",
+      "moon": "New Moon",
+      "condition": "Calm",
+      "metric": "vs_avg",
+      "threshold": "< -2",
+      "beat_field_pct": 35.5,
+      "peer_median": 29.6,
+      "relative_advantage": 5.9,
+      "n": 76,
+      "p_value": 0.012,
+      "description": "Orange + New Moon + Calm. +5.9pp vs peer colors. Beats field by 2+ strokes 35.5% of rounds. Validated on 2025/2026.",
+      "source": "TIER4_RELATIVE_PEER_COMPARISON_RESULTS.md"
+    },
+    {
+      "id": "orange_newmoon",
+      "tier": 1,
+      "color": "Orange",
+      "moon": "New Moon",
+      "metric": "vs_avg",
+      "threshold": "< -2",
+      "beat_field_pct": 35.5,
+      "peer_median": 29.6,
+      "relative_advantage": 5.9,
+      "n": 76,
+      "p_value": 0.012,
+      "description": "Orange + New Moon (any condition). +5.9pp vs peer colors. Beats field by 2+ strokes 35.5% of rounds. Validated on 2025/2026.",
+      "source": "TIER4_RELATIVE_PEER_COMPARISON_RESULTS.md"
+    },
+    {
+      "id": "libra_horoscope_moderate",
+      "tier": 1,
+      "horoscope": "LIBRA",
+      "condition": "Moderate",
+      "metric": "vs_avg",
+      "threshold": "> +2",
+      "beat_field_pct": 34.5,
+      "peer_median": 25.8,
+      "relative_advantage": 8.7,
+      "n": 197,
+      "p_value": 0.000001,
+      "description": "Libra horoscope in MODERATE conditions (FADE). +8.7pp vs peer colors. Loses to field by 2+ strokes 34.5% of rounds. Avoid Libra in Moderate. Validated on 2025/2026.",
+      "source": "TIER4_RELATIVE_PEER_COMPARISON_RESULTS.md"
+    },
+    {
+      "id": "libra_horoscope_tough",
+      "tier": 1,
+      "horoscope": "LIBRA",
+      "condition": "Tough",
+      "metric": "vs_avg",
+      "threshold": "> +2",
+      "beat_field_pct": 50.0,
+      "peer_median": 12.4,
+      "relative_advantage": 37.6,
+      "n": 26,
+      "p_value": 0.000001,
+      "description": "Libra horoscope in TOUGH conditions (FADE). +37.6pp vs peer colors (EXTREME but tiny sample). Loses to field by 2+ strokes 50% of rounds. Avoid Libra in Tough. Validated on 2025/2026.",
+      "source": "TIER4_RELATIVE_PEER_COMPARISON_RESULTS.md"
+    }
+  ],
+
+  "signals_consideration": [],
+
+  "archived_signals": {
+    "reason": "Relative advantage < 5pp. At or below peer baseline. Not deployable as distinct signals.",
+    "list": [
+      {
+        "id": "orange_calm",
+        "status": "ARCHIVED_BELOW_THRESHOLD",
+        "beat_field_pct": 29.4,
+        "peer_median": 29.6,
+        "relative_advantage": -0.1,
+        "n": 1372,
+        "reason": "Below peer baseline (-0.1pp). No color-specific edge. Calm condition itself is favorable for all colors. Not distinct signal."
+      },
+      {
+        "id": "orange_waxing_calm",
+        "status": "ARCHIVED_BELOW_THRESHOLD",
+        "beat_field_pct": 30.0,
+        "peer_median": 29.6,
+        "relative_advantage": 0.4,
+        "n": 781,
+        "reason": "Marginal advantage (+0.4pp). Below 5pp threshold. Too weak for deployment."
+      },
+      {
+        "id": "libra_horoscope_calm",
+        "status": "ARCHIVED_BELOW_THRESHOLD",
+        "beat_field_pct": 30.0,
+        "peer_median": 29.6,
+        "relative_advantage": 0.4,
+        "n": 460,
+        "reason": "Marginal advantage (+0.4pp). Libra fade effect disappears in Calm (too favorable for all). Only use in Moderate/Tough."
+      }
+    ]
+  },
+
+  "notes": {
+    "sign_convention": "vs_avg = score - course_avg. Negative = beats field (good). Positive = loses to field (bad).",
+    "metric_standard": "See BENCHMARKING_STANDARDS.md for universal framework",
+    "relative_advantage": "beat_field_pct(signal) - median(all_peer_colors_same_condition)",
+    "threshold_deployment": "Relative advantage > 5pp (meaningfully better than peer colors)",
+    "threshold_consideration": "Relative advantage > 2pp (notably better, but not yet deployment-ready)",
+    "key_insight": "Only 5 signals pass 5pp threshold. 3 signals archived because they're at or below peer baseline. Relative peer comparison reveals which signals are truly distinct vs which are just riding the condition's inherent advantage.",
+    "orange_calm_finding": "NOT a color-specific signal. 29.4% is peer median (29.6%). All colors in Calm perform similarly. The Calm condition itself is the signal, not Orange.",
+    "libra_finding": "Condition-dependent FADE. Extreme effect in Tough (+37.6pp) but disappears in Calm (+0.4pp). Deploy in Moderate/Tough only.",
+    "next_validation": "2026-07-05 (quarterly revalidation with same thresholds)"
+  }
+}
