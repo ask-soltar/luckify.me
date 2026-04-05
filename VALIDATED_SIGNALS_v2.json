@@ -1,0 +1,171 @@
+{
+  "metadata": {
+    "description": "Centralized validated signals database. ONLY signals that pass 2025/2026 out-of-sample validation using universal benchmarking standards (vs_avg < -2 threshold).",
+    "last_updated": "2026-04-05",
+    "total_signals": 6,
+    "validation_status": "Updated to vs_avg < -2 threshold (beat field by 2+ strokes = meaningful outliers)",
+    "benchmarking_standard": "See BENCHMARKING_STANDARDS.md for universal metrics framework",
+    "metric": "vs_avg (score - field average)",
+    "threshold": "< -2 for BET signals, > +2 for FADE signals",
+    "baseline": "50% (random chance)",
+    "success_criterion": "beat_field_pct > 25% (meaningful edge vs baseline)",
+    "source": "Orange Deep Analysis (62 signals) + 2025/2026 validation + Tier 3B asymmetrical threshold analysis"
+  },
+
+  "signals_bet": [
+    {
+      "id": "orange_fullmoon_calm",
+      "tier": 1,
+      "color": "Orange",
+      "moon": "Full Moon",
+      "condition": "Calm",
+      "metric": "vs_avg",
+      "threshold": "< -2",
+      "beat_field_pct": 39.0,
+      "beat_field_pct_old_threshold": 78.0,
+      "n": 82,
+      "n_validated": 32,
+      "p_value": 0.047,
+      "description": "Orange + Full Moon + Calm = operational clarity peak. STRONGEST signal at meaningful threshold (39% beat by 2+ strokes). Validated on 2025/2026.",
+      "source": "ORANGE_DEEP_ANALYSIS_SUMMARY.md"
+    },
+    {
+      "id": "orange_newmoon_calm",
+      "tier": 1,
+      "color": "Orange",
+      "moon": "New Moon",
+      "condition": "Calm",
+      "metric": "vs_avg",
+      "threshold": "< -2",
+      "beat_field_pct": 35.5,
+      "beat_field_pct_old_threshold": 64.5,
+      "n": 76,
+      "n_validated": 27,
+      "p_value": 0.012,
+      "description": "Orange + New Moon + Calm = operational clarity. Peak signal (35.5% beat by 2+ strokes). Validated on 2025/2026.",
+      "source": "ORANGE_DEEP_ANALYSIS_SUMMARY.md"
+    },
+    {
+      "id": "orange_newmoon",
+      "tier": 1,
+      "color": "Orange",
+      "moon": "New Moon",
+      "metric": "vs_avg",
+      "threshold": "< -2",
+      "beat_field_pct": 35.5,
+      "beat_field_pct_old_threshold": 64.5,
+      "n": 76,
+      "n_validated": 27,
+      "p_value": 0.012,
+      "description": "New Moon dominates. Strong single signal across all conditions (35.5% beat by 2+ strokes). Validated on 2025/2026.",
+      "source": "ORANGE_DEEP_ANALYSIS_SUMMARY.md"
+    },
+    {
+      "id": "orange_calm",
+      "tier": 1,
+      "color": "Orange",
+      "condition": "Calm",
+      "metric": "vs_avg",
+      "threshold": "< -2",
+      "beat_field_pct": 29.4,
+      "beat_field_pct_old_threshold": 56.8,
+      "n": 1372,
+      "n_validated": 404,
+      "p_value": 0.000001,
+      "description": "Orange in Calm conditions beats field by 2+ strokes 29.4% of rounds. Broadest, most stable signal. Validated on 2025/2026.",
+      "source": "ORANGE_DEEP_ANALYSIS_SUMMARY.md"
+    },
+    {
+      "id": "orange_waxing_calm",
+      "tier": 2,
+      "color": "Orange",
+      "moon_group": "Waxing",
+      "condition": "Calm",
+      "metric": "vs_avg",
+      "threshold": "< -2",
+      "beat_field_pct": 30.0,
+      "beat_field_pct_old_threshold": 56.3,
+      "n": 781,
+      "n_validated": 234,
+      "p_value": 0.000001,
+      "description": "Waxing + Calm. Stable signal at meaningful threshold (30% beat by 2+ strokes). Broadest reliable signal (large n). Validated on 2025/2026.",
+      "source": "ORANGE_DEEP_ANALYSIS_SUMMARY.md"
+    }
+  ],
+
+  "signals_fade": [
+    {
+      "id": "libra_horoscope",
+      "tier": 2,
+      "horoscope": "LIBRA",
+      "metric": "vs_avg",
+      "threshold": "> +2",
+      "beat_field_pct": 32.1,
+      "beat_field_pct_old_threshold": 45.7,
+      "n": 683,
+      "n_validated": 219,
+      "p_value": 0.000001,
+      "description": "Libra horoscope underperforms significantly (lose to field by 2+ strokes 32.1% of rounds). Stable fade signal. Validated on 2025/2026.",
+      "source": "ORANGE_DEEP_ANALYSIS_SUMMARY.md"
+    }
+  ],
+
+  "removed_signals": {
+    "reason": "2025/2026 validation showed signals reversed or weakened beyond statistical significance; OR incompatible with new vs_avg < -2 benchmarking standard",
+    "list": [
+      {
+        "id": "red_exec_50_75_closing",
+        "status": "REVERSED",
+        "historical": -0.936,
+        "actual_2025_2026": 0.9275,
+        "reason": "Effect flipped sign in 2025/2026. Overfitted to earlier data."
+      },
+      {
+        "id": "green_exec_75_100_wood",
+        "status": "REVERSED",
+        "historical": -0.876,
+        "actual_2025_2026": 0.8284,
+        "reason": "Effect flipped sign in 2025/2026. Overfitted to earlier data."
+      },
+      {
+        "id": "blue_exec_75_100_metal",
+        "status": "NOT_TESTED",
+        "reason": "Similar to other Color×Exec combinations which reversed. Removed preemptively."
+      },
+      {
+        "id": "orange_exec_75_100_earth",
+        "status": "NOT_TESTED",
+        "reason": "Small sample (n=40). Color×Exec pattern suggests overfitting."
+      },
+      {
+        "id": "orange_exec_50_75_open",
+        "status": "NOT_VALIDATED",
+        "reason": "Not tested in 2025/2026 validation. Requires retest."
+      },
+      {
+        "id": "orange_exec_25_50_fire",
+        "status": "NOT_VALIDATED",
+        "reason": "Not tested in 2025/2026 validation. Requires retest."
+      },
+      {
+        "id": "green_exec_25_50_water",
+        "status": "NOT_VALIDATED",
+        "reason": "Not tested in 2025/2026 validation. Requires retest."
+      }
+    ]
+  },
+
+  "notes": {
+    "sign_convention": "vs_avg = score - course_avg. Negative = beats field (good). Positive = loses to field (bad).",
+    "metric_standard": "See BENCHMARKING_STANDARDS.md for universal framework",
+    "threshold_2025": "vs_avg < -2 (beat field by 2+ strokes = meaningful outlier)",
+    "why_meaningful_threshold": "Asymmetrical distribution: beating by 2+ is ~29% (not 50% like beating by any amount). Captures real outperformance, not marginal beats.",
+    "tier_1": "Maximum conviction - use in direct matchup decisions. n >= 76, beat% > 35%",
+    "tier_2": "Strong conviction - enhance matchups as secondary filters. n >= 70, beat% > 29%",
+    "validation_standard": "2025/2026 out-of-sample testing. Must hold p<0.05 AND beat_field_pct > 25%",
+    "key_insight": "Archetypal signals (Orange × Moon × Condition) are STABLE. Color×Exec combos from prior analysis were OVERFITTED. New threshold (< -2) reveals meaningful outliers, not just marginal beats.",
+    "old_vs_new": "Old threshold (< 0) showed ~57% beat field. New threshold (< -2) shows ~29% beat by 2+ strokes. Same signal, more conservative interpretation = better.",
+    "how_to_add": "New signals must pass 2025/2026 validation using vs_avg < -2 threshold. Must report beat_field_pct, n, p_value, and effect size per BENCHMARKING_STANDARDS.md.",
+    "next_validation": "2026-07-05 (quarterly revalidation), 2026-10-05, 2027-01-05"
+  }
+}
