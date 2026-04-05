@@ -42,6 +42,35 @@ This prevents inconsistency (e.g., sometimes using vs_avg < 0, sometimes vs_avg 
 
 ---
 
+## Comparative Metric: Relative Peer Advantage
+
+**Definition:** How much better is the signal vs OTHER COLORS in the same condition?
+
+```
+Relative_Advantage = beat_field_pct(signal_color) - median(peer_colors_same_condition)
+```
+
+**Example:**
+- Orange + Calm: 29.4% beat by 2+
+- Median of all colors in Calm: 29.6%
+- Relative advantage: 29.4 - 29.6 = -0.1pp (below peers, weak signal)
+
+**vs**
+
+- Orange + New Moon + Calm: 35.5% beat by 2+
+- Median of all colors in Calm: 29.6%
+- Relative advantage: 35.5 - 29.6 = +5.9pp (beats peers, strong signal)
+
+**Why this matters:** A signal is only valuable if it performs BETTER than the condition's baseline. If Orange + Calm is the same as Red + Calm, there's no color-specific edge.
+
+**Thresholds (TBD — user decides based on distribution):**
+- [ ] Option A (>0pp): Most inclusive, 7 signals qualify
+- [ ] Option B (>2pp): Moderate selectivity, 5 signals qualify
+- [ ] Option C (>5pp): High selectivity, 5 signals qualify
+- [ ] Option D (>8pp): Most selective, 3 signals qualify
+
+---
+
 ### Secondary Metric: Beat Field % (Win Rate)
 
 **Definition:** Percentage of rounds where signal condition is met
