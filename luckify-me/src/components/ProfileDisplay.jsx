@@ -1,9 +1,9 @@
 /**
- * ProfileDisplay — 3-layer profile view
+ * ProfileDisplay — profile view
  *
  * Layer 1: Zone Hero (always visible — the daily read)
- * Layer 2: Color Rhythm Calendar (expand to see the month)
- * Layer 3: Your Profile — dimension cards (expand to see the "why")
+ * Layer 2: Foundation — who you are (always visible, element-accented)
+ * Layer 3: Color Rhythm Calendar (expand to see the month)
  *
  * Dimensions are config-driven — add future dimensions to the array,
  * nothing else in this file needs to change.
@@ -17,6 +17,15 @@ import { TITHI_DATA, TITHI_AXIOMS, TITHI_SVGS } from '../constants/tithi.js';
 import { ELEMENT_CONFIG, ELEMENT_AXIOMS } from '../constants/element.js';
 import { LP_CONFIG } from '../constants/lifePath.js';
 import { getBlend } from '../constants/blends.js';
+
+// Element color palette — grounded, permanent, different energy from zone colors
+const ELEMENT_COLORS = {
+  Wood:  { text: '#6ab87a', accent: 'rgba(30, 110, 50, 0.18)' },
+  Fire:  { text: '#e06040', accent: 'rgba(130, 30, 10, 0.18)' },
+  Earth: { text: '#c89840', accent: 'rgba(110, 78, 10, 0.18)' },
+  Metal: { text: '#90b0cc', accent: 'rgba(40, 70, 110, 0.16)' },
+  Water: { text: '#4880c8', accent: 'rgba(20, 55, 130, 0.18)' },
+};
 
 // ── Icons ──────────────────────────────────────────────
 
@@ -37,7 +46,7 @@ function LifePathIcon({ number }) {
   return <div className="lp-number-circle">{number}</div>;
 }
 
-// ── Collapsible Layer ───────────────────────────────────
+// ── Collapsible Layer (calendar only) ──────────────────
 
 function ProfileLayer({ label, defaultOpen = false, children }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -48,6 +57,47 @@ function ProfileLayer({ label, defaultOpen = false, children }) {
         <span className={`profile-layer-chevron${open ? ' open' : ''}`}>▼</span>
       </button>
       {open && <div className="profile-layer-body">{children}</div>}
+    </div>
+  );
+}
+
+// ── Foundation Section — always visible, element-accented ──
+
+function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensions }) {
+  const elColor = ELEMENT_COLORS[element] || { text: 'var(--pip-primary)', accent: 'rgba(200,152,42,0.1)' };
+  const tithiLabel = type.charAt(0).toUpperCase() + type.slice(1);
+
+  return (
+    <div className="foundation-section" style={{ '--el-text': elColor.text, '--el-accent': elColor.accent }}>
+      {/* Identity bar */}
+      <div className="foundation-identity">
+        <span className="foundation-glyph">{elemCfg?.glyph}</span>
+        <span className="foundation-identity-text">
+          {element} · {tithiLabel} · Life Path {lifePathNum}
+        </span>
+      </div>
+
+      {/* Blend — always visible */}
+      {blend && (
+        <div className="foundation-blend">
+          <div className="foundation-blend-label">{element} × {tithiLabel}</div>
+          <p className="foundation-blend-body">{blend.statement}</p>
+        </div>
+      )}
+
+      {/* Dimension cards — individually expandable */}
+      <div className="foundation-dimensions">
+        {dimensions.map(dim => (
+          <DimensionCard
+            key={dim.key}
+            icon={dim.icon}
+            system={dim.system}
+            name={dim.name}
+            axiom={dim.axiom}
+            tabs={dim.tabs}
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -104,37 +154,22 @@ export function ProfileDisplay({ profile, onNewProfile }) {
   return (
     <div className="profile-page">
 
-      {/* ── Layer 1: Zone Hero (always visible) ── */}
+      {/* ── Layer 1: Zone Hero (today's frequency) ── */}
       <LuckyWindow profile={profile} />
 
-      {/* ── Layer 2: Color Rhythm Calendar ── */}
+      {/* ── Layer 2: Foundation (who you are — always visible) ── */}
+      <FoundationSection
+        blend={blend}
+        element={element}
+        type={type}
+        elemCfg={elemCfg}
+        lifePathNum={lifePathNum}
+        dimensions={dimensions}
+      />
+
+      {/* ── Layer 3: Color Rhythm Calendar ── */}
       <ProfileLayer label="THIS MONTH'S RHYTHM">
         <RhythmCalendar profile={profile} />
-      </ProfileLayer>
-
-      {/* ── Layer 3: Your Profile ── */}
-      <ProfileLayer label="YOUR PROFILE">
-        {/* Signal blend — the combo statement */}
-        {blend && (
-          <div className="profile-blend">
-            <div className="profile-blend-label">
-              {element} × {type.charAt(0).toUpperCase() + type.slice(1)}
-            </div>
-            <p className="profile-blend-statement">{blend.statement}</p>
-          </div>
-        )}
-
-        {/* Dimension cards — config driven */}
-        {dimensions.map(dim => (
-          <DimensionCard
-            key={dim.key}
-            icon={dim.icon}
-            system={dim.system}
-            name={dim.name}
-            axiom={dim.axiom}
-            tabs={dim.tabs}
-          />
-        ))}
       </ProfileLayer>
 
       {/* New profile */}

@@ -4,9 +4,25 @@
  * Future slot: Ask-Claude / fortune entry point.
  */
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { calcTodayWindow } from '../utils/luckyWindow.js';
 import { COLOR_RHYTHM } from '../constants/colorRhythm.js';
+import { getZoneScores, GUIDANCE, CELL_LINE, CAT_EMOJI } from '../constants/zoneScoring.js';
+
+function CategoryBar({ cat, normalized, textColor, guidance }) {
+  const pct = normalized * 10;
+  return (
+    <div className="cat-score-row">
+      <span className="cat-score-emoji">{CAT_EMOJI[cat] || '·'}</span>
+      <span className="cat-score-name" style={{ color: textColor }}>{cat}</span>
+      <div className="cat-score-bar-wrap">
+        <div className="cat-score-bar" style={{ width: `${pct}%`, background: textColor }} />
+      </div>
+      <span className="cat-score-val" style={{ color: textColor }}>{normalized.toFixed(1)}</span>
+      <span className="cat-score-guide" style={{ color: textColor }}>{guidance}</span>
+    </div>
+  );
+}
 
 // Raw hex values used to build the radial glow — must match index.css zone vars
 const ZONE_CSS = {
@@ -25,6 +41,7 @@ const TODAY_LABEL = new Date().toLocaleDateString('en-US', {
 });
 
 export function LuckyWindow({ profile }) {
+  const [catsOpen, setCatsOpen] = useState(false);
   const result = useMemo(() => {
     try {
       const { y, mo, dy } = profile;
@@ -62,6 +79,30 @@ export function LuckyWindow({ profile }) {
 
       {/* Mantra */}
       <div className="zone-hero-mantra">"{result.mantra}"</div>
+
+      {/* Category score bars — collapsible */}
+      <div className="zone-hero-cats">
+        <button className="zone-hero-cats-toggle" onClick={() => setCatsOpen(o => !o)}>
+          <span>TODAY'S FREQUENCIES</span>
+          <span className={`zone-hero-cats-chevron${catsOpen ? ' open' : ''}`}>▼</span>
+        </button>
+        {catsOpen && (
+          <div className="zone-hero-cats-body">
+            {getZoneScores(result.zone).map(({ cat, normalized }) => (
+              <CategoryBar
+                key={cat}
+                cat={cat}
+                normalized={normalized}
+                textColor={css.text}
+                guidance={GUIDANCE[result.zone]?.[cat] || ''}
+              />
+            ))}
+            {CELL_LINE[result.zone] && (
+              <p className="zone-hero-cats-tagline">{CELL_LINE[result.zone]}</p>
+            )}
+          </div>
+        )}
+      </div>
 
       {/* Future: Ask-Claude / fortune slot */}
       <div className="zone-hero-ask">

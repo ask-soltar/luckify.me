@@ -8,8 +8,25 @@
 import { useState, useMemo } from 'react';
 import { calcLuckyWindow } from '../utils/luckyWindow.js';
 import { getZoneScores, GUIDANCE, CELL_LINE, CAT_EMOJI } from '../constants/zoneScoring.js';
+import { DimensionCard } from './DimensionCard.jsx';
+import { TITHI_DATA, TITHI_AXIOMS, TITHI_SVGS } from '../constants/tithi.js';
+import { ELEMENT_CONFIG, ELEMENT_AXIOMS } from '../constants/element.js';
+import { LP_CONFIG } from '../constants/lifePath.js';
 
 const DOW = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+
+// ── Dimension icons (mirrors ProfileDisplay) ───────────
+function TithiIcon({ type }) {
+  const svg = TITHI_SVGS[type] || '';
+  return <svg viewBox="0 0 56 56" fill="none" style={{ width: 28, height: 28 }} dangerouslySetInnerHTML={{ __html: svg }} />;
+}
+function ElementIcon({ element }) {
+  const cfg = ELEMENT_CONFIG[element];
+  return <span style={{ fontSize: 22 }}>{cfg?.glyph || '?'}</span>;
+}
+function LifePathIcon({ number }) {
+  return <div className="lp-number-circle lp-number-circle--sm">{number}</div>;
+}
 
 const MONTH_NAMES = [
   'January','February','March','April','May','June',
@@ -75,7 +92,7 @@ function CategoryBar({ cat, normalized, textColor, guidance }) {
   );
 }
 
-function DayDetail({ day, onClose }) {
+function DayDetail({ day, profile, onClose }) {
   if (!day) return null;
 
   const zoneLower  = day.zone?.toLowerCase();
@@ -86,6 +103,39 @@ function DayDetail({ day, onClose }) {
   const scores     = getZoneScores(day.zone);
   const guidance   = GUIDANCE[day.zone] || {};
   const tagline    = CELL_LINE[day.zone] || '';
+
+  // Build profile dimensions for "YOUR SIGNAL" section
+  const dimensions = profile ? (() => {
+    const { type, cfg, element, lifePathNum } = profile;
+    const tithiData  = TITHI_DATA[type];
+    const tithiAxiom = TITHI_AXIOMS[type];
+    const elemCfg    = ELEMENT_CONFIG[element];
+    const elemAxiom  = ELEMENT_AXIOMS[element];
+    const lpCfg      = LP_CONFIG[lifePathNum];
+    return [
+      {
+        key: 'tithi', system: 'DIMENSION I · TITHI',
+        icon: <TithiIcon type={type} />,
+        name: cfg?.label || type, axiom: tithiAxiom,
+        tabs: tithiData ? [
+          { key: 'operating', label: 'Operating', principles: tithiData.operating },
+          { key: 'intuitive', label: 'Intuitive',  principles: tithiData.intuitive },
+        ] : [],
+      },
+      {
+        key: 'element', system: 'DIMENSION II · WU XING',
+        icon: <ElementIcon element={element} />,
+        name: `${element} · ${elemCfg?.keyword || ''}`, axiom: elemAxiom,
+        tabs: elemCfg ? [{ key: 'desc', label: 'Signal', principles: [{ title: elemCfg.keyword, body: elemCfg.desc }] }] : [],
+      },
+      {
+        key: 'lifePath', system: 'DIMENSION III · LIFE PATH',
+        icon: <LifePathIcon number={lifePathNum} />,
+        name: lpCfg?.name || `Life Path ${lifePathNum}`, axiom: lpCfg?.axiom,
+        tabs: lpCfg ? [{ key: 'mission', label: 'Mission', principles: [{ title: lpCfg.name, body: lpCfg.axiom }] }] : [],
+      },
+    ];
+  })() : [];
 
   return (
     <div className="cal-detail-overlay open" onClick={onClose}>
@@ -107,7 +157,7 @@ function DayDetail({ day, onClose }) {
           <div className="cal-detail-tagline" style={tc()}>{tagline}</div>
         )}
 
-        {/* Category score bars — matches luckify-app.html detail sheet */}
+        {/* Category score bars */}
         {scores.length > 0 && (
           <div className="cat-score-rows">
             {scores.map(({ cat, normalized }) => (
@@ -154,6 +204,23 @@ function DayDetail({ day, onClose }) {
         <div className="cal-detail-mantra" style={tc()}>
           "{day.mantra}"
         </div>
+
+        {/* YOUR SIGNAL — profile dimensions in context */}
+        {dimensions.length > 0 && (
+          <div className="cal-detail-signal">
+            <div className="cal-detail-signal-label">YOUR SIGNAL</div>
+            {dimensions.map(dim => (
+              <DimensionCard
+                key={dim.key}
+                icon={dim.icon}
+                system={dim.system}
+                name={dim.name}
+                axiom={dim.axiom}
+                tabs={dim.tabs}
+              />
+            ))}
+          </div>
+        )}
 
         <button className="pip-button cal-detail-close" onClick={onClose}>Close</button>
       </div>
@@ -243,7 +310,7 @@ export function RhythmCalendar({ profile }) {
       </div>
 
       {/* Day detail bottom sheet */}
-      {selected && <DayDetail day={selected} onClose={() => setSelected(null)} />}
+      {selected && <DayDetail day={selected} profile={profile} onClose={() => setSelected(null)} />}
     </div>
   );
 }
