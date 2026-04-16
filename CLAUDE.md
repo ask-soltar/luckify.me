@@ -1,7 +1,12 @@
 # Luckify Me — Project Reference for Claude
 
-This file is auto-loaded at the start of every Claude Code session.
-It is the single source of truth for the engine, sheet layout, conventions, and active work.
+> **Working on the React app?** Open `luckify-me/` as your root in VS Code.
+> The `luckify-me/CLAUDE.md` inside that folder has everything you need.
+> The rest of this file covers the **Google Apps Script / golf analytics system** only.
+
+---
+
+This file covers the GAS engine, sheet layout, conventions, and active work for the golf analytics system.
 
 ---
 
@@ -317,10 +322,10 @@ For withdrawn rounds, use `(player_avg + 4) - course_avg` instead of actual scor
 If tournament_type (AH) is Team (T), Points (P), or Match play (M) → leave blank. These formats are not comparable to stroke play.
 Only S (Standard Stroke Play) and NS (Non-Standard Stroke Play) get off_par values.
 
-### ANALYSIS v3 (cols A–AH)
-One row per round played. Source for all Python combo analysis. 34 columns with all divination + calculated metrics.
+### ANALYSIS v3 (cols A–AO)
+One row per round played. Source for all Python combo analysis. 41 columns with all divination + calculated metrics.
 
-**Core columns (A–X, populated data):**
+**Core columns (A–X, direct data):**
 | Col | Content |
 |-----|---------|
 | A–C | player_id, player_name, event_id |
@@ -328,25 +333,51 @@ One row per round played. Source for all Python combo analysis. 34 columns with 
 | F–P | round_num, score, par, course_avg, vs_avg, condition, round_type, color, exec, upside, peak |
 | Q–X | moon, wu_xing, zodiac, life_path, tithi, gap, tour, is_best_round |
 
-**Additional populated data (Y–Z):**
+**Divination + West (Y–Z):**
 | Col | Content |
 |-----|---------|
-| Y | horoscope (Western) |
-| Z | moonwest (8-cat per round) |
+| Y | horoscope (Western sun sign) |
+| Z | moonwest (8-cat Western moon per round) |
 
-**Calculated columns (AA–AH, formulas):**
+**Historical player metrics (AA–AB, formulas):**
 | Col | Content | Formula |
 |-----|---------|---------|
 | AA | player_hist_par | AVERAGEIFS off_par by player + condition |
 | AB | player_his_cnt | COUNTIFS rounds by player + condition |
+
+**Performance metrics (AC–AG, formulas):**
+| Col | Content | Formula |
+|-----|---------|---------|
 | AC | off_par | score − par (blank if tournament_type = T/P/M — not comparable) |
 | AD | exec_bucket | exec binned by 25s (0-25, 25-50, 50-75, 75-100) |
 | AE | upside_bucket | upside binned by 25s |
 | AF | gap_bucket | gap binned by 10s (20-30, 10-20, 0-10, -10-0, -20--10, <-20) |
 | AG | adj_his_par | adjusted historical par with shrinkage (player_hist_par blended with tour avg) |
+
+**Tournament metadata (AH):**
+| Col | Content |
+|-----|---------|
 | AH | tournament_type | tournament type (S/NS/T/P/M) from EVENTS |
 
-**vs Avg definition:** score vs venue field average for that round — NOT vs par.
+**Numerology + birth (AI–AM, formulas):**
+| Col | Content | Formula |
+|-----|---------|---------|
+| AI | Birthday | =XLOOKUP(player_id, PLAYERS!A:A, PLAYERS!C:C) — player birth date from PLAYERS |
+| AJ | Personal Year | Birth month + birth day + current year, reduced 1-9 (Master Numbers 11/22/33 preserved) |
+| AK | Event Date | =INDEX(EVENTS, MATCH(event_id, EVENTS!A:A), round_num) — round date from EVENTS |
+| AL | Personal Month | Personal Year + current month, reduced 1-9 (Master Numbers preserved) |
+| AM | Personal Day | Personal Month + current day, reduced 1-9 (Master Numbers preserved) |
+
+**Moon grouping + Universal (AN–AO):**
+| Col | Content | Formula |
+|-----|---------|---------|
+| AN | Moon Bucket (6) | Groups moonwest into: Waxing, Waning, Full Moon, New Moon (+ variants) |
+| AO | Universal Day | =INDEX(EVENTS!BI:BI/BJ:BJ/BK:BK/BL:BL, MATCH(event_id, EVENTS!A:A), round_num) — universal day per round from EVENTS |
+
+**Definition notes:**
+- **vs Avg:** score vs venue field average for that round — NOT vs par
+- **Master Numbers:** 11, 22, 33 preserved in numerology; all others reduced to single digit via modulo logic
+- **Universal Day:** Event-level numerology metric indexed by round (R1→BI, R2→BJ, R3→BK, R4→BL in EVENTS)
 
 ### RESULTS_RAW (cols A–K)
 Raw scores by player + event. Used for ID-linked imports.

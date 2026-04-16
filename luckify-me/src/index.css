@@ -1,0 +1,125 @@
+/* ── Design System Variables ── */
+:root {
+  /* Warm amber-gold chrome — ancient instrument meets deep space terminal */
+  --pip-primary:    #C8982A;
+  --pip-secondary:  #8C6A1A;
+  --pip-accent:     #E8C870;
+  --pip-danger:     #FF6030;
+  --pip-bg:         #050507;
+  --pip-bg-light:   #0b0b0e;
+  --pip-border:     #16161e;
+  --pip-muted:      #2e2e3a;
+  --pip-text:       #ddd8cc;
+  --pip-text-dim:   #6a6458;
+  --pip-glow:       0 0 12px rgba(200, 152, 42, 0.35);
+  --pip-glow-strong:0 0 24px rgba(200, 152, 42, 0.65);
+  --pip-font-mono:  'Space Mono', 'Courier New', monospace;
+  --pip-font-body:  'DM Sans', sans-serif;
+  --pip-font-family:'Space Mono', 'Courier New', monospace;
+
+  /* Zone shell tint — RGB triplet, set dynamically via --zone-color on .app-shell */
+  --zone-color: 200, 152, 42; /* default: amber when no zone */
+
+  /* Color zone backgrounds */
+  --pink-bg:   #3d0a34; --pink-text:   #f9c8ee;
+  --orange-bg: #2e1200; --orange-text: #ffd6a0;
+  --blue-bg:   #060f20; --blue-text:   #a8d4f5;
+  --yellow-bg: #1c1600; --yellow-text: #fff1a0;
+  --green-bg:  #061208; --green-text:  #b8f0c0;
+  --purple-bg: #100720; --purple-text: #d4b8f5;
+  --red-bg:    #1e0605; --red-text:    #ffc0bc;
+  --brown-bg:  #100906; --brown-text:  #d4b898;
+}
+
+/* ── Keyframes ── */
+@keyframes pip-glow-breathe {
+  0%, 100% { box-shadow: 0 0 8px rgba(var(--zone-color), 0.45); }
+  50%       { box-shadow: 0 0 20px rgba(var(--zone-color), 0.85), 0 0 40px rgba(var(--zone-color), 0.25); }
+}
+@keyframes today-pulse {
+  0%, 100% { outline-color: rgba(255,255,255,0.75); }
+  50%       { outline-color: rgba(255,255,255,0.25); }
+}
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--pip-bg);
+  color: var(--pip-text);
+  font-family: var(--pip-font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Option B: Pure void with depth ── */
+/* Very faint warm center radial — gives sense of standing in something vast */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 42%,
+      rgba(var(--zone-color), 0.028) 0%,
+      transparent 70%
+    );
+  transition: background 3s ease;
+}
+
+/* CRT vignette — edges bleed into darkness */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.72) 100%);
+}
+
+/* Scanlines — subtle, just enough texture */
+#root::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0,0,0,0.055) 3px,
+    rgba(0,0,0,0.055) 4px
+  );
+}
+
+#root {
+  position: relative;
+  z-index: 2;
+  min-height: 100%;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--zone-color), 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--zone-color), 0.55);
+}
