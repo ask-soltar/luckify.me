@@ -19,6 +19,7 @@ import { ELEMENT_CONFIG, ELEMENT_AXIOMS } from '../constants/element.js';
 import { LP_CONFIG } from '../constants/lifePath.js';
 import { getBlend } from '../constants/blends.js';
 import { GENE_KEYS } from '../constants/geneKeys.js';
+import { PURPOSE_GATES } from '../constants/purposeGates.js';
 
 // Element color palette — grounded, permanent, different energy from zone colors
 const ELEMENT_COLORS = {
@@ -162,7 +163,9 @@ export function ProfileDisplay({ profile, onNewProfile }) {
       system: 'DIMENSION IV · GENE KEYS',
       icon:   <GeneKeyIcon gate={geneKeys.lifeWork.gate} />,
       name:   `Gate ${geneKeys.lifeWork.gate}.${geneKeys.lifeWork.line} · Life's Work`,
-      axiom:  GENE_KEYS[geneKeys.lifeWork.gate]?.gift || 'Descriptions coming soon',
+      axiom:  GENE_KEYS[geneKeys.lifeWork.gate]?.gift
+           || PURPOSE_GATES[String(geneKeys.lifeWork.gate)]?.overall?.kids?.header
+           || 'Descriptions coming soon',
       tabs: [
         {
           key: 'prime',
@@ -172,25 +175,25 @@ export function ProfileDisplay({ profile, onNewProfile }) {
               title: `Life's Work — Gate ${geneKeys.lifeWork.gate} · Line ${geneKeys.lifeWork.line}`,
               body: GENE_KEYS[geneKeys.lifeWork.gate]
                 ? `Shadow: ${GENE_KEYS[geneKeys.lifeWork.gate].shadow}  ·  Gift: ${GENE_KEYS[geneKeys.lifeWork.gate].gift}  ·  Siddhi: ${GENE_KEYS[geneKeys.lifeWork.gate].siddhi}`
-                : 'Gate descriptions coming — add your content to src/constants/geneKeys.js',
+                : PURPOSE_GATES[String(geneKeys.lifeWork.gate)]?.overall?.kids?.header || `Gate ${geneKeys.lifeWork.gate} — content coming soon`,
             },
             {
               title: `Evolution — Gate ${geneKeys.evolution.gate} · Line ${geneKeys.evolution.line}`,
               body: GENE_KEYS[geneKeys.evolution.gate]
                 ? `Shadow: ${GENE_KEYS[geneKeys.evolution.gate].shadow}  ·  Gift: ${GENE_KEYS[geneKeys.evolution.gate].gift}  ·  Siddhi: ${GENE_KEYS[geneKeys.evolution.gate].siddhi}`
-                : `Gate ${geneKeys.evolution.gate} — add your content to src/constants/geneKeys.js`,
+                : PURPOSE_GATES[String(geneKeys.evolution.gate)]?.overall?.kids?.header || `Gate ${geneKeys.evolution.gate} — content coming soon`,
             },
             {
               title: `Radiance — Gate ${geneKeys.radiance.gate} · Line ${geneKeys.radiance.line}`,
               body: GENE_KEYS[geneKeys.radiance.gate]
                 ? `Shadow: ${GENE_KEYS[geneKeys.radiance.gate].shadow}  ·  Gift: ${GENE_KEYS[geneKeys.radiance.gate].gift}  ·  Siddhi: ${GENE_KEYS[geneKeys.radiance.gate].siddhi}`
-                : `Gate ${geneKeys.radiance.gate} — add your content to src/constants/geneKeys.js`,
+                : PURPOSE_GATES[String(geneKeys.radiance.gate)]?.overall?.kids?.header || `Gate ${geneKeys.radiance.gate} — content coming soon`,
             },
             {
               title: `Purpose — Gate ${geneKeys.purpose.gate} · Line ${geneKeys.purpose.line}`,
               body: GENE_KEYS[geneKeys.purpose.gate]
                 ? `Shadow: ${GENE_KEYS[geneKeys.purpose.gate].shadow}  ·  Gift: ${GENE_KEYS[geneKeys.purpose.gate].gift}  ·  Siddhi: ${GENE_KEYS[geneKeys.purpose.gate].siddhi}`
-                : `Gate ${geneKeys.purpose.gate} — add your content to src/constants/geneKeys.js`,
+                : PURPOSE_GATES[String(geneKeys.purpose.gate)]?.overall?.kids?.header || `Gate ${geneKeys.purpose.gate} — content coming soon`,
             },
           ],
         },
