@@ -2,10 +2,13 @@
  * geneKeys.js — Gene Keys calculation
  *
  * Computes the 4 Prime Keys from birth data:
- *   Life's Work  = Conscious Sun gate
- *   Evolution    = Conscious Earth gate (Sun + 180°)
- *   Radiance     = Conscious Moon gate
- *   Purpose      = Unconscious Sun gate (Sun − 88° arc = ~88 days before birth)
+ *   Life's Work  = Conscious Sun gate     (Sun at birth)
+ *   Evolution    = Conscious Earth gate   (Sun + 180° at birth)
+ *   Radiance     = Unconscious Sun gate   (Design Sun: Sun ~88 days before birth)
+ *   Purpose      = Unconscious Earth gate (Design Earth: Design Sun + 180°)
+ *
+ * Gene Keys uses only Sun positions — no Moon.
+ * The Design chart is calculated ~88 days before birth (88 solar arc degrees).
  *
  * Each key returns { gate: 1–64, line: 1–6 }
  */
@@ -38,23 +41,6 @@ function sunLongitude(d) {
   return ((lon % 360) + 360) % 360;
 }
 
-// Moon's ecliptic longitude in degrees (accurate to ~1°)
-function moonLongitude(d) {
-  const r = Math.PI / 180;
-  const Lm = ((218.3165 + 13.17639648 * d) % 360 + 360) % 360; // mean longitude
-  const Mp = ((134.9633964 + 13.06499295 * d) % 360 + 360) % 360; // Moon mean anomaly
-  const Ms = ((357.5291092 + 0.98560028  * d) % 360 + 360) % 360; // Sun mean anomaly
-  const Dm = ((297.8501921 + 12.19074912 * d) % 360 + 360) % 360; // mean elongation
-  const lon = Lm
-    + 6.289 * Math.sin(Mp * r)
-    - 2.100 * Math.sin(Ms * r)
-    - 1.274 * Math.sin((2 * Dm - Mp) * r)
-    - 0.658 * Math.sin(2 * Dm * r)
-    - 0.214 * Math.sin(2 * Mp * r)
-    - 0.110 * Math.sin(Dm * r);
-  return ((lon % 360) + 360) % 360;
-}
-
 // ── Gate mapping ───────────────────────────────────────
 
 // Convert an ecliptic longitude to { gate (1–64), line (1–6) }
@@ -80,8 +66,8 @@ function longitudeToGate(longitude) {
  * @returns {{
  *   lifeWork:  { gate: number, line: number },  // Conscious Sun
  *   evolution: { gate: number, line: number },  // Conscious Earth (Sun + 180°)
- *   radiance:  { gate: number, line: number },  // Conscious Moon
- *   purpose:   { gate: number, line: number },  // Unconscious Sun (Sun − 88°)
+ *   radiance:  { gate: number, line: number },  // Unconscious Sun (Design — ~88 days before birth)
+ *   purpose:   { gate: number, line: number },  // Unconscious Earth (Design Sun + 180°)
  * }}
  */
 export function calcGeneKeys({ year, month, day, birthTime = '12:00', tzOffset = 0 }) {
@@ -90,15 +76,18 @@ export function calcGeneKeys({ year, month, day, birthTime = '12:00', tzOffset =
 
   const d = daysFromJ2000(year, month, day, hour24, tzOffset);
 
+  // Conscious chart — at birth
   const sunLon       = sunLongitude(d);
-  const moonLon      = moonLongitude(d);
-  const earthLon     = (sunLon + 180) % 360;          // Earth = opposite Sun
-  const purposeLon   = ((sunLon - 88) % 360 + 360) % 360; // 88° arc before birth
+  const earthLon     = (sunLon + 180) % 360;
+
+  // Unconscious (Design) chart — Sun ~88 days before birth
+  const designSunLon   = sunLongitude(d - 88);
+  const designEarthLon = (designSunLon + 180) % 360;
 
   return {
-    lifeWork:  longitudeToGate(sunLon),
-    evolution: longitudeToGate(earthLon),
-    radiance:  longitudeToGate(moonLon),
-    purpose:   longitudeToGate(purposeLon),
+    lifeWork:  longitudeToGate(sunLon),         // Conscious Sun
+    evolution: longitudeToGate(earthLon),        // Conscious Earth
+    radiance:  longitudeToGate(designSunLon),    // Unconscious Sun (Design)
+    purpose:   longitudeToGate(designEarthLon),  // Unconscious Earth (Design)
   };
 }

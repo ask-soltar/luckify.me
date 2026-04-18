@@ -1,17 +1,21 @@
 /**
  * geneKeys.js — Gene Keys constants
  *
- * GATE_WHEEL: 64 gates in ecliptic order, starting at Gate 25
- *   (28°15' Pisces = 358.25°). Each gate spans 5.625° (360/64).
+ * GATE_WHEEL: 64 gates in ecliptic order, starting at Gate 25 (0° Aries).
+ *   Each gate spans 5.625° (360/64).
  *   Source: Human Design Mandala — verified against published degree tables.
+ *
+ * Note: GATE_START_LONGITUDE = 0 because our sunLongitude() formula returns
+ *   values in the tropical coordinate system (0° = vernal equinox = 0° Aries),
+ *   and Gate 25 occupies the 0° Aries slot in the standard Human Design wheel.
  *
  * GENE_KEYS: descriptions keyed by gate number.
  *   Populate with your own content — structure: { name, shadow, gift, siddhi }
  *   Lines can be added as: lines: { 1: '...', 2: '...', 3: '...', 4: '...', 5: '...', 6: '...' }
  */
 
-// Starting ecliptic longitude of Gate 25 (28°15' Pisces)
-export const GATE_START_LONGITUDE = 358.25;
+// Starting ecliptic longitude of Gate 25 (0° Aries in tropical coordinates)
+export const GATE_START_LONGITUDE = 0;
 
 // Degrees per gate and line
 export const DEGREES_PER_GATE = 5.625;   // 360 / 64
