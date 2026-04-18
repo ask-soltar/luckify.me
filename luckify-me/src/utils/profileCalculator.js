@@ -6,6 +6,7 @@
 import { calcTithi } from './tithi.js';
 import { getChineseZodiac } from './element.js';
 import { calcLifePath } from './lifePath.js';
+import { calcGeneKeys } from './geneKeys.js';
 import { TYPE_CONFIG } from '../constants/tithi.js';
 import { LP_CONFIG } from '../constants/lifePath.js';
 
@@ -36,12 +37,19 @@ import { LP_CONFIG } from '../constants/lifePath.js';
 export function calculateProfile(inputs) {
   const { year, month, day, hour12, minute, ampm, tzOffset } = inputs;
 
-  // Calculate all three dimensions
+  // Calculate all dimensions
   const tithi = calcTithi(year, month, day, hour12, minute, ampm, tzOffset);
   const zodiac = getChineseZodiac(year, month, day);
   const elementName = zodiac ? zodiac.element : null;
   const lifePathNum = calcLifePath(month, day, year);
   const lpCfg = LP_CONFIG[lifePathNum] || null;
+
+  // Convert hour12 + ampm to HH:MM for Gene Keys
+  const h24 = ampm === 'PM' && hour12 < 12 ? hour12 + 12
+            : ampm === 'AM' && hour12 === 12 ? 0
+            : hour12;
+  const birthTime24 = `${String(h24).padStart(2,'0')}:${String(minute).padStart(2,'0')}`;
+  const geneKeys = calcGeneKeys({ year, month, day, birthTime: birthTime24, tzOffset: tzOffset ?? 0 });
 
   return {
     type: tithi.type,
@@ -53,6 +61,7 @@ export function calculateProfile(inputs) {
     zodiac,
     lifePathNum,
     lpCfg,
+    geneKeys,
     y: year,
     mo: month,
     dy: day
