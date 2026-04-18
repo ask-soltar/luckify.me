@@ -113,16 +113,22 @@ function GeneKeyIcon({ gate }) {
   );
 }
 
-// Best available description for a gate: kids → adult → fallback
-function gateDesc(gate) {
+// Best available description for a gate.
+// If line is provided and has specific content, uses that; otherwise falls back to overall.
+// Priority: line-specific adult → overall kids → overall adult
+function gateDesc(gate, line) {
   const pg = PURPOSE_GATES[String(gate)];
-  return pg?.overall?.kids?.header
-      || pg?.overall?.adult?.header
+  if (!pg) return null;
+  const lineContent = line ? pg.lines?.[String(line)]?.adult?.header : null;
+  return lineContent
+      || pg.overall?.kids?.header
+      || pg.overall?.adult?.header
       || null;
 }
 
 export function ProfileDisplay({ profile, onNewProfile }) {
-  const { type, cfg, element, lifePathNum, geneKeys } = profile;
+  const { type, cfg, element, lifePathNum, geneKeys, birthTime } = profile;
+  const hasBirthTime = Boolean(birthTime) && birthTime !== '00:00';
 
   const tithiData  = TITHI_DATA[type];
   const tithiAxiom = TITHI_AXIOMS[type];
@@ -172,7 +178,7 @@ export function ProfileDisplay({ profile, onNewProfile }) {
       icon:   <GeneKeyIcon gate={geneKeys.lifeWork.gate} />,
       name:   `Gate ${geneKeys.lifeWork.gate}.${geneKeys.lifeWork.line} · Life's Work`,
       axiom:  GENE_KEYS[geneKeys.lifeWork.gate]?.gift
-           || gateDesc(geneKeys.lifeWork.gate)
+           || gateDesc(geneKeys.lifeWork.gate, hasBirthTime ? geneKeys.lifeWork.line : null)
            || 'Descriptions coming soon',
       tabs: [
         {
@@ -183,25 +189,25 @@ export function ProfileDisplay({ profile, onNewProfile }) {
               title: `Life's Work — Gate ${geneKeys.lifeWork.gate} · Line ${geneKeys.lifeWork.line}`,
               body: GENE_KEYS[geneKeys.lifeWork.gate]
                 ? `Shadow: ${GENE_KEYS[geneKeys.lifeWork.gate].shadow}  ·  Gift: ${GENE_KEYS[geneKeys.lifeWork.gate].gift}  ·  Siddhi: ${GENE_KEYS[geneKeys.lifeWork.gate].siddhi}`
-                : gateDesc(geneKeys.lifeWork.gate) || `Gate ${geneKeys.lifeWork.gate} — content coming soon`,
+                : gateDesc(geneKeys.lifeWork.gate, hasBirthTime ? geneKeys.lifeWork.line : null) || `Gate ${geneKeys.lifeWork.gate} — content coming soon`,
             },
             {
               title: `Evolution — Gate ${geneKeys.evolution.gate} · Line ${geneKeys.evolution.line}`,
               body: GENE_KEYS[geneKeys.evolution.gate]
                 ? `Shadow: ${GENE_KEYS[geneKeys.evolution.gate].shadow}  ·  Gift: ${GENE_KEYS[geneKeys.evolution.gate].gift}  ·  Siddhi: ${GENE_KEYS[geneKeys.evolution.gate].siddhi}`
-                : gateDesc(geneKeys.evolution.gate) || `Gate ${geneKeys.evolution.gate} — content coming soon`,
+                : gateDesc(geneKeys.evolution.gate, hasBirthTime ? geneKeys.evolution.line : null) || `Gate ${geneKeys.evolution.gate} — content coming soon`,
             },
             {
               title: `Radiance — Gate ${geneKeys.radiance.gate} · Line ${geneKeys.radiance.line}`,
               body: GENE_KEYS[geneKeys.radiance.gate]
                 ? `Shadow: ${GENE_KEYS[geneKeys.radiance.gate].shadow}  ·  Gift: ${GENE_KEYS[geneKeys.radiance.gate].gift}  ·  Siddhi: ${GENE_KEYS[geneKeys.radiance.gate].siddhi}`
-                : gateDesc(geneKeys.radiance.gate) || `Gate ${geneKeys.radiance.gate} — content coming soon`,
+                : gateDesc(geneKeys.radiance.gate, hasBirthTime ? geneKeys.radiance.line : null) || `Gate ${geneKeys.radiance.gate} — content coming soon`,
             },
             {
               title: `Purpose — Gate ${geneKeys.purpose.gate} · Line ${geneKeys.purpose.line}`,
               body: GENE_KEYS[geneKeys.purpose.gate]
                 ? `Shadow: ${GENE_KEYS[geneKeys.purpose.gate].shadow}  ·  Gift: ${GENE_KEYS[geneKeys.purpose.gate].gift}  ·  Siddhi: ${GENE_KEYS[geneKeys.purpose.gate].siddhi}`
-                : gateDesc(geneKeys.purpose.gate) || `Gate ${geneKeys.purpose.gate} — content coming soon`,
+                : gateDesc(geneKeys.purpose.gate, hasBirthTime ? geneKeys.purpose.line : null) || `Gate ${geneKeys.purpose.gate} — content coming soon`,
             },
           ],
         },
