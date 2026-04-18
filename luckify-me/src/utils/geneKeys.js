@@ -1,16 +1,12 @@
 /**
  * geneKeys.js — Gene Keys calculation
  *
- * Computes the 4 Prime Keys from birth data:
- *   Life's Work  = Conscious Sun gate     (Sun at birth)
- *   Evolution    = Conscious Earth gate   (Sun + 180° at birth)
- *   Radiance     = Unconscious Sun gate   (Design Sun: Sun ~88 days before birth)
- *   Purpose      = Unconscious Earth gate (Design Earth: Design Sun + 180°)
+ * Prime Keys (4): Life's Work, Evolution, Radiance, Purpose — from Sun/Earth positions.
+ * All Activations (24): 12 planets × 2 charts (conscious at birth + design ~88 days prior).
+ *   Planets: Sun, Earth, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, N.Node
  *
- * Gene Keys uses only Sun positions — no Moon.
- * The Design chart is calculated ~88 days before birth (88 solar arc degrees).
- *
- * Each key returns { gate: 1–64, line: 1–6 }
+ * Accuracy: ~1–3° for most planets (gate = 5.625° wide — sufficient for gate identification).
+ * Formulas: Keplerian elements + equation of center, ecliptic latitude ignored.
  */
 
 import { dateToSerial } from './tithi.js';
@@ -21,7 +17,13 @@ import {
   DEGREES_PER_LINE,
 } from '../constants/geneKeys.js';
 
-// ── Astronomy helpers ──────────────────────────────────
+// ── Constants ──────────────────────────────────────────
+
+const D2R = Math.PI / 180;
+
+function norm(x) { return ((x % 360) + 360) % 360; }
+
+// ── Time helpers ───────────────────────────────────────
 
 // Days elapsed since J2000.0 (noon, Jan 1 2000 UTC)
 function daysFromJ2000(year, month, day, hour24, tzOffset) {
@@ -29,46 +31,139 @@ function daysFromJ2000(year, month, day, hour24, tzOffset) {
   return dateToSerial(year, month, day) + tUTC - (dateToSerial(2000, 1, 1) + 0.5);
 }
 
-// Sun's ecliptic longitude in degrees (accurate to ~0.01°)
+// ── Solar longitude (accurate to ~0.01°) ──────────────
+
 function sunLongitude(d) {
-  const r = Math.PI / 180;
-  const L = ((280.4665 + 0.98564736 * d) % 360 + 360) % 360; // mean longitude
-  const g = ((357.5291092 + 0.98560028 * d) % 360 + 360) % 360; // mean anomaly
+  const L = norm(280.4665 + 0.98564736 * d);
+  const g = norm(357.5291092 + 0.98560028 * d);
   const lon = L
-    + 1.9146 * Math.sin(g * r)
-    + 0.0200 * Math.sin(2 * g * r)
-    - 0.0048 * Math.cos(g * r);
-  return ((lon % 360) + 360) % 360;
+    + 1.9146 * Math.sin(g * D2R)
+    + 0.0200 * Math.sin(2 * g * D2R)
+    - 0.0048 * Math.cos(g * D2R);
+  return norm(lon);
+}
+
+// ── Moon longitude (accurate to ~1°) ──────────────────
+
+function moonLongitude(d) {
+  const L  = norm(218.3165 + 13.17639648 * d);
+  const M  = norm(134.9634 + 13.06499295 * d);
+  const D  = norm(297.8502 + 12.19074912 * d);
+  const F  = norm(93.2721  + 13.22935024 * d);
+  const Ms = norm(357.5291 +  0.98560028 * d); // Sun's mean anomaly
+
+  return norm(L
+    + 6.289  * Math.sin(M  * D2R)
+    - 1.274  * Math.sin((2*D - M)     * D2R)
+    + 0.658  * Math.sin((2*D)         * D2R)
+    - 0.186  * Math.sin(Ms            * D2R)
+    + 0.214  * Math.sin((2*M)         * D2R)
+    - 0.059  * Math.sin((2*D - 2*M)   * D2R)
+    - 0.057  * Math.sin((2*D - M - Ms)* D2R)
+    + 0.053  * Math.sin((2*D + M)     * D2R)
+    + 0.046  * Math.sin((2*D - Ms)    * D2R)
+    + 0.041  * Math.sin((M - Ms)      * D2R)
+    - 0.035  * Math.sin(D             * D2R)
+    - 0.031  * Math.sin((M + Ms)      * D2R)
+    - 0.015  * Math.sin((2*F - 2*D)   * D2R)
+    + 0.011  * Math.sin((M - 4*D)     * D2R));
+}
+
+// ── North Node longitude (mean node, retrograde) ──────
+
+function northNodeLongitude(d) {
+  return norm(125.0445 - 0.05295377 * d);
+}
+
+// ── Planetary geocentric longitude (accurate to ~2–3°) ─
+
+/*
+ * Orbital elements at J2000.0 with linear rate per Julian century.
+ * Format: [L0, L1, w0, w1, e0, e1, a]
+ *   L  = mean longitude (deg)           L1 = rate (deg/century)
+ *   w  = longitude of perihelion (deg)  w1 = rate (deg/century)
+ *   e  = eccentricity                   e1 = rate (1/century)
+ *   a  = semi-major axis (AU, constant for our accuracy)
+ * Source: Meeus "Astronomical Algorithms", low-precision elements.
+ */
+const ORB = {
+  // name:   [ L0,          L1,           w0,        w1,      e0,      e1,      a       ]
+  Mercury: [252.25084, 149472.67411,  77.45779,   0.16047, 0.20563,  0.00002, 0.387098],
+  Venus:   [181.97973,  58517.81539, 131.56370,   0.00268, 0.00677, -0.00005, 0.723330],
+  Earth:   [100.46435,  35999.37245, 102.93735,   0.31997, 0.01671, -0.00004, 1.000000],
+  Mars:    [355.43327,  19140.30268, 336.06023,   0.44441, 0.09341,  0.00009, 1.523688],
+  Jupiter: [ 34.35148,   3034.74613,  14.72847,   0.21253, 0.04839, -0.00013, 5.202561],
+  Saturn:  [ 50.07747,   1222.49362,  93.05678,  -0.41898, 0.05551, -0.00051, 9.554747],
+  Uranus:  [314.05501,    428.48203, 170.95426,   0.40806, 0.04630, -0.00004,19.218140],
+  Neptune: [304.34867,    218.45945,  44.96476,  -0.32241, 0.00898,  0.00006,30.109570],
+  Pluto:   [238.92881,    145.20780, 224.06892,  -0.04063, 0.24882,  0.00006,39.481680],
+};
+
+// Solve Kepler's equation: E = M + e·sin(E), returns E in radians
+function keplerE(M_rad, e) {
+  let E = M_rad;
+  for (let i = 0; i < 12; i++) E = M_rad + e * Math.sin(E);
+  return E;
+}
+
+// Heliocentric ecliptic x, y (AU) for a planet given its orbital elements
+function helioXY(L0, L1, w0, w1, e0, e1, a, T) {
+  const L   = norm(L0 + L1 * T);
+  const w   = norm(w0 + w1 * T);
+  const e   = e0 + e1 * T;
+  const M   = norm(L - w) * D2R;
+  const E   = keplerE(M, e);
+  // True anomaly
+  const nu  = 2 * Math.atan2(
+    Math.sqrt(1 + e) * Math.sin(E / 2),
+    Math.sqrt(1 - e) * Math.cos(E / 2)
+  );
+  const r   = a * (1 - e * Math.cos(E));
+  const lon = norm(nu / D2R + w);
+  return { x: r * Math.cos(lon * D2R), y: r * Math.sin(lon * D2R) };
+}
+
+// Geocentric ecliptic longitude for a named planet
+function geocentricLon(planet, d) {
+  const T = d / 36525; // Julian centuries from J2000
+  const p = helioXY(...ORB[planet], T);
+  const e = helioXY(...ORB.Earth,   T);
+  return norm(Math.atan2(p.y - e.y, p.x - e.x) / D2R);
 }
 
 // ── Gate mapping ───────────────────────────────────────
 
-// Convert an ecliptic longitude to { gate (1–64), line (1–6) }
 function longitudeToGate(longitude) {
-  const adjusted = ((longitude - GATE_START_LONGITUDE) % 360 + 360) % 360;
+  const adjusted = norm(longitude - GATE_START_LONGITUDE);
   const slot     = Math.min(Math.floor(adjusted / DEGREES_PER_GATE), 63);
   const line     = Math.min(Math.floor((adjusted % DEGREES_PER_GATE) / DEGREES_PER_LINE) + 1, 6);
   return { gate: GATE_WHEEL[slot], line };
 }
+
+// ── Planet catalogue ───────────────────────────────────
+
+// { name, symbol, getLon(d) → degrees }
+const PLANETS = [
+  { name: 'Sun',     symbol: '☉', getLon: d => sunLongitude(d) },
+  { name: 'Earth',   symbol: '⊕', getLon: d => norm(sunLongitude(d) + 180) },
+  { name: 'Moon',    symbol: '☽', getLon: d => moonLongitude(d) },
+  { name: 'Mercury', symbol: '☿', getLon: d => geocentricLon('Mercury', d) },
+  { name: 'Venus',   symbol: '♀', getLon: d => geocentricLon('Venus',   d) },
+  { name: 'Mars',    symbol: '♂', getLon: d => geocentricLon('Mars',    d) },
+  { name: 'Jupiter', symbol: '♃', getLon: d => geocentricLon('Jupiter', d) },
+  { name: 'Saturn',  symbol: '♄', getLon: d => geocentricLon('Saturn',  d) },
+  { name: 'Uranus',  symbol: '♅', getLon: d => geocentricLon('Uranus',  d) },
+  { name: 'Neptune', symbol: '♆', getLon: d => geocentricLon('Neptune', d) },
+  { name: 'Pluto',   symbol: '♇', getLon: d => geocentricLon('Pluto',   d) },
+  { name: 'N.Node',  symbol: '☊', getLon: d => northNodeLongitude(d) },
+];
 
 // ── Public API ─────────────────────────────────────────
 
 /**
  * calcGeneKeys — compute the 4 Prime Keys for a birth profile.
  *
- * @param {object} params
- * @param {number} params.year
- * @param {number} params.month
- * @param {number} params.day
- * @param {string} params.birthTime  — 'HH:MM' (24h)
- * @param {number} params.tzOffset   — numeric UTC offset (e.g. -5 for EST)
- *
- * @returns {{
- *   lifeWork:  { gate: number, line: number },  // Conscious Sun
- *   evolution: { gate: number, line: number },  // Conscious Earth (Sun + 180°)
- *   radiance:  { gate: number, line: number },  // Unconscious Sun (Design — ~88 days before birth)
- *   purpose:   { gate: number, line: number },  // Unconscious Earth (Design Sun + 180°)
- * }}
+ * @returns {{ lifeWork, evolution, radiance, purpose }} — each { gate, line }
  */
 export function calcGeneKeys({ year, month, day, birthTime = '12:00', tzOffset = 0 }) {
   const [hStr, mStr] = (birthTime || '12:00').split(':');
@@ -76,18 +171,46 @@ export function calcGeneKeys({ year, month, day, birthTime = '12:00', tzOffset =
 
   const d = daysFromJ2000(year, month, day, hour24, tzOffset);
 
-  // Conscious chart — at birth
   const sunLon       = sunLongitude(d);
-  const earthLon     = (sunLon + 180) % 360;
-
-  // Unconscious (Design) chart — Sun ~88 days before birth
-  const designSunLon   = sunLongitude(d - 88);
-  const designEarthLon = (designSunLon + 180) % 360;
+  const earthLon     = norm(sunLon + 180);
+  const designSunLon = sunLongitude(d - 88);
+  const designEarthLon = norm(designSunLon + 180);
 
   return {
-    lifeWork:  longitudeToGate(sunLon),         // Conscious Sun
-    evolution: longitudeToGate(earthLon),        // Conscious Earth
-    radiance:  longitudeToGate(designSunLon),    // Unconscious Sun (Design)
-    purpose:   longitudeToGate(designEarthLon),  // Unconscious Earth (Design)
+    lifeWork:  longitudeToGate(sunLon),
+    evolution: longitudeToGate(earthLon),
+    radiance:  longitudeToGate(designSunLon),
+    purpose:   longitudeToGate(designEarthLon),
   };
+}
+
+/**
+ * calcAllActivations — compute all 24 planetary activations (12 planets × 2 charts).
+ *
+ * @returns {Array<{ planet, symbol, chart, gate, line }>}
+ *   chart: 'conscious' (at birth) | 'design' (~88 days before birth)
+ */
+export function calcAllActivations({ year, month, day, birthTime = '12:00', tzOffset = 0 }) {
+  const [hStr, mStr] = (birthTime || '12:00').split(':');
+  const hour24 = parseInt(hStr, 10) + parseInt(mStr, 10) / 60;
+
+  const d = daysFromJ2000(year, month, day, hour24, tzOffset);
+
+  const charts = [
+    { chart: 'conscious', offset: 0 },
+    { chart: 'design',    offset: -88 },
+  ];
+
+  const activations = [];
+
+  for (const { chart, offset } of charts) {
+    const dChart = d + offset;
+    for (const planet of PLANETS) {
+      const lon = planet.getLon(dChart);
+      const { gate, line } = longitudeToGate(lon);
+      activations.push({ planet: planet.name, symbol: planet.symbol, chart, gate, line });
+    }
+  }
+
+  return activations;
 }

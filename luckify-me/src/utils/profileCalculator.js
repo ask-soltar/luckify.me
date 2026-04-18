@@ -6,7 +6,7 @@
 import { calcTithi } from './tithi.js';
 import { getChineseZodiac } from './element.js';
 import { calcLifePath } from './lifePath.js';
-import { calcGeneKeys } from './geneKeys.js';
+import { calcGeneKeys, calcAllActivations } from './geneKeys.js';
 import { TYPE_CONFIG } from '../constants/tithi.js';
 import { LP_CONFIG } from '../constants/lifePath.js';
 
@@ -50,6 +50,7 @@ export function calculateProfile(inputs) {
             : hour12;
   const birthTime24 = `${String(h24).padStart(2,'0')}:${String(minute).padStart(2,'0')}`;
   const geneKeys = calcGeneKeys({ year, month, day, birthTime: birthTime24, tzOffset: tzOffset ?? 0 });
+  const activations = calcAllActivations({ year, month, day, birthTime: birthTime24, tzOffset: tzOffset ?? 0 });
 
   return {
     type: tithi.type,
@@ -62,6 +63,7 @@ export function calculateProfile(inputs) {
     lifePathNum,
     lpCfg,
     geneKeys,
+    activations,
     y: year,
     mo: month,
     dy: day

@@ -127,7 +127,7 @@ function gateDesc(gate, line) {
 }
 
 export function ProfileDisplay({ profile, onNewProfile }) {
-  const { type, cfg, element, lifePathNum, geneKeys, birthTime } = profile;
+  const { type, cfg, element, lifePathNum, geneKeys, birthTime, activations } = profile;
   const hasBirthTime = Boolean(birthTime) && birthTime !== '00:00';
 
   const tithiData  = TITHI_DATA[type];
@@ -213,6 +213,49 @@ export function ProfileDisplay({ profile, onNewProfile }) {
         },
       ],
     }] : []),
+
+    // ── Strengths & Weaknesses (Dimension V) ──
+    // Only shown when activations are available (profiles created after this feature was added).
+    // Filters the 24 planetary activations to those where PURPOSE_GATES has edge/blind_spot content.
+    ...(activations ? (() => {
+      const enriched = activations
+        .map(a => {
+          const lineData = PURPOSE_GATES[String(a.gate)]?.lines?.[String(a.line)]?.adult;
+          return { ...a, edge: lineData?.edge || null, blindSpot: lineData?.blind_spot || null };
+        })
+        .filter(a => a.edge || a.blindSpot);
+
+      if (!enriched.length) return [];
+
+      const chartLabel = chart => chart === 'conscious' ? 'C' : 'D';
+
+      const strengths = enriched
+        .filter(a => a.edge)
+        .map(a => ({
+          title: `${a.symbol} ${a.planet}  ${chartLabel(a.chart)} · Gate ${a.gate}.${a.line}`,
+          body:  a.edge,
+        }));
+
+      const weaknesses = enriched
+        .filter(a => a.blindSpot)
+        .map(a => ({
+          title: `${a.symbol} ${a.planet}  ${chartLabel(a.chart)} · Gate ${a.gate}.${a.line}`,
+          body:  a.blindSpot,
+        }));
+
+      const swTabs = [];
+      if (strengths.length)  swTabs.push({ key: 'strengths',  label: 'Strengths',  principles: strengths  });
+      if (weaknesses.length) swTabs.push({ key: 'weaknesses', label: 'Weaknesses', principles: weaknesses });
+
+      return [{
+        key:    'sw',
+        system: 'DIMENSION V · ACTIVATIONS',
+        icon:   <span style={{ fontSize: 22, lineHeight: 1 }}>⚖</span>,
+        name:   `${enriched.length} activated gates`,
+        axiom:  'Where your planets fall reveals your innate strengths (exaltations) and blind spots (detriments) — drawn from all 24 planetary activations across both charts.',
+        tabs:   swTabs,
+      }];
+    })() : []),
   ];
 
   return (
