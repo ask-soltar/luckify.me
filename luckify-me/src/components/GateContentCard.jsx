@@ -49,11 +49,14 @@ const KIDS_FIELDS = [
 
 // ── Component ─────────────────────────────────────────────────
 
-export function GateContentCard({ profile }) {
+export function GateContentCard({ profile, geneKeys: geneKeysProp }) {
   const [open, setOpen]     = useState(false);
   const [kidsMode, toggleKids] = useKidsMode();
 
-  const { geneKeys, birthTime } = profile;
+  const { birthTime } = profile;
+  // Use fresh geneKeys passed from ProfileDisplay (always recomputed via useMemo).
+  // Falls back to profile.geneKeys for backwards compatibility.
+  const geneKeys = geneKeysProp || profile.geneKeys;
   if (!geneKeys?.purpose) return null;
 
   const { gate, line } = geneKeys.purpose;

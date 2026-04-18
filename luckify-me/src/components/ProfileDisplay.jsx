@@ -303,7 +303,7 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
 
       {/* ── Layer 4: Purpose Frame ── */}
       {geneKeys?.purpose && (
-        <GateContentCard profile={profile} />
+        <GateContentCard profile={profile} geneKeys={geneKeys} />
       )}
 
       {/* New profile */}
