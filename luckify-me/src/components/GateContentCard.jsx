@@ -65,9 +65,11 @@ export function GateContentCard({ profile }) {
   const section      = hasBirthTime ? gateData.lines[String(line)] : gateData.overall;
   if (!section) return null;
 
-  const kidsAvailable = Boolean(section.kids?.header);
+  // Kids fallback: line-specific kids → overall kids → unavailable
+  const kidsSection   = section.kids?.header ? section.kids : gateData.overall?.kids;
+  const kidsAvailable = Boolean(kidsSection?.header);
   const effectiveKids = kidsMode && kidsAvailable;
-  const content = effectiveKids ? section.kids : section.adult;
+  const content = effectiveKids ? kidsSection : section.adult;
   if (!content?.header) return null;
 
   // Titles
