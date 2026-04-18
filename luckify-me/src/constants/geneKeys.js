@@ -15,8 +15,9 @@
  */
 
 // Starting ecliptic longitude of Gate 25.
-// 0° = vernal equinox (0° Aries), per Ra Uru Hu's original Human Design definition.
-export const GATE_START_LONGITUDE = 0;
+// Ra Uru Hu: the wheel begins at 28°15' Pisces = 358.25° tropical longitude.
+// Gate 25 spans 358.25° → 3.875° (crossing 0° Aries). Do NOT use 0 here.
+export const GATE_START_LONGITUDE = 358.25;
 
 // Degrees per gate and line
 export const DEGREES_PER_GATE = 5.625;   // 360 / 64

@@ -131,6 +131,22 @@ function geocentricLon(planet, d) {
   return norm(Math.atan2(p.y - e.y, p.x - e.x) / D2R);
 }
 
+// ── Design date (88° solar arc) ───────────────────────
+//
+// Human Design uses 88° of solar arc before birth, NOT 88 calendar days.
+// The sun moves ~0.9856°/day on average but varies through the year.
+// We solve iteratively: find d such that sunLongitude(d) == birthSunLon - 88°.
+
+function designDate(d_birth) {
+  const targetLon = norm(sunLongitude(d_birth) - 88);
+  let d = d_birth - 88; // initial estimate
+  for (let i = 0; i < 12; i++) {
+    const err = norm(sunLongitude(d) - targetLon + 180) - 180;
+    d -= err / 0.9856;
+  }
+  return d;
+}
+
 // ── Gate mapping ───────────────────────────────────────
 
 function longitudeToGate(longitude) {
@@ -171,9 +187,10 @@ export function calcGeneKeys({ year, month, day, birthTime = '12:00', tzOffset =
 
   const d = daysFromJ2000(year, month, day, hour24, tzOffset);
 
-  const sunLon       = sunLongitude(d);
-  const earthLon     = norm(sunLon + 180);
-  const designSunLon = sunLongitude(d - 88);
+  const sunLon         = sunLongitude(d);
+  const earthLon       = norm(sunLon + 180);
+  const d_design       = designDate(d);
+  const designSunLon   = sunLongitude(d_design);
   const designEarthLon = norm(designSunLon + 180);
 
   return {
@@ -196,15 +213,15 @@ export function calcAllActivations({ year, month, day, birthTime = '12:00', tzOf
 
   const d = daysFromJ2000(year, month, day, hour24, tzOffset);
 
+  const d_design = designDate(d);
   const charts = [
-    { chart: 'conscious', offset: 0 },
-    { chart: 'design',    offset: -88 },
+    { chart: 'conscious', dChart: d },
+    { chart: 'design',    dChart: d_design },
   ];
 
   const activations = [];
 
-  for (const { chart, offset } of charts) {
-    const dChart = d + offset;
+  for (const { chart, dChart } of charts) {
     for (const planet of PLANETS) {
       const lon = planet.getLon(dChart);
       const { gate, line } = longitudeToGate(lon);
