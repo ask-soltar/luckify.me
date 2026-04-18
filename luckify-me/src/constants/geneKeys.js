@@ -15,9 +15,8 @@
  */
 
 // Starting ecliptic longitude of Gate 25.
-// Value: -1° (= 359° tropical). Empirically calibrated against Gene Keys charts
-// to give accurate line numbers for both birth chart and design chart.
-export const GATE_START_LONGITUDE = -1;
+// 0° = vernal equinox (0° Aries), per Ra Uru Hu's original Human Design definition.
+export const GATE_START_LONGITUDE = 0;
 
 // Degrees per gate and line
 export const DEGREES_PER_GATE = 5.625;   // 360 / 64
