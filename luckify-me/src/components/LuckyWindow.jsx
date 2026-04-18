@@ -8,6 +8,20 @@ import { useMemo, useState } from 'react';
 import { calcTodayWindow } from '../utils/luckyWindow.js';
 import { COLOR_RHYTHM } from '../constants/colorRhythm.js';
 import { getZoneScores, GUIDANCE, CELL_LINE, CAT_EMOJI } from '../constants/zoneScoring.js';
+import { LocationInput } from './LocationInput.jsx';
+
+// Format a timezone ID or GMT offset into a readable city/offset label
+function locationLabel(tzId, gmt) {
+  if (tzId) {
+    const parts = tzId.split('/');
+    return parts[parts.length - 1].replace(/_/g, ' ');
+  }
+  if (gmt !== null && gmt !== undefined) {
+    const sign = gmt >= 0 ? '+' : '';
+    return `UTC${sign}${gmt}`;
+  }
+  return 'Set location';
+}
 
 function CategoryBar({ cat, normalized, textColor, guidance }) {
   const pct = normalized * 10;
@@ -40,8 +54,9 @@ const TODAY_LABEL = new Date().toLocaleDateString('en-US', {
   weekday: 'long', month: 'long', day: 'numeric'
 });
 
-export function LuckyWindow({ profile }) {
+export function LuckyWindow({ profile, onLocationChange }) {
   const [catsOpen, setCatsOpen] = useState(false);
+  const [editingLoc, setEditingLoc] = useState(false);
   const result = useMemo(() => {
     try {
       const { y, mo, dy } = profile;
@@ -66,8 +81,32 @@ export function LuckyWindow({ profile }) {
 
   return (
     <div className="zone-hero" style={{ background: heroBg, color: css.text }}>
-      {/* Date */}
+      {/* Date + Location */}
       <div className="zone-hero-date">{TODAY_LABEL}</div>
+      <div
+        className="zone-hero-location"
+        onClick={() => setEditingLoc(o => !o)}
+        title="Change current location"
+      >
+        <span className="zone-hero-loc-dot">◎</span>
+        <span className="zone-hero-loc-label">
+          {locationLabel(profile.currentTzId, profile.currentGMT)}
+        </span>
+        <span className="zone-hero-loc-edit">✎</span>
+      </div>
+      {editingLoc && (
+        <div className="zone-hero-loc-editor">
+          <LocationInput
+            placeholder="Search city to update location…"
+            onSelect={sel => {
+              if (sel && onLocationChange) {
+                onLocationChange({ offset: sel.offset, tzId: sel.tzId, label: sel.label });
+                setEditingLoc(false);
+              }
+            }}
+          />
+        </div>
+      )}
 
       {/* Zone + Identity */}
       <div className="zone-hero-main">

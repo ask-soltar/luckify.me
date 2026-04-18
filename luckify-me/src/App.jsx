@@ -90,6 +90,14 @@ export default function App() {
     }
   }
 
+  // Update current location (timezone) without recalculating
+  function handleLocationChange({ offset, tzId }) {
+    const updated = { ...activeProfile, currentGMT: offset, currentTzId: tzId };
+    setActiveProfile(updated);
+    const currentP = getCurrentProfile();
+    if (currentP) updateProfile(currentP.id, { result: updated });
+  }
+
   // Start a fresh reading
   function handleNewProfile() {
     switchProfile(null);
@@ -153,6 +161,7 @@ export default function App() {
             <ProfileDisplay
               profile={activeProfile}
               onNewProfile={handleNewProfile}
+              onLocationChange={handleLocationChange}
             />
           )
         )}

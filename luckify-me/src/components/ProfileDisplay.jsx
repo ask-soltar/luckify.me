@@ -127,7 +127,7 @@ function gateDesc(gate, line) {
       || null;
 }
 
-export function ProfileDisplay({ profile, onNewProfile }) {
+export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
   const { type, cfg, element, lifePathNum, geneKeys, birthTime } = profile;
 
   // Activations may be missing on older saved profiles — compute on the fly if so.
@@ -273,7 +273,7 @@ export function ProfileDisplay({ profile, onNewProfile }) {
     <div className="profile-page">
 
       {/* ── Layer 1: Zone Hero (today's frequency) ── */}
-      <LuckyWindow profile={profile} />
+      <LuckyWindow profile={profile} onLocationChange={onLocationChange} />
 
       {/* ── Layer 2: Foundation (who you are — always visible) ── */}
       <FoundationSection

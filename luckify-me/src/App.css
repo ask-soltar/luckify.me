@@ -708,6 +708,36 @@
   position: relative;
   z-index: 1;
 }
+.zone-hero-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--pip-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  cursor: pointer;
+  margin-top: 3px;
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.15s;
+}
+.zone-hero-location:hover { opacity: 0.85; }
+.zone-hero-loc-dot  { font-size: 8px; }
+.zone-hero-loc-edit { font-size: 8px; opacity: 0.6; }
+.zone-hero-loc-editor {
+  position: relative;
+  z-index: 2;
+  margin: 4px 0 8px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 10px 12px 4px;
+}
+.zone-hero-loc-editor .form-section { margin: 0; }
+.zone-hero-loc-editor .form-label   { display: none; }
 .zone-hero-main { position: relative; z-index: 1; }
 .zone-hero-mantra { position: relative; z-index: 1; }
 .zone-hero-ask   { position: relative; z-index: 1; }
