@@ -21,7 +21,7 @@ import { getBlend } from '../constants/blends.js';
 import { GENE_KEYS } from '../constants/geneKeys.js';
 import { PURPOSE_GATES } from '../constants/purposeGates.js';
 import { PLANETARY_FIX } from '../constants/planetaryFix.js';
-import { calcAllActivations } from '../utils/geneKeys.js';
+import { calcGeneKeys, calcAllActivations } from '../utils/geneKeys.js';
 
 // Element color palette — grounded, permanent, different energy from zone colors
 const ELEMENT_COLORS = {
@@ -129,11 +129,20 @@ function gateDesc(gate, line) {
 }
 
 export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
-  const { type, cfg, element, lifePathNum, geneKeys, birthTime } = profile;
+  const { type, cfg, element, lifePathNum, birthTime } = profile;
 
-  // Activations may be missing on older saved profiles — compute on the fly if so.
+  // Always recompute geneKeys from stored birth data so old profiles pick up
+  // formula fixes (GSTART, solar arc) without needing a manual recalculation.
+  const geneKeys = useMemo(() => {
+    const { y, mo, dy, birthTime: bt, birthGMT } = profile;
+    if (!y || !mo || !dy) return profile.geneKeys;
+    try {
+      return calcGeneKeys({ year: y, month: mo, day: dy, birthTime: bt || '12:00', tzOffset: birthGMT ?? 0 });
+    } catch { return profile.geneKeys; }
+  }, [profile]);
+
+  // Activations — also always recomputed on the fly.
   const activations = useMemo(() => {
-    if (profile.activations) return profile.activations;
     const { y, mo, dy, birthTime: bt, birthGMT } = profile;
     if (!y || !mo || !dy) return null;
     try {
