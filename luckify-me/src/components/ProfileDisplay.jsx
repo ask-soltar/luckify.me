@@ -9,7 +9,7 @@
  * nothing else in this file needs to change.
  */
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { DimensionCard } from './DimensionCard.jsx';
 import { LuckyWindow } from './LuckyWindow.jsx';
 import { RhythmCalendar } from './RhythmCalendar.jsx';
@@ -20,6 +20,7 @@ import { LP_CONFIG } from '../constants/lifePath.js';
 import { getBlend } from '../constants/blends.js';
 import { GENE_KEYS } from '../constants/geneKeys.js';
 import { PURPOSE_GATES } from '../constants/purposeGates.js';
+import { calcAllActivations } from '../utils/geneKeys.js';
 
 // Element color palette — grounded, permanent, different energy from zone colors
 const ELEMENT_COLORS = {
@@ -127,7 +128,17 @@ function gateDesc(gate, line) {
 }
 
 export function ProfileDisplay({ profile, onNewProfile }) {
-  const { type, cfg, element, lifePathNum, geneKeys, birthTime, activations } = profile;
+  const { type, cfg, element, lifePathNum, geneKeys, birthTime } = profile;
+
+  // Activations may be missing on older saved profiles — compute on the fly if so.
+  const activations = useMemo(() => {
+    if (profile.activations) return profile.activations;
+    const { y, mo, dy, birthTime: bt, birthGMT } = profile;
+    if (!y || !mo || !dy) return null;
+    try {
+      return calcAllActivations({ year: y, month: mo, day: dy, birthTime: bt || '12:00', tzOffset: birthGMT ?? 0 });
+    } catch { return null; }
+  }, [profile]);
   const hasBirthTime = Boolean(birthTime) && birthTime !== '00:00';
 
   const tithiData  = TITHI_DATA[type];
