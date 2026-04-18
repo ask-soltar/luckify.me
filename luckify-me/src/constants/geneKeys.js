@@ -14,8 +14,10 @@
  *   Lines can be added as: lines: { 1: '...', 2: '...', 3: '...', 4: '...', 5: '...', 6: '...' }
  */
 
-// Starting ecliptic longitude of Gate 25 (0° Aries in tropical coordinates)
-export const GATE_START_LONGITUDE = 0;
+// Starting ecliptic longitude of Gate 25.
+// Value: -1° (= 359° tropical). Empirically calibrated against Gene Keys charts
+// to give accurate line numbers for both birth chart and design chart.
+export const GATE_START_LONGITUDE = -1;
 
 // Degrees per gate and line
 export const DEGREES_PER_GATE = 5.625;   // 360 / 64
