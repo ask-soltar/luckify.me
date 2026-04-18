@@ -113,6 +113,14 @@ function GeneKeyIcon({ gate }) {
   );
 }
 
+// Best available description for a gate: kids → adult → fallback
+function gateDesc(gate) {
+  const pg = PURPOSE_GATES[String(gate)];
+  return pg?.overall?.kids?.header
+      || pg?.overall?.adult?.header
+      || null;
+}
+
 export function ProfileDisplay({ profile, onNewProfile }) {
   const { type, cfg, element, lifePathNum, geneKeys } = profile;
 
@@ -164,7 +172,7 @@ export function ProfileDisplay({ profile, onNewProfile }) {
       icon:   <GeneKeyIcon gate={geneKeys.lifeWork.gate} />,
       name:   `Gate ${geneKeys.lifeWork.gate}.${geneKeys.lifeWork.line} · Life's Work`,
       axiom:  GENE_KEYS[geneKeys.lifeWork.gate]?.gift
-           || PURPOSE_GATES[String(geneKeys.lifeWork.gate)]?.overall?.kids?.header
+           || gateDesc(geneKeys.lifeWork.gate)
            || 'Descriptions coming soon',
       tabs: [
         {
@@ -175,25 +183,25 @@ export function ProfileDisplay({ profile, onNewProfile }) {
               title: `Life's Work — Gate ${geneKeys.lifeWork.gate} · Line ${geneKeys.lifeWork.line}`,
               body: GENE_KEYS[geneKeys.lifeWork.gate]
                 ? `Shadow: ${GENE_KEYS[geneKeys.lifeWork.gate].shadow}  ·  Gift: ${GENE_KEYS[geneKeys.lifeWork.gate].gift}  ·  Siddhi: ${GENE_KEYS[geneKeys.lifeWork.gate].siddhi}`
-                : PURPOSE_GATES[String(geneKeys.lifeWork.gate)]?.overall?.kids?.header || `Gate ${geneKeys.lifeWork.gate} — content coming soon`,
+                : gateDesc(geneKeys.lifeWork.gate) || `Gate ${geneKeys.lifeWork.gate} — content coming soon`,
             },
             {
               title: `Evolution — Gate ${geneKeys.evolution.gate} · Line ${geneKeys.evolution.line}`,
               body: GENE_KEYS[geneKeys.evolution.gate]
                 ? `Shadow: ${GENE_KEYS[geneKeys.evolution.gate].shadow}  ·  Gift: ${GENE_KEYS[geneKeys.evolution.gate].gift}  ·  Siddhi: ${GENE_KEYS[geneKeys.evolution.gate].siddhi}`
-                : PURPOSE_GATES[String(geneKeys.evolution.gate)]?.overall?.kids?.header || `Gate ${geneKeys.evolution.gate} — content coming soon`,
+                : gateDesc(geneKeys.evolution.gate) || `Gate ${geneKeys.evolution.gate} — content coming soon`,
             },
             {
               title: `Radiance — Gate ${geneKeys.radiance.gate} · Line ${geneKeys.radiance.line}`,
               body: GENE_KEYS[geneKeys.radiance.gate]
                 ? `Shadow: ${GENE_KEYS[geneKeys.radiance.gate].shadow}  ·  Gift: ${GENE_KEYS[geneKeys.radiance.gate].gift}  ·  Siddhi: ${GENE_KEYS[geneKeys.radiance.gate].siddhi}`
-                : PURPOSE_GATES[String(geneKeys.radiance.gate)]?.overall?.kids?.header || `Gate ${geneKeys.radiance.gate} — content coming soon`,
+                : gateDesc(geneKeys.radiance.gate) || `Gate ${geneKeys.radiance.gate} — content coming soon`,
             },
             {
               title: `Purpose — Gate ${geneKeys.purpose.gate} · Line ${geneKeys.purpose.line}`,
               body: GENE_KEYS[geneKeys.purpose.gate]
                 ? `Shadow: ${GENE_KEYS[geneKeys.purpose.gate].shadow}  ·  Gift: ${GENE_KEYS[geneKeys.purpose.gate].gift}  ·  Siddhi: ${GENE_KEYS[geneKeys.purpose.gate].siddhi}`
-                : PURPOSE_GATES[String(geneKeys.purpose.gate)]?.overall?.kids?.header || `Gate ${geneKeys.purpose.gate} — content coming soon`,
+                : gateDesc(geneKeys.purpose.gate) || `Gate ${geneKeys.purpose.gate} — content coming soon`,
             },
           ],
         },
