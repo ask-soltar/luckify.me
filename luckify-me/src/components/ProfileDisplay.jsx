@@ -13,10 +13,12 @@ import { useState } from 'react';
 import { DimensionCard } from './DimensionCard.jsx';
 import { LuckyWindow } from './LuckyWindow.jsx';
 import { RhythmCalendar } from './RhythmCalendar.jsx';
+import { GateContentCard } from './GateContentCard.jsx';
 import { TITHI_DATA, TITHI_AXIOMS, TITHI_SVGS } from '../constants/tithi.js';
 import { ELEMENT_CONFIG, ELEMENT_AXIOMS } from '../constants/element.js';
 import { LP_CONFIG } from '../constants/lifePath.js';
 import { getBlend } from '../constants/blends.js';
+import { GENE_KEYS } from '../constants/geneKeys.js';
 
 // Element color palette — grounded, permanent, different energy from zone colors
 const ELEMENT_COLORS = {
@@ -104,8 +106,14 @@ function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensi
 
 // ── Main Component ──────────────────────────────────────
 
+function GeneKeyIcon({ gate }) {
+  return (
+    <div className="gk-gate-circle">{gate}</div>
+  );
+}
+
 export function ProfileDisplay({ profile, onNewProfile }) {
-  const { type, cfg, element, lifePathNum } = profile;
+  const { type, cfg, element, lifePathNum, geneKeys } = profile;
 
   const tithiData  = TITHI_DATA[type];
   const tithiAxiom = TITHI_AXIOMS[type];
@@ -148,7 +156,46 @@ export function ProfileDisplay({ profile, onNewProfile }) {
         { key: 'mission', label: 'Mission', principles: [{ title: lpCfg.name, body: lpCfg.axiom }] }
       ] : [],
     },
-    // future: { key: 'destinyCard', system: 'DIMENSION IV · ...', ... }
+    // ── Gene Keys (Dimension IV) ──
+    ...(geneKeys ? [{
+      key:    'geneKeys',
+      system: 'DIMENSION IV · GENE KEYS',
+      icon:   <GeneKeyIcon gate={geneKeys.lifeWork.gate} />,
+      name:   `Gate ${geneKeys.lifeWork.gate}.${geneKeys.lifeWork.line} · Life's Work`,
+      axiom:  GENE_KEYS[geneKeys.lifeWork.gate]?.gift || 'Descriptions coming soon',
+      tabs: [
+        {
+          key: 'prime',
+          label: 'Prime Keys',
+          principles: [
+            {
+              title: `Life's Work — Gate ${geneKeys.lifeWork.gate} · Line ${geneKeys.lifeWork.line}`,
+              body: GENE_KEYS[geneKeys.lifeWork.gate]
+                ? `Shadow: ${GENE_KEYS[geneKeys.lifeWork.gate].shadow}  ·  Gift: ${GENE_KEYS[geneKeys.lifeWork.gate].gift}  ·  Siddhi: ${GENE_KEYS[geneKeys.lifeWork.gate].siddhi}`
+                : 'Gate descriptions coming — add your content to src/constants/geneKeys.js',
+            },
+            {
+              title: `Evolution — Gate ${geneKeys.evolution.gate} · Line ${geneKeys.evolution.line}`,
+              body: GENE_KEYS[geneKeys.evolution.gate]
+                ? `Shadow: ${GENE_KEYS[geneKeys.evolution.gate].shadow}  ·  Gift: ${GENE_KEYS[geneKeys.evolution.gate].gift}  ·  Siddhi: ${GENE_KEYS[geneKeys.evolution.gate].siddhi}`
+                : `Gate ${geneKeys.evolution.gate} — add your content to src/constants/geneKeys.js`,
+            },
+            {
+              title: `Radiance — Gate ${geneKeys.radiance.gate} · Line ${geneKeys.radiance.line}`,
+              body: GENE_KEYS[geneKeys.radiance.gate]
+                ? `Shadow: ${GENE_KEYS[geneKeys.radiance.gate].shadow}  ·  Gift: ${GENE_KEYS[geneKeys.radiance.gate].gift}  ·  Siddhi: ${GENE_KEYS[geneKeys.radiance.gate].siddhi}`
+                : `Gate ${geneKeys.radiance.gate} — add your content to src/constants/geneKeys.js`,
+            },
+            {
+              title: `Purpose — Gate ${geneKeys.purpose.gate} · Line ${geneKeys.purpose.line}`,
+              body: GENE_KEYS[geneKeys.purpose.gate]
+                ? `Shadow: ${GENE_KEYS[geneKeys.purpose.gate].shadow}  ·  Gift: ${GENE_KEYS[geneKeys.purpose.gate].gift}  ·  Siddhi: ${GENE_KEYS[geneKeys.purpose.gate].siddhi}`
+                : `Gate ${geneKeys.purpose.gate} — add your content to src/constants/geneKeys.js`,
+            },
+          ],
+        },
+      ],
+    }] : []),
   ];
 
   return (
@@ -171,6 +218,11 @@ export function ProfileDisplay({ profile, onNewProfile }) {
       <ProfileLayer label="THIS MONTH'S RHYTHM">
         <RhythmCalendar profile={profile} />
       </ProfileLayer>
+
+      {/* ── Layer 4: Purpose Frame ── */}
+      {geneKeys?.purpose && (
+        <GateContentCard profile={profile} />
+      )}
 
       {/* New profile */}
       <button className="pip-button calc-btn" onClick={onNewProfile} style={{ marginTop: 16 }}>
