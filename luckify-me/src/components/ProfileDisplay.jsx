@@ -20,6 +20,7 @@ import { LP_CONFIG } from '../constants/lifePath.js';
 import { getBlend } from '../constants/blends.js';
 import { GENE_KEYS } from '../constants/geneKeys.js';
 import { PURPOSE_GATES } from '../constants/purposeGates.js';
+import { PLANETARY_FIX } from '../constants/planetaryFix.js';
 import { calcAllActivations } from '../utils/geneKeys.js';
 
 // Element color palette — grounded, permanent, different energy from zone colors
@@ -225,45 +226,46 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
       ],
     }] : []),
 
-    // ── Strengths & Weaknesses (Dimension V) ──
-    // Only shown when activations are available (profiles created after this feature was added).
-    // Filters the 24 planetary activations to those where PURPOSE_GATES has edge/blind_spot content.
+    // ── Planetary Fix (Dimension V) ──
+    // For each of the 24 activations, look up the gate.line in the 384-line fix table.
+    // If the activating planet matches the exalting planet → EXALTED
+    // If the activating planet matches the detrimenting planet → DETRIMENT
+    // Otherwise → neither (not shown)
     ...(activations ? (() => {
-      const enriched = activations
-        .map(a => {
-          const lineData = PURPOSE_GATES[String(a.gate)]?.lines?.[String(a.line)]?.adult;
-          return { ...a, edge: lineData?.edge || null, blindSpot: lineData?.blind_spot || null };
-        })
-        .filter(a => a.edge || a.blindSpot);
-
-      if (!enriched.length) return [];
-
       const chartLabel = chart => chart === 'conscious' ? 'C' : 'D';
 
-      const strengths = enriched
-        .filter(a => a.edge)
-        .map(a => ({
-          title: `${a.symbol} ${a.planet}  ${chartLabel(a.chart)} · Gate ${a.gate}.${a.line}`,
-          body:  a.edge,
-        }));
+      const flagged = activations
+        .map(a => {
+          const fix = PLANETARY_FIX[`${a.gate}.${a.line}`];
+          if (!fix) return null;
+          if (fix.exalt === a.planet)     return { ...a, polarity: 'exalt' };
+          if (fix.detriment === a.planet) return { ...a, polarity: 'detriment' };
+          return null;
+        })
+        .filter(Boolean);
 
-      const weaknesses = enriched
-        .filter(a => a.blindSpot)
-        .map(a => ({
-          title: `${a.symbol} ${a.planet}  ${chartLabel(a.chart)} · Gate ${a.gate}.${a.line}`,
-          body:  a.blindSpot,
-        }));
+      if (!flagged.length) return [];
+
+      const exalted   = flagged.filter(a => a.polarity === 'exalt');
+      const detriment = flagged.filter(a => a.polarity === 'detriment');
+
+      const toItem = a => ({
+        title: `${a.symbol} ${a.planet}  ${chartLabel(a.chart)} · Gate ${a.gate}.${a.line}`,
+        body:  PLANETARY_FIX[`${a.gate}.${a.line}`]
+               ? `${a.planet} is the ${a.polarity === 'exalt' ? 'exalting' : 'detrimenting'} planet for Gate ${a.gate}.${a.line} — a supported, integrated expression of this line's energy.`
+               : '',
+      });
 
       const swTabs = [];
-      if (strengths.length)  swTabs.push({ key: 'strengths',  label: 'Strengths',  principles: strengths  });
-      if (weaknesses.length) swTabs.push({ key: 'weaknesses', label: 'Weaknesses', principles: weaknesses });
+      if (exalted.length)   swTabs.push({ key: 'exalt', label: `Exalted (${exalted.length})`,       principles: exalted.map(toItem)   });
+      if (detriment.length) swTabs.push({ key: 'det',   label: `Detriment (${detriment.length})`,   principles: detriment.map(toItem) });
 
       return [{
         key:    'sw',
-        system: 'DIMENSION V · ACTIVATIONS',
+        system: 'DIMENSION V · PLANETARY FIX',
         icon:   <span style={{ fontSize: 22, lineHeight: 1 }}>⚖</span>,
-        name:   `${enriched.length} activated gates`,
-        axiom:  'Where your planets fall reveals your innate strengths (exaltations) and blind spots (detriments) — drawn from all 24 planetary activations across both charts.',
+        name:   `${exalted.length} exalted · ${detriment.length} detriment`,
+        axiom:  'Each line has a planet that turns smoothly (exalted) and one that creates friction (detriment). When your activation matches either, the line carries that built-in polarity.',
         tabs:   swTabs,
       }];
     })() : []),
