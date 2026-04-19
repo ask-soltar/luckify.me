@@ -271,12 +271,16 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
       const exalted   = flagged.filter(a => a.polarity === 'exalt');
       const detriment = flagged.filter(a => a.polarity === 'detriment');
 
-      const toItem = a => ({
-        title: `${a.symbol} ${a.planet}  ${chartLabel(a.chart)} · Gate ${a.gate}.${a.line}`,
-        body:  PLANETARY_FIX[`${a.gate}.${a.line}`]
-               ? `${a.planet} is the ${a.polarity === 'exalt' ? 'exalting' : 'detrimenting'} planet for Gate ${a.gate}.${a.line} — a supported, integrated expression of this line's energy.`
-               : '',
-      });
+      const toItem = a => {
+        const pg      = PURPOSE_GATES[String(a.gate)];
+        const section = pg?.lines?.[String(a.line)]?.adult ?? pg?.overall?.adult ?? null;
+        const field   = a.polarity === 'exalt' ? 'edge' : 'blind_spot';
+        const body    = section?.[field] ?? null;
+        return {
+          title: `${a.symbol} ${a.planet}  ${chartLabel(a.chart)} · Gate ${a.gate}.${a.line}`,
+          body:  body || '',
+        };
+      };
 
       const swTabs = [];
       if (exalted.length)   swTabs.push({ key: 'exalt', label: `Exalted (${exalted.length})`,       principles: exalted.map(toItem)   });
