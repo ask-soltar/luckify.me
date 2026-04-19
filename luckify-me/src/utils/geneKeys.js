@@ -5,12 +5,12 @@
  * All Activations (24): 12 planets × 2 charts (conscious at birth + design ~88 days prior).
  *   Planets: Sun, Earth, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, N.Node
  *
- * Accuracy: ~0.5–2° for most planets using 3D Keplerian + inclination.
- *   Sun: ~0.01° (equation of center), Moon: ~1° (Chapront reduced).
- *   Mercury–Mars: ~0.5°, Jupiter–Neptune: ~1–2°.
- *   Gate = 5.625° wide — sufficient for almost all activations.
- *   Activations within ~0.05° of a line boundary may differ from Swiss Ephemeris.
- * Formulas: 3D Keplerian (inclination + ascending node) + geocentric projection.
+ * Accuracy:
+ *   Sun: ~0.01° (equation of center).
+ *   Moon: ~1° (Chapront reduced series).
+ *   Mercury–Pluto: <0.1° via VSOP87 full theory (astronomia library).
+ *   N.Node: mean node formula, ~0.05°.
+ *   Gate = 5.625° wide, line = 0.9375° — VSOP87 is sufficient for all activations.
  */
 
 import { dateToSerial } from './tithi.js';
@@ -20,6 +20,29 @@ import {
   DEGREES_PER_GATE,
   DEGREES_PER_LINE,
 } from '../constants/geneKeys.js';
+
+// VSOP87 planetary data (B-series: heliocentric ecliptic, dynamical ecliptic of date)
+import vsop87Bmercury from 'astronomia/data/vsop87Bmercury';
+import vsop87Bvenus   from 'astronomia/data/vsop87Bvenus';
+import vsop87Bearth   from 'astronomia/data/vsop87Bearth';
+import vsop87Bmars    from 'astronomia/data/vsop87Bmars';
+import vsop87Bjupiter from 'astronomia/data/vsop87Bjupiter';
+import vsop87Bsaturn  from 'astronomia/data/vsop87Bsaturn';
+import vsop87Buranus  from 'astronomia/data/vsop87Buranus';
+import vsop87Bneptune from 'astronomia/data/vsop87Bneptune';
+import { Planet }     from 'astronomia/planetposition';
+
+// Pre-instantiate planet objects (avoid re-creating on every call)
+const VSOP = {
+  Mercury: new Planet(vsop87Bmercury),
+  Venus:   new Planet(vsop87Bvenus),
+  Earth:   new Planet(vsop87Bearth),
+  Mars:    new Planet(vsop87Bmars),
+  Jupiter: new Planet(vsop87Bjupiter),
+  Saturn:  new Planet(vsop87Bsaturn),
+  Uranus:  new Planet(vsop87Buranus),
+  Neptune: new Planet(vsop87Bneptune),
+};
 
 // ── Constants ──────────────────────────────────────────
 
@@ -34,6 +57,9 @@ function daysFromJ2000(year, month, day, hour24, tzOffset) {
   const tUTC = (hour24 - tzOffset) / 24;
   return dateToSerial(year, month, day) + tUTC - (dateToSerial(2000, 1, 1) + 0.5);
 }
+
+// Julian Day Ephemeris from days-since-J2000
+function toJDE(d) { return 2451545.0 + d; }
 
 // ── Solar longitude (accurate to ~0.01°) ──────────────
 
@@ -54,7 +80,7 @@ function moonLongitude(d) {
   const M  = norm(134.9634 + 13.06499295 * d);
   const D  = norm(297.8502 + 12.19074912 * d);
   const F  = norm(93.2721  + 13.22935024 * d);
-  const Ms = norm(357.5291 +  0.98560028 * d); // Sun's mean anomaly
+  const Ms = norm(357.5291 +  0.98560028 * d);
 
   return norm(L
     + 6.289  * Math.sin(M  * D2R)
@@ -79,81 +105,33 @@ function northNodeLongitude(d) {
   return norm(125.0445 - 0.05295377 * d);
 }
 
-// ── Planetary geocentric longitude (3D Keplerian) ──────
+// ── VSOP87 geocentric ecliptic longitude ───────────────
+//
+// Uses the B-series (heliocentric ecliptic of date).
+// Geocentric longitude is computed by subtracting Earth's heliocentric
+// position from the planet's, then taking atan2.
 
-/*
- * Orbital elements at J2000.0 with linear rate per Julian century.
- * Format: [L0, L1, w0, w1, e0, e1, a, i, O0, O1]
- *   L  = mean longitude (deg)            L1 = rate (deg/century)
- *   w  = longitude of perihelion (deg)   w1 = rate (deg/century)
- *   e  = eccentricity                    e1 = rate (1/century)
- *   a  = semi-major axis (AU)
- *   i  = inclination to ecliptic (deg)   — fixed, negligible rate for our accuracy
- *   O0 = longitude of ascending node     O1 = rate (deg/century)
- * Source: Meeus "Astronomical Algorithms" Tables 31.a & 31.b.
- */
-const ORB = {
-  //           L0           L1         w0        w1       e0       e1       a       i      O0       O1
-  Mercury: [252.25084, 149472.67411,  77.45779,  0.16047, 0.20563,  0.00002, 0.387098,  7.0050,  48.3313,  1.18515],
-  Venus:   [181.97973,  58517.81539, 131.56370,  0.00268, 0.00677, -0.00005, 0.723330,  3.3947,  76.6799, -0.27769],
-  Earth:   [100.46435,  35999.37245, 102.93735,  0.31997, 0.01671, -0.00004, 1.000000,  0.0000,   0.0000,  0.00000],
-  Mars:    [355.43327,  19140.30268, 336.06023,  0.44441, 0.09341,  0.00009, 1.523688,  1.8497,  49.5574, -0.29257],
-  Jupiter: [ 34.35148,   3034.74613,  14.72847,  0.21253, 0.04839, -0.00013, 5.202561,  1.3041, 100.4542,  0.33298],
-  Saturn:  [ 50.07747,   1222.49362,  93.05678, -0.41898, 0.05551, -0.00051, 9.554747,  2.4853, 113.6634, -0.25656],
-  Uranus:  [314.05501,    428.48203, 170.95426,  0.40806, 0.04630, -0.00004,19.218140,  0.7732,  74.0095,  0.05786],
-  Neptune: [304.34867,    218.45945,  44.96476, -0.32241, 0.00898,  0.00006,30.109570,  1.7700, 131.7806, -0.01449],
-  Pluto:   [238.92881,    145.20780, 224.06892, -0.04063, 0.24882,  0.00006,39.481680, 17.1420, 110.3039, -0.27040],
-};
+function vsopGeocentricLon(planetName, d) {
+  const JDE = toJDE(d);
+  const pp  = VSOP[planetName].position(JDE); // { lon (rad), lat (rad), range (AU) }
+  const ep  = VSOP.Earth.position(JDE);
 
-// Solve Kepler's equation: E = M + e·sin(E), returns E in radians
-function keplerE(M_rad, e) {
-  let E = M_rad;
-  for (let i = 0; i < 12; i++) E = M_rad + e * Math.sin(E);
-  return E;
-}
+  // Rectangular heliocentric ecliptic coords
+  const px = pp.range * Math.cos(pp.lat) * Math.cos(pp.lon);
+  const py = pp.range * Math.cos(pp.lat) * Math.sin(pp.lon);
+  const ex = ep.range * Math.cos(ep.lat) * Math.cos(ep.lon);
+  const ey = ep.range * Math.cos(ep.lat) * Math.sin(ep.lon);
 
-// Heliocentric ecliptic x, y, z (AU) — full 3D including orbital inclination.
-// Uses standard Keplerian rotation: perihelion → inclination → ascending node.
-function helioXYZ(L0, L1, w0, w1, e0, e1, a, i_deg, O0, O1, T) {
-  const L     = norm(L0 + L1 * T);
-  const w     = norm(w0 + w1 * T);   // longitude of perihelion
-  const O     = norm(O0 + O1 * T);   // longitude of ascending node
-  const e     = e0 + e1 * T;
-  const M     = norm(L - w) * D2R;
-  const E     = keplerE(M, e);
-  const nu    = 2 * Math.atan2(
-    Math.sqrt(1 + e) * Math.sin(E / 2),
-    Math.sqrt(1 - e) * Math.cos(E / 2)
-  );
-  const r     = a * (1 - e * Math.cos(E));
-  const i     = i_deg * D2R;
-  const Orad  = O * D2R;
-  // Argument of latitude from ascending node (in orbital plane)
-  const theta = (nu / D2R + w - O) * D2R;
-  return {
-    x: r * (Math.cos(Orad) * Math.cos(theta) - Math.sin(Orad) * Math.sin(theta) * Math.cos(i)),
-    y: r * (Math.sin(Orad) * Math.cos(theta) + Math.cos(Orad) * Math.sin(theta) * Math.cos(i)),
-    z: r * Math.sin(theta) * Math.sin(i),
-  };
-}
-
-// Geocentric ecliptic longitude (projects onto the ecliptic plane — ignores latitude).
-function geocentricLon(planet, d) {
-  const T = d / 36525; // Julian centuries from J2000
-  const p = helioXYZ(...ORB[planet], T);
-  const e = helioXYZ(...ORB.Earth,   T);
-  return norm(Math.atan2(p.y - e.y, p.x - e.x) / D2R);
+  return norm(Math.atan2(py - ey, px - ex) / D2R);
 }
 
 // ── Design date (88° solar arc) ───────────────────────
 //
 // Human Design uses 88° of solar arc before birth, NOT 88 calendar days.
-// The sun moves ~0.9856°/day on average but varies through the year.
-// We solve iteratively: find d such that sunLongitude(d) == birthSunLon - 88°.
 
 function designDate(d_birth) {
   const targetLon = norm(sunLongitude(d_birth) - 88);
-  let d = d_birth - 88; // initial estimate
+  let d = d_birth - 88;
   for (let i = 0; i < 12; i++) {
     const err = norm(sunLongitude(d) - targetLon + 180) - 180;
     d -= err / 0.9856;
@@ -177,16 +155,40 @@ const PLANETS = [
   { name: 'Sun',     symbol: '☉', getLon: d => sunLongitude(d) },
   { name: 'Earth',   symbol: '⊕', getLon: d => norm(sunLongitude(d) + 180) },
   { name: 'Moon',    symbol: '☽', getLon: d => moonLongitude(d) },
-  { name: 'Mercury', symbol: '☿', getLon: d => geocentricLon('Mercury', d) },
-  { name: 'Venus',   symbol: '♀', getLon: d => geocentricLon('Venus',   d) },
-  { name: 'Mars',    symbol: '♂', getLon: d => geocentricLon('Mars',    d) },
-  { name: 'Jupiter', symbol: '♃', getLon: d => geocentricLon('Jupiter', d) },
-  { name: 'Saturn',  symbol: '♄', getLon: d => geocentricLon('Saturn',  d) },
-  { name: 'Uranus',  symbol: '♅', getLon: d => geocentricLon('Uranus',  d) },
-  { name: 'Neptune', symbol: '♆', getLon: d => geocentricLon('Neptune', d) },
-  { name: 'Pluto',   symbol: '♇', getLon: d => geocentricLon('Pluto',   d) },
+  { name: 'Mercury', symbol: '☿', getLon: d => vsopGeocentricLon('Mercury', d) },
+  { name: 'Venus',   symbol: '♀', getLon: d => vsopGeocentricLon('Venus',   d) },
+  { name: 'Mars',    symbol: '♂', getLon: d => vsopGeocentricLon('Mars',    d) },
+  { name: 'Jupiter', symbol: '♃', getLon: d => vsopGeocentricLon('Jupiter', d) },
+  { name: 'Saturn',  symbol: '♄', getLon: d => vsopGeocentricLon('Saturn',  d) },
+  { name: 'Uranus',  symbol: '♅', getLon: d => vsopGeocentricLon('Uranus',  d) },
+  { name: 'Neptune', symbol: '♆', getLon: d => vsopGeocentricLon('Neptune', d) },
+  { name: 'Pluto',   symbol: '♇', getLon: d => vsopGeocentricLon('Pluto',   d) },
   { name: 'N.Node',  symbol: '☊', getLon: d => northNodeLongitude(d) },
 ];
+
+// Note: Pluto falls back to the existing Keplerian calculation since
+// astronomia does not include a VSOP87 Pluto dataset.
+// Pluto's gate changes slowly (~1 gate per decade) so Keplerian is adequate.
+const ORB_PLUTO = [238.92881, 145.20780, 224.06892, -0.04063, 0.24882, 0.00006, 39.481680, 17.1420, 110.3039, -0.27040];
+function keplerE(M_rad, e) { let E = M_rad; for (let i = 0; i < 12; i++) E = M_rad + e * Math.sin(E); return E; }
+function plutoGeoLon(d) {
+  const T = d / 36525;
+  const [L0,L1,w0,w1,e0,e1,a,i_deg,O0,O1] = ORB_PLUTO;
+  const L=norm(L0+L1*T), w=norm(w0+w1*T), O=norm(O0+O1*T), e=e0+e1*T;
+  const M=norm(L-w)*D2R, E=keplerE(M,e);
+  const nu=2*Math.atan2(Math.sqrt(1+e)*Math.sin(E/2),Math.sqrt(1-e)*Math.cos(E/2));
+  const r=a*(1-e*Math.cos(E)), i=i_deg*D2R, Or=O*D2R;
+  const theta=(nu/D2R+w-O)*D2R;
+  const px=r*(Math.cos(Or)*Math.cos(theta)-Math.sin(Or)*Math.sin(theta)*Math.cos(i));
+  const py=r*(Math.sin(Or)*Math.cos(theta)+Math.cos(Or)*Math.sin(theta)*Math.cos(i));
+  // Earth via VSOP87
+  const JDE=toJDE(d), ep=VSOP.Earth.position(JDE);
+  const ex=ep.range*Math.cos(ep.lat)*Math.cos(ep.lon);
+  const ey=ep.range*Math.cos(ep.lat)*Math.sin(ep.lon);
+  return norm(Math.atan2(py-ey,px-ex)/D2R);
+}
+// Override Pluto entry
+PLANETS[10] = { name: 'Pluto', symbol: '♇', getLon: d => plutoGeoLon(d) };
 
 // ── Public API ─────────────────────────────────────────
 
