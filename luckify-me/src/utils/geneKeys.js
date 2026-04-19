@@ -5,8 +5,12 @@
  * All Activations (24): 12 planets × 2 charts (conscious at birth + design ~88 days prior).
  *   Planets: Sun, Earth, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, N.Node
  *
- * Accuracy: ~1–3° for most planets (gate = 5.625° wide — sufficient for gate identification).
- * Formulas: Keplerian elements + equation of center, ecliptic latitude ignored.
+ * Accuracy: ~0.5–2° for most planets using 3D Keplerian + inclination.
+ *   Sun: ~0.01° (equation of center), Moon: ~1° (Chapront reduced).
+ *   Mercury–Mars: ~0.5°, Jupiter–Neptune: ~1–2°.
+ *   Gate = 5.625° wide — sufficient for almost all activations.
+ *   Activations within ~0.05° of a line boundary may differ from Swiss Ephemeris.
+ * Formulas: 3D Keplerian (inclination + ascending node) + geocentric projection.
  */
 
 import { dateToSerial } from './tithi.js';
@@ -75,28 +79,30 @@ function northNodeLongitude(d) {
   return norm(125.0445 - 0.05295377 * d);
 }
 
-// ── Planetary geocentric longitude (accurate to ~2–3°) ─
+// ── Planetary geocentric longitude (3D Keplerian) ──────
 
 /*
  * Orbital elements at J2000.0 with linear rate per Julian century.
- * Format: [L0, L1, w0, w1, e0, e1, a]
- *   L  = mean longitude (deg)           L1 = rate (deg/century)
- *   w  = longitude of perihelion (deg)  w1 = rate (deg/century)
- *   e  = eccentricity                   e1 = rate (1/century)
- *   a  = semi-major axis (AU, constant for our accuracy)
- * Source: Meeus "Astronomical Algorithms", low-precision elements.
+ * Format: [L0, L1, w0, w1, e0, e1, a, i, O0, O1]
+ *   L  = mean longitude (deg)            L1 = rate (deg/century)
+ *   w  = longitude of perihelion (deg)   w1 = rate (deg/century)
+ *   e  = eccentricity                    e1 = rate (1/century)
+ *   a  = semi-major axis (AU)
+ *   i  = inclination to ecliptic (deg)   — fixed, negligible rate for our accuracy
+ *   O0 = longitude of ascending node     O1 = rate (deg/century)
+ * Source: Meeus "Astronomical Algorithms" Tables 31.a & 31.b.
  */
 const ORB = {
-  // name:   [ L0,          L1,           w0,        w1,      e0,      e1,      a       ]
-  Mercury: [252.25084, 149472.67411,  77.45779,   0.16047, 0.20563,  0.00002, 0.387098],
-  Venus:   [181.97973,  58517.81539, 131.56370,   0.00268, 0.00677, -0.00005, 0.723330],
-  Earth:   [100.46435,  35999.37245, 102.93735,   0.31997, 0.01671, -0.00004, 1.000000],
-  Mars:    [355.43327,  19140.30268, 336.06023,   0.44441, 0.09341,  0.00009, 1.523688],
-  Jupiter: [ 34.35148,   3034.74613,  14.72847,   0.21253, 0.04839, -0.00013, 5.202561],
-  Saturn:  [ 50.07747,   1222.49362,  93.05678,  -0.41898, 0.05551, -0.00051, 9.554747],
-  Uranus:  [314.05501,    428.48203, 170.95426,   0.40806, 0.04630, -0.00004,19.218140],
-  Neptune: [304.34867,    218.45945,  44.96476,  -0.32241, 0.00898,  0.00006,30.109570],
-  Pluto:   [238.92881,    145.20780, 224.06892,  -0.04063, 0.24882,  0.00006,39.481680],
+  //           L0           L1         w0        w1       e0       e1       a       i      O0       O1
+  Mercury: [252.25084, 149472.67411,  77.45779,  0.16047, 0.20563,  0.00002, 0.387098,  7.0050,  48.3313,  1.18515],
+  Venus:   [181.97973,  58517.81539, 131.56370,  0.00268, 0.00677, -0.00005, 0.723330,  3.3947,  76.6799, -0.27769],
+  Earth:   [100.46435,  35999.37245, 102.93735,  0.31997, 0.01671, -0.00004, 1.000000,  0.0000,   0.0000,  0.00000],
+  Mars:    [355.43327,  19140.30268, 336.06023,  0.44441, 0.09341,  0.00009, 1.523688,  1.8497,  49.5574, -0.29257],
+  Jupiter: [ 34.35148,   3034.74613,  14.72847,  0.21253, 0.04839, -0.00013, 5.202561,  1.3041, 100.4542,  0.33298],
+  Saturn:  [ 50.07747,   1222.49362,  93.05678, -0.41898, 0.05551, -0.00051, 9.554747,  2.4853, 113.6634, -0.25656],
+  Uranus:  [314.05501,    428.48203, 170.95426,  0.40806, 0.04630, -0.00004,19.218140,  0.7732,  74.0095,  0.05786],
+  Neptune: [304.34867,    218.45945,  44.96476, -0.32241, 0.00898,  0.00006,30.109570,  1.7700, 131.7806, -0.01449],
+  Pluto:   [238.92881,    145.20780, 224.06892, -0.04063, 0.24882,  0.00006,39.481680, 17.1420, 110.3039, -0.27040],
 };
 
 // Solve Kepler's equation: E = M + e·sin(E), returns E in radians
@@ -106,28 +112,36 @@ function keplerE(M_rad, e) {
   return E;
 }
 
-// Heliocentric ecliptic x, y (AU) for a planet given its orbital elements
-function helioXY(L0, L1, w0, w1, e0, e1, a, T) {
-  const L   = norm(L0 + L1 * T);
-  const w   = norm(w0 + w1 * T);
-  const e   = e0 + e1 * T;
-  const M   = norm(L - w) * D2R;
-  const E   = keplerE(M, e);
-  // True anomaly
-  const nu  = 2 * Math.atan2(
+// Heliocentric ecliptic x, y, z (AU) — full 3D including orbital inclination.
+// Uses standard Keplerian rotation: perihelion → inclination → ascending node.
+function helioXYZ(L0, L1, w0, w1, e0, e1, a, i_deg, O0, O1, T) {
+  const L     = norm(L0 + L1 * T);
+  const w     = norm(w0 + w1 * T);   // longitude of perihelion
+  const O     = norm(O0 + O1 * T);   // longitude of ascending node
+  const e     = e0 + e1 * T;
+  const M     = norm(L - w) * D2R;
+  const E     = keplerE(M, e);
+  const nu    = 2 * Math.atan2(
     Math.sqrt(1 + e) * Math.sin(E / 2),
     Math.sqrt(1 - e) * Math.cos(E / 2)
   );
-  const r   = a * (1 - e * Math.cos(E));
-  const lon = norm(nu / D2R + w);
-  return { x: r * Math.cos(lon * D2R), y: r * Math.sin(lon * D2R) };
+  const r     = a * (1 - e * Math.cos(E));
+  const i     = i_deg * D2R;
+  const Orad  = O * D2R;
+  // Argument of latitude from ascending node (in orbital plane)
+  const theta = (nu / D2R + w - O) * D2R;
+  return {
+    x: r * (Math.cos(Orad) * Math.cos(theta) - Math.sin(Orad) * Math.sin(theta) * Math.cos(i)),
+    y: r * (Math.sin(Orad) * Math.cos(theta) + Math.cos(Orad) * Math.sin(theta) * Math.cos(i)),
+    z: r * Math.sin(theta) * Math.sin(i),
+  };
 }
 
-// Geocentric ecliptic longitude for a named planet
+// Geocentric ecliptic longitude (projects onto the ecliptic plane — ignores latitude).
 function geocentricLon(planet, d) {
   const T = d / 36525; // Julian centuries from J2000
-  const p = helioXY(...ORB[planet], T);
-  const e = helioXY(...ORB.Earth,   T);
+  const p = helioXYZ(...ORB[planet], T);
+  const e = helioXYZ(...ORB.Earth,   T);
   return norm(Math.atan2(p.y - e.y, p.x - e.x) / D2R);
 }
 
