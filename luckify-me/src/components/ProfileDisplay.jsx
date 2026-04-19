@@ -68,18 +68,31 @@ function ProfileLayer({ label, defaultOpen = false, children }) {
 
 // ── Foundation Section — always visible, element-accented ──
 
-function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensions }) {
+function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensions, birthGMT, birthTime, y, mo, dy }) {
   const elColor = ELEMENT_COLORS[element] || { text: 'var(--pip-primary)', accent: 'rgba(200,152,42,0.1)' };
   const tithiLabel = type.charAt(0).toUpperCase() + type.slice(1);
+
+  // Birth meta line — date + timezone indicator
+  const birthMeta = (() => {
+    if (!y || !mo || !dy) return null;
+    const dateStr = `${String(dy).padStart(2,'0')}/${String(mo).padStart(2,'0')}/${y}`;
+    const timeStr = birthTime && birthTime !== '00:00' ? ` ${birthTime}` : '';
+    const gmt     = birthGMT ?? 0;
+    const sign    = gmt >= 0 ? '+' : '';
+    return `${dateStr}${timeStr} · UTC${sign}${gmt}`;
+  })();
 
   return (
     <div className="foundation-section" style={{ '--el-text': elColor.text, '--el-accent': elColor.accent }}>
       {/* Identity bar */}
       <div className="foundation-identity">
         <span className="foundation-glyph">{elemCfg?.glyph}</span>
-        <span className="foundation-identity-text">
-          {element} · {tithiLabel} · Life Path {lifePathNum}
-        </span>
+        <div className="foundation-identity-right">
+          <span className="foundation-identity-text">
+            {element} · {tithiLabel} · Life Path {lifePathNum}
+          </span>
+          {birthMeta && <span className="foundation-birth-meta">{birthMeta}</span>}
+        </div>
       </div>
 
       {/* Blend — always visible */}
@@ -294,6 +307,11 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
         elemCfg={elemCfg}
         lifePathNum={lifePathNum}
         dimensions={dimensions}
+        birthGMT={profile.birthGMT}
+        birthTime={profile.birthTime}
+        y={profile.y}
+        mo={profile.mo}
+        dy={profile.dy}
       />
 
       {/* ── Layer 3: Color Rhythm Calendar ── */}

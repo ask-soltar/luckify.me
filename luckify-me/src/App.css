@@ -896,6 +896,18 @@
   align-items: center;
   gap: 10px;
 }
+.foundation-identity-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.foundation-birth-meta {
+  font-family: var(--pip-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  opacity: 0.45;
+  color: var(--pip-text);
+}
 
 .foundation-glyph {
   font-size: 24px;
