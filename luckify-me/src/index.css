@@ -1,24 +1,24 @@
 /* ── Design System Variables ── */
 :root {
-  /* Dimensional space — cosmic void resonance */
-  --pip-primary:    #8B7FFF;
-  --pip-secondary:  #5A4EC0;
-  --pip-accent:     #C8BAFF;
-  --pip-danger:     #FF6B8A;
-  --pip-bg:         #03030D;
-  --pip-bg-light:   #07061A;
-  --pip-border:     #141240;
-  --pip-muted:      #201C50;
-  --pip-text:       #DDD8F8;
-  --pip-text-dim:   #5A5480;
-  --pip-glow:       0 0 12px rgba(139, 127, 255, 0.35);
-  --pip-glow-strong:0 0 24px rgba(139, 127, 255, 0.65);
+  /* Operator orange — pip-boy terminal, coding your reality */
+  --pip-primary:    #FF7830;
+  --pip-secondary:  #C04E18;
+  --pip-accent:     #FFB068;
+  --pip-danger:     #FF3838;
+  --pip-bg:         #050508;
+  --pip-bg-light:   #0b0b10;
+  --pip-border:     #1e1810;
+  --pip-muted:      #2e2618;
+  --pip-text:       #DDD8CC;
+  --pip-text-dim:   #6A6458;
+  --pip-glow:       0 0 12px rgba(255, 120, 48, 0.35);
+  --pip-glow-strong:0 0 24px rgba(255, 120, 48, 0.65);
   --pip-font-mono:  'Space Mono', 'Courier New', monospace;
   --pip-font-body:  'DM Sans', sans-serif;
   --pip-font-family:'Space Mono', 'Courier New', monospace;
 
   /* Zone shell tint — RGB triplet, set dynamically via --zone-color on .app-shell */
-  --zone-color: 110, 120, 255; /* default: cosmic blue when no zone */
+  --zone-color: 255, 120, 48; /* default: operator orange when no zone */
 
   /* Color zone backgrounds */
   --pink-bg:   #3d0a34; --pink-text:   #f9c8ee;
@@ -73,14 +73,14 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background:
-    /* Upper nebula bloom */
-    radial-gradient(ellipse 110% 65% at 50% -8%,  rgba(80, 50, 210, 0.13) 0%, transparent 65%),
-    /* Right-side teal drift */
-    radial-gradient(ellipse 45%  35% at 90% 72%,  rgba(40, 140, 230, 0.07) 0%, transparent 55%),
-    /* Lower-left violet cloud */
-    radial-gradient(ellipse 50%  38% at 10% 85%,  rgba(160, 60, 220, 0.06) 0%, transparent 55%),
-    /* Mid-field subtle indigo */
-    radial-gradient(ellipse 35%  28% at 68% 35%,  rgba(60, 80, 220, 0.05) 0%, transparent 50%),
+    /* Upper amber-orange nebula bloom */
+    radial-gradient(ellipse 110% 65% at 50% -8%,  rgba(180, 80, 20, 0.12) 0%, transparent 65%),
+    /* Right-side deep red ember */
+    radial-gradient(ellipse 45%  35% at 90% 72%,  rgba(200, 60, 20, 0.07) 0%, transparent 55%),
+    /* Lower-left warm amber cloud */
+    radial-gradient(ellipse 50%  38% at 10% 85%,  rgba(160, 90, 10, 0.06) 0%, transparent 55%),
+    /* Mid-field dark violet depth (space contrast) */
+    radial-gradient(ellipse 35%  28% at 68% 35%,  rgba(60, 20, 80, 0.08) 0%, transparent 50%),
     /* Zone-reactive center pulse */
     radial-gradient(ellipse 60% 50% at 50% 50%,
       rgba(var(--zone-color), 0.022) 0%,
