@@ -83,62 +83,86 @@ export const ELEMENT_CCE = {
 
 export const LP_CCE = {
   1:  {
-    outcome:            'New Pathways',
+    outcome:            'Independent Initiation',
+    operator_outcome_name: 'Independent Initiation',
+    human_outcome_name:    'Growing Through Independent Initiation',
     lp_tail:            'so you can open a path that didn\'t exist before.',
-    directional_vector: 'Orients toward pioneering new pathways through individual initiative and independent action.',
+    directional_vector: 'Orients toward self-directed emergence through original action and autonomous development.',
   },
   2:  {
     outcome:            'Meaningful Connection',
+    operator_outcome_name: 'Meaningful Connection',
+    human_outcome_name:    'Deepening Meaningful Connection',
     lp_tail:            'so you can build something real with others.',
     directional_vector: 'Orients toward meaningful connection through collaboration and sensitive attunement to others.',
   },
   3:  {
-    outcome:            'Creative Expression',
+    outcome:            'Creative Transformation',
+    operator_outcome_name: 'Creative Transformation',
+    human_outcome_name:    'Living Creative Transformation',
     lp_tail:            'so you can make something only you could make.',
     directional_vector: 'Orients toward creative expression through authentic communication and original contribution.',
   },
   4:  {
     outcome:            'Enduring Structures',
+    operator_outcome_name: 'Enduring Structures',
+    human_outcome_name:    'Building What Endures',
     lp_tail:            'so you can build something that lasts.',
     directional_vector: 'Orients toward enduring structures through disciplined formation and systematic development.',
   },
   5:  {
-    outcome:            'Disciplined Freedom',
+    outcome:            'Adaptive Mastery',
+    operator_outcome_name: 'Adaptive Mastery',
+    human_outcome_name:    'Growing Into Adaptive Mastery',
     lp_tail:            'so you can keep growing as long as you\'re moving.',
     directional_vector: 'Orients toward disciplined freedom through progressive experience and adaptive mastery.',
   },
   6:  {
-    outcome:            'Sustained Care',
+    outcome:            'Protective Responsibility',
+    operator_outcome_name: 'Protective Responsibility',
+    human_outcome_name:    'Carrying What Matters Responsibly',
     lp_tail:            'so you can be there for what truly matters.',
     directional_vector: 'Orients toward sustained care through responsible nurturing and service to others.',
   },
   7:  {
     outcome:            'Deep Understanding',
+    operator_outcome_name: 'Deep Understanding',
+    human_outcome_name:    'Growing Into Deep Understanding',
     lp_tail:            'so you can understand what others can\'t quite reach.',
     directional_vector: 'Orients toward deep understanding through inner investigation and reflective inquiry.',
   },
   8:  {
-    outcome:            'Meaningful Impact',
+    outcome:            'Systemic Influence',
+    operator_outcome_name: 'Systemic Influence',
+    human_outcome_name:    'Creating Meaningful Systemic Influence',
     lp_tail:            'so you can build something that makes a real difference.',
     directional_vector: 'Orients toward meaningful impact through resource mastery and large-scale influence.',
   },
   9:  {
-    outcome:            'Completion and Renewal',
+    outcome:            'Cyclical Integration',
+    operator_outcome_name: 'Cyclical Integration',
+    human_outcome_name:    'Living Through Cyclical Integration',
     lp_tail:            'so you can help bring things toward a meaningful close.',
     directional_vector: 'Orients toward completion and renewal through universal compassion and wisdom integration.',
   },
   11: {
     outcome:            'Visionary Insight',
+    operator_outcome_name: 'Visionary Insight',
+    human_outcome_name:    'Growing Into Visionary Insight',
     lp_tail:            'so you can help others see what\'s possible.',
     directional_vector: 'Orients toward visionary insight through inspired transmission and elevated perception.',
   },
   22: {
-    outcome:            'Transformative Systems',
+    outcome:            'Structural Innovation',
+    operator_outcome_name: 'Structural Innovation',
+    human_outcome_name:    'Creating Structural Innovation',
     lp_tail:            'so you can build systems that change how things work.',
     directional_vector: 'Orients toward transformative systems through masterful architecture and practical vision.',
   },
   33: {
     outcome:            'Awakened Service',
+    operator_outcome_name: 'Awakened Service',
+    human_outcome_name:    'Living Awakened Service',
     lp_tail:            'so you can serve in a way that heals.',
     directional_vector: 'Orients toward awakened service through compassionate teaching and healing transmission.',
   },
@@ -545,6 +569,203 @@ export const TITHI_ELEM_DYN = {
   },
 };
 
+// ── Operator Tactical Layer ────────────────────────────────────────────────
+//
+// Standard mode continues to use per-dynamic watch_for / best_use.
+// Operator mode gets a distinct diagnostic layer:
+//   failure_mode_operator
+//   optimization_step_1_operator
+//   optimization_step_2_operator
+//   optimization_step_3_operator
+
+const OPERATOR_TACTICS_BY_THEME = {
+  'The Pioneer': {
+    failure_mode_operator:       'Premature activation can trigger movement before conditions can support continuity.',
+    optimization_step_1_operator:'Initiate from viable openings.',
+    optimization_step_2_operator:'Regulate speed against structural readiness.',
+    optimization_step_3_operator:'Sustain momentum through adaptive correction.',
+  },
+  'The Catalyst': {
+    failure_mode_operator:       'Catalytic disruption can generate instability without constructive reorganization.',
+    optimization_step_1_operator:'Apply disruption selectively.',
+    optimization_step_2_operator:'Channel intensity toward transformation.',
+    optimization_step_3_operator:'Stabilize change after activation.',
+  },
+  'The Foundation Starter': {
+    failure_mode_operator:       'Overemphasis on foundation can delay necessary initiation.',
+    optimization_step_1_operator:'Build sufficient structure.',
+    optimization_step_2_operator:'Avoid over-securing before action.',
+    optimization_step_3_operator:'Let stability support movement.',
+  },
+  'The Strategist': {
+    failure_mode_operator:       'Excessive optimization can produce paralysis through over-calculation.',
+    optimization_step_1_operator:'Use timing to support action.',
+    optimization_step_2_operator:'Avoid analysis replacing movement.',
+    optimization_step_3_operator:'Convert precision into execution.',
+  },
+  'The Timing Keeper': {
+    failure_mode_operator:       'Over-reliance on readiness can delay activation beyond the true opening.',
+    optimization_step_1_operator:'Trust timing signals.',
+    optimization_step_2_operator:'Distinguish patience from avoidance.',
+    optimization_step_3_operator:'Activate when readiness is sufficient.',
+  },
+  'The Cultivator': {
+    failure_mode_operator:       'Supportive reinforcement can sustain what should no longer be developed.',
+    optimization_step_1_operator:'Strengthen viable growth.',
+    optimization_step_2_operator:'Withdraw support from what weakens integrity.',
+    optimization_step_3_operator:'Reinforce what can mature.',
+  },
+  'The Stabilizer': {
+    failure_mode_operator:       'Stabilization can become resistance to necessary change.',
+    optimization_step_1_operator:'Preserve coherence under stress.',
+    optimization_step_2_operator:'Allow instability where transformation is needed.',
+    optimization_step_3_operator:'Support adaptation without rigidity.',
+  },
+  'The Steward': {
+    failure_mode_operator:       'Responsibility accumulation can turn preservation into burden fixation.',
+    optimization_step_1_operator:'Reinforce what matters.',
+    optimization_step_2_operator:'Release unnecessary load.',
+    optimization_step_3_operator:'Stabilize around long-term value.',
+  },
+  'The Architect': {
+    failure_mode_operator:       'Structural optimization can become correction without practical movement.',
+    optimization_step_1_operator:'Improve what increases coherence.',
+    optimization_step_2_operator:'Avoid redesign for its own sake.',
+    optimization_step_3_operator:'Translate structure into function.',
+  },
+  'The Wise Guardian': {
+    failure_mode_operator:       'Protective preservation can become over-guarding that constrains development.',
+    optimization_step_1_operator:'Protect what carries value.',
+    optimization_step_2_operator:'Distinguish caution from contraction.',
+    optimization_step_3_operator:'Let preservation support growth.',
+  },
+  'The Challenger': {
+    failure_mode_operator:       'Continuous resistance engagement can normalize conflict as the primary growth mechanism.',
+    optimization_step_1_operator:'Engage challenge selectively.',
+    optimization_step_2_operator:'Use resistance to strengthen, not harden.',
+    optimization_step_3_operator:'Convert friction into development.',
+  },
+  'The Forge': {
+    failure_mode_operator:       'Pressure amplification can turn strengthening into destabilizing overload.',
+    optimization_step_1_operator:'Regulate intensity constructively.',
+    optimization_step_2_operator:'Convert pressure into transformation.',
+    optimization_step_3_operator:'Stabilize after catalytic strengthening.',
+  },
+  'The Stronghold': {
+    failure_mode_operator:       'Endurance fixation can preserve strain beyond its developmental usefulness.',
+    optimization_step_1_operator:'Hold where resilience matters.',
+    optimization_step_2_operator:'Release unnecessary structural tension.',
+    optimization_step_3_operator:'Let endurance support adaptation.',
+  },
+  'The Master': {
+    failure_mode_operator:       'Refinement pressure can become endless correction without completion.',
+    optimization_step_1_operator:'Refine what increases capability.',
+    optimization_step_2_operator:'Avoid perfection replacing progress.',
+    optimization_step_3_operator:'Convert pressure into mastery.',
+  },
+  'The Resilient Sage': {
+    failure_mode_operator:       'Reflective resilience can become detachment from necessary engagement.',
+    optimization_step_1_operator:'Use perspective under pressure.',
+    optimization_step_2_operator:'Avoid reflection replacing response.',
+    optimization_step_3_operator:'Integrate wisdom into action.',
+  },
+  'The Pruner': {
+    failure_mode_operator:       'Excessive reduction can remove what growth still requires.',
+    optimization_step_1_operator:'Clear true obstruction.',
+    optimization_step_2_operator:'Avoid reduction beyond necessity.',
+    optimization_step_3_operator:'Let clearing support development.',
+  },
+  'The Structural Reformer': {
+    failure_mode_operator:       'Corrective overextension can lock the system into persistent disruption rather than reconstruction.',
+    optimization_step_1_operator:'Apply correction selectively.',
+    optimization_step_2_operator:'Regulate pressure toward constructive transformation.',
+    optimization_step_3_operator:'Stabilize around long-range structural endurance.',
+  },
+  'The Grounded Seer': {
+    failure_mode_operator:       'Discernment can become over-analysis that delays necessary direction.',
+    optimization_step_1_operator:'Clarify what matters.',
+    optimization_step_2_operator:'Avoid perpetual interpretation.',
+    optimization_step_3_operator:'Translate insight into grounded movement.',
+  },
+  'The Refiner': {
+    failure_mode_operator:       'Precision correction can become over-refinement that fragments functional integrity.',
+    optimization_step_1_operator:'Improve what strengthens integrity.',
+    optimization_step_2_operator:'Avoid correction becoming compulsion.',
+    optimization_step_3_operator:'Let refinement serve function.',
+  },
+  'The Deep Seer': {
+    failure_mode_operator:       'Depth perception can become withdrawal into endless interpretation.',
+    optimization_step_1_operator:'Trust deeper pattern recognition.',
+    optimization_step_2_operator:'Avoid reflection without application.',
+    optimization_step_3_operator:'Convert insight into clear action.',
+  },
+  'The Harvester': {
+    failure_mode_operator:       'Completion orientation can force closure before integration is mature.',
+    optimization_step_1_operator:'Complete what is ready.',
+    optimization_step_2_operator:'Avoid premature closure.',
+    optimization_step_3_operator:'Let fulfillment arise through integration.',
+  },
+  'The Illuminator': {
+    failure_mode_operator:       'Insight generation can become over-illumination without grounded application.',
+    optimization_step_1_operator:'Reveal what brings clarity.',
+    optimization_step_2_operator:'Avoid insight detached from function.',
+    optimization_step_3_operator:'Translate illumination into guidance.',
+  },
+  'The Integrator': {
+    failure_mode_operator:       'Coherence-seeking can overbind systems that require differentiation.',
+    optimization_step_1_operator:'Integrate what belongs together.',
+    optimization_step_2_operator:'Preserve distinctions where necessary.',
+    optimization_step_3_operator:'Build coherence without over-fusion.',
+  },
+  'The Finisher': {
+    failure_mode_operator:       'Completion refinement can become endless improvement beyond functional sufficiency.',
+    optimization_step_1_operator:'Complete what strengthens outcomes.',
+    optimization_step_2_operator:'Avoid over-correcting finished work.',
+    optimization_step_3_operator:'Let closure support integrity.',
+  },
+  'The Wisdom Keeper': {
+    failure_mode_operator:       'Experience integration can become over-reliance on reflection at the expense of adaptation.',
+    optimization_step_1_operator:'Extract wisdom from experience.',
+    optimization_step_2_operator:'Avoid wisdom becoming rigidity.',
+    optimization_step_3_operator:'Apply understanding in living systems.',
+  },
+};
+
+const HUMAN_REVEAL_BY_THEME = {
+  'The Pioneer':             'Begin movement where none exists, so new possibilities can emerge.',
+  'The Catalyst':            'Disrupt what is stuck, so change can begin.',
+  'The Foundation Starter':  'Start things on solid ground, so growth has something real to stand on.',
+  'The Strategist':          'Act with timing and precision, so effort aligns with opportunity.',
+  'The Timing Keeper':       'Sense when conditions are ready, so movement happens at the right moment.',
+  'The Cultivator':          'Strengthen what has potential, so healthy growth can take root.',
+  'The Stabilizer':          'Bring steadiness to change, so transformation holds together.',
+  'The Steward':             'Support what matters, so what has value can endure.',
+  'The Architect':           'Improve how things are structured, so systems work more coherently.',
+  'The Wise Guardian':       'Protect what is worth preserving, so what matters stays intact.',
+  'The Challenger':          'Meet resistance directly, so struggle becomes strength.',
+  'The Forge':               'Turn pressure into growth, so challenge becomes transformation.',
+  'The Stronghold':          'Hold steady under strain, so resilience can be built.',
+  'The Master':              'Refine through challenge, so skill becomes mastery.',
+  'The Resilient Sage':      'Find wisdom in difficulty, so hardship becomes perspective.',
+  'The Pruner':              'Clear what no longer serves, so healthier growth can emerge.',
+  'The Structural Reformer': 'Fix what is weak first, so what you build can endure.',
+  'The Grounded Seer':       'Seek clarity before action, so direction can emerge from uncertainty.',
+  'The Refiner':             'Improve what lacks integrity, so what remains becomes stronger.',
+  'The Deep Seer':           'See beneath the surface, so deeper truth can guide what comes next.',
+  'The Harvester':           'Bring things toward completion, so fulfillment can be realized.',
+  'The Illuminator':         'Reveal what carries meaning, so clarity can emerge.',
+  'The Integrator':          'Bring separate parts together, so greater coherence can form.',
+  'The Finisher':            'Strengthen how things conclude, so outcomes carry integrity.',
+  'The Wisdom Keeper':       'Learn deeply from experience, so wisdom can be applied.',
+};
+
+for (const dynamic of Object.values(TITHI_ELEM_DYN)) {
+  const operatorTactics = OPERATOR_TACTICS_BY_THEME[dynamic.configuration_theme_name];
+  if (operatorTactics) Object.assign(dynamic, operatorTactics);
+  const humanReveal = HUMAN_REVEAL_BY_THEME[dynamic.configuration_theme_name];
+  if (humanReveal) dynamic.human_reveal_statement = humanReveal;
+}
+
 // ── Generation Logic ───────────────────────────────────────────────────────
 
 export function getDynamic(tithi, element) {
@@ -556,7 +777,7 @@ export function generateWatchFor(tithi, element, lifePathNum) {
   const el = ELEMENT_CCE[element];
   const lp = LP_CCE[lifePathNum];
   if (!t || !el || !lp) return null;
-  return `${cap(t.watchout_fragment)} and ${el.watchout_fragment}. This can make it harder to reach ${lp.outcome.toLowerCase()}.`;
+  return `${cap(t.watchout_fragment)} and ${el.watchout_fragment}. This can make it harder to reach ${(lp.human_outcome_name || lp.outcome).toLowerCase()}.`;
 }
 
 export function generateBestUse(tithi, element, lifePathNum) {
@@ -564,7 +785,7 @@ export function generateBestUse(tithi, element, lifePathNum) {
   const el = ELEMENT_CCE[element];
   const lp = LP_CCE[lifePathNum];
   if (!t || !el || !lp) return null;
-  return `${cap(t.best_use_fragment)}, ${el.best_use_fragment}, and stay oriented toward ${lp.outcome.toLowerCase()}.`;
+  return `${cap(t.best_use_fragment)}, ${el.best_use_fragment}, and stay oriented toward ${(lp.human_outcome_name || lp.outcome).toLowerCase()}.`;
 }
 
 function cap(str) {

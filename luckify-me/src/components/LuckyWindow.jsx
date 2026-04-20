@@ -54,7 +54,7 @@ const TODAY_LABEL = new Date().toLocaleDateString('en-US', {
   weekday: 'long', month: 'long', day: 'numeric'
 });
 
-export function LuckyWindow({ profile, onLocationChange }) {
+export function LuckyWindow({ profile, onLocationChange, mode = 'human', onModeChange }) {
   const [catsOpen, setCatsOpen] = useState(false);
   const [editingLoc, setEditingLoc] = useState(false);
   const result = useMemo(() => {
@@ -81,19 +81,33 @@ export function LuckyWindow({ profile, onLocationChange }) {
 
   return (
     <div className="zone-hero" style={{ background: heroBg, color: css.text }}>
-      {/* Date + Location */}
-      <div className="zone-hero-date">{TODAY_LABEL}</div>
-      <div
-        className="zone-hero-location"
-        onClick={() => setEditingLoc(o => !o)}
-        title="Change current location"
-      >
-        <span className="zone-hero-loc-dot">◎</span>
-        <span className="zone-hero-loc-label">
-          {locationLabel(profile.currentTzId, profile.currentGMT)}
-        </span>
-        <span className="zone-hero-loc-edit">✎</span>
+      <div className="zone-hero-topbar">
+        <div className="zone-hero-topbar-copy">
+          <div className="zone-hero-date">{TODAY_LABEL}</div>
+          <div
+            className="zone-hero-location"
+            onClick={() => setEditingLoc(o => !o)}
+            title="Change current location"
+          >
+            <span className="zone-hero-loc-dot">◎</span>
+            <span className="zone-hero-loc-label">
+              {locationLabel(profile.currentTzId, profile.currentGMT)}
+            </span>
+            <span className="zone-hero-loc-edit">✎</span>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          className="profile-mode-toggle"
+          onClick={() => onModeChange?.(mode === 'human' ? 'operator' : 'human')}
+          aria-label={`Switch to ${mode === 'human' ? 'command' : 'character'} mode`}
+        >
+          <span className={mode === 'human' ? 'active' : ''}>CHARACTER VIEW</span>
+          <span className={mode === 'operator' ? 'active' : ''}>COMMAND MODE</span>
+        </button>
       </div>
+
       {editingLoc && (
         <div className="zone-hero-loc-editor">
           <LocationInput
@@ -110,6 +124,9 @@ export function LuckyWindow({ profile, onLocationChange }) {
 
       {/* Zone + Identity */}
       <div className="zone-hero-main">
+        <div className="zone-hero-mode-label">
+          {mode === 'operator' ? 'CORE CONFIGURATION ACTIVE' : 'CORE LOADOUT ACTIVE'}
+        </div>
         <div className="zone-hero-name">{result.zone}</div>
         <div className="zone-hero-identity">
           {rhythm?.identity || result.band}

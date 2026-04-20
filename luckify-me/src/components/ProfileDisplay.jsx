@@ -49,7 +49,7 @@ function ProfileLayer({ label, defaultOpen = false, children }) {
 
 // ── Foundation Section — always visible, element-accented ──
 
-function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensions, birthGMT, birthTime, y, mo, dy, cceT, cceEl, cceLp, dynamic, watchFor, bestUse }) {
+function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensions, birthGMT, birthTime, y, mo, dy, cceT, cceEl, cceLp, dynamic, watchFor, bestUse, mode }) {
   const elColor = ELEMENT_COLORS[element] || { text: 'var(--pip-primary)', accent: 'rgba(200,152,42,0.1)' };
   const tithiLabel = type.charAt(0).toUpperCase() + type.slice(1);
 
@@ -92,8 +92,10 @@ function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensi
           element={cceEl}
           dynamic={dynamic}
           lifePathNum={cceLp}
+          lifePathValue={lifePathNum}
           watchFor={watchFor}
           bestUse={bestUse}
+          mode={mode}
         />
 
         {/* Remaining dimension cards (IV, V, …) */}
@@ -135,6 +137,7 @@ function gateDesc(gate, line) {
 
 export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
   const { type, element, lifePathNum, birthTime } = profile;
+  const [mode, setMode] = useState('human');
 
   // Always recompute geneKeys from stored birth data so old profiles pick up
   // formula fixes (GSTART, solar arc) without needing a manual recalculation.
@@ -267,7 +270,12 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
     <div className="profile-page">
 
       {/* ── Layer 1: Zone Hero (today's frequency) ── */}
-      <LuckyWindow profile={profile} onLocationChange={onLocationChange} />
+      <LuckyWindow
+        profile={profile}
+        onLocationChange={onLocationChange}
+        mode={mode}
+        onModeChange={setMode}
+      />
 
       {/* ── Layer 2: Foundation (who you are — always visible) ── */}
       <FoundationSection
@@ -288,6 +296,7 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
         dynamic={dynamic}
         watchFor={watchFor}
         bestUse={bestUse}
+        mode={mode}
       />
 
       {/* ── Layer 3: Color Rhythm Calendar ── */}
