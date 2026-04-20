@@ -11,12 +11,12 @@
 
 import { useState, useMemo } from 'react';
 import { DimensionCard } from './DimensionCard.jsx';
+import { CoreConfigCard } from './CoreConfigCard.jsx';
 import { LuckyWindow } from './LuckyWindow.jsx';
 import { RhythmCalendar } from './RhythmCalendar.jsx';
 import { GateContentCard } from './GateContentCard.jsx';
-import { TITHI_DATA, TITHI_AXIOMS, TITHI_SVGS } from '../constants/tithi.js';
-import { ELEMENT_CONFIG, ELEMENT_AXIOMS } from '../constants/element.js';
-import { LP_CONFIG } from '../constants/lifePath.js';
+import { ELEMENT_CONFIG } from '../constants/element.js';
+import { TITHI_CCE, ELEMENT_CCE, LP_CCE, getDynamic, generateWatchFor, generateBestUse } from '../constants/coreConfig.js';
 import { getBlend } from '../constants/blends.js';
 import { GENE_KEYS } from '../constants/geneKeys.js';
 import { PURPOSE_GATES } from '../constants/purposeGates.js';
@@ -31,25 +31,6 @@ const ELEMENT_COLORS = {
   Metal: { text: '#90b0cc', accent: 'rgba(40, 70, 110, 0.16)' },
   Water: { text: '#4880c8', accent: 'rgba(20, 55, 130, 0.18)' },
 };
-
-// ── Icons ──────────────────────────────────────────────
-
-function TithiIcon({ type }) {
-  const svg = TITHI_SVGS[type] || '';
-  return (
-    <svg viewBox="0 0 56 56" fill="none" style={{ width: 36, height: 36 }}
-      dangerouslySetInnerHTML={{ __html: svg }} />
-  );
-}
-
-function ElementIcon({ element }) {
-  const cfg = ELEMENT_CONFIG[element];
-  return <span style={{ fontSize: 28 }}>{cfg?.glyph || '?'}</span>;
-}
-
-function LifePathIcon({ number }) {
-  return <div className="lp-number-circle">{number}</div>;
-}
 
 // ── Collapsible Layer (calendar only) ──────────────────
 
@@ -68,7 +49,7 @@ function ProfileLayer({ label, defaultOpen = false, children }) {
 
 // ── Foundation Section — always visible, element-accented ──
 
-function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensions, birthGMT, birthTime, y, mo, dy }) {
+function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensions, birthGMT, birthTime, y, mo, dy, cceT, cceEl, cceLp, dynamic, watchFor, bestUse }) {
   const elColor = ELEMENT_COLORS[element] || { text: 'var(--pip-primary)', accent: 'rgba(200,152,42,0.1)' };
   const tithiLabel = type.charAt(0).toUpperCase() + type.slice(1);
 
@@ -103,8 +84,19 @@ function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensi
         </div>
       )}
 
-      {/* Dimension cards — individually expandable */}
+      {/* Core Configuration card (Dims I + II + III) */}
       <div className="foundation-dimensions">
+        <CoreConfigCard
+          icon={<span style={{ fontSize: 22, lineHeight: 1 }}>◈</span>}
+          tithi={cceT}
+          element={cceEl}
+          dynamic={dynamic}
+          lifePathNum={cceLp}
+          watchFor={watchFor}
+          bestUse={bestUse}
+        />
+
+        {/* Remaining dimension cards (IV, V, …) */}
         {dimensions.map(dim => (
           <DimensionCard
             key={dim.key}
@@ -142,7 +134,7 @@ function gateDesc(gate, line) {
 }
 
 export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
-  const { type, cfg, element, lifePathNum, birthTime } = profile;
+  const { type, element, lifePathNum, birthTime } = profile;
 
   // Always recompute geneKeys from stored birth data so old profiles pick up
   // formula fixes (GSTART, solar arc) without needing a manual recalculation.
@@ -164,47 +156,21 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
   }, [profile]);
   const hasBirthTime = Boolean(birthTime) && birthTime !== '00:00';
 
-  const tithiData  = TITHI_DATA[type];
-  const tithiAxiom = TITHI_AXIOMS[type];
   const elemCfg    = ELEMENT_CONFIG[element];
-  const elemAxiom  = ELEMENT_AXIOMS[element];
-  const lpCfg      = LP_CONFIG[lifePathNum];
   const blend      = getBlend(element, type);
 
-  // ── Dimension config array ──────────────────────────
-  // Add future dimensions here — no other changes needed.
+  // ── Core Configuration Engine lookups ──────────────
+  const cceT       = TITHI_CCE[type];
+  const cceEl      = ELEMENT_CCE[element];
+  const cceLp      = LP_CCE[lifePathNum];
+  const dynamic    = getDynamic(type, element);
+  // Per-entry content takes priority; generated formulas are fallback only
+  const watchFor   = dynamic?.watch_for  || generateWatchFor(type, element, lifePathNum);
+  const bestUse    = dynamic?.best_use   || generateBestUse(type, element, lifePathNum);
+
+  // ── Dimension config array — IV and V only ─────────
+  // Dims I/II/III are handled by CoreConfigCard above.
   const dimensions = [
-    {
-      key:    'tithi',
-      system: 'DIMENSION I · TITHI',
-      icon:   <TithiIcon type={type} />,
-      name:   cfg?.label || type,
-      axiom:  tithiAxiom,
-      tabs:   tithiData ? [
-        { key: 'operating', label: 'Operating', principles: tithiData.operating },
-        { key: 'intuitive', label: 'Intuitive',  principles: tithiData.intuitive },
-      ] : [],
-    },
-    {
-      key:    'element',
-      system: 'DIMENSION II · WU XING',
-      icon:   <ElementIcon element={element} />,
-      name:   `${element} · ${elemCfg?.keyword || ''}`,
-      axiom:  elemAxiom,
-      tabs:   elemCfg ? [
-        { key: 'desc', label: 'Signal', principles: [{ title: elemCfg.keyword, body: elemCfg.desc }] }
-      ] : [],
-    },
-    {
-      key:    'lifePath',
-      system: 'DIMENSION III · LIFE PATH',
-      icon:   <LifePathIcon number={lifePathNum} />,
-      name:   lpCfg?.name || `Life Path ${lifePathNum}`,
-      axiom:  lpCfg?.axiom,
-      tabs:   lpCfg ? [
-        { key: 'mission', label: 'Mission', principles: [{ title: lpCfg.name, body: lpCfg.axiom }] }
-      ] : [],
-    },
     // ── Gene Keys (Dimension IV) ──
     ...(geneKeys ? [{
       key:    'geneKeys',
@@ -316,6 +282,12 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
         y={profile.y}
         mo={profile.mo}
         dy={profile.dy}
+        cceT={cceT}
+        cceEl={cceEl}
+        cceLp={cceLp}
+        dynamic={dynamic}
+        watchFor={watchFor}
+        bestUse={bestUse}
       />
 
       {/* ── Layer 3: Color Rhythm Calendar ── */}

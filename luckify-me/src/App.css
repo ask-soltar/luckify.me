@@ -582,6 +582,228 @@
   background: rgba(200,152,42,0.1);
 }
 
+/* ── Core Config Card ── */
+
+/* Header */
+.core-config-theme-name {
+  font-family: var(--pip-font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--pip-text);
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+.core-config-meta-line {
+  font-family: var(--pip-font-mono);
+  font-size: 9px;
+  color: var(--pip-text-dim);
+  opacity: 0.5;
+  margin-top: 3px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Body shell */
+.core-config-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Discovery block — reveal + recognition grouped tight ── */
+.core-config-discovery {
+  padding: 20px 20px 16px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0,255,65,0.12);
+  background: rgba(0,255,65,0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.core-config-reveal {
+  font-family: var(--pip-font-body);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--pip-text);
+  line-height: 1.75;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+/* Recognition — subnote tight below reveal, no separate border */
+.core-config-recognition-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 10px;
+  text-align: left;
+}
+.core-config-recognition-mark {
+  font-size: 9px;
+  color: var(--pip-primary);
+  opacity: 0.35;
+  flex-shrink: 0;
+  margin-top: 4px;
+  line-height: 1;
+}
+/* "You may have noticed…" — carries the label voice */
+.core-config-recognition-label {
+  font-family: var(--pip-font-body);
+  font-size: 12px;
+  font-style: italic;
+  color: var(--pip-text-dim);
+  opacity: 0.55;
+  margin-bottom: 4px;
+}
+/* Body — primary discovery, not annotation */
+.core-config-recognition {
+  font-family: var(--pip-font-body);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--pip-text);
+  opacity: 0.85;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Labeled fields ── */
+.core-config-field {
+  padding: 13px 16px;
+  border-bottom: 1px solid rgba(0,255,65,0.06);
+}
+.core-config-label {
+  font-family: var(--pip-font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--pip-primary);
+  opacity: 0.65;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.core-config-field-num {
+  font-size: 11px;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+.core-config-value {
+  font-size: 14px;
+  color: var(--pip-text);
+  line-height: 1.6;
+}
+/* Outcome — bridge + anchor, centered */
+.core-config-field--build {
+  text-align: center;
+  padding: 20px 20px 22px;
+  border-bottom: 1px solid rgba(0,255,65,0.06);
+}
+.core-config-outcome-bridge {
+  font-family: var(--pip-font-body);
+  font-size: 12px;
+  font-style: italic;
+  color: var(--pip-text-dim);
+  opacity: 0.5;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.core-config-outcome {
+  font-family: var(--pip-font-mono);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--pip-text);
+  line-height: 1.3;
+}
+
+/* ── How This Works toggle — clearly interactive ── */
+.core-config-analysis-section {
+  border-top: 1px solid rgba(0,255,65,0.1);
+  border-bottom: 1px solid rgba(0,255,65,0.1);
+}
+.core-config-analysis-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  background: rgba(0,255,65,0.05);
+  border: none;
+  cursor: pointer;
+  font-family: var(--pip-font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--pip-primary);
+  opacity: 0.8;
+  text-transform: uppercase;
+  transition: opacity 0.15s, background 0.15s;
+}
+.core-config-analysis-toggle:hover { opacity: 1; background: rgba(0,255,65,0.09); }
+.core-config-analysis-toggle.open  { opacity: 1; background: rgba(0,255,65,0.07); }
+.core-config-analysis-chevron {
+  font-size: 12px;
+  font-weight: 700;
+  transition: transform 0.2s;
+  display: inline-block;
+  color: var(--pip-primary);
+}
+.core-config-analysis-chevron.rotated { transform: rotate(180deg); }
+
+/* ── Tactical zone — tool cards ── */
+.core-config-tactical {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 12px 14px;
+  border-top: 2px solid rgba(0,255,65,0.12);
+}
+.core-config-tactical-item {
+  padding: 15px 18px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,255,65,0.08);
+  background: rgba(0,0,0,0.2);
+}
+.core-config-tactical--watchfor {
+  border-color: rgba(200,152,64,0.2);
+  background: rgba(200,152,64,0.04);
+}
+.core-config-tactical--bestuse {
+  border-color: rgba(0,255,65,0.14);
+  background: rgba(0,255,65,0.03);
+}
+.core-config-tactical-label {
+  font-family: var(--pip-font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.core-config-tactical-icon { font-size: 11px; line-height: 1; }
+.core-config-tactical--watchfor .core-config-tactical-label { color: #c89840; }
+.core-config-tactical--bestuse  .core-config-tactical-label { color: var(--pip-primary); }
+.core-config-tactical-body {
+  font-size: 13px;
+  color: var(--pip-text-dim);
+  line-height: 1.65;
+}
+/* Best Use 3-beat layout */
+.core-config-tactical-beats {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.core-config-beat {
+  font-size: 13px;
+  color: var(--pip-text-dim);
+  line-height: 1.5;
+}
+
 /* ── Principles ── */
 .principles-list { display: flex; flex-direction: column; gap: 10px; }
 .principle-item {
