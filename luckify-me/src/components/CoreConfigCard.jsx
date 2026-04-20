@@ -48,6 +48,7 @@ const NUMBERED = ['①', '②', '③'];
 export function CoreConfigCard({ icon, tithi, element, dynamic, lifePathNum, watchFor, bestUse }) {
   const [open,        setOpen]        = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
+  const [mode,        setMode]        = useState('simple'); // 'simple' | 'operator'
 
   const themeName  = dynamic?.configuration_theme_name;
   const revealText = dynamic?.reveal_statement;
@@ -60,11 +61,17 @@ export function CoreConfigCard({ icon, tithi, element, dynamic, lifePathNum, wat
   const metaLine   = [tithi?.functional_name, element?.functional_name].filter(Boolean).join(' · ');
   const bestUseBeats = parseBestUse(bestUse);
 
-  const analyticalFields = [
-    { key: 'naturally', label: 'What Comes Naturally to You\u2026',       body: tithi?.naturally_statement },
-    { key: 'shapes',    label: 'What Life Seems to Develop in You\u2026',  body: element?.shapes_you_through },
-    { key: 'pattern',   label: 'When These Work Together\u2026',           body: dynamic?.pattern_statement },
-  ].filter(f => f.body);
+  const analyticalFields = mode === 'simple'
+    ? [
+        { key: 'like',    label: 'What you\u2019re like\u2026',           body: dynamic?.how_like },
+        { key: 'teaches', label: 'What life teaches you\u2026',           body: dynamic?.how_teaches },
+        { key: 'shows',   label: 'How it shows up\u2026',                 body: dynamic?.how_shows },
+      ].filter(f => f.body)
+    : [
+        { key: 'naturally', label: 'What Comes Naturally to You\u2026',      body: dynamic?.op_naturally },
+        { key: 'develops',  label: 'What Life Seems to Develop in You\u2026', body: dynamic?.op_develops },
+        { key: 'together',  label: 'When These Work Together\u2026',          body: dynamic?.op_together },
+      ].filter(f => f.body);
 
   return (
     <div className={`dim-card core-config-card${open ? ' open' : ''}`}>
@@ -112,13 +119,27 @@ export function CoreConfigCard({ icon, tithi, element, dynamic, lifePathNum, wat
           {/* How This Works — expandable, numbered */}
           {analyticalFields.length > 0 && (
             <div className="core-config-analysis-section">
-              <button
-                className={`core-config-analysis-toggle${detailsOpen ? ' open' : ''}`}
-                onClick={() => setDetailsOpen(o => !o)}
-              >
-                <span>How This Works</span>
-                <span className={`core-config-analysis-chevron${detailsOpen ? ' rotated' : ''}`}>▼</span>
-              </button>
+              <div className="core-config-analysis-header">
+                <button
+                  className={`core-config-analysis-toggle${detailsOpen ? ' open' : ''}`}
+                  onClick={() => setDetailsOpen(o => !o)}
+                >
+                  <span>How This Works</span>
+                  <span className={`core-config-analysis-chevron${detailsOpen ? ' rotated' : ''}`}>▼</span>
+                </button>
+                {detailsOpen && (
+                  <div className="core-config-mode-toggle">
+                    <button
+                      className={`core-config-mode-btn${mode === 'simple' ? ' active' : ''}`}
+                      onClick={() => setMode('simple')}
+                    >Simple</button>
+                    <button
+                      className={`core-config-mode-btn${mode === 'operator' ? ' active' : ''}`}
+                      onClick={() => setMode('operator')}
+                    >Detailed</button>
+                  </div>
+                )}
+              </div>
 
               {detailsOpen && analyticalFields.map((f, i) => (
                 <div key={f.key} className={`core-config-field core-config-field--${f.key}`}>

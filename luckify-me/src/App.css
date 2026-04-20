@@ -722,8 +722,13 @@
   border-top: 1px solid rgba(0,255,65,0.1);
   border-bottom: 1px solid rgba(0,255,65,0.1);
 }
+.core-config-analysis-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .core-config-analysis-toggle {
-  width: 100%;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -750,6 +755,42 @@
   color: var(--pip-primary);
 }
 .core-config-analysis-chevron.rotated { transform: rotate(180deg); }
+
+/* ── Simple / Detailed mode toggle pill ── */
+.core-config-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid rgba(0,255,65,0.25);
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+.core-config-mode-btn {
+  padding: 5px 9px;
+  font-family: var(--pip-font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgba(0,255,65,0.45);
+  transition: background 0.12s, color 0.12s;
+}
+.core-config-mode-btn + .core-config-mode-btn {
+  border-left: 1px solid rgba(0,255,65,0.2);
+}
+.core-config-mode-btn.active {
+  background: rgba(0,255,65,0.12);
+  color: var(--pip-primary);
+}
+.core-config-mode-btn:hover:not(.active) {
+  background: rgba(0,255,65,0.06);
+  color: rgba(0,255,65,0.7);
+}
 
 /* ── Tactical zone — tool cards ── */
 .core-config-tactical {
