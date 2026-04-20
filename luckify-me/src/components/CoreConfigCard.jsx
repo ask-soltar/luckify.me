@@ -37,7 +37,6 @@ function cap(s) {
 }
 
 const NUMBERED = ['①', '②', '③'];
-const RAW_PREFIX = 'You may have noticed ';
 
 export function CoreConfigCard({ icon, tithi, element, dynamic, lifePathNum, watchFor, bestUse }) {
   const [open,        setOpen]        = useState(false);
@@ -47,11 +46,9 @@ export function CoreConfigCard({ icon, tithi, element, dynamic, lifePathNum, wat
   const themeName = dynamic?.configuration_theme_name;
   const metaLine  = [tithi?.functional_name, element?.functional_name].filter(Boolean).join(' · ');
 
-  // Recognition — shared across modes
-  const recognRaw  = dynamic?.recognition_line || '';
-  const recognBody = recognRaw.startsWith(RAW_PREFIX)
-    ? cap(recognRaw.slice(RAW_PREFIX.length))
-    : recognRaw;
+  // Recognition — mode-specific
+  const recognBody   = dynamic?.recognition_line_simple    || null;
+  const recognSignal = dynamic?.recognition_signal_operator || null;
 
   // Standard mode reveal: stem + lp tail
   const stem   = dynamic?.simple_reveal_stem;
@@ -135,14 +132,20 @@ export function CoreConfigCard({ icon, tithi, element, dynamic, lifePathNum, wat
             </div>
           )}
 
-          {/* ── Recognition — shared ── */}
-          {recognBody && (
+          {/* ── Recognition — mode-specific ── */}
+          {mode === 'standard' && recognBody && (
             <div className="core-config-recognition-wrap">
               <span className="core-config-recognition-mark">✦</span>
               <div>
-                <div className="core-config-recognition-label">You may have noticed&hellip;</div>
+                <div className="core-config-recognition-label">Often this shows up as&hellip;</div>
                 <p className="core-config-recognition">{recognBody}</p>
               </div>
+            </div>
+          )}
+          {mode === 'operator' && recognSignal && (
+            <div className="core-config-op-block core-config-op-block--recognition">
+              <div className="core-config-op-label">Recognition Signal</div>
+              <p className="core-config-op-value">{recognSignal}</p>
             </div>
           )}
 
