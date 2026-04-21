@@ -7,6 +7,7 @@ import { validateProfileInputs } from '../utils/profileCalculator.js';
  */
 export function useProfileForm(onSubmit) {
   const [formData, setFormData] = useState({
+    displayName: '',
     month: '',
     day: '',
     year: '',
@@ -65,6 +66,7 @@ export function useProfileForm(onSubmit) {
     if (onSubmit) {
       onSubmit({
         ...formData,
+        displayName: (formData.displayName || '').trim(),
         birthGMT: formData.birthGMT ?? 0,
         currentGMT: formData.currentGMT ?? formData.birthGMT ?? 0
       });
@@ -73,6 +75,7 @@ export function useProfileForm(onSubmit) {
 
   const reset = () => {
     setFormData({
+      displayName: '',
       month: '',
       day: '',
       year: '',

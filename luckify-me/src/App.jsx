@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { ProfileForm } from './components/ProfileForm.jsx';
 import { ProfileDisplay } from './components/ProfileDisplay.jsx';
 import { ProfileMenu } from './components/ProfileMenu.jsx';
-import { calculateProfile, generateProfileName, generateId } from './utils/profileCalculator.js';
+import { calculateProfile, generateId, resolveProfileName } from './utils/profileCalculator.js';
 import { useProfileStorage } from './hooks/useProfileStorage.js';
 import { calcTodayWindow } from './utils/luckyWindow.js';
 import './styles/pip-boy.css';
@@ -65,12 +65,15 @@ export default function App() {
     result.birthTime = `${String(h).padStart(2,'0')}:${String(formData.minute).padStart(2,'0')}`;
 
     const currentP = getCurrentProfile();
+    const resolvedName = resolveProfileName(formData.displayName, result);
     if (currentP) {
-      updateProfile(currentP.id, { result });
+      updateProfile(currentP.id, {
+        result,
+        name: formData.displayName ? resolvedName : currentP.name || resolvedName
+      });
     } else {
-      const name = generateProfileName(result.element, result.type);
       const id   = generateId();
-      addProfile({ id, name, result });
+      addProfile({ id, name: resolvedName, result });
     }
 
     // Threshold: fade to void, swap content at peak black, then reveal

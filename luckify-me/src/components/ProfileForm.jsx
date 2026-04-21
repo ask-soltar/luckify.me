@@ -38,6 +38,21 @@ export function ProfileForm({ onSubmit }) {
       <div className="form-body">
       <form onSubmit={handleSubmit} className="calc-form">
 
+        <div className="form-section">
+          <label className="form-label" htmlFor="display-name">&gt; NAME</label>
+          <input
+            id="display-name"
+            className="pip-input"
+            type="text"
+            value={formData.displayName}
+            onChange={e => handleChange('displayName', e.target.value)}
+            placeholder="What should we call you?"
+            autoComplete="name"
+            maxLength={60}
+          />
+          <p className="form-hint">Use your own name or any profile name you want to see in the app.</p>
+        </div>
+
         {/* Birth Date */}
         <div className="form-section">
           <label className="form-label">&gt; BIRTH DATE</label>

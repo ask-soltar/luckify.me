@@ -3,7 +3,6 @@
  */
 
 import { TITHI_SVGS } from '../constants/tithi.js';
-import { ELEMENT_CONFIG } from '../constants/element.js';
 
 function ProfileAvatar({ result }) {
   if (!result) return <div className="menu-avatar-placeholder">?</div>;
@@ -16,10 +15,10 @@ function ProfileAvatar({ result }) {
 }
 
 function ProfileItem({ profile, isCurrent, onSwitch, onDelete }) {
-  const elemCfg = profile.result ? ELEMENT_CONFIG[profile.result.element] : null;
   const subtitle = profile.result
     ? `${profile.result.element || '—'} · ${profile.result.type || '—'}`
     : 'No reading yet';
+  const profileName = profile.name || subtitle;
 
   return (
     <div
@@ -31,7 +30,7 @@ function ProfileItem({ profile, isCurrent, onSwitch, onDelete }) {
       </div>
       <div className="menu-profile-info">
         <div className="menu-profile-name-row">
-          <span className="menu-profile-name">{profile.name}</span>
+          <span className="menu-profile-name">{profileName}</span>
           {isCurrent && <span className="current-dot" />}
         </div>
         <span className="menu-profile-type">{subtitle}</span>

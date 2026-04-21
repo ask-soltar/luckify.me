@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
+import { resolveProfileName } from '../utils/profileCalculator.js';
 
 /**
  * Custom hook for localStorage-persisted profile list
@@ -20,10 +21,16 @@ export function useProfileStorage() {
 
       // Migrate pre-location profiles: add missing fields with safe defaults
       const migrated = raw.map(p => {
-        if (!p.result) return p;
+        if (!p.result) {
+          return {
+            ...p,
+            name: (p.name || '').trim()
+          };
+        }
         const r = p.result;
         return {
           ...p,
+          name: resolveProfileName(p.name, r),
           result: {
             birthGMT:    r.birthGMT    ?? null,
             birthTzId:   r.birthTzId   ?? null,

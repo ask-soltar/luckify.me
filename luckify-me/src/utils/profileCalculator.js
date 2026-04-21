@@ -94,6 +94,19 @@ export function generateProfileName(element, tithiType) {
 }
 
 /**
+ * Resolve the primary display name for a saved profile.
+ * Falls back to the legacy generated identity so existing users keep working.
+ * @param {string} displayName
+ * @param {Object} result
+ * @returns {string}
+ */
+export function resolveProfileName(displayName, result) {
+  const trimmed = displayName?.trim();
+  if (trimmed) return trimmed;
+  return generateProfileName(result?.element, result?.type);
+}
+
+/**
  * Generate a unique ID for a profile
  * Format: 'prof_' + timestamp + random string
  * @returns {string} Unique profile ID
