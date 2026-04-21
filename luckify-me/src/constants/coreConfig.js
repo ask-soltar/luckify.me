@@ -1,3 +1,5 @@
+import { HUMAN_MODE_CONTENT_BY_THEME, getHumanModeContent as getHumanModeContentByTheme } from './foundationHumanModeContent.js';
+
 /**
  * Core Configuration Engine — V2
  *
@@ -731,39 +733,20 @@ const OPERATOR_TACTICS_BY_THEME = {
   },
 };
 
-const HUMAN_REVEAL_BY_THEME = {
-  'The Pioneer':             'Begin movement where none exists, so new possibilities can emerge.',
-  'The Catalyst':            'Disrupt what is stuck, so change can begin.',
-  'The Foundation Starter':  'Start things on solid ground, so growth has something real to stand on.',
-  'The Strategist':          'Act with timing and precision, so effort aligns with opportunity.',
-  'The Timing Keeper':       'Sense when conditions are ready, so movement happens at the right moment.',
-  'The Cultivator':          'Strengthen what has potential, so healthy growth can take root.',
-  'The Stabilizer':          'Bring steadiness to change, so transformation holds together.',
-  'The Steward':             'Support what matters, so what has value can endure.',
-  'The Architect':           'Improve how things are structured, so systems work more coherently.',
-  'The Wise Guardian':       'Protect what is worth preserving, so what matters stays intact.',
-  'The Challenger':          'Meet resistance directly, so struggle becomes strength.',
-  'The Forge':               'Turn pressure into growth, so challenge becomes transformation.',
-  'The Stronghold':          'Hold steady under strain, so resilience can be built.',
-  'The Master':              'Refine through challenge, so skill becomes mastery.',
-  'The Resilient Sage':      'Find wisdom in difficulty, so hardship becomes perspective.',
-  'The Pruner':              'Clear what no longer serves, so healthier growth can emerge.',
-  'The Structural Reformer': 'Fix what is weak first, so what you build can endure.',
-  'The Grounded Seer':       'Seek clarity before action, so direction can emerge from uncertainty.',
-  'The Refiner':             'Improve what lacks integrity, so what remains becomes stronger.',
-  'The Deep Seer':           'See beneath the surface, so deeper truth can guide what comes next.',
-  'The Harvester':           'Bring things toward completion, so fulfillment can be realized.',
-  'The Illuminator':         'Reveal what carries meaning, so clarity can emerge.',
-  'The Integrator':          'Bring separate parts together, so greater coherence can form.',
-  'The Finisher':            'Strengthen how things conclude, so outcomes carry integrity.',
-  'The Wisdom Keeper':       'Learn deeply from experience, so wisdom can be applied.',
-};
-
 for (const dynamic of Object.values(TITHI_ELEM_DYN)) {
   const operatorTactics = OPERATOR_TACTICS_BY_THEME[dynamic.configuration_theme_name];
   if (operatorTactics) Object.assign(dynamic, operatorTactics);
-  const humanReveal = HUMAN_REVEAL_BY_THEME[dynamic.configuration_theme_name];
-  if (humanReveal) dynamic.human_reveal_statement = humanReveal;
+  const humanContent = HUMAN_MODE_CONTENT_BY_THEME[dynamic.configuration_theme_name];
+  if (humanContent?.stable) {
+    dynamic.human_reveal_statement = humanContent.stable.reveal;
+    dynamic.recognition_line_simple = humanContent.stable.recognition;
+    dynamic.simple_natural_expression = humanContent.stable.howYouNaturallyOperate;
+    dynamic.simple_developmental_force = null;
+    dynamic.simple_pattern_statement = null;
+    dynamic.watch_for = humanContent.stable.baseWatchForDrift;
+    dynamic.best_use = null;
+    dynamic.base_watch_for_drift = humanContent.stable.baseWatchForDrift;
+  }
 }
 
 // ── Generation Logic ───────────────────────────────────────────────────────
@@ -772,7 +755,15 @@ export function getDynamic(tithi, element) {
   return TITHI_ELEM_DYN[`${tithi}:${element}`] || null;
 }
 
+export function getHumanModeContent(tithi, element, lifePathNum) {
+  const dynamic = getDynamic(tithi, element);
+  return getHumanModeContentByTheme(dynamic?.configuration_theme_name, lifePathNum);
+}
+
 export function generateWatchFor(tithi, element, lifePathNum) {
+  const humanContent = getHumanModeContent(tithi, element, lifePathNum);
+  if (humanContent?.watchForDrift) return humanContent.watchForDrift;
+  if (humanContent?.baseWatchForDrift) return humanContent.baseWatchForDrift;
   const t  = TITHI_CCE[tithi];
   const el = ELEMENT_CCE[element];
   const lp = LP_CCE[lifePathNum];
@@ -781,6 +772,8 @@ export function generateWatchFor(tithi, element, lifePathNum) {
 }
 
 export function generateBestUse(tithi, element, lifePathNum) {
+  const humanContent = getHumanModeContent(tithi, element, lifePathNum);
+  if (humanContent?.bestUse?.length) return humanContent.bestUse;
   const t  = TITHI_CCE[tithi];
   const el = ELEMENT_CCE[element];
   const lp = LP_CCE[lifePathNum];

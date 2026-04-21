@@ -1122,11 +1122,11 @@
   opacity: 1;
 }
 .core-config-card--human .core-config-std-reveal-block {
-  padding: 28px 28px 26px;
-  border-bottom: 1px solid rgba(168, 232, 188, 0.08);
+  padding: 32px 28px 30px;
+  border-bottom: 1px solid rgba(168, 232, 188, 0.07);
   background:
-    radial-gradient(circle at top, rgba(132, 232, 171, 0.08) 0%, transparent 58%),
-    linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.01) 100%);
+    radial-gradient(circle at top, rgba(132, 232, 171, 0.1) 0%, transparent 56%),
+    linear-gradient(180deg, rgba(255,255,255,0.024) 0%, rgba(255,255,255,0.008) 100%);
   animation: core-config-human-reveal 0.34s ease both;
 }
 .core-config-card--human .core-config-std-reveal-label,
@@ -1138,12 +1138,13 @@
 }
 .core-config-card--human .core-config-std-reveal {
   font-family: var(--pip-font-body);
-  font-size: 21px;
-  line-height: 1.78;
-  color: #f5f1e8;
-  max-width: 32ch;
+  font-size: 22px;
+  line-height: 1.72;
+  color: #f7f3eb;
+  max-width: 30ch;
   margin: 0 auto;
-  text-shadow: 0 0 12px rgba(168,232,188,0.025);
+  text-shadow: 0 0 14px rgba(168,232,188,0.03);
+  letter-spacing: 0.005em;
 }
 .core-config-card--human .core-config-recognition-wrap,
 .core-config-card--human .core-config-field,
@@ -1151,22 +1152,44 @@
   border-color: rgba(168, 232, 188, 0.08);
 }
 .core-config-card--human .core-config-recognition-wrap {
-  align-items: flex-start;
-  padding: 14px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  max-width: 31rem;
+  margin: 0 auto;
+  padding: 10px 24px 8px;
   border-left: none;
   border-right: none;
-  background: linear-gradient(180deg, rgba(168, 232, 188, 0.015) 0%, rgba(255,255,255,0.006) 100%);
+  border-bottom-color: rgba(168, 232, 188, 0.024);
+  background: linear-gradient(180deg, rgba(168, 232, 188, 0.006) 0%, rgba(255,255,255,0.002) 100%);
   animation: core-config-human-reveal 0.34s ease both;
   animation-delay: 0.18s;
 }
+.core-config-card--human .core-config-recognition-head {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  max-width: 100%;
+  text-align: center;
+}
 .core-config-card--human .core-config-recognition-mark {
-  opacity: 0.26;
+  opacity: 0.2;
+  margin-top: 0;
 }
 .core-config-card--human .core-config-recognition-label {
-  color: rgba(213, 223, 217, 0.72);
+  color: rgba(213, 223, 217, 0.56);
+  margin-bottom: 0;
+  text-align: center;
 }
 .core-config-card--human .core-config-recognition {
-  color: rgba(232, 236, 231, 0.76);
+  max-width: 28rem;
+  margin: 0;
+  color: rgba(232, 236, 231, 0.7);
+  font-size: 14px;
+  line-height: 1.58;
+  text-align: center;
 }
 .core-config-card--human .core-config-analysis-toggle {
   background: linear-gradient(180deg, rgba(132, 232, 171, 0.08) 0%, rgba(132, 232, 171, 0.03) 100%);
@@ -1190,7 +1213,6 @@
   opacity: 1;
 }
 .core-config-card--human .core-config-value,
-.core-config-card--human .core-config-recognition,
 .core-config-card--human .core-config-tactical-body,
 .core-config-card--human .core-config-beat {
   font-family: var(--pip-font-body);
@@ -1198,20 +1220,14 @@
   line-height: 1.7;
   color: rgba(232, 232, 224, 0.88);
 }
-.core-config-card--human .core-config-recognition {
-  opacity: 0.9;
-}
-.core-config-card--human .core-config-recognition-mark {
-  opacity: 0.42;
-}
 .core-config-card--human .core-config-field--build {
   position: relative;
-  margin: 30px 14px 10px;
-  padding: 32px 26px 32px;
+  margin: 16px 14px 4px;
+  padding: 16px 22px 14px;
   border: none;
   background:
-    radial-gradient(circle at center, rgba(168,232,188,0.038) 0%, transparent 68%),
-    linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(168,232,188,0.03) 100%);
+    radial-gradient(circle at center, rgba(168,232,188,0.028) 0%, transparent 62%),
+    linear-gradient(180deg, rgba(255,255,255,0.01) 0%, rgba(168,232,188,0.017) 100%);
   animation: core-config-human-reveal 0.4s ease both;
   animation-delay: 0.34s;
 }
@@ -1219,114 +1235,184 @@
 .core-config-card--human .core-config-field--build::after {
   content: '';
   display: block;
-  width: min(210px, 70%);
+  width: min(170px, 62%);
   height: 1px;
   margin: 0 auto;
-  background: linear-gradient(90deg, transparent 0%, rgba(190, 234, 202, 0.22) 20%, rgba(190, 234, 202, 0.58) 50%, rgba(190, 234, 202, 0.22) 80%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(190, 234, 202, 0.14) 20%, rgba(190, 234, 202, 0.42) 50%, rgba(190, 234, 202, 0.14) 80%, transparent 100%);
 }
 .core-config-card--human .core-config-field--build::before {
-  margin-bottom: 18px;
+  margin-bottom: 8px;
 }
 .core-config-card--human .core-config-field--build::after {
-  margin-top: 20px;
+  margin-top: 8px;
 }
 .core-config-card--human .core-config-outcome-bridge {
   font-style: normal;
-  opacity: 0.88;
+  opacity: 0.62;
   margin-bottom: 0;
 }
 .core-config-card--human .core-config-outcome {
   font-family: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
-  font-size: 34px;
+  font-size: 27px;
   font-weight: 600;
-  letter-spacing: 0.015em;
+  letter-spacing: 0.01em;
   color: #eef4ed;
-  text-shadow: 0 0 14px rgba(168,232,188,0.05);
+  text-shadow: 0 0 8px rgba(168,232,188,0.03);
 }
 .core-config-card--human .core-config-outcome-shell {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
+  gap: 8px;
   text-align: center;
 }
 .core-config-card--human .core-config-outcome-copy {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  max-width: 28ch;
+  gap: 5px;
+  max-width: 23ch;
 }
 .core-config-card--human .core-config-outcome-crest {
-  width: 92px;
-  height: 92px;
-  border-radius: 28px;
-  border: 1px dashed rgba(193, 221, 200, 0.12);
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  border: 1px dashed rgba(193, 221, 200, 0.1);
   background:
-    radial-gradient(circle at 50% 42%, rgba(168,232,188,0.04) 0%, transparent 66%),
-    linear-gradient(180deg, rgba(255,255,255,0.014) 0%, rgba(168,232,188,0.01) 100%);
+    radial-gradient(circle at 50% 42%, rgba(168,232,188,0.04) 0%, transparent 64%),
+    linear-gradient(180deg, rgba(255,255,255,0.012) 0%, rgba(168,232,188,0.007) 100%);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.03),
-    0 12px 28px rgba(0,0,0,0.14);
-  opacity: 0.8;
+    0 8px 18px rgba(0,0,0,0.11);
+  opacity: 0.76;
   position: relative;
-  margin-bottom: 4px;
+  margin-bottom: 0;
 }
 .core-config-card--human .core-config-life-path-crest {
   width: 100%;
   height: 100%;
   opacity: 0.98;
 }
+.core-config-card--human .core-config-guidance {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(168, 232, 188, 0.04);
+}
+.core-config-card--human .core-config-guidance-intro {
+  margin: 0 8px 9px;
+  text-align: center;
+  font-family: var(--pip-font-body);
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  color: rgba(214, 224, 218, 0.48);
+}
 .core-config-card--human .core-config-guidance-toggle {
-  background: rgba(255,255,255,0.015);
-  border-color: rgba(168, 232, 188, 0.1);
-  color: rgba(226, 235, 228, 0.76);
+  background: linear-gradient(180deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.01) 100%);
+  border-color: rgba(168, 232, 188, 0.11);
+  color: rgba(232, 239, 234, 0.82);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.025);
+}
+.core-config-card--human .core-config-guidance-toggle:hover,
+.core-config-card--human .core-config-guidance-toggle.open {
+  background: linear-gradient(180deg, rgba(168,232,188,0.032) 0%, rgba(255,255,255,0.014) 100%);
+  border-color: rgba(168, 232, 188, 0.18);
+  color: rgba(240, 244, 239, 0.92);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.03),
+    0 0 0 1px rgba(168,232,188,0.025);
+}
+.core-config-card--human .core-config-guidance-toggle.open .core-config-guidance-chevron {
+  color: rgba(214, 236, 220, 0.84);
 }
 .core-config-card--human .core-config-guidance-body {
-  gap: 8px;
+  gap: 12px;
+  padding-top: 10px;
 }
 .core-config-card--human .core-config-guidance-panel {
   padding: 11px 12px;
-  border-color: rgba(168, 232, 188, 0.05);
-  background: rgba(255,255,255,0.007);
+  border-color: rgba(168, 232, 188, 0.045);
+  background: linear-gradient(180deg, rgba(255,255,255,0.008) 0%, rgba(255,255,255,0.004) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.012);
 }
 .core-config-card--human .core-config-guidance-label {
-  color: rgba(194, 214, 199, 0.72);
+  color: rgba(214, 227, 219, 0.82);
+  font-size: 11.5px;
+  letter-spacing: 0.035em;
+  margin-bottom: 8px;
 }
 .core-config-card--human .core-config-guidance-row .core-config-value,
 .core-config-card--human .core-config-guidance-panel .core-config-tactical-body,
 .core-config-card--human .core-config-guidance-panel .core-config-beat {
   font-size: 14px;
-  line-height: 1.6;
-  color: rgba(225, 228, 223, 0.8);
+  line-height: 1.62;
+  color: rgba(233, 236, 231, 0.86);
 }
 .core-config-card--human .core-config-guidance-panel--operate {
-  padding: 12px 13px;
-  border-color: rgba(168, 232, 188, 0.07);
-  background: linear-gradient(180deg, rgba(168,232,188,0.018) 0%, rgba(255,255,255,0.008) 100%);
+  padding: 14px 14px;
+  border-color: rgba(168, 232, 188, 0.085);
+  background: linear-gradient(180deg, rgba(168,232,188,0.024) 0%, rgba(255,255,255,0.01) 100%);
 }
 .core-config-card--human .core-config-guidance-panel--operate .core-config-guidance-label {
-  color: rgba(208, 226, 213, 0.82);
+  color: rgba(223, 235, 227, 0.9);
+}
+.core-config-card--human .core-config-guidance-copy {
+  gap: 14px;
+}
+.core-config-card--human .core-config-guidance-row {
+  gap: 6px;
+  padding-top: 2px;
+}
+.core-config-card--human .core-config-guidance-row + .core-config-guidance-row {
+  padding-top: 10px;
+  border-top: 1px solid rgba(168, 232, 188, 0.055);
+}
+.core-config-card--human .core-config-guidance-row-label {
+  color: rgba(214, 225, 217, 0.82);
+  font-size: 12.5px;
+  letter-spacing: 0.018em;
 }
 .core-config-card--human .core-config-guidance-panel--drift {
-  border-color: rgba(212, 186, 134, 0.08);
-  background: linear-gradient(180deg, rgba(212,186,134,0.028) 0%, rgba(255,255,255,0.006) 100%);
+  border-color: rgba(154, 88, 72, 0.18);
+  background: linear-gradient(180deg, rgba(104,34,24,0.1) 0%, rgba(32,14,12,0.18) 100%);
+  box-shadow:
+    inset 1px 0 0 rgba(174, 96, 79, 0.22),
+    inset 0 1px 0 rgba(255,255,255,0.01);
 }
 .core-config-card--human .core-config-guidance-panel--drift .core-config-guidance-label {
-  color: rgba(214, 198, 163, 0.72);
+  color: rgba(219, 154, 137, 0.88);
 }
 .core-config-card--human .core-config-guidance-panel--drift .core-config-tactical-body {
-  color: rgba(228, 223, 212, 0.74);
+  color: rgba(234, 226, 221, 0.8);
 }
 .core-config-card--human .core-config-guidance-panel--best-use {
-  border-color: rgba(168, 232, 188, 0.055);
-  background: linear-gradient(180deg, rgba(168,232,188,0.028) 0%, rgba(255,255,255,0.01) 100%);
+  border-color: rgba(168, 232, 188, 0.11);
+  background: linear-gradient(180deg, rgba(168,232,188,0.042) 0%, rgba(255,255,255,0.014) 100%);
 }
 .core-config-card--human .core-config-guidance-panel--best-use .core-config-guidance-label {
-  color: rgba(198, 221, 204, 0.8);
+  color: rgba(219, 236, 224, 0.92);
 }
 .core-config-card--human .core-config-guidance-panel--best-use .core-config-beat {
-  color: rgba(234, 238, 232, 0.84);
+  color: rgba(243, 246, 241, 0.94);
+}
+.core-config-card--human .core-config-tactical-beats {
+  display: grid;
+  gap: 10px;
+}
+.core-config-card--human .core-config-beat {
+  position: relative;
+  padding-left: 17px;
+  color: rgba(243, 246, 241, 0.94);
+}
+.core-config-card--human .core-config-beat::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(196, 238, 208, 0.85) 0%, rgba(132, 205, 155, 0.5) 100%);
+  box-shadow: 0 0 0 3px rgba(182, 227, 195, 0.07);
 }
 
 .core-config-card--operator {
@@ -1524,13 +1610,78 @@
   .core-config-card--human .core-config-theme-name {
     line-height: 1.02;
   }
+  .core-config-card--human .core-config-std-reveal-block {
+    padding: 30px 22px 28px;
+  }
+  .core-config-card--human .core-config-std-reveal {
+    font-size: 23px;
+    line-height: 1.64;
+    max-width: 13.5ch;
+  }
+  .core-config-card--human .core-config-recognition-wrap {
+    max-width: 25rem;
+    gap: 7px;
+    padding: 8px 18px 7px;
+  }
+  .core-config-card--human .core-config-recognition {
+    max-width: 23rem;
+    font-size: 13.5px;
+    line-height: 1.54;
+  }
+  .core-config-card--human .core-config-field--build {
+    margin: 14px 10px 2px;
+    padding: 14px 16px 12px;
+  }
   .core-config-card--human .core-config-outcome-shell {
-    gap: 16px;
+    gap: 7px;
   }
   .core-config-card--human .core-config-outcome-crest {
     margin: 0 auto;
-    width: 78px;
-    height: 78px;
+    width: 62px;
+    height: 62px;
+  }
+  .core-config-card--human .core-config-outcome {
+    font-size: 24px;
+    max-width: 11ch;
+  }
+  .core-config-card--human .core-config-guidance {
+    margin-top: 12px;
+    padding-top: 8px;
+  }
+  .core-config-card--human .core-config-guidance-intro {
+    margin: 0 6px 8px;
+    font-size: 10px;
+  }
+  .core-config-card--human .core-config-guidance-body {
+    gap: 10px;
+    padding-top: 8px;
+  }
+  .core-config-card--human .core-config-guidance-panel {
+    padding: 10px 10px;
+  }
+  .core-config-card--human .core-config-guidance-panel--operate {
+    padding: 12px 11px;
+  }
+  .core-config-card--human .core-config-guidance-row .core-config-value,
+  .core-config-card--human .core-config-guidance-panel .core-config-tactical-body,
+  .core-config-card--human .core-config-guidance-panel .core-config-beat {
+    font-size: 13.5px;
+    line-height: 1.58;
+  }
+  .core-config-card--human .core-config-guidance-label {
+    margin-bottom: 7px;
+  }
+  .core-config-card--human .core-config-guidance-row {
+    gap: 5px;
+  }
+  .core-config-card--human .core-config-guidance-row + .core-config-guidance-row {
+    padding-top: 9px;
+  }
+  .core-config-card--human .core-config-tactical-beats {
+    gap: 8px;
+  }
+  .core-config-card--human .core-config-beat {
+    padding-left: 16px;
   }
   .core-config-card--operator .core-config-theme-name {
     font-size: 13px;

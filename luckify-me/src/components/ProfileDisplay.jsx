@@ -16,7 +16,7 @@ import { LuckyWindow } from './LuckyWindow.jsx';
 import { RhythmCalendar } from './RhythmCalendar.jsx';
 import { GateContentCard } from './GateContentCard.jsx';
 import { ELEMENT_CONFIG } from '../constants/element.js';
-import { TITHI_CCE, ELEMENT_CCE, LP_CCE, getDynamic, generateWatchFor, generateBestUse } from '../constants/coreConfig.js';
+import { TITHI_CCE, ELEMENT_CCE, LP_CCE, getDynamic, getHumanModeContent, generateWatchFor, generateBestUse } from '../constants/coreConfig.js';
 import { getBlend } from '../constants/blends.js';
 import { GENE_KEYS } from '../constants/geneKeys.js';
 import { PURPOSE_GATES } from '../constants/purposeGates.js';
@@ -49,7 +49,7 @@ function ProfileLayer({ label, defaultOpen = false, children }) {
 
 // ── Foundation Section — always visible, element-accented ──
 
-function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensions, birthGMT, birthTime, y, mo, dy, cceT, cceEl, cceLp, dynamic, watchFor, bestUse, mode }) {
+function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensions, birthGMT, birthTime, y, mo, dy, cceT, cceEl, cceLp, dynamic, humanModeContent, watchFor, bestUse, mode }) {
   const elColor = ELEMENT_COLORS[element] || { text: 'var(--pip-primary)', accent: 'rgba(200,152,42,0.1)' };
   const tithiLabel = type.charAt(0).toUpperCase() + type.slice(1);
 
@@ -91,6 +91,7 @@ function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensi
           tithi={cceT}
           element={cceEl}
           dynamic={dynamic}
+          humanModeContent={humanModeContent}
           lifePathNum={cceLp}
           lifePathValue={lifePathNum}
           watchFor={watchFor}
@@ -167,9 +168,10 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
   const cceEl      = ELEMENT_CCE[element];
   const cceLp      = LP_CCE[lifePathNum];
   const dynamic    = getDynamic(type, element);
+  const humanModeContent = getHumanModeContent(type, element, lifePathNum);
   // Per-entry content takes priority; generated formulas are fallback only
-  const watchFor   = dynamic?.watch_for  || generateWatchFor(type, element, lifePathNum);
-  const bestUse    = dynamic?.best_use   || generateBestUse(type, element, lifePathNum);
+  const watchFor   = humanModeContent?.watchForDrift || humanModeContent?.baseWatchForDrift || dynamic?.watch_for || generateWatchFor(type, element, lifePathNum);
+  const bestUse    = humanModeContent?.bestUse || dynamic?.best_use || generateBestUse(type, element, lifePathNum);
 
   // ── Dimension config array — IV and V only ─────────
   // Dims I/II/III are handled by CoreConfigCard above.
@@ -294,6 +296,7 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
         cceEl={cceEl}
         cceLp={cceLp}
         dynamic={dynamic}
+        humanModeContent={humanModeContent}
         watchFor={watchFor}
         bestUse={bestUse}
         mode={mode}

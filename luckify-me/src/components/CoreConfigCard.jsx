@@ -28,6 +28,7 @@ import { LifePathCrest } from './foundation/lifePathCrests';
 
 function parseBestUse(text) {
   if (!text) return [];
+  if (Array.isArray(text)) return text.filter(Boolean);
   const three = text.match(/^(.+?),\s+(.+?),\s+and\s+(.+?)\.?\s*$/i);
   if (three) return [cap(three[1]) + '.', cap(three[2]) + '.', cap(three[3]) + '.'];
   const two = text.match(/^(.+?),\s+and\s+(.+?)\.?\s*$/i);
@@ -60,7 +61,7 @@ function FoundationGlyphBadge({ glyph, mode, title, fallback }) {
   );
 }
 
-export function CoreConfigCard({ icon, tithi, element, dynamic, lifePathNum, lifePathValue, watchFor, bestUse, mode = 'human' }) {
+export function CoreConfigCard({ icon, tithi, element, dynamic, humanModeContent = null, lifePathNum, lifePathValue, watchFor, bestUse, mode = 'human' }) {
   const [open,        setOpen]        = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
@@ -70,11 +71,12 @@ export function CoreConfigCard({ icon, tithi, element, dynamic, lifePathNum, lif
   const metaLine  = [tithi?.functional_name, element?.functional_name].filter(Boolean).join(' · ');
 
   // Recognition — mode-specific
-  const recognBody   = dynamic?.recognition_line_simple    || null;
+  const recognBody   = humanModeContent?.recognition || dynamic?.recognition_line_simple || null;
   const recognSignal = dynamic?.recognition_signal_operator || null;
 
   // Standard mode reveal: stem + lp tail
-  const stdReveal = dynamic?.human_reveal_statement
+  const stdReveal = humanModeContent?.reveal
+    || dynamic?.human_reveal_statement
     || (dynamic?.simple_reveal_stem ? cap(dynamic.simple_reveal_stem) : null)
     || lifePathNum?.lp_tail
     || null;
@@ -83,7 +85,7 @@ export function CoreConfigCard({ icon, tithi, element, dynamic, lifePathNum, lif
   const opDynPattern  = dynamic?.operator_dynamic_pattern;
   const opDirVector   = lifePathNum?.directional_vector;
   const opOutcome     = lifePathNum?.operator_outcome_name || lifePathNum?.outcome;
-  const humanOutcome  = lifePathNum?.human_outcome_name || lifePathNum?.outcome;
+  const humanOutcome  = humanModeContent?.orientation || lifePathNum?.human_outcome_name || lifePathNum?.outcome;
 
   // Expandable fields — differ by mode
   const analyticalFields = isOperator
@@ -93,8 +95,8 @@ export function CoreConfigCard({ icon, tithi, element, dynamic, lifePathNum, lif
         { key: 'emergent', label: 'Emergent Pattern',            body: dynamic?.operator_emergent_pattern },
       ].filter(f => f.body)
     : [
-        { key: 'natural',  label: 'What comes naturally\u2026',  body: dynamic?.simple_natural_expression },
-        { key: 'teaches',  label: 'What life teaches you\u2026', body: dynamic?.simple_developmental_force },
+        { key: 'natural',  label: 'What comes naturally\u2026',  body: humanModeContent?.howYouNaturallyOperate || dynamic?.simple_natural_expression },
+        { key: 'teaches',  label: 'What life teaches you\u2026', body: humanModeContent?.whatLifeTeachesYou || dynamic?.simple_developmental_force },
       ].filter(f => f.body);
 
   const bestUseBeats = parseBestUse(bestUse);
@@ -146,11 +148,11 @@ export function CoreConfigCard({ icon, tithi, element, dynamic, lifePathNum, lif
           {/* ── Recognition — mode-specific ── */}
           {!isOperator && recognBody && (
             <div className="core-config-recognition-wrap">
-              <span className="core-config-recognition-mark">✦</span>
-              <div>
+              <div className="core-config-recognition-head">
+                <span className="core-config-recognition-mark">✦</span>
                 <div className="core-config-recognition-label">You may recognize this as&hellip;</div>
-                <p className="core-config-recognition">{recognBody}</p>
               </div>
+              <p className="core-config-recognition">{recognBody}</p>
             </div>
           )}
           {/* ── Operator mode diagnostic blocks ── */}
@@ -231,6 +233,9 @@ export function CoreConfigCard({ icon, tithi, element, dynamic, lifePathNum, lif
 
           {!isOperator && (analyticalFields.length > 0 || watchFor || bestUseBeats.length > 0) && (
             <div className="core-config-guidance">
+              <div className="core-config-guidance-intro">
+                Here&rsquo;s how to work with this in real life
+              </div>
               <button
                 className={`core-config-guidance-toggle${exploreOpen ? ' open' : ''}`}
                 onClick={() => setExploreOpen(o => !o)}
