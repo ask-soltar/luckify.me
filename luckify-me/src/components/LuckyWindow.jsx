@@ -270,24 +270,19 @@ export function LuckyWindow({ profile, humanDesign = null, onLocationChange, mod
             </div>
 
             <div className="zone-hero-authority">
-              <div className="zone-hero-authority-top">
-                <div className="zone-hero-authority-label">YOUR DECISION ENGINE</div>
-                <div className="zone-hero-authority-permanence">Always active</div>
-              </div>
+              <div className="zone-hero-authority-label">YOUR DECISION ENGINE</div>
               <div className="zone-hero-authority-engine">
                 {decisionSupport.authorityEngineName || decisionSupport.authorityLabel}
               </div>
               <div className="zone-hero-authority-human">
-                {authority || decisionSupport.authorityLabel}
+                {(authority || decisionSupport.authorityLabel)} · Always active
               </div>
             </div>
 
-            <div className="zone-hero-mantra">"{decisionSupport.slogan || result.mantra}"</div>
-
             <div className="zone-hero-decision-support">
-              <div className="zone-hero-decision-support-top">
-                <div className="zone-hero-decision-support-label">TODAY&apos;S DECISION GUIDANCE</div>
-                <div className="zone-hero-decision-support-type">TODAY&apos;S EFFECT</div>
+              <div className="zone-hero-decision-support-label">TODAY&apos;S DECISION GUIDANCE</div>
+              <div className="zone-hero-decision-support-cue">
+                {decisionSupport.slogan || result.mantra}
               </div>
               <p className="zone-hero-decision-support-text">{decisionSupport.supportText}</p>
               <div className="zone-hero-decision-support-grid">

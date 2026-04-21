@@ -4,7 +4,6 @@ const SAMPLE_PROPS = {
   rhythmName: 'BLUE',
   authorityEngineName: 'Wave Engine',
   authorityLabel: 'Emotional Authority',
-  authorityPermanenceLabel: 'Always active',
   decisionCue: 'Check again before deciding.',
   supportText:
     "Your decision style stays the same. Today's rhythm affects how quickly feelings settle. Trust what still feels true after the charge passes.",
@@ -90,7 +89,6 @@ export default function ColorRhythmDecisionCard(props) {
     rhythmName,
     authorityEngineName,
     authorityLabel,
-    authorityPermanenceLabel,
     decisionCue,
     supportText,
     bestUseText,
@@ -156,26 +154,17 @@ export default function ColorRhythmDecisionCard(props) {
               </h2>
             </div>
 
-            <div className="mt-5 rounded-[22px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.018)_100%)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-md">
-              <div className="flex items-start justify-between gap-3">
-                <div className="text-[9px] font-semibold uppercase tracking-[0.18em] text-white/46">
-                  Your Decision Engine
-                </div>
-                <div className="rounded-full border border-white/10 bg-black/18 px-2.5 py-1 text-[8px] font-semibold uppercase tracking-[0.14em] text-white/55">
-                  {authorityPermanenceLabel || 'Always active'}
-                </div>
+            <div className="mt-5 rounded-[20px] border border-white/9 bg-[linear-gradient(180deg,rgba(255,255,255,0.032)_0%,rgba(255,255,255,0.014)_100%)] px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.035)] backdrop-blur-md">
+              <div className="text-[9px] font-semibold uppercase tracking-[0.18em] text-white/44">
+                Your Decision Engine
               </div>
 
-              <div className="mt-3 text-[26px] font-medium leading-tight text-white/96">
+              <div className="mt-2 text-[24px] font-medium leading-tight text-white/94">
                 {authorityEngineName}
               </div>
-              <div className="mt-1 text-[13px] leading-6 text-white/68">
-                {authorityLabel}
+              <div className="mt-1 text-[12px] leading-5 text-white/62">
+                {authorityLabel} · Always active
               </div>
-            </div>
-
-            <div className="mt-6 max-w-[18rem] text-[14px] italic leading-6 text-white/66">
-              “{decisionCue}”
             </div>
           </div>
 
@@ -196,19 +185,15 @@ export default function ColorRhythmDecisionCard(props) {
           </div>
 
           <div className="relative z-[1] mt-6 rounded-[22px] border border-white/10 bg-[linear-gradient(180deg,rgba(10,18,28,0.82)_0%,rgba(6,11,18,0.9)_100%)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_14px_34px_rgba(0,0,0,0.18)] backdrop-blur-xl">
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <div className="text-[9px] font-semibold uppercase tracking-[0.18em] text-white/48">
-                  Today&apos;s Decision Guidance
-                </div>
-              </div>
-
-              <div className="shrink-0 rounded-full border border-white/12 bg-white/[0.04] px-3 py-1.5 text-[8px] font-semibold uppercase tracking-[0.16em] text-white/64">
-                Today&apos;s Effect
-              </div>
+            <div className="text-[9px] font-semibold uppercase tracking-[0.18em] text-white/48">
+              Today&apos;s Decision Guidance
             </div>
 
-            <p className="mt-4 max-w-[19.5rem] text-[13px] leading-6 text-white/84">
+            <p className="mt-3 max-w-[18rem] text-[18px] font-medium italic leading-7 text-white/95 [text-shadow:0_0_18px_rgba(154,198,255,0.08)]">
+              “{decisionCue}”
+            </p>
+
+            <p className="mt-3 max-w-[19rem] text-[13px] leading-6 text-white/82">
               {supportText}
             </p>
 

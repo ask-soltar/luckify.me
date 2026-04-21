@@ -33,10 +33,21 @@ export function ProfileForm({ onSubmit }) {
 
   return (
     <div className="form-page">
+      <div className="form-atmosphere" aria-hidden="true">
+        <div className="form-atmosphere-glow form-atmosphere-glow-1" />
+        <div className="form-atmosphere-glow form-atmosphere-glow-2" />
+        <div className="form-atmosphere-grid" />
+      </div>
+
+      <div className="form-kicker">
+        <span className="form-kicker-dot" />
+        <span className="form-kicker-text">Signal Setup</span>
+      </div>
+
       <FormIntro />
 
       <div className="form-body">
-      <form onSubmit={handleSubmit} className="calc-form">
+      <form onSubmit={handleSubmit} className="calc-form form-shell">
 
         <div className="form-section">
           <label className="form-label" htmlFor="display-name">&gt; NAME</label>
