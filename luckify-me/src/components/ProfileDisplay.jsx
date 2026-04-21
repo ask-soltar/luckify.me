@@ -103,6 +103,7 @@ export function ProfileDisplay({
   profile,
   profileId = null,
   shouldAnimateRhythmReveal = false,
+  onResetRhythmReveal,
   onNewProfile,
   onLocationChange
 }) {
@@ -376,29 +377,42 @@ export function ProfileDisplay({
         mode={mode}
       />
 
-      <div className="profile-exploration-panel">
-        <div className="profile-exploration-label">Experimental Layer</div>
-        <div className="profile-exploration-copy">
-          Exploratory tools for play, pattern testing, and live interpretation.
-        </div>
+      {mode === 'operator' && (
+        <div className="profile-exploration-panel">
+          <div className="profile-exploration-label">Experimental Layer</div>
+          <div className="profile-exploration-copy">
+            Exploratory tools for play, pattern testing, and live interpretation.
+          </div>
 
-        <div className="profile-exploration-stack">
-          {dimensions.map(dim => (
-            <DimensionCard
-              key={dim.key}
-              icon={dim.icon}
-              system={dim.system}
-              name={dim.name}
-              axiom={dim.axiom}
-              tabs={dim.tabs}
-            />
-          ))}
-          {/* ── Layer 4: Purpose Frame ── */}
-          {geneKeys?.purpose && (
-            <GateContentCard profile={profile} geneKeys={geneKeys} />
-          )}
+          <div className="profile-exploration-controls">
+            <button
+              type="button"
+              className="profile-exploration-reset"
+              onClick={() => onResetRhythmReveal?.()}
+              disabled={!profileId}
+            >
+              Reset Rhythm Reveal
+            </button>
+          </div>
+
+          <div className="profile-exploration-stack">
+            {dimensions.map(dim => (
+              <DimensionCard
+                key={dim.key}
+                icon={dim.icon}
+                system={dim.system}
+                name={dim.name}
+                axiom={dim.axiom}
+                tabs={dim.tabs}
+              />
+            ))}
+            {/* ── Layer 4: Purpose Frame ── */}
+            {geneKeys?.purpose && (
+              <GateContentCard profile={profile} geneKeys={geneKeys} />
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* New profile */}
       <button className="pip-button calc-btn" onClick={onNewProfile} style={{ marginTop: 16 }}>

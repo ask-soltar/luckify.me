@@ -20,6 +20,10 @@ const ZONE_RGB = {
   Brown:  '130, 95, 60',
 };
 
+function getRevealStorageKey(profileId) {
+  return `rhythmRevealSeen_${profileId}`;
+}
+
 export default function App() {
   const [page, setPage] = useState('calc');       // 'calc' | 'profile'
   const [menuOpen, setMenuOpen] = useState(false);
@@ -128,6 +132,15 @@ export default function App() {
     setPage('calc');
   }
 
+  function handleResetRhythmReveal() {
+    if (!activeProfileId || typeof window === 'undefined') return;
+    window.localStorage.removeItem(getRevealStorageKey(activeProfileId));
+    setShouldAnimateRhythmReveal(false);
+    window.setTimeout(() => {
+      setShouldAnimateRhythmReveal(true);
+    }, 0);
+  }
+
   const currentP = getCurrentProfile();
   const displayName = currentP?.name || null;
 
@@ -185,6 +198,7 @@ export default function App() {
               profile={activeProfile}
               profileId={activeProfileId}
               shouldAnimateRhythmReveal={shouldAnimateRhythmReveal}
+              onResetRhythmReveal={handleResetRhythmReveal}
               onNewProfile={handleNewProfile}
               onLocationChange={handleLocationChange}
             />
