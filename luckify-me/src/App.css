@@ -2218,6 +2218,22 @@
   background: rgba(3, 8, 18, 0.28);
   border-color: rgba(132, 182, 255, 0.14);
 }
+.zone-hero--blue .zone-hero-decision-support {
+  background:
+    linear-gradient(180deg, rgba(4, 10, 24, 0.34) 0%, rgba(1, 6, 16, 0.24) 100%);
+  border-color: rgba(132, 182, 255, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 12px 28px rgba(0, 12, 32, 0.2);
+}
+.zone-hero--blue .zone-hero-decision-support-item--best {
+  background:
+    linear-gradient(180deg, rgba(92, 144, 255, 0.12) 0%, rgba(0,0,0,0.12) 100%);
+}
+.zone-hero--blue .zone-hero-decision-support-item--watch {
+  background:
+    linear-gradient(180deg, rgba(176, 118, 104, 0.12) 0%, rgba(0,0,0,0.12) 100%);
+}
 
 /* Green uses a CSS-built atmosphere instead of image art:
    regenerative, organic, luminous, and grounded without becoming noisy. */
@@ -2314,6 +2330,22 @@
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.03),
     0 10px 24px rgba(0, 18, 8, 0.18);
+}
+.zone-hero--green .zone-hero-decision-support {
+  background:
+    linear-gradient(180deg, rgba(8, 18, 12, 0.38) 0%, rgba(3, 10, 6, 0.26) 100%);
+  border-color: rgba(118, 196, 138, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.03),
+    0 10px 24px rgba(0, 18, 8, 0.18);
+}
+.zone-hero--green .zone-hero-decision-support-item--best {
+  background:
+    linear-gradient(180deg, rgba(96, 188, 122, 0.1) 0%, rgba(0,0,0,0.12) 100%);
+}
+.zone-hero--green .zone-hero-decision-support-item--watch {
+  background:
+    linear-gradient(180deg, rgba(140, 108, 92, 0.14) 0%, rgba(0,0,0,0.12) 100%);
 }
 .zone-hero--green .zone-hero-calendar-title {
   opacity: 0.92;
@@ -2572,6 +2604,104 @@
   font-style: italic;
   opacity: 0.85;
   line-height: 1.5;
+}
+
+.zone-hero-decision-support {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 14px 13px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0.018) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 12px 28px rgba(0,0,0,0.14);
+  backdrop-filter: blur(12px);
+}
+
+.zone-hero-decision-support-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.zone-hero-decision-support-label,
+.zone-hero-decision-support-item-label {
+  font-family: var(--pip-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.zone-hero-decision-support-label {
+  opacity: 0.62;
+}
+
+.zone-hero-decision-support-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  background: rgba(0,0,0,0.16);
+  font-family: var(--pip-font-mono);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.74;
+}
+
+.zone-hero-decision-support-text,
+.zone-hero-decision-support-item-copy {
+  margin: 0;
+  font-family: var(--pip-font-body);
+  font-size: 13px;
+  line-height: 1.58;
+}
+
+.zone-hero-decision-support-text {
+  opacity: 0.9;
+}
+
+.zone-hero-decision-support-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.zone-hero-decision-support-item {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+  padding: 11px 11px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.14);
+}
+
+.zone-hero-decision-support-item-label {
+  opacity: 0.56;
+}
+
+.zone-hero-decision-support-item-copy {
+  opacity: 0.92;
+}
+
+.zone-hero-decision-support-item--best {
+  background:
+    linear-gradient(180deg, rgba(120, 214, 164, 0.08) 0%, rgba(0,0,0,0.12) 100%);
+}
+
+.zone-hero-decision-support-item--watch {
+  background:
+    linear-gradient(180deg, rgba(214, 138, 114, 0.085) 0%, rgba(0,0,0,0.12) 100%);
 }
 
 .zone-hero-ask {
@@ -3508,6 +3638,22 @@
   .zone-hero-panel {
     min-height: 360px;
     padding: 16px 14px 16px;
+  }
+
+  .zone-hero-decision-support {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .zone-hero-decision-support-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .zone-hero-decision-support-text,
+  .zone-hero-decision-support-item-copy {
+    font-size: 12px;
+    line-height: 1.55;
   }
 
   .zone-hero-calendar-title {

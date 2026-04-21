@@ -8,6 +8,7 @@ import { useMemo, useRef, useState } from 'react';
 import { calcTodayWindow } from '../utils/luckyWindow.js';
 import { COLOR_RHYTHM } from '../constants/colorRhythm.js';
 import { getZoneScores, GUIDANCE, CELL_LINE, CAT_EMOJI } from '../constants/zoneScoring.js';
+import { getDecisionSupportForRhythm } from '../constants/rhythmDecisionSupport.js';
 import { LocationInput } from './LocationInput.jsx';
 import { RhythmCalendar } from './RhythmCalendar.jsx';
 
@@ -61,11 +62,16 @@ const TODAY_LABEL = new Date().toLocaleDateString('en-US', {
   weekday: 'long', month: 'long', day: 'numeric'
 });
 
-export function LuckyWindow({ profile, onLocationChange, mode = 'human', onModeChange }) {
+export function LuckyWindow({ profile, humanDesign = null, onLocationChange, mode = 'human', onModeChange }) {
   const [catsOpen, setCatsOpen] = useState(false);
   const [editingLoc, setEditingLoc] = useState(false);
   const [activePanel, setActivePanel] = useState(0);
-  const touchStartX = useRef(null);
+  const gestureRef = useRef({
+    startX: 0,
+    startY: 0,
+    startTime: 0,
+    axis: null,
+  });
   const result = useMemo(() => {
     try {
       const { y, mo, dy } = profile;
@@ -84,6 +90,8 @@ export function LuckyWindow({ profile, onLocationChange, mode = 'human', onModeC
 
   const css    = ZONE_CSS[result.zone] || ZONE_CSS.Yellow;
   const rhythm = COLOR_RHYTHM[result.zone?.toLowerCase()];
+  const authority = humanDesign?.authority || profile?.humanDesign?.authority || null;
+  const decisionSupport = getDecisionSupportForRhythm(authority, result.zone);
   const panelCount = 2;
   const zoneArtUrl = ZONE_ART[result.zone] || null;
   const zoneHasAtmosphere = Boolean(zoneArtUrl || result.zone === 'Green');
@@ -96,16 +104,71 @@ export function LuckyWindow({ profile, onLocationChange, mode = 'human', onModeC
   }
 
   function handleTouchStart(event) {
-    touchStartX.current = event.touches?.[0]?.clientX ?? null;
+    const touch = event.touches?.[0];
+    if (!touch) return;
+
+    gestureRef.current = {
+      startX: touch.clientX,
+      startY: touch.clientY,
+      startTime: performance.now(),
+      axis: null,
+    };
+  }
+
+  function handleTouchMove(event) {
+    const touch = event.touches?.[0];
+    if (!touch) return;
+
+    const dx = touch.clientX - gestureRef.current.startX;
+    const dy = touch.clientY - gestureRef.current.startY;
+    const absX = Math.abs(dx);
+    const absY = Math.abs(dy);
+
+    // Dead zone: tiny movements should never commit the gesture direction.
+    if (gestureRef.current.axis == null && absX < 12 && absY < 12) return;
+
+    if (gestureRef.current.axis == null) {
+      // Directional lock: only treat this as horizontal when intent is clearly
+      // horizontal, otherwise let the gesture remain a normal vertical scroll.
+      if (absX > absY * 1.35 && absX > 18) {
+        gestureRef.current.axis = 'x';
+      } else if (absY > absX * 1.15 && absY > 14) {
+        gestureRef.current.axis = 'y';
+      }
+    }
+
+    if (gestureRef.current.axis === 'x') {
+      event.preventDefault();
+    }
   }
 
   function handleTouchEnd(event) {
-    if (touchStartX.current == null) return;
-    const endX = event.changedTouches?.[0]?.clientX ?? touchStartX.current;
-    const deltaX = endX - touchStartX.current;
-    touchStartX.current = null;
+    const touch = event.changedTouches?.[0];
+    if (!touch) return;
 
-    if (Math.abs(deltaX) < 36) return;
+    const deltaX = touch.clientX - gestureRef.current.startX;
+    const deltaY = touch.clientY - gestureRef.current.startY;
+    const elapsed = Math.max(performance.now() - gestureRef.current.startTime, 1);
+    const absX = Math.abs(deltaX);
+    const absY = Math.abs(deltaY);
+    const velocityX = absX / elapsed; // px per ms
+
+    // If the gesture never resolved to a horizontal swipe, do nothing.
+    if (gestureRef.current.axis !== 'x') {
+      gestureRef.current.axis = null;
+      return;
+    }
+
+    // A deliberate panel change now requires either:
+    // 1. a strong horizontal drag, or
+    // 2. a smaller but clearly intentional flick.
+    const crossedDistance = absX >= 72 && absX > absY * 1.3;
+    const crossedFlick = absX >= 48 && velocityX >= 0.42 && absX > absY * 1.5;
+
+    gestureRef.current.axis = null;
+
+    if (!crossedDistance && !crossedFlick) return;
+
     if (deltaX < 0) goToPanel(activePanel + 1);
     else goToPanel(activePanel - 1);
   }
@@ -198,6 +261,7 @@ export function LuckyWindow({ profile, onLocationChange, mode = 'human', onModeC
       <div
         className="zone-hero-panel-shell"
         onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
         <div
@@ -211,11 +275,29 @@ export function LuckyWindow({ profile, onLocationChange, mode = 'human', onModeC
               </div>
               <div className="zone-hero-name">{result.zone}</div>
               <div className="zone-hero-identity">
-                {rhythm?.identity || result.band}
+                {decisionSupport.authorityLabel}
               </div>
             </div>
 
             <div className="zone-hero-mantra">"{result.mantra}"</div>
+
+            <div className="zone-hero-decision-support">
+              <div className="zone-hero-decision-support-top">
+                <div className="zone-hero-decision-support-label">Decision Engine Today</div>
+                <div className="zone-hero-decision-support-type">{decisionSupport.interactionType}</div>
+              </div>
+              <p className="zone-hero-decision-support-text">{decisionSupport.supportText}</p>
+              <div className="zone-hero-decision-support-grid">
+                <div className="zone-hero-decision-support-item zone-hero-decision-support-item--best">
+                  <div className="zone-hero-decision-support-item-label">Best Use</div>
+                  <p className="zone-hero-decision-support-item-copy">{decisionSupport.bestUseText}</p>
+                </div>
+                <div className="zone-hero-decision-support-item zone-hero-decision-support-item--watch">
+                  <div className="zone-hero-decision-support-item-label">Watch Out</div>
+                  <p className="zone-hero-decision-support-item-copy">{decisionSupport.watchOutText}</p>
+                </div>
+              </div>
+            </div>
 
             <div className="zone-hero-cats">
               <button className="zone-hero-cats-toggle" onClick={() => setCatsOpen(o => !o)}>

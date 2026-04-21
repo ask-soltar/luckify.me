@@ -22,6 +22,7 @@ import { PURPOSE_GATES } from '../constants/purposeGates.js';
 import { PLANETARY_FIX } from '../constants/planetaryFix.js';
 import { calcGeneKeys, calcAllActivations } from '../utils/geneKeys.js';
 import { deriveHumanDesign } from '../utils/humanDesign.js';
+import { getDecisionEnginePayload } from '../utils/decisionEngine.js';
 
 // Element color palette — grounded, permanent, different energy from zone colors
 const ELEMENT_COLORS = {
@@ -136,6 +137,10 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
       return profile.humanDesign || null;
     }
   }, [activations, profile.humanDesign]);
+  const decisionEngine = useMemo(() => {
+    if (!humanDesign?.authority) return null;
+    return getDecisionEnginePayload(humanDesign.authority);
+  }, [humanDesign]);
   const activationAuditItems = useMemo(() => {
     if (!activations?.length) return [];
 
@@ -257,9 +262,39 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
       key: 'authority',
       system: 'DIMENSION V · HUMAN DESIGN',
       icon: <span style={{ fontSize: 22, lineHeight: 1 }}>◎</span>,
-      name: humanDesign.authority,
-      axiom: 'Authority is derived from fully defined channels first, then defined centers, then standard Human Design type and authority hierarchy. If Solar Plexus is defined, authority is Emotional before any lower authority is considered.',
+      name: decisionEngine?.engineName || humanDesign.authority,
+      axiom: decisionEngine?.essenceLine || 'Authority is derived from fully defined channels first, then defined centers, then standard Human Design type and authority hierarchy. If Solar Plexus is defined, authority is Emotional before any lower authority is considered.',
       tabs: [
+        ...(decisionEngine ? [{
+          key: 'decision-engine',
+          label: 'Decision Engine',
+          principles: [
+            {
+              title: `${decisionEngine.engineName} · ${decisionEngine.authorityType}`,
+              body: `${decisionEngine.microTag} · ${decisionEngine.coreInstruction}`,
+            },
+            {
+              title: decisionEngine.recognitionTitle,
+              body: decisionEngine.recognitionText,
+            },
+            {
+              title: decisionEngine.supportTitle,
+              body: decisionEngine.supportText,
+            },
+            {
+              title: decisionEngine.expansionTitle,
+              body: decisionEngine.expansionText,
+            },
+            {
+              title: 'Icon Direction',
+              body: decisionEngine.iconDirection.join(' · '),
+            },
+            {
+              title: 'Keywords',
+              body: decisionEngine.keywords.join(' · '),
+            },
+          ],
+        }] : []),
         {
           key: 'overview',
           label: 'Overview',
@@ -305,6 +340,7 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
       {/* ── Layer 1: Zone Hero (today's frequency) ── */}
       <LuckyWindow
         profile={profile}
+        humanDesign={humanDesign}
         onLocationChange={onLocationChange}
         mode={mode}
         onModeChange={setMode}
