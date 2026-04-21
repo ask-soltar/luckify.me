@@ -99,7 +99,13 @@ function gateDesc(gate, line) {
       || null;
 }
 
-export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
+export function ProfileDisplay({
+  profile,
+  profileId = null,
+  shouldAnimateRhythmReveal = false,
+  onNewProfile,
+  onLocationChange
+}) {
   const { type, element, lifePathNum, birthTime } = profile;
   const [mode, setMode] = useState('human');
 
@@ -340,6 +346,8 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
       {/* ── Layer 1: Zone Hero (today's frequency) ── */}
       <LuckyWindow
         profile={profile}
+        profileId={profileId}
+        shouldAnimateReveal={shouldAnimateRhythmReveal}
         humanDesign={humanDesign}
         onLocationChange={onLocationChange}
         mode={mode}

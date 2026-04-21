@@ -2721,6 +2721,11 @@
   flex-direction: column;
   gap: 6px;
 }
+.zone-hero-main-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
 .zone-hero-mode-label {
   font-family: var(--pip-font-mono);
   font-size: 9px;
@@ -2728,6 +2733,60 @@
   text-transform: uppercase;
   opacity: 0.48;
   margin-bottom: 8px;
+}
+.zone-hero-reveal-chip {
+  align-self: flex-start;
+  margin-top: 2px;
+  padding: 7px 11px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 8px 20px rgba(0,0,0,0.18);
+  font-family: var(--pip-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.82;
+}
+.zone-hero--revealing .zone-hero-authority,
+.zone-hero--revealing .zone-hero-decision-support,
+.zone-hero--revealing .zone-hero-cats,
+.zone-hero--revealing .zone-hero-ask {
+  opacity: 0.92;
+}
+.zone-hero--revealing .zone-hero-panel-shell,
+.zone-hero--landing .zone-hero-panel-shell {
+  transition:
+    border-color 280ms ease,
+    box-shadow 360ms ease,
+    background 360ms ease;
+}
+.zone-hero--revealing .zone-hero-panel-shell {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 16px 34px rgba(0,0,0,0.34),
+    0 0 28px rgba(255,255,255,0.04);
+}
+.zone-hero--landing .zone-hero-panel-shell {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 18px 38px rgba(0,0,0,0.36),
+    0 0 36px rgba(255,255,255,0.06);
+}
+.zone-hero-panel-track--revealing,
+.zone-hero-panel-track--landing {
+  transition:
+    transform 420ms ease,
+    filter 320ms ease;
+}
+.zone-hero-panel-track--revealing {
+  filter: saturate(1.08);
+}
+.zone-hero-panel-track--landing {
+  filter: saturate(1.12);
 }
 
 .zone-hero-name {
@@ -3830,6 +3889,16 @@
   .zone-hero-decision-support {
     gap: 10px;
     padding: 12px;
+  }
+
+  .zone-hero-main {
+    gap: 8px;
+  }
+
+  .zone-hero-reveal-chip {
+    padding: 6px 10px;
+    font-size: 8px;
+    letter-spacing: 0.15em;
   }
 
   .zone-hero-authority {

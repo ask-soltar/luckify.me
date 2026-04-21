@@ -4,9 +4,9 @@
  * Future slot: Ask-Claude / fortune entry point.
  */
 
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { calcTodayWindow } from '../utils/luckyWindow.js';
-import { COLOR_RHYTHM } from '../constants/colorRhythm.js';
 import { getZoneScores, GUIDANCE, CELL_LINE, CAT_EMOJI } from '../constants/zoneScoring.js';
 import { getDecisionSupportForRhythm } from '../constants/rhythmDecisionSupport.js';
 import { LocationInput } from './LocationInput.jsx';
@@ -52,6 +52,42 @@ const ZONE_CSS = {
   Brown:  { bg: '#100906', text: 'var(--brown-text)',  glow: '#806040' },
 };
 
+const REVEAL_RHYTHMS = ['Pink', 'Orange', 'Blue', 'Yellow', 'Green', 'Purple', 'Red'];
+
+function getRevealStorageKey(profileId) {
+  return `rhythmRevealSeen_${profileId}`;
+}
+
+// Covers the field broadly, then narrows back into the actual rhythm so the
+// landing reads like calibration rather than random cycling.
+function buildRevealSequence(finalRhythm) {
+  const target = REVEAL_RHYTHMS.includes(finalRhythm) ? finalRhythm : 'Blue';
+  const remaining = REVEAL_RHYTHMS.filter(rhythm => rhythm !== target);
+
+  return [
+    ...REVEAL_RHYTHMS,
+    remaining[1],
+    remaining[4],
+    remaining[0],
+    remaining[2],
+    target,
+    remaining[3],
+    target,
+    remaining[5],
+    target,
+  ].filter(Boolean);
+}
+
+function getRevealCadence(sequenceLength) {
+  return Array.from({ length: sequenceLength }, (_, index) => {
+    const progress = index / Math.max(sequenceLength - 1, 1);
+    if (progress < 0.35) return 130;
+    if (progress < 0.7) return 220;
+    if (progress < 0.9) return 340;
+    return 560;
+  });
+}
+
 // Optional atmospheric art backgrounds. Only zones listed here receive the
 // image treatment; all others keep the existing pure-gradient card.
 const ZONE_ART = {
@@ -62,10 +98,22 @@ const TODAY_LABEL = new Date().toLocaleDateString('en-US', {
   weekday: 'long', month: 'long', day: 'numeric'
 });
 
-export function LuckyWindow({ profile, humanDesign = null, onLocationChange, mode = 'human', onModeChange }) {
+export function LuckyWindow({
+  profile,
+  profileId = null,
+  shouldAnimateReveal = false,
+  humanDesign = null,
+  onLocationChange,
+  mode = 'human',
+  onModeChange
+}) {
   const [catsOpen, setCatsOpen] = useState(false);
   const [editingLoc, setEditingLoc] = useState(false);
   const [activePanel, setActivePanel] = useState(0);
+  const [displayZone, setDisplayZone] = useState('Blue');
+  const [revealState, setRevealState] = useState('settled');
+  const revealTimeoutRef = useRef(null);
+  const revealMountedRef = useRef(false);
   const gestureRef = useRef({
     startX: 0,
     startY: 0,
@@ -88,16 +136,74 @@ export function LuckyWindow({ profile, humanDesign = null, onLocationChange, mod
 
   if (!result) return null;
 
-  const css    = ZONE_CSS[result.zone] || ZONE_CSS.Yellow;
-  const rhythm = COLOR_RHYTHM[result.zone?.toLowerCase()];
+  const finalZone = result.zone;
+  const renderedZone = ZONE_CSS[displayZone] ? displayZone : finalZone;
+  const css    = ZONE_CSS[renderedZone] || ZONE_CSS.Yellow;
   const authority = humanDesign?.authority || profile?.humanDesign?.authority || null;
-  const decisionSupport = getDecisionSupportForRhythm(authority, result.zone);
+  const decisionSupport = getDecisionSupportForRhythm(authority, finalZone);
   const panelCount = 2;
-  const zoneArtUrl = ZONE_ART[result.zone] || null;
-  const zoneHasAtmosphere = Boolean(zoneArtUrl || result.zone === 'Green');
+  const zoneArtUrl = ZONE_ART[renderedZone] || null;
+  const zoneHasAtmosphere = Boolean(zoneArtUrl || renderedZone === 'Green');
 
   // Radial glow from top-center — zone color fades into dark base
   const heroBg = `radial-gradient(ellipse 70% 60% at 50% 0%, ${css.glow}44 0%, ${css.bg} 65%)`;
+  const isRevealing = revealState === 'revealing';
+  const isLanding = revealState === 'landing';
+
+  useEffect(() => {
+    revealMountedRef.current = true;
+    const storageKey = profileId ? getRevealStorageKey(profileId) : null;
+    const revealSeen = (
+      typeof window !== 'undefined' &&
+      storageKey &&
+      window.localStorage.getItem(storageKey)
+    );
+
+    if (!shouldAnimateReveal || !profileId || revealSeen) {
+      setDisplayZone(finalZone);
+      setRevealState('settled');
+      return () => {
+        revealMountedRef.current = false;
+        if (revealTimeoutRef.current) window.clearTimeout(revealTimeoutRef.current);
+      };
+    }
+
+    const sequence = buildRevealSequence(finalZone);
+    const cadence = getRevealCadence(sequence.length);
+    let stepIndex = 0;
+
+    setRevealState('revealing');
+    setDisplayZone(sequence[0] || finalZone);
+
+    const runStep = () => {
+      if (!revealMountedRef.current) return;
+
+      const nextZone = sequence[stepIndex] || finalZone;
+      setDisplayZone(nextZone);
+
+      if (stepIndex === sequence.length - 1) {
+        setRevealState('landing');
+        revealTimeoutRef.current = window.setTimeout(() => {
+          if (!revealMountedRef.current) return;
+          setDisplayZone(finalZone);
+          setRevealState('settled');
+          window.localStorage.setItem(storageKey, 'true');
+        }, 820);
+        return;
+      }
+
+      const delay = cadence[stepIndex];
+      stepIndex += 1;
+      revealTimeoutRef.current = window.setTimeout(runStep, delay);
+    };
+
+    revealTimeoutRef.current = window.setTimeout(runStep, 120);
+
+    return () => {
+      revealMountedRef.current = false;
+      if (revealTimeoutRef.current) window.clearTimeout(revealTimeoutRef.current);
+    };
+  }, [finalZone, profileId, shouldAnimateReveal]);
 
   function goToPanel(nextIndex) {
     setActivePanel((nextIndex + panelCount) % panelCount);
@@ -175,7 +281,7 @@ export function LuckyWindow({ profile, humanDesign = null, onLocationChange, mod
 
   return (
     <div
-      className={`zone-hero zone-hero--${result.zone?.toLowerCase() || 'yellow'}${zoneHasAtmosphere ? ' zone-hero--artful' : ''}`}
+      className={`zone-hero zone-hero--${renderedZone?.toLowerCase() || 'yellow'}${zoneHasAtmosphere ? ' zone-hero--artful' : ''}${isRevealing ? ' zone-hero--revealing' : ''}${isLanding ? ' zone-hero--landing' : ''}`}
       style={{
         background: heroBg,
         color: css.text,
@@ -260,13 +366,51 @@ export function LuckyWindow({ profile, humanDesign = null, onLocationChange, mod
         onTouchEnd={handleTouchEnd}
       >
         <div
-          className="zone-hero-panel-track"
+          className={`zone-hero-panel-track${isRevealing ? ' zone-hero-panel-track--revealing' : ''}${isLanding ? ' zone-hero-panel-track--landing' : ''}`}
           style={{ transform: `translateX(-${activePanel * 50}%)` }}
         >
-          <section className="zone-hero-panel zone-hero-panel--today" aria-label="Color Rhythm">
+          <section className={`zone-hero-panel zone-hero-panel--today${isRevealing ? ' zone-hero-panel--revealing' : ''}${isLanding ? ' zone-hero-panel--landing' : ''}`} aria-label="Color Rhythm">
             <div className="zone-hero-main">
-              <div className="zone-hero-mode-label">ACTIVE RHYTHM</div>
-              <div className="zone-hero-name">{result.zone}</div>
+              <div className="zone-hero-main-head">
+                <div className="zone-hero-mode-label">
+                  {isRevealing ? 'REVEALING RHYTHM' : isLanding ? 'RHYTHM LOCKED' : 'ACTIVE RHYTHM'}
+                </div>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={renderedZone}
+                    className="zone-hero-name"
+                    initial={{ opacity: 0.38, y: 10, scale: 0.985 }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      scale: isLanding ? [1, 1.045, 1] : 1,
+                      textShadow: isLanding
+                        ? [`0 0 18px ${css.glow}88`, `0 0 34px ${css.glow}aa`, `0 0 22px ${css.glow}90`]
+                        : `0 0 22px ${css.glow}66`,
+                    }}
+                    transition={{ duration: isLanding ? 0.72 : 0.24, ease: 'easeOut' }}
+                  >
+                    {renderedZone}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {(isRevealing || isLanding) && (
+                <motion.div
+                  className="zone-hero-reveal-chip"
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    boxShadow: isLanding
+                      ? `0 0 0 1px ${css.glow}4a, 0 0 22px ${css.glow}2e`
+                      : `0 0 0 1px ${css.glow}24, 0 0 16px ${css.glow}18`,
+                  }}
+                  transition={{ duration: 0.28, ease: 'easeOut' }}
+                >
+                  {isRevealing ? 'Calibrating signal' : 'Signal revealed'}
+                </motion.div>
+              )}
             </div>
 
             <div className="zone-hero-authority">

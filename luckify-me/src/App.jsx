@@ -24,6 +24,8 @@ export default function App() {
   const [page, setPage] = useState('calc');       // 'calc' | 'profile'
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeProfile, setActiveProfile] = useState(null);
+  const [activeProfileId, setActiveProfileId] = useState(null);
+  const [shouldAnimateRhythmReveal, setShouldAnimateRhythmReveal] = useState(false);
   const [veiled, setVeiled] = useState(false);    // full-screen threshold transition
 
   const {
@@ -66,20 +68,28 @@ export default function App() {
 
     const currentP = getCurrentProfile();
     const resolvedName = resolveProfileName(formData.displayName, result);
+    let nextProfileId = currentP?.id || null;
+    let animateReveal = false;
+
     if (currentP) {
       updateProfile(currentP.id, {
         result,
         name: formData.displayName ? resolvedName : currentP.name || resolvedName
       });
+      nextProfileId = currentP.id;
     } else {
       const id   = generateId();
       addProfile({ id, name: resolvedName, result });
+      nextProfileId = id;
+      animateReveal = true;
     }
 
     // Threshold: fade to void, swap content at peak black, then reveal
     setVeiled(true);
     setTimeout(() => {
       setActiveProfile(result);
+      setActiveProfileId(nextProfileId);
+      setShouldAnimateRhythmReveal(animateReveal);
       setPage('profile');
       setTimeout(() => setVeiled(false), 120);
     }, 480);
@@ -91,8 +101,12 @@ export default function App() {
     const p = profiles.find(x => x.id === id);
     if (p?.result) {
       setActiveProfile(p.result);
+      setActiveProfileId(id);
+      setShouldAnimateRhythmReveal(false);
       setPage('profile');
     } else {
+      setActiveProfileId(null);
+      setShouldAnimateRhythmReveal(false);
       setPage('calc');
     }
   }
@@ -109,6 +123,8 @@ export default function App() {
   function handleNewProfile() {
     switchProfile(null);
     setActiveProfile(null);
+    setActiveProfileId(null);
+    setShouldAnimateRhythmReveal(false);
     setPage('calc');
   }
 
@@ -167,6 +183,8 @@ export default function App() {
           activeProfile && (
             <ProfileDisplay
               profile={activeProfile}
+              profileId={activeProfileId}
+              shouldAnimateRhythmReveal={shouldAnimateRhythmReveal}
               onNewProfile={handleNewProfile}
               onLocationChange={handleLocationChange}
             />
