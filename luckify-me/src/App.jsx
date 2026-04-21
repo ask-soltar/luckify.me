@@ -46,6 +46,23 @@ export default function App() {
     getCurrentProfile
   } = useProfileStorage();
 
+  function scrollAppToTop() {
+    const run = () => {
+      scrollAreaRef.current?.scrollTo?.({ top: 0, behavior: 'auto' });
+      window.scrollTo?.({ top: 0, behavior: 'auto' });
+      if (typeof document !== 'undefined') {
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      }
+    };
+
+    run();
+    window.requestAnimationFrame(() => {
+      run();
+      window.requestAnimationFrame(run);
+    });
+  }
+
   // Called when form submits — threshold transition before reveal
   function handleCalculate(formData) {
     const result = calculateProfile({
@@ -102,8 +119,7 @@ export default function App() {
         setFullScreenRevealOpen(true);
       } else {
         setPage('profile');
-        scrollAreaRef.current?.scrollTo?.({ top: 0, behavior: 'auto' });
-        window.scrollTo?.({ top: 0, behavior: 'auto' });
+        scrollAppToTop();
       }
       setTimeout(() => setVeiled(false), 120);
     }, 480);
@@ -119,7 +135,7 @@ export default function App() {
       setShouldAnimateRhythmReveal(false);
       setFullScreenRevealOpen(false);
       setPage('profile');
-      scrollAreaRef.current?.scrollTo?.({ top: 0, behavior: 'auto' });
+      scrollAppToTop();
     } else {
       setActiveProfileId(null);
       setShouldAnimateRhythmReveal(false);
@@ -144,7 +160,7 @@ export default function App() {
     setShouldAnimateRhythmReveal(false);
     setFullScreenRevealOpen(false);
     setPage('calc');
-    scrollAreaRef.current?.scrollTo?.({ top: 0, behavior: 'auto' });
+    scrollAppToTop();
   }
 
   function handleResetRhythmReveal() {
@@ -160,8 +176,7 @@ export default function App() {
     window.setTimeout(() => {
       setPage('profile');
       setFullScreenRevealOpen(false);
-      scrollAreaRef.current?.scrollTo?.({ top: 0, behavior: 'auto' });
-      window.scrollTo?.({ top: 0, behavior: 'auto' });
+      scrollAppToTop();
     }, 420);
   }
 
@@ -193,8 +208,7 @@ export default function App() {
     if (fullScreenRevealOpen) {
       document.body.style.overflow = 'hidden';
       document.body.style.touchAction = 'none';
-      scrollAreaRef.current?.scrollTo?.({ top: 0, behavior: 'auto' });
-      window.scrollTo?.({ top: 0, behavior: 'auto' });
+      scrollAppToTop();
     }
 
     return () => {

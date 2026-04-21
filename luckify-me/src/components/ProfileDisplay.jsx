@@ -10,11 +10,12 @@
  */
 
 import { useState, useMemo } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { DimensionCard } from './DimensionCard.jsx';
 import { CoreConfigCard } from './CoreConfigCard.jsx';
 import { LuckyWindow } from './LuckyWindow.jsx';
 import { GateContentCard } from './GateContentCard.jsx';
-import { ELEMENT_CONFIG } from '../constants/element.js';
+import PassiveSkillInlineCarousel from './PassiveSkillInlineCarousel.jsx';
 import { TITHI_CCE, ELEMENT_CCE, LP_CCE, getDynamic, getHumanModeContent, generateWatchFor, generateBestUse } from '../constants/coreConfig.js';
 import { getBlend } from '../constants/blends.js';
 import { GENE_KEYS } from '../constants/geneKeys.js';
@@ -23,6 +24,7 @@ import { PLANETARY_FIX } from '../constants/planetaryFix.js';
 import { calcGeneKeys, calcAllActivations } from '../utils/geneKeys.js';
 import { deriveHumanDesign } from '../utils/humanDesign.js';
 import { getDecisionEnginePayload } from '../utils/decisionEngine.js';
+import { getAuthorityLoadout } from '../constants/authorityLoadouts.js';
 
 // Element color palette — grounded, permanent, different energy from zone colors
 const ELEMENT_COLORS = {
@@ -39,7 +41,6 @@ function FoundationSection({
   blend,
   element,
   type,
-  elemCfg,
   lifePathNum,
   birthGMT,
   birthTime,
@@ -54,7 +55,12 @@ function FoundationSection({
   watchFor,
   bestUse,
   decisionEngine,
-  mode
+  passiveSkillLoadout,
+  passiveSkillOpen,
+  onTogglePassiveSkill,
+  mode,
+  showCore = true,
+  showDecisionEngine = true,
 }) {
   const elColor = ELEMENT_COLORS[element] || { text: 'var(--pip-primary)', accent: 'rgba(200,152,42,0.1)' };
   const tithiLabel = type.charAt(0).toUpperCase() + type.slice(1);
@@ -80,21 +86,28 @@ function FoundationSection({
       )}
       {/* Core Configuration card (Dims I + II + III) */}
       <div className="foundation-dimensions">
-        <CoreConfigCard
-          icon={<span style={{ fontSize: 22, lineHeight: 1 }}>◈</span>}
-          tithi={cceT}
-          element={cceEl}
-          trajectoryElement={element}
-          dynamic={dynamic}
-          humanModeContent={humanModeContent}
-          lifePathNum={cceLp}
-          lifePathValue={lifePathNum}
-          watchFor={watchFor}
-          bestUse={bestUse}
-          mode={mode}
-        />
-        {decisionEngine && (
-          <div className={`foundation-decision-engine foundation-decision-engine--${mode}`}>
+        {showCore && (
+          <CoreConfigCard
+            icon={<span style={{ fontSize: 22, lineHeight: 1 }}>◈</span>}
+            tithi={cceT}
+            element={cceEl}
+            trajectoryElement={element}
+            dynamic={dynamic}
+            humanModeContent={humanModeContent}
+            lifePathNum={cceLp}
+            lifePathValue={lifePathNum}
+            watchFor={watchFor}
+            bestUse={bestUse}
+            mode={mode}
+          />
+        )}
+        {showDecisionEngine && decisionEngine && passiveSkillLoadout && (
+          <div className={`foundation-decision-engine-wrap foundation-decision-engine-wrap--${mode}`}>
+            <button
+              type="button"
+              className={`foundation-decision-engine foundation-decision-engine--${mode}`}
+              onClick={onTogglePassiveSkill}
+            >
             <div className="foundation-decision-engine-label">
               {mode === 'operator' ? 'PASSIVE SKILLS' : 'Passive Skills'}
             </div>
@@ -107,10 +120,53 @@ function FoundationSection({
             <div className="foundation-decision-engine-meta">
               {decisionEngine.authorityType} <span className="foundation-decision-engine-sep">·</span> Always active
             </div>
+            </button>
+            <PassiveSkillInlineCarousel
+              loadout={passiveSkillLoadout}
+              open={passiveSkillOpen}
+              onToggle={onTogglePassiveSkill}
+            />
           </div>
         )}
       </div>
     </div>
+  );
+}
+
+function PassiveSkillsSection({
+  decisionEngine,
+  passiveSkillLoadout,
+  passiveSkillOpen,
+  onTogglePassiveSkill,
+}) {
+  if (!decisionEngine || !passiveSkillLoadout) return null;
+
+  return (
+    <section className="profile-tab-panel profile-tab-panel--engine">
+      <div className="profile-tab-panel-kicker">Passive Skills</div>
+      <div className="profile-tab-panel-copy">
+        Always-on mechanics that shape how you process choices, pressure, and clarity.
+      </div>
+      <div className="foundation-decision-engine-wrap foundation-decision-engine-wrap--human">
+        <button
+          type="button"
+          className="foundation-decision-engine foundation-decision-engine--human"
+          onClick={onTogglePassiveSkill}
+        >
+          <div className="foundation-decision-engine-label">Passive Skills</div>
+          <div className="foundation-decision-engine-skill">Decision Engine</div>
+          <div className="foundation-decision-engine-main">{decisionEngine.engineName}</div>
+          <div className="foundation-decision-engine-meta">
+            {decisionEngine.authorityType} <span className="foundation-decision-engine-sep">·</span> Always active
+          </div>
+        </button>
+        <PassiveSkillInlineCarousel
+          loadout={passiveSkillLoadout}
+          open={passiveSkillOpen}
+          onToggle={onTogglePassiveSkill}
+        />
+      </div>
+    </section>
   );
 }
 
@@ -140,11 +196,11 @@ export function ProfileDisplay({
   profileId = null,
   shouldAnimateRhythmReveal = false,
   onResetRhythmReveal,
-  onNewProfile,
   onLocationChange
 }) {
   const { type, element, lifePathNum, birthTime } = profile;
-  const [mode, setMode] = useState('human');
+  const [activeTab, setActiveTab] = useState('loadout');
+  const [passiveSkillOpen, setPassiveSkillOpen] = useState(false);
 
   // Always recompute geneKeys from stored birth data so old profiles pick up
   // formula fixes (GSTART, solar arc) without needing a manual recalculation.
@@ -184,6 +240,10 @@ export function ProfileDisplay({
     if (!humanDesign?.authority) return null;
     return getDecisionEnginePayload(humanDesign.authority);
   }, [humanDesign]);
+  const passiveSkillLoadout = useMemo(() => {
+    if (!humanDesign?.authority) return null;
+    return getAuthorityLoadout(humanDesign.authority);
+  }, [humanDesign]);
   const activationAuditItems = useMemo(() => {
     if (!activations?.length) return [];
 
@@ -194,7 +254,6 @@ export function ProfileDisplay({
   }, [activations]);
   const hasBirthTime = Boolean(birthTime) && birthTime !== '00:00';
 
-  const elemCfg    = ELEMENT_CONFIG[element];
   const blend      = getBlend(element, type);
 
   // ── Core Configuration Engine lookups ──────────────
@@ -379,83 +438,127 @@ export function ProfileDisplay({
 
   return (
     <div className="profile-page">
+      <div className="profile-tab-shell">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            className="profile-tab-view"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {activeTab === 'loadout' && (
+              <>
+                <LuckyWindow
+                  profile={profile}
+                  profileId={profileId}
+                  shouldAnimateReveal={shouldAnimateRhythmReveal}
+                  humanDesign={humanDesign}
+                  onLocationChange={onLocationChange}
+                  mode="human"
+                  presentation="default"
+                  showModeToggle={false}
+                />
 
-      {/* ── Layer 1: Zone Hero (today's frequency) ── */}
-      <LuckyWindow
-        profile={profile}
-        profileId={profileId}
-        shouldAnimateReveal={shouldAnimateRhythmReveal}
-        humanDesign={humanDesign}
-        onLocationChange={onLocationChange}
-        mode={mode}
-        onModeChange={setMode}
-      />
-
-      {/* ── Layer 2: Foundation (who you are — always visible) ── */}
-      <FoundationSection
-        blend={blend}
-        element={element}
-        type={type}
-        elemCfg={elemCfg}
-        lifePathNum={lifePathNum}
-        birthGMT={profile.birthGMT}
-        birthTime={profile.birthTime}
-        y={profile.y}
-        mo={profile.mo}
-        dy={profile.dy}
-        cceT={cceT}
-        cceEl={cceEl}
-        cceLp={cceLp}
-        dynamic={dynamic}
-        humanModeContent={humanModeContent}
-        watchFor={watchFor}
-        bestUse={bestUse}
-        decisionEngine={decisionEngine}
-        mode={mode}
-      />
-
-      {mode === 'operator' && (
-        <div className="profile-exploration-panel">
-          <div className="profile-exploration-label">Experimental Layer</div>
-          <div className="profile-exploration-copy">
-            Exploratory tools for play, pattern testing, and live interpretation.
-          </div>
-
-          <div className="profile-exploration-controls">
-            <button
-              type="button"
-              className="profile-exploration-reset"
-              onClick={() => onResetRhythmReveal?.()}
-              disabled={!profileId}
-            >
-              Reset Rhythm Reveal
-            </button>
-          </div>
-
-          <div className="profile-exploration-stack">
-            {dimensions.map(dim => (
-              <DimensionCard
-                key={dim.key}
-                icon={dim.icon}
-                system={dim.system}
-                name={dim.name}
-                axiom={dim.axiom}
-                tabs={dim.tabs}
-              />
-            ))}
-            {/* ── Layer 4: Purpose Frame ── */}
-            {geneKeys?.purpose && (
-              <GateContentCard profile={profile} geneKeys={geneKeys} />
+                <FoundationSection
+                  blend={blend}
+                  element={element}
+                  type={type}
+                  lifePathNum={lifePathNum}
+                  birthGMT={profile.birthGMT}
+                  birthTime={profile.birthTime}
+                  y={profile.y}
+                  mo={profile.mo}
+                  dy={profile.dy}
+                  cceT={cceT}
+                  cceEl={cceEl}
+                  cceLp={cceLp}
+                  dynamic={dynamic}
+                  humanModeContent={humanModeContent}
+                  watchFor={watchFor}
+                  bestUse={bestUse}
+                  decisionEngine={decisionEngine}
+                  passiveSkillLoadout={passiveSkillLoadout}
+                  passiveSkillOpen={passiveSkillOpen}
+                  onTogglePassiveSkill={() => setPassiveSkillOpen(open => !open)}
+                  mode="human"
+                  showDecisionEngine={false}
+                />
+              </>
             )}
-          </div>
-        </div>
-      )}
 
-      {/* New profile */}
-      <button className="pip-button calc-btn" onClick={onNewProfile} style={{ marginTop: 16 }}>
-        [ NEW PROFILE ]
-      </button>
+            {activeTab === 'engine' && (
+              <PassiveSkillsSection
+                decisionEngine={decisionEngine}
+                passiveSkillLoadout={passiveSkillLoadout}
+                passiveSkillOpen={passiveSkillOpen}
+                onTogglePassiveSkill={() => setPassiveSkillOpen(open => !open)}
+              />
+            )}
 
+            {activeTab === 'cmd' && (
+              <div className="profile-exploration-panel">
+                <div className="profile-exploration-label">Experimental Layer</div>
+                <div className="profile-exploration-copy">
+                  Exploratory tools for play, pattern testing, and live interpretation.
+                </div>
+
+                <div className="profile-exploration-controls">
+                  <button
+                    type="button"
+                    className="profile-exploration-reset"
+                    onClick={() => onResetRhythmReveal?.()}
+                    disabled={!profileId}
+                  >
+                    Reset Rhythm Reveal
+                  </button>
+                </div>
+
+                <div className="profile-exploration-stack">
+                  {dimensions.map(dim => (
+                    <DimensionCard
+                      key={dim.key}
+                      icon={dim.icon}
+                      system={dim.system}
+                      name={dim.name}
+                      axiom={dim.axiom}
+                      tabs={dim.tabs}
+                    />
+                  ))}
+                  {geneKeys?.purpose && (
+                    <GateContentCard profile={profile} geneKeys={geneKeys} />
+                  )}
+                </div>
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <nav className="profile-bottom-nav" aria-label="Primary profile navigation">
+        <button
+          type="button"
+          className={`profile-bottom-nav-item${activeTab === 'loadout' ? ' active' : ''}`}
+          onClick={() => setActiveTab('loadout')}
+        >
+          <span className="profile-bottom-nav-label">Loadout</span>
+        </button>
+        <button
+          type="button"
+          className={`profile-bottom-nav-item${activeTab === 'engine' ? ' active' : ''}`}
+          onClick={() => setActiveTab('engine')}
+        >
+          <span className="profile-bottom-nav-label">Engine</span>
+        </button>
+        <button
+          type="button"
+          className={`profile-bottom-nav-item${activeTab === 'cmd' ? ' active' : ''}`}
+          onClick={() => setActiveTab('cmd')}
+        >
+          <span className="profile-bottom-nav-label">Cmd</span>
+        </button>
+      </nav>
     </div>
   );
 }

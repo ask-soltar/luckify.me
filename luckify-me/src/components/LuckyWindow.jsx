@@ -114,7 +114,8 @@ export function LuckyWindow({
   onLocationChange,
   mode = 'human',
   onModeChange,
-  presentation = 'default'
+  presentation = 'default',
+  showModeToggle = true,
 }) {
   const [catsOpen, setCatsOpen] = useState(false);
   const [editingLoc, setEditingLoc] = useState(false);
@@ -339,15 +340,17 @@ export function LuckyWindow({
               </div>
             </div>
 
-            <button
-              type="button"
-              className="profile-mode-toggle"
-              onClick={() => onModeChange?.(mode === 'human' ? 'operator' : 'human')}
-              aria-label={`Switch to ${mode === 'human' ? 'command' : 'character'} mode`}
-            >
-              <span className={mode === 'human' ? 'active' : ''}>CHARACTER VIEW</span>
-              <span className={mode === 'operator' ? 'active' : ''}>COMMAND MODE</span>
-            </button>
+            {showModeToggle && (
+              <button
+                type="button"
+                className="profile-mode-toggle"
+                onClick={() => onModeChange?.(mode === 'human' ? 'operator' : 'human')}
+                aria-label={`Switch to ${mode === 'human' ? 'command' : 'character'} mode`}
+              >
+                <span className={mode === 'human' ? 'active' : ''}>CHARACTER VIEW</span>
+                <span className={mode === 'operator' ? 'active' : ''}>COMMAND MODE</span>
+              </button>
+            )}
           </div>
 
           {editingLoc && (
