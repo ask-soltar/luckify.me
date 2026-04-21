@@ -232,11 +232,6 @@ export function LuckyWindow({ profile, humanDesign = null, onLocationChange, mod
         </div>
       )}
 
-      <div className="zone-hero-panel-meta">
-        <div className="zone-hero-panel-hint">Swipe between rhythm views, or use the tabs below.</div>
-        <span className="zone-hero-panel-count">{activePanel + 1} of {panelCount}</span>
-      </div>
-
       <div className="zone-hero-panel-tabs" role="tablist" aria-label="Rhythm views">
         <button
           type="button"
@@ -270,21 +265,29 @@ export function LuckyWindow({ profile, humanDesign = null, onLocationChange, mod
         >
           <section className="zone-hero-panel zone-hero-panel--today" aria-label="Color Rhythm">
             <div className="zone-hero-main">
-              <div className="zone-hero-mode-label">
-                {mode === 'operator' ? 'CORE CONFIGURATION ACTIVE' : 'CORE LOADOUT ACTIVE'}
-              </div>
+              <div className="zone-hero-mode-label">ACTIVE RHYTHM</div>
               <div className="zone-hero-name">{result.zone}</div>
-              <div className="zone-hero-identity">
-                {decisionSupport.authorityLabel}
+            </div>
+
+            <div className="zone-hero-authority">
+              <div className="zone-hero-authority-top">
+                <div className="zone-hero-authority-label">YOUR DECISION ENGINE</div>
+                <div className="zone-hero-authority-permanence">Always active</div>
+              </div>
+              <div className="zone-hero-authority-engine">
+                {decisionSupport.authorityEngineName || decisionSupport.authorityLabel}
+              </div>
+              <div className="zone-hero-authority-human">
+                {authority || decisionSupport.authorityLabel}
               </div>
             </div>
 
-            <div className="zone-hero-mantra">"{result.mantra}"</div>
+            <div className="zone-hero-mantra">"{decisionSupport.slogan || result.mantra}"</div>
 
             <div className="zone-hero-decision-support">
               <div className="zone-hero-decision-support-top">
-                <div className="zone-hero-decision-support-label">Decision Engine Today</div>
-                <div className="zone-hero-decision-support-type">{decisionSupport.interactionType}</div>
+                <div className="zone-hero-decision-support-label">TODAY&apos;S DECISION GUIDANCE</div>
+                <div className="zone-hero-decision-support-type">TODAY&apos;S EFFECT</div>
               </div>
               <p className="zone-hero-decision-support-text">{decisionSupport.supportText}</p>
               <div className="zone-hero-decision-support-grid">
