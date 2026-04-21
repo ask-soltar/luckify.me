@@ -35,7 +35,27 @@ const ELEMENT_COLORS = {
 
 // ── Foundation Section — always visible, element-accented ──
 
-function FoundationSection({ blend, element, type, elemCfg, lifePathNum, birthGMT, birthTime, y, mo, dy, cceT, cceEl, cceLp, dynamic, humanModeContent, watchFor, bestUse, mode }) {
+function FoundationSection({
+  blend,
+  element,
+  type,
+  elemCfg,
+  lifePathNum,
+  birthGMT,
+  birthTime,
+  y,
+  mo,
+  dy,
+  cceT,
+  cceEl,
+  cceLp,
+  dynamic,
+  humanModeContent,
+  watchFor,
+  bestUse,
+  decisionEngine,
+  mode
+}) {
   const elColor = ELEMENT_COLORS[element] || { text: 'var(--pip-primary)', accent: 'rgba(200,152,42,0.1)' };
   const tithiLabel = type.charAt(0).toUpperCase() + type.slice(1);
 
@@ -73,6 +93,22 @@ function FoundationSection({ blend, element, type, elemCfg, lifePathNum, birthGM
           bestUse={bestUse}
           mode={mode}
         />
+        {decisionEngine && (
+          <div className={`foundation-decision-engine foundation-decision-engine--${mode}`}>
+            <div className="foundation-decision-engine-label">
+              {mode === 'operator' ? 'PASSIVE SKILLS' : 'Passive Skills'}
+            </div>
+            <div className="foundation-decision-engine-skill">
+              {mode === 'operator' ? 'DECISION ENGINE' : 'Decision Engine'}
+            </div>
+            <div className="foundation-decision-engine-main">
+              {decisionEngine.engineName}
+            </div>
+            <div className="foundation-decision-engine-meta">
+              {decisionEngine.authorityType} <span className="foundation-decision-engine-sep">·</span> Always active
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -374,6 +410,7 @@ export function ProfileDisplay({
         humanModeContent={humanModeContent}
         watchFor={watchFor}
         bestUse={bestUse}
+        decisionEngine={decisionEngine}
         mode={mode}
       />
 

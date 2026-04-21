@@ -88,6 +88,13 @@ function getRevealCadence(sequenceLength) {
   });
 }
 
+function getCompactPreview(text, max = 62) {
+  if (!text) return '';
+  const normalized = String(text).replace(/\s+/g, ' ').trim();
+  if (normalized.length <= max) return normalized;
+  return `${normalized.slice(0, max).trimEnd()}…`;
+}
+
 // Optional atmospheric art backgrounds. Only zones listed here receive the
 // image treatment; all others keep the existing pure-gradient card.
 const ZONE_ART = {
@@ -102,14 +109,17 @@ export function LuckyWindow({
   profile,
   profileId = null,
   shouldAnimateReveal = false,
+  onRevealComplete,
   humanDesign = null,
   onLocationChange,
   mode = 'human',
-  onModeChange
+  onModeChange,
+  presentation = 'default'
 }) {
   const [catsOpen, setCatsOpen] = useState(false);
   const [editingLoc, setEditingLoc] = useState(false);
   const [activePanel, setActivePanel] = useState(0);
+  const [expandedDailyTips, setExpandedDailyTips] = useState({ best: false, watch: false });
   const [displayZone, setDisplayZone] = useState('Blue');
   const [revealState, setRevealState] = useState('settled');
   const revealTimeoutRef = useRef(null);
@@ -141,9 +151,14 @@ export function LuckyWindow({
   const css    = ZONE_CSS[renderedZone] || ZONE_CSS.Yellow;
   const authority = humanDesign?.authority || profile?.humanDesign?.authority || null;
   const decisionSupport = getDecisionSupportForRhythm(authority, finalZone);
+  const bestUsePreview = getCompactPreview(decisionSupport.bestUseText);
+  const watchOutPreview = getCompactPreview(decisionSupport.watchOutText);
+  const bestUseExpandable = bestUsePreview !== decisionSupport.bestUseText;
+  const watchOutExpandable = watchOutPreview !== decisionSupport.watchOutText;
   const panelCount = 2;
   const zoneArtUrl = ZONE_ART[renderedZone] || null;
   const zoneHasAtmosphere = Boolean(zoneArtUrl || renderedZone === 'Green');
+  const isRevealPresentation = presentation === 'reveal';
 
   // Radial glow from top-center — zone color fades into dark base
   const heroBg = `radial-gradient(ellipse 70% 60% at 50% 0%, ${css.glow}44 0%, ${css.bg} 65%)`;
@@ -188,6 +203,7 @@ export function LuckyWindow({
           setDisplayZone(finalZone);
           setRevealState('settled');
           window.localStorage.setItem(storageKey, 'true');
+          onRevealComplete?.();
         }, 820);
         return;
       }
@@ -203,7 +219,15 @@ export function LuckyWindow({
       revealMountedRef.current = false;
       if (revealTimeoutRef.current) window.clearTimeout(revealTimeoutRef.current);
     };
-  }, [finalZone, profileId, shouldAnimateReveal]);
+  }, [finalZone, onRevealComplete, profileId, shouldAnimateReveal]);
+
+  useEffect(() => {
+    setExpandedDailyTips({ best: false, watch: false });
+  }, [finalZone]);
+
+  function toggleDailyTip(key) {
+    setExpandedDailyTips(prev => ({ ...prev, [key]: !prev[key] }));
+  }
 
   function goToPanel(nextIndex) {
     setActivePanel((nextIndex + panelCount) % panelCount);
@@ -297,67 +321,71 @@ export function LuckyWindow({
         </div>
       )}
 
-      <div className="zone-hero-topbar">
-        <div className="zone-hero-topbar-copy">
-          <div className="zone-hero-date">{TODAY_LABEL}</div>
-          <div
-            className="zone-hero-location"
-            onClick={() => setEditingLoc(o => !o)}
-            title="Change current location"
-          >
-            <span className="zone-hero-loc-dot">◎</span>
-            <span className="zone-hero-loc-label">
-              {locationLabel(profile.currentTzId, profile.currentGMT)}
-            </span>
-            <span className="zone-hero-loc-edit">✎</span>
+      {!isRevealPresentation && (
+        <>
+          <div className="zone-hero-topbar">
+            <div className="zone-hero-topbar-copy">
+              <div className="zone-hero-date">{TODAY_LABEL}</div>
+              <div
+                className="zone-hero-location"
+                onClick={() => setEditingLoc(o => !o)}
+                title="Change current location"
+              >
+                <span className="zone-hero-loc-dot">◎</span>
+                <span className="zone-hero-loc-label">
+                  {locationLabel(profile.currentTzId, profile.currentGMT)}
+                </span>
+                <span className="zone-hero-loc-edit">✎</span>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              className="profile-mode-toggle"
+              onClick={() => onModeChange?.(mode === 'human' ? 'operator' : 'human')}
+              aria-label={`Switch to ${mode === 'human' ? 'command' : 'character'} mode`}
+            >
+              <span className={mode === 'human' ? 'active' : ''}>CHARACTER VIEW</span>
+              <span className={mode === 'operator' ? 'active' : ''}>COMMAND MODE</span>
+            </button>
           </div>
-        </div>
 
-        <button
-          type="button"
-          className="profile-mode-toggle"
-          onClick={() => onModeChange?.(mode === 'human' ? 'operator' : 'human')}
-          aria-label={`Switch to ${mode === 'human' ? 'command' : 'character'} mode`}
-        >
-          <span className={mode === 'human' ? 'active' : ''}>CHARACTER VIEW</span>
-          <span className={mode === 'operator' ? 'active' : ''}>COMMAND MODE</span>
-        </button>
-      </div>
+          {editingLoc && (
+            <div className="zone-hero-loc-editor">
+              <LocationInput
+                placeholder="Search city to update location…"
+                onSelect={sel => {
+                  if (sel && onLocationChange) {
+                    onLocationChange({ offset: sel.offset, tzId: sel.tzId, label: sel.label });
+                    setEditingLoc(false);
+                  }
+                }}
+              />
+            </div>
+          )}
 
-      {editingLoc && (
-        <div className="zone-hero-loc-editor">
-          <LocationInput
-            placeholder="Search city to update location…"
-            onSelect={sel => {
-              if (sel && onLocationChange) {
-                onLocationChange({ offset: sel.offset, tzId: sel.tzId, label: sel.label });
-                setEditingLoc(false);
-              }
-            }}
-          />
-        </div>
+          <div className="zone-hero-panel-tabs" role="tablist" aria-label="Rhythm views">
+            <button
+              type="button"
+              role="tab"
+              aria-selected={activePanel === 0}
+              className={`zone-hero-panel-tab${activePanel === 0 ? ' active' : ''}`}
+              onClick={() => goToPanel(0)}
+            >
+              Color Rhythm
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={activePanel === 1}
+              className={`zone-hero-panel-tab${activePanel === 1 ? ' active' : ''}`}
+              onClick={() => goToPanel(1)}
+            >
+              Monthly Calendar
+            </button>
+          </div>
+        </>
       )}
-
-      <div className="zone-hero-panel-tabs" role="tablist" aria-label="Rhythm views">
-        <button
-          type="button"
-          role="tab"
-          aria-selected={activePanel === 0}
-          className={`zone-hero-panel-tab${activePanel === 0 ? ' active' : ''}`}
-          onClick={() => goToPanel(0)}
-        >
-          Color Rhythm
-        </button>
-        <button
-          type="button"
-          role="tab"
-          aria-selected={activePanel === 1}
-          className={`zone-hero-panel-tab${activePanel === 1 ? ' active' : ''}`}
-          onClick={() => goToPanel(1)}
-        >
-          Monthly Calendar
-        </button>
-      </div>
 
       <div
         className="zone-hero-panel-shell"
@@ -367,7 +395,7 @@ export function LuckyWindow({
       >
         <div
           className={`zone-hero-panel-track${isRevealing ? ' zone-hero-panel-track--revealing' : ''}${isLanding ? ' zone-hero-panel-track--landing' : ''}`}
-          style={{ transform: `translateX(-${activePanel * 50}%)` }}
+          style={{ transform: `translateX(-${(isRevealPresentation ? 0 : activePanel) * 50}%)` }}
         >
           <section className={`zone-hero-panel zone-hero-panel--today${isRevealing ? ' zone-hero-panel--revealing' : ''}${isLanding ? ' zone-hero-panel--landing' : ''}`} aria-label="Color Rhythm">
             <div className="zone-hero-main">
@@ -413,16 +441,6 @@ export function LuckyWindow({
               )}
             </div>
 
-            <div className="zone-hero-authority">
-              <div className="zone-hero-authority-label">YOUR DECISION ENGINE</div>
-              <div className="zone-hero-authority-engine">
-                {decisionSupport.authorityEngineName || decisionSupport.authorityLabel}
-              </div>
-              <div className="zone-hero-authority-human">
-                {(authority || decisionSupport.authorityLabel)} · Always active
-              </div>
-            </div>
-
             <div className="zone-hero-decision-support">
               <div className="zone-hero-decision-support-label">TODAY&apos;S DECISION GUIDANCE</div>
               <div className="zone-hero-decision-support-cue">
@@ -430,54 +448,82 @@ export function LuckyWindow({
               </div>
               <p className="zone-hero-decision-support-text">{decisionSupport.supportText}</p>
               <div className="zone-hero-decision-support-grid">
-                <div className="zone-hero-decision-support-item zone-hero-decision-support-item--best">
+                <button
+                  type="button"
+                  className={`zone-hero-decision-support-item zone-hero-decision-support-item--best${expandedDailyTips.best ? ' open' : ''}`}
+                  onClick={() => bestUseExpandable && toggleDailyTip('best')}
+                >
                   <div className="zone-hero-decision-support-item-label">Best Use</div>
-                  <p className="zone-hero-decision-support-item-copy">{decisionSupport.bestUseText}</p>
-                </div>
-                <div className="zone-hero-decision-support-item zone-hero-decision-support-item--watch">
+                  <p className="zone-hero-decision-support-item-copy">
+                    {expandedDailyTips.best ? decisionSupport.bestUseText : bestUsePreview}
+                  </p>
+                  {bestUseExpandable && (
+                    <div className="zone-hero-decision-support-item-toggle">
+                      {expandedDailyTips.best ? 'Show less' : 'Show more'}
+                    </div>
+                  )}
+                </button>
+                <button
+                  type="button"
+                  className={`zone-hero-decision-support-item zone-hero-decision-support-item--watch${expandedDailyTips.watch ? ' open' : ''}`}
+                  onClick={() => watchOutExpandable && toggleDailyTip('watch')}
+                >
                   <div className="zone-hero-decision-support-item-label">Watch Out</div>
-                  <p className="zone-hero-decision-support-item-copy">{decisionSupport.watchOutText}</p>
-                </div>
+                  <p className="zone-hero-decision-support-item-copy">
+                    {expandedDailyTips.watch ? decisionSupport.watchOutText : watchOutPreview}
+                  </p>
+                  {watchOutExpandable && (
+                    <div className="zone-hero-decision-support-item-toggle">
+                      {expandedDailyTips.watch ? 'Show less' : 'Show more'}
+                    </div>
+                  )}
+                </button>
               </div>
             </div>
 
-            <div className="zone-hero-cats">
-              <button className="zone-hero-cats-toggle" onClick={() => setCatsOpen(o => !o)}>
-                <span>TODAY'S FREQUENCIES</span>
-                <span className={`zone-hero-cats-chevron${catsOpen ? ' open' : ''}`}>▼</span>
-              </button>
-              {catsOpen && (
-                <div className="zone-hero-cats-body">
-                  {getZoneScores(result.zone).map(({ cat, normalized }) => (
-                    <CategoryBar
-                      key={cat}
-                      cat={cat}
-                      normalized={normalized}
-                      textColor={css.text}
-                      guidance={GUIDANCE[result.zone]?.[cat] || ''}
-                    />
-                  ))}
-                  {CELL_LINE[result.zone] && (
-                    <p className="zone-hero-cats-tagline">{CELL_LINE[result.zone]}</p>
+            {!isRevealPresentation && (
+              <>
+                <div className="zone-hero-cats">
+                  <button className="zone-hero-cats-toggle" onClick={() => setCatsOpen(o => !o)}>
+                    <span>TODAY'S FREQUENCIES</span>
+                    <span className={`zone-hero-cats-chevron${catsOpen ? ' open' : ''}`}>▼</span>
+                  </button>
+                  {catsOpen && (
+                    <div className="zone-hero-cats-body">
+                      {getZoneScores(result.zone).map(({ cat, normalized }) => (
+                        <CategoryBar
+                          key={cat}
+                          cat={cat}
+                          normalized={normalized}
+                          textColor={css.text}
+                          guidance={GUIDANCE[result.zone]?.[cat] || ''}
+                        />
+                      ))}
+                      {CELL_LINE[result.zone] && (
+                        <p className="zone-hero-cats-tagline">{CELL_LINE[result.zone]}</p>
+                      )}
+                    </div>
                   )}
                 </div>
-              )}
-            </div>
 
-            <div className="zone-hero-ask">
-              <span className="zone-hero-ask-icon">✦</span>
-              <span className="zone-hero-ask-text">ASK ABOUT YOUR DAY</span>
-              <span className="zone-hero-ask-soon">COMING SOON</span>
-            </div>
+                <div className="zone-hero-ask">
+                  <span className="zone-hero-ask-icon">✦</span>
+                  <span className="zone-hero-ask-text">ASK ABOUT YOUR DAY</span>
+                  <span className="zone-hero-ask-soon">COMING SOON</span>
+                </div>
+              </>
+            )}
           </section>
 
-          <section className="zone-hero-panel zone-hero-panel--calendar" aria-label="Monthly Rhythm Calendar">
-            <div className="zone-hero-calendar-intro">
-              <div className="zone-hero-calendar-eyebrow">MONTHLY RHYTHM CALENDAR</div>
-              <div className="zone-hero-calendar-title">Track how your color rhythm moves through the month.</div>
-            </div>
-            <RhythmCalendar profile={profile} embedded />
-          </section>
+          {!isRevealPresentation && (
+            <section className="zone-hero-panel zone-hero-panel--calendar" aria-label="Monthly Rhythm Calendar">
+              <div className="zone-hero-calendar-intro">
+                <div className="zone-hero-calendar-eyebrow">MONTHLY RHYTHM CALENDAR</div>
+                <div className="zone-hero-calendar-title">Track how your color rhythm moves through the month.</div>
+              </div>
+              <RhythmCalendar profile={profile} embedded />
+            </section>
+          )}
         </div>
       </div>
     </div>
