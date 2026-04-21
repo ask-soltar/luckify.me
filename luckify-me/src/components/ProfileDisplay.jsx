@@ -13,7 +13,6 @@ import { useState, useMemo } from 'react';
 import { DimensionCard } from './DimensionCard.jsx';
 import { CoreConfigCard } from './CoreConfigCard.jsx';
 import { LuckyWindow } from './LuckyWindow.jsx';
-import { RhythmCalendar } from './RhythmCalendar.jsx';
 import { GateContentCard } from './GateContentCard.jsx';
 import { ELEMENT_CONFIG } from '../constants/element.js';
 import { TITHI_CCE, ELEMENT_CCE, LP_CCE, getDynamic, getHumanModeContent, generateWatchFor, generateBestUse } from '../constants/coreConfig.js';
@@ -22,6 +21,7 @@ import { GENE_KEYS } from '../constants/geneKeys.js';
 import { PURPOSE_GATES } from '../constants/purposeGates.js';
 import { PLANETARY_FIX } from '../constants/planetaryFix.js';
 import { calcGeneKeys, calcAllActivations } from '../utils/geneKeys.js';
+import { deriveHumanDesign } from '../utils/humanDesign.js';
 
 // Element color palette — grounded, permanent, different energy from zone colors
 const ELEMENT_COLORS = {
@@ -32,24 +32,9 @@ const ELEMENT_COLORS = {
   Water: { text: '#4880c8', accent: 'rgba(20, 55, 130, 0.18)' },
 };
 
-// ── Collapsible Layer (calendar only) ──────────────────
-
-function ProfileLayer({ label, defaultOpen = false, children }) {
-  const [open, setOpen] = useState(defaultOpen);
-  return (
-    <div className="profile-layer">
-      <button className="profile-layer-toggle" onClick={() => setOpen(o => !o)}>
-        <span className="profile-layer-label">{label}</span>
-        <span className={`profile-layer-chevron${open ? ' open' : ''}`}>▼</span>
-      </button>
-      {open && <div className="profile-layer-body">{children}</div>}
-    </div>
-  );
-}
-
 // ── Foundation Section — always visible, element-accented ──
 
-function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensions, birthGMT, birthTime, y, mo, dy, cceT, cceEl, cceLp, dynamic, humanModeContent, watchFor, bestUse, mode }) {
+function FoundationSection({ blend, element, type, elemCfg, lifePathNum, birthGMT, birthTime, y, mo, dy, cceT, cceEl, cceLp, dynamic, humanModeContent, watchFor, bestUse, mode }) {
   const elColor = ELEMENT_COLORS[element] || { text: 'var(--pip-primary)', accent: 'rgba(200,152,42,0.1)' };
   const tithiLabel = type.charAt(0).toUpperCase() + type.slice(1);
 
@@ -65,17 +50,6 @@ function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensi
 
   return (
     <div className="foundation-section" style={{ '--el-text': elColor.text, '--el-accent': elColor.accent }}>
-      {/* Identity bar */}
-      <div className="foundation-identity">
-        <span className="foundation-glyph">{elemCfg?.glyph}</span>
-        <div className="foundation-identity-right">
-          <span className="foundation-identity-text">
-            {element} · {tithiLabel} · Life Path {lifePathNum}
-          </span>
-          {birthMeta && <span className="foundation-birth-meta">{birthMeta}</span>}
-        </div>
-      </div>
-
       {/* Blend — always visible */}
       {blend && (
         <div className="foundation-blend">
@@ -83,13 +57,13 @@ function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensi
           <p className="foundation-blend-body">{blend.statement}</p>
         </div>
       )}
-
       {/* Core Configuration card (Dims I + II + III) */}
       <div className="foundation-dimensions">
         <CoreConfigCard
           icon={<span style={{ fontSize: 22, lineHeight: 1 }}>◈</span>}
           tithi={cceT}
           element={cceEl}
+          trajectoryElement={element}
           dynamic={dynamic}
           humanModeContent={humanModeContent}
           lifePathNum={cceLp}
@@ -98,18 +72,6 @@ function FoundationSection({ blend, element, type, elemCfg, lifePathNum, dimensi
           bestUse={bestUse}
           mode={mode}
         />
-
-        {/* Remaining dimension cards (IV, V, …) */}
-        {dimensions.map(dim => (
-          <DimensionCard
-            key={dim.key}
-            icon={dim.icon}
-            system={dim.system}
-            name={dim.name}
-            axiom={dim.axiom}
-            tabs={dim.tabs}
-          />
-        ))}
       </div>
     </div>
   );
@@ -152,12 +114,36 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
 
   // Activations — also always recomputed on the fly.
   const activations = useMemo(() => {
-    const { y, mo, dy, birthTime: bt, birthGMT } = profile;
+    const { y, mo, dy, birthTime: bt, birthGMT, birthLat, birthLng } = profile;
     if (!y || !mo || !dy) return null;
     try {
-      return calcAllActivations({ year: y, month: mo, day: dy, birthTime: bt || '12:00', tzOffset: birthGMT ?? 0 });
+      return calcAllActivations({
+        year: y,
+        month: mo,
+        day: dy,
+        birthTime: bt || '12:00',
+        tzOffset: birthGMT ?? 0,
+        latitude: birthLat,
+        longitude: birthLng,
+      });
     } catch { return null; }
   }, [profile]);
+  const humanDesign = useMemo(() => {
+    if (!activations?.length) return profile.humanDesign || null;
+    try {
+      return deriveHumanDesign(activations);
+    } catch {
+      return profile.humanDesign || null;
+    }
+  }, [activations, profile.humanDesign]);
+  const activationAuditItems = useMemo(() => {
+    if (!activations?.length) return [];
+
+    return activations.map(a => ({
+      title: `${a.chart === 'conscious' ? 'Conscious' : 'Design'} · ${a.planet}`,
+      body: `Gate ${a.gate}.${a.line}`,
+    }));
+  }, [activations]);
   const hasBirthTime = Boolean(birthTime) && birthTime !== '00:00';
 
   const elemCfg    = ELEMENT_CONFIG[element];
@@ -220,7 +206,7 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
     }] : []),
 
     // ── Planetary Fix (Dimension V) ──
-    // For each of the 24 activations, look up the gate.line in the 384-line fix table.
+    // For each of the 26 activations, look up the gate.line in the 384-line fix table.
     // If the activating planet matches the exalting planet → EXALTED
     // If the activating planet matches the detrimenting planet → DETRIMENT
     // Otherwise → neither (not shown)
@@ -262,10 +248,55 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
         system: 'DIMENSION V · PLANETARY FIX',
         icon:   <span style={{ fontSize: 22, lineHeight: 1 }}>⚖</span>,
         name:   `${exalted.length} exalted · ${detriment.length} detriment`,
-        axiom:  'Each line has a planet that turns smoothly (exalted) and one that creates friction (detriment). When your activation matches either, the line carries that built-in polarity.',
+        axiom:  'Each line has a planet that turns smoothly (exalted) and one that creates friction (detriment). When one of your chart activations matches either, the line carries that built-in polarity.',
         tabs:   swTabs,
       }];
     })() : []),
+
+    ...(humanDesign ? [{
+      key: 'authority',
+      system: 'DIMENSION V · HUMAN DESIGN',
+      icon: <span style={{ fontSize: 22, lineHeight: 1 }}>◎</span>,
+      name: humanDesign.authority,
+      axiom: 'Authority is derived from fully defined channels first, then defined centers, then standard Human Design type and authority hierarchy. If Solar Plexus is defined, authority is Emotional before any lower authority is considered.',
+      tabs: [
+        {
+          key: 'overview',
+          label: 'Overview',
+          principles: [
+            {
+              title: 'Authority Type',
+              body: `${humanDesign.authority} · ${humanDesign.type}`,
+            },
+            {
+              title: 'Defined Centers',
+              body: humanDesign.definedCenterLabels?.length
+                ? humanDesign.definedCenterLabels.join(' · ')
+                : 'None defined',
+            },
+            {
+              title: 'Defined Channels',
+              body: humanDesign.definedChannels?.length
+                ? humanDesign.definedChannels
+                    .map(channel => `${channel.key} (${channel.centers.join(' ↔ ')})`)
+                    .join(' · ')
+                : 'No fully defined channels',
+            },
+            {
+              title: 'Active Gates',
+              body: humanDesign.activeGates?.length
+                ? humanDesign.activeGates.join(' · ')
+                : 'No active gates',
+            },
+          ],
+        },
+        {
+          key: 'activations',
+          label: `Activations (${activationAuditItems.length})`,
+          principles: activationAuditItems,
+        },
+      ],
+    }] : []),
   ];
 
   return (
@@ -286,7 +317,6 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
         type={type}
         elemCfg={elemCfg}
         lifePathNum={lifePathNum}
-        dimensions={dimensions}
         birthGMT={profile.birthGMT}
         birthTime={profile.birthTime}
         y={profile.y}
@@ -302,15 +332,29 @@ export function ProfileDisplay({ profile, onNewProfile, onLocationChange }) {
         mode={mode}
       />
 
-      {/* ── Layer 3: Color Rhythm Calendar ── */}
-      <ProfileLayer label="THIS MONTH'S RHYTHM">
-        <RhythmCalendar profile={profile} />
-      </ProfileLayer>
+      <div className="profile-exploration-panel">
+        <div className="profile-exploration-label">Experimental Layer</div>
+        <div className="profile-exploration-copy">
+          Exploratory tools for play, pattern testing, and live interpretation.
+        </div>
 
-      {/* ── Layer 4: Purpose Frame ── */}
-      {geneKeys?.purpose && (
-        <GateContentCard profile={profile} geneKeys={geneKeys} />
-      )}
+        <div className="profile-exploration-stack">
+          {dimensions.map(dim => (
+            <DimensionCard
+              key={dim.key}
+              icon={dim.icon}
+              system={dim.system}
+              name={dim.name}
+              axiom={dim.axiom}
+              tabs={dim.tabs}
+            />
+          ))}
+          {/* ── Layer 4: Purpose Frame ── */}
+          {geneKeys?.purpose && (
+            <GateContentCard profile={profile} geneKeys={geneKeys} />
+          )}
+        </div>
+      </div>
 
       {/* New profile */}
       <button className="pip-button calc-btn" onClick={onNewProfile} style={{ marginTop: 16 }}>

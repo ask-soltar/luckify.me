@@ -18,7 +18,7 @@ function debounce(fn, ms) {
  * Props:
  *   label       — form label text (e.g. "> BIRTH LOCATION")
  *   placeholder — input placeholder
- *   onSelect    — called with { label, offset, tzId } when city is selected
+ *   onSelect    — called with { label, offset, tzId, latitude, longitude } when city is selected
  *   hint        — optional hint text below input
  */
 const MANUAL_OFFSETS = [
@@ -116,7 +116,13 @@ export function LocationInput({ label, placeholder, onSelect, hint }) {
     setBadge(`UTC${sign}${city.offset}  ·  ${city.tz}`);
     setResults([]);
     setOpen(false);
-    onSelect({ label, offset: city.offset, tzId: city.tz });
+    onSelect({
+      label,
+      offset: city.offset,
+      tzId: city.tz,
+      latitude: city.latitude,
+      longitude: city.longitude,
+    });
   }
 
   function handleKeyDown(e) {

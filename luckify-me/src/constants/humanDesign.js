@@ -1,0 +1,100 @@
+/**
+ * humanDesign.js
+ *
+ * Centralized Human Design lookup data used to derive:
+ * - defined channels
+ * - defined centers
+ * - chart type
+ * - authority
+ *
+ * The channel map is the canonical 36-channel BodyGraph layout.
+ */
+
+export const HUMAN_DESIGN_CENTERS = {
+  HEAD: 'Head',
+  AJNA: 'Ajna',
+  THROAT: 'Throat',
+  G: 'G',
+  EGO: 'Ego',
+  SOLAR_PLEXUS: 'Solar Plexus',
+  SPLEEN: 'Spleen',
+  SACRAL: 'Sacral',
+  ROOT: 'Root',
+};
+
+export const CENTER_DISPLAY_NAMES = {
+  [HUMAN_DESIGN_CENTERS.HEAD]: 'Head',
+  [HUMAN_DESIGN_CENTERS.AJNA]: 'Ajna',
+  [HUMAN_DESIGN_CENTERS.THROAT]: 'Throat',
+  [HUMAN_DESIGN_CENTERS.G]: 'G / Identity',
+  [HUMAN_DESIGN_CENTERS.EGO]: 'Ego / Heart / Will',
+  [HUMAN_DESIGN_CENTERS.SOLAR_PLEXUS]: 'Solar Plexus',
+  [HUMAN_DESIGN_CENTERS.SPLEEN]: 'Spleen',
+  [HUMAN_DESIGN_CENTERS.SACRAL]: 'Sacral',
+  [HUMAN_DESIGN_CENTERS.ROOT]: 'Root',
+};
+
+export const CENTER_ORDER = [
+  HUMAN_DESIGN_CENTERS.HEAD,
+  HUMAN_DESIGN_CENTERS.AJNA,
+  HUMAN_DESIGN_CENTERS.THROAT,
+  HUMAN_DESIGN_CENTERS.G,
+  HUMAN_DESIGN_CENTERS.EGO,
+  HUMAN_DESIGN_CENTERS.SOLAR_PLEXUS,
+  HUMAN_DESIGN_CENTERS.SPLEEN,
+  HUMAN_DESIGN_CENTERS.SACRAL,
+  HUMAN_DESIGN_CENTERS.ROOT,
+];
+
+export const MOTOR_CENTERS = [
+  HUMAN_DESIGN_CENTERS.EGO,
+  HUMAN_DESIGN_CENTERS.SOLAR_PLEXUS,
+  HUMAN_DESIGN_CENTERS.SACRAL,
+  HUMAN_DESIGN_CENTERS.ROOT,
+];
+
+export const HUMAN_DESIGN_CHANNELS = [
+  { key: '64-47', gates: [64, 47], centers: [HUMAN_DESIGN_CENTERS.HEAD, HUMAN_DESIGN_CENTERS.AJNA] },
+  { key: '61-24', gates: [61, 24], centers: [HUMAN_DESIGN_CENTERS.HEAD, HUMAN_DESIGN_CENTERS.AJNA] },
+  { key: '63-4',  gates: [63, 4],  centers: [HUMAN_DESIGN_CENTERS.HEAD, HUMAN_DESIGN_CENTERS.AJNA] },
+
+  { key: '17-62', gates: [17, 62], centers: [HUMAN_DESIGN_CENTERS.AJNA, HUMAN_DESIGN_CENTERS.THROAT] },
+  { key: '43-23', gates: [43, 23], centers: [HUMAN_DESIGN_CENTERS.AJNA, HUMAN_DESIGN_CENTERS.THROAT] },
+  { key: '11-56', gates: [11, 56], centers: [HUMAN_DESIGN_CENTERS.AJNA, HUMAN_DESIGN_CENTERS.THROAT] },
+
+  { key: '16-48', gates: [16, 48], centers: [HUMAN_DESIGN_CENTERS.THROAT, HUMAN_DESIGN_CENTERS.SPLEEN] },
+  { key: '20-57', gates: [20, 57], centers: [HUMAN_DESIGN_CENTERS.THROAT, HUMAN_DESIGN_CENTERS.SPLEEN] },
+  { key: '31-7',  gates: [31, 7],  centers: [HUMAN_DESIGN_CENTERS.THROAT, HUMAN_DESIGN_CENTERS.G] },
+  { key: '8-1',   gates: [8, 1],   centers: [HUMAN_DESIGN_CENTERS.THROAT, HUMAN_DESIGN_CENTERS.G] },
+  { key: '33-13', gates: [33, 13], centers: [HUMAN_DESIGN_CENTERS.THROAT, HUMAN_DESIGN_CENTERS.G] },
+  { key: '20-10', gates: [20, 10], centers: [HUMAN_DESIGN_CENTERS.THROAT, HUMAN_DESIGN_CENTERS.G] },
+  { key: '35-36', gates: [35, 36], centers: [HUMAN_DESIGN_CENTERS.THROAT, HUMAN_DESIGN_CENTERS.SOLAR_PLEXUS] },
+  { key: '12-22', gates: [12, 22], centers: [HUMAN_DESIGN_CENTERS.THROAT, HUMAN_DESIGN_CENTERS.SOLAR_PLEXUS] },
+  { key: '45-21', gates: [45, 21], centers: [HUMAN_DESIGN_CENTERS.THROAT, HUMAN_DESIGN_CENTERS.EGO] },
+  { key: '20-34', gates: [20, 34], centers: [HUMAN_DESIGN_CENTERS.THROAT, HUMAN_DESIGN_CENTERS.SACRAL] },
+
+  { key: '10-57', gates: [10, 57], centers: [HUMAN_DESIGN_CENTERS.G, HUMAN_DESIGN_CENTERS.SPLEEN] },
+  { key: '10-34', gates: [10, 34], centers: [HUMAN_DESIGN_CENTERS.G, HUMAN_DESIGN_CENTERS.SACRAL] },
+  { key: '2-14',  gates: [2, 14],  centers: [HUMAN_DESIGN_CENTERS.G, HUMAN_DESIGN_CENTERS.SACRAL] },
+  { key: '5-15',  gates: [5, 15],  centers: [HUMAN_DESIGN_CENTERS.SACRAL, HUMAN_DESIGN_CENTERS.G] },
+  { key: '29-46', gates: [29, 46], centers: [HUMAN_DESIGN_CENTERS.SACRAL, HUMAN_DESIGN_CENTERS.G] },
+  { key: '25-51', gates: [25, 51], centers: [HUMAN_DESIGN_CENTERS.G, HUMAN_DESIGN_CENTERS.EGO] },
+
+  { key: '37-40', gates: [37, 40], centers: [HUMAN_DESIGN_CENTERS.SOLAR_PLEXUS, HUMAN_DESIGN_CENTERS.EGO] },
+  { key: '44-26', gates: [44, 26], centers: [HUMAN_DESIGN_CENTERS.SPLEEN, HUMAN_DESIGN_CENTERS.EGO] },
+  { key: '27-50', gates: [27, 50], centers: [HUMAN_DESIGN_CENTERS.SACRAL, HUMAN_DESIGN_CENTERS.SPLEEN] },
+  { key: '34-57', gates: [34, 57], centers: [HUMAN_DESIGN_CENTERS.SACRAL, HUMAN_DESIGN_CENTERS.SPLEEN] },
+
+  { key: '59-6',  gates: [59, 6],  centers: [HUMAN_DESIGN_CENTERS.SACRAL, HUMAN_DESIGN_CENTERS.SOLAR_PLEXUS] },
+  { key: '53-42', gates: [53, 42], centers: [HUMAN_DESIGN_CENTERS.ROOT, HUMAN_DESIGN_CENTERS.SACRAL] },
+  { key: '60-3',  gates: [60, 3],  centers: [HUMAN_DESIGN_CENTERS.ROOT, HUMAN_DESIGN_CENTERS.SACRAL] },
+  { key: '52-9',  gates: [52, 9],  centers: [HUMAN_DESIGN_CENTERS.ROOT, HUMAN_DESIGN_CENTERS.SACRAL] },
+
+  { key: '32-54', gates: [32, 54], centers: [HUMAN_DESIGN_CENTERS.SPLEEN, HUMAN_DESIGN_CENTERS.ROOT] },
+  { key: '28-38', gates: [28, 38], centers: [HUMAN_DESIGN_CENTERS.SPLEEN, HUMAN_DESIGN_CENTERS.ROOT] },
+  { key: '18-58', gates: [18, 58], centers: [HUMAN_DESIGN_CENTERS.SPLEEN, HUMAN_DESIGN_CENTERS.ROOT] },
+
+  { key: '41-30', gates: [41, 30], centers: [HUMAN_DESIGN_CENTERS.ROOT, HUMAN_DESIGN_CENTERS.SOLAR_PLEXUS] },
+  { key: '39-55', gates: [39, 55], centers: [HUMAN_DESIGN_CENTERS.ROOT, HUMAN_DESIGN_CENTERS.SOLAR_PLEXUS] },
+  { key: '19-49', gates: [19, 49], centers: [HUMAN_DESIGN_CENTERS.ROOT, HUMAN_DESIGN_CENTERS.SOLAR_PLEXUS] },
+];

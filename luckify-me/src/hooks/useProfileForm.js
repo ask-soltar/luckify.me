@@ -15,6 +15,8 @@ export function useProfileForm(onSubmit) {
     ampm: 'PM',
     birthGMT: null,    // numeric offset from birth location
     birthTzId: null,   // IANA tz string for DST-aware calcs
+    birthLat: null,    // decimal latitude for observer-based moon audit
+    birthLng: null,    // decimal longitude for observer-based moon audit
     currentGMT: null,  // numeric offset from current/event location
     currentTzId: null  // IANA tz string for current location
   });
@@ -35,7 +37,9 @@ export function useProfileForm(onSubmit) {
       setFormData(prev => ({
         ...prev,
         birthGMT: selection ? selection.offset : null,
-        birthTzId: selection ? selection.tzId : null
+        birthTzId: selection ? selection.tzId : null,
+        birthLat: selection ? selection.latitude ?? null : null,
+        birthLng: selection ? selection.longitude ?? null : null,
       }));
     } else if (field === 'current') {
       setFormData(prev => ({
@@ -77,6 +81,8 @@ export function useProfileForm(onSubmit) {
       ampm: 'PM',
       birthGMT: null,
       birthTzId: null,
+      birthLat: null,
+      birthLng: null,
       currentGMT: null,
       currentTzId: null
     });

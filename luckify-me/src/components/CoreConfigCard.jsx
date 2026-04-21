@@ -24,7 +24,7 @@
 
 import { useState } from 'react';
 import { FoundationGlyph } from './foundation/foundationGlyphs';
-import { LifePathCrest } from './foundation/lifePathCrests';
+import { TrajectoryMarker } from './foundation/TrajectoryMarker';
 
 function parseBestUse(text) {
   if (!text) return [];
@@ -61,14 +61,26 @@ function FoundationGlyphBadge({ glyph, mode, title, fallback }) {
   );
 }
 
-export function CoreConfigCard({ icon, tithi, element, dynamic, humanModeContent = null, lifePathNum, lifePathValue, watchFor, bestUse, mode = 'human' }) {
+export function CoreConfigCard({
+  icon,
+  tithi,
+  element,
+  trajectoryElement,
+  dynamic,
+  humanModeContent = null,
+  lifePathNum,
+  lifePathValue,
+  watchFor,
+  bestUse,
+  mode = 'human',
+}) {
   const [open,        setOpen]        = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
   const isOperator = mode === 'operator';
 
   const themeName = dynamic?.configuration_theme_name;
-  const metaLine  = [tithi?.functional_name, element?.functional_name].filter(Boolean).join(' · ');
+  const metaLine  = 'Element · Rhythm · Trajectory';
 
   // Recognition — mode-specific
   const recognBody   = humanModeContent?.recognition || dynamic?.recognition_line_simple || null;
@@ -114,7 +126,7 @@ export function CoreConfigCard({ icon, tithi, element, dynamic, humanModeContent
   const expandBracketLabel = isOperator ? '[ CONFIGURATION LOGIC ]' : 'Loadout Mechanics';
 
   return (
-    <div className={`dim-card core-config-card${open ? ' open' : ''} core-config-card--${mode}`}>
+    <div className={`dim-card core-config-card${open ? ' open' : ''}${exploreOpen ? ' core-config-card--guidance-open' : ''} core-config-card--${mode}`}>
 
       {/* ── Header ── */}
       <div className={`dim-card-header core-config-header core-config-header--${mode}`} onClick={() => setOpen(o => !o)}>
@@ -135,77 +147,84 @@ export function CoreConfigCard({ icon, tithi, element, dynamic, humanModeContent
 
       {/* ── Body ── */}
       {open && (
-        <div className="dim-card-body core-config-body">
+        <div className={`dim-card-body core-config-body${exploreOpen ? ' core-config-body--guidance-open' : ''}`}>
 
-          {/* ── Standard mode top block ── */}
-          {!isOperator && stdReveal && (
-            <div className="core-config-std-reveal-block">
-              <div className="core-config-std-reveal-label">You&rsquo;re naturally wired to&hellip;</div>
-              <p className="core-config-std-reveal">{stdReveal}</p>
-            </div>
-          )}
+          {!isOperator ? (
+            <div className="core-config-human-flow">
+              {/* ── Standard mode top block ── */}
+              {stdReveal && (
+                <div className="core-config-std-reveal-block">
+                  <div className="core-config-std-reveal-label">You&rsquo;re naturally wired to&hellip;</div>
+                  <p className="core-config-std-reveal">{stdReveal}</p>
+                </div>
+              )}
 
-          {/* ── Recognition — mode-specific ── */}
-          {!isOperator && recognBody && (
-            <div className="core-config-recognition-wrap">
-              <div className="core-config-recognition-head">
-                <span className="core-config-recognition-mark">✦</span>
-                <div className="core-config-recognition-label">You may recognize this as&hellip;</div>
-              </div>
-              <p className="core-config-recognition">{recognBody}</p>
-            </div>
-          )}
-          {/* ── Operator mode diagnostic blocks ── */}
-          {isOperator && (opDynPattern || recognSignal || opDirVector) && (
-            <div className="core-config-op-blocks">
-              {opDynPattern && (
-                <div className="core-config-op-block">
-                  <div className="core-config-op-label">DYNAMIC PATTERN</div>
-                  <p className="core-config-op-value">{opDynPattern}</p>
-                </div>
-              )}
-              {recognSignal && (
-                <div className="core-config-op-block">
-                  <div className="core-config-op-label">RECOGNITION SIGNAL</div>
-                  <p className="core-config-op-value">{recognSignal}</p>
-                </div>
-              )}
-              {opDirVector && (
-                <div className="core-config-op-block">
-                  <div className="core-config-op-label">DIRECTIONAL VECTOR</div>
-                  <p className="core-config-op-value">{opDirVector}</p>
-                </div>
-              )}
-              {opOutcome && (
-                <div className="core-config-op-block">
-                  <div className="core-config-op-label">DIRECTIONAL OUTCOME</div>
-                  <p className="core-config-op-value core-config-op-value--outcome">{opOutcome}</p>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* ── Outcome bridge — standard only ── */}
-          {!isOperator && humanOutcome && (
-            <div className="core-config-field core-config-field--build">
-              <div className="core-config-outcome-shell">
-                <div className="core-config-outcome-crest">
-                  <LifePathCrest
-                    lifePath={lifePathValue}
-                    mode="human"
-                    size={92}
-                    className="core-config-life-path-crest"
-                    title={humanOutcome ? `${humanOutcome} crest` : 'Life Path crest'}
-                  />
-                </div>
-                <div className="core-config-outcome-copy">
-                  <div className="core-config-outcome-bridge">
-                    This may be helping you build toward&hellip;
+              {/* ── Recognition — mode-specific ── */}
+              {recognBody && (
+                <div className="core-config-recognition-wrap">
+                  <div className="core-config-recognition-head">
+                    <span className="core-config-recognition-mark">✦</span>
+                    <div className="core-config-recognition-label">You may recognize this as&hellip;</div>
                   </div>
-                  <div className="core-config-outcome">{humanOutcome}</div>
+                  <p className="core-config-recognition">{recognBody}</p>
                 </div>
-              </div>
+              )}
+
+              {/* ── Outcome bridge — standard only ── */}
+              {humanOutcome && (
+                <div className="core-config-field core-config-field--build">
+                  <div className="core-config-outcome-shell">
+                    <div className="core-config-outcome-crest">
+                      <TrajectoryMarker
+                        lifePathNumber={lifePathValue}
+                        element={trajectoryElement}
+                        size={68}
+                        emphasis="soft"
+                        className="core-config-trajectory-marker"
+                      />
+                    </div>
+                    <div className="core-config-outcome-copy">
+                      <div className="core-config-outcome-bridge">
+                        This may be helping you build toward&hellip;
+                      </div>
+                      <div className="core-config-outcome">{humanOutcome}</div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
+          ) : (
+            <>
+              {/* ── Operator mode diagnostic blocks ── */}
+              {(opDynPattern || recognSignal || opDirVector) && (
+                <div className="core-config-op-blocks">
+                  {opDynPattern && (
+                    <div className="core-config-op-block">
+                      <div className="core-config-op-label">DYNAMIC PATTERN</div>
+                      <p className="core-config-op-value">{opDynPattern}</p>
+                    </div>
+                  )}
+                  {recognSignal && (
+                    <div className="core-config-op-block">
+                      <div className="core-config-op-label">RECOGNITION SIGNAL</div>
+                      <p className="core-config-op-value">{recognSignal}</p>
+                    </div>
+                  )}
+                  {opDirVector && (
+                    <div className="core-config-op-block">
+                      <div className="core-config-op-label">DIRECTIONAL VECTOR</div>
+                      <p className="core-config-op-value">{opDirVector}</p>
+                    </div>
+                  )}
+                  {opOutcome && (
+                    <div className="core-config-op-block">
+                      <div className="core-config-op-label">DIRECTIONAL OUTCOME</div>
+                      <p className="core-config-op-value core-config-op-value--outcome">{opOutcome}</p>
+                    </div>
+                  )}
+                </div>
+              )}
+            </>
           )}
 
           {/* ── Expandable mechanics / logic ── */}

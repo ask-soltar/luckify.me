@@ -8,25 +8,8 @@
 import { useState, useMemo } from 'react';
 import { calcLuckyWindow } from '../utils/luckyWindow.js';
 import { getZoneScores, GUIDANCE, CELL_LINE, CAT_EMOJI } from '../constants/zoneScoring.js';
-import { DimensionCard } from './DimensionCard.jsx';
-import { TITHI_DATA, TITHI_AXIOMS, TITHI_SVGS } from '../constants/tithi.js';
-import { ELEMENT_CONFIG, ELEMENT_AXIOMS } from '../constants/element.js';
-import { LP_CONFIG } from '../constants/lifePath.js';
 
 const DOW = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-
-// ── Dimension icons (mirrors ProfileDisplay) ───────────
-function TithiIcon({ type }) {
-  const svg = TITHI_SVGS[type] || '';
-  return <svg viewBox="0 0 56 56" fill="none" style={{ width: 28, height: 28 }} dangerouslySetInnerHTML={{ __html: svg }} />;
-}
-function ElementIcon({ element }) {
-  const cfg = ELEMENT_CONFIG[element];
-  return <span style={{ fontSize: 22 }}>{cfg?.glyph || '?'}</span>;
-}
-function LifePathIcon({ number }) {
-  return <div className="lp-number-circle lp-number-circle--sm">{number}</div>;
-}
 
 const MONTH_NAMES = [
   'January','February','March','April','May','June',
@@ -92,7 +75,7 @@ function CategoryBar({ cat, normalized, textColor, guidance }) {
   );
 }
 
-function DayDetail({ day, profile, onClose }) {
+function DayDetail({ day, profile, onClose, embedded = false }) {
   if (!day) return null;
 
   const zoneLower  = day.zone?.toLowerCase();
@@ -104,38 +87,83 @@ function DayDetail({ day, profile, onClose }) {
   const guidance   = GUIDANCE[day.zone] || {};
   const tagline    = CELL_LINE[day.zone] || '';
 
-  // Build profile dimensions for "YOUR SIGNAL" section
-  const dimensions = profile ? (() => {
-    const { type, cfg, element, lifePathNum } = profile;
-    const tithiData  = TITHI_DATA[type];
-    const tithiAxiom = TITHI_AXIOMS[type];
-    const elemCfg    = ELEMENT_CONFIG[element];
-    const elemAxiom  = ELEMENT_AXIOMS[element];
-    const lpCfg      = LP_CONFIG[lifePathNum];
-    return [
-      {
-        key: 'tithi', system: 'DIMENSION I · TITHI',
-        icon: <TithiIcon type={type} />,
-        name: cfg?.label || type, axiom: tithiAxiom,
-        tabs: tithiData ? [
-          { key: 'operating', label: 'Operating', principles: tithiData.operating },
-          { key: 'intuitive', label: 'Intuitive',  principles: tithiData.intuitive },
-        ] : [],
-      },
-      {
-        key: 'element', system: 'DIMENSION II · WU XING',
-        icon: <ElementIcon element={element} />,
-        name: `${element} · ${elemCfg?.keyword || ''}`, axiom: elemAxiom,
-        tabs: elemCfg ? [{ key: 'desc', label: 'Signal', principles: [{ title: elemCfg.keyword, body: elemCfg.desc }] }] : [],
-      },
-      {
-        key: 'lifePath', system: 'DIMENSION III · LIFE PATH',
-        icon: <LifePathIcon number={lifePathNum} />,
-        name: lpCfg?.name || `Life Path ${lifePathNum}`, axiom: lpCfg?.axiom,
-        tabs: lpCfg ? [{ key: 'mission', label: 'Mission', principles: [{ title: lpCfg.name, body: lpCfg.axiom }] }] : [],
-      },
-    ];
-  })() : [];
+  const detailContent = (
+    <>
+      {!embedded && <div className="cal-detail-handle" />}
+
+      {/* Date */}
+      <div className="cal-detail-date">
+        {day.date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
+      </div>
+
+      {/* Zone name + tagline */}
+      <div className="cal-detail-zone" style={tc()}>{day.zone}</div>
+      {tagline && (
+        <div className="cal-detail-tagline" style={tc()}>{tagline}</div>
+      )}
+
+      {/* Category score bars */}
+      {scores.length > 0 && (
+        <div className="cat-score-rows">
+          {scores.map(({ cat, normalized }) => (
+            <CategoryBar
+              key={cat}
+              cat={cat}
+              normalized={normalized}
+              textColor={textColor}
+              guidance={guidance[cat] || ''}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Stats grid */}
+      <div className="cal-detail-stats">
+        <div className="cal-detail-stat">
+          <div className="cal-detail-stat-label">SCORE</div>
+          <div className="cal-detail-stat-val" style={tc()}>{day.total}</div>
+        </div>
+        <div className="cal-detail-stat">
+          <div className="cal-detail-stat-label">DELTA</div>
+          <div className="cal-detail-stat-val" style={tc()}>{deltaSign}{day.delta}</div>
+        </div>
+        <div className="cal-detail-stat">
+          <div className="cal-detail-stat-label">EDGE</div>
+          <div className="cal-detail-stat-val" style={tc()}>{edgeSign}{day.edge50}</div>
+        </div>
+        <div className="cal-detail-stat">
+          <div className="cal-detail-stat-label">STABILITY</div>
+          <div className="cal-detail-stat-val cal-detail-stat-sm" style={tc()}>{day.stability}</div>
+        </div>
+        <div className="cal-detail-stat">
+          <div className="cal-detail-stat-label">PERSON EL</div>
+          <div className="cal-detail-stat-val cal-detail-stat-sm" style={tc()}>{day.dom_person}</div>
+        </div>
+        <div className="cal-detail-stat">
+          <div className="cal-detail-stat-label">ENV EL</div>
+          <div className="cal-detail-stat-val cal-detail-stat-sm" style={tc()}>{day.dom_env}</div>
+        </div>
+      </div>
+
+      {/* Mantra */}
+      <div className="cal-detail-mantra" style={tc()}>
+        "{day.mantra}"
+      </div>
+
+      <button className="pip-button cal-detail-close" onClick={onClose}>Close</button>
+    </>
+  );
+
+  if (embedded) {
+    return (
+      <div
+        className="cal-detail-inline"
+        style={{ background: `var(--${zoneLower}-bg, #111)` }}
+      >
+        {detailContent}
+      </div>
+    );
+  }
 
   return (
     <div className="cal-detail-overlay open" onClick={onClose}>
@@ -144,91 +172,13 @@ function DayDetail({ day, profile, onClose }) {
         style={{ background: `var(--${zoneLower}-bg, #111)` }}
         onClick={e => e.stopPropagation()}
       >
-        <div className="cal-detail-handle" />
-
-        {/* Date */}
-        <div className="cal-detail-date">
-          {day.date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
-        </div>
-
-        {/* Zone name + tagline */}
-        <div className="cal-detail-zone" style={tc()}>{day.zone}</div>
-        {tagline && (
-          <div className="cal-detail-tagline" style={tc()}>{tagline}</div>
-        )}
-
-        {/* Category score bars */}
-        {scores.length > 0 && (
-          <div className="cat-score-rows">
-            {scores.map(({ cat, normalized }) => (
-              <CategoryBar
-                key={cat}
-                cat={cat}
-                normalized={normalized}
-                textColor={textColor}
-                guidance={guidance[cat] || ''}
-              />
-            ))}
-          </div>
-        )}
-
-        {/* Stats grid */}
-        <div className="cal-detail-stats">
-          <div className="cal-detail-stat">
-            <div className="cal-detail-stat-label">SCORE</div>
-            <div className="cal-detail-stat-val" style={tc()}>{day.total}</div>
-          </div>
-          <div className="cal-detail-stat">
-            <div className="cal-detail-stat-label">DELTA</div>
-            <div className="cal-detail-stat-val" style={tc()}>{deltaSign}{day.delta}</div>
-          </div>
-          <div className="cal-detail-stat">
-            <div className="cal-detail-stat-label">EDGE</div>
-            <div className="cal-detail-stat-val" style={tc()}>{edgeSign}{day.edge50}</div>
-          </div>
-          <div className="cal-detail-stat">
-            <div className="cal-detail-stat-label">STABILITY</div>
-            <div className="cal-detail-stat-val cal-detail-stat-sm" style={tc()}>{day.stability}</div>
-          </div>
-          <div className="cal-detail-stat">
-            <div className="cal-detail-stat-label">PERSON EL</div>
-            <div className="cal-detail-stat-val cal-detail-stat-sm" style={tc()}>{day.dom_person}</div>
-          </div>
-          <div className="cal-detail-stat">
-            <div className="cal-detail-stat-label">ENV EL</div>
-            <div className="cal-detail-stat-val cal-detail-stat-sm" style={tc()}>{day.dom_env}</div>
-          </div>
-        </div>
-
-        {/* Mantra */}
-        <div className="cal-detail-mantra" style={tc()}>
-          "{day.mantra}"
-        </div>
-
-        {/* YOUR SIGNAL — profile dimensions in context */}
-        {dimensions.length > 0 && (
-          <div className="cal-detail-signal">
-            <div className="cal-detail-signal-label">YOUR SIGNAL</div>
-            {dimensions.map(dim => (
-              <DimensionCard
-                key={dim.key}
-                icon={dim.icon}
-                system={dim.system}
-                name={dim.name}
-                axiom={dim.axiom}
-                tabs={dim.tabs}
-              />
-            ))}
-          </div>
-        )}
-
-        <button className="pip-button cal-detail-close" onClick={onClose}>Close</button>
+        {detailContent}
       </div>
     </div>
   );
 }
 
-export function RhythmCalendar({ profile }) {
+export function RhythmCalendar({ profile, embedded = false }) {
   const now = new Date();
   const [open, setOpen]           = useState(false);
   const [viewYear, setViewYear]   = useState(now.getFullYear());
@@ -264,19 +214,21 @@ export function RhythmCalendar({ profile }) {
 
   if (!birthDate) return null;
 
-  return (
-    <div className={`rhythm-cal${open ? ' open' : ''}`}>
-      {/* Header */}
-      <div className="rhythm-cal-header" onClick={() => setOpen(o => !o)}>
-        <div className="rhythm-cal-titles">
-          <div className="rhythm-cal-eyebrow">COLOR RHYTHM CALENDAR</div>
-          <div className="rhythm-cal-month">{MONTH_NAMES[viewMonth]} {viewYear}</div>
-        </div>
-        <div className="rhythm-cal-chevron">{open ? '▲' : '▼'}</div>
-      </div>
+  const isExpanded = embedded || open;
 
-      {/* Month nav */}
-      {open && (
+  return (
+    <div className={`rhythm-cal${open ? ' open' : ''}${embedded ? ' rhythm-cal--embedded open' : ''}`}>
+      {!embedded && (
+        <div className="rhythm-cal-header" onClick={() => setOpen(o => !o)}>
+          <div className="rhythm-cal-titles">
+            <div className="rhythm-cal-eyebrow">COLOR RHYTHM CALENDAR</div>
+            <div className="rhythm-cal-month">{MONTH_NAMES[viewMonth]} {viewYear}</div>
+          </div>
+          <div className="rhythm-cal-chevron">{open ? '▲' : '▼'}</div>
+        </div>
+      )}
+
+      {isExpanded && (
         <div className="rhythm-cal-nav">
           <button className="rhythm-cal-nav-btn" onClick={prevMonth}>‹</button>
           <span className="rhythm-cal-nav-label">{MONTH_NAMES[viewMonth]} {viewYear}</span>
@@ -284,13 +236,11 @@ export function RhythmCalendar({ profile }) {
         </div>
       )}
 
-      {/* DOW headers */}
       <div className="cal-dow-row">
         {DOW.map(d => <div key={d} className="cal-dow">{d}</div>)}
       </div>
 
-      {/* Grid */}
-      <div className={`cal-grid${open ? ' expanded' : ''}`}>
+      <div className={`cal-grid${isExpanded ? ' expanded' : ''}`}>
         {cells.map((cell, i) => {
           if (!cell) return <div key={`empty-${i}`} className="cal-day empty" />;
           const zoneLower = cell.zone?.toLowerCase();
@@ -298,19 +248,18 @@ export function RhythmCalendar({ profile }) {
           return (
             <div
               key={cell.dateKey}
-              className={`cal-day zc-${zoneLower}${cell.isToday ? ' today' : ''}`}
+              className={`cal-day zc-${zoneLower}${cell.isToday ? ' today' : ''}${selected?.dateKey === cell.dateKey ? ' selected' : ''}`}
               onClick={() => setSelected(cell)}
             >
               <span className="day-num">{cell.day}</span>
-              {open && <span className="day-zone">{cell.zone}</span>}
-              {open && <span className="day-delta">{sign}{cell.delta}</span>}
+              {isExpanded && <span className="day-zone">{cell.zone}</span>}
+              {isExpanded && <span className="day-delta">{sign}{cell.delta}</span>}
             </div>
           );
         })}
       </div>
 
-      {/* Day detail bottom sheet */}
-      {selected && <DayDetail day={selected} profile={profile} onClose={() => setSelected(null)} />}
+      {selected && <DayDetail day={selected} profile={profile} embedded={embedded} onClose={() => setSelected(null)} />}
     </div>
   );
 }

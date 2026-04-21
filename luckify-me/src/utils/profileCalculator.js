@@ -7,6 +7,7 @@ import { calcTithi } from './tithi.js';
 import { getChineseZodiac } from './element.js';
 import { calcLifePath } from './lifePath.js';
 import { calcGeneKeys, calcAllActivations } from './geneKeys.js';
+import { deriveHumanDesign } from './humanDesign.js';
 import { TYPE_CONFIG } from '../constants/tithi.js';
 import { LP_CONFIG } from '../constants/lifePath.js';
 
@@ -35,7 +36,7 @@ import { LP_CONFIG } from '../constants/lifePath.js';
  * @returns {number} result.dy - Birth day
  */
 export function calculateProfile(inputs) {
-  const { year, month, day, hour12, minute, ampm, tzOffset } = inputs;
+  const { year, month, day, hour12, minute, ampm, tzOffset, birthLat = null, birthLng = null } = inputs;
 
   // Calculate all dimensions
   const tithi = calcTithi(year, month, day, hour12, minute, ampm, tzOffset);
@@ -50,7 +51,16 @@ export function calculateProfile(inputs) {
             : hour12;
   const birthTime24 = `${String(h24).padStart(2,'0')}:${String(minute).padStart(2,'0')}`;
   const geneKeys = calcGeneKeys({ year, month, day, birthTime: birthTime24, tzOffset: tzOffset ?? 0 });
-  const activations = calcAllActivations({ year, month, day, birthTime: birthTime24, tzOffset: tzOffset ?? 0 });
+  const activations = calcAllActivations({
+    year,
+    month,
+    day,
+    birthTime: birthTime24,
+    tzOffset: tzOffset ?? 0,
+    latitude: birthLat,
+    longitude: birthLng,
+  });
+  const humanDesign = deriveHumanDesign(activations);
 
   return {
     type: tithi.type,
@@ -64,9 +74,12 @@ export function calculateProfile(inputs) {
     lpCfg,
     geneKeys,
     activations,
+    humanDesign,
     y: year,
     mo: month,
-    dy: day
+    dy: day,
+    birthLat,
+    birthLng,
   };
 }
 

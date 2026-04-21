@@ -45,12 +45,16 @@ export default function App() {
       hour12:   formData.hour12,
       minute:   formData.minute,
       ampm:     formData.ampm,
-      tzOffset: formData.birthGMT ?? 0
+      tzOffset: formData.birthGMT ?? 0,
+      birthLat: formData.birthLat ?? null,
+      birthLng: formData.birthLng ?? null,
     });
 
     // Store location data on result for LuckyWindow
     result.birthGMT    = formData.birthGMT;
     result.birthTzId   = formData.birthTzId;
+    result.birthLat    = formData.birthLat ?? null;
+    result.birthLng    = formData.birthLng ?? null;
     result.currentGMT  = formData.currentGMT;
     result.currentTzId = formData.currentTzId;
     const h = formData.ampm === 'PM' && formData.hour12 < 12

@@ -48,7 +48,7 @@ export function getOffsetForDateStr(tzid, dateStr) {
 
 /**
  * Search cities by name via GeoNames proxy.
- * Returns array of { city, country, admin, tz, offset }
+ * Returns array of { city, country, admin, tz, offset, latitude, longitude }
  */
 export async function searchCities(query) {
   const cleanQuery = query.split(",")[0].trim();
@@ -74,7 +74,9 @@ export async function searchCities(query) {
           country: c.countryCode,
           admin: c.adminName1 || "",
           tz: tzId,
-          offset
+          offset,
+          latitude: Number(c.lat),
+          longitude: Number(c.lng),
         };
       } catch (e) {
         return null;

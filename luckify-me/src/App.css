@@ -1051,14 +1051,27 @@
 }
 
 .core-config-card--human {
+  position: relative;
   border-color: rgba(144, 214, 160, 0.12);
   border-radius: 22px;
   background:
-    linear-gradient(180deg, rgba(20, 26, 24, 0.92) 0%, rgba(9, 12, 12, 0.96) 100%);
+    radial-gradient(circle at 50% 0%, rgba(156, 228, 179, 0.06) 0%, transparent 34%),
+    radial-gradient(circle at 50% 62%, rgba(182, 146, 94, 0.045) 0%, transparent 30%),
+    linear-gradient(180deg, rgba(20, 26, 24, 0.94) 0%, rgba(12, 16, 15, 0.96) 44%, rgba(8, 11, 11, 0.98) 100%);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.04),
     0 18px 44px rgba(0,0,0,0.28),
     0 0 0 1px rgba(144,214,160,0.04);
+}
+.core-config-card--human::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(180deg, rgba(236, 244, 238, 0.02) 0%, transparent 18%, transparent 78%, rgba(110, 186, 131, 0.03) 100%),
+    radial-gradient(circle at 50% 58%, rgba(155, 217, 173, 0.035) 0%, transparent 36%);
+  pointer-events: none;
 }
 .core-config-card--human:hover,
 .core-config-card--human.open {
@@ -1125,8 +1138,8 @@
   padding: 32px 28px 30px;
   border-bottom: 1px solid rgba(168, 232, 188, 0.07);
   background:
-    radial-gradient(circle at top, rgba(132, 232, 171, 0.1) 0%, transparent 56%),
-    linear-gradient(180deg, rgba(255,255,255,0.024) 0%, rgba(255,255,255,0.008) 100%);
+    radial-gradient(circle at 50% 0%, rgba(132, 232, 171, 0.11) 0%, transparent 52%),
+    linear-gradient(180deg, rgba(255,255,255,0.026) 0%, rgba(168,232,188,0.012) 54%, rgba(255,255,255,0.006) 100%);
   animation: core-config-human-reveal 0.34s ease both;
 }
 .core-config-card--human .core-config-std-reveal-label,
@@ -1162,7 +1175,9 @@
   border-left: none;
   border-right: none;
   border-bottom-color: rgba(168, 232, 188, 0.024);
-  background: linear-gradient(180deg, rgba(168, 232, 188, 0.006) 0%, rgba(255,255,255,0.002) 100%);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(160, 220, 178, 0.026) 0%, transparent 62%),
+    linear-gradient(180deg, rgba(168, 232, 188, 0.008) 0%, rgba(255,255,255,0.003) 100%);
   animation: core-config-human-reveal 0.34s ease both;
   animation-delay: 0.18s;
 }
@@ -1226,8 +1241,9 @@
   padding: 16px 22px 14px;
   border: none;
   background:
-    radial-gradient(circle at center, rgba(168,232,188,0.028) 0%, transparent 62%),
-    linear-gradient(180deg, rgba(255,255,255,0.01) 0%, rgba(168,232,188,0.017) 100%);
+    radial-gradient(circle at 50% 30%, rgba(192, 171, 112, 0.06) 0%, transparent 24%),
+    radial-gradient(circle at center, rgba(168,232,188,0.034) 0%, transparent 58%),
+    linear-gradient(180deg, rgba(255,255,255,0.012) 0%, rgba(168,232,188,0.02) 56%, rgba(120, 92, 58, 0.018) 100%);
   animation: core-config-human-reveal 0.4s ease both;
   animation-delay: 0.34s;
 }
@@ -1292,6 +1308,306 @@
   width: 100%;
   height: 100%;
   opacity: 0.98;
+}
+.trajectory-marker {
+  --trajectory-size: 68px;
+  --trajectory-border: rgba(198, 229, 206, 0.14);
+  --trajectory-highlight: rgba(228, 244, 232, 0.15);
+  --trajectory-fill: rgba(116, 173, 132, 0.08);
+  --trajectory-vector: rgba(195, 237, 206, 0.82);
+  --trajectory-node: rgba(223, 244, 229, 0.92);
+  --trajectory-ring: rgba(242, 248, 243, 0.04);
+  --trajectory-number: rgba(231, 244, 234, 0.96);
+  width: var(--trajectory-size);
+  height: var(--trajectory-size);
+}
+.trajectory-marker-shell {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: calc(var(--trajectory-size) * 0.265);
+  border: 1px solid var(--trajectory-border);
+  background:
+    radial-gradient(circle at 72% 24%, var(--trajectory-highlight) 0%, transparent 26%),
+    radial-gradient(circle at 50% 56%, color-mix(in srgb, var(--trajectory-fill) 34%, rgba(190, 154, 98, 0.16)) 0%, transparent 52%),
+    radial-gradient(circle at 28% 76%, color-mix(in srgb, var(--trajectory-fill) 85%, transparent) 0%, transparent 56%),
+    linear-gradient(160deg, rgba(255,255,255,0.02) 0%, var(--trajectory-fill) 100%);
+  overflow: hidden;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 0 18px color-mix(in srgb, var(--trajectory-fill) 58%, transparent);
+}
+.trajectory-marker-shell::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: calc(var(--trajectory-size) * 0.21);
+  border: 1px solid var(--trajectory-ring);
+  pointer-events: none;
+}
+.trajectory-marker-element {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+.trajectory-marker-element--primary {
+  inset: 10%;
+}
+.trajectory-marker-element--secondary {
+  inset: 18%;
+  opacity: 0.55;
+}
+.trajectory-marker-ring {
+  position: absolute;
+  display: block;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--trajectory-vector) 26%, transparent);
+  pointer-events: none;
+}
+.trajectory-marker-ring--outer {
+  width: 70%;
+  height: 70%;
+  left: 14%;
+  top: 14%;
+  opacity: 0.24;
+}
+.trajectory-marker-ring--inner {
+  width: 44%;
+  height: 44%;
+  left: 28%;
+  top: 28%;
+  opacity: 0.34;
+}
+.trajectory-marker-path {
+  position: absolute;
+  display: block;
+  transform-origin: left center;
+  pointer-events: none;
+}
+.trajectory-marker-path--base {
+  width: 48%;
+  height: 1px;
+  left: 14%;
+  bottom: 22%;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--trajectory-vector) 0%, transparent) 0%, color-mix(in srgb, var(--trajectory-vector) 56%, transparent) 100%);
+  opacity: 0.32;
+}
+.trajectory-marker-path--vector {
+  width: 38%;
+  height: 1.5px;
+  left: 35%;
+  bottom: 31%;
+  transform: rotate(-36deg);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--trajectory-vector) 0%, transparent) 0%, var(--trajectory-vector) 100%);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--trajectory-vector) 18%, transparent);
+}
+.trajectory-marker-node {
+  position: absolute;
+  display: block;
+  border-radius: 999px;
+  background: var(--trajectory-node);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--trajectory-node) 18%, transparent);
+  pointer-events: none;
+}
+.trajectory-marker-node--origin {
+  width: 4px;
+  height: 4px;
+  left: 16%;
+  bottom: 19%;
+  opacity: 0.48;
+}
+.trajectory-marker-node--pivot {
+  width: 4px;
+  height: 4px;
+  left: 39%;
+  bottom: 28%;
+  opacity: 0.72;
+}
+.trajectory-marker-node--apex {
+  width: 5px;
+  height: 5px;
+  right: 17%;
+  top: 17%;
+}
+.trajectory-marker-value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
+  font-size: calc(var(--trajectory-size) * 0.44);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--trajectory-number);
+  letter-spacing: -0.04em;
+  text-shadow: 0 0 16px color-mix(in srgb, var(--trajectory-number) 8%, transparent);
+}
+.trajectory-marker-value--digits-2 {
+  font-size: calc(var(--trajectory-size) * 0.35);
+  letter-spacing: -0.06em;
+}
+.trajectory-marker--soft {
+  opacity: 0.98;
+}
+.trajectory-marker--strong .trajectory-marker-shell {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 0 22px color-mix(in srgb, var(--trajectory-fill) 70%, transparent);
+}
+.trajectory-marker--wood {
+  --trajectory-border: rgba(164, 219, 170, 0.16);
+  --trajectory-highlight: rgba(224, 246, 216, 0.14);
+  --trajectory-fill: rgba(103, 174, 117, 0.09);
+  --trajectory-vector: rgba(193, 238, 176, 0.82);
+  --trajectory-node: rgba(224, 246, 214, 0.92);
+  --trajectory-number: rgba(235, 246, 230, 0.96);
+}
+.trajectory-marker--wood .trajectory-marker-element--primary,
+.trajectory-marker--wood .trajectory-marker-element--secondary {
+  border-radius: 30% 30% 22% 22%;
+  border: 1px solid color-mix(in srgb, var(--trajectory-vector) 30%, transparent);
+  clip-path: polygon(50% 0%, 90% 32%, 90% 100%, 10% 100%, 10% 32%);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--trajectory-highlight) 76%, transparent) 0%, transparent 30%),
+    linear-gradient(180deg, color-mix(in srgb, var(--trajectory-fill) 42%, transparent) 0%, transparent 100%);
+}
+.trajectory-marker--wood .trajectory-marker-element--secondary {
+  inset: 24% 28% 16%;
+}
+.trajectory-marker--wood .trajectory-marker-path--vector {
+  transform: rotate(-48deg);
+}
+.trajectory-marker--wood .trajectory-marker-ring--outer {
+  width: 62%;
+  height: 74%;
+  left: 18%;
+  top: 12%;
+}
+.trajectory-marker--fire {
+  --trajectory-border: rgba(230, 160, 118, 0.2);
+  --trajectory-highlight: rgba(255, 224, 196, 0.16);
+  --trajectory-fill: rgba(172, 92, 46, 0.11);
+  --trajectory-vector: rgba(255, 203, 154, 0.86);
+  --trajectory-node: rgba(255, 226, 196, 0.92);
+  --trajectory-number: rgba(255, 239, 222, 0.96);
+}
+.trajectory-marker--fire .trajectory-marker-element--primary,
+.trajectory-marker--fire .trajectory-marker-element--secondary {
+  clip-path: polygon(50% 0%, 72% 22%, 88% 52%, 72% 100%, 28% 100%, 12% 52%, 28% 22%);
+  background:
+    radial-gradient(circle at 50% 18%, color-mix(in srgb, var(--trajectory-highlight) 90%, transparent) 0%, transparent 28%),
+    linear-gradient(180deg, color-mix(in srgb, var(--trajectory-fill) 58%, transparent) 0%, transparent 100%);
+  border: 1px solid color-mix(in srgb, var(--trajectory-vector) 34%, transparent);
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--trajectory-fill) 20%, transparent));
+}
+.trajectory-marker--fire .trajectory-marker-element--secondary {
+  inset: 20% 24% 18%;
+}
+.trajectory-marker--fire .trajectory-marker-path--vector {
+  transform: rotate(-56deg);
+}
+.trajectory-marker--fire .trajectory-marker-ring--outer {
+  width: 76%;
+  height: 64%;
+  left: 12%;
+  top: 18%;
+}
+.trajectory-marker--earth {
+  --trajectory-border: rgba(205, 191, 142, 0.18);
+  --trajectory-highlight: rgba(241, 232, 196, 0.14);
+  --trajectory-fill: rgba(146, 123, 70, 0.1);
+  --trajectory-vector: rgba(226, 214, 170, 0.8);
+  --trajectory-node: rgba(236, 226, 192, 0.92);
+  --trajectory-number: rgba(243, 239, 225, 0.96);
+}
+.trajectory-marker--earth .trajectory-marker-element--primary,
+.trajectory-marker--earth .trajectory-marker-element--secondary {
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--trajectory-vector) 28%, transparent);
+  background:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--trajectory-fill) 36%, transparent) 0%, transparent 58%);
+}
+.trajectory-marker--earth .trajectory-marker-element--secondary {
+  inset: 24%;
+}
+.trajectory-marker--earth .trajectory-marker-path--base {
+  width: 52%;
+}
+.trajectory-marker--earth .trajectory-marker-ring--outer {
+  width: 68%;
+  height: 68%;
+  left: 16%;
+  top: 16%;
+}
+.trajectory-marker--metal {
+  --trajectory-border: rgba(179, 202, 221, 0.18);
+  --trajectory-highlight: rgba(227, 238, 247, 0.14);
+  --trajectory-fill: rgba(90, 120, 150, 0.09);
+  --trajectory-vector: rgba(209, 224, 240, 0.84);
+  --trajectory-node: rgba(225, 236, 246, 0.92);
+  --trajectory-number: rgba(236, 243, 248, 0.96);
+}
+.trajectory-marker--metal .trajectory-marker-element--primary,
+.trajectory-marker--metal .trajectory-marker-element--secondary {
+  border: 1px solid color-mix(in srgb, var(--trajectory-vector) 34%, transparent);
+  border-radius: 18%;
+  clip-path: polygon(18% 0%, 82% 0%, 100% 18%, 100% 82%, 82% 100%, 18% 100%, 0% 82%, 0% 18%);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--trajectory-highlight) 70%, transparent) 0%, transparent 30%),
+    linear-gradient(180deg, color-mix(in srgb, var(--trajectory-fill) 34%, transparent) 0%, transparent 100%);
+}
+.trajectory-marker--metal .trajectory-marker-element--secondary {
+  inset: 23%;
+}
+.trajectory-marker--metal .trajectory-marker-path--vector {
+  transform: rotate(-31deg);
+}
+.trajectory-marker--metal .trajectory-marker-ring--outer {
+  border-radius: 22%;
+}
+.trajectory-marker--metal .trajectory-marker-ring--inner {
+  border-radius: 18%;
+}
+.trajectory-marker--water {
+  --trajectory-border: rgba(120, 174, 219, 0.18);
+  --trajectory-highlight: rgba(210, 232, 247, 0.14);
+  --trajectory-fill: rgba(56, 108, 152, 0.1);
+  --trajectory-vector: rgba(190, 223, 247, 0.82);
+  --trajectory-node: rgba(216, 235, 248, 0.92);
+  --trajectory-number: rgba(233, 242, 248, 0.96);
+}
+.trajectory-marker--water .trajectory-marker-element--primary,
+.trajectory-marker--water .trajectory-marker-element--secondary {
+  border-radius: 50% 42% 52% 48% / 42% 56% 44% 58%;
+  border: 1px solid color-mix(in srgb, var(--trajectory-vector) 28%, transparent);
+  background:
+    radial-gradient(circle at 42% 24%, color-mix(in srgb, var(--trajectory-highlight) 78%, transparent) 0%, transparent 24%),
+    linear-gradient(180deg, color-mix(in srgb, var(--trajectory-fill) 36%, transparent) 0%, transparent 100%);
+  transform: rotate(-14deg);
+}
+.trajectory-marker--water .trajectory-marker-element--secondary {
+  inset: 24% 20% 18%;
+  transform: rotate(12deg);
+}
+.trajectory-marker--water .trajectory-marker-path--base {
+  width: 44%;
+  border-radius: 999px;
+}
+.trajectory-marker--water .trajectory-marker-path--vector {
+  width: 34%;
+  transform: rotate(-28deg);
+  border-radius: 999px;
+}
+.trajectory-marker--water .trajectory-marker-ring--outer {
+  width: 74%;
+  height: 60%;
+  left: 13%;
+  top: 22%;
+}
+.core-config-card--human .core-config-trajectory-marker {
+  width: 100%;
+  height: 100%;
 }
 .core-config-card--human .core-config-guidance {
   margin-top: 14px;
@@ -1640,6 +1956,9 @@
     width: 62px;
     height: 62px;
   }
+  .core-config-card--human .core-config-trajectory-marker {
+    --trajectory-size: 62px;
+  }
   .core-config-card--human .core-config-outcome {
     font-size: 24px;
     max-width: 11ch;
@@ -1682,6 +2001,18 @@
   }
   .core-config-card--human .core-config-beat {
     padding-left: 16px;
+  }
+  .profile-exploration-panel {
+    margin-top: 8px;
+    padding: 12px 10px 10px;
+    border-radius: 16px;
+  }
+  .profile-exploration-copy {
+    font-size: 10.5px;
+    margin-bottom: 10px;
+  }
+  .profile-exploration-stack {
+    gap: 5px;
   }
   .core-config-card--operator .core-config-theme-name {
     font-size: 13px;
@@ -1782,6 +2113,190 @@
   overflow: hidden;
   /* Radial glow from top-center applied via inline style bg + this overlay */
 }
+.zone-hero--artful {
+  isolation: isolate;
+}
+.zone-hero-art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.zone-hero-art-base,
+.zone-hero-art-glow,
+.zone-hero-art-image,
+.zone-hero-art-veil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+/* Keeps the overall zone palette coherent before the image comes in. */
+.zone-hero-art-base {
+  background:
+    linear-gradient(180deg, rgba(3, 8, 18, 0.2) 0%, rgba(4, 10, 20, 0.06) 26%, rgba(4, 10, 19, 0.14) 60%, rgba(1, 4, 10, 0.36) 100%);
+}
+/* Adds a subtle live focal glow in the center-lower dead space. */
+.zone-hero-art-glow {
+  background:
+    radial-gradient(circle at 56% 64%, rgba(72, 138, 255, 0.18) 0%, rgba(34, 98, 222, 0.1) 16%, rgba(10, 32, 84, 0.03) 34%, transparent 54%),
+    radial-gradient(circle at 48% 72%, rgba(127, 210, 255, 0.08) 0%, transparent 26%);
+  filter: blur(14px);
+  opacity: 0.95;
+}
+/* Sacred-geometry art feathered into the card so it reads as atmosphere, not a poster. */
+.zone-hero-art-image {
+  inset: 22% 8% 2%;
+  background-image: var(--zone-art-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 58%;
+  opacity: 0.26;
+  mix-blend-mode: screen;
+  filter: saturate(0.92) brightness(0.8) contrast(0.96);
+  -webkit-mask-image:
+    radial-gradient(circle at 53% 58%, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 24%, rgba(0,0,0,0.72) 42%, rgba(0,0,0,0.3) 64%, transparent 86%),
+    linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.75) 20%, rgba(0,0,0,0.95) 44%, rgba(0,0,0,0.92) 76%, transparent 100%);
+  mask-image:
+    radial-gradient(circle at 53% 58%, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 24%, rgba(0,0,0,0.72) 42%, rgba(0,0,0,0.3) 64%, transparent 86%),
+    linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.75) 20%, rgba(0,0,0,0.95) 44%, rgba(0,0,0,0.92) 76%, transparent 100%);
+}
+/* Ensures headlines and controls stay crisp above the art. */
+.zone-hero-art-veil {
+  background:
+    linear-gradient(180deg, rgba(3, 6, 12, 0.04) 0%, rgba(3, 7, 14, 0.14) 18%, rgba(3, 8, 16, 0.18) 34%, rgba(2, 5, 11, 0.1) 48%, rgba(2, 4, 10, 0.22) 70%, rgba(1, 3, 8, 0.42) 100%),
+    radial-gradient(circle at 50% 14%, rgba(3, 9, 18, 0.54) 0%, rgba(4, 9, 18, 0.26) 20%, transparent 42%);
+}
+.zone-hero--blue .zone-hero-panel-shell {
+  background:
+    linear-gradient(180deg, rgba(3, 8, 18, 0.18) 0%, rgba(0, 0, 0, 0.3) 100%);
+  border-color: rgba(132, 182, 255, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 12px 28px rgba(0, 12, 32, 0.32);
+}
+.zone-hero--blue .zone-hero-panel-tab.active {
+  background: rgba(92, 144, 255, 0.14);
+}
+.zone-hero--blue .zone-hero-cats,
+.zone-hero--blue .zone-hero-ask {
+  background: rgba(3, 8, 18, 0.28);
+  border-color: rgba(132, 182, 255, 0.14);
+}
+
+/* Green uses a CSS-built atmosphere instead of image art:
+   regenerative, organic, luminous, and grounded without becoming noisy. */
+.zone-hero--green {
+  background:
+    radial-gradient(ellipse 82% 66% at 50% 0%, rgba(58, 160, 102, 0.18) 0%, rgba(12, 34, 20, 0.22) 42%, rgba(4, 12, 8, 0.9) 100%) !important;
+}
+.zone-hero--green .zone-hero-art-base {
+  background:
+    radial-gradient(circle at 18% 26%, rgba(66, 134, 92, 0.1) 0%, transparent 26%),
+    radial-gradient(circle at 78% 18%, rgba(34, 94, 60, 0.08) 0%, transparent 30%),
+    linear-gradient(180deg, rgba(7, 18, 11, 0.04) 0%, rgba(6, 16, 10, 0.02) 24%, rgba(5, 14, 9, 0.08) 62%, rgba(3, 9, 6, 0.22) 100%);
+}
+.zone-hero--green .zone-hero-art-glow {
+  background:
+    radial-gradient(circle at 28% 66%, rgba(112, 220, 150, 0.14) 0%, rgba(52, 140, 88, 0.09) 18%, rgba(8, 38, 20, 0.02) 36%, transparent 54%),
+    radial-gradient(circle at 72% 54%, rgba(146, 255, 190, 0.09) 0%, rgba(70, 164, 104, 0.06) 16%, transparent 34%),
+    radial-gradient(circle at 52% 76%, rgba(90, 198, 126, 0.08) 0%, transparent 24%);
+  filter: blur(18px);
+  opacity: 0.95;
+}
+.zone-hero--green .zone-hero-art-image {
+  inset: 18% 4% 0;
+  opacity: 1;
+  mix-blend-mode: screen;
+  filter: none;
+  background:
+    radial-gradient(circle at 30% 70%, rgba(132, 244, 176, 0.14) 0%, rgba(132, 244, 176, 0.05) 14%, transparent 30%),
+    radial-gradient(circle at 68% 58%, rgba(122, 224, 156, 0.11) 0%, rgba(122, 224, 156, 0.04) 12%, transparent 28%),
+    radial-gradient(circle at 48% 82%, rgba(92, 184, 122, 0.08) 0%, transparent 22%),
+    radial-gradient(circle at 24% 72%, rgba(255,255,255,0.03) 0%, transparent 6%),
+    radial-gradient(circle at 70% 52%, rgba(255,255,255,0.025) 0%, transparent 5%),
+    repeating-radial-gradient(circle at 30% 70%, rgba(132, 244, 176, 0.065) 0 1px, transparent 1px 22px),
+    repeating-radial-gradient(circle at 68% 58%, rgba(106, 212, 142, 0.05) 0 1px, transparent 1px 18px),
+    linear-gradient(120deg, transparent 0%, rgba(98, 196, 128, 0.03) 28%, transparent 48%, rgba(140, 240, 178, 0.02) 66%, transparent 100%);
+  -webkit-mask-image:
+    radial-gradient(circle at 34% 70%, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.86) 18%, rgba(0,0,0,0.3) 42%, transparent 66%),
+    radial-gradient(circle at 70% 58%, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.72) 16%, rgba(0,0,0,0.24) 36%, transparent 58%),
+    linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.84) 18%, rgba(0,0,0,0.98) 48%, rgba(0,0,0,0.7) 76%, transparent 100%);
+  mask-image:
+    radial-gradient(circle at 34% 70%, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.86) 18%, rgba(0,0,0,0.3) 42%, transparent 66%),
+    radial-gradient(circle at 70% 58%, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.72) 16%, rgba(0,0,0,0.24) 36%, transparent 58%),
+    linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.84) 18%, rgba(0,0,0,0.98) 48%, rgba(0,0,0,0.7) 76%, transparent 100%);
+}
+.zone-hero--green .zone-hero-art-veil {
+  background:
+    radial-gradient(circle at 50% 10%, rgba(4, 12, 7, 0.54) 0%, rgba(4, 12, 7, 0.2) 22%, transparent 44%),
+    linear-gradient(180deg, rgba(3, 8, 5, 0.08) 0%, rgba(4, 10, 7, 0.16) 22%, rgba(5, 12, 8, 0.1) 40%, rgba(3, 8, 5, 0.18) 62%, rgba(2, 6, 4, 0.42) 100%);
+}
+.zone-hero--green .zone-hero-topbar,
+.zone-hero--green .zone-hero-panel-meta,
+.zone-hero--green .zone-hero-panel-tabs,
+.zone-hero--green .zone-hero-panel-shell,
+.zone-hero--green .zone-hero-main,
+.zone-hero--green .zone-hero-mantra,
+.zone-hero--green .zone-hero-cats,
+.zone-hero--green .zone-hero-ask {
+  position: relative;
+  z-index: 1;
+}
+.zone-hero--green .zone-hero-panel-shell {
+  background:
+    linear-gradient(180deg, rgba(6, 16, 10, 0.24) 0%, rgba(2, 8, 5, 0.34) 100%);
+  border-color: rgba(124, 206, 144, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.045),
+    0 14px 30px rgba(0, 18, 8, 0.34),
+    0 0 24px rgba(44, 124, 74, 0.08);
+}
+.zone-hero--green .zone-hero-panel-tabs {
+  border-color: rgba(112, 190, 132, 0.12);
+  background:
+    linear-gradient(180deg, rgba(8, 18, 12, 0.3) 0%, rgba(4, 10, 7, 0.22) 100%);
+}
+.zone-hero--green .zone-hero-panel-tab.active {
+  background: rgba(96, 188, 122, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 0 18px rgba(82, 176, 112, 0.05);
+}
+.zone-hero--green .zone-hero-name {
+  text-shadow:
+    0 0 20px rgba(120, 236, 164, 0.14),
+    0 0 50px rgba(70, 166, 102, 0.08);
+}
+.zone-hero--green .zone-hero-identity {
+  opacity: 0.76;
+}
+.zone-hero--green .zone-hero-cats,
+.zone-hero--green .zone-hero-ask {
+  background:
+    linear-gradient(180deg, rgba(6, 16, 10, 0.3) 0%, rgba(3, 10, 6, 0.24) 100%);
+  border-color: rgba(118, 196, 138, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.03),
+    0 10px 24px rgba(0, 18, 8, 0.18);
+}
+.zone-hero--green .zone-hero-calendar-title {
+  opacity: 0.92;
+}
+
+@keyframes zone-green-breathe {
+  0%, 100% {
+    opacity: 0.92;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.018);
+  }
+}
+.zone-hero--green .zone-hero-art-glow {
+  animation: zone-green-breathe 14s ease-in-out infinite;
+  transform-origin: center;
+}
 .zone-hero-topbar {
   display: flex;
   align-items: flex-start;
@@ -1857,6 +2372,128 @@
 .zone-hero-main { position: relative; z-index: 1; }
 .zone-hero-mantra { position: relative; z-index: 1; }
 .zone-hero-ask   { position: relative; z-index: 1; }
+
+.zone-hero-panel-meta {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: -4px;
+}
+
+.zone-hero-panel-hint,
+.zone-hero-panel-count {
+  font-family: var(--pip-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.58;
+}
+
+.zone-hero-panel-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.zone-hero-panel-tabs {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  background: rgba(0,0,0,0.18);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+  width: fit-content;
+  max-width: 100%;
+}
+
+.zone-hero-panel-tab {
+  border: 0;
+  background: transparent;
+  color: currentColor;
+  opacity: 0.68;
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-family: var(--pip-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.zone-hero-panel-tab:hover {
+  opacity: 0.92;
+}
+
+.zone-hero-panel-tab.active {
+  opacity: 1;
+  background: rgba(255,255,255,0.1);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.zone-hero-panel-shell {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0.26) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.045);
+}
+
+.zone-hero-panel-track {
+  display: flex;
+  width: 200%;
+  transition: transform 280ms ease;
+  will-change: transform;
+}
+
+.zone-hero-panel {
+  width: 50%;
+  min-width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 380px;
+  padding: 18px 18px 18px;
+}
+
+.zone-hero-panel--today {
+  justify-content: flex-start;
+}
+
+.zone-hero-panel--calendar {
+  gap: 14px;
+}
+
+.zone-hero-calendar-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.zone-hero-calendar-eyebrow {
+  font-family: var(--pip-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.58;
+}
+
+.zone-hero-calendar-title {
+  font-family: var(--pip-font-body);
+  font-size: 14px;
+  line-height: 1.45;
+  opacity: 0.9;
+  max-width: 28rem;
+}
 
 .zone-hero-main {
   flex: 1;
@@ -2081,6 +2718,97 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+
+.profile-exploration-panel {
+  position: relative;
+  margin-top: 10px;
+  padding: 14px 14px 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(160, 214, 176, 0.09);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(132, 232, 171, 0.052) 0%, transparent 28%),
+    radial-gradient(circle at 50% 22%, rgba(184, 148, 94, 0.042) 0%, transparent 18%),
+    linear-gradient(180deg, rgba(14, 19, 18, 0.9) 0%, rgba(10, 14, 14, 0.95) 34%, rgba(7, 10, 10, 0.97) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.03),
+    inset 0 0 0 1px rgba(255,255,255,0.015),
+    0 12px 28px rgba(0,0,0,0.18);
+}
+.profile-exploration-panel::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 14px;
+  border: 1px solid rgba(210, 236, 219, 0.035);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.014) 0%, transparent 22%, transparent 72%, rgba(148, 216, 168, 0.02) 100%);
+  pointer-events: none;
+}
+.profile-exploration-label {
+  font-family: var(--pip-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(191, 229, 202, 0.58);
+  margin-bottom: 7px;
+}
+.profile-exploration-copy {
+  font-family: var(--pip-font-body);
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: rgba(213, 224, 217, 0.56);
+  max-width: 40ch;
+  margin-bottom: 12px;
+}
+.profile-exploration-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.profile-exploration-panel .dim-card,
+.profile-exploration-panel .profile-layer-toggle,
+.profile-exploration-panel .gate-card {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.014) 0%, rgba(255,255,255,0.006) 100%),
+    linear-gradient(160deg, rgba(13, 18, 17, 0.84) 0%, rgba(8, 10, 11, 0.94) 100%);
+}
+.profile-exploration-panel .dim-card {
+  border-color: rgba(160, 214, 176, 0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.03),
+    0 8px 20px rgba(0,0,0,0.18);
+}
+.profile-exploration-panel .dim-card:hover,
+.profile-exploration-panel .dim-card.open {
+  border-color: rgba(160, 214, 176, 0.15);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 10px 24px rgba(0,0,0,0.2),
+    0 0 16px rgba(132, 232, 171, 0.03);
+}
+.profile-exploration-panel .profile-layer-toggle {
+  border-color: rgba(160, 214, 176, 0.08);
+}
+.profile-exploration-panel .profile-layer-toggle:hover {
+  border-color: rgba(160, 214, 176, 0.14);
+}
+.profile-exploration-panel .profile-layer-body {
+  position: relative;
+}
+.profile-exploration-panel .gate-card {
+  border-color: rgba(184, 152, 98, 0.11);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.025),
+    0 8px 22px rgba(0,0,0,0.18);
+}
+.profile-exploration-panel .gate-card:hover,
+.profile-exploration-panel .gate-card.open {
+  border-color: rgba(184, 152, 98, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.03),
+    0 10px 26px rgba(0,0,0,0.2),
+    0 0 16px rgba(184, 152, 98, 0.03);
 }
 
 /* ── Zone Hero Category Bars ── */
@@ -2374,6 +3102,14 @@
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 4px 20px rgba(0,0,0,0.4);
 }
 
+.rhythm-cal.rhythm-cal--embedded {
+  margin-top: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
 .rhythm-cal-header {
   display: flex;
   align-items: center;
@@ -2412,18 +3148,32 @@
   padding: 8px 12px;
   border-bottom: 1px solid var(--pip-border);
 }
-.rhythm-cal-nav-btn {
-  background: none;
-  border: none;
-  color: var(--pip-text);
-  font-size: 20px;
-  padding: 4px 10px;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: background 0.15s;
-  line-height: 1;
+
+.rhythm-cal--embedded .rhythm-cal-nav {
+  padding: 0 0 10px;
+  border-bottom-color: rgba(255,255,255,0.08);
 }
-.rhythm-cal-nav-btn:hover { background: rgba(255,255,255,0.06); }
+
+.rhythm-cal-nav-btn {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--pip-text);
+  font-size: 14px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.15s, border-color 0.15s;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.rhythm-cal-nav-btn:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.14);
+}
 .rhythm-cal-nav-label {
   font-family: var(--pip-font-mono);
   font-size: 12px;
@@ -2431,11 +3181,21 @@
   color: var(--pip-text);
 }
 
+.rhythm-cal--embedded .rhythm-cal-nav-label {
+  font-size: 11px;
+  flex: 1;
+  text-align: center;
+}
+
 /* Day-of-week row */
 .cal-dow-row {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   border-bottom: 1px solid var(--pip-border);
+}
+
+.rhythm-cal--embedded .cal-dow-row {
+  margin-bottom: 2px;
 }
 .cal-dow {
   font-family: var(--pip-font-mono);
@@ -2454,6 +3214,10 @@
   background: var(--pip-border);
 }
 
+.rhythm-cal--embedded .cal-grid {
+  gap: 6px;
+}
+
 .cal-day {
   position: relative;
   display: flex;
@@ -2467,6 +3231,136 @@
   padding: 2px;
   gap: 1px;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.rhythm-cal--embedded .cal-day {
+  min-height: 54px;
+  border-color: rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.16);
+}
+
+.rhythm-cal--embedded .cal-grid.expanded .cal-day {
+  min-height: 78px;
+}
+
+.rhythm-cal--embedded .cal-day {
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.rhythm-cal--embedded .cal-day:hover {
+  border-color: rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-1px);
+}
+
+.rhythm-cal--embedded .cal-day.selected {
+  border-color: rgba(255,255,255,0.22);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+.cal-detail-inline {
+  margin-top: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 14px 14px 12px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 10px 24px rgba(0,0,0,0.18);
+}
+
+.cal-detail-inline .cal-detail-date {
+  font-size: 11px;
+}
+
+.cal-detail-inline .cal-detail-zone {
+  font-size: 22px;
+}
+
+.cal-detail-inline .cal-detail-tagline {
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+.cal-detail-inline .cat-score-rows {
+  gap: 8px;
+}
+
+.cal-detail-inline .cal-detail-stats {
+  margin-top: 12px;
+}
+
+.cal-detail-inline .cal-detail-mantra {
+  margin-top: 12px;
+}
+
+.cal-detail-inline .cal-detail-signal {
+  margin-top: 14px;
+}
+
+.cal-detail-inline .cal-detail-signal .dim-card {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.014) 0%, rgba(255,255,255,0.008) 100%),
+    linear-gradient(160deg, rgba(8, 12, 12, 0.5) 0%, rgba(4, 6, 8, 0.65) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.025),
+    0 6px 14px rgba(0,0,0,0.14);
+}
+
+.cal-detail-inline .cal-detail-close {
+  width: 100%;
+  margin-top: 14px;
+}
+
+@media (max-width: 640px) {
+  .zone-hero {
+    padding: 24px 18px 24px;
+  }
+  .zone-hero-art-image {
+    inset: 26% 4% 4%;
+    background-position: center 62%;
+    opacity: 0.22;
+  }
+  .zone-hero-art-glow {
+    filter: blur(12px);
+  }
+  .zone-hero--green .zone-hero-art-image {
+    inset: 22% 0 0;
+  }
+
+  .zone-hero-panel-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .zone-hero-panel-shell {
+    border-radius: 16px;
+  }
+
+  .zone-hero-panel-tabs {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .zone-hero-panel-tab {
+    flex: 1;
+    padding: 9px 10px;
+    font-size: 9px;
+  }
+
+  .zone-hero-panel {
+    min-height: 360px;
+    padding: 16px 14px 16px;
+  }
+
+  .zone-hero-calendar-title {
+    font-size: 13px;
+  }
 }
 .cal-day:hover {
   filter: brightness(1.3);
@@ -2957,4 +3851,300 @@
 }
 .gate-card.kids .gate-field--edge .gate-field-label {
   color: #b090e0;
+}
+/* Human Mode Core Loadout refinement pass: unify the atmospheric field,
+   make the expansion feel intentional, and reduce stacked-panel separation. */
+.core-config-card--human {
+  overflow: hidden;
+  transition:
+    border-color 220ms ease,
+    box-shadow 240ms ease,
+    background 280ms ease,
+    transform 220ms ease;
+}
+
+.core-config-card--human::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 50% 44%, rgba(168, 232, 188, 0.026) 0%, transparent 30%),
+    radial-gradient(circle at 52% 78%, rgba(190, 152, 93, 0.045) 0%, transparent 28%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.core-config-card--human.core-config-card--guidance-open {
+  border-color: rgba(150, 220, 169, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 22px 52px rgba(0,0,0,0.32),
+    0 0 0 1px rgba(150, 220, 169, 0.055);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(156, 228, 179, 0.075) 0%, transparent 34%),
+    radial-gradient(circle at 50% 62%, rgba(182, 146, 94, 0.06) 0%, transparent 30%),
+    linear-gradient(180deg, rgba(20, 26, 24, 0.96) 0%, rgba(12, 17, 15, 0.975) 44%, rgba(9, 12, 11, 0.995) 100%);
+}
+
+.core-config-card--human .core-config-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0 14px 14px;
+  padding: 12px 0 14px;
+  border: 1px solid rgba(150, 214, 167, 0.07);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(153, 224, 171, 0.05) 0%, transparent 24%),
+    radial-gradient(circle at 50% 78%, rgba(186, 148, 90, 0.045) 0%, transparent 24%),
+    linear-gradient(180deg, rgba(18, 25, 22, 0.8) 0%, rgba(13, 18, 17, 0.9) 38%, rgba(11, 15, 14, 0.94) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.022),
+    inset 0 -1px 0 rgba(255,255,255,0.012);
+  transition: padding 220ms ease;
+}
+
+.core-config-card--human .core-config-body.core-config-body--guidance-open {
+  padding-bottom: 14px;
+  border-color: rgba(155, 220, 173, 0.1);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(153, 224, 171, 0.062) 0%, transparent 24%),
+    radial-gradient(circle at 50% 82%, rgba(186, 148, 90, 0.055) 0%, transparent 24%),
+    linear-gradient(180deg, rgba(19, 25, 23, 0.84) 0%, rgba(12, 17, 15, 0.93) 38%, rgba(10, 14, 13, 0.97) 100%);
+}
+
+.core-config-card--human .core-config-human-flow {
+  position: relative;
+  isolation: isolate;
+  margin: 0 10px;
+  padding: 4px 0 0;
+  background: transparent;
+}
+
+.core-config-card--human .core-config-human-flow::after {
+  content: '';
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: -4px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(170, 232, 188, 0.06) 18%, rgba(191, 156, 101, 0.12) 50%, rgba(170, 232, 188, 0.06) 82%, transparent 100%);
+  pointer-events: none;
+}
+
+.core-config-card--human .core-config-human-flow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(168, 232, 188, 0.014) 0%, transparent 18%, transparent 68%, rgba(191, 156, 101, 0.018) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.core-config-card--human .core-config-std-reveal-block {
+  position: relative;
+  z-index: 1;
+  padding-top: 34px;
+  padding-bottom: 32px;
+  border-bottom-color: rgba(168, 232, 188, 0.045);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(132, 232, 171, 0.09) 0%, transparent 54%),
+    linear-gradient(180deg, rgba(255,255,255,0.018) 0%, rgba(168,232,188,0.008) 54%, rgba(255,255,255,0.003) 100%);
+}
+
+.core-config-card--human .core-config-recognition-wrap {
+  position: relative;
+  z-index: 1;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom-color: rgba(168, 232, 188, 0.012);
+  background: transparent;
+}
+
+.core-config-card--human .core-config-field--build {
+  position: relative;
+  z-index: 1;
+  margin: 10px 0 0;
+  padding-top: 12px;
+  padding-bottom: 8px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 22%, rgba(192, 171, 112, 0.06) 0%, transparent 22%),
+    radial-gradient(circle at center, rgba(168,232,188,0.024) 0%, transparent 58%),
+    linear-gradient(180deg, rgba(255,255,255,0.007) 0%, rgba(168,232,188,0.01) 56%, rgba(120, 92, 58, 0.01) 100%);
+}
+
+.core-config-card--human .core-config-field--build::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(168, 232, 188, 0.014) 0%, transparent 62%),
+    linear-gradient(180deg, rgba(255,255,255,0.008) 0%, transparent 34%, rgba(184, 147, 93, 0.012) 100%);
+  pointer-events: none;
+}
+
+.core-config-card--human .core-config-guidance {
+  position: relative;
+  margin: 12px 10px 0;
+  padding: 10px 10px 0;
+  border: 0;
+  border-top: 1px solid rgba(154, 216, 169, 0.08);
+  border-radius: 0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.006) 0%, rgba(255,255,255,0.002) 100%);
+  box-shadow: none;
+  transition:
+    border-color 220ms ease,
+    background 240ms ease,
+    box-shadow 240ms ease,
+    transform 220ms ease;
+}
+
+.core-config-card--human .core-config-guidance::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0 0 18px 18px;
+  background:
+    linear-gradient(180deg, rgba(177, 224, 191, 0.01) 0%, transparent 40%, rgba(188, 150, 95, 0.012) 100%);
+  pointer-events: none;
+}
+
+.core-config-card--human.core-config-card--guidance-open .core-config-guidance {
+  border-top-color: rgba(162, 220, 176, 0.12);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(162, 220, 176, 0.02) 0%, transparent 38%),
+    linear-gradient(180deg, rgba(18, 24, 22, 0.22) 0%, rgba(11, 15, 14, 0.08) 100%);
+  box-shadow: none;
+}
+
+.core-config-card--human .core-config-guidance-intro {
+  margin-bottom: 10px;
+  color: rgba(206, 221, 211, 0.52);
+  letter-spacing: 0.04em;
+}
+
+.core-config-card--human .core-config-guidance-toggle-wrap,
+.core-config-card--human .core-config-guidance-body {
+  position: relative;
+  z-index: 1;
+}
+
+.core-config-card--human .core-config-guidance-toggle {
+  position: relative;
+  border-color: rgba(160, 219, 174, 0.12);
+  background:
+    linear-gradient(180deg, rgba(23, 30, 28, 0.9) 0%, rgba(15, 19, 18, 0.96) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.025),
+    0 6px 18px rgba(0,0,0,0.16);
+  transition:
+    border-color 180ms ease,
+    box-shadow 200ms ease,
+    background 220ms ease,
+    transform 180ms ease;
+}
+
+.core-config-card--human .core-config-guidance-toggle:hover,
+.core-config-card--human .core-config-guidance-toggle.open {
+  border-color: rgba(172, 228, 186, 0.22);
+  background:
+    linear-gradient(180deg, rgba(27, 35, 32, 0.94) 0%, rgba(18, 23, 21, 0.98) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 10px 22px rgba(0,0,0,0.2);
+}
+
+.core-config-card--human .core-config-guidance-body {
+  margin-top: 10px;
+  padding-top: 6px;
+}
+
+.core-config-card--human .core-config-guidance-panel {
+  border-color: rgba(158, 219, 173, 0.06);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.014) 0%, rgba(255,255,255,0.006) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+.core-config-card--human .core-config-guidance-panel--operate {
+  background:
+    linear-gradient(180deg, rgba(163, 219, 177, 0.022) 0%, rgba(255,255,255,0.006) 100%);
+}
+
+.core-config-card--human .core-config-guidance-panel--drift {
+  border-color: rgba(178, 108, 98, 0.12);
+  background:
+    linear-gradient(180deg, rgba(96, 52, 45, 0.09) 0%, rgba(255,255,255,0.005) 100%);
+}
+
+.core-config-card--human .core-config-guidance-panel--best-use {
+  border-color: rgba(126, 174, 135, 0.11);
+  background:
+    linear-gradient(180deg, rgba(74, 110, 81, 0.08) 0%, rgba(255,255,255,0.004) 100%);
+}
+
+.core-config-card--human .core-config-guidance-panel-title {
+  letter-spacing: 0.04em;
+}
+
+.core-config-card--human .core-config-guidance-panel-micro {
+  color: rgba(204, 219, 209, 0.62);
+}
+
+.core-config-card--human .core-config-guidance-panel-copy,
+.core-config-card--human .core-config-guidance-bullets li {
+  color: rgba(234, 239, 236, 0.9);
+}
+
+.core-config-card--human .core-config-guidance-bullets li::marker {
+  color: rgba(184, 225, 192, 0.78);
+}
+
+@media (max-width: 640px) {
+  .core-config-card--human .core-config-body {
+    margin: 0 10px 10px;
+    padding: 10px 0 12px;
+    border-radius: 18px;
+  }
+
+  .core-config-card--human.core-config-card--guidance-open {
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.04),
+      0 16px 36px rgba(0,0,0,0.28),
+      0 0 0 1px rgba(150, 220, 169, 0.05);
+  }
+
+  .core-config-card--human .core-config-std-reveal-block {
+    padding-top: 30px;
+    padding-bottom: 28px;
+  }
+
+  .core-config-card--human .core-config-recognition-wrap {
+    max-width: 19rem;
+    padding: 8px 18px 8px;
+  }
+
+  .core-config-card--human .core-config-field--build {
+    margin: 8px 0 0;
+    padding: 10px 14px 8px;
+  }
+
+  .core-config-card--human .core-config-guidance {
+    margin: 10px 8px 0;
+    padding: 10px 8px 0;
+  }
+
+  .core-config-card--human .core-config-guidance-intro {
+    margin-bottom: 8px;
+  }
+
+  .core-config-card--human .core-config-guidance-body {
+    margin-top: 8px;
+    padding-top: 4px;
+  }
 }

@@ -2,14 +2,14 @@
  * geneKeys.js — Gene Keys calculation
  *
  * Prime Keys (4): Life's Work, Evolution, Radiance, Purpose — from Sun/Earth positions.
- * All Activations (24): 12 planets × 2 charts (conscious at birth + design ~88 days prior).
- *   Planets: Sun, Earth, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, N.Node
+ * All Activations (26): 13 planetary points × 2 charts (conscious at birth + design ~88 days prior).
+ *   Points: Sun, Earth, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, N.Node, S.Node
  *
  * Accuracy:
- *   Sun: ~0.01° (equation of center).
- *   Moon: ~1° (Chapront reduced series).
- *   Mercury–Pluto: <0.1° via VSOP87 full theory (astronomia library).
- *   N.Node: mean node formula, ~0.05°.
+ *   Sun / Mercury / Venus / Mars / Jupiter / Saturn / Uranus / Neptune: astronomia-backed ephemerides.
+ *   Moon: astronomia moonposition implementation.
+ *   Pluto: astronomia Pluto solution with geocentric conversion.
+ *   N.Node / S.Node: astronomia true node.
  *   Gate = 5.625° wide, line = 0.9375° — VSOP87 is sufficient for all activations.
  */
 
@@ -31,6 +31,8 @@ import vsop87Bsaturn  from 'astronomia/data/vsop87Bsaturn';
 import vsop87Buranus  from 'astronomia/data/vsop87Buranus';
 import vsop87Bneptune from 'astronomia/data/vsop87Bneptune';
 import { Planet }     from 'astronomia/planetposition';
+import moonposition   from 'astronomia/moonposition';
+import pluto          from 'astronomia/pluto';
 
 // Pre-instantiate planet objects (avoid re-creating on every call)
 const VSOP = {
@@ -73,36 +75,39 @@ function sunLongitude(d) {
   return norm(lon);
 }
 
-// ── Moon longitude (accurate to ~1°) ──────────────────
+// ── Moon longitude ─────────────────────────────────────
+//
+// The geocentric Moon remains our base ephemeris value. For Human Design
+// activations we now prefer the topocentric Moon when birth coordinates are
+// available, because observer-location parallax is materially large enough to
+// change gate/line placement.
 
 function moonLongitude(d) {
-  const L  = norm(218.3165 + 13.17639648 * d);
-  const M  = norm(134.9634 + 13.06499295 * d);
-  const D  = norm(297.8502 + 12.19074912 * d);
-  const F  = norm(93.2721  + 13.22935024 * d);
-  const Ms = norm(357.5291 +  0.98560028 * d);
+  const jde = toJDE(d);
+  const { lon } = moonposition.position(jde);
+  return norm(lon / D2R);
+}
 
-  return norm(L
-    + 6.289  * Math.sin(M  * D2R)
-    - 1.274  * Math.sin((2*D - M)     * D2R)
-    + 0.658  * Math.sin((2*D)         * D2R)
-    - 0.186  * Math.sin(Ms            * D2R)
-    + 0.214  * Math.sin((2*M)         * D2R)
-    - 0.059  * Math.sin((2*D - 2*M)   * D2R)
-    - 0.057  * Math.sin((2*D - M - Ms)* D2R)
-    + 0.053  * Math.sin((2*D + M)     * D2R)
-    + 0.046  * Math.sin((2*D - Ms)    * D2R)
-    + 0.041  * Math.sin((M - Ms)      * D2R)
-    - 0.035  * Math.sin(D             * D2R)
-    - 0.031  * Math.sin((M + Ms)      * D2R)
-    - 0.015  * Math.sin((2*F - 2*D)   * D2R)
-    + 0.011  * Math.sin((M - 4*D)     * D2R));
+function moonPosition(d) {
+  const jde = toJDE(d);
+  const { lon, lat, range } = moonposition.position(jde);
+  return {
+    longitude: norm(lon / D2R),
+    latitude: lat / D2R,
+    distanceKm: range,
+  };
 }
 
 // ── North Node longitude (mean node, retrograde) ──────
 
 function northNodeLongitude(d) {
-  return norm(125.0445 - 0.05295377 * d);
+  // Use the true lunar node so gate/line mapping tracks standard chart software
+  // more closely than a simplified mean-node approximation.
+  return norm((moonposition.trueNode(toJDE(d)) * 180) / Math.PI);
+}
+
+function southNodeLongitude(d) {
+  return norm(northNodeLongitude(d) + 180);
 }
 
 // ── VSOP87 geocentric ecliptic longitude ───────────────
@@ -148,6 +153,96 @@ function longitudeToGate(longitude) {
   return { gate: GATE_WHEEL[slot], line };
 }
 
+function normalizeSignedDegrees(value) {
+  const normalized = norm(value);
+  return normalized > 180 ? normalized - 360 : normalized;
+}
+
+function meanObliquityDeg(jde) {
+  const T = (jde - 2451545.0) / 36525;
+  const seconds = 84381.448 - 46.815 * T - 0.00059 * T * T + 0.001813 * T * T * T;
+  return seconds / 3600;
+}
+
+function greenwichSiderealDeg(jde) {
+  const T = (jde - 2451545.0) / 36525;
+  return norm(
+    280.46061837 +
+    360.98564736629 * (jde - 2451545.0) +
+    0.000387933 * T * T -
+    (T * T * T) / 38710000
+  );
+}
+
+function eclipticToEquatorial(longitudeDeg, latitudeDeg, obliquityDeg) {
+  const lon = longitudeDeg * D2R;
+  const lat = latitudeDeg * D2R;
+  const eps = obliquityDeg * D2R;
+
+  const sinDec = Math.sin(lat) * Math.cos(eps) + Math.cos(lat) * Math.sin(eps) * Math.sin(lon);
+  const dec = Math.asin(sinDec);
+  const ra = Math.atan2(
+    Math.sin(lon) * Math.cos(eps) - Math.tan(lat) * Math.sin(eps),
+    Math.cos(lon)
+  );
+
+  return { ra, dec };
+}
+
+function equatorialToEcliptic(ra, dec, obliquityDeg) {
+  const eps = obliquityDeg * D2R;
+  const lon = Math.atan2(
+    Math.sin(ra) * Math.cos(eps) + Math.tan(dec) * Math.sin(eps),
+    Math.cos(ra)
+  );
+  const lat = Math.asin(
+    Math.sin(dec) * Math.cos(eps) - Math.cos(dec) * Math.sin(eps) * Math.sin(ra)
+  );
+
+  return {
+    longitude: norm(lon / D2R),
+    latitude: lat / D2R,
+  };
+}
+
+function observerParallaxFactors(latitudeDeg, altitudeMeters = 0) {
+  const phi = latitudeDeg * D2R;
+  const hKm = altitudeMeters / 1000;
+  const earthRadiusKm = 6378.14;
+  const flattening = 1 / 298.257223563;
+  const u = Math.atan((1 - flattening) * Math.tan(phi));
+
+  return {
+    rhoSinPhiPrime: (1 - flattening) * Math.sin(u) + (hKm / earthRadiusKm) * Math.sin(phi),
+    rhoCosPhiPrime: Math.cos(u) + (hKm / earthRadiusKm) * Math.cos(phi),
+  };
+}
+
+function topocentricMoonLongitude(d, { latitude, longitude, altitude = 0 }) {
+  if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) return null;
+
+  const jde = toJDE(d);
+  const moon = moonPosition(d);
+  const obliquity = meanObliquityDeg(jde);
+  const { ra, dec } = eclipticToEquatorial(moon.longitude, moon.latitude, obliquity);
+  const parallax = Math.asin(6378.14 / moon.distanceKm);
+  const { rhoSinPhiPrime, rhoCosPhiPrime } = observerParallaxFactors(latitude, altitude);
+  const hourAngle = normalizeSignedDegrees(greenwichSiderealDeg(jde) + longitude - (ra / D2R)) * D2R;
+
+  const deltaRa = Math.atan2(
+    -rhoCosPhiPrime * Math.sin(parallax) * Math.sin(hourAngle),
+    Math.cos(dec) - rhoCosPhiPrime * Math.sin(parallax) * Math.cos(hourAngle)
+  );
+  const topoRa = ra + deltaRa;
+  const topoDec = Math.atan2(
+    (Math.sin(dec) - rhoSinPhiPrime * Math.sin(parallax)) * Math.cos(deltaRa),
+    Math.cos(dec) - rhoCosPhiPrime * Math.sin(parallax) * Math.cos(hourAngle)
+  );
+
+  return equatorialToEcliptic(topoRa, topoDec, obliquity).longitude;
+}
+
+
 // ── Planet catalogue ───────────────────────────────────
 
 // { name, symbol, getLon(d) → degrees }
@@ -164,11 +259,11 @@ const PLANETS = [
   { name: 'Neptune', symbol: '♆', getLon: d => vsopGeocentricLon('Neptune', d) },
   { name: 'Pluto',   symbol: '♇', getLon: d => vsopGeocentricLon('Pluto',   d) },
   { name: 'N.Node',  symbol: '☊', getLon: d => northNodeLongitude(d) },
+  { name: 'S.Node',  symbol: '☋', getLon: d => southNodeLongitude(d) },
 ];
 
-// Note: Pluto falls back to the existing Keplerian calculation since
-// astronomia does not include a VSOP87 Pluto dataset.
-// Pluto's gate changes slowly (~1 gate per decade) so Keplerian is adequate.
+// Retain the legacy Keplerian Pluto helper as a local fallback/reference while
+// the active implementation below uses astronomia's dedicated Pluto solution.
 const ORB_PLUTO = [238.92881, 145.20780, 224.06892, -0.04063, 0.24882, 0.00006, 39.481680, 17.1420, 110.3039, -0.27040];
 function keplerE(M_rad, e) { let E = M_rad; for (let i = 0; i < 12; i++) E = M_rad + e * Math.sin(E); return E; }
 function plutoGeoLon(d) {
@@ -187,8 +282,29 @@ function plutoGeoLon(d) {
   const ey=ep.range*Math.cos(ep.lat)*Math.sin(ep.lon);
   return norm(Math.atan2(py-ey,px-ex)/D2R);
 }
-// Override Pluto entry
-PLANETS[10] = { name: 'Pluto', symbol: '♇', getLon: d => plutoGeoLon(d) };
+
+function sphericalToCartesian({ lon, lat = 0, range = 1 }) {
+  const cosLat = Math.cos(lat);
+  return {
+    x: range * cosLat * Math.cos(lon),
+    y: range * cosLat * Math.sin(lon),
+    z: range * Math.sin(lat),
+  };
+}
+
+function plutoPreciseGeoLon(d) {
+  const jde = toJDE(d);
+  const earthHelio = VSOP.Earth.position(jde);
+  const plutoHelio = pluto.heliocentric(jde);
+  const earth = sphericalToCartesian(earthHelio);
+  const target = sphericalToCartesian(plutoHelio);
+
+  return norm((Math.atan2(target.y - earth.y, target.x - earth.x) * 180) / Math.PI);
+}
+
+// Override Pluto entry with astronomia's dedicated Pluto solution instead of
+// the older simplified fallback.
+PLANETS[10] = { name: 'Pluto', symbol: '♇', getLon: d => plutoPreciseGeoLon(d) };
 
 // ── Public API ─────────────────────────────────────────
 
@@ -218,12 +334,21 @@ export function calcGeneKeys({ year, month, day, birthTime = '12:00', tzOffset =
 }
 
 /**
- * calcAllActivations — compute all 24 planetary activations (12 planets × 2 charts).
+ * calcAllActivations — compute all 26 planetary activations (13 points × 2 charts).
  *
  * @returns {Array<{ planet, symbol, chart, gate, line }>}
  *   chart: 'conscious' (at birth) | 'design' (~88 days before birth)
  */
-export function calcAllActivations({ year, month, day, birthTime = '12:00', tzOffset = 0 }) {
+export function calcAllActivations({
+  year,
+  month,
+  day,
+  birthTime = '12:00',
+  tzOffset = 0,
+  latitude = null,
+  longitude = null,
+  altitude = 0,
+}) {
   const [hStr, mStr] = (birthTime || '12:00').split(':');
   const hour24 = parseInt(hStr, 10) + parseInt(mStr, 10) / 60;
 
@@ -234,12 +359,15 @@ export function calcAllActivations({ year, month, day, birthTime = '12:00', tzOf
     { chart: 'conscious', dChart: d },
     { chart: 'design',    dChart: d_design },
   ];
+  const hasObserverCoords = Number.isFinite(latitude) && Number.isFinite(longitude);
 
   const activations = [];
 
   for (const { chart, dChart } of charts) {
     for (const planet of PLANETS) {
-      const lon = planet.getLon(dChart);
+      const lon = planet.name === 'Moon' && hasObserverCoords
+        ? topocentricMoonLongitude(dChart, { latitude, longitude, altitude }) ?? planet.getLon(dChart)
+        : planet.getLon(dChart);
       const { gate, line } = longitudeToGate(lon);
       activations.push({ planet: planet.name, symbol: planet.symbol, chart, gate, line });
     }
