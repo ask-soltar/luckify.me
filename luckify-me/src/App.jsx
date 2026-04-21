@@ -1,7 +1,9 @@
-import { useState, useMemo } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { ProfileForm } from './components/ProfileForm.jsx';
 import { ProfileDisplay } from './components/ProfileDisplay.jsx';
 import { ProfileMenu } from './components/ProfileMenu.jsx';
+import { LuckyWindow } from './components/LuckyWindow.jsx';
 import { calculateProfile, generateId, resolveProfileName } from './utils/profileCalculator.js';
 import { useProfileStorage } from './hooks/useProfileStorage.js';
 import { calcTodayWindow } from './utils/luckyWindow.js';
@@ -25,11 +27,13 @@ function getRevealStorageKey(profileId) {
 }
 
 export default function App() {
+  const scrollAreaRef = useRef(null);
   const [page, setPage] = useState('calc');       // 'calc' | 'profile'
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeProfile, setActiveProfile] = useState(null);
   const [activeProfileId, setActiveProfileId] = useState(null);
   const [shouldAnimateRhythmReveal, setShouldAnimateRhythmReveal] = useState(false);
+  const [fullScreenRevealOpen, setFullScreenRevealOpen] = useState(false);
   const [veiled, setVeiled] = useState(false);    // full-screen threshold transition
 
   const {
@@ -93,8 +97,14 @@ export default function App() {
     setTimeout(() => {
       setActiveProfile(result);
       setActiveProfileId(nextProfileId);
-      setShouldAnimateRhythmReveal(animateReveal);
-      setPage('profile');
+      setShouldAnimateRhythmReveal(false);
+      if (animateReveal) {
+        setFullScreenRevealOpen(true);
+      } else {
+        setPage('profile');
+        scrollAreaRef.current?.scrollTo?.({ top: 0, behavior: 'auto' });
+        window.scrollTo?.({ top: 0, behavior: 'auto' });
+      }
       setTimeout(() => setVeiled(false), 120);
     }, 480);
   }
@@ -107,10 +117,13 @@ export default function App() {
       setActiveProfile(p.result);
       setActiveProfileId(id);
       setShouldAnimateRhythmReveal(false);
+      setFullScreenRevealOpen(false);
       setPage('profile');
+      scrollAreaRef.current?.scrollTo?.({ top: 0, behavior: 'auto' });
     } else {
       setActiveProfileId(null);
       setShouldAnimateRhythmReveal(false);
+      setFullScreenRevealOpen(false);
       setPage('calc');
     }
   }
@@ -129,7 +142,9 @@ export default function App() {
     setActiveProfile(null);
     setActiveProfileId(null);
     setShouldAnimateRhythmReveal(false);
+    setFullScreenRevealOpen(false);
     setPage('calc');
+    scrollAreaRef.current?.scrollTo?.({ top: 0, behavior: 'auto' });
   }
 
   function handleResetRhythmReveal() {
@@ -139,6 +154,15 @@ export default function App() {
     window.setTimeout(() => {
       setShouldAnimateRhythmReveal(true);
     }, 0);
+  }
+
+  function handleFirstRevealComplete() {
+    window.setTimeout(() => {
+      setPage('profile');
+      setFullScreenRevealOpen(false);
+      scrollAreaRef.current?.scrollTo?.({ top: 0, behavior: 'auto' });
+      window.scrollTo?.({ top: 0, behavior: 'auto' });
+    }, 420);
   }
 
   const currentP = getCurrentProfile();
@@ -160,6 +184,24 @@ export default function App() {
       return ZONE_RGB[r?.zone] || '200, 152, 42';
     } catch { return '200, 152, 42'; }
   }, [activeProfile]);
+
+  useEffect(() => {
+    if (typeof document === 'undefined') return undefined;
+    const previousOverflow = document.body.style.overflow;
+    const previousTouchAction = document.body.style.touchAction;
+
+    if (fullScreenRevealOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+      scrollAreaRef.current?.scrollTo?.({ top: 0, behavior: 'auto' });
+      window.scrollTo?.({ top: 0, behavior: 'auto' });
+    }
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.body.style.touchAction = previousTouchAction;
+    };
+  }, [fullScreenRevealOpen]);
 
   return (
     <div className="app-shell" style={{ '--zone-color': zoneColor }}>
@@ -189,7 +231,7 @@ export default function App() {
       </header>
 
       {/* Main scroll area */}
-      <main className="scroll-area">
+      <main className="scroll-area" ref={scrollAreaRef}>
         {page === 'calc' ? (
           <ProfileForm onSubmit={handleCalculate} />
         ) : (
@@ -205,6 +247,42 @@ export default function App() {
           )
         )}
       </main>
+
+      <AnimatePresence>
+        {fullScreenRevealOpen && activeProfile && (
+          <motion.div
+            className="first-reveal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, ease: 'easeOut' }}
+          >
+            <motion.div
+              className="first-reveal-shell"
+              initial={{ opacity: 0, y: 24, scale: 0.985 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 16, scale: 0.992 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="first-reveal-kicker">Profile Unlocked</div>
+              <div className="first-reveal-title">Revealing your active rhythm</div>
+              <div className="first-reveal-copy">
+                Your permanent build stays with you. This calibrates the field you are moving through today.
+              </div>
+
+              <LuckyWindow
+                profile={activeProfile}
+                profileId={activeProfileId}
+                shouldAnimateReveal
+                onRevealComplete={handleFirstRevealComplete}
+                humanDesign={activeProfile.humanDesign || null}
+                mode="human"
+                presentation="reveal"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Profile menu drawer */}
       <ProfileMenu
