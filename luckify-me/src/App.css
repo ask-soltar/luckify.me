@@ -707,6 +707,46 @@
   margin-top: 10px;
 }
 
+@media (max-width: 640px) {
+  .profile-tab-rhythm-shell .zone-hero {
+    max-height: calc(100dvh - 210px);
+    padding: 20px 16px 16px;
+    gap: 12px;
+  }
+
+  .profile-tab-rhythm-shell .zone-hero-panel-shell {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+  }
+
+  .profile-tab-rhythm-shell .zone-hero-panel-track {
+    flex: 1;
+  }
+
+  .profile-tab-rhythm-shell .zone-hero-panel {
+    min-height: 0;
+    height: 100%;
+    overflow-y: auto;
+    padding: 14px 12px 14px;
+  }
+
+  .profile-tab-rhythm-shell .zone-hero-name {
+    font-size: 42px;
+  }
+
+  .profile-tab-rhythm-shell .zone-hero-decision-support {
+    gap: 9px;
+    padding: 12px;
+  }
+
+  .profile-tab-rhythm-shell .zone-hero-decision-support-cue {
+    font-size: 16px;
+    line-height: 1.38;
+    max-width: 16.5rem;
+  }
+}
+
 .profile-tab-panel--cmd-anchor {
   padding: 12px;
   border-radius: 10px;
