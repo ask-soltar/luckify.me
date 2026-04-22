@@ -169,6 +169,21 @@ function ActiveRhythmSection({
   );
 }
 
+function LoadoutTab({
+  coreCardProps,
+}) {
+  return (
+    <div className="profile-loadout-screen">
+      <FoundationSection
+        {...coreCardProps}
+        mode="human"
+        showDecisionEngine={false}
+        defaultCoreOpen
+      />
+    </div>
+  );
+}
+
 function CmdCoreLoadoutSection({
   element,
   lifePathNum,
@@ -494,26 +509,19 @@ export function ProfileDisplay({
             transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
           >
             {activeTab === 'loadout' && (
-              <ActiveRhythmSection
-                profile={profile}
-                profileId={profileId}
-                shouldAnimateRhythmReveal={shouldAnimateRhythmReveal}
-                humanDesign={humanDesign}
-                onLocationChange={onLocationChange}
+              <LoadoutTab
+                coreCardProps={coreCardProps}
               />
             )}
 
             {activeTab === 'engine' && (
               <>
-                <FoundationSection
-                  {...coreCardProps}
-                  decisionEngine={decisionEngine}
-                  passiveSkillLoadout={passiveSkillLoadout}
-                  passiveSkillOpen={passiveSkillOpen}
-                  onTogglePassiveSkill={() => setPassiveSkillOpen(open => !open)}
-                  mode="human"
-                  showDecisionEngine={false}
-                  defaultCoreOpen
+                <ActiveRhythmSection
+                  profile={profile}
+                  profileId={profileId}
+                  shouldAnimateRhythmReveal={shouldAnimateRhythmReveal}
+                  humanDesign={humanDesign}
+                  onLocationChange={onLocationChange}
                 />
                 <PassiveSkillsSection
                   decisionEngine={decisionEngine}
