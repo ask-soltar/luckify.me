@@ -245,7 +245,10 @@ export default function App() {
       </header>
 
       {/* Main scroll area */}
-      <main className="scroll-area" ref={scrollAreaRef}>
+      <main
+        className={`scroll-area${page === 'profile' ? ' scroll-area--profile' : ''}`}
+        ref={scrollAreaRef}
+      >
         {page === 'calc' ? (
           <ProfileForm onSubmit={handleCalculate} />
         ) : (

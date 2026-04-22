@@ -16,7 +16,10 @@
 /* ── App Shell ── */
 .app-shell {
   position: relative;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  height: 100dvh;
   background: var(--pip-bg);
   color: var(--pip-text);
   font-family: var(--pip-font-body);
@@ -127,8 +130,14 @@
 /* ── Scroll Area ── */
 .scroll-area {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   padding-bottom: 40px;
+}
+
+.scroll-area--profile {
+  overflow: hidden;
+  padding-bottom: 0;
 }
 
 .first-reveal-overlay {
@@ -604,8 +613,8 @@
   position: relative;
   max-width: 480px;
   margin: 0 auto;
-  min-height: 100dvh;
-  height: 100dvh;
+  min-height: 100%;
+  height: 100%;
   padding: 18px 16px calc(104px + env(safe-area-inset-bottom, 0px));
   display: flex;
   flex-direction: column;
