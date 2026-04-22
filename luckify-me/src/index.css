@@ -61,7 +61,9 @@ body {
   font-family: var(--pip-font-body);
   font-size: 14px;
   line-height: 1.6;
-  overflow-x: hidden;
+  margin: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -118,7 +120,9 @@ body::after {
 #root {
   position: relative;
   z-index: 2;
+  height: 100%;
   min-height: 100%;
+  overflow: hidden;
 }
 
 /* Scrollbar */

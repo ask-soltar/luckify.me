@@ -20,10 +20,12 @@
   flex-direction: column;
   min-height: 100vh;
   height: 100dvh;
+  width: 100%;
+  min-width: 0;
   background: var(--pip-bg);
   color: var(--pip-text);
   font-family: var(--pip-font-body);
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .app-shell::before,
@@ -53,9 +55,9 @@
 
 /* ── Header ── */
 .app-header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 100;
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -131,11 +133,19 @@
 .scroll-area {
   flex: 1;
   min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.scroll-area--calc {
   overflow-y: auto;
+  overflow-x: hidden;
   padding-bottom: 40px;
 }
 
 .scroll-area--profile {
+  display: flex;
+  min-height: 0;
   overflow: hidden;
   padding-bottom: 0;
 }
@@ -611,10 +621,12 @@
 /* ── Profile Page ── */
 .profile-page {
   position: relative;
+  width: 100%;
   max-width: 480px;
   margin: 0 auto;
   min-height: 100%;
   height: 100%;
+  min-width: 0;
   padding: 18px 16px calc(104px + env(safe-area-inset-bottom, 0px));
   display: flex;
   flex-direction: column;
@@ -639,7 +651,9 @@
   position: relative;
   flex: 1;
   min-height: 0;
+  min-width: 0;
   display: flex;
+  overflow: hidden;
 }
 
 .profile-tab-view {
@@ -648,7 +662,9 @@
   gap: 12px;
   flex: 1;
   min-height: 0;
+  min-width: 0;
   overflow-y: auto;
+  overflow-x: hidden;
   overscroll-behavior: contain;
   padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
 }
@@ -706,8 +722,7 @@
 .profile-tab-rhythm-shell--loadout {
   margin-top: 0;
   width: 100%;
-  max-width: 430px;
-  margin-inline: auto;
+  min-width: 0;
 }
 
 .profile-tab-rhythm-shell .zone-hero {
@@ -735,9 +750,8 @@
   }
 
   .profile-tab-rhythm-shell--loadout {
-    width: min(100%, 430px);
-    max-width: 430px;
-    margin-inline: auto;
+    width: 100%;
+    max-width: 100%;
     justify-content: stretch;
   }
 
@@ -819,7 +833,8 @@
   left: 50%;
   bottom: max(14px, env(safe-area-inset-bottom, 0px) + 10px);
   transform: translateX(-50%);
-  width: min(calc(100vw - 24px), 448px);
+  width: min(calc(100% - 24px), 448px);
+  max-width: calc(100% - 24px);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;

@@ -32,13 +32,15 @@
 }
 
 /* ── Base Styles ── */
+html,
 body {
+  min-height: 100%;
   background: var(--pip-bg);
   color: var(--pip-primary);
   font-family: var(--pip-font-family);
   font-size: var(--pip-font-size);
   line-height: var(--pip-line-height);
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* ── Borders & Boxes ── */

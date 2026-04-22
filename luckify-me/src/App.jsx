@@ -246,7 +246,7 @@ export default function App() {
 
       {/* Main scroll area */}
       <main
-        className={`scroll-area${page === 'profile' ? ' scroll-area--profile' : ''}`}
+        className={`scroll-area scroll-area--${page}`}
         ref={scrollAreaRef}
       >
         {page === 'calc' ? (
