@@ -658,6 +658,14 @@
   z-index: -1;
 }
 
+.profile-page--loadout {
+  padding-inline: 10px;
+}
+
+.profile-page--loadout::before {
+  display: none;
+}
+
 .profile-tab-shell {
   position: relative;
   flex: 1;
@@ -687,6 +695,7 @@
 .profile-tab-view--loadout {
   flex: 1;
   min-height: 0;
+  gap: 0;
 }
 
 .profile-tab-panel {
@@ -751,6 +760,10 @@
   .profile-page {
     padding: 14px 12px calc(98px + env(safe-area-inset-bottom, 0px));
     gap: 10px;
+  }
+
+  .profile-page--loadout {
+    padding-inline: 8px;
   }
 
   .profile-tab-rhythm-shell {
@@ -3920,7 +3933,7 @@
 .profile-exploration-controls {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   position: relative;
   z-index: 1;
 }
@@ -3974,7 +3987,22 @@
 .profile-exploration-stack {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
+}
+.profile-exploration-stack-shell {
+  position: relative;
+  z-index: 1;
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(78,143,88,0.12);
+}
+.profile-exploration-section-label {
+  margin-bottom: 10px;
+  font-family: var(--pip-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(158, 255, 122, 0.58);
 }
 .profile-exploration-panel .dim-card,
 .profile-exploration-panel .profile-layer-toggle,
@@ -4240,6 +4268,28 @@
   padding: 16px 12px;
   font-size: 12px;
   color: rgba(192, 203, 197, 0.54);
+}
+.menu-helper-card {
+  margin: 8px 12px 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(184, 214, 194, 0.07);
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.006) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.025);
+}
+.menu-helper-title {
+  font-family: var(--pip-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(var(--zone-color, 200,152,42), 0.72);
+}
+.menu-helper-copy {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: rgba(205, 216, 210, 0.66);
 }
 .menu-profile-item {
   position: relative;
@@ -5271,10 +5321,10 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  margin: 0 14px 14px;
-  padding: 12px 0 14px;
+  margin: 0 12px 12px;
+  padding: 10px 0 12px;
   border: 1px solid rgba(150, 214, 167, 0.07);
-  border-radius: 20px;
+  border-radius: 18px;
   background:
     radial-gradient(circle at 50% 0%, rgba(153, 224, 171, 0.05) 0%, transparent 24%),
     radial-gradient(circle at 50% 78%, rgba(186, 148, 90, 0.045) 0%, transparent 24%),
@@ -5326,8 +5376,8 @@
 .core-config-card--human .core-config-std-reveal-block {
   position: relative;
   z-index: 1;
-  padding-top: 34px;
-  padding-bottom: 32px;
+  padding-top: 28px;
+  padding-bottom: 24px;
   border-bottom-color: rgba(168, 232, 188, 0.045);
   background:
     radial-gradient(circle at 50% 0%, rgba(132, 232, 171, 0.09) 0%, transparent 54%),
@@ -5337,8 +5387,8 @@
 .core-config-card--human .core-config-recognition-wrap {
   position: relative;
   z-index: 1;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   border-bottom-color: rgba(168, 232, 188, 0.012);
   background: transparent;
 }
@@ -5346,9 +5396,9 @@
 .core-config-card--human .core-config-field--build {
   position: relative;
   z-index: 1;
-  margin: 10px 0 0;
-  padding-top: 12px;
-  padding-bottom: 8px;
+  margin: 6px 0 0;
+  padding-top: 10px;
+  padding-bottom: 6px;
   overflow: hidden;
   background:
     radial-gradient(circle at 50% 22%, rgba(192, 171, 112, 0.06) 0%, transparent 22%),
@@ -5486,9 +5536,9 @@
 
 @media (max-width: 640px) {
   .core-config-card--human .core-config-body {
-    margin: 0 10px 10px;
-    padding: 10px 0 12px;
-    border-radius: 18px;
+    margin: 0 8px 10px;
+    padding: 8px 0 10px;
+    border-radius: 16px;
   }
 
   .core-config-card--human.core-config-card--guidance-open {
@@ -5499,18 +5549,18 @@
   }
 
   .core-config-card--human .core-config-std-reveal-block {
-    padding-top: 30px;
-    padding-bottom: 28px;
+    padding-top: 24px;
+    padding-bottom: 20px;
   }
 
   .core-config-card--human .core-config-recognition-wrap {
     max-width: 19rem;
-    padding: 8px 18px 8px;
+    padding: 7px 16px 7px;
   }
 
   .core-config-card--human .core-config-field--build {
-    margin: 8px 0 0;
-    padding: 10px 14px 8px;
+    margin: 6px 0 0;
+    padding: 8px 12px 6px;
   }
 
   .core-config-card--human .core-config-guidance {

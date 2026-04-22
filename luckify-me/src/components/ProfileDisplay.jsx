@@ -544,20 +544,23 @@ export function ProfileDisplay({
                     </button>
                   </div>
 
-                  <div className="profile-exploration-stack">
-                    {dimensions.map(dim => (
-                      <DimensionCard
-                        key={dim.key}
-                        icon={dim.icon}
-                        system={dim.system}
-                        name={dim.name}
-                        axiom={dim.axiom}
-                        tabs={dim.tabs}
-                      />
-                    ))}
-                    {geneKeys?.purpose && (
-                      <GateContentCard profile={profile} geneKeys={geneKeys} />
-                    )}
+                  <div className="profile-exploration-stack-shell">
+                    <div className="profile-exploration-section-label">Module Stack</div>
+                    <div className="profile-exploration-stack">
+                      {dimensions.map(dim => (
+                        <DimensionCard
+                          key={dim.key}
+                          icon={dim.icon}
+                          system={dim.system}
+                          name={dim.name}
+                          axiom={dim.axiom}
+                          tabs={dim.tabs}
+                        />
+                      ))}
+                      {geneKeys?.purpose && (
+                        <GateContentCard profile={profile} geneKeys={geneKeys} />
+                      )}
+                    </div>
                   </div>
                 </div>
               </>

@@ -5,7 +5,7 @@
  * guidance text per category, plus stats grid and mantra.
  */
 
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import { calcLuckyWindow } from '../utils/luckyWindow.js';
 import { getZoneScores, GUIDANCE, CELL_LINE, CAT_EMOJI } from '../constants/zoneScoring.js';
 
@@ -198,6 +198,7 @@ export function RhythmCalendar({ profile, embedded = false }) {
   const [viewYear, setViewYear]   = useState(now.getFullYear());
   const [viewMonth, setViewMonth] = useState(now.getMonth());
   const [selected, setSelected]   = useState(null);
+  const detailRef = useRef(null);
 
   const birthDate = useMemo(() => {
     if (!profile?.y || !profile?.mo || !profile?.dy) return null;
@@ -229,6 +230,11 @@ export function RhythmCalendar({ profile, embedded = false }) {
   if (!birthDate) return null;
 
   const isExpanded = embedded || open;
+
+  useEffect(() => {
+    if (!embedded || !selected) return;
+    detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, [embedded, selected]);
 
   return (
     <div className={`rhythm-cal${open ? ' open' : ''}${embedded ? ' rhythm-cal--embedded open' : ''}`}>
@@ -281,7 +287,11 @@ export function RhythmCalendar({ profile, embedded = false }) {
         })}
       </div>
 
-      {selected && <DayDetail day={selected} profile={profile} embedded={embedded} onClose={() => setSelected(null)} />}
+      {selected && (
+        <div ref={detailRef}>
+          <DayDetail day={selected} profile={profile} embedded={embedded} onClose={() => setSelected(null)} />
+        </div>
+      )}
     </div>
   );
 }

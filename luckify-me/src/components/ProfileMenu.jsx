@@ -93,6 +93,15 @@ export function ProfileMenu({ open, profiles, currentProfileId, onSwitch, onDele
           )}
         </div>
 
+        {profiles.length <= 1 && (
+          <div className="menu-helper-card">
+            <div className="menu-helper-title">Build a comparison set</div>
+            <div className="menu-helper-copy">
+              Save more than one profile so permanent structure stays easy to compare against daily rhythm shifts.
+            </div>
+          </div>
+        )}
+
         <button
           type="button"
           className="menu-add-btn"
