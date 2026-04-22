@@ -154,24 +154,18 @@ function ActiveRhythmSection({
   onLocationChange,
 }) {
   return (
-    <section className="profile-tab-panel profile-tab-panel--active-rhythm">
-      <div className="profile-tab-panel-kicker">Active Rhythm</div>
-      <div className="profile-tab-panel-copy">
-        Today&apos;s field, guidance, and monthly rhythm map.
-      </div>
-      <div className="profile-tab-rhythm-shell">
-        <LuckyWindow
-          profile={profile}
-          profileId={profileId}
-          shouldAnimateReveal={shouldAnimateRhythmReveal}
-          humanDesign={humanDesign}
-          onLocationChange={onLocationChange}
-          mode="human"
-          presentation="default"
-          showModeToggle={false}
-        />
-      </div>
-    </section>
+    <div className="profile-tab-rhythm-shell profile-tab-rhythm-shell--loadout">
+      <LuckyWindow
+        profile={profile}
+        profileId={profileId}
+        shouldAnimateReveal={shouldAnimateRhythmReveal}
+        humanDesign={humanDesign}
+        onLocationChange={onLocationChange}
+        mode="human"
+        presentation="default"
+        showModeToggle={false}
+      />
+    </div>
   );
 }
 

@@ -698,6 +698,13 @@
   margin-top: 12px;
 }
 
+.profile-tab-rhythm-shell--loadout {
+  margin-top: 0;
+  width: 100%;
+  max-width: 430px;
+  margin-inline: auto;
+}
+
 .profile-tab-rhythm-shell .zone-hero {
   min-height: auto;
   margin: 0;
@@ -708,10 +715,28 @@
 }
 
 @media (max-width: 640px) {
+  .profile-tab-rhythm-shell {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-tab-rhythm-shell--loadout {
+    width: min(100%, 430px);
+    max-width: 430px;
+    margin-inline: auto;
+    justify-content: stretch;
+  }
+
   .profile-tab-rhythm-shell .zone-hero {
-    max-height: calc(100dvh - 210px);
-    padding: 20px 16px 16px;
-    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+    max-height: calc(100svh - 132px);
+    overflow: hidden;
+    padding: 18px 14px 14px;
+    gap: 10px;
   }
 
   .profile-tab-rhythm-shell .zone-hero-panel-shell {
@@ -720,8 +745,13 @@
     display: flex;
   }
 
+  .profile-page--loadout .profile-tab-rhythm-shell .zone-hero {
+    max-height: min(calc(100svh - 132px), 820px);
+  }
+
   .profile-tab-rhythm-shell .zone-hero-panel-track {
     flex: 1;
+    min-height: 0;
   }
 
   .profile-tab-rhythm-shell .zone-hero-panel {
@@ -4322,6 +4352,10 @@
   border-radius: 0;
   background: transparent;
   box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
 }
 
 .rhythm-cal-header {
@@ -4430,6 +4464,7 @@
 
 .rhythm-cal--embedded .cal-grid {
   gap: 6px;
+  flex: 0 0 auto;
 }
 
 .cal-day {
@@ -4482,6 +4517,8 @@
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 14px;
   padding: 14px 14px 12px;
+  max-height: min(42svh, 360px);
+  overflow-y: auto;
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.04),
     0 10px 24px rgba(0,0,0,0.18);
@@ -4572,6 +4609,18 @@
     padding: 16px 14px 16px;
   }
 
+  .zone-hero-panel--calendar {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .zone-hero-panel--calendar .rhythm-cal--embedded {
+    flex: 1;
+    min-height: 0;
+  }
+
   .zone-hero-decision-support {
     gap: 10px;
     padding: 12px;
@@ -4619,6 +4668,19 @@
 
   .zone-hero-calendar-title {
     font-size: 13px;
+  }
+
+  .rhythm-cal--embedded .cal-day {
+    min-height: 46px;
+  }
+
+  .rhythm-cal--embedded .cal-grid.expanded .cal-day {
+    min-height: 62px;
+  }
+
+  .cal-detail-inline {
+    max-height: min(34svh, 280px);
+    padding: 12px 12px 10px;
   }
 }
 .cal-day:hover {
