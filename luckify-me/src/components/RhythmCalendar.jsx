@@ -5,7 +5,7 @@
  * guidance text per category, plus stats grid and mantra.
  */
 
-import { useState, useMemo } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { calcLuckyWindow } from '../utils/luckyWindow.js';
 import { getZoneScores, GUIDANCE, CELL_LINE, CAT_EMOJI } from '../constants/zoneScoring.js';
 
@@ -87,6 +87,17 @@ function DayDetail({ day, profile, onClose, embedded = false }) {
   const guidance   = GUIDANCE[day.zone] || {};
   const tagline    = CELL_LINE[day.zone] || '';
 
+  useEffect(() => {
+    if (embedded || typeof window === 'undefined') return undefined;
+
+    function handleKeyDown(event) {
+      if (event.key === 'Escape') onClose();
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [embedded, onClose]);
+
   const detailContent = (
     <>
       {!embedded && <div className="cal-detail-handle" />}
@@ -150,7 +161,7 @@ function DayDetail({ day, profile, onClose, embedded = false }) {
         "{day.mantra}"
       </div>
 
-      <button className="pip-button cal-detail-close" onClick={onClose}>Close</button>
+      <button type="button" className="pip-button cal-detail-close" onClick={onClose}>Close</button>
     </>
   );
 
@@ -169,6 +180,9 @@ function DayDetail({ day, profile, onClose, embedded = false }) {
     <div className="cal-detail-overlay open" onClick={onClose}>
       <div
         className="cal-detail-sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-label={`${day.zone} rhythm details for ${day.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}`}
         style={{ background: `var(--${zoneLower}-bg, #111)` }}
         onClick={e => e.stopPropagation()}
       >
@@ -219,20 +233,25 @@ export function RhythmCalendar({ profile, embedded = false }) {
   return (
     <div className={`rhythm-cal${open ? ' open' : ''}${embedded ? ' rhythm-cal--embedded open' : ''}`}>
       {!embedded && (
-        <div className="rhythm-cal-header" onClick={() => setOpen(o => !o)}>
+        <button
+          type="button"
+          className="rhythm-cal-header"
+          onClick={() => setOpen(o => !o)}
+          aria-expanded={open}
+        >
           <div className="rhythm-cal-titles">
             <div className="rhythm-cal-eyebrow">COLOR RHYTHM CALENDAR</div>
             <div className="rhythm-cal-month">{MONTH_NAMES[viewMonth]} {viewYear}</div>
           </div>
           <div className="rhythm-cal-chevron">{open ? '▲' : '▼'}</div>
-        </div>
+        </button>
       )}
 
       {isExpanded && (
         <div className="rhythm-cal-nav">
-          <button className="rhythm-cal-nav-btn" onClick={prevMonth}>‹</button>
+          <button type="button" className="rhythm-cal-nav-btn" onClick={prevMonth} aria-label="Previous month">‹</button>
           <span className="rhythm-cal-nav-label">{MONTH_NAMES[viewMonth]} {viewYear}</span>
-          <button className="rhythm-cal-nav-btn" onClick={nextMonth}>›</button>
+          <button type="button" className="rhythm-cal-nav-btn" onClick={nextMonth} aria-label="Next month">›</button>
         </div>
       )}
 
@@ -246,15 +265,18 @@ export function RhythmCalendar({ profile, embedded = false }) {
           const zoneLower = cell.zone?.toLowerCase();
           const sign = cell.delta >= 0 ? '+' : '';
           return (
-            <div
+            <button
+              type="button"
               key={cell.dateKey}
               className={`cal-day zc-${zoneLower}${cell.isToday ? ' today' : ''}${selected?.dateKey === cell.dateKey ? ' selected' : ''}`}
               onClick={() => setSelected(cell)}
+              aria-pressed={selected?.dateKey === cell.dateKey}
+              aria-label={`${cell.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}, ${cell.zone}, delta ${sign}${cell.delta}`}
             >
               <span className="day-num">{cell.day}</span>
               {isExpanded && <span className="day-zone">{cell.zone}</span>}
               {isExpanded && <span className="day-delta">{sign}{cell.delta}</span>}
-            </div>
+            </button>
           );
         })}
       </div>

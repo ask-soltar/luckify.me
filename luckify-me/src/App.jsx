@@ -233,10 +233,15 @@ export default function App() {
         </div>
 
         {displayName && (
-          <div className="header-chip" onClick={() => setMenuOpen(true)}>
+          <button
+            type="button"
+            className="header-chip"
+            onClick={() => setMenuOpen(true)}
+            aria-label="Open saved profiles"
+          >
             <div className="header-chip-dot" />
             <span className="header-chip-name">{displayName}</span>
-          </div>
+          </button>
         )}
 
         <button className="hamburger" onClick={() => setMenuOpen(true)} aria-label="Open menu">

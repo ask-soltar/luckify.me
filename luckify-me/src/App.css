@@ -96,9 +96,20 @@
   border-radius: 20px;
   padding: 5px 12px 5px 8px;
   cursor: pointer;
+  appearance: none;
   transition: background 0.2s, border-color 2s ease;
 }
 .header-chip:hover { background: rgba(var(--zone-color, 200,152,42), 0.14); }
+.header-chip:focus-visible,
+.hamburger:focus-visible,
+.zone-hero-location:focus-visible,
+.rhythm-cal-header:focus-visible,
+.menu-profile-item:focus-visible,
+.menu-add-btn:focus-visible,
+.menu-delete-btn:focus-visible {
+  outline: 2px solid rgba(220, 236, 227, 0.9);
+  outline-offset: 2px;
+}
 .header-chip-dot {
   width: 7px; height: 7px; border-radius: 50%;
   background: rgba(var(--zone-color, 200,152,42), 1);
@@ -2924,6 +2935,9 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  padding: 0;
+  border: 0;
+  background: transparent;
   font-family: var(--pip-font-mono);
   font-size: 9px;
   letter-spacing: 0.15em;
@@ -4229,14 +4243,17 @@
 }
 .menu-profile-item {
   position: relative;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 8px;
   padding: 12px 14px;
   cursor: pointer;
+  text-align: left;
   border: 1px solid rgba(184, 214, 194, 0.06);
   border-radius: 16px;
+  appearance: none;
   background: linear-gradient(180deg, rgba(255,255,255,0.015) 0%, rgba(255,255,255,0.005) 100%);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.025);
   transition:
@@ -4320,6 +4337,7 @@
 }
 
 .menu-add-btn {
+  width: calc(100% - 24px);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -4328,6 +4346,7 @@
   border: 1px solid rgba(184, 214, 194, 0.08);
   border-radius: 16px;
   cursor: pointer;
+  appearance: none;
   background: linear-gradient(180deg, rgba(255,255,255,0.016) 0%, rgba(255,255,255,0.005) 100%);
   transition:
     background 0.18s ease,
@@ -4379,10 +4398,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   padding: 14px 16px;
   cursor: pointer;
   user-select: none;
   border-bottom: 1px solid var(--pip-border);
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  background: transparent;
+  text-align: left;
 }
 .rhythm-cal-header:hover { background: rgba(255,255,255,0.02); }
 
@@ -4492,6 +4517,7 @@
   aspect-ratio: 1;
   min-height: 38px;
   cursor: pointer;
+  border: 0;
   transition: transform 0.15s, filter 0.15s, box-shadow 0.15s;
   padding: 2px;
   gap: 1px;
@@ -4867,8 +4893,9 @@
 }
 
 .cal-detail-stats {
-  display: flex;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px 20px;
 }
 .cal-detail-stat { display: flex; flex-direction: column; gap: 2px; }
 .cal-detail-stat-label {
@@ -4914,6 +4941,27 @@
 .cal-detail-close {
   margin-top: 4px;
   align-self: center;
+}
+
+@media (max-width: 640px) {
+  .cal-detail-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 14px;
+  }
+
+  .cat-score-row {
+    display: grid;
+    grid-template-columns: 20px minmax(56px, auto) minmax(0, 1fr) 26px;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cat-score-guide {
+    grid-column: 2 / -1;
+    width: auto;
+    text-align: left;
+    margin-top: 2px;
+  }
 }
 
 /* ══════════════════════════════════════════════════════════════

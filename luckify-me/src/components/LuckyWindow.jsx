@@ -327,9 +327,12 @@ export function LuckyWindow({
           <div className="zone-hero-topbar">
             <div className="zone-hero-topbar-copy">
               <div className="zone-hero-date">{TODAY_LABEL}</div>
-              <div
+              <button
+                type="button"
                 className="zone-hero-location"
                 onClick={() => setEditingLoc(o => !o)}
+                aria-expanded={editingLoc}
+                aria-label="Change current location"
                 title="Change current location"
               >
                 <span className="zone-hero-loc-dot">◎</span>
@@ -337,7 +340,7 @@ export function LuckyWindow({
                   {locationLabel(profile.currentTzId, profile.currentGMT)}
                 </span>
                 <span className="zone-hero-loc-edit">✎</span>
-              </div>
+              </button>
             </div>
 
             {showModeToggle && (
@@ -487,7 +490,12 @@ export function LuckyWindow({
             {!isRevealPresentation && (
               <>
                 <div className="zone-hero-cats">
-                  <button className="zone-hero-cats-toggle" onClick={() => setCatsOpen(o => !o)}>
+                  <button
+                    type="button"
+                    className="zone-hero-cats-toggle"
+                    onClick={() => setCatsOpen(o => !o)}
+                    aria-expanded={catsOpen}
+                  >
                     <span>TODAY'S FREQUENCIES</span>
                     <span className={`zone-hero-cats-chevron${catsOpen ? ' open' : ''}`}>▼</span>
                   </button>

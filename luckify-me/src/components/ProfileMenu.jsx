@@ -2,6 +2,7 @@
  * ProfileMenu — Side drawer for saved profiles
  */
 
+import { useEffect } from 'react';
 import { TITHI_SVGS } from '../constants/tithi.js';
 
 function ProfileAvatar({ result }) {
@@ -21,9 +22,11 @@ function ProfileItem({ profile, isCurrent, onSwitch, onDelete }) {
   const profileName = profile.name || subtitle;
 
   return (
-    <div
+    <button
+      type="button"
       className={`menu-profile-item${isCurrent ? ' current' : ''}`}
       onClick={() => onSwitch(profile.id)}
+      aria-current={isCurrent ? 'true' : undefined}
     >
       <div className="menu-profile-avatar">
         <ProfileAvatar result={profile.result} />
@@ -36,21 +39,39 @@ function ProfileItem({ profile, isCurrent, onSwitch, onDelete }) {
         <span className="menu-profile-type">{subtitle}</span>
       </div>
       <button
+        type="button"
         className="menu-delete-btn"
         onClick={e => { e.stopPropagation(); onDelete(profile.id); }}
+        aria-label={`Delete profile ${profileName}`}
         title="Delete profile"
       >
         ×
       </button>
-    </div>
+    </button>
   );
 }
 
 export function ProfileMenu({ open, profiles, currentProfileId, onSwitch, onDelete, onNew, onClose }) {
+  useEffect(() => {
+    if (!open || typeof window === 'undefined') return undefined;
+
+    function handleKeyDown(event) {
+      if (event.key === 'Escape') onClose();
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [open, onClose]);
+
   return (
     <div className={`menu-overlay${open ? ' open' : ''}`}>
       <div className="menu-backdrop" onClick={onClose} />
-      <div className="menu-drawer">
+      <div
+        className="menu-drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Saved profiles"
+      >
         <div className="menu-header">
           <div className="menu-header-title">&gt; PROFILES</div>
           <div className="menu-header-sub">Saved signal readings</div>
@@ -72,12 +93,16 @@ export function ProfileMenu({ open, profiles, currentProfileId, onSwitch, onDele
           )}
         </div>
 
-        <div className="menu-add-btn" onClick={() => { onNew(); onClose(); }}>
+        <button
+          type="button"
+          className="menu-add-btn"
+          onClick={() => { onNew(); onClose(); }}
+        >
           <span className="menu-add-icon">+</span>
           <span className="menu-add-label">[ NEW PROFILE ]</span>
-        </div>
+        </button>
 
-        <button className="pip-button menu-close-btn" onClick={onClose}>
+        <button type="button" className="pip-button menu-close-btn" onClick={onClose}>
           [ CLOSE ]
         </button>
       </div>
