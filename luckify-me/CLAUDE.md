@@ -1,250 +1,311 @@
-# Luckify Me — React App Reference
+# Luckify Me — Working Reference
 
-**Stack:** React 18 + Vite · `npm run dev` (port 5173) · `npm run build`
-**Repo:** https://github.com/ask-soltar/luckify.me (work in `luckify-me/` subfolder)
+**Repo:** https://github.com/ask-soltar/luckify.me  
+**App folder:** `luckify-me/`  
+**Live app:** `https://luckify-me.pages.dev`  
+**Marketing site:** `https://luckify.me`
 
----
+This file is the fast internal map for the app as it exists now.
 
-## Product Stack
+## What We Are Building
 
-The app layers four identity systems on top of each other:
+The app is a mobile-first profile system that combines:
+- permanent identity systems
+- daily field / rhythm systems
+- experimental operator tools
 
-| Layer | Name | Source |
-|-------|------|--------|
-| Foundation Engine | Core Loadout / Core Configuration | Birth Tithi × Wu Xing Element × Life Path |
-| Play Style | Life's Work | Gene Keys (Life's Work gate) |
-| Power Source | Radiance | Gene Keys (Radiance gate) |
-| Main Quest | Purpose | Gene Keys (Purpose gate) + PURPOSE_GATES content |
-| Passive Traits | Tithi subtypes, Moon, etc. | Tithi, Moon phase |
-| Dimensions IV–V | Gene Keys + Planetary Fix | Calculated from birth chart |
+The current product structure is intentional:
 
-**Foundation Engine is the core layer** and must remain distinct from the others.
+### Permanent layer
+- Core Loadout
+- Passive Skills
+- Decision Engine
 
----
+### Daily layer
+- Active Rhythm
+- Today's decision guidance
+- Monthly rhythm calendar
 
-## Source Layout
+### Experimental layer
+- Command-mode tools
+- prototype modules
+- operator-style system views
 
+The app should feel like:
+- a real mobile app
+- premium and atmospheric
+- symbolic but practical
+- system-based rather than page-based
+
+## Current Navigation Model
+
+There are exactly 3 bottom tabs:
+
+1. `Loadout`
+   - daily-facing tab
+   - currently centered around the Color Rhythm / Active Rhythm module
+
+2. `Engine`
+   - permanent mechanics tab
+   - Core Loadout + Passive Skills + Decision Engine
+
+3. `Cmd`
+   - experimental/operator tab
+   - command-mode core card + experimental tools
+
+Important:
+- do not add competing top-level navigation lightly
+- do not reintroduce redundant mode switches that fight the bottom tabs
+
+## Current Intent By Tab
+
+### Loadout
+
+Purpose:
+- show the user's current daily field
+- help them understand today's rhythm
+- keep the experience compact and readable on mobile
+
+This tab should answer:
+- what field am I in today?
+- what does that mean for me today?
+
+### Engine
+
+Purpose:
+- show stable identity and decision mechanics
+- keep permanent systems separate from daily state
+
+This tab should answer:
+- who am I structurally?
+- how do I naturally decide?
+
+### Cmd
+
+Purpose:
+- hold experimental tools and operator-facing modules
+- act as the sandbox / diagnostic / evolving systems area
+
+This tab should answer:
+- what tools or alternate system views are available?
+
+## Key Files
+
+### App shell / structure
+
+- `src/components/ProfileDisplay.jsx`
+  - bottom-tab app shell
+  - routes between `Loadout`, `Engine`, and `Cmd`
+  - wires together daily, permanent, and experimental modules
+
+### Rhythm / daily system
+
+- `src/components/LuckyWindow.jsx`
+  - Active Rhythm card
+  - daily decision guidance
+  - one-time reveal animation
+  - two-panel rhythm/calendar module
+
+- `src/components/RhythmCalendar.jsx`
+  - monthly rhythm calendar
+  - embedded day detail behavior
+  - month switching and selected-day details
+
+### Foundation / permanent system
+
+- `src/components/CoreConfigCard.jsx`
+  - Foundation Engine card
+  - Human mode + Operator mode rendering
+
+- `src/components/PassiveSkillInlineCarousel.jsx`
+  - inline expanded passive-skill module
+  - now vertical full-width content, despite the older filename
+
+### Profile setup and persistence
+
+- `src/components/ProfileForm.jsx`
+- `src/hooks/useProfileForm.js`
+- `src/hooks/useProfileStorage.js`
+
+### Styling
+
+- `src/App.css`
+  - main app styles
+  - most layout and component styling still lives here
+  - rhythm card sizing, panel behavior, tab shell, and mobile tuning are all controlled here
+
+- `src/index.css`
+  - shared variables and base styles
+
+## Data / Content Sources
+
+### Foundation Engine
+
+- `src/constants/coreConfig.js`
+- `src/constants/foundationHumanModeContent.js`
+
+These define:
+- dynamic identities
+- human-mode content
+- operator-mode content
+- generated profile logic
+
+### Human Design
+
+- `src/utils/humanDesign.js`
+
+This derives:
+- defined channels
+- defined centers
+- type
+- authority
+
+Authority then powers:
+- `src/constants/decisionEngine.js`
+- `src/constants/authorityLoadouts.js`
+- `src/constants/rhythmDecisionSupport.js`
+
+### Rhythm system
+
+- `src/utils/luckyWindow.js`
+- `src/constants/colorRhythm.js`
+- `src/constants/rhythmDecisionSupport.js`
+
+These power:
+- active rhythm
+- monthly calendar
+- daily guidance
+
+## Symbol Systems
+
+### Dynamic glyphs
+
+- `src/components/foundation/foundationGlyphs.tsx`
+- `src/lib/foundation/foundationGlyphRegistry.ts`
+
+Purpose:
+- compact operational identity emblems
+
+### Life Path crests
+
+- `src/components/foundation/lifePathCrests.tsx`
+- `src/lib/foundation/lifePathCrestRegistry.ts`
+
+Purpose:
+- larger destination-oriented insignias
+
+### Trajectory marker
+
+- `src/components/foundation/TrajectoryMarker.jsx`
+
+Purpose:
+- life path number as directional marker
+- element shapes the surrounding treatment
+
+## Current UX Rules
+
+### Permanent vs daily
+
+Keep these distinct:
+- Core Loadout and Decision Engine are permanent
+- Active Rhythm is daily
+
+Do not collapse them into one indistinct card hierarchy unless explicitly intended.
+
+### Mobile-first
+
+The app must behave like an app, not a long webpage.
+
+Especially sensitive:
+- `LuckyWindow`
+- embedded `RhythmCalendar`
+- tab shell height/width behavior
+- panel slider behavior on mobile
+
+### Command mode
+
+`Cmd` is experimental.
+
+It should:
+- feel distinct
+- keep consistent structural typography
+- not hijack the default human-facing experience
+
+## Known Sensitive Areas
+
+### LuckyWindow panel sizing
+
+Common regression types:
+- card too tall on mobile
+- card wider than the other cards
+- calendar selection causing expansion
+- panel slider showing split-screen / both panels at once
+
+When debugging these, check:
+- `ProfileDisplay.jsx`
+- `LuckyWindow.jsx`
+- `RhythmCalendar.jsx`
+- `App.css`
+
+### Deployment confusion
+
+Important distinction:
+- `luckify.me` is not the app
+- `luckify-me.pages.dev` is the app
+
+When verifying live UI changes, always compare against `luckify-me.pages.dev`.
+
+## Current Design Direction
+
+The visual system should be:
+- premium dark
+- symbolic
+- coherent
+- grounded
+- cinematic but restrained
+
+Avoid:
+- accidental dashboard feel
+- overly neon operator styling in human flows
+- extra wrapper panels that make cards feel double-nested
+- letting daily modules outgrow the card rail on mobile
+
+## Development Commands
+
+Run dev:
+
+```bash
+npm run dev
 ```
-src/
-  App.jsx                    — Root: page routing, profile storage wiring
-  App.css                    — All component styles (single file)
-  index.css                  — CSS variables (colors, fonts, zone vars)
-  styles/pip-boy.css         — Shared pip-boy utility classes
 
-  components/
-    ProfileForm.jsx          — Birth date + location input form
-    ProfileDisplay.jsx       — Full profile render — all layers, wires CCE data
-    CoreConfigCard.jsx       — Foundation Engine card (Standard/Operator dual mode)
-    DimensionCard.jsx        — Expandable dimension card (tabs + principles) — Dims IV, V
-    GateContentCard.jsx      — Purpose frame (Gene Keys purpose gate content)
-    LocationInput.jsx        — City autocomplete + manual UTC fallback
-    LuckyWindow.jsx          — Today's BaZi lucky window score strip (Layer 1)
-    RhythmCalendar.jsx       — Monthly color rhythm calendar (Layer 3)
-    ProfileMenu.jsx          — Profile switcher slide-out menu
-    LunarDots.jsx            — Legacy lunar dots (unused, keep for reference)
+Build:
 
-  constants/
-    coreConfig.js            — Foundation Engine V2: 4 tables + generation logic (SEE BELOW)
-    tithi.js                 — TITHI_DATA, TITHI_AXIOMS, TITHI_SVGS, TITHI_NAMES
-    element.js               — ELEMENT_CONFIG, ELEMENT_AXIOMS, CHINESE_ZODIAC
-    lifePath.js              — LP_CONFIG (keys 1–9, 11, 22, 33)
-    blends.js                — BLENDS keyed as 'Element × TithiType' (Foundation blend)
-    colorRhythm.js           — COLOR_RHYTHM (8 zones), TITHI_COLOR_MAP, ZONE_MANTRAS
-    geneKeys.js              — GENE_KEYS[gate] → { shadow, gift, siddhi }
-    purposeGates.js          — PURPOSE_GATES[gate] → { overall, lines } content
-    planetaryFix.js          — PLANETARY_FIX['gate.line'] → { exalt, detriment }
-
-  hooks/
-    useProfileStorage.js     — localStorage profiles list + CRUD
-    useProfileForm.js        — Form state, validation, location handlers
-
-  utils/
-    profileCalculator.js     — calculateProfile(), generateProfileName(), generateId()
-    tithi.js                 — calcTithi(), dateToSerial()
-    element.js               — getChineseZodiac()
-    lifePath.js              — calcLifePath()
-    luckyWindow.js           — calcLuckyWindow(), calcTodayWindow(), colorZoneFromDelta()
-    locationSearch.js        — searchCities() via GeoNames proxy, getOffsetForTZ()
-    geneKeys.js              — calcGeneKeys(), calcAllActivations()
+```bash
+npm run build
 ```
 
----
+Tests:
 
-## Foundation Engine V2 — coreConfig.js
-
-The core of the identity layer. Four tables, 300 modular profiles (25 dynamics × 12 life paths).
-
-### Tables
-
-**TITHI_CCE** (5 rows: nanda / bhadra / jaya / rikta / purna)
-- `functional_name` — displayed in meta line
-- `watchout_fragment`, `best_use_fragment` — used by generation fallbacks
-
-**ELEMENT_CCE** (5 rows: Wood / Fire / Earth / Metal / Water)
-- `functional_name` — displayed in meta line
-- `watchout_fragment`, `best_use_fragment` — used by generation fallbacks
-
-**LP_CCE** (12 rows: 1–9, 11, 22, 33)
-- `outcome` — "Enduring Structures", "Deep Understanding", etc.
-- `lp_tail` — Standard mode reveal tail: "so you can build something that lasts."
-- `directional_vector` — Operator mode diagnostic: "Orients toward…"
-
-**TITHI_ELEM_DYN** (25 rows: keyed as `'tithi:Element'` e.g. `'rikta:Fire'`)
-
-Standard mode fields:
-- `simple_reveal_stem` — continues "You're naturally wired to…"
-- `recognition_line_simple` — "Often this shows up as…"
-- `simple_natural_expression` — "What comes naturally…"
-- `simple_developmental_force` — "What life teaches you…"
-- `simple_pattern_statement` — "How it shows up…"
-
-Operator mode fields:
-- `operator_dynamic_pattern` — "Dynamic Pattern"
-- `recognition_signal_operator` — "Recognition Signal"
-- `operator_natural_expression` — "Natural Expression"
-- `operator_developmental_pressure` — "Developmental Pressure"
-- `operator_emergent_pattern` — "Emergent Pattern"
-
-Shared across modes:
-- `configuration_theme_name` — "The Structural Reformer", etc. (25 unique names)
-- `watch_for` — Watch For override (per dynamic)
-- `best_use` — Best Use override (per dynamic, parsed into 3 beats for display)
-
-### Exported functions
-- `getDynamic(tithi, element)` → TITHI_ELEM_DYN entry or null
-- `generateWatchFor(tithi, element, lifePathNum)` → fallback Watch For string
-- `generateBestUse(tithi, element, lifePathNum)` → fallback Best Use string
-
----
-
-## CoreConfigCard — Dual-Mode UI
-
-**Props:** `icon, tithi, element, dynamic, lifePathNum, watchFor, bestUse`
-
-Where these come from in ProfileDisplay.jsx:
-```js
-const cceT    = TITHI_CCE[type];
-const cceEl   = ELEMENT_CCE[element];
-const cceLp   = LP_CCE[lifePathNum];
-const dynamic = getDynamic(type, element);
-const watchFor = dynamic?.watch_for  || generateWatchFor(type, element, lifePathNum);
-const bestUse  = dynamic?.best_use   || generateBestUse(type, element, lifePathNum);
+```bash
+npm test
 ```
 
-**Top-level STD | OPR toggle** in the card header switches the whole card.
+## Practical Debugging Order
 
-### Standard mode ("CORE LOADOUT")
-1. "You're naturally wired to…" + `simple_reveal_stem` + `lp_tail`
-2. ✦ "Often this shows up as…" + `recognition_line_simple`
-3. "Because of this, you may be drawn to cultivate…" + LP `outcome`
-4. ▼ **Loadout Mechanics** (expandable): 3 simple fields with ①②③ numbers
-5. ⚠ Watch For · 🛠 Best Use (3-beat parsed)
+If something is wrong:
 
-### Operator mode ("CORE CONFIGURATION")
-1. **Dynamic Pattern** — `operator_dynamic_pattern`
-2. **Directional Vector** — `directional_vector` (from LP_CCE)
-3. **Recognition Signal** — `recognition_signal_operator`
-4. "Because of this, you may be drawn to cultivate…" + LP `outcome`
-5. ▼ **Configuration Logic** (expandable): 3 diagnostic fields
-6. ⚠ Watch For · 🛠 Best Use (shared)
+1. Check the structure in `ProfileDisplay.jsx`
+2. Check interaction/state in `LuckyWindow.jsx`
+3. Check embedded calendar behavior in `RhythmCalendar.jsx`
+4. Check actual width/height/overflow rules in `App.css`
+5. Verify the deployed app at `luckify-me.pages.dev`
 
----
+## Main Principle
 
-## ProfileDisplay — Layer Structure
+The product should help the user feel:
+- this is who I am
+- this is how I naturally decide
+- this is what today is doing
+- this is how to work with today
 
-```
-Layer 1: LuckyWindow          — today's BaZi score strip (always visible)
-Layer 2: FoundationSection    — who you are (always visible)
-  └ blend statement           — Element × Tithi blend
-  └ CoreConfigCard            — Foundation Engine (Dims I/II/III)
-  └ DimensionCard (IV)        — Gene Keys (Life's Work, Evolution, Radiance, Purpose)
-  └ DimensionCard (V)         — Planetary Fix (exalted / detriment activations)
-Layer 3: RhythmCalendar       — monthly color rhythm (expandable)
-Layer 4: GateContentCard      — Purpose frame (Gene Keys purpose gate)
-```
-
----
-
-## Key Data Flows
-
-**Profile creation:**
-`ProfileForm` → `useProfileForm.handleSubmit` → `calculateProfile()` → stored via `useProfileStorage.addProfile`
-
-**Gene Keys (always recomputed):**
-`calcGeneKeys({ year, month, day, birthTime, tzOffset })` → `{ lifeWork, evolution, radiance, purpose }` each with `{ gate, line }`
-
-**Planetary Fix:**
-`calcAllActivations(...)` → 24 activations → match against `PLANETARY_FIX['gate.line']` → exalted / detriment
-
-**Lucky window (daily):**
-`calcLuckyWindow({ birthDate, birthTime, birthGMT, eventDate, eventGMT })` → delta → `colorZoneFromDelta()` → zone name
-
-**Calendar:**
-`RhythmCalendar` calls `calcLuckyWindow` for every day in the month using the stored profile.
-
-**Location:**
-`LocationInput` → `searchCities()` → GeoNames proxy (`https://geonames-proxy.luckifyme.workers.dev`) → IANA tz → `getOffsetForTZ()` → DST-aware offset
-
----
-
-## Profile Object Shape
-
-```js
-{
-  id: 'PLY_xxxx',
-  name: 'Element · TithiType',
-  result: {
-    type,           // tithi type: nanda|bhadra|jaya|rikta|purna
-    element,        // Wu Xing: Wood|Fire|Earth|Metal|Water
-    zodiac,         // Chinese zodiac animal
-    lifePathNum,    // 1–9, 11, 22, 33
-    y, mo, dy,      // birth year/month/day
-    birthTime,      // 'HH:MM' string
-    birthGMT,       // numeric UTC offset (birth location)
-    birthTzId,      // IANA tz string
-    currentGMT,     // numeric UTC offset (current location)
-    currentTzId,    // IANA tz string
-  }
-}
-```
-
-Gene Keys and activations are **always recomputed at runtime** from stored birth data — they are not stored in the profile object.
-
----
-
-## Design System
-
-- **Fonts:** `Space Mono` (mono — labels, headers, data) · `DM Sans` (body — descriptions)
-- **Palette:** Dark pip-boy terminal. Primary green `#00FF00`. Operator accents in amber/orange.
-- **CSS vars:** `--pip-font-mono`, `--pip-font-body`, `--pip-bg`, `--pip-text`, `--pip-text-dim`, `--pip-primary` (#00FF00), `--pip-border`
-- **Zone vars:** `--zc-{zone}-bg` + `--zc-{zone}-text` for all 8 zones
-- **Zone classes:** `.zc-pink`, `.zc-orange`, etc.
-- **Element accent vars:** `--el-text`, `--el-accent` — set inline on FoundationSection
-
----
-
-## 8 Color Zones (Lucky Window)
-
-| Zone   | Delta  | Identity         |
-|--------|--------|------------------|
-| Pink   | ≥ +14  | Peak Performance |
-| Orange | ≥ +7   | Prime Flow       |
-| Blue   | ≥ +4   | Sub-Prime        |
-| Yellow | ≥ +2   | Edge             |
-| Green  | ≥ −4   | Survivor         |
-| Purple | ≥ −9   | Identity         |
-| Red    | ≥ −29  | Unstable Swing   |
-| Brown  | < −29  | Luck             |
-
----
-
-## Conventions
-
-- No Sheets, no GAS — pure React + browser APIs
-- localStorage keys: `luckify_profiles`, `luckify_current`
-- Old profiles without location fields get migrated on load in `useProfileStorage`
-- Birth location optional — defaults to UTC+0
-- `calcLuckyWindow` is canonical; `calcTodayWindow` is a thin wrapper for today
-- Gene Keys + activations always recomputed at runtime — never trust stale stored values
-- `dynamic?.watch_for` and `dynamic?.best_use` take priority; `generateWatchFor/BestUse` are fallbacks only
-- Do NOT merge Standard and Operator content — they are always displayed as separate fields
+That hierarchy should stay legible in both the code and the UI.

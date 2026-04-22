@@ -3009,15 +3009,16 @@
 }
 
 .zone-hero-panel-track {
-  display: flex;
-  width: 200%;
+  display: grid;
+  grid-template-columns: repeat(2, 100%);
+  width: 100%;
   transition: transform 280ms ease;
   will-change: transform;
 }
 
 .zone-hero-panel {
-  width: 50%;
-  min-width: 50%;
+  width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 16px;

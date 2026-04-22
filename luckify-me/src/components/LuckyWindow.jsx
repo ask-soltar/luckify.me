@@ -398,7 +398,7 @@ export function LuckyWindow({
       >
         <div
           className={`zone-hero-panel-track${isRevealing ? ' zone-hero-panel-track--revealing' : ''}${isLanding ? ' zone-hero-panel-track--landing' : ''}`}
-          style={{ transform: `translateX(-${(isRevealPresentation ? 0 : activePanel) * 50}%)` }}
+          style={{ transform: `translateX(-${(isRevealPresentation ? 0 : activePanel) * 100}%)` }}
         >
           <section className={`zone-hero-panel zone-hero-panel--today${isRevealing ? ' zone-hero-panel--revealing' : ''}${isLanding ? ' zone-hero-panel--landing' : ''}`} aria-label="Color Rhythm">
             <div className="zone-hero-main">
