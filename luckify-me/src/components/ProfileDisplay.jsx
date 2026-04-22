@@ -572,14 +572,14 @@ export function ProfileDisplay({
           className={`profile-bottom-nav-item${activeTab === 'loadout' ? ' active' : ''}`}
           onClick={() => setActiveTab('loadout')}
         >
-          <span className="profile-bottom-nav-label">Loadout</span>
+          <span className="profile-bottom-nav-label">Engine</span>
         </button>
         <button
           type="button"
           className={`profile-bottom-nav-item${activeTab === 'engine' ? ' active' : ''}`}
           onClick={() => setActiveTab('engine')}
         >
-          <span className="profile-bottom-nav-label">Engine</span>
+          <span className="profile-bottom-nav-label">Loadout</span>
         </button>
         <button
           type="button"
