@@ -500,26 +500,26 @@ export function ProfileDisplay({
             transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
           >
             {activeTab === 'loadout' && (
-              <FoundationSection
-                {...coreCardProps}
-                decisionEngine={decisionEngine}
-                passiveSkillLoadout={passiveSkillLoadout}
-                passiveSkillOpen={passiveSkillOpen}
-                onTogglePassiveSkill={() => setPassiveSkillOpen(open => !open)}
-                mode="human"
-                showDecisionEngine={false}
-                defaultCoreOpen
+              <ActiveRhythmSection
+                profile={profile}
+                profileId={profileId}
+                shouldAnimateRhythmReveal={shouldAnimateRhythmReveal}
+                humanDesign={humanDesign}
+                onLocationChange={onLocationChange}
               />
             )}
 
             {activeTab === 'engine' && (
               <>
-                <ActiveRhythmSection
-                  profile={profile}
-                  profileId={profileId}
-                  shouldAnimateRhythmReveal={shouldAnimateRhythmReveal}
-                  humanDesign={humanDesign}
-                  onLocationChange={onLocationChange}
+                <FoundationSection
+                  {...coreCardProps}
+                  decisionEngine={decisionEngine}
+                  passiveSkillLoadout={passiveSkillLoadout}
+                  passiveSkillOpen={passiveSkillOpen}
+                  onTogglePassiveSkill={() => setPassiveSkillOpen(open => !open)}
+                  mode="human"
+                  showDecisionEngine={false}
+                  defaultCoreOpen
                 />
                 <PassiveSkillsSection
                   decisionEngine={decisionEngine}
