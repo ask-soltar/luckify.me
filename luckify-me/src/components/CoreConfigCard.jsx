@@ -73,8 +73,9 @@ export function CoreConfigCard({
   watchFor,
   bestUse,
   mode = 'human',
+  defaultOpen = false,
 }) {
-  const [open,        setOpen]        = useState(false);
+  const [open,        setOpen]        = useState(defaultOpen);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
   const isOperator = mode === 'operator';

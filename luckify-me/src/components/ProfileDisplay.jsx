@@ -17,7 +17,6 @@ import { LuckyWindow } from './LuckyWindow.jsx';
 import { GateContentCard } from './GateContentCard.jsx';
 import PassiveSkillInlineCarousel from './PassiveSkillInlineCarousel.jsx';
 import { TITHI_CCE, ELEMENT_CCE, LP_CCE, getDynamic, getHumanModeContent, generateWatchFor, generateBestUse } from '../constants/coreConfig.js';
-import { getBlend } from '../constants/blends.js';
 import { GENE_KEYS } from '../constants/geneKeys.js';
 import { PURPOSE_GATES } from '../constants/purposeGates.js';
 import { PLANETARY_FIX } from '../constants/planetaryFix.js';
@@ -38,15 +37,8 @@ const ELEMENT_COLORS = {
 // ── Foundation Section — always visible, element-accented ──
 
 function FoundationSection({
-  blend,
   element,
-  type,
   lifePathNum,
-  birthGMT,
-  birthTime,
-  y,
-  mo,
-  dy,
   cceT,
   cceEl,
   cceLp,
@@ -61,29 +53,12 @@ function FoundationSection({
   mode,
   showCore = true,
   showDecisionEngine = true,
+  defaultCoreOpen = false,
 }) {
   const elColor = ELEMENT_COLORS[element] || { text: 'var(--pip-primary)', accent: 'rgba(200,152,42,0.1)' };
-  const tithiLabel = type.charAt(0).toUpperCase() + type.slice(1);
-
-  // Birth meta line — date + timezone indicator
-  const birthMeta = (() => {
-    if (!y || !mo || !dy) return null;
-    const dateStr = `${String(dy).padStart(2,'0')}/${String(mo).padStart(2,'0')}/${y}`;
-    const timeStr = birthTime && birthTime !== '00:00' ? ` ${birthTime}` : '';
-    const gmt     = birthGMT ?? 0;
-    const sign    = gmt >= 0 ? '+' : '';
-    return `${dateStr}${timeStr} · UTC${sign}${gmt}`;
-  })();
 
   return (
     <div className="foundation-section" style={{ '--el-text': elColor.text, '--el-accent': elColor.accent }}>
-      {/* Blend — always visible */}
-      {blend && (
-        <div className="foundation-blend">
-          <div className="foundation-blend-label">{element} × {tithiLabel}</div>
-          <p className="foundation-blend-body">{blend.statement}</p>
-        </div>
-      )}
       {/* Core Configuration card (Dims I + II + III) */}
       <div className="foundation-dimensions">
         {showCore && (
@@ -99,6 +74,7 @@ function FoundationSection({
             watchFor={watchFor}
             bestUse={bestUse}
             mode={mode}
+            defaultOpen={defaultCoreOpen}
           />
         )}
         {showDecisionEngine && decisionEngine && passiveSkillLoadout && (
@@ -143,9 +119,9 @@ function PassiveSkillsSection({
 
   return (
     <section className="profile-tab-panel profile-tab-panel--engine">
-      <div className="profile-tab-panel-kicker">Passive Skills</div>
+      <div className="profile-tab-panel-kicker">Decision Engine</div>
       <div className="profile-tab-panel-copy">
-        Always-on mechanics that shape how you process choices, pressure, and clarity.
+        Passive skills that shape how your choices move, settle, and become clear.
       </div>
       <div className="foundation-decision-engine-wrap foundation-decision-engine-wrap--human">
         <button
@@ -164,6 +140,72 @@ function PassiveSkillsSection({
           loadout={passiveSkillLoadout}
           open={passiveSkillOpen}
           onToggle={onTogglePassiveSkill}
+        />
+      </div>
+    </section>
+  );
+}
+
+function ActiveRhythmSection({
+  profile,
+  profileId,
+  shouldAnimateRhythmReveal,
+  humanDesign,
+  onLocationChange,
+}) {
+  return (
+    <section className="profile-tab-panel profile-tab-panel--active-rhythm">
+      <div className="profile-tab-panel-kicker">Active Rhythm</div>
+      <div className="profile-tab-panel-copy">
+        Today&apos;s field, guidance, and monthly rhythm map.
+      </div>
+      <div className="profile-tab-rhythm-shell">
+        <LuckyWindow
+          profile={profile}
+          profileId={profileId}
+          shouldAnimateReveal={shouldAnimateRhythmReveal}
+          humanDesign={humanDesign}
+          onLocationChange={onLocationChange}
+          mode="human"
+          presentation="default"
+          showModeToggle={false}
+        />
+      </div>
+    </section>
+  );
+}
+
+function CmdCoreLoadoutSection({
+  element,
+  lifePathNum,
+  cceT,
+  cceEl,
+  cceLp,
+  dynamic,
+  humanModeContent,
+  watchFor,
+  bestUse,
+}) {
+  return (
+    <section className="profile-tab-panel profile-tab-panel--cmd-anchor">
+      <div className="profile-tab-panel-kicker profile-tab-panel-kicker--cmd">Cmd Core Loadout</div>
+      <div className="profile-tab-panel-copy profile-tab-panel-copy--cmd">
+        Structural readout for the current build before entering experimental modules.
+      </div>
+      <div className="profile-tab-cmd-anchor">
+        <CoreConfigCard
+          icon={<span style={{ fontSize: 22, lineHeight: 1 }}>◈</span>}
+          tithi={cceT}
+          element={cceEl}
+          trajectoryElement={element}
+          dynamic={dynamic}
+          humanModeContent={humanModeContent}
+          lifePathNum={cceLp}
+          lifePathValue={lifePathNum}
+          watchFor={watchFor}
+          bestUse={bestUse}
+          mode="operator"
+          defaultOpen
         />
       </div>
     </section>
@@ -254,8 +296,6 @@ export function ProfileDisplay({
   }, [activations]);
   const hasBirthTime = Boolean(birthTime) && birthTime !== '00:00';
 
-  const blend      = getBlend(element, type);
-
   // ── Core Configuration Engine lookups ──────────────
   const cceT       = TITHI_CCE[type];
   const cceEl      = ELEMENT_CCE[element];
@@ -265,6 +305,17 @@ export function ProfileDisplay({
   // Per-entry content takes priority; generated formulas are fallback only
   const watchFor   = humanModeContent?.watchForDrift || humanModeContent?.baseWatchForDrift || dynamic?.watch_for || generateWatchFor(type, element, lifePathNum);
   const bestUse    = humanModeContent?.bestUse || dynamic?.best_use || generateBestUse(type, element, lifePathNum);
+  const coreCardProps = {
+    element,
+    lifePathNum,
+    cceT,
+    cceEl,
+    cceLp,
+    dynamic,
+    humanModeContent,
+    watchFor,
+    bestUse,
+  };
 
   // ── Dimension config array — IV and V only ─────────
   // Dims I/II/III are handled by CoreConfigCard above.
@@ -437,100 +488,85 @@ export function ProfileDisplay({
   ];
 
   return (
-    <div className="profile-page">
+    <div className={`profile-page profile-page--${activeTab}`}>
       <div className="profile-tab-shell">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            className="profile-tab-view"
+            className={`profile-tab-view profile-tab-view--${activeTab}`}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
           >
             {activeTab === 'loadout' && (
-              <>
-                <LuckyWindow
-                  profile={profile}
-                  profileId={profileId}
-                  shouldAnimateReveal={shouldAnimateRhythmReveal}
-                  humanDesign={humanDesign}
-                  onLocationChange={onLocationChange}
-                  mode="human"
-                  presentation="default"
-                  showModeToggle={false}
-                />
-
-                <FoundationSection
-                  blend={blend}
-                  element={element}
-                  type={type}
-                  lifePathNum={lifePathNum}
-                  birthGMT={profile.birthGMT}
-                  birthTime={profile.birthTime}
-                  y={profile.y}
-                  mo={profile.mo}
-                  dy={profile.dy}
-                  cceT={cceT}
-                  cceEl={cceEl}
-                  cceLp={cceLp}
-                  dynamic={dynamic}
-                  humanModeContent={humanModeContent}
-                  watchFor={watchFor}
-                  bestUse={bestUse}
-                  decisionEngine={decisionEngine}
-                  passiveSkillLoadout={passiveSkillLoadout}
-                  passiveSkillOpen={passiveSkillOpen}
-                  onTogglePassiveSkill={() => setPassiveSkillOpen(open => !open)}
-                  mode="human"
-                  showDecisionEngine={false}
-                />
-              </>
-            )}
-
-            {activeTab === 'engine' && (
-              <PassiveSkillsSection
+              <FoundationSection
+                {...coreCardProps}
                 decisionEngine={decisionEngine}
                 passiveSkillLoadout={passiveSkillLoadout}
                 passiveSkillOpen={passiveSkillOpen}
                 onTogglePassiveSkill={() => setPassiveSkillOpen(open => !open)}
+                mode="human"
+                showDecisionEngine={false}
+                defaultCoreOpen
               />
             )}
 
+            {activeTab === 'engine' && (
+              <>
+                <ActiveRhythmSection
+                  profile={profile}
+                  profileId={profileId}
+                  shouldAnimateRhythmReveal={shouldAnimateRhythmReveal}
+                  humanDesign={humanDesign}
+                  onLocationChange={onLocationChange}
+                />
+                <PassiveSkillsSection
+                  decisionEngine={decisionEngine}
+                  passiveSkillLoadout={passiveSkillLoadout}
+                  passiveSkillOpen={passiveSkillOpen}
+                  onTogglePassiveSkill={() => setPassiveSkillOpen(open => !open)}
+                />
+              </>
+            )}
+
             {activeTab === 'cmd' && (
-              <div className="profile-exploration-panel">
-                <div className="profile-exploration-label">Experimental Layer</div>
-                <div className="profile-exploration-copy">
-                  Exploratory tools for play, pattern testing, and live interpretation.
-                </div>
+              <>
+                <CmdCoreLoadoutSection {...coreCardProps} />
+                <div className="profile-exploration-panel profile-exploration-panel--cmd">
+                  <div className="profile-exploration-label">Experimental Layer</div>
+                  <div className="profile-exploration-copy">
+                    Exploratory tools for play, pattern testing, and live interpretation.
+                  </div>
 
-                <div className="profile-exploration-controls">
-                  <button
-                    type="button"
-                    className="profile-exploration-reset"
-                    onClick={() => onResetRhythmReveal?.()}
-                    disabled={!profileId}
-                  >
-                    Reset Rhythm Reveal
-                  </button>
-                </div>
+                  <div className="profile-exploration-controls">
+                    <button
+                      type="button"
+                      className="profile-exploration-reset"
+                      onClick={() => onResetRhythmReveal?.()}
+                      disabled={!profileId}
+                    >
+                      Reset Rhythm Reveal
+                    </button>
+                  </div>
 
-                <div className="profile-exploration-stack">
-                  {dimensions.map(dim => (
-                    <DimensionCard
-                      key={dim.key}
-                      icon={dim.icon}
-                      system={dim.system}
-                      name={dim.name}
-                      axiom={dim.axiom}
-                      tabs={dim.tabs}
-                    />
-                  ))}
-                  {geneKeys?.purpose && (
-                    <GateContentCard profile={profile} geneKeys={geneKeys} />
-                  )}
+                  <div className="profile-exploration-stack">
+                    {dimensions.map(dim => (
+                      <DimensionCard
+                        key={dim.key}
+                        icon={dim.icon}
+                        system={dim.system}
+                        name={dim.name}
+                        axiom={dim.axiom}
+                        tabs={dim.tabs}
+                      />
+                    ))}
+                    {geneKeys?.purpose && (
+                      <GateContentCard profile={profile} geneKeys={geneKeys} />
+                    )}
+                  </div>
                 </div>
-              </div>
+              </>
             )}
           </motion.div>
         </AnimatePresence>
