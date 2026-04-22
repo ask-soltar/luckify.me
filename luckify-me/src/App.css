@@ -639,6 +639,9 @@
   gap: 12px;
   flex: 1;
   min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
 }
 
 .profile-page--loadout .profile-tab-shell {
@@ -648,41 +651,6 @@
 .profile-tab-view--loadout {
   flex: 1;
   min-height: 0;
-}
-
-.profile-loadout-screen {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.profile-page--loadout .foundation-section {
-  flex: 1;
-  justify-content: center;
-  min-height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.profile-page--loadout .foundation-dimensions {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 1;
-  min-height: 0;
-}
-
-.profile-page--loadout .core-config-card--human {
-  max-height: 100%;
-}
-
-.profile-page--engine .profile-tab-view,
-.profile-page--cmd .profile-tab-view {
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  padding-bottom: 8px;
 }
 
 .profile-tab-panel {
@@ -736,6 +704,8 @@
 .profile-tab-rhythm-shell .zone-hero {
   min-height: auto;
   margin: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 .profile-tab-rhythm-shell .zone-hero-panel-shell {
@@ -746,10 +716,6 @@
   .profile-page {
     padding: 14px 12px calc(98px + env(safe-area-inset-bottom, 0px));
     gap: 10px;
-  }
-
-  .profile-loadout-screen {
-    align-items: stretch;
   }
 
   .profile-tab-rhythm-shell {
@@ -769,32 +735,21 @@
   .profile-tab-rhythm-shell .zone-hero {
     width: 100%;
     max-width: 100%;
-    min-height: 0;
-    max-height: calc(100svh - 132px);
-    overflow: hidden;
+    min-height: auto;
     padding: 18px 14px 14px;
     gap: 10px;
   }
 
   .profile-tab-rhythm-shell .zone-hero-panel-shell {
-    flex: 1;
-    min-height: 0;
     display: flex;
   }
 
-  .profile-page--loadout .profile-tab-rhythm-shell .zone-hero {
-    max-height: min(calc(100svh - 132px), 820px);
-  }
-
   .profile-tab-rhythm-shell .zone-hero-panel-track {
-    flex: 1;
-    min-height: 0;
+    width: 100%;
   }
 
   .profile-tab-rhythm-shell .zone-hero-panel {
-    min-height: 0;
-    height: 100%;
-    overflow-y: auto;
+    min-height: 360px;
     padding: 14px 12px 14px;
   }
 
@@ -4394,10 +4349,6 @@
   border-radius: 0;
   background: transparent;
   box-shadow: none;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  height: 100%;
 }
 
 .rhythm-cal-header {
@@ -4506,7 +4457,6 @@
 
 .rhythm-cal--embedded .cal-grid {
   gap: 6px;
-  flex: 0 0 auto;
 }
 
 .cal-day {
@@ -4559,8 +4509,6 @@
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 14px;
   padding: 14px 14px 12px;
-  max-height: min(42svh, 360px);
-  overflow-y: auto;
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.04),
     0 10px 24px rgba(0,0,0,0.18);
@@ -4654,13 +4602,10 @@
   .zone-hero-panel--calendar {
     display: flex;
     flex-direction: column;
-    min-height: 0;
-    overflow: hidden;
   }
 
   .zone-hero-panel--calendar .rhythm-cal--embedded {
-    flex: 1;
-    min-height: 0;
+    width: 100%;
   }
 
   .zone-hero-decision-support {
@@ -4721,7 +4666,6 @@
   }
 
   .cal-detail-inline {
-    max-height: min(34svh, 280px);
     padding: 12px 12px 10px;
   }
 }
