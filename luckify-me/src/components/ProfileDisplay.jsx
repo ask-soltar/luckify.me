@@ -581,20 +581,18 @@ export function ProfileDisplay({
             transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
           >
             {activeTab === 'loadout' && (
-              <>
-                <CommandModeMainQuest gateLine={commandModePurposeGateLine} />
-                <ActiveRhythmSection
-                  profile={profile}
-                  profileId={profileId}
-                  shouldAnimateRhythmReveal={shouldAnimateRhythmReveal}
-                  humanDesign={humanDesign}
-                  onLocationChange={onLocationChange}
-                />
-              </>
+              <ActiveRhythmSection
+                profile={profile}
+                profileId={profileId}
+                shouldAnimateRhythmReveal={shouldAnimateRhythmReveal}
+                humanDesign={humanDesign}
+                onLocationChange={onLocationChange}
+              />
             )}
 
             {activeTab === 'engine' && (
               <>
+                <CommandModeMainQuest gateLine={commandModePurposeGateLine} />
                 <LoadoutCoreModuleSection
                   {...coreCardProps}
                 />
