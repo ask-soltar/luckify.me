@@ -1,12 +1,7 @@
 import { useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
-  buildCommandModeMainQuestModel,
-  COMMAND_MODE_LAYER_PRESENTATION,
   getCommandModeMainQuestModel,
-  getCommandModePerkTree,
-  mainQuest592Seed,
-  perkTree592Mvp,
 } from '../content/commandModeMainQuest.ts';
 import { PerkTreeScreen } from './PerkTreeScreen.jsx';
 
@@ -159,14 +154,9 @@ function QuestDataCard({
 }
 
 export function CommandModeMainQuest({
-  seed = mainQuest592Seed,
-  perkTree = null,
+  gateLine = '59.2',
 }) {
-  const resolvedPerkTree = perkTree || getCommandModePerkTree(seed) || perkTree592Mvp;
-  const gateLine = seed.gateLine || `${seed.gate}.${seed.line}`;
-  const model = gateLine
-    ? getCommandModeMainQuestModel(gateLine)
-    : buildCommandModeMainQuestModel(seed, resolvedPerkTree);
+  const model = getCommandModeMainQuestModel(gateLine);
   const [isMainQuestCollapsed, setIsMainQuestCollapsed] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState(NO_ACTIVE_SECTION);
   const [accordionResetVersion, setAccordionResetVersion] = useState(0);

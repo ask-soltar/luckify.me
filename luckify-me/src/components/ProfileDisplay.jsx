@@ -25,7 +25,6 @@ import { calcGeneKeys, calcAllActivations } from '../utils/geneKeys.js';
 import { deriveHumanDesign } from '../utils/humanDesign.js';
 import { getDecisionEnginePayload } from '../utils/decisionEngine.js';
 import { getAuthorityLoadout } from '../constants/authorityLoadouts.js';
-import { getCommandModeMainQuestEntry } from '../content/commandModeMainQuest.ts';
 import { getMainQuestEntry, mainQuestExample592 } from '../content/mainQuest.ts';
 
 // Element color palette — grounded, permanent, different energy from zone colors
@@ -395,10 +394,9 @@ export function ProfileDisplay({
     if (!geneKeys?.purpose) return mainQuestExample592;
     return getMainQuestEntry(geneKeys.purpose.gate, geneKeys.purpose.line) || mainQuestExample592;
   }, [geneKeys]);
-  const commandModeMainQuestEntry = useMemo(() => {
-    if (!geneKeys?.purpose) return null;
-    return getCommandModeMainQuestEntry(geneKeys.purpose.gate, geneKeys.purpose.line);
-  }, [geneKeys]);
+  const commandModePurposeGateLine = geneKeys?.purpose
+    ? `${geneKeys.purpose.gate}.${geneKeys.purpose.line}`
+    : null;
 
   // ── Dimension config array — IV and V only ─────────
   // Dims I/II/III are handled by CoreConfigCard above.
@@ -615,7 +613,7 @@ export function ProfileDisplay({
                     Exploratory tools for play, pattern testing, and live interpretation.
                   </div>
 
-                  <CommandModeMainQuest seed={commandModeMainQuestEntry || undefined} />
+                  <CommandModeMainQuest gateLine={commandModePurposeGateLine} />
 
                   <div className="profile-exploration-controls">
                     <button
