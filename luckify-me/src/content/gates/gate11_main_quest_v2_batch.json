@@ -1,0 +1,753 @@
+{
+  "gate": 11,
+  "gateName": "Peace",
+  "mainQuestTheme": "Turning images, memories, and inner visions into useful ideas without forcing them into premature certainty.",
+  "mainQuestContent": [
+    {
+      "gate": 11,
+      "line": 1,
+      "gateLine": "11.1",
+      "title": "Foundation of the Image",
+      "hero": {
+        "mainQuest": "Idea Garden",
+        "sourceLine": "Purpose · Design Earth · I Ching 11.1",
+        "questState": "Gathering",
+        "atmosphericSubtitle": "The idea is still a seed. The mind wants to plant it too fast."
+      },
+      "questBrief": {
+        "collapsedPreview": "The image needs a stable place.",
+        "mission": "Hold the first image long enough to see what it is actually carrying.",
+        "fieldPrompt": "Find the idea that keeps returning before it becomes a plan.",
+        "livePrompt": "What image keeps asking for space?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Do not rush the first image.",
+        "whatThisQuestIsAbout": "This quest begins with an image, memory, symbol, or idea before it has structure. The first task is not to explain it, but to give it enough stability to reveal what it wants to become.",
+        "whyThisMattersNow": "Ideas lose power when they are forced into use too early. The foundation protects the image before the mind turns it into content.",
+        "primaryRecognitionTrigger": "You turn the image into a plan before you let it speak.",
+        "livePrompt": "Where are you converting imagination into output too quickly?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "The seed needs containment.",
+        "questTrap": "You harvest the idea before it has roots.",
+        "questAssets": [
+          "image retention",
+          "idea containment",
+          "symbolic patience"
+        ],
+        "frictionSignals": [
+          "forcing meaning too soon",
+          "turning every image into a task",
+          "abandoning ideas that are not immediately useful"
+        ],
+        "livePrompt": "Watch where usefulness interrupts imagination."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Give the image room in the body.",
+        "groundingProtocol": [
+          "soften the eyes",
+          "settle breath into the belly",
+          "release the grip in your hands"
+        ],
+        "somaticShift": "The body stops reaching for output and lets the image stay present.",
+        "bodyCheckPrompt": "Can your belly hold the image without needing to use it?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Hold before shaping.",
+        "questKey": "Receive the image → hold it without use → return only when its meaning stabilizes",
+        "embodiedSignal": "The body feels quiet enough to let the idea remain unfinished.",
+        "ritualPrompt": "Write the image exactly as it appeared, without explaining it.",
+        "alignmentReminder": "A seed image is not a finished message.",
+        "livePrompt": "Let the idea stay alive before making it useful."
+      },
+      "driftPattern": [
+        "forcing ideas into output too early",
+        "discarding images that are not immediately practical"
+      ]
+    },
+    {
+      "gate": 11,
+      "line": 2,
+      "gateLine": "11.2",
+      "title": "Natural Idea Transmission",
+      "hero": {
+        "mainQuest": "Idea Garden",
+        "sourceLine": "Purpose · Design Earth · I Ching 11.2",
+        "questState": "Illuminating",
+        "atmosphericSubtitle": "The idea lands when it is shared before it is overworked."
+      },
+      "questBrief": {
+        "collapsedPreview": "The image wants a clean expression.",
+        "mission": "Let the idea move through simply before polishing it into performance.",
+        "fieldPrompt": "Notice which image already knows how to say itself.",
+        "livePrompt": "What idea becomes clearer when spoken simply?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Let the idea speak cleanly.",
+        "whatThisQuestIsAbout": "This line carries an idea that can move naturally when it is not over-shaped. The image already has a direction; too much editing can flatten the living signal.",
+        "whyThisMattersNow": "The gift is clean transmission. The risk is overworking the idea until it loses its first charge.",
+        "primaryRecognitionTrigger": "You keep polishing the idea until the alive part disappears.",
+        "livePrompt": "Where did the first version have more life than the final one?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Expression dies from overwork.",
+        "questTrap": "You improve the idea until it stops breathing.",
+        "questAssets": [
+          "natural expression",
+          "image clarity",
+          "simple transmission"
+        ],
+        "frictionSignals": [
+          "editing past the original signal",
+          "performing cleverness",
+          "hiding the clean idea behind decoration"
+        ],
+        "livePrompt": "Watch where refinement becomes removal."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let the throat stay open.",
+        "groundingProtocol": [
+          "relax the jaw",
+          "soften the throat",
+          "exhale before speaking"
+        ],
+        "somaticShift": "The body allows expression without squeezing the idea into perfection.",
+        "bodyCheckPrompt": "Does your throat stay open, or tighten around making it sound right?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Speak before overworking.",
+        "questKey": "Catch the clean image → express the simplest version → stop before decoration takes over",
+        "embodiedSignal": "The body feels open when the idea is spoken without being dressed up.",
+        "ritualPrompt": "Say the first true version before editing it.",
+        "alignmentReminder": "The living idea does not need to be made clever.",
+        "livePrompt": "Share the image while it still has breath."
+      },
+      "driftPattern": [
+        "polishing ideas until they lose force",
+        "hiding clarity behind style"
+      ]
+    },
+    {
+      "gate": 11,
+      "line": 3,
+      "gateLine": "11.3",
+      "title": "Idea Through Trial",
+      "hero": {
+        "mainQuest": "Idea Garden",
+        "sourceLine": "Purpose · Design Earth · I Ching 11.3",
+        "questState": "Experimenting",
+        "atmosphericSubtitle": "Some images only reveal themselves after they are tested."
+      },
+      "questBrief": {
+        "collapsedPreview": "The idea changes when tested.",
+        "mission": "Let failed expressions show which part of the idea is real.",
+        "fieldPrompt": "Track what survives after the idea meets reality.",
+        "livePrompt": "What part of the idea keeps surviving the test?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "The idea learns through contact.",
+        "whatThisQuestIsAbout": "This line discovers which images are useful by trying them, revising them, and watching where they break. The image is not wrong because it changes; the change reveals its real shape.",
+        "whyThisMattersNow": "An untested idea can become fantasy. Testing turns imagination into usable insight.",
+        "primaryRecognitionTrigger": "You keep changing the idea, but avoid admitting what failed.",
+        "livePrompt": "Where are you revising without learning?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Testing reveals the real image.",
+        "questTrap": "You call every revision growth instead of naming the miss.",
+        "questAssets": [
+          "idea testing",
+          "adaptive expression",
+          "creative correction"
+        ],
+        "frictionSignals": [
+          "changing direction without review",
+          "repeating the same failed expression",
+          "protecting the idea from honest feedback"
+        ],
+        "livePrompt": "Watch where experimentation becomes avoidance."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let feedback land in the body.",
+        "groundingProtocol": [
+          "lengthen the spine",
+          "release the stomach",
+          "drop the shoulders after feedback"
+        ],
+        "somaticShift": "The body stops defending the idea and starts receiving information.",
+        "bodyCheckPrompt": "Can your stomach stay soft while the idea is corrected?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Revise from evidence.",
+        "questKey": "Test one expression → name what failed → keep only what survives contact",
+        "embodiedSignal": "The body feels clearer after the false part is released.",
+        "ritualPrompt": "Write one thing the test disproved before revising.",
+        "alignmentReminder": "A changed idea is only progress if the lesson is named.",
+        "livePrompt": "Let reality edit the image."
+      },
+      "driftPattern": [
+        "revising without extracting the lesson",
+        "protecting fantasy from feedback"
+      ]
+    },
+    {
+      "gate": 11,
+      "line": 4,
+      "gateLine": "11.4",
+      "title": "Shared Story Field",
+      "hero": {
+        "mainQuest": "Idea Garden",
+        "sourceLine": "Purpose · Design Earth · I Ching 11.4",
+        "questState": "Relating",
+        "atmosphericSubtitle": "Ideas become useful when they can live inside a shared story."
+      },
+      "questBrief": {
+        "collapsedPreview": "The image needs an audience.",
+        "mission": "Place the idea where others can recognize, respond, and add context.",
+        "fieldPrompt": "Find the story that makes the idea shareable.",
+        "livePrompt": "Who needs to see this image?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Make the idea shareable.",
+        "whatThisQuestIsAbout": "This line organizes ideas through relationship, story, and social memory. The image becomes more valuable when it can be received, discussed, and placed inside a shared frame.",
+        "whyThisMattersNow": "Private imagination loops. Shared story turns the image into connection, language, and movement.",
+        "primaryRecognitionTrigger": "You keep the idea private so no one can change the story.",
+        "livePrompt": "Where would the idea improve if it entered conversation?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Stories need response.",
+        "questTrap": "You protect the image until it has no relationship to anyone.",
+        "questAssets": [
+          "story framing",
+          "relational imagination",
+          "shared meaning"
+        ],
+        "frictionSignals": [
+          "withholding the idea too long",
+          "avoiding the audience that could refine it",
+          "confusing privacy with protection"
+        ],
+        "livePrompt": "Watch where isolation makes the idea stale."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Open the chest to response.",
+        "groundingProtocol": [
+          "expand breath across the chest",
+          "relax the tongue",
+          "plant both feet before sharing"
+        ],
+        "somaticShift": "The body becomes available for response without surrendering the image.",
+        "bodyCheckPrompt": "Can your chest stay open while the story changes?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Share before the story hardens.",
+        "questKey": "Name the image → place it in shared language → revise from real response",
+        "embodiedSignal": "The body stays connected while the idea is received by others.",
+        "ritualPrompt": "Share the unfinished story with one trusted person.",
+        "alignmentReminder": "An idea can belong to you and still need response.",
+        "livePrompt": "Let the story meet another mind."
+      },
+      "driftPattern": [
+        "keeping ideas private until they lose relevance",
+        "protecting the story from relational feedback"
+      ]
+    },
+    {
+      "gate": 11,
+      "line": 5,
+      "gateLine": "11.5",
+      "title": "Projected Vision",
+      "hero": {
+        "mainQuest": "Idea Garden",
+        "sourceLine": "Purpose · Design Earth · I Ching 11.5",
+        "questState": "Radiating",
+        "atmosphericSubtitle": "People hear more in your idea than you actually said."
+      },
+      "questBrief": {
+        "collapsedPreview": "The idea attracts projection.",
+        "mission": "Clarify the vision without becoming responsible for every meaning others attach to it.",
+        "fieldPrompt": "Separate the idea from what people want it to mean.",
+        "livePrompt": "Where is your vision being enlarged by others?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Projection gathers around the image.",
+        "whatThisQuestIsAbout": "This line can carry ideas that others amplify, idealize, or turn into a promise. The image becomes influential, but also vulnerable to being misunderstood or overclaimed.",
+        "whyThisMattersNow": "Vision gains power here, but unclear boundaries can turn inspiration into expectation.",
+        "primaryRecognitionTrigger": "You let them build a future from an idea you never promised.",
+        "livePrompt": "Where are others treating your image like a guarantee?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Influence needs clarification.",
+        "questTrap": "You enjoy the projection until it becomes a contract.",
+        "questAssets": [
+          "vision influence",
+          "symbolic leadership",
+          "inspirational clarity"
+        ],
+        "frictionSignals": [
+          "letting others overstate the idea",
+          "avoiding correction because the attention feels useful",
+          "being pulled into promises you did not make"
+        ],
+        "livePrompt": "Watch where admiration turns into expectation."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Anchor the vision in the belly.",
+        "groundingProtocol": [
+          "anchor breath in the belly",
+          "soften the sternum",
+          "slow the first sentence"
+        ],
+        "somaticShift": "The body stops rising into the projection and returns to the actual message.",
+        "bodyCheckPrompt": "Are you speaking the idea, or carrying what they want it to become?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Clarify before projection hardens.",
+        "questKey": "State the vision → mark its limits → correct projection before it becomes expectation",
+        "embodiedSignal": "The body feels centered when the idea is no larger than the truth.",
+        "ritualPrompt": "Name what the idea is not before letting others run with it.",
+        "alignmentReminder": "Inspiration is not consent to be misunderstood.",
+        "livePrompt": "Separate the image from the projection."
+      },
+      "driftPattern": [
+        "letting inspiration become expectation",
+        "accepting projection as validation"
+      ]
+    },
+    {
+      "gate": 11,
+      "line": 6,
+      "gateLine": "11.6",
+      "title": "Idea Beyond Use",
+      "hero": {
+        "mainQuest": "Idea Garden",
+        "sourceLine": "Purpose · Design Earth · I Ching 11.6",
+        "questState": "Distilling",
+        "atmosphericSubtitle": "The image is complete when it no longer needs to become anything."
+      },
+      "questBrief": {
+        "collapsedPreview": "Some ideas are meant to remain seeds.",
+        "mission": "Discern which ideas should be shared, stored, released, or left untouched.",
+        "fieldPrompt": "Notice which image is complete without becoming output.",
+        "livePrompt": "What idea does not need to be used?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Not every image becomes action.",
+        "whatThisQuestIsAbout": "This line stands beyond immediate expression and sees the larger arc of ideas. Some images become stories, some become teachings, and some remain inner reference points rather than public material.",
+        "whyThisMattersNow": "Forcing every idea into use cheapens the inner field. Discernment protects the difference between signal, story, memory, and message.",
+        "primaryRecognitionTrigger": "You call it wasted unless it becomes something visible.",
+        "livePrompt": "Where are you forcing an idea to justify its existence?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Discernment protects the inner field.",
+        "questTrap": "You turn sacred images into content just to prove they mattered.",
+        "questAssets": [
+          "idea discernment",
+          "symbolic maturity",
+          "inner archive"
+        ],
+        "frictionSignals": [
+          "publishing before the idea ripens",
+          "measuring imagination by output",
+          "draining meaning through overuse"
+        ],
+        "livePrompt": "Watch where visibility becomes extraction."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let the image rest inside.",
+        "groundingProtocol": [
+          "relax the back of the neck",
+          "settle breath down the spine",
+          "soften the chest"
+        ],
+        "somaticShift": "The body allows the image to remain inward without treating it as wasted.",
+        "bodyCheckPrompt": "Can your spine hold the idea without sending it outward?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Discern before using.",
+        "questKey": "Receive the image → decide its role → share, store, or release without forcing output",
+        "embodiedSignal": "The body feels complete even when nothing is produced.",
+        "ritualPrompt": "Place the idea in an archive before deciding whether it belongs outside.",
+        "alignmentReminder": "Not every vision is meant to become visible.",
+        "livePrompt": "Let the image choose its form."
+      },
+      "driftPattern": [
+        "forcing every idea into output",
+        "treating unused imagination as waste"
+      ]
+    }
+  ],
+  "perkTrees": [
+    {
+      "id": "perk-tree-11-1-v2",
+      "mainQuestId": "purpose-11-1",
+      "mainQuestName": "Idea Garden",
+      "sourceLine": "Purpose · Design Earth · I Ching 11.1",
+      "questState": "Gathering",
+      "subtitle": "Develop the capacities behind Foundation of the Image.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Idea Garden",
+          "state": "Core",
+          "description": "This path develops the ability to work with images, ideas, and inner visions through foundation of the image.",
+          "effect": "Imagination becomes useful without being forced into premature output.",
+          "developmentCue": "Notice the difference between a living image and a finished message.",
+          "masteryMarker": "You can hold, share, revise, or release an idea without draining its meaning."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Image Retention",
+          "state": "Emerging",
+          "description": "You learn to recognize what kind of image or idea is actually present.",
+          "effect": "Ideas stop being flattened into tasks before their role is known.",
+          "developmentCue": "Identify the image before deciding what it is for.",
+          "masteryMarker": "You can tell the difference between signal, story, memory, and message."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Inner Containment",
+          "state": "Emerging",
+          "description": "The body learns to stay open while the idea is still becoming clear.",
+          "effect": "Expression comes from steadiness instead of pressure to produce.",
+          "developmentCue": "Let the body hold the image before the mind turns it into output.",
+          "masteryMarker": "You remain physically quiet enough for the idea to keep its original signal."
+        },
+        {
+          "branch": "Field",
+          "name": "Idea Foundation",
+          "state": "Emerging",
+          "description": "The idea becomes easier to place when the relational or symbolic field is respected.",
+          "effect": "Images can become language, story, or influence without losing their center.",
+          "developmentCue": "Let the field show whether the idea wants response, privacy, or release.",
+          "masteryMarker": "The idea can meet the world without being distorted by urgency."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Stable Imagination",
+          "state": "Mastery",
+          "description": "The full path matures into stewardship of imagination without extraction.",
+          "effect": "Ideas are used, shared, stored, or released according to their real role.",
+          "developmentCue": "Honor the image before turning it into something visible.",
+          "masteryMarker": "Imagination remains alive because it is not forced to prove itself."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-11-2-v2",
+      "mainQuestId": "purpose-11-2",
+      "mainQuestName": "Idea Garden",
+      "sourceLine": "Purpose · Design Earth · I Ching 11.2",
+      "questState": "Illuminating",
+      "subtitle": "Develop the capacities behind Natural Idea Transmission.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Idea Garden",
+          "state": "Core",
+          "description": "This path develops the ability to work with images, ideas, and inner visions through natural idea transmission.",
+          "effect": "Imagination becomes useful without being forced into premature output.",
+          "developmentCue": "Notice the difference between a living image and a finished message.",
+          "masteryMarker": "You can hold, share, revise, or release an idea without draining its meaning."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Clean Transmission",
+          "state": "Emerging",
+          "description": "You learn to recognize what kind of image or idea is actually present.",
+          "effect": "Ideas stop being flattened into tasks before their role is known.",
+          "developmentCue": "Identify the image before deciding what it is for.",
+          "masteryMarker": "You can tell the difference between signal, story, memory, and message."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Simple Expression",
+          "state": "Emerging",
+          "description": "The body learns to stay open while the idea is still becoming clear.",
+          "effect": "Expression comes from steadiness instead of pressure to produce.",
+          "developmentCue": "Let the body hold the image before the mind turns it into output.",
+          "masteryMarker": "You remain physically quiet enough for the idea to keep its original signal."
+        },
+        {
+          "branch": "Field",
+          "name": "Signal Preservation",
+          "state": "Emerging",
+          "description": "The idea becomes easier to place when the relational or symbolic field is respected.",
+          "effect": "Images can become language, story, or influence without losing their center.",
+          "developmentCue": "Let the field show whether the idea wants response, privacy, or release.",
+          "masteryMarker": "The idea can meet the world without being distorted by urgency."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Alive Idea Sharing",
+          "state": "Mastery",
+          "description": "The full path matures into stewardship of imagination without extraction.",
+          "effect": "Ideas are used, shared, stored, or released according to their real role.",
+          "developmentCue": "Honor the image before turning it into something visible.",
+          "masteryMarker": "Imagination remains alive because it is not forced to prove itself."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-11-3-v2",
+      "mainQuestId": "purpose-11-3",
+      "mainQuestName": "Idea Garden",
+      "sourceLine": "Purpose · Design Earth · I Ching 11.3",
+      "questState": "Experimenting",
+      "subtitle": "Develop the capacities behind Idea Through Trial.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Idea Garden",
+          "state": "Core",
+          "description": "This path develops the ability to work with images, ideas, and inner visions through idea through trial.",
+          "effect": "Imagination becomes useful without being forced into premature output.",
+          "developmentCue": "Notice the difference between a living image and a finished message.",
+          "masteryMarker": "You can hold, share, revise, or release an idea without draining its meaning."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Idea Testing",
+          "state": "Emerging",
+          "description": "You learn to recognize what kind of image or idea is actually present.",
+          "effect": "Ideas stop being flattened into tasks before their role is known.",
+          "developmentCue": "Identify the image before deciding what it is for.",
+          "masteryMarker": "You can tell the difference between signal, story, memory, and message."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Feedback Reception",
+          "state": "Emerging",
+          "description": "The body learns to stay open while the idea is still becoming clear.",
+          "effect": "Expression comes from steadiness instead of pressure to produce.",
+          "developmentCue": "Let the body hold the image before the mind turns it into output.",
+          "masteryMarker": "You remain physically quiet enough for the idea to keep its original signal."
+        },
+        {
+          "branch": "Field",
+          "name": "Creative Correction",
+          "state": "Emerging",
+          "description": "The idea becomes easier to place when the relational or symbolic field is respected.",
+          "effect": "Images can become language, story, or influence without losing their center.",
+          "developmentCue": "Let the field show whether the idea wants response, privacy, or release.",
+          "masteryMarker": "The idea can meet the world without being distorted by urgency."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Reality-Shaped Insight",
+          "state": "Mastery",
+          "description": "The full path matures into stewardship of imagination without extraction.",
+          "effect": "Ideas are used, shared, stored, or released according to their real role.",
+          "developmentCue": "Honor the image before turning it into something visible.",
+          "masteryMarker": "Imagination remains alive because it is not forced to prove itself."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-11-4-v2",
+      "mainQuestId": "purpose-11-4",
+      "mainQuestName": "Idea Garden",
+      "sourceLine": "Purpose · Design Earth · I Ching 11.4",
+      "questState": "Relating",
+      "subtitle": "Develop the capacities behind Shared Story Field.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Idea Garden",
+          "state": "Core",
+          "description": "This path develops the ability to work with images, ideas, and inner visions through shared story field.",
+          "effect": "Imagination becomes useful without being forced into premature output.",
+          "developmentCue": "Notice the difference between a living image and a finished message.",
+          "masteryMarker": "You can hold, share, revise, or release an idea without draining its meaning."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Story Framing",
+          "state": "Emerging",
+          "description": "You learn to recognize what kind of image or idea is actually present.",
+          "effect": "Ideas stop being flattened into tasks before their role is known.",
+          "developmentCue": "Identify the image before deciding what it is for.",
+          "masteryMarker": "You can tell the difference between signal, story, memory, and message."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Relational Meaning",
+          "state": "Emerging",
+          "description": "The body learns to stay open while the idea is still becoming clear.",
+          "effect": "Expression comes from steadiness instead of pressure to produce.",
+          "developmentCue": "Let the body hold the image before the mind turns it into output.",
+          "masteryMarker": "You remain physically quiet enough for the idea to keep its original signal."
+        },
+        {
+          "branch": "Field",
+          "name": "Shared Imagination",
+          "state": "Emerging",
+          "description": "The idea becomes easier to place when the relational or symbolic field is respected.",
+          "effect": "Images can become language, story, or influence without losing their center.",
+          "developmentCue": "Let the field show whether the idea wants response, privacy, or release.",
+          "masteryMarker": "The idea can meet the world without being distorted by urgency."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Communicable Vision",
+          "state": "Mastery",
+          "description": "The full path matures into stewardship of imagination without extraction.",
+          "effect": "Ideas are used, shared, stored, or released according to their real role.",
+          "developmentCue": "Honor the image before turning it into something visible.",
+          "masteryMarker": "Imagination remains alive because it is not forced to prove itself."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-11-5-v2",
+      "mainQuestId": "purpose-11-5",
+      "mainQuestName": "Idea Garden",
+      "sourceLine": "Purpose · Design Earth · I Ching 11.5",
+      "questState": "Radiating",
+      "subtitle": "Develop the capacities behind Projected Vision.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Idea Garden",
+          "state": "Core",
+          "description": "This path develops the ability to work with images, ideas, and inner visions through projected vision.",
+          "effect": "Imagination becomes useful without being forced into premature output.",
+          "developmentCue": "Notice the difference between a living image and a finished message.",
+          "masteryMarker": "You can hold, share, revise, or release an idea without draining its meaning."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Projection Detection",
+          "state": "Emerging",
+          "description": "You learn to recognize what kind of image or idea is actually present.",
+          "effect": "Ideas stop being flattened into tasks before their role is known.",
+          "developmentCue": "Identify the image before deciding what it is for.",
+          "masteryMarker": "You can tell the difference between signal, story, memory, and message."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Vision Boundaries",
+          "state": "Emerging",
+          "description": "The body learns to stay open while the idea is still becoming clear.",
+          "effect": "Expression comes from steadiness instead of pressure to produce.",
+          "developmentCue": "Let the body hold the image before the mind turns it into output.",
+          "masteryMarker": "You remain physically quiet enough for the idea to keep its original signal."
+        },
+        {
+          "branch": "Field",
+          "name": "Inspirational Clarity",
+          "state": "Emerging",
+          "description": "The idea becomes easier to place when the relational or symbolic field is respected.",
+          "effect": "Images can become language, story, or influence without losing their center.",
+          "developmentCue": "Let the field show whether the idea wants response, privacy, or release.",
+          "masteryMarker": "The idea can meet the world without being distorted by urgency."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Responsible Influence",
+          "state": "Mastery",
+          "description": "The full path matures into stewardship of imagination without extraction.",
+          "effect": "Ideas are used, shared, stored, or released according to their real role.",
+          "developmentCue": "Honor the image before turning it into something visible.",
+          "masteryMarker": "Imagination remains alive because it is not forced to prove itself."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-11-6-v2",
+      "mainQuestId": "purpose-11-6",
+      "mainQuestName": "Idea Garden",
+      "sourceLine": "Purpose · Design Earth · I Ching 11.6",
+      "questState": "Distilling",
+      "subtitle": "Develop the capacities behind Idea Beyond Use.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Idea Garden",
+          "state": "Core",
+          "description": "This path develops the ability to work with images, ideas, and inner visions through idea beyond use.",
+          "effect": "Imagination becomes useful without being forced into premature output.",
+          "developmentCue": "Notice the difference between a living image and a finished message.",
+          "masteryMarker": "You can hold, share, revise, or release an idea without draining its meaning."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Idea Discernment",
+          "state": "Emerging",
+          "description": "You learn to recognize what kind of image or idea is actually present.",
+          "effect": "Ideas stop being flattened into tasks before their role is known.",
+          "developmentCue": "Identify the image before deciding what it is for.",
+          "masteryMarker": "You can tell the difference between signal, story, memory, and message."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Inner Archiving",
+          "state": "Emerging",
+          "description": "The body learns to stay open while the idea is still becoming clear.",
+          "effect": "Expression comes from steadiness instead of pressure to produce.",
+          "developmentCue": "Let the body hold the image before the mind turns it into output.",
+          "masteryMarker": "You remain physically quiet enough for the idea to keep its original signal."
+        },
+        {
+          "branch": "Field",
+          "name": "Symbolic Maturity",
+          "state": "Emerging",
+          "description": "The idea becomes easier to place when the relational or symbolic field is respected.",
+          "effect": "Images can become language, story, or influence without losing their center.",
+          "developmentCue": "Let the field show whether the idea wants response, privacy, or release.",
+          "masteryMarker": "The idea can meet the world without being distorted by urgency."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Vision Stewardship",
+          "state": "Mastery",
+          "description": "The full path matures into stewardship of imagination without extraction.",
+          "effect": "Ideas are used, shared, stored, or released according to their real role.",
+          "developmentCue": "Honor the image before turning it into something visible.",
+          "masteryMarker": "Imagination remains alive because it is not forced to prove itself."
+        }
+      ]
+    }
+  ],
+  "qaAudit": {
+    "referenceStandard": "59.2 V2 gold standard",
+    "contentSchema": "MainQuestContentEntryV2 + MainQuestPerkTreeV2",
+    "audits": [
+      {
+        "gateLine": "11.1",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "11.2",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "11.3",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "11.4",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "11.5",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "11.6",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      }
+    ]
+  }
+}

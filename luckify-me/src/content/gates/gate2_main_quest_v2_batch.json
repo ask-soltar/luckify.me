@@ -1,0 +1,753 @@
+{
+  "gate": 2,
+  "gateName": "The Receptive",
+  "mainQuestTheme": "Receiving direction, guidance, and timing without forcing the path, overcorrecting the flow, or losing trust in the body's orientation.",
+  "mainQuestContent": [
+    {
+      "gate": 2,
+      "line": 1,
+      "gateLine": "2.1",
+      "title": "Foundation of Direction",
+      "hero": {
+        "mainQuest": "Directional Receptivity",
+        "sourceLine": "Purpose · Design Earth · I Ching 2.1",
+        "questState": "Orienting",
+        "atmosphericSubtitle": "The path is not visible yet, but the body can feel where not to go."
+      },
+      "questBrief": {
+        "collapsedPreview": "Direction begins as refusal.",
+        "mission": "Trust the first directional signal before the whole path is visible.",
+        "fieldPrompt": "Notice what your body is already steering away from.",
+        "livePrompt": "What direction feels wrong before you know why?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Do not force the map.",
+        "whatThisQuestIsAbout": "This quest begins with orientation before movement. The body senses direction through subtle yes and no signals before the mind can explain the route.",
+        "whyThisMattersNow": "Trying to know the whole path too early overrides the first true guidance. Direction starts by respecting what does not feel correct.",
+        "primaryRecognitionTrigger": "You keep asking for the map because the first no feels too quiet.",
+        "livePrompt": "Where are you ignoring a quiet refusal because it lacks explanation?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "The body knows before the route.",
+        "questTrap": "You treat uncertainty like the absence of guidance.",
+        "questAssets": [
+          "directional sensitivity",
+          "body-led refusal",
+          "orientation patience"
+        ],
+        "frictionSignals": [
+          "moving because nothing is confirmed",
+          "overriding a quiet no",
+          "demanding the full path before respecting the first signal"
+        ],
+        "livePrompt": "Watch where uncertainty makes you abandon orientation."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let the body orient.",
+        "groundingProtocol": [
+          "soften the lower belly",
+          "feel both feet",
+          "release the jaw before choosing"
+        ],
+        "somaticShift": "The body settles into the direction that feels clean before the mind builds a route.",
+        "bodyCheckPrompt": "Do your feet want to move, pause, or turn away?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Respect the first no.",
+        "questKey": "Feel the first refusal → stop forward motion → wait until the next direction appears",
+        "embodiedSignal": "The body feels more stable when it stops forcing movement.",
+        "ritualPrompt": "Name what feels incorrect before deciding what comes next.",
+        "alignmentReminder": "A quiet no is still guidance.",
+        "livePrompt": "Let refusal become orientation."
+      },
+      "driftPattern": [
+        "forcing direction before orientation",
+        "overriding quiet body refusal"
+      ]
+    },
+    {
+      "gate": 2,
+      "line": 2,
+      "gateLine": "2.2",
+      "title": "Natural Alignment",
+      "hero": {
+        "mainQuest": "Directional Receptivity",
+        "sourceLine": "Purpose · Design Earth · I Ching 2.2",
+        "questState": "Receiving",
+        "atmosphericSubtitle": "The right direction opens when you stop trying to manufacture it."
+      },
+      "questBrief": {
+        "collapsedPreview": "Direction appears through ease.",
+        "mission": "Receive the path that is already opening instead of correcting it into a plan.",
+        "fieldPrompt": "Notice where the next step feels available without effort.",
+        "livePrompt": "What direction is already open?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Let the path open.",
+        "whatThisQuestIsAbout": "This line receives direction naturally. The movement is not forced; the path reveals itself through alignment, timing, and an ease that does not need to be justified.",
+        "whyThisMattersNow": "The gift is being carried by the right direction. The risk is interfering because ease feels too simple to trust.",
+        "primaryRecognitionTrigger": "You start fixing the path right when it was already carrying you.",
+        "livePrompt": "Where are you improving what is already aligned?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Ease is directional data.",
+        "questTrap": "You complicate alignment to feel in control.",
+        "questAssets": [
+          "natural receptivity",
+          "path recognition",
+          "timing trust"
+        ],
+        "frictionSignals": [
+          "overcorrecting an open path",
+          "doubting ease",
+          "adding strategy where response is enough"
+        ],
+        "livePrompt": "Watch where control enters after ease appears."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Stay soft in the path.",
+        "groundingProtocol": [
+          "relax the shoulders",
+          "let breath drop into belly",
+          "soften the knees before moving"
+        ],
+        "somaticShift": "The body receives direction without bracing or steering too hard.",
+        "bodyCheckPrompt": "Does your body feel carried, or are you trying to drive?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Follow without overcorrecting.",
+        "questKey": "Notice the open path → take the next step → do not add control until reality asks",
+        "embodiedSignal": "The body feels supported without needing to force momentum.",
+        "ritualPrompt": "Take the obvious next step before designing the whole route.",
+        "alignmentReminder": "Ease can be the proof.",
+        "livePrompt": "Let alignment move before strategy interrupts."
+      },
+      "driftPattern": [
+        "overcorrecting natural alignment",
+        "turning ease into control"
+      ]
+    },
+    {
+      "gate": 2,
+      "line": 3,
+      "gateLine": "2.3",
+      "title": "Direction Through Deviation",
+      "hero": {
+        "mainQuest": "Directional Receptivity",
+        "sourceLine": "Purpose · Design Earth · I Ching 2.3",
+        "questState": "Wandering",
+        "atmosphericSubtitle": "The wrong turns teach the body what alignment actually feels like."
+      },
+      "questBrief": {
+        "collapsedPreview": "Missteps clarify direction.",
+        "mission": "Use wrong turns as feedback instead of proof that guidance failed.",
+        "fieldPrompt": "Track which movement made the body lose orientation.",
+        "livePrompt": "What wrong turn taught you something?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Let misalignment teach you.",
+        "whatThisQuestIsAbout": "This line learns direction through movement, mistake, detour, and correction. The body discovers what alignment is by feeling what throws it off.",
+        "whyThisMattersNow": "A wrong turn becomes useful when it changes the next step. It becomes a loop when the same misalignment keeps being repeated.",
+        "primaryRecognitionTrigger": "You keep calling it exploration after your body already knows it is a detour.",
+        "livePrompt": "Where are you repeating a wrong turn as if it is still discovery?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Detours give feedback.",
+        "questTrap": "You confuse wandering with being guided.",
+        "questAssets": [
+          "course correction",
+          "experiential orientation",
+          "misalignment detection"
+        ],
+        "frictionSignals": [
+          "repeating known detours",
+          "ignoring body feedback",
+          "calling avoidance exploration"
+        ],
+        "livePrompt": "Watch where movement keeps avoiding alignment."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Feel the wrong turn.",
+        "groundingProtocol": [
+          "lengthen the spine",
+          "release the stomach",
+          "pause both feet before continuing"
+        ],
+        "somaticShift": "The body registers misalignment instead of rushing into the next direction.",
+        "bodyCheckPrompt": "Does your stomach settle here, or signal that the path is off?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Correct after the detour.",
+        "questKey": "Take the step → feel the mismatch → change direction before repeating it",
+        "embodiedSignal": "The body feels clearer after admitting the path is off.",
+        "ritualPrompt": "Name what the detour showed before moving again.",
+        "alignmentReminder": "Exploration becomes avoidance when it ignores feedback.",
+        "livePrompt": "Let the wrong turn update the route."
+      },
+      "driftPattern": [
+        "repeating detours after feedback",
+        "calling avoidance exploration"
+      ]
+    },
+    {
+      "gate": 2,
+      "line": 4,
+      "gateLine": "2.4",
+      "title": "Directional Support",
+      "hero": {
+        "mainQuest": "Directional Receptivity",
+        "sourceLine": "Purpose · Design Earth · I Ching 2.4",
+        "questState": "Guiding",
+        "atmosphericSubtitle": "The path becomes clearer when direction is held with others."
+      },
+      "questBrief": {
+        "collapsedPreview": "Direction strengthens through support.",
+        "mission": "Share orientation without forcing others to follow your path.",
+        "fieldPrompt": "Find where guidance needs to become shared language.",
+        "livePrompt": "Who needs the path made visible?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Make direction shareable.",
+        "whatThisQuestIsAbout": "This line works through guidance, support, and relational orientation. The path becomes clearer when direction can be communicated, held, and responded to by others.",
+        "whyThisMattersNow": "Private direction may be correct, but shared movement needs language. Guidance must invite response without becoming control.",
+        "primaryRecognitionTrigger": "You know the direction, then get frustrated that no one can follow what you never made clear.",
+        "livePrompt": "Where are you expecting others to understand an unspoken route?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Guidance needs language.",
+        "questTrap": "You turn orientation into quiet expectation.",
+        "questAssets": [
+          "shared guidance",
+          "relational orientation",
+          "supportive direction"
+        ],
+        "frictionSignals": [
+          "expecting others to follow without explanation",
+          "withholding the route",
+          "confusing guidance with control"
+        ],
+        "livePrompt": "Watch where support becomes silent pressure."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Open before guiding.",
+        "groundingProtocol": [
+          "expand breath across chest",
+          "relax the tongue",
+          "feel both feet before speaking"
+        ],
+        "somaticShift": "The body stays receptive while making direction visible.",
+        "bodyCheckPrompt": "Can your chest stay open while others respond differently?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Invite the path.",
+        "questKey": "Name the direction → make the next step visible → let others choose their response",
+        "embodiedSignal": "The body feels clear without needing to control the whole field.",
+        "ritualPrompt": "Say the next step plainly instead of implying it.",
+        "alignmentReminder": "Guidance lands cleaner when it leaves room for response.",
+        "livePrompt": "Make the route visible without forcing the movement."
+      },
+      "driftPattern": [
+        "expecting others to follow unspoken direction",
+        "turning guidance into control"
+      ]
+    },
+    {
+      "gate": 2,
+      "line": 5,
+      "gateLine": "2.5",
+      "title": "Projected Direction",
+      "hero": {
+        "mainQuest": "Directional Receptivity",
+        "sourceLine": "Purpose · Design Earth · I Ching 2.5",
+        "questState": "Magnetized",
+        "atmosphericSubtitle": "Others project the path onto you before you have chosen it."
+      },
+      "questBrief": {
+        "collapsedPreview": "Direction attracts projection.",
+        "mission": "Separate true guidance from the path others want you to carry.",
+        "fieldPrompt": "Notice where others are treating your direction as their answer.",
+        "livePrompt": "Who is projecting the path onto you?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Projection can hijack direction.",
+        "whatThisQuestIsAbout": "This line can be seen as directional, guiding, or quietly certain. Others may project leadership, purpose, or a path onto you before your own orientation is fully clear.",
+        "whyThisMattersNow": "Projection can turn receptivity into performance. The task is to protect true direction from becoming someone else's expectation.",
+        "primaryRecognitionTrigger": "You start walking the path because they already believed it was yours.",
+        "livePrompt": "Where are you following a direction built from their expectation?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Expectation is not guidance.",
+        "questTrap": "You become the path others need to see.",
+        "questAssets": [
+          "projection awareness",
+          "directional authority",
+          "expectation boundaries"
+        ],
+        "frictionSignals": [
+          "accepting assigned direction",
+          "performing certainty",
+          "leading before orientation is true"
+        ],
+        "livePrompt": "Watch where being trusted turns into being assigned."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Anchor below expectation.",
+        "groundingProtocol": [
+          "anchor breath in belly",
+          "soften the sternum",
+          "relax the back of the neck"
+        ],
+        "somaticShift": "The body returns to its own orientation instead of rising into the projected role.",
+        "bodyCheckPrompt": "Are you following your direction, or wearing theirs?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Refuse assigned direction.",
+        "questKey": "Notice the projection → return to body orientation → decline any path that is not yours",
+        "embodiedSignal": "The body feels centered when the path is not borrowed.",
+        "ritualPrompt": "Say what is actually clear before accepting any role.",
+        "alignmentReminder": "Being seen as directional does not mean the path is yours.",
+        "livePrompt": "Let projection fall away before you move."
+      },
+      "driftPattern": [
+        "accepting projected direction",
+        "performing certainty for others"
+      ]
+    },
+    {
+      "gate": 2,
+      "line": 6,
+      "gateLine": "2.6",
+      "title": "Direction Beyond Movement",
+      "hero": {
+        "mainQuest": "Directional Receptivity",
+        "sourceLine": "Purpose · Design Earth · I Ching 2.6",
+        "questState": "Surrendering",
+        "atmosphericSubtitle": "The deepest guidance may ask for stillness before motion."
+      },
+      "questBrief": {
+        "collapsedPreview": "Stillness can be direction.",
+        "mission": "Discern when the correct path is movement, waiting, refusal, or surrender.",
+        "fieldPrompt": "Notice where not moving is the aligned response.",
+        "livePrompt": "What path opens through stillness?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Do not mistake stillness for failure.",
+        "whatThisQuestIsAbout": "This line sees direction from a wider distance. Sometimes guidance arrives as movement, and sometimes it arrives as waiting, releasing, or refusing to move before the path is ready.",
+        "whyThisMattersNow": "Forcing movement can break alignment. Mature receptivity knows that not moving can be an active form of guidance.",
+        "primaryRecognitionTrigger": "You call it stuck because the right path has not given you movement yet.",
+        "livePrompt": "Where are you judging stillness as failure?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Guidance includes waiting.",
+        "questTrap": "You force motion to avoid surrender.",
+        "questAssets": [
+          "timing discernment",
+          "surrendered orientation",
+          "nonlinear guidance"
+        ],
+        "frictionSignals": [
+          "moving to escape stillness",
+          "forcing direction before timing opens",
+          "treating pause as failure"
+        ],
+        "livePrompt": "Watch where fear of stillness creates false movement."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let the spine wait.",
+        "groundingProtocol": [
+          "lengthen the back of the neck",
+          "settle breath down the spine",
+          "release the chest from urgency"
+        ],
+        "somaticShift": "The body can remain oriented without needing immediate movement.",
+        "bodyCheckPrompt": "Can your spine stay steady while the path remains still?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Wait without collapsing.",
+        "questKey": "Feel the stillness → confirm no clean movement → hold orientation until timing opens",
+        "embodiedSignal": "The body feels receptive, steady, and unforced.",
+        "ritualPrompt": "Name what is not ready before choosing motion.",
+        "alignmentReminder": "Stillness can be guidance, not absence.",
+        "livePrompt": "Let the path open before you move."
+      },
+      "driftPattern": [
+        "forcing movement out of discomfort",
+        "treating stillness as failure"
+      ]
+    }
+  ],
+  "perkTrees": [
+    {
+      "id": "perk-tree-2-1-v2",
+      "mainQuestId": "purpose-2-1",
+      "mainQuestName": "Directional Receptivity",
+      "sourceLine": "Purpose · Design Earth · I Ching 2.1",
+      "questState": "Orienting",
+      "subtitle": "Develop the capacities behind Foundation of Direction.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Directional Receptivity",
+          "state": "Core",
+          "description": "This path develops the ability to receive direction through foundation of direction.",
+          "effect": "Guidance becomes usable when the body can orient without forcing the path.",
+          "developmentCue": "Notice whether direction is arriving through movement, refusal, support, projection, or stillness.",
+          "masteryMarker": "You can follow guidance without manufacturing certainty."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Directional Sensitivity",
+          "state": "Emerging",
+          "description": "You learn to recognize directional signals before the full route is visible.",
+          "effect": "The first true yes, no, pause, or turn becomes easier to trust.",
+          "developmentCue": "Track what the body knows before the mind explains it.",
+          "masteryMarker": "You can separate real orientation from mental map-making."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Body-Led Refusal",
+          "state": "Emerging",
+          "description": "The body learns to stay receptive while direction is still forming.",
+          "effect": "Movement comes from grounded orientation instead of urgency.",
+          "developmentCue": "Let the body settle before choosing the path.",
+          "masteryMarker": "You remain physically steady without needing the whole route."
+        },
+        {
+          "branch": "Field",
+          "name": "Orientation Patience",
+          "state": "Emerging",
+          "description": "The path becomes clearer when direction is held in relationship with timing and response.",
+          "effect": "Guidance can move through the field without turning into control.",
+          "developmentCue": "Watch how the path opens, closes, redirects, or waits.",
+          "masteryMarker": "You can support direction without forcing movement."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Clean First Step",
+          "state": "Mastery",
+          "description": "The full path matures into receptivity that trusts timing without collapsing into passivity.",
+          "effect": "Direction becomes clean because it is received, confirmed, and followed without distortion.",
+          "developmentCue": "Move only when the body, timing, and path align.",
+          "masteryMarker": "You can let life point the way without surrendering your center."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-2-2-v2",
+      "mainQuestId": "purpose-2-2",
+      "mainQuestName": "Directional Receptivity",
+      "sourceLine": "Purpose · Design Earth · I Ching 2.2",
+      "questState": "Receiving",
+      "subtitle": "Develop the capacities behind Natural Alignment.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Directional Receptivity",
+          "state": "Core",
+          "description": "This path develops the ability to receive direction through natural alignment.",
+          "effect": "Guidance becomes usable when the body can orient without forcing the path.",
+          "developmentCue": "Notice whether direction is arriving through movement, refusal, support, projection, or stillness.",
+          "masteryMarker": "You can follow guidance without manufacturing certainty."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Path Recognition",
+          "state": "Emerging",
+          "description": "You learn to recognize directional signals before the full route is visible.",
+          "effect": "The first true yes, no, pause, or turn becomes easier to trust.",
+          "developmentCue": "Track what the body knows before the mind explains it.",
+          "masteryMarker": "You can separate real orientation from mental map-making."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Timing Trust",
+          "state": "Emerging",
+          "description": "The body learns to stay receptive while direction is still forming.",
+          "effect": "Movement comes from grounded orientation instead of urgency.",
+          "developmentCue": "Let the body settle before choosing the path.",
+          "masteryMarker": "You remain physically steady without needing the whole route."
+        },
+        {
+          "branch": "Field",
+          "name": "Effortless Movement",
+          "state": "Emerging",
+          "description": "The path becomes clearer when direction is held in relationship with timing and response.",
+          "effect": "Guidance can move through the field without turning into control.",
+          "developmentCue": "Watch how the path opens, closes, redirects, or waits.",
+          "masteryMarker": "You can support direction without forcing movement."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Natural Alignment",
+          "state": "Mastery",
+          "description": "The full path matures into receptivity that trusts timing without collapsing into passivity.",
+          "effect": "Direction becomes clean because it is received, confirmed, and followed without distortion.",
+          "developmentCue": "Move only when the body, timing, and path align.",
+          "masteryMarker": "You can let life point the way without surrendering your center."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-2-3-v2",
+      "mainQuestId": "purpose-2-3",
+      "mainQuestName": "Directional Receptivity",
+      "sourceLine": "Purpose · Design Earth · I Ching 2.3",
+      "questState": "Wandering",
+      "subtitle": "Develop the capacities behind Direction Through Deviation.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Directional Receptivity",
+          "state": "Core",
+          "description": "This path develops the ability to receive direction through direction through deviation.",
+          "effect": "Guidance becomes usable when the body can orient without forcing the path.",
+          "developmentCue": "Notice whether direction is arriving through movement, refusal, support, projection, or stillness.",
+          "masteryMarker": "You can follow guidance without manufacturing certainty."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Misalignment Detection",
+          "state": "Emerging",
+          "description": "You learn to recognize directional signals before the full route is visible.",
+          "effect": "The first true yes, no, pause, or turn becomes easier to trust.",
+          "developmentCue": "Track what the body knows before the mind explains it.",
+          "masteryMarker": "You can separate real orientation from mental map-making."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Course Correction",
+          "state": "Emerging",
+          "description": "The body learns to stay receptive while direction is still forming.",
+          "effect": "Movement comes from grounded orientation instead of urgency.",
+          "developmentCue": "Let the body settle before choosing the path.",
+          "masteryMarker": "You remain physically steady without needing the whole route."
+        },
+        {
+          "branch": "Field",
+          "name": "Experiential Orientation",
+          "state": "Emerging",
+          "description": "The path becomes clearer when direction is held in relationship with timing and response.",
+          "effect": "Guidance can move through the field without turning into control.",
+          "developmentCue": "Watch how the path opens, closes, redirects, or waits.",
+          "masteryMarker": "You can support direction without forcing movement."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Adaptive Direction",
+          "state": "Mastery",
+          "description": "The full path matures into receptivity that trusts timing without collapsing into passivity.",
+          "effect": "Direction becomes clean because it is received, confirmed, and followed without distortion.",
+          "developmentCue": "Move only when the body, timing, and path align.",
+          "masteryMarker": "You can let life point the way without surrendering your center."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-2-4-v2",
+      "mainQuestId": "purpose-2-4",
+      "mainQuestName": "Directional Receptivity",
+      "sourceLine": "Purpose · Design Earth · I Ching 2.4",
+      "questState": "Guiding",
+      "subtitle": "Develop the capacities behind Directional Support.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Directional Receptivity",
+          "state": "Core",
+          "description": "This path develops the ability to receive direction through directional support.",
+          "effect": "Guidance becomes usable when the body can orient without forcing the path.",
+          "developmentCue": "Notice whether direction is arriving through movement, refusal, support, projection, or stillness.",
+          "masteryMarker": "You can follow guidance without manufacturing certainty."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Shared Guidance",
+          "state": "Emerging",
+          "description": "You learn to recognize directional signals before the full route is visible.",
+          "effect": "The first true yes, no, pause, or turn becomes easier to trust.",
+          "developmentCue": "Track what the body knows before the mind explains it.",
+          "masteryMarker": "You can separate real orientation from mental map-making."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Directional Language",
+          "state": "Emerging",
+          "description": "The body learns to stay receptive while direction is still forming.",
+          "effect": "Movement comes from grounded orientation instead of urgency.",
+          "developmentCue": "Let the body settle before choosing the path.",
+          "masteryMarker": "You remain physically steady without needing the whole route."
+        },
+        {
+          "branch": "Field",
+          "name": "Supportive Orientation",
+          "state": "Emerging",
+          "description": "The path becomes clearer when direction is held in relationship with timing and response.",
+          "effect": "Guidance can move through the field without turning into control.",
+          "developmentCue": "Watch how the path opens, closes, redirects, or waits.",
+          "masteryMarker": "You can support direction without forcing movement."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Responsive Pathholding",
+          "state": "Mastery",
+          "description": "The full path matures into receptivity that trusts timing without collapsing into passivity.",
+          "effect": "Direction becomes clean because it is received, confirmed, and followed without distortion.",
+          "developmentCue": "Move only when the body, timing, and path align.",
+          "masteryMarker": "You can let life point the way without surrendering your center."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-2-5-v2",
+      "mainQuestId": "purpose-2-5",
+      "mainQuestName": "Directional Receptivity",
+      "sourceLine": "Purpose · Design Earth · I Ching 2.5",
+      "questState": "Magnetized",
+      "subtitle": "Develop the capacities behind Projected Direction.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Directional Receptivity",
+          "state": "Core",
+          "description": "This path develops the ability to receive direction through projected direction.",
+          "effect": "Guidance becomes usable when the body can orient without forcing the path.",
+          "developmentCue": "Notice whether direction is arriving through movement, refusal, support, projection, or stillness.",
+          "masteryMarker": "You can follow guidance without manufacturing certainty."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Projection Awareness",
+          "state": "Emerging",
+          "description": "You learn to recognize directional signals before the full route is visible.",
+          "effect": "The first true yes, no, pause, or turn becomes easier to trust.",
+          "developmentCue": "Track what the body knows before the mind explains it.",
+          "masteryMarker": "You can separate real orientation from mental map-making."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Expectation Boundaries",
+          "state": "Emerging",
+          "description": "The body learns to stay receptive while direction is still forming.",
+          "effect": "Movement comes from grounded orientation instead of urgency.",
+          "developmentCue": "Let the body settle before choosing the path.",
+          "masteryMarker": "You remain physically steady without needing the whole route."
+        },
+        {
+          "branch": "Field",
+          "name": "Directional Authority",
+          "state": "Emerging",
+          "description": "The path becomes clearer when direction is held in relationship with timing and response.",
+          "effect": "Guidance can move through the field without turning into control.",
+          "developmentCue": "Watch how the path opens, closes, redirects, or waits.",
+          "masteryMarker": "You can support direction without forcing movement."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Unborrowed Path",
+          "state": "Mastery",
+          "description": "The full path matures into receptivity that trusts timing without collapsing into passivity.",
+          "effect": "Direction becomes clean because it is received, confirmed, and followed without distortion.",
+          "developmentCue": "Move only when the body, timing, and path align.",
+          "masteryMarker": "You can let life point the way without surrendering your center."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-2-6-v2",
+      "mainQuestId": "purpose-2-6",
+      "mainQuestName": "Directional Receptivity",
+      "sourceLine": "Purpose · Design Earth · I Ching 2.6",
+      "questState": "Surrendering",
+      "subtitle": "Develop the capacities behind Direction Beyond Movement.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Directional Receptivity",
+          "state": "Core",
+          "description": "This path develops the ability to receive direction through direction beyond movement.",
+          "effect": "Guidance becomes usable when the body can orient without forcing the path.",
+          "developmentCue": "Notice whether direction is arriving through movement, refusal, support, projection, or stillness.",
+          "masteryMarker": "You can follow guidance without manufacturing certainty."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Timing Discernment",
+          "state": "Emerging",
+          "description": "You learn to recognize directional signals before the full route is visible.",
+          "effect": "The first true yes, no, pause, or turn becomes easier to trust.",
+          "developmentCue": "Track what the body knows before the mind explains it.",
+          "masteryMarker": "You can separate real orientation from mental map-making."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Surrendered Orientation",
+          "state": "Emerging",
+          "description": "The body learns to stay receptive while direction is still forming.",
+          "effect": "Movement comes from grounded orientation instead of urgency.",
+          "developmentCue": "Let the body settle before choosing the path.",
+          "masteryMarker": "You remain physically steady without needing the whole route."
+        },
+        {
+          "branch": "Field",
+          "name": "Stillness Capacity",
+          "state": "Emerging",
+          "description": "The path becomes clearer when direction is held in relationship with timing and response.",
+          "effect": "Guidance can move through the field without turning into control.",
+          "developmentCue": "Watch how the path opens, closes, redirects, or waits.",
+          "masteryMarker": "You can support direction without forcing movement."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Mature Receptivity",
+          "state": "Mastery",
+          "description": "The full path matures into receptivity that trusts timing without collapsing into passivity.",
+          "effect": "Direction becomes clean because it is received, confirmed, and followed without distortion.",
+          "developmentCue": "Move only when the body, timing, and path align.",
+          "masteryMarker": "You can let life point the way without surrendering your center."
+        }
+      ]
+    }
+  ],
+  "qaAudit": {
+    "referenceStandard": "59.2 V2 gold standard",
+    "contentSchema": "MainQuestContentEntryV2 + MainQuestPerkTreeV2",
+    "audits": [
+      {
+        "gateLine": "2.1",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "2.2",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "2.3",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "2.4",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "2.5",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "2.6",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      }
+    ]
+  }
+}

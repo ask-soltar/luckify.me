@@ -1,0 +1,753 @@
+{
+  "gate": 44,
+  "gateName": "Coming to Meet",
+  "mainQuestTheme": "Recognizing recurring relational, instinctive, and collective patterns before old fear turns recognition into control.",
+  "mainQuestContent": [
+    {
+      "gate": 44,
+      "line": 1,
+      "gateLine": "44.1",
+      "title": "Foundational Pattern Recognition",
+      "hero": {
+        "mainQuest": "Pattern Memory",
+        "sourceLine": "Purpose · Design Earth · I Ching 44.1",
+        "questState": "Sensing",
+        "atmosphericSubtitle": "The pattern appears before the proof does."
+      },
+      "questBrief": {
+        "collapsedPreview": "The first signal needs patience.",
+        "mission": "Notice the returning pattern without turning one signal into certainty.",
+        "fieldPrompt": "Find the familiar trace inside the current situation.",
+        "livePrompt": "What feels familiar before you can prove it?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Do not overread the first signal.",
+        "whatThisQuestIsAbout": "This quest begins with instinctive recognition. Something in the field feels familiar, but the first signal is only a trace, not the whole pattern.",
+        "whyThisMattersNow": "Early recognition is powerful when it stays clean. It becomes fear when one familiar detail is treated as a final verdict.",
+        "primaryRecognitionTrigger": "You feel one familiar thing and decide you already know the whole story.",
+        "livePrompt": "Where are you turning recognition into conclusion too fast?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Memory is not proof.",
+        "questTrap": "You confuse familiarity with certainty.",
+        "questAssets": [
+          "first-signal detection",
+          "instinctive memory",
+          "pattern patience"
+        ],
+        "frictionSignals": [
+          "overreading one detail",
+          "reacting to a past pattern too early",
+          "assuming repetition before enough evidence appears"
+        ],
+        "livePrompt": "Watch where the past starts speaking louder than the present."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let the body verify slowly.",
+        "groundingProtocol": [
+          "soften the jaw",
+          "drop breath into belly",
+          "relax the back of the neck"
+        ],
+        "somaticShift": "The body can sense familiarity without bracing against it.",
+        "bodyCheckPrompt": "Is your belly sensing, or already preparing for defense?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Track before naming.",
+        "questKey": "Notice the familiar signal → wait for a second marker → name the pattern only after confirmation",
+        "embodiedSignal": "The body stays alert without tightening into fear.",
+        "ritualPrompt": "Write the first signal down without deciding what it means yet.",
+        "alignmentReminder": "A familiar trace is not the full pattern.",
+        "livePrompt": "Let recognition gather one more marker."
+      },
+      "driftPattern": [
+        "overreading early signals",
+        "reacting to memory before confirmation"
+      ]
+    },
+    {
+      "gate": 44,
+      "line": 2,
+      "gateLine": "44.2",
+      "title": "Natural Instinctive Read",
+      "hero": {
+        "mainQuest": "Pattern Memory",
+        "sourceLine": "Purpose · Design Earth · I Ching 44.2",
+        "questState": "Recognizing",
+        "atmosphericSubtitle": "The body recognizes the pattern before the mind explains it."
+      },
+      "questBrief": {
+        "collapsedPreview": "The read arrives cleanly.",
+        "mission": "Trust the instinctive read without adding fear or performance.",
+        "fieldPrompt": "Notice what your body recognizes before your mind builds a case.",
+        "livePrompt": "What do you know before you explain it?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Let the read stay clean.",
+        "whatThisQuestIsAbout": "This line recognizes patterns naturally. The body catches continuity, motive, or repetition before the mind can explain how it knows.",
+        "whyThisMattersNow": "The gift is clean recognition. The risk is contaminating the read with fear, suspicion, or the need to prove it.",
+        "primaryRecognitionTrigger": "You know the pattern, then start making it sound worse so people believe you.",
+        "livePrompt": "Where does your read get distorted when you try to prove it?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Instinct reads before proof.",
+        "questTrap": "You exaggerate the signal to make the read defensible.",
+        "questAssets": [
+          "natural pattern recognition",
+          "instinctive accuracy",
+          "relational memory"
+        ],
+        "frictionSignals": [
+          "adding suspicion to a clean read",
+          "overexplaining what the body already knows",
+          "turning recognition into warning too fast"
+        ],
+        "livePrompt": "Watch where accuracy becomes intensity."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Keep the instinct quiet.",
+        "groundingProtocol": [
+          "relax the throat",
+          "soften the eyes",
+          "settle breath behind the ribs"
+        ],
+        "somaticShift": "The body keeps the read intact without escalating it.",
+        "bodyCheckPrompt": "Does your throat tighten when you try to convince someone?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Read first, warn later.",
+        "questKey": "Feel the pattern → keep the read clean → speak only what is actually present",
+        "embodiedSignal": "The body feels alert but not alarmed.",
+        "ritualPrompt": "Say the clean observation without adding a prediction.",
+        "alignmentReminder": "Instinct loses accuracy when fear decorates it.",
+        "livePrompt": "Name the pattern without amplifying it."
+      },
+      "driftPattern": [
+        "exaggerating instinct to be believed",
+        "turning recognition into suspicion"
+      ]
+    },
+    {
+      "gate": 44,
+      "line": 3,
+      "gateLine": "44.3",
+      "title": "Pattern Through Encounter",
+      "hero": {
+        "mainQuest": "Pattern Memory",
+        "sourceLine": "Purpose · Design Earth · I Ching 44.3",
+        "questState": "Testing",
+        "atmosphericSubtitle": "The pattern reveals itself through repeated contact."
+      },
+      "questBrief": {
+        "collapsedPreview": "Repeated contact exposes the pattern.",
+        "mission": "Use each encounter to refine the read instead of repeating the same reaction.",
+        "fieldPrompt": "Track what repeats across different interactions.",
+        "livePrompt": "What keeps showing up again?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Let repetition teach you.",
+        "whatThisQuestIsAbout": "This line learns patterns through encounter, mistake, friction, and repetition. The read improves when each contact updates the instinct instead of confirming an old fear.",
+        "whyThisMattersNow": "Repeated patterns are data. Repeated reactions are loops.",
+        "primaryRecognitionTrigger": "You keep meeting the same pattern and acting surprised every time.",
+        "livePrompt": "Where is the lesson repeating because the response has not changed?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Encounters become evidence.",
+        "questTrap": "You repeat the reaction instead of updating the read.",
+        "questAssets": [
+          "pattern testing",
+          "adaptive recognition",
+          "encounter-based learning"
+        ],
+        "frictionSignals": [
+          "entering the same dynamic again",
+          "ignoring what repeated contact revealed",
+          "mistaking repetition for bad luck"
+        ],
+        "livePrompt": "Watch where the pattern is training you and you are not adapting."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Stay present after contact.",
+        "groundingProtocol": [
+          "lengthen the spine",
+          "release the stomach",
+          "exhale before reacting"
+        ],
+        "somaticShift": "The body can register the encounter without snapping into the old response.",
+        "bodyCheckPrompt": "Are you responding to this moment, or to every time it happened before?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Change the response.",
+        "questKey": "Identify the repeat → name the old reaction → choose one different response",
+        "embodiedSignal": "The body feels the familiar pull but does not obey it automatically.",
+        "ritualPrompt": "Before responding, write what pattern this reminds you of.",
+        "alignmentReminder": "Recognition only matters if the response evolves.",
+        "livePrompt": "Let the repeated pattern change your next move."
+      },
+      "driftPattern": [
+        "repeating the same reaction",
+        "calling repeated patterns coincidence"
+      ]
+    },
+    {
+      "gate": 44,
+      "line": 4,
+      "gateLine": "44.4",
+      "title": "Collective Pattern Memory",
+      "hero": {
+        "mainQuest": "Pattern Memory",
+        "sourceLine": "Purpose · Design Earth · I Ching 44.4",
+        "questState": "Relational",
+        "atmosphericSubtitle": "Patterns become clearer when the field confirms them."
+      },
+      "questBrief": {
+        "collapsedPreview": "The field carries the pattern.",
+        "mission": "Name the pattern in a way others can recognize without forcing agreement.",
+        "fieldPrompt": "Find the shared pattern moving through the group.",
+        "livePrompt": "Who else recognizes this dynamic?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Make the pattern shareable.",
+        "whatThisQuestIsAbout": "This line recognizes patterns through groups, relationships, teams, families, or communities. The pattern is not only personal; it lives in the field between people.",
+        "whyThisMattersNow": "Shared recognition can create real change. Forced recognition creates resistance.",
+        "primaryRecognitionTrigger": "You see the group pattern, then carry it alone because naming it feels risky.",
+        "livePrompt": "Where is everyone affected, but no one has named the pattern?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Shared patterns need language.",
+        "questTrap": "You hold the field’s memory without giving it a voice.",
+        "questAssets": [
+          "collective memory",
+          "relational pattern naming",
+          "field awareness"
+        ],
+        "frictionSignals": [
+          "carrying unspoken group history",
+          "hinting instead of naming",
+          "waiting for others to recognize what you already see"
+        ],
+        "livePrompt": "Watch where silence keeps the old pattern running."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Open the chest before naming.",
+        "groundingProtocol": [
+          "expand breath across chest",
+          "relax the tongue",
+          "feel both feet before speaking"
+        ],
+        "somaticShift": "The body stays connected while naming what the field has been avoiding.",
+        "bodyCheckPrompt": "Can your chest stay open while you name the pattern?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Name it without forcing.",
+        "questKey": "Identify the shared pattern → speak one clear observation → let the field respond",
+        "embodiedSignal": "The body stays steady without needing everyone to agree immediately.",
+        "ritualPrompt": "Say what you notice as an observation, not an accusation.",
+        "alignmentReminder": "A pattern named cleanly does not need to be forced.",
+        "livePrompt": "Put the pattern into the room."
+      },
+      "driftPattern": [
+        "carrying group patterns silently",
+        "forcing recognition through pressure"
+      ]
+    },
+    {
+      "gate": 44,
+      "line": 5,
+      "gateLine": "44.5",
+      "title": "Projected Pattern Authority",
+      "hero": {
+        "mainQuest": "Pattern Memory",
+        "sourceLine": "Purpose · Design Earth · I Ching 44.5",
+        "questState": "Influential",
+        "atmosphericSubtitle": "People trust your read before checking whether it is clean."
+      },
+      "questBrief": {
+        "collapsedPreview": "Your read carries influence.",
+        "mission": "Use pattern recognition responsibly when others treat your read as authority.",
+        "fieldPrompt": "Separate what you know from what others want you to know.",
+        "livePrompt": "Who is giving your read too much weight?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Influence requires clean reads.",
+        "whatThisQuestIsAbout": "This line can become trusted for recognizing patterns, motives, or recurring dynamics. Others may project authority onto the read before the evidence is complete.",
+        "whyThisMattersNow": "A strong read can shape decisions. If fear, pride, or projection enters, the pattern becomes distorted through influence.",
+        "primaryRecognitionTrigger": "You let your read sound final because they want certainty.",
+        "livePrompt": "Where are you turning a strong read into a verdict?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Authority can distort instinct.",
+        "questTrap": "You become the pattern judge instead of the pattern reader.",
+        "questAssets": [
+          "responsible recognition",
+          "influence control",
+          "pattern leadership"
+        ],
+        "frictionSignals": [
+          "speaking beyond the evidence",
+          "letting others treat instinct as verdict",
+          "using certainty to hold influence"
+        ],
+        "livePrompt": "Watch where being trusted pressures the read to harden."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Anchor before declaring.",
+        "groundingProtocol": [
+          "anchor breath in belly",
+          "soften the sternum",
+          "slow the first sentence"
+        ],
+        "somaticShift": "The body stops rising into authority and returns to measured recognition.",
+        "bodyCheckPrompt": "Are you reading the pattern, or performing certainty?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "State the limit.",
+        "questKey": "Name the pattern → mark the evidence limit → refuse to turn instinct into verdict",
+        "embodiedSignal": "The body feels grounded when the read stays proportionate.",
+        "ritualPrompt": "Say what is known, then say what is not yet proven.",
+        "alignmentReminder": "A powerful read still needs limits.",
+        "livePrompt": "Keep the read clean enough to be trusted."
+      },
+      "driftPattern": [
+        "turning instinct into verdict",
+        "using certainty to maintain influence"
+      ]
+    },
+    {
+      "gate": 44,
+      "line": 6,
+      "gateLine": "44.6",
+      "title": "Pattern Beyond Reaction",
+      "hero": {
+        "mainQuest": "Pattern Memory",
+        "sourceLine": "Purpose · Design Earth · I Ching 44.6",
+        "questState": "Distilling",
+        "atmosphericSubtitle": "The pattern is old, but the response does not have to be."
+      },
+      "questBrief": {
+        "collapsedPreview": "Recognition matures beyond reaction.",
+        "mission": "Use pattern memory to choose the response instead of repeating fear.",
+        "fieldPrompt": "Notice which old pattern no longer requires the old defense.",
+        "livePrompt": "What can be recognized without reacting?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Do not obey the old fear.",
+        "whatThisQuestIsAbout": "This line sees recurring patterns from a wider distance. It can recognize what has happened before without automatically becoming trapped in the old survival response.",
+        "whyThisMattersNow": "Mature recognition creates choice. Immature recognition reactivates the past.",
+        "primaryRecognitionTrigger": "You call it instinct, but it is the old defense running early.",
+        "livePrompt": "Where are you reacting to memory instead of the present?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Memory needs discernment.",
+        "questTrap": "You protect yourself from a pattern that is not fully here.",
+        "questAssets": [
+          "pattern maturity",
+          "response choice",
+          "instinctive discernment"
+        ],
+        "frictionSignals": [
+          "reacting to echoes",
+          "closing before the pattern confirms",
+          "treating old pain as current evidence"
+        ],
+        "livePrompt": "Watch where memory arrives disguised as present danger."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let the spine choose now.",
+        "groundingProtocol": [
+          "lengthen the back of the neck",
+          "settle breath down the spine",
+          "release the chest from defense"
+        ],
+        "somaticShift": "The body recognizes the echo without collapsing into the old response.",
+        "bodyCheckPrompt": "Can your spine stay present while memory speaks?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Choose beyond the echo.",
+        "questKey": "Recognize the old pattern → confirm the present evidence → respond only to what is real now",
+        "embodiedSignal": "The body feels alert without being hijacked by the past.",
+        "ritualPrompt": "Ask what is actually happening now before reacting.",
+        "alignmentReminder": "Pattern memory is guidance, not command.",
+        "livePrompt": "Respond to the present, not the echo."
+      },
+      "driftPattern": [
+        "reacting to old echoes",
+        "mistaking defense for instinct"
+      ]
+    }
+  ],
+  "perkTrees": [
+    {
+      "id": "perk-tree-44-1-v2",
+      "mainQuestId": "purpose-44-1",
+      "mainQuestName": "Pattern Memory",
+      "sourceLine": "Purpose · Design Earth · I Ching 44.1",
+      "questState": "Sensing",
+      "subtitle": "Develop the capacities behind Foundational Pattern Recognition.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Pattern Memory",
+          "state": "Core",
+          "description": "This path develops the ability to recognize recurring patterns through foundational pattern recognition.",
+          "effect": "Instinctive memory becomes useful when it is verified, proportionate, and acted on cleanly.",
+          "developmentCue": "Notice whether recognition is present-time signal or old fear.",
+          "masteryMarker": "You can recognize patterns without becoming controlled by them."
+        },
+        {
+          "branch": "Awareness",
+          "name": "First-Signal Recognition",
+          "state": "Emerging",
+          "description": "You learn to detect the pattern before it becomes entanglement.",
+          "effect": "Familiar dynamics become visible earlier and with less distortion.",
+          "developmentCue": "Track the first familiar signal without finalizing the story.",
+          "masteryMarker": "You can separate recognition from assumption."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Instinctive Patience",
+          "state": "Emerging",
+          "description": "The body learns to stay present while instinctive memory activates.",
+          "effect": "Recognition no longer automatically becomes defense.",
+          "developmentCue": "Let the body verify the signal before reacting.",
+          "masteryMarker": "You remain physically alert without tightening into old fear."
+        },
+        {
+          "branch": "Field",
+          "name": "Pattern Verification",
+          "state": "Emerging",
+          "description": "The relational field becomes easier to read when the pattern is named cleanly.",
+          "effect": "Old dynamics can be interrupted before they silently run the room.",
+          "developmentCue": "Observe how the pattern moves between people.",
+          "masteryMarker": "You can name the dynamic without taking it over."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Clean Recognition",
+          "state": "Mastery",
+          "description": "The full path matures into pattern recognition that creates choice instead of reaction.",
+          "effect": "The past becomes information rather than command.",
+          "developmentCue": "Respond to the current pattern, not the old echo.",
+          "masteryMarker": "You can meet familiar dynamics without repeating them."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-44-2-v2",
+      "mainQuestId": "purpose-44-2",
+      "mainQuestName": "Pattern Memory",
+      "sourceLine": "Purpose · Design Earth · I Ching 44.2",
+      "questState": "Recognizing",
+      "subtitle": "Develop the capacities behind Natural Instinctive Read.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Pattern Memory",
+          "state": "Core",
+          "description": "This path develops the ability to recognize recurring patterns through natural instinctive read.",
+          "effect": "Instinctive memory becomes useful when it is verified, proportionate, and acted on cleanly.",
+          "developmentCue": "Notice whether recognition is present-time signal or old fear.",
+          "masteryMarker": "You can recognize patterns without becoming controlled by them."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Clean Instinct",
+          "state": "Emerging",
+          "description": "You learn to detect the pattern before it becomes entanglement.",
+          "effect": "Familiar dynamics become visible earlier and with less distortion.",
+          "developmentCue": "Track the first familiar signal without finalizing the story.",
+          "masteryMarker": "You can separate recognition from assumption."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Pattern Accuracy",
+          "state": "Emerging",
+          "description": "The body learns to stay present while instinctive memory activates.",
+          "effect": "Recognition no longer automatically becomes defense.",
+          "developmentCue": "Let the body verify the signal before reacting.",
+          "masteryMarker": "You remain physically alert without tightening into old fear."
+        },
+        {
+          "branch": "Field",
+          "name": "Signal Preservation",
+          "state": "Emerging",
+          "description": "The relational field becomes easier to read when the pattern is named cleanly.",
+          "effect": "Old dynamics can be interrupted before they silently run the room.",
+          "developmentCue": "Observe how the pattern moves between people.",
+          "masteryMarker": "You can name the dynamic without taking it over."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Trusted Recognition",
+          "state": "Mastery",
+          "description": "The full path matures into pattern recognition that creates choice instead of reaction.",
+          "effect": "The past becomes information rather than command.",
+          "developmentCue": "Respond to the current pattern, not the old echo.",
+          "masteryMarker": "You can meet familiar dynamics without repeating them."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-44-3-v2",
+      "mainQuestId": "purpose-44-3",
+      "mainQuestName": "Pattern Memory",
+      "sourceLine": "Purpose · Design Earth · I Ching 44.3",
+      "questState": "Testing",
+      "subtitle": "Develop the capacities behind Pattern Through Encounter.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Pattern Memory",
+          "state": "Core",
+          "description": "This path develops the ability to recognize recurring patterns through pattern through encounter.",
+          "effect": "Instinctive memory becomes useful when it is verified, proportionate, and acted on cleanly.",
+          "developmentCue": "Notice whether recognition is present-time signal or old fear.",
+          "masteryMarker": "You can recognize patterns without becoming controlled by them."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Encounter Tracking",
+          "state": "Emerging",
+          "description": "You learn to detect the pattern before it becomes entanglement.",
+          "effect": "Familiar dynamics become visible earlier and with less distortion.",
+          "developmentCue": "Track the first familiar signal without finalizing the story.",
+          "masteryMarker": "You can separate recognition from assumption."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Reaction Awareness",
+          "state": "Emerging",
+          "description": "The body learns to stay present while instinctive memory activates.",
+          "effect": "Recognition no longer automatically becomes defense.",
+          "developmentCue": "Let the body verify the signal before reacting.",
+          "masteryMarker": "You remain physically alert without tightening into old fear."
+        },
+        {
+          "branch": "Field",
+          "name": "Adaptive Response",
+          "state": "Emerging",
+          "description": "The relational field becomes easier to read when the pattern is named cleanly.",
+          "effect": "Old dynamics can be interrupted before they silently run the room.",
+          "developmentCue": "Observe how the pattern moves between people.",
+          "masteryMarker": "You can name the dynamic without taking it over."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Pattern Learning",
+          "state": "Mastery",
+          "description": "The full path matures into pattern recognition that creates choice instead of reaction.",
+          "effect": "The past becomes information rather than command.",
+          "developmentCue": "Respond to the current pattern, not the old echo.",
+          "masteryMarker": "You can meet familiar dynamics without repeating them."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-44-4-v2",
+      "mainQuestId": "purpose-44-4",
+      "mainQuestName": "Pattern Memory",
+      "sourceLine": "Purpose · Design Earth · I Ching 44.4",
+      "questState": "Relational",
+      "subtitle": "Develop the capacities behind Collective Pattern Memory.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Pattern Memory",
+          "state": "Core",
+          "description": "This path develops the ability to recognize recurring patterns through collective pattern memory.",
+          "effect": "Instinctive memory becomes useful when it is verified, proportionate, and acted on cleanly.",
+          "developmentCue": "Notice whether recognition is present-time signal or old fear.",
+          "masteryMarker": "You can recognize patterns without becoming controlled by them."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Collective Memory",
+          "state": "Emerging",
+          "description": "You learn to detect the pattern before it becomes entanglement.",
+          "effect": "Familiar dynamics become visible earlier and with less distortion.",
+          "developmentCue": "Track the first familiar signal without finalizing the story.",
+          "masteryMarker": "You can separate recognition from assumption."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Pattern Language",
+          "state": "Emerging",
+          "description": "The body learns to stay present while instinctive memory activates.",
+          "effect": "Recognition no longer automatically becomes defense.",
+          "developmentCue": "Let the body verify the signal before reacting.",
+          "masteryMarker": "You remain physically alert without tightening into old fear."
+        },
+        {
+          "branch": "Field",
+          "name": "Field Naming",
+          "state": "Emerging",
+          "description": "The relational field becomes easier to read when the pattern is named cleanly.",
+          "effect": "Old dynamics can be interrupted before they silently run the room.",
+          "developmentCue": "Observe how the pattern moves between people.",
+          "masteryMarker": "You can name the dynamic without taking it over."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Shared Recognition",
+          "state": "Mastery",
+          "description": "The full path matures into pattern recognition that creates choice instead of reaction.",
+          "effect": "The past becomes information rather than command.",
+          "developmentCue": "Respond to the current pattern, not the old echo.",
+          "masteryMarker": "You can meet familiar dynamics without repeating them."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-44-5-v2",
+      "mainQuestId": "purpose-44-5",
+      "mainQuestName": "Pattern Memory",
+      "sourceLine": "Purpose · Design Earth · I Ching 44.5",
+      "questState": "Influential",
+      "subtitle": "Develop the capacities behind Projected Pattern Authority.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Pattern Memory",
+          "state": "Core",
+          "description": "This path develops the ability to recognize recurring patterns through projected pattern authority.",
+          "effect": "Instinctive memory becomes useful when it is verified, proportionate, and acted on cleanly.",
+          "developmentCue": "Notice whether recognition is present-time signal or old fear.",
+          "masteryMarker": "You can recognize patterns without becoming controlled by them."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Evidence Boundaries",
+          "state": "Emerging",
+          "description": "You learn to detect the pattern before it becomes entanglement.",
+          "effect": "Familiar dynamics become visible earlier and with less distortion.",
+          "developmentCue": "Track the first familiar signal without finalizing the story.",
+          "masteryMarker": "You can separate recognition from assumption."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Influence Control",
+          "state": "Emerging",
+          "description": "The body learns to stay present while instinctive memory activates.",
+          "effect": "Recognition no longer automatically becomes defense.",
+          "developmentCue": "Let the body verify the signal before reacting.",
+          "masteryMarker": "You remain physically alert without tightening into old fear."
+        },
+        {
+          "branch": "Field",
+          "name": "Responsible Recognition",
+          "state": "Emerging",
+          "description": "The relational field becomes easier to read when the pattern is named cleanly.",
+          "effect": "Old dynamics can be interrupted before they silently run the room.",
+          "developmentCue": "Observe how the pattern moves between people.",
+          "masteryMarker": "You can name the dynamic without taking it over."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Clean Authority",
+          "state": "Mastery",
+          "description": "The full path matures into pattern recognition that creates choice instead of reaction.",
+          "effect": "The past becomes information rather than command.",
+          "developmentCue": "Respond to the current pattern, not the old echo.",
+          "masteryMarker": "You can meet familiar dynamics without repeating them."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-44-6-v2",
+      "mainQuestId": "purpose-44-6",
+      "mainQuestName": "Pattern Memory",
+      "sourceLine": "Purpose · Design Earth · I Ching 44.6",
+      "questState": "Distilling",
+      "subtitle": "Develop the capacities behind Pattern Beyond Reaction.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Pattern Memory",
+          "state": "Core",
+          "description": "This path develops the ability to recognize recurring patterns through pattern beyond reaction.",
+          "effect": "Instinctive memory becomes useful when it is verified, proportionate, and acted on cleanly.",
+          "developmentCue": "Notice whether recognition is present-time signal or old fear.",
+          "masteryMarker": "You can recognize patterns without becoming controlled by them."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Mature Recognition",
+          "state": "Emerging",
+          "description": "You learn to detect the pattern before it becomes entanglement.",
+          "effect": "Familiar dynamics become visible earlier and with less distortion.",
+          "developmentCue": "Track the first familiar signal without finalizing the story.",
+          "masteryMarker": "You can separate recognition from assumption."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Present Evidence",
+          "state": "Emerging",
+          "description": "The body learns to stay present while instinctive memory activates.",
+          "effect": "Recognition no longer automatically becomes defense.",
+          "developmentCue": "Let the body verify the signal before reacting.",
+          "masteryMarker": "You remain physically alert without tightening into old fear."
+        },
+        {
+          "branch": "Field",
+          "name": "Response Choice",
+          "state": "Emerging",
+          "description": "The relational field becomes easier to read when the pattern is named cleanly.",
+          "effect": "Old dynamics can be interrupted before they silently run the room.",
+          "developmentCue": "Observe how the pattern moves between people.",
+          "masteryMarker": "You can name the dynamic without taking it over."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Pattern Freedom",
+          "state": "Mastery",
+          "description": "The full path matures into pattern recognition that creates choice instead of reaction.",
+          "effect": "The past becomes information rather than command.",
+          "developmentCue": "Respond to the current pattern, not the old echo.",
+          "masteryMarker": "You can meet familiar dynamics without repeating them."
+        }
+      ]
+    }
+  ],
+  "qaAudit": {
+    "referenceStandard": "59.2 V2 gold standard",
+    "contentSchema": "MainQuestContentEntryV2 + MainQuestPerkTreeV2",
+    "audits": [
+      {
+        "gateLine": "44.1",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "44.2",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "44.3",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "44.4",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "44.5",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "44.6",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      }
+    ]
+  }
+}

@@ -1,3 +1,12 @@
+import gate1Data from './gates/gate1_main_quest_v2_batch.json';
+import gate2Data from './gates/gate2_main_quest_v2_batch.json';
+import gate11Data from './gates/gate11_main_quest_v2_batch.json';
+import gate34Data from './gates/gate34_main_quest_v2_batch.json';
+import gate39Data from './gates/gate39_main_quest_v2_batch.json';
+import gate40Data from './gates/gate40_main_quest_v2_batch.json';
+import gate41Data from './gates/gate41_main_quest_v2_batch.json';
+import gate44Data from './gates/gate44_main_quest_v2_batch.json';
+
 export type MainQuestLayerId =
   | 'quest-brief'
   | 'field-briefing'
@@ -2469,6 +2478,15 @@ function mapPerkSeedToTree(
   };
 }
 
+const gate1 = gate1Data as unknown as { mainQuestContent: MainQuestContentEntryV2[]; perkTrees: MainQuestPerkTreeV2[] };
+const gate2 = gate2Data as unknown as { mainQuestContent: MainQuestContentEntryV2[]; perkTrees: MainQuestPerkTreeV2[] };
+const gate11 = gate11Data as unknown as { mainQuestContent: MainQuestContentEntryV2[]; perkTrees: MainQuestPerkTreeV2[] };
+const gate34 = gate34Data as unknown as { mainQuestContent: MainQuestContentEntryV2[]; perkTrees: MainQuestPerkTreeV2[] };
+const gate39 = gate39Data as unknown as { mainQuestContent: MainQuestContentEntryV2[]; perkTrees: MainQuestPerkTreeV2[] };
+const gate40 = gate40Data as unknown as { mainQuestContent: MainQuestContentEntryV2[]; perkTrees: MainQuestPerkTreeV2[] };
+const gate41 = gate41Data as unknown as { mainQuestContent: MainQuestContentEntryV2[]; perkTrees: MainQuestPerkTreeV2[] };
+const gate44 = gate44Data as unknown as { mainQuestContent: MainQuestContentEntryV2[]; perkTrees: MainQuestPerkTreeV2[] };
+
 export const mainQuestV2Registry: Record<string, MainQuestContentEntryV2> = {
   '59.1': mainQuest591V2,
   '59.2': mainQuest592V2,
@@ -2482,6 +2500,54 @@ export const mainQuestV2Registry: Record<string, MainQuestContentEntryV2> = {
   '64.4': mainQuest644V2,
   '64.5': mainQuest645V2,
   '64.6': mainQuest646V2,
+  '1.1': gate1.mainQuestContent[0],
+  '1.2': gate1.mainQuestContent[1],
+  '1.3': gate1.mainQuestContent[2],
+  '1.4': gate1.mainQuestContent[3],
+  '1.5': gate1.mainQuestContent[4],
+  '1.6': gate1.mainQuestContent[5],
+  '2.1': gate2.mainQuestContent[0],
+  '2.2': gate2.mainQuestContent[1],
+  '2.3': gate2.mainQuestContent[2],
+  '2.4': gate2.mainQuestContent[3],
+  '2.5': gate2.mainQuestContent[4],
+  '2.6': gate2.mainQuestContent[5],
+  '11.1': gate11.mainQuestContent[0],
+  '11.2': gate11.mainQuestContent[1],
+  '11.3': gate11.mainQuestContent[2],
+  '11.4': gate11.mainQuestContent[3],
+  '11.5': gate11.mainQuestContent[4],
+  '11.6': gate11.mainQuestContent[5],
+  '34.1': gate34.mainQuestContent[0],
+  '34.2': gate34.mainQuestContent[1],
+  '34.3': gate34.mainQuestContent[2],
+  '34.4': gate34.mainQuestContent[3],
+  '34.5': gate34.mainQuestContent[4],
+  '34.6': gate34.mainQuestContent[5],
+  '39.1': gate39.mainQuestContent[0],
+  '39.2': gate39.mainQuestContent[1],
+  '39.3': gate39.mainQuestContent[2],
+  '39.4': gate39.mainQuestContent[3],
+  '39.5': gate39.mainQuestContent[4],
+  '39.6': gate39.mainQuestContent[5],
+  '40.1': gate40.mainQuestContent[0],
+  '40.2': gate40.mainQuestContent[1],
+  '40.3': gate40.mainQuestContent[2],
+  '40.4': gate40.mainQuestContent[3],
+  '40.5': gate40.mainQuestContent[4],
+  '40.6': gate40.mainQuestContent[5],
+  '41.1': gate41.mainQuestContent[0],
+  '41.2': gate41.mainQuestContent[1],
+  '41.3': gate41.mainQuestContent[2],
+  '41.4': gate41.mainQuestContent[3],
+  '41.5': gate41.mainQuestContent[4],
+  '41.6': gate41.mainQuestContent[5],
+  '44.1': gate44.mainQuestContent[0],
+  '44.2': gate44.mainQuestContent[1],
+  '44.3': gate44.mainQuestContent[2],
+  '44.4': gate44.mainQuestContent[3],
+  '44.5': gate44.mainQuestContent[4],
+  '44.6': gate44.mainQuestContent[5],
 };
 
 export const perkTreeV2Registry: Record<string, MainQuestPerkTreeV2> = {
@@ -2497,6 +2563,54 @@ export const perkTreeV2Registry: Record<string, MainQuestPerkTreeV2> = {
   '64.4': perkTree644V2,
   '64.5': perkTree645V2,
   '64.6': perkTree646V2,
+  '1.1': gate1.perkTrees[0],
+  '1.2': gate1.perkTrees[1],
+  '1.3': gate1.perkTrees[2],
+  '1.4': gate1.perkTrees[3],
+  '1.5': gate1.perkTrees[4],
+  '1.6': gate1.perkTrees[5],
+  '2.1': gate2.perkTrees[0],
+  '2.2': gate2.perkTrees[1],
+  '2.3': gate2.perkTrees[2],
+  '2.4': gate2.perkTrees[3],
+  '2.5': gate2.perkTrees[4],
+  '2.6': gate2.perkTrees[5],
+  '11.1': gate11.perkTrees[0],
+  '11.2': gate11.perkTrees[1],
+  '11.3': gate11.perkTrees[2],
+  '11.4': gate11.perkTrees[3],
+  '11.5': gate11.perkTrees[4],
+  '11.6': gate11.perkTrees[5],
+  '34.1': gate34.perkTrees[0],
+  '34.2': gate34.perkTrees[1],
+  '34.3': gate34.perkTrees[2],
+  '34.4': gate34.perkTrees[3],
+  '34.5': gate34.perkTrees[4],
+  '34.6': gate34.perkTrees[5],
+  '39.1': gate39.perkTrees[0],
+  '39.2': gate39.perkTrees[1],
+  '39.3': gate39.perkTrees[2],
+  '39.4': gate39.perkTrees[3],
+  '39.5': gate39.perkTrees[4],
+  '39.6': gate39.perkTrees[5],
+  '40.1': gate40.perkTrees[0],
+  '40.2': gate40.perkTrees[1],
+  '40.3': gate40.perkTrees[2],
+  '40.4': gate40.perkTrees[3],
+  '40.5': gate40.perkTrees[4],
+  '40.6': gate40.perkTrees[5],
+  '41.1': gate41.perkTrees[0],
+  '41.2': gate41.perkTrees[1],
+  '41.3': gate41.perkTrees[2],
+  '41.4': gate41.perkTrees[3],
+  '41.5': gate41.perkTrees[4],
+  '41.6': gate41.perkTrees[5],
+  '44.1': gate44.perkTrees[0],
+  '44.2': gate44.perkTrees[1],
+  '44.3': gate44.perkTrees[2],
+  '44.4': gate44.perkTrees[3],
+  '44.5': gate44.perkTrees[4],
+  '44.6': gate44.perkTrees[5],
 };
 
 export const COMMAND_MODE_MAIN_QUEST_ENTRIES: MainQuestContentEntry[] = gate59MainQuestContent.map(

@@ -1,0 +1,753 @@
+{
+  "gate": 40,
+  "gateName": "Deliverance",
+  "mainQuestTheme": "Restoring clean exchange by ending overgiving, false obligation, and unspoken bargains.",
+  "mainQuestContent": [
+    {
+      "gate": 40,
+      "line": 1,
+      "gateLine": "40.1",
+      "title": "Foundation of Clean Exchange",
+      "hero": {
+        "mainQuest": "Restored Exchange",
+        "sourceLine": "Purpose · Design Earth · I Ching 40.1",
+        "questState": "Withdrawing",
+        "atmosphericSubtitle": "The bargain cannot hold if your body already knows it is uneven."
+      },
+      "questBrief": {
+        "collapsedPreview": "The exchange must be named first.",
+        "mission": "Clarify what is actually being asked before you agree to carry it.",
+        "fieldPrompt": "Find the hidden bargain underneath the request.",
+        "livePrompt": "What are you agreeing to before it is spoken?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Start by naming the bargain.",
+        "whatThisQuestIsAbout": "This quest begins at the foundation of exchange. Something is being asked, offered, expected, or assumed, and the first task is to identify the terms before energy is committed.",
+        "whyThisMattersNow": "Unclear terms become resentment later. Clean exchange starts before the promise is made.",
+        "primaryRecognitionTrigger": "You say yes before anyone has said what it will cost you.",
+        "livePrompt": "Where is the request still unnamed?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Hidden terms create exhaustion.",
+        "questTrap": "You treat assumption like agreement.",
+        "questAssets": [
+          "boundary detection",
+          "exchange awareness",
+          "foundational discernment"
+        ],
+        "frictionSignals": [
+          "agreeing before terms are clear",
+          "feeling responsible for unspoken needs",
+          "resenting a bargain you never named"
+        ],
+        "livePrompt": "Watch where obligation enters before consent."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let the belly answer first.",
+        "groundingProtocol": [
+          "soften the jaw",
+          "drop breath into belly",
+          "release the shoulders before responding"
+        ],
+        "somaticShift": "The body stops preparing to carry what has not been clearly requested.",
+        "bodyCheckPrompt": "Does your belly stay open, or tighten before you answer?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Clarify before committing.",
+        "questKey": "Name the request → ask for the terms → refuse agreement until the exchange is clear",
+        "embodiedSignal": "The body feels steadier when the bargain is spoken plainly.",
+        "ritualPrompt": "Ask one direct question before offering support.",
+        "alignmentReminder": "An unclear request is not a clean agreement.",
+        "livePrompt": "Make the hidden terms visible before saying yes."
+      },
+      "driftPattern": [
+        "accepting unspoken obligations",
+        "building resentment from unclear agreements"
+      ]
+    },
+    {
+      "gate": 40,
+      "line": 2,
+      "gateLine": "40.2",
+      "title": "Natural Refusal",
+      "hero": {
+        "mainQuest": "Restored Exchange",
+        "sourceLine": "Purpose · Design Earth · I Ching 40.2",
+        "questState": "Separating",
+        "atmosphericSubtitle": "The body knows when the exchange is not yours to carry."
+      },
+      "questBrief": {
+        "collapsedPreview": "The clean no arrives early.",
+        "mission": "Trust the first refusal before guilt turns it into negotiation.",
+        "fieldPrompt": "Notice where your body has already stepped back.",
+        "livePrompt": "Where is your no already present?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Let refusal stay clean.",
+        "whatThisQuestIsAbout": "This line recognizes when an exchange is not correct without needing a long explanation. The signal is simple, physical, and easy to override when guilt enters.",
+        "whyThisMattersNow": "A delayed no becomes a messy yes. The cleanest boundary is often the first one.",
+        "primaryRecognitionTrigger": "You already know it is a no, then start bargaining with yourself.",
+        "livePrompt": "Where are you negotiating against your first refusal?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Guilt clouds the boundary.",
+        "questTrap": "You explain until your no loses shape.",
+        "questAssets": [
+          "clean refusal",
+          "body-led boundaries",
+          "early exchange detection"
+        ],
+        "frictionSignals": [
+          "softening a clear no",
+          "justifying your refusal too much",
+          "turning guilt into agreement"
+        ],
+        "livePrompt": "Watch where explanation weakens the boundary."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Keep the no in the body.",
+        "groundingProtocol": [
+          "relax the throat",
+          "settle weight into the hips",
+          "keep the chest broad while saying no"
+        ],
+        "somaticShift": "The body stays separate without collapsing into apology.",
+        "bodyCheckPrompt": "Can your chest stay open without offering an excuse?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Say no before negotiating.",
+        "questKey": "Feel the refusal → say it plainly → do not trade it for approval",
+        "embodiedSignal": "The body feels clear before the mind starts defending the boundary.",
+        "ritualPrompt": "Use one sentence and stop speaking.",
+        "alignmentReminder": "A clean no does not need a performance.",
+        "livePrompt": "Let the first refusal be enough."
+      },
+      "driftPattern": [
+        "turning no into explanation",
+        "trading boundaries for approval"
+      ]
+    },
+    {
+      "gate": 40,
+      "line": 3,
+      "gateLine": "40.3",
+      "title": "Bargain Through Friction",
+      "hero": {
+        "mainQuest": "Restored Exchange",
+        "sourceLine": "Purpose · Design Earth · I Ching 40.3",
+        "questState": "Testing",
+        "atmosphericSubtitle": "The exchange breaks where the terms were never real."
+      },
+      "questBrief": {
+        "collapsedPreview": "Bad agreements reveal themselves fast.",
+        "mission": "Use the breakdown to expose which part of the exchange was false.",
+        "fieldPrompt": "Track what keeps becoming unfair after the agreement begins.",
+        "livePrompt": "What part of the bargain keeps failing?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "The failed bargain is data.",
+        "whatThisQuestIsAbout": "This line learns exchange through trial, mistake, mismatch, and renegotiation. Agreements can break because the real cost was hidden, underestimated, or ignored.",
+        "whyThisMattersNow": "The friction is not random. It reveals where the exchange was built on unstable terms.",
+        "primaryRecognitionTrigger": "You keep renegotiating after your body already knows the deal is wrong.",
+        "livePrompt": "Where has the same bargain failed more than once?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Friction exposes false terms.",
+        "questTrap": "You call it compromise while abandoning the actual cost.",
+        "questAssets": [
+          "agreement testing",
+          "renegotiation skill",
+          "cost recognition"
+        ],
+        "frictionSignals": [
+          "accepting uneven revisions",
+          "calling exhaustion flexibility",
+          "staying in a bargain that keeps breaking"
+        ],
+        "livePrompt": "Watch where compromise becomes self-erasure."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Return to the actual cost.",
+        "groundingProtocol": [
+          "press feet into the floor",
+          "release tension in the lower back",
+          "exhale before answering again"
+        ],
+        "somaticShift": "The body stops scrambling to repair an exchange that is still unfair.",
+        "bodyCheckPrompt": "Are your feet grounded, or are you already preparing to concede?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Renegotiate from truth.",
+        "questKey": "Identify the broken term → name the real cost → renegotiate or exit cleanly",
+        "embodiedSignal": "The body feels stronger when the real price is spoken.",
+        "ritualPrompt": "Say what changed before agreeing to continue.",
+        "alignmentReminder": "A bargain that keeps breaking is asking to be rewritten.",
+        "livePrompt": "Name the cost before repairing the deal."
+      },
+      "driftPattern": [
+        "repairing unfair agreements repeatedly",
+        "mistaking self-abandonment for compromise"
+      ]
+    },
+    {
+      "gate": 40,
+      "line": 4,
+      "gateLine": "40.4",
+      "title": "Exchange Through Community",
+      "hero": {
+        "mainQuest": "Restored Exchange",
+        "sourceLine": "Purpose · Design Earth · I Ching 40.4",
+        "questState": "Relational",
+        "atmosphericSubtitle": "Support becomes clean when the terms are shared, not assumed."
+      },
+      "questBrief": {
+        "collapsedPreview": "The agreement lives inside the group.",
+        "mission": "Make expectations visible so support does not become silent debt.",
+        "fieldPrompt": "Find the group expectation no one is naming.",
+        "livePrompt": "Where is the community running on assumption?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Shared support needs shared terms.",
+        "whatThisQuestIsAbout": "This line manages exchange through relationship, loyalty, team, family, or community. The pressure is not just personal; it comes through shared expectations and group bonds.",
+        "whyThisMattersNow": "Unspoken group duty can look like belonging until it becomes exhaustion.",
+        "primaryRecognitionTrigger": "You keep showing up so no one has to admit what they expect from you.",
+        "livePrompt": "Where is loyalty covering an unspoken contract?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Loyalty can hide imbalance.",
+        "questTrap": "You become dependable enough to be quietly overused.",
+        "questAssets": [
+          "relational exchange",
+          "community reliability",
+          "expectation mapping"
+        ],
+        "frictionSignals": [
+          "carrying group needs silently",
+          "confusing loyalty with unlimited availability",
+          "avoiding the conversation that would rebalance support"
+        ],
+        "livePrompt": "Watch where being trusted becomes being used."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Stand inside the group without shrinking.",
+        "groundingProtocol": [
+          "expand breath across the chest",
+          "relax the tongue",
+          "feel both feet before agreeing"
+        ],
+        "somaticShift": "The body stays connected without automatically becoming available.",
+        "bodyCheckPrompt": "Can you stay connected without stepping into duty?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Make the group contract visible.",
+        "questKey": "Name the shared expectation → ask who carries what → stop filling the gap alone",
+        "embodiedSignal": "The body stays open to people without absorbing the whole burden.",
+        "ritualPrompt": "Ask the group to define the responsibility out loud.",
+        "alignmentReminder": "Belonging is not proof that the burden is yours.",
+        "livePrompt": "Put the expectation into the room."
+      },
+      "driftPattern": [
+        "proving loyalty through overavailability",
+        "carrying group duties without agreement"
+      ]
+    },
+    {
+      "gate": 40,
+      "line": 5,
+      "gateLine": "40.5",
+      "title": "Projected Dependability",
+      "hero": {
+        "mainQuest": "Restored Exchange",
+        "sourceLine": "Purpose · Design Earth · I Ching 40.5",
+        "questState": "Burdened",
+        "atmosphericSubtitle": "Others trust your strength before checking what it costs you."
+      },
+      "questBrief": {
+        "collapsedPreview": "People assume you can carry it.",
+        "mission": "Separate real responsibility from what others project onto your capacity.",
+        "fieldPrompt": "Notice where being capable has become an unpaid contract.",
+        "livePrompt": "Who assumes your strength means yes?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Capacity attracts expectation.",
+        "whatThisQuestIsAbout": "This line is often seen as capable, dependable, or able to carry more. Others may project responsibility onto that strength before asking whether the exchange is clean.",
+        "whyThisMattersNow": "Projected dependability becomes exploitation when capacity is mistaken for consent.",
+        "primaryRecognitionTrigger": "You let them rely on you because correcting the assumption feels harder.",
+        "livePrompt": "Where has your capacity been turned into obligation?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Strength invites projection.",
+        "questTrap": "You become the reliable one and disappear inside the role.",
+        "questAssets": [
+          "visible capacity",
+          "responsible leadership",
+          "burden discernment"
+        ],
+        "frictionSignals": [
+          "absorbing responsibility without agreement",
+          "being praised into overwork",
+          "staying useful to avoid disappointing people"
+        ],
+        "livePrompt": "Watch where praise becomes a leash."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Drop the role from your chest.",
+        "groundingProtocol": [
+          "anchor breath in the belly",
+          "soften the sternum",
+          "let the shoulders lower before responding"
+        ],
+        "somaticShift": "The body stops wearing dependability as armor.",
+        "bodyCheckPrompt": "Are your shoulders carrying the request before you have accepted it?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Separate capacity from consent.",
+        "questKey": "Notice the projection → state your actual capacity → decline anything outside clean exchange",
+        "embodiedSignal": "The body feels less armored when responsibility is chosen, not assigned.",
+        "ritualPrompt": "Answer with capacity first, not willingness.",
+        "alignmentReminder": "Being able is not the same as being available.",
+        "livePrompt": "Tell them what you can actually carry."
+      },
+      "driftPattern": [
+        "letting capability become obligation",
+        "staying in the reliable role past consent"
+      ]
+    },
+    {
+      "gate": 40,
+      "line": 6,
+      "gateLine": "40.6",
+      "title": "Rest After Exchange",
+      "hero": {
+        "mainQuest": "Restored Exchange",
+        "sourceLine": "Purpose · Design Earth · I Ching 40.6",
+        "questState": "Released",
+        "atmosphericSubtitle": "The work is complete when the body is free to recover."
+      },
+      "questBrief": {
+        "collapsedPreview": "The bargain ends when recovery begins.",
+        "mission": "Complete the exchange by returning to rest instead of staying available.",
+        "fieldPrompt": "Notice where you keep serving after the work is done.",
+        "livePrompt": "Where has completion not become rest?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Rest is part of the exchange.",
+        "whatThisQuestIsAbout": "This line sees the full arc of work, support, duty, and release. The exchange is incomplete if the task ends but the body never gets to recover.",
+        "whyThisMattersNow": "Without rest, every agreement becomes extraction. Completion must include separation from the demand.",
+        "primaryRecognitionTrigger": "You finish the work, then keep yourself available just in case.",
+        "livePrompt": "Where are you still on call after the exchange ended?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Availability can outlive the task.",
+        "questTrap": "You mistake continued access for devotion.",
+        "questAssets": [
+          "completion awareness",
+          "recovery discipline",
+          "clean withdrawal"
+        ],
+        "frictionSignals": [
+          "remaining available after completion",
+          "delaying rest until no one needs anything",
+          "treating recovery as optional"
+        ],
+        "livePrompt": "Watch where service refuses to end."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let the body leave duty.",
+        "groundingProtocol": [
+          "release the back of the neck",
+          "drop the shoulders fully",
+          "exhale through the ribs"
+        ],
+        "somaticShift": "The body exits the contract and returns to itself.",
+        "bodyCheckPrompt": "Can your body stop listening for the next request?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "End the exchange completely.",
+        "questKey": "Complete the task → close the agreement → remove access until recovery happens",
+        "embodiedSignal": "The body feels unavailable in a clean and peaceful way.",
+        "ritualPrompt": "Mark the work complete and step away from the channel.",
+        "alignmentReminder": "Recovery is not a reward; it is part of the bargain.",
+        "livePrompt": "Close the loop before offering more."
+      },
+      "driftPattern": [
+        "staying available after completion",
+        "turning service into permanent access"
+      ]
+    }
+  ],
+  "perkTrees": [
+    {
+      "id": "perk-tree-40-1-v2",
+      "mainQuestId": "purpose-40-1",
+      "mainQuestName": "Restored Exchange",
+      "sourceLine": "Purpose · Design Earth · I Ching 40.1",
+      "questState": "Withdrawing",
+      "subtitle": "Develop the capacities behind Foundation of Clean Exchange.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Restored Exchange",
+          "state": "Core",
+          "description": "This path develops the ability to restore clean exchange through foundation of clean exchange.",
+          "effect": "Support becomes sustainable when cost, consent, and recovery are included.",
+          "developmentCue": "Notice where exchange turns into obligation.",
+          "masteryMarker": "You can give, refuse, renegotiate, or rest without collapsing into guilt."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Terms Recognition",
+          "state": "Emerging",
+          "description": "You learn to recognize the real terms underneath requests, praise, duty, and support.",
+          "effect": "Hidden obligations become visible before they become resentment.",
+          "developmentCue": "Identify what is being asked before accepting the role.",
+          "masteryMarker": "You can separate request, expectation, capacity, and consent."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Agreement Boundaries",
+          "state": "Emerging",
+          "description": "The body learns to stay intact while exchange pressure is present.",
+          "effect": "Agreement comes from grounded consent instead of guilt, speed, or role pressure.",
+          "developmentCue": "Let the body answer before loyalty, fear, or obligation speaks.",
+          "masteryMarker": "You remain physically steady while naming the real boundary."
+        },
+        {
+          "branch": "Field",
+          "name": "Exchange Foundation",
+          "state": "Emerging",
+          "description": "The relational field becomes cleaner when terms are spoken instead of assumed.",
+          "effect": "Support stops turning into silent debt.",
+          "developmentCue": "Make the exchange visible before carrying it.",
+          "masteryMarker": "Relationships can hold clearer terms without losing connection."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Clean Commitment",
+          "state": "Mastery",
+          "description": "The full path matures into sustainable exchange without hidden extraction.",
+          "effect": "Giving, receiving, refusing, and resting become part of one clean cycle.",
+          "developmentCue": "Complete the exchange by honoring both contribution and recovery.",
+          "masteryMarker": "You restore balance before resentment becomes the proof of imbalance."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-40-2-v2",
+      "mainQuestId": "purpose-40-2",
+      "mainQuestName": "Restored Exchange",
+      "sourceLine": "Purpose · Design Earth · I Ching 40.2",
+      "questState": "Separating",
+      "subtitle": "Develop the capacities behind Natural Refusal.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Restored Exchange",
+          "state": "Core",
+          "description": "This path develops the ability to restore clean exchange through natural refusal.",
+          "effect": "Support becomes sustainable when cost, consent, and recovery are included.",
+          "developmentCue": "Notice where exchange turns into obligation.",
+          "masteryMarker": "You can give, refuse, renegotiate, or rest without collapsing into guilt."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Early Refusal Signal",
+          "state": "Emerging",
+          "description": "You learn to recognize the real terms underneath requests, praise, duty, and support.",
+          "effect": "Hidden obligations become visible before they become resentment.",
+          "developmentCue": "Identify what is being asked before accepting the role.",
+          "masteryMarker": "You can separate request, expectation, capacity, and consent."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Plain Boundary",
+          "state": "Emerging",
+          "description": "The body learns to stay intact while exchange pressure is present.",
+          "effect": "Agreement comes from grounded consent instead of guilt, speed, or role pressure.",
+          "developmentCue": "Let the body answer before loyalty, fear, or obligation speaks.",
+          "masteryMarker": "You remain physically steady while naming the real boundary."
+        },
+        {
+          "branch": "Field",
+          "name": "Guilt Resistance",
+          "state": "Emerging",
+          "description": "The relational field becomes cleaner when terms are spoken instead of assumed.",
+          "effect": "Support stops turning into silent debt.",
+          "developmentCue": "Make the exchange visible before carrying it.",
+          "masteryMarker": "Relationships can hold clearer terms without losing connection."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Clean Separation",
+          "state": "Mastery",
+          "description": "The full path matures into sustainable exchange without hidden extraction.",
+          "effect": "Giving, receiving, refusing, and resting become part of one clean cycle.",
+          "developmentCue": "Complete the exchange by honoring both contribution and recovery.",
+          "masteryMarker": "You restore balance before resentment becomes the proof of imbalance."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-40-3-v2",
+      "mainQuestId": "purpose-40-3",
+      "mainQuestName": "Restored Exchange",
+      "sourceLine": "Purpose · Design Earth · I Ching 40.3",
+      "questState": "Testing",
+      "subtitle": "Develop the capacities behind Bargain Through Friction.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Restored Exchange",
+          "state": "Core",
+          "description": "This path develops the ability to restore clean exchange through bargain through friction.",
+          "effect": "Support becomes sustainable when cost, consent, and recovery are included.",
+          "developmentCue": "Notice where exchange turns into obligation.",
+          "masteryMarker": "You can give, refuse, renegotiate, or rest without collapsing into guilt."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Broken-Term Detection",
+          "state": "Emerging",
+          "description": "You learn to recognize the real terms underneath requests, praise, duty, and support.",
+          "effect": "Hidden obligations become visible before they become resentment.",
+          "developmentCue": "Identify what is being asked before accepting the role.",
+          "masteryMarker": "You can separate request, expectation, capacity, and consent."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Cost Naming",
+          "state": "Emerging",
+          "description": "The body learns to stay intact while exchange pressure is present.",
+          "effect": "Agreement comes from grounded consent instead of guilt, speed, or role pressure.",
+          "developmentCue": "Let the body answer before loyalty, fear, or obligation speaks.",
+          "masteryMarker": "You remain physically steady while naming the real boundary."
+        },
+        {
+          "branch": "Field",
+          "name": "Renegotiation Control",
+          "state": "Emerging",
+          "description": "The relational field becomes cleaner when terms are spoken instead of assumed.",
+          "effect": "Support stops turning into silent debt.",
+          "developmentCue": "Make the exchange visible before carrying it.",
+          "masteryMarker": "Relationships can hold clearer terms without losing connection."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Clean Exit or Repair",
+          "state": "Mastery",
+          "description": "The full path matures into sustainable exchange without hidden extraction.",
+          "effect": "Giving, receiving, refusing, and resting become part of one clean cycle.",
+          "developmentCue": "Complete the exchange by honoring both contribution and recovery.",
+          "masteryMarker": "You restore balance before resentment becomes the proof of imbalance."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-40-4-v2",
+      "mainQuestId": "purpose-40-4",
+      "mainQuestName": "Restored Exchange",
+      "sourceLine": "Purpose · Design Earth · I Ching 40.4",
+      "questState": "Relational",
+      "subtitle": "Develop the capacities behind Exchange Through Community.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Restored Exchange",
+          "state": "Core",
+          "description": "This path develops the ability to restore clean exchange through exchange through community.",
+          "effect": "Support becomes sustainable when cost, consent, and recovery are included.",
+          "developmentCue": "Notice where exchange turns into obligation.",
+          "masteryMarker": "You can give, refuse, renegotiate, or rest without collapsing into guilt."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Expectation Mapping",
+          "state": "Emerging",
+          "description": "You learn to recognize the real terms underneath requests, praise, duty, and support.",
+          "effect": "Hidden obligations become visible before they become resentment.",
+          "developmentCue": "Identify what is being asked before accepting the role.",
+          "masteryMarker": "You can separate request, expectation, capacity, and consent."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Relational Boundaries",
+          "state": "Emerging",
+          "description": "The body learns to stay intact while exchange pressure is present.",
+          "effect": "Agreement comes from grounded consent instead of guilt, speed, or role pressure.",
+          "developmentCue": "Let the body answer before loyalty, fear, or obligation speaks.",
+          "masteryMarker": "You remain physically steady while naming the real boundary."
+        },
+        {
+          "branch": "Field",
+          "name": "Shared Support",
+          "state": "Emerging",
+          "description": "The relational field becomes cleaner when terms are spoken instead of assumed.",
+          "effect": "Support stops turning into silent debt.",
+          "developmentCue": "Make the exchange visible before carrying it.",
+          "masteryMarker": "Relationships can hold clearer terms without losing connection."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Balanced Belonging",
+          "state": "Mastery",
+          "description": "The full path matures into sustainable exchange without hidden extraction.",
+          "effect": "Giving, receiving, refusing, and resting become part of one clean cycle.",
+          "developmentCue": "Complete the exchange by honoring both contribution and recovery.",
+          "masteryMarker": "You restore balance before resentment becomes the proof of imbalance."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-40-5-v2",
+      "mainQuestId": "purpose-40-5",
+      "mainQuestName": "Restored Exchange",
+      "sourceLine": "Purpose · Design Earth · I Ching 40.5",
+      "questState": "Burdened",
+      "subtitle": "Develop the capacities behind Projected Dependability.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Restored Exchange",
+          "state": "Core",
+          "description": "This path develops the ability to restore clean exchange through projected dependability.",
+          "effect": "Support becomes sustainable when cost, consent, and recovery are included.",
+          "developmentCue": "Notice where exchange turns into obligation.",
+          "masteryMarker": "You can give, refuse, renegotiate, or rest without collapsing into guilt."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Projection Detection",
+          "state": "Emerging",
+          "description": "You learn to recognize the real terms underneath requests, praise, duty, and support.",
+          "effect": "Hidden obligations become visible before they become resentment.",
+          "developmentCue": "Identify what is being asked before accepting the role.",
+          "masteryMarker": "You can separate request, expectation, capacity, and consent."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Capacity Boundaries",
+          "state": "Emerging",
+          "description": "The body learns to stay intact while exchange pressure is present.",
+          "effect": "Agreement comes from grounded consent instead of guilt, speed, or role pressure.",
+          "developmentCue": "Let the body answer before loyalty, fear, or obligation speaks.",
+          "masteryMarker": "You remain physically steady while naming the real boundary."
+        },
+        {
+          "branch": "Field",
+          "name": "Responsible Refusal",
+          "state": "Emerging",
+          "description": "The relational field becomes cleaner when terms are spoken instead of assumed.",
+          "effect": "Support stops turning into silent debt.",
+          "developmentCue": "Make the exchange visible before carrying it.",
+          "masteryMarker": "Relationships can hold clearer terms without losing connection."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Clean Dependability",
+          "state": "Mastery",
+          "description": "The full path matures into sustainable exchange without hidden extraction.",
+          "effect": "Giving, receiving, refusing, and resting become part of one clean cycle.",
+          "developmentCue": "Complete the exchange by honoring both contribution and recovery.",
+          "masteryMarker": "You restore balance before resentment becomes the proof of imbalance."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-40-6-v2",
+      "mainQuestId": "purpose-40-6",
+      "mainQuestName": "Restored Exchange",
+      "sourceLine": "Purpose · Design Earth · I Ching 40.6",
+      "questState": "Released",
+      "subtitle": "Develop the capacities behind Rest After Exchange.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Restored Exchange",
+          "state": "Core",
+          "description": "This path develops the ability to restore clean exchange through rest after exchange.",
+          "effect": "Support becomes sustainable when cost, consent, and recovery are included.",
+          "developmentCue": "Notice where exchange turns into obligation.",
+          "masteryMarker": "You can give, refuse, renegotiate, or rest without collapsing into guilt."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Completion Recognition",
+          "state": "Emerging",
+          "description": "You learn to recognize the real terms underneath requests, praise, duty, and support.",
+          "effect": "Hidden obligations become visible before they become resentment.",
+          "developmentCue": "Identify what is being asked before accepting the role.",
+          "masteryMarker": "You can separate request, expectation, capacity, and consent."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Recovery Boundaries",
+          "state": "Emerging",
+          "description": "The body learns to stay intact while exchange pressure is present.",
+          "effect": "Agreement comes from grounded consent instead of guilt, speed, or role pressure.",
+          "developmentCue": "Let the body answer before loyalty, fear, or obligation speaks.",
+          "masteryMarker": "You remain physically steady while naming the real boundary."
+        },
+        {
+          "branch": "Field",
+          "name": "Clean Withdrawal",
+          "state": "Emerging",
+          "description": "The relational field becomes cleaner when terms are spoken instead of assumed.",
+          "effect": "Support stops turning into silent debt.",
+          "developmentCue": "Make the exchange visible before carrying it.",
+          "masteryMarker": "Relationships can hold clearer terms without losing connection."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Restored Exchange",
+          "state": "Mastery",
+          "description": "The full path matures into sustainable exchange without hidden extraction.",
+          "effect": "Giving, receiving, refusing, and resting become part of one clean cycle.",
+          "developmentCue": "Complete the exchange by honoring both contribution and recovery.",
+          "masteryMarker": "You restore balance before resentment becomes the proof of imbalance."
+        }
+      ]
+    }
+  ],
+  "qaAudit": {
+    "referenceStandard": "59.2 V2 gold standard",
+    "contentSchema": "MainQuestContentEntryV2 + MainQuestPerkTreeV2",
+    "audits": [
+      {
+        "gateLine": "40.1",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "40.2",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "40.3",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "40.4",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "40.5",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "40.6",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      }
+    ]
+  }
+}

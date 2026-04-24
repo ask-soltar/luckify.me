@@ -1,0 +1,753 @@
+{
+  "gate": 1,
+  "gateName": "The Creative",
+  "mainQuestTheme": "Letting original creative force take form without forcing expression, performing uniqueness, or abandoning the signal before it matures.",
+  "mainQuestContent": [
+    {
+      "gate": 1,
+      "line": 1,
+      "gateLine": "1.1",
+      "title": "Foundation of Original Expression",
+      "hero": {
+        "mainQuest": "Creative Authority",
+        "sourceLine": "Purpose · Design Earth · I Ching 1.1",
+        "questState": "Forming",
+        "atmosphericSubtitle": "The creative signal is present, but it needs a container before exposure."
+      },
+      "questBrief": {
+        "collapsedPreview": "The signal needs a foundation.",
+        "mission": "Protect the first creative impulse long enough for it to find form.",
+        "fieldPrompt": "Notice the raw expression that is not ready for the room yet.",
+        "livePrompt": "What wants form before attention?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Do not expose it too early.",
+        "whatThisQuestIsAbout": "This quest begins with original creative force before it has structure. Something wants to be expressed, but the first movement needs privacy, stability, and form before it can survive attention.",
+        "whyThisMattersNow": "Early exposure can distort the signal. Foundation gives originality enough weight to become real.",
+        "primaryRecognitionTrigger": "You show the spark before it has enough shape to survive being seen.",
+        "livePrompt": "Where are you exposing the beginning before it has form?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Originality needs containment.",
+        "questTrap": "You confuse being seen with being ready.",
+        "questAssets": [
+          "creative containment",
+          "signal protection",
+          "form building"
+        ],
+        "frictionSignals": [
+          "sharing too early",
+          "changing the signal for reaction",
+          "abandoning the idea after weak feedback"
+        ],
+        "livePrompt": "Watch where attention starts shaping the work too soon."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let form settle first.",
+        "groundingProtocol": [
+          "soften the eyes",
+          "drop breath into belly",
+          "steady the hands before sharing"
+        ],
+        "somaticShift": "The body protects the signal without clenching around it.",
+        "bodyCheckPrompt": "Can your belly hold the work before the world sees it?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Build before revealing.",
+        "questKey": "Receive the spark → give it one stable form → share only after the signal holds",
+        "embodiedSignal": "The body feels quietly committed before seeking response.",
+        "ritualPrompt": "Make one private draft before showing anyone.",
+        "alignmentReminder": "The first spark needs form, not applause.",
+        "livePrompt": "Give the signal a container before exposure."
+      },
+      "driftPattern": [
+        "exposing the work before it has form",
+        "letting early reaction distort the signal"
+      ]
+    },
+    {
+      "gate": 1,
+      "line": 2,
+      "gateLine": "1.2",
+      "title": "Natural Creative Presence",
+      "hero": {
+        "mainQuest": "Creative Authority",
+        "sourceLine": "Purpose · Design Earth · I Ching 1.2",
+        "questState": "Radiating",
+        "atmosphericSubtitle": "The expression is strongest when it is not trying to prove itself."
+      },
+      "questBrief": {
+        "collapsedPreview": "Expression works when unforced.",
+        "mission": "Let the creative signal be visible without performing originality.",
+        "fieldPrompt": "Notice where expression is already alive before you improve it.",
+        "livePrompt": "What expresses naturally without effort?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Do not perform uniqueness.",
+        "whatThisQuestIsAbout": "This line carries creative presence naturally. The signal is visible when it is not forced, exaggerated, or dressed up to prove that it is original.",
+        "whyThisMattersNow": "The gift is natural radiance. The risk is interfering with it by trying to become more impressive.",
+        "primaryRecognitionTrigger": "You start performing originality right when the real thing is already there.",
+        "livePrompt": "Where are you making the signal louder because you do not trust it?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Presence beats performance.",
+        "questTrap": "You decorate the signal until it loses authority.",
+        "questAssets": [
+          "natural presence",
+          "creative ease",
+          "unforced visibility"
+        ],
+        "frictionSignals": [
+          "over-styling the expression",
+          "trying to look original",
+          "adding drama to a clean signal"
+        ],
+        "livePrompt": "Watch where expression becomes display."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let the body stay simple.",
+        "groundingProtocol": [
+          "relax the jaw",
+          "soften the shoulders",
+          "let the breath move evenly"
+        ],
+        "somaticShift": "The body expresses without reaching for attention.",
+        "bodyCheckPrompt": "Are you expressing, or trying to be recognized as expressive?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Express before embellishing.",
+        "questKey": "Notice the natural signal → express it plainly → stop before performance takes over",
+        "embodiedSignal": "The body feels visible without strain.",
+        "ritualPrompt": "Share the simplest true version first.",
+        "alignmentReminder": "Originality does not need to announce itself.",
+        "livePrompt": "Let the clean signal be enough."
+      },
+      "driftPattern": [
+        "performing uniqueness",
+        "overworking natural expression into display"
+      ]
+    },
+    {
+      "gate": 1,
+      "line": 3,
+      "gateLine": "1.3",
+      "title": "Creative Trial and Error",
+      "hero": {
+        "mainQuest": "Creative Authority",
+        "sourceLine": "Purpose · Design Earth · I Ching 1.3",
+        "questState": "Experimenting",
+        "atmosphericSubtitle": "The work finds itself by failing in public and private ways."
+      },
+      "questBrief": {
+        "collapsedPreview": "The expression changes through testing.",
+        "mission": "Let failed versions reveal what the creative signal is actually becoming.",
+        "fieldPrompt": "Track what survives after the expression meets reality.",
+        "livePrompt": "What part of the work keeps surviving revision?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Let failure shape the work.",
+        "whatThisQuestIsAbout": "This line discovers originality through attempts, revisions, misfires, and feedback. The creative signal becomes clearer by testing what does not hold.",
+        "whyThisMattersNow": "Failed versions are not proof the signal is wrong. They show what the signal is not.",
+        "primaryRecognitionTrigger": "You keep changing the work, but avoid admitting what failed.",
+        "livePrompt": "Where are you revising without learning?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Testing reveals the signal.",
+        "questTrap": "You call every revision growth instead of naming the miss.",
+        "questAssets": [
+          "creative testing",
+          "adaptive expression",
+          "revision intelligence"
+        ],
+        "frictionSignals": [
+          "changing direction without review",
+          "protecting weak versions",
+          "repeating the same creative mistake"
+        ],
+        "livePrompt": "Watch where experimentation becomes avoidance."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let feedback land.",
+        "groundingProtocol": [
+          "lengthen the spine",
+          "release the stomach",
+          "drop the shoulders after feedback"
+        ],
+        "somaticShift": "The body stops defending the work and starts receiving information.",
+        "bodyCheckPrompt": "Can your stomach stay soft while the work is corrected?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Revise from evidence.",
+        "questKey": "Test one version → name what failed → keep only what strengthens the signal",
+        "embodiedSignal": "The body feels clearer after the false part is released.",
+        "ritualPrompt": "Write one thing the attempt disproved before revising.",
+        "alignmentReminder": "A changed work is only progress if the lesson is named.",
+        "livePrompt": "Let reality edit the expression."
+      },
+      "driftPattern": [
+        "revising without extracting the lesson",
+        "protecting weak versions from honest feedback"
+      ]
+    },
+    {
+      "gate": 1,
+      "line": 4,
+      "gateLine": "1.4",
+      "title": "Creative Influence Through Form",
+      "hero": {
+        "mainQuest": "Creative Authority",
+        "sourceLine": "Purpose · Design Earth · I Ching 1.4",
+        "questState": "Translating",
+        "atmosphericSubtitle": "Originality becomes useful when others can meet it."
+      },
+      "questBrief": {
+        "collapsedPreview": "The signal needs a bridge.",
+        "mission": "Translate original expression into a form others can recognize and respond to.",
+        "fieldPrompt": "Find the structure that lets the creative signal travel.",
+        "livePrompt": "Who needs the work made reachable?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Make originality translatable.",
+        "whatThisQuestIsAbout": "This line turns originality into influence through form, language, rhythm, design, or shared context. The work must stay true while becoming accessible enough to enter the field.",
+        "whyThisMattersNow": "Expression that cannot be met stays isolated. Translation lets originality create impact without losing its center.",
+        "primaryRecognitionTrigger": "You keep it too pure to be touched, then wonder why it does not move anyone.",
+        "livePrompt": "Where does the work need a bridge without becoming diluted?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Influence needs translation.",
+        "questTrap": "You protect originality from the very audience it needs.",
+        "questAssets": [
+          "creative translation",
+          "field awareness",
+          "influence design"
+        ],
+        "frictionSignals": [
+          "making the work unreachable",
+          "rejecting feedback as dilution",
+          "hiding behind complexity"
+        ],
+        "livePrompt": "Watch where purity becomes isolation."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Open to the field.",
+        "groundingProtocol": [
+          "expand breath across chest",
+          "relax the tongue",
+          "feel both feet before presenting"
+        ],
+        "somaticShift": "The body stays loyal to the signal while allowing response.",
+        "bodyCheckPrompt": "Can your chest stay open while the work is received?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Build the bridge.",
+        "questKey": "Name the core signal → choose one reachable form → let response refine the delivery",
+        "embodiedSignal": "The body feels connected without surrendering the work.",
+        "ritualPrompt": "Show the work in one form another person can actually enter.",
+        "alignmentReminder": "Translation is not betrayal.",
+        "livePrompt": "Make the signal reachable without flattening it."
+      },
+      "driftPattern": [
+        "keeping originality unreachable",
+        "confusing accessibility with dilution"
+      ]
+    },
+    {
+      "gate": 1,
+      "line": 5,
+      "gateLine": "1.5",
+      "title": "Projected Creative Authority",
+      "hero": {
+        "mainQuest": "Creative Authority",
+        "sourceLine": "Purpose · Design Earth · I Ching 1.5",
+        "questState": "Magnified",
+        "atmosphericSubtitle": "People project meaning onto the work before they understand the signal."
+      },
+      "questBrief": {
+        "collapsedPreview": "Originality attracts projection.",
+        "mission": "Hold creative visibility without letting others define what the work means.",
+        "fieldPrompt": "Separate the signal from what people want it to represent.",
+        "livePrompt": "Where is the work being made larger than it is?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Visibility changes the signal.",
+        "whatThisQuestIsAbout": "This line can carry creative authority that others amplify, idealize, criticize, or turn into a symbol. The work becomes a projection surface.",
+        "whyThisMattersNow": "Influence grows here, but so does distortion. The task is to clarify the signal before projection turns it into a role.",
+        "primaryRecognitionTrigger": "You let them believe the work is bigger because the projection feels powerful.",
+        "livePrompt": "Where is attention tempting you to overclaim the signal?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Authority needs clarification.",
+        "questTrap": "You become the symbol instead of stewarding the work.",
+        "questAssets": [
+          "creative authority",
+          "projection awareness",
+          "signal clarification"
+        ],
+        "frictionSignals": [
+          "accepting overprojection",
+          "performing the role people attach to the work",
+          "avoiding correction because attention feels useful"
+        ],
+        "livePrompt": "Watch where visibility starts owning the signal."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Anchor beneath projection.",
+        "groundingProtocol": [
+          "anchor breath in belly",
+          "soften the sternum",
+          "slow the first sentence"
+        ],
+        "somaticShift": "The body stops rising into the symbol and returns to the actual work.",
+        "bodyCheckPrompt": "Are you speaking from the signal, or from what they want it to mean?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Clarify before projection hardens.",
+        "questKey": "State the creative signal → mark its limits → correct projection before it becomes identity",
+        "embodiedSignal": "The body feels centered when the work is no larger than the truth.",
+        "ritualPrompt": "Name what the work is not before letting others build on it.",
+        "alignmentReminder": "Attention is not authority.",
+        "livePrompt": "Separate the work from the projection."
+      },
+      "driftPattern": [
+        "accepting projection as validation",
+        "letting visibility define the signal"
+      ]
+    },
+    {
+      "gate": 1,
+      "line": 6,
+      "gateLine": "1.6",
+      "title": "Creative Completion Beyond Approval",
+      "hero": {
+        "mainQuest": "Creative Authority",
+        "sourceLine": "Purpose · Design Earth · I Ching 1.6",
+        "questState": "Distilling",
+        "atmosphericSubtitle": "The work is complete when the signal no longer needs response to exist."
+      },
+      "questBrief": {
+        "collapsedPreview": "Completion does not need applause.",
+        "mission": "Discern when expression is complete, whether or not it receives recognition.",
+        "fieldPrompt": "Notice which work feels finished before anyone confirms it.",
+        "livePrompt": "What is complete without approval?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Do not chase final validation.",
+        "whatThisQuestIsAbout": "This line sees the larger arc of creative expression. Some work is meant to be shared, some refined, some released, and some completed without public confirmation.",
+        "whyThisMattersNow": "If approval determines completion, the work never belongs to itself. Maturity comes from knowing when the signal has finished its own cycle.",
+        "primaryRecognitionTrigger": "You call it unfinished because no one has praised it yet.",
+        "livePrompt": "Where are you using response as proof that the work exists?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Completion needs discernment.",
+        "questTrap": "You keep the work open so someone else can close it for you.",
+        "questAssets": [
+          "completion discernment",
+          "creative maturity",
+          "approval independence"
+        ],
+        "frictionSignals": [
+          "waiting for praise before closing",
+          "revising to chase response",
+          "measuring completion by visibility"
+        ],
+        "livePrompt": "Watch where approval replaces inner finality."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let the work stand.",
+        "groundingProtocol": [
+          "relax the back of the neck",
+          "settle breath down the spine",
+          "soften the chest"
+        ],
+        "somaticShift": "The body allows the work to be complete without reaching outward.",
+        "bodyCheckPrompt": "Can your spine hold the finished signal without looking for applause?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Close the creative loop.",
+        "questKey": "Assess the signal → mark the work complete → release the need for response",
+        "embodiedSignal": "The body feels finished even without external confirmation.",
+        "ritualPrompt": "Declare the work complete before checking how it lands.",
+        "alignmentReminder": "Recognition is not completion.",
+        "livePrompt": "Let the signal finish on its own terms."
+      },
+      "driftPattern": [
+        "chasing approval as completion",
+        "keeping finished work open for validation"
+      ]
+    }
+  ],
+  "perkTrees": [
+    {
+      "id": "perk-tree-1-1-v2",
+      "mainQuestId": "purpose-1-1",
+      "mainQuestName": "Creative Authority",
+      "sourceLine": "Purpose · Design Earth · I Ching 1.1",
+      "questState": "Forming",
+      "subtitle": "Develop the capacities behind Foundation of Original Expression.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Creative Authority",
+          "state": "Core",
+          "description": "This path develops the ability to express original creative force through foundation of original expression.",
+          "effect": "Originality becomes stable when the signal is protected, expressed, tested, translated, clarified, and completed cleanly.",
+          "developmentCue": "Notice whether the creative signal is asking for form, expression, revision, translation, clarification, or completion.",
+          "masteryMarker": "You can create without performing, overexplaining, or waiting for permission to exist."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Signal Protection",
+          "state": "Emerging",
+          "description": "You learn to recognize the creative signal before reaction, pressure, or projection distorts it.",
+          "effect": "Original expression becomes easier to protect and shape.",
+          "developmentCue": "Identify the signal before deciding how visible it should become.",
+          "masteryMarker": "You can separate the work itself from the response around it."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Creative Containment",
+          "state": "Emerging",
+          "description": "The body learns to hold creative force without rushing into exposure or performance.",
+          "effect": "Expression becomes grounded instead of reactive.",
+          "developmentCue": "Let the body stabilize before the signal leaves the system.",
+          "masteryMarker": "You remain physically steady while creating, sharing, revising, or closing the work."
+        },
+        {
+          "branch": "Field",
+          "name": "Form Building",
+          "state": "Emerging",
+          "description": "The creative field becomes stronger when the signal can meet response without losing its center.",
+          "effect": "Originality can influence others without becoming shaped entirely by them.",
+          "developmentCue": "Watch how the field receives, changes, or projects onto the work.",
+          "masteryMarker": "You can let the work enter the world without surrendering its core."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Stable Originality",
+          "state": "Mastery",
+          "description": "The full path matures into self-authorized creation that does not depend on performance or approval.",
+          "effect": "The work becomes complete because the signal has fulfilled its own form.",
+          "developmentCue": "Let the expression finish according to its own integrity.",
+          "masteryMarker": "Creative authority remains intact whether the work is hidden, shared, praised, misunderstood, or complete."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-1-2-v2",
+      "mainQuestId": "purpose-1-2",
+      "mainQuestName": "Creative Authority",
+      "sourceLine": "Purpose · Design Earth · I Ching 1.2",
+      "questState": "Radiating",
+      "subtitle": "Develop the capacities behind Natural Creative Presence.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Creative Authority",
+          "state": "Core",
+          "description": "This path develops the ability to express original creative force through natural creative presence.",
+          "effect": "Originality becomes stable when the signal is protected, expressed, tested, translated, clarified, and completed cleanly.",
+          "developmentCue": "Notice whether the creative signal is asking for form, expression, revision, translation, clarification, or completion.",
+          "masteryMarker": "You can create without performing, overexplaining, or waiting for permission to exist."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Natural Radiance",
+          "state": "Emerging",
+          "description": "You learn to recognize the creative signal before reaction, pressure, or projection distorts it.",
+          "effect": "Original expression becomes easier to protect and shape.",
+          "developmentCue": "Identify the signal before deciding how visible it should become.",
+          "masteryMarker": "You can separate the work itself from the response around it."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Plain Expression",
+          "state": "Emerging",
+          "description": "The body learns to hold creative force without rushing into exposure or performance.",
+          "effect": "Expression becomes grounded instead of reactive.",
+          "developmentCue": "Let the body stabilize before the signal leaves the system.",
+          "masteryMarker": "You remain physically steady while creating, sharing, revising, or closing the work."
+        },
+        {
+          "branch": "Field",
+          "name": "Performance Restraint",
+          "state": "Emerging",
+          "description": "The creative field becomes stronger when the signal can meet response without losing its center.",
+          "effect": "Originality can influence others without becoming shaped entirely by them.",
+          "developmentCue": "Watch how the field receives, changes, or projects onto the work.",
+          "masteryMarker": "You can let the work enter the world without surrendering its core."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Unforced Authority",
+          "state": "Mastery",
+          "description": "The full path matures into self-authorized creation that does not depend on performance or approval.",
+          "effect": "The work becomes complete because the signal has fulfilled its own form.",
+          "developmentCue": "Let the expression finish according to its own integrity.",
+          "masteryMarker": "Creative authority remains intact whether the work is hidden, shared, praised, misunderstood, or complete."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-1-3-v2",
+      "mainQuestId": "purpose-1-3",
+      "mainQuestName": "Creative Authority",
+      "sourceLine": "Purpose · Design Earth · I Ching 1.3",
+      "questState": "Experimenting",
+      "subtitle": "Develop the capacities behind Creative Trial and Error.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Creative Authority",
+          "state": "Core",
+          "description": "This path develops the ability to express original creative force through creative trial and error.",
+          "effect": "Originality becomes stable when the signal is protected, expressed, tested, translated, clarified, and completed cleanly.",
+          "developmentCue": "Notice whether the creative signal is asking for form, expression, revision, translation, clarification, or completion.",
+          "masteryMarker": "You can create without performing, overexplaining, or waiting for permission to exist."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Creative Testing",
+          "state": "Emerging",
+          "description": "You learn to recognize the creative signal before reaction, pressure, or projection distorts it.",
+          "effect": "Original expression becomes easier to protect and shape.",
+          "developmentCue": "Identify the signal before deciding how visible it should become.",
+          "masteryMarker": "You can separate the work itself from the response around it."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Feedback Reception",
+          "state": "Emerging",
+          "description": "The body learns to hold creative force without rushing into exposure or performance.",
+          "effect": "Expression becomes grounded instead of reactive.",
+          "developmentCue": "Let the body stabilize before the signal leaves the system.",
+          "masteryMarker": "You remain physically steady while creating, sharing, revising, or closing the work."
+        },
+        {
+          "branch": "Field",
+          "name": "Revision Intelligence",
+          "state": "Emerging",
+          "description": "The creative field becomes stronger when the signal can meet response without losing its center.",
+          "effect": "Originality can influence others without becoming shaped entirely by them.",
+          "developmentCue": "Watch how the field receives, changes, or projects onto the work.",
+          "masteryMarker": "You can let the work enter the world without surrendering its core."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Reality-Shaped Expression",
+          "state": "Mastery",
+          "description": "The full path matures into self-authorized creation that does not depend on performance or approval.",
+          "effect": "The work becomes complete because the signal has fulfilled its own form.",
+          "developmentCue": "Let the expression finish according to its own integrity.",
+          "masteryMarker": "Creative authority remains intact whether the work is hidden, shared, praised, misunderstood, or complete."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-1-4-v2",
+      "mainQuestId": "purpose-1-4",
+      "mainQuestName": "Creative Authority",
+      "sourceLine": "Purpose · Design Earth · I Ching 1.4",
+      "questState": "Translating",
+      "subtitle": "Develop the capacities behind Creative Influence Through Form.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Creative Authority",
+          "state": "Core",
+          "description": "This path develops the ability to express original creative force through creative influence through form.",
+          "effect": "Originality becomes stable when the signal is protected, expressed, tested, translated, clarified, and completed cleanly.",
+          "developmentCue": "Notice whether the creative signal is asking for form, expression, revision, translation, clarification, or completion.",
+          "masteryMarker": "You can create without performing, overexplaining, or waiting for permission to exist."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Creative Translation",
+          "state": "Emerging",
+          "description": "You learn to recognize the creative signal before reaction, pressure, or projection distorts it.",
+          "effect": "Original expression becomes easier to protect and shape.",
+          "developmentCue": "Identify the signal before deciding how visible it should become.",
+          "masteryMarker": "You can separate the work itself from the response around it."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Audience Bridge",
+          "state": "Emerging",
+          "description": "The body learns to hold creative force without rushing into exposure or performance.",
+          "effect": "Expression becomes grounded instead of reactive.",
+          "developmentCue": "Let the body stabilize before the signal leaves the system.",
+          "masteryMarker": "You remain physically steady while creating, sharing, revising, or closing the work."
+        },
+        {
+          "branch": "Field",
+          "name": "Influence Design",
+          "state": "Emerging",
+          "description": "The creative field becomes stronger when the signal can meet response without losing its center.",
+          "effect": "Originality can influence others without becoming shaped entirely by them.",
+          "developmentCue": "Watch how the field receives, changes, or projects onto the work.",
+          "masteryMarker": "You can let the work enter the world without surrendering its core."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Reachable Originality",
+          "state": "Mastery",
+          "description": "The full path matures into self-authorized creation that does not depend on performance or approval.",
+          "effect": "The work becomes complete because the signal has fulfilled its own form.",
+          "developmentCue": "Let the expression finish according to its own integrity.",
+          "masteryMarker": "Creative authority remains intact whether the work is hidden, shared, praised, misunderstood, or complete."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-1-5-v2",
+      "mainQuestId": "purpose-1-5",
+      "mainQuestName": "Creative Authority",
+      "sourceLine": "Purpose · Design Earth · I Ching 1.5",
+      "questState": "Magnified",
+      "subtitle": "Develop the capacities behind Projected Creative Authority.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Creative Authority",
+          "state": "Core",
+          "description": "This path develops the ability to express original creative force through projected creative authority.",
+          "effect": "Originality becomes stable when the signal is protected, expressed, tested, translated, clarified, and completed cleanly.",
+          "developmentCue": "Notice whether the creative signal is asking for form, expression, revision, translation, clarification, or completion.",
+          "masteryMarker": "You can create without performing, overexplaining, or waiting for permission to exist."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Projection Awareness",
+          "state": "Emerging",
+          "description": "You learn to recognize the creative signal before reaction, pressure, or projection distorts it.",
+          "effect": "Original expression becomes easier to protect and shape.",
+          "developmentCue": "Identify the signal before deciding how visible it should become.",
+          "masteryMarker": "You can separate the work itself from the response around it."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Signal Authority",
+          "state": "Emerging",
+          "description": "The body learns to hold creative force without rushing into exposure or performance.",
+          "effect": "Expression becomes grounded instead of reactive.",
+          "developmentCue": "Let the body stabilize before the signal leaves the system.",
+          "masteryMarker": "You remain physically steady while creating, sharing, revising, or closing the work."
+        },
+        {
+          "branch": "Field",
+          "name": "Visibility Boundaries",
+          "state": "Emerging",
+          "description": "The creative field becomes stronger when the signal can meet response without losing its center.",
+          "effect": "Originality can influence others without becoming shaped entirely by them.",
+          "developmentCue": "Watch how the field receives, changes, or projects onto the work.",
+          "masteryMarker": "You can let the work enter the world without surrendering its core."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Creative Stewardship",
+          "state": "Mastery",
+          "description": "The full path matures into self-authorized creation that does not depend on performance or approval.",
+          "effect": "The work becomes complete because the signal has fulfilled its own form.",
+          "developmentCue": "Let the expression finish according to its own integrity.",
+          "masteryMarker": "Creative authority remains intact whether the work is hidden, shared, praised, misunderstood, or complete."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-1-6-v2",
+      "mainQuestId": "purpose-1-6",
+      "mainQuestName": "Creative Authority",
+      "sourceLine": "Purpose · Design Earth · I Ching 1.6",
+      "questState": "Distilling",
+      "subtitle": "Develop the capacities behind Creative Completion Beyond Approval.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Creative Authority",
+          "state": "Core",
+          "description": "This path develops the ability to express original creative force through creative completion beyond approval.",
+          "effect": "Originality becomes stable when the signal is protected, expressed, tested, translated, clarified, and completed cleanly.",
+          "developmentCue": "Notice whether the creative signal is asking for form, expression, revision, translation, clarification, or completion.",
+          "masteryMarker": "You can create without performing, overexplaining, or waiting for permission to exist."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Completion Discernment",
+          "state": "Emerging",
+          "description": "You learn to recognize the creative signal before reaction, pressure, or projection distorts it.",
+          "effect": "Original expression becomes easier to protect and shape.",
+          "developmentCue": "Identify the signal before deciding how visible it should become.",
+          "masteryMarker": "You can separate the work itself from the response around it."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Approval Independence",
+          "state": "Emerging",
+          "description": "The body learns to hold creative force without rushing into exposure or performance.",
+          "effect": "Expression becomes grounded instead of reactive.",
+          "developmentCue": "Let the body stabilize before the signal leaves the system.",
+          "masteryMarker": "You remain physically steady while creating, sharing, revising, or closing the work."
+        },
+        {
+          "branch": "Field",
+          "name": "Creative Maturity",
+          "state": "Emerging",
+          "description": "The creative field becomes stronger when the signal can meet response without losing its center.",
+          "effect": "Originality can influence others without becoming shaped entirely by them.",
+          "developmentCue": "Watch how the field receives, changes, or projects onto the work.",
+          "masteryMarker": "You can let the work enter the world without surrendering its core."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Self-Validated Expression",
+          "state": "Mastery",
+          "description": "The full path matures into self-authorized creation that does not depend on performance or approval.",
+          "effect": "The work becomes complete because the signal has fulfilled its own form.",
+          "developmentCue": "Let the expression finish according to its own integrity.",
+          "masteryMarker": "Creative authority remains intact whether the work is hidden, shared, praised, misunderstood, or complete."
+        }
+      ]
+    }
+  ],
+  "qaAudit": {
+    "referenceStandard": "59.2 V2 gold standard",
+    "contentSchema": "MainQuestContentEntryV2 + MainQuestPerkTreeV2",
+    "audits": [
+      {
+        "gateLine": "1.1",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "1.2",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "1.3",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "1.4",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "1.5",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "1.6",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      }
+    ]
+  }
+}

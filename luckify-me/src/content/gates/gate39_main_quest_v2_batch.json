@@ -1,0 +1,753 @@
+{
+  "gate": 39,
+  "gateName": "Obstruction",
+  "mainQuestTheme": "Using emotional pressure and provocation to reveal what is stuck, blocked, or waiting to be freed.",
+  "mainQuestContent": [
+    {
+      "gate": 39,
+      "line": 1,
+      "gateLine": "39.1",
+      "title": "Pressure at the Gate",
+      "hero": {
+        "mainQuest": "Provocation Key",
+        "sourceLine": "Purpose · Design Earth · I Ching 39.1",
+        "questState": "Pressing",
+        "atmosphericSubtitle": "The pressure appears before the door is ready to open."
+      },
+      "questBrief": {
+        "collapsedPreview": "Pressure needs the right door.",
+        "mission": "Feel the pressure without forcing it into the first available target.",
+        "fieldPrompt": "Notice where emotional charge is looking for somewhere to land.",
+        "livePrompt": "What are you about to push before it is ready?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Do not push the first door.",
+        "whatThisQuestIsAbout": "This quest begins with emotional pressure building against a barrier. Something wants release, movement, or response, but the first obstacle is not always the correct one to challenge.",
+        "whyThisMattersNow": "Misplaced pressure creates resistance. Clean provocation begins by identifying the right obstruction before pushing against it.",
+        "primaryRecognitionTrigger": "You push the closest thing because the real block feels harder to face.",
+        "livePrompt": "Where is your pressure landing on the wrong target?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Not every barrier is the block.",
+        "questTrap": "You confuse pressure with permission to provoke.",
+        "questAssets": [
+          "pressure detection",
+          "target discernment",
+          "emotional containment"
+        ],
+        "frictionSignals": [
+          "pushing too early",
+          "provoking the wrong person",
+          "turning discomfort into attack"
+        ],
+        "livePrompt": "Watch where pressure chooses convenience over truth."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Hold the pressure low.",
+        "groundingProtocol": [
+          "drop breath into belly",
+          "relax the jaw",
+          "soften the hands before speaking"
+        ],
+        "somaticShift": "The body holds emotional charge without turning it into immediate provocation.",
+        "bodyCheckPrompt": "Can your belly hold the pressure without throwing it outward?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Find the real obstruction.",
+        "questKey": "Feel the pressure → identify the true block → provoke only where release is possible",
+        "embodiedSignal": "The body feels charged but not aimed at the nearest target.",
+        "ritualPrompt": "Name the actual obstruction before saying anything sharp.",
+        "alignmentReminder": "Pressure without target becomes damage.",
+        "livePrompt": "Aim the pressure where the block actually lives."
+      },
+      "driftPattern": [
+        "pushing the wrong target",
+        "using pressure before direction is clear"
+      ]
+    },
+    {
+      "gate": 39,
+      "line": 2,
+      "gateLine": "39.2",
+      "title": "Natural Provocation",
+      "hero": {
+        "mainQuest": "Provocation Key",
+        "sourceLine": "Purpose · Design Earth · I Ching 39.2",
+        "questState": "Sparking",
+        "atmosphericSubtitle": "The right pressure opens what politeness keeps closed."
+      },
+      "questBrief": {
+        "collapsedPreview": "A clean spark reveals the block.",
+        "mission": "Let provocation expose what is stuck without adding unnecessary force.",
+        "fieldPrompt": "Notice where one honest spark creates movement.",
+        "livePrompt": "What needs a truthful nudge?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Let the spark stay clean.",
+        "whatThisQuestIsAbout": "This line can provoke naturally. It touches the exact pressure point that reveals what has been avoided, delayed, or emotionally trapped.",
+        "whyThisMattersNow": "The gift is precision. The risk is intensifying the spark after it has already done its job.",
+        "primaryRecognitionTrigger": "You say the one thing that opens it, then add more until it closes again.",
+        "livePrompt": "Where did the extra push ruin the clean opening?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Precision beats intensity.",
+        "questTrap": "You keep provoking after the door opens.",
+        "questAssets": [
+          "emotional precision",
+          "truthful spark",
+          "release timing"
+        ],
+        "frictionSignals": [
+          "overstimulating the reaction",
+          "adding force after movement begins",
+          "confusing impact with accuracy"
+        ],
+        "livePrompt": "Watch where impact becomes addiction."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Keep the spark in the body.",
+        "groundingProtocol": [
+          "relax the throat",
+          "soften the chest",
+          "slow the second sentence"
+        ],
+        "somaticShift": "The body lets one sharp truth land without escalating the whole field.",
+        "bodyCheckPrompt": "Can your throat stay open without pushing for a bigger reaction?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Provoke once, then listen.",
+        "questKey": "Touch the pressure point → stop after movement begins → listen for what opens",
+        "embodiedSignal": "The body feels alert but not hungry for reaction.",
+        "ritualPrompt": "Say the cleanest sentence and let the silence answer.",
+        "alignmentReminder": "A true spark does not need extra fire.",
+        "livePrompt": "Let the first opening breathe."
+      },
+      "driftPattern": [
+        "provoking past the opening",
+        "chasing stronger reactions"
+      ]
+    },
+    {
+      "gate": 39,
+      "line": 3,
+      "gateLine": "39.3",
+      "title": "Provocation Through Friction",
+      "hero": {
+        "mainQuest": "Provocation Key",
+        "sourceLine": "Purpose · Design Earth · I Ching 39.3",
+        "questState": "Agitating",
+        "atmosphericSubtitle": "The reaction teaches which pressure is useful and which is only noise."
+      },
+      "questBrief": {
+        "collapsedPreview": "Friction reveals the pressure point.",
+        "mission": "Use failed provocation to refine what actually creates release.",
+        "fieldPrompt": "Track which pressure creates movement and which only creates resistance.",
+        "livePrompt": "What reaction taught you something?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Let reaction become feedback.",
+        "whatThisQuestIsAbout": "This line learns through messy pressure, wrong timing, and reactions that do not land as expected. Provocation becomes useful only when each response teaches the next approach.",
+        "whyThisMattersNow": "Not every reaction is release. Some reactions show that the pressure was mistimed, misdirected, or unnecessary.",
+        "primaryRecognitionTrigger": "You keep calling it honesty when it is really the same failed trigger.",
+        "livePrompt": "Where are you repeating the same provocation?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Reaction is not always release.",
+        "questTrap": "You mistake chaos for breakthrough.",
+        "questAssets": [
+          "reaction reading",
+          "pressure adjustment",
+          "friction learning"
+        ],
+        "frictionSignals": [
+          "repeating the same trigger",
+          "provoking without learning",
+          "treating emotional chaos as proof of impact"
+        ],
+        "livePrompt": "Watch where disruption replaces progress."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Pause after impact.",
+        "groundingProtocol": [
+          "lengthen the spine",
+          "release the stomach",
+          "exhale before responding again"
+        ],
+        "somaticShift": "The body registers the reaction before creating another one.",
+        "bodyCheckPrompt": "Are you learning from the reaction, or already throwing the next spark?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Adjust the pressure.",
+        "questKey": "Provoke once → read the reaction → change the method before trying again",
+        "embodiedSignal": "The body feels informed instead of inflamed.",
+        "ritualPrompt": "Name what the reaction revealed before escalating.",
+        "alignmentReminder": "Breakthrough is not the same as disruption.",
+        "livePrompt": "Let the reaction correct the next move."
+      },
+      "driftPattern": [
+        "repeating failed triggers",
+        "using disruption as proof of truth"
+      ]
+    },
+    {
+      "gate": 39,
+      "line": 4,
+      "gateLine": "39.4",
+      "title": "Relational Provocation",
+      "hero": {
+        "mainQuest": "Provocation Key",
+        "sourceLine": "Purpose · Design Earth · I Ching 39.4",
+        "questState": "Confronting",
+        "atmosphericSubtitle": "The field moves when the unspoken pressure is named."
+      },
+      "questBrief": {
+        "collapsedPreview": "The group feels the block.",
+        "mission": "Name the shared pressure without turning it into blame.",
+        "fieldPrompt": "Find the tension everyone feels but no one wants to say.",
+        "livePrompt": "What is the room avoiding?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Name the shared pressure.",
+        "whatThisQuestIsAbout": "This line provokes through relationship, group tension, and social pressure. It can reveal what the field is avoiding, but the delivery determines whether the pressure becomes release or defensiveness.",
+        "whyThisMattersNow": "Unspoken pressure runs the room. Clean naming gives the group a chance to move.",
+        "primaryRecognitionTrigger": "You hold the tension for everyone, then resent them for not naming it.",
+        "livePrompt": "Where are you carrying the room’s pressure alone?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Tension needs clean language.",
+        "questTrap": "You weaponize the truth because no one else will say it.",
+        "questAssets": [
+          "social pressure reading",
+          "group truth naming",
+          "relational release"
+        ],
+        "frictionSignals": [
+          "naming tension as accusation",
+          "carrying group discomfort silently",
+          "provoking from resentment"
+        ],
+        "livePrompt": "Watch where truth turns into punishment."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Open before naming.",
+        "groundingProtocol": [
+          "expand breath across chest",
+          "relax the tongue",
+          "feel both feet before speaking"
+        ],
+        "somaticShift": "The body stays connected to the group while naming what has been avoided.",
+        "bodyCheckPrompt": "Can your chest stay open while you say the hard thing?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Name it without blame.",
+        "questKey": "Identify the shared tension → speak one clean observation → let the field respond",
+        "embodiedSignal": "The body feels firm without needing to punish anyone.",
+        "ritualPrompt": "Say what is present as an observation, not a verdict.",
+        "alignmentReminder": "The truth lands cleaner without resentment attached.",
+        "livePrompt": "Put the pressure into the room without throwing it."
+      },
+      "driftPattern": [
+        "provoking from resentment",
+        "turning shared tension into accusation"
+      ]
+    },
+    {
+      "gate": 39,
+      "line": 5,
+      "gateLine": "39.5",
+      "title": "Projected Provocation",
+      "hero": {
+        "mainQuest": "Provocation Key",
+        "sourceLine": "Purpose · Design Earth · I Ching 39.5",
+        "questState": "Charged",
+        "atmosphericSubtitle": "People expect your pressure to create the breakthrough."
+      },
+      "questBrief": {
+        "collapsedPreview": "Your pressure carries influence.",
+        "mission": "Use provocation responsibly when others expect you to force movement.",
+        "fieldPrompt": "Separate real breakthrough from the role others project onto you.",
+        "livePrompt": "Who wants you to be the spark?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Influence intensifies pressure.",
+        "whatThisQuestIsAbout": "This line can be seen as the one who says the thing, starts the disruption, or forces the blocked energy to move. That influence is powerful, but it can become performance if others expect you to provoke on demand.",
+        "whyThisMattersNow": "A forced breakthrough creates fallout. A clean one releases pressure at the right point.",
+        "primaryRecognitionTrigger": "You become the spark because they are too afraid to light it themselves.",
+        "livePrompt": "Where are you provoking for someone else's courage?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Do not perform disruption.",
+        "questTrap": "You become the weapon for everyone’s avoided truth.",
+        "questAssets": [
+          "breakthrough influence",
+          "pressure leadership",
+          "truth calibration"
+        ],
+        "frictionSignals": [
+          "provoking to maintain authority",
+          "absorbing others’ avoided confrontation",
+          "mistaking attention for alignment"
+        ],
+        "livePrompt": "Watch where being useful turns into being used."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Anchor before impact.",
+        "groundingProtocol": [
+          "anchor breath in belly",
+          "soften the sternum",
+          "slow the first sentence"
+        ],
+        "somaticShift": "The body stops rising into the role of disruptor and returns to clean pressure.",
+        "bodyCheckPrompt": "Are you provoking from truth, or from the role they gave you?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Choose the breakthrough.",
+        "questKey": "Notice the projection → locate the true pressure point → refuse provocation that is only performance",
+        "embodiedSignal": "The body feels charged but not captured by the audience.",
+        "ritualPrompt": "Ask whether this needs truth or just attention before speaking.",
+        "alignmentReminder": "Not every blocked room deserves your spark.",
+        "livePrompt": "Use pressure only where release is real."
+      },
+      "driftPattern": [
+        "performing disruption for others",
+        "provoking to hold influence"
+      ]
+    },
+    {
+      "gate": 39,
+      "line": 6,
+      "gateLine": "39.6",
+      "title": "Provocation Beyond Reaction",
+      "hero": {
+        "mainQuest": "Provocation Key",
+        "sourceLine": "Purpose · Design Earth · I Ching 39.6",
+        "questState": "Distilling",
+        "atmosphericSubtitle": "The deepest release comes when pressure no longer needs a fight."
+      },
+      "questBrief": {
+        "collapsedPreview": "Pressure matures beyond reaction.",
+        "mission": "Discern whether provocation is needed or whether the pressure can resolve another way.",
+        "fieldPrompt": "Notice which block no longer requires force.",
+        "livePrompt": "What can move without being pushed?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Do not force the release.",
+        "whatThisQuestIsAbout": "This line sees beyond immediate provocation. It can sense whether pressure needs a spark, a pause, a refusal, or no action at all.",
+        "whyThisMattersNow": "Mature provocation knows when not to provoke. Some obstructions dissolve when the pressure is no longer fed.",
+        "primaryRecognitionTrigger": "You call it breakthrough, but you just wanted the reaction.",
+        "livePrompt": "Where are you addicted to the spark instead of the release?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Release is not always reaction.",
+        "questTrap": "You keep using fire after the door is already open.",
+        "questAssets": [
+          "provocation discernment",
+          "release timing",
+          "pressure maturity"
+        ],
+        "frictionSignals": [
+          "creating reaction after release has begun",
+          "mistaking intensity for freedom",
+          "using provocation to avoid stillness"
+        ],
+        "livePrompt": "Watch where the spark outlives its purpose."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let pressure dissolve.",
+        "groundingProtocol": [
+          "lengthen the back of the neck",
+          "settle breath down the spine",
+          "release the chest from charge"
+        ],
+        "somaticShift": "The body can feel pressure without needing to turn it into conflict.",
+        "bodyCheckPrompt": "Can your spine hold the charge without looking for a fight?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Choose release over reaction.",
+        "questKey": "Feel the obstruction → test whether pressure is needed → provoke only if it creates real release",
+        "embodiedSignal": "The body feels clear enough to leave the spark unused.",
+        "ritualPrompt": "Ask whether the block needs truth, silence, distance, or action.",
+        "alignmentReminder": "The goal is release, not reaction.",
+        "livePrompt": "Let the pressure mature before using it."
+      },
+      "driftPattern": [
+        "chasing reaction after release is possible",
+        "using provocation to avoid stillness"
+      ]
+    }
+  ],
+  "perkTrees": [
+    {
+      "id": "perk-tree-39-1-v2",
+      "mainQuestId": "purpose-39-1",
+      "mainQuestName": "Provocation Key",
+      "sourceLine": "Purpose · Design Earth · I Ching 39.1",
+      "questState": "Pressing",
+      "subtitle": "Develop the capacities behind Pressure at the Gate.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Provocation Key",
+          "state": "Core",
+          "description": "This path develops the ability to use emotional pressure through pressure at the gate.",
+          "effect": "Provocation becomes useful when it reveals obstruction instead of creating unnecessary conflict.",
+          "developmentCue": "Notice whether pressure wants release, reaction, or restraint.",
+          "masteryMarker": "You can use pressure without becoming controlled by the reaction it creates."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Pressure Detection",
+          "state": "Emerging",
+          "description": "You learn to recognize where the real obstruction lives.",
+          "effect": "Pressure stops scattering into the wrong targets.",
+          "developmentCue": "Identify the block before using the spark.",
+          "masteryMarker": "You can separate useful pressure from emotional discharge."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Target Discernment",
+          "state": "Emerging",
+          "description": "The body learns to hold charge without throwing it outward too soon.",
+          "effect": "Provocation becomes cleaner because the nervous system is not driving it blindly.",
+          "developmentCue": "Let the body contain the spark before speaking or acting.",
+          "masteryMarker": "You remain physically charged without becoming reactive."
+        },
+        {
+          "branch": "Field",
+          "name": "Emotional Containment",
+          "state": "Emerging",
+          "description": "The field becomes easier to move when pressure is applied precisely.",
+          "effect": "Blocked energy can release without unnecessary damage.",
+          "developmentCue": "Watch how the field responds to the first spark.",
+          "masteryMarker": "You can create movement without escalating the whole room."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Clean Provocation",
+          "state": "Mastery",
+          "description": "The full path matures into provocation that serves freedom rather than reaction.",
+          "effect": "Pressure becomes a key that opens the right door at the right time.",
+          "developmentCue": "Use the spark only when it creates actual release.",
+          "masteryMarker": "You know when to provoke, when to pause, and when to let pressure dissolve."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-39-2-v2",
+      "mainQuestId": "purpose-39-2",
+      "mainQuestName": "Provocation Key",
+      "sourceLine": "Purpose · Design Earth · I Ching 39.2",
+      "questState": "Sparking",
+      "subtitle": "Develop the capacities behind Natural Provocation.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Provocation Key",
+          "state": "Core",
+          "description": "This path develops the ability to use emotional pressure through natural provocation.",
+          "effect": "Provocation becomes useful when it reveals obstruction instead of creating unnecessary conflict.",
+          "developmentCue": "Notice whether pressure wants release, reaction, or restraint.",
+          "masteryMarker": "You can use pressure without becoming controlled by the reaction it creates."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Precision Spark",
+          "state": "Emerging",
+          "description": "You learn to recognize where the real obstruction lives.",
+          "effect": "Pressure stops scattering into the wrong targets.",
+          "developmentCue": "Identify the block before using the spark.",
+          "masteryMarker": "You can separate useful pressure from emotional discharge."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Release Timing",
+          "state": "Emerging",
+          "description": "The body learns to hold charge without throwing it outward too soon.",
+          "effect": "Provocation becomes cleaner because the nervous system is not driving it blindly.",
+          "developmentCue": "Let the body contain the spark before speaking or acting.",
+          "masteryMarker": "You remain physically charged without becoming reactive."
+        },
+        {
+          "branch": "Field",
+          "name": "Reaction Restraint",
+          "state": "Emerging",
+          "description": "The field becomes easier to move when pressure is applied precisely.",
+          "effect": "Blocked energy can release without unnecessary damage.",
+          "developmentCue": "Watch how the field responds to the first spark.",
+          "masteryMarker": "You can create movement without escalating the whole room."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Clean Opening",
+          "state": "Mastery",
+          "description": "The full path matures into provocation that serves freedom rather than reaction.",
+          "effect": "Pressure becomes a key that opens the right door at the right time.",
+          "developmentCue": "Use the spark only when it creates actual release.",
+          "masteryMarker": "You know when to provoke, when to pause, and when to let pressure dissolve."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-39-3-v2",
+      "mainQuestId": "purpose-39-3",
+      "mainQuestName": "Provocation Key",
+      "sourceLine": "Purpose · Design Earth · I Ching 39.3",
+      "questState": "Agitating",
+      "subtitle": "Develop the capacities behind Provocation Through Friction.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Provocation Key",
+          "state": "Core",
+          "description": "This path develops the ability to use emotional pressure through provocation through friction.",
+          "effect": "Provocation becomes useful when it reveals obstruction instead of creating unnecessary conflict.",
+          "developmentCue": "Notice whether pressure wants release, reaction, or restraint.",
+          "masteryMarker": "You can use pressure without becoming controlled by the reaction it creates."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Reaction Reading",
+          "state": "Emerging",
+          "description": "You learn to recognize where the real obstruction lives.",
+          "effect": "Pressure stops scattering into the wrong targets.",
+          "developmentCue": "Identify the block before using the spark.",
+          "masteryMarker": "You can separate useful pressure from emotional discharge."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Pressure Adjustment",
+          "state": "Emerging",
+          "description": "The body learns to hold charge without throwing it outward too soon.",
+          "effect": "Provocation becomes cleaner because the nervous system is not driving it blindly.",
+          "developmentCue": "Let the body contain the spark before speaking or acting.",
+          "masteryMarker": "You remain physically charged without becoming reactive."
+        },
+        {
+          "branch": "Field",
+          "name": "Friction Learning",
+          "state": "Emerging",
+          "description": "The field becomes easier to move when pressure is applied precisely.",
+          "effect": "Blocked energy can release without unnecessary damage.",
+          "developmentCue": "Watch how the field responds to the first spark.",
+          "masteryMarker": "You can create movement without escalating the whole room."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Breakthrough Discernment",
+          "state": "Mastery",
+          "description": "The full path matures into provocation that serves freedom rather than reaction.",
+          "effect": "Pressure becomes a key that opens the right door at the right time.",
+          "developmentCue": "Use the spark only when it creates actual release.",
+          "masteryMarker": "You know when to provoke, when to pause, and when to let pressure dissolve."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-39-4-v2",
+      "mainQuestId": "purpose-39-4",
+      "mainQuestName": "Provocation Key",
+      "sourceLine": "Purpose · Design Earth · I Ching 39.4",
+      "questState": "Confronting",
+      "subtitle": "Develop the capacities behind Relational Provocation.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Provocation Key",
+          "state": "Core",
+          "description": "This path develops the ability to use emotional pressure through relational provocation.",
+          "effect": "Provocation becomes useful when it reveals obstruction instead of creating unnecessary conflict.",
+          "developmentCue": "Notice whether pressure wants release, reaction, or restraint.",
+          "masteryMarker": "You can use pressure without becoming controlled by the reaction it creates."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Group Pressure Reading",
+          "state": "Emerging",
+          "description": "You learn to recognize where the real obstruction lives.",
+          "effect": "Pressure stops scattering into the wrong targets.",
+          "developmentCue": "Identify the block before using the spark.",
+          "masteryMarker": "You can separate useful pressure from emotional discharge."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Clean Confrontation",
+          "state": "Emerging",
+          "description": "The body learns to hold charge without throwing it outward too soon.",
+          "effect": "Provocation becomes cleaner because the nervous system is not driving it blindly.",
+          "developmentCue": "Let the body contain the spark before speaking or acting.",
+          "masteryMarker": "You remain physically charged without becoming reactive."
+        },
+        {
+          "branch": "Field",
+          "name": "Relational Release",
+          "state": "Emerging",
+          "description": "The field becomes easier to move when pressure is applied precisely.",
+          "effect": "Blocked energy can release without unnecessary damage.",
+          "developmentCue": "Watch how the field responds to the first spark.",
+          "masteryMarker": "You can create movement without escalating the whole room."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Shared Movement",
+          "state": "Mastery",
+          "description": "The full path matures into provocation that serves freedom rather than reaction.",
+          "effect": "Pressure becomes a key that opens the right door at the right time.",
+          "developmentCue": "Use the spark only when it creates actual release.",
+          "masteryMarker": "You know when to provoke, when to pause, and when to let pressure dissolve."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-39-5-v2",
+      "mainQuestId": "purpose-39-5",
+      "mainQuestName": "Provocation Key",
+      "sourceLine": "Purpose · Design Earth · I Ching 39.5",
+      "questState": "Charged",
+      "subtitle": "Develop the capacities behind Projected Provocation.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Provocation Key",
+          "state": "Core",
+          "description": "This path develops the ability to use emotional pressure through projected provocation.",
+          "effect": "Provocation becomes useful when it reveals obstruction instead of creating unnecessary conflict.",
+          "developmentCue": "Notice whether pressure wants release, reaction, or restraint.",
+          "masteryMarker": "You can use pressure without becoming controlled by the reaction it creates."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Projection Detection",
+          "state": "Emerging",
+          "description": "You learn to recognize where the real obstruction lives.",
+          "effect": "Pressure stops scattering into the wrong targets.",
+          "developmentCue": "Identify the block before using the spark.",
+          "masteryMarker": "You can separate useful pressure from emotional discharge."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Breakthrough Calibration",
+          "state": "Emerging",
+          "description": "The body learns to hold charge without throwing it outward too soon.",
+          "effect": "Provocation becomes cleaner because the nervous system is not driving it blindly.",
+          "developmentCue": "Let the body contain the spark before speaking or acting.",
+          "masteryMarker": "You remain physically charged without becoming reactive."
+        },
+        {
+          "branch": "Field",
+          "name": "Pressure Leadership",
+          "state": "Emerging",
+          "description": "The field becomes easier to move when pressure is applied precisely.",
+          "effect": "Blocked energy can release without unnecessary damage.",
+          "developmentCue": "Watch how the field responds to the first spark.",
+          "masteryMarker": "You can create movement without escalating the whole room."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Responsible Disruption",
+          "state": "Mastery",
+          "description": "The full path matures into provocation that serves freedom rather than reaction.",
+          "effect": "Pressure becomes a key that opens the right door at the right time.",
+          "developmentCue": "Use the spark only when it creates actual release.",
+          "masteryMarker": "You know when to provoke, when to pause, and when to let pressure dissolve."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-39-6-v2",
+      "mainQuestId": "purpose-39-6",
+      "mainQuestName": "Provocation Key",
+      "sourceLine": "Purpose · Design Earth · I Ching 39.6",
+      "questState": "Distilling",
+      "subtitle": "Develop the capacities behind Provocation Beyond Reaction.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Provocation Key",
+          "state": "Core",
+          "description": "This path develops the ability to use emotional pressure through provocation beyond reaction.",
+          "effect": "Provocation becomes useful when it reveals obstruction instead of creating unnecessary conflict.",
+          "developmentCue": "Notice whether pressure wants release, reaction, or restraint.",
+          "masteryMarker": "You can use pressure without becoming controlled by the reaction it creates."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Provocation Discernment",
+          "state": "Emerging",
+          "description": "You learn to recognize where the real obstruction lives.",
+          "effect": "Pressure stops scattering into the wrong targets.",
+          "developmentCue": "Identify the block before using the spark.",
+          "masteryMarker": "You can separate useful pressure from emotional discharge."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Release Timing",
+          "state": "Emerging",
+          "description": "The body learns to hold charge without throwing it outward too soon.",
+          "effect": "Provocation becomes cleaner because the nervous system is not driving it blindly.",
+          "developmentCue": "Let the body contain the spark before speaking or acting.",
+          "masteryMarker": "You remain physically charged without becoming reactive."
+        },
+        {
+          "branch": "Field",
+          "name": "Pressure Maturity",
+          "state": "Emerging",
+          "description": "The field becomes easier to move when pressure is applied precisely.",
+          "effect": "Blocked energy can release without unnecessary damage.",
+          "developmentCue": "Watch how the field responds to the first spark.",
+          "masteryMarker": "You can create movement without escalating the whole room."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Freedom Without Reaction",
+          "state": "Mastery",
+          "description": "The full path matures into provocation that serves freedom rather than reaction.",
+          "effect": "Pressure becomes a key that opens the right door at the right time.",
+          "developmentCue": "Use the spark only when it creates actual release.",
+          "masteryMarker": "You know when to provoke, when to pause, and when to let pressure dissolve."
+        }
+      ]
+    }
+  ],
+  "qaAudit": {
+    "referenceStandard": "59.2 V2 gold standard",
+    "contentSchema": "MainQuestContentEntryV2 + MainQuestPerkTreeV2",
+    "audits": [
+      {
+        "gateLine": "39.1",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "39.2",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "39.3",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "39.4",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "39.5",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "39.6",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      }
+    ]
+  }
+}

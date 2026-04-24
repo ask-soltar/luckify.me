@@ -1,0 +1,753 @@
+{
+  "gate": 41,
+  "gateName": "Decrease",
+  "mainQuestTheme": "Turning desire, fantasy, and emotional anticipation into a clean starting point without escaping into imagined outcomes.",
+  "mainQuestContent": [
+    {
+      "gate": 41,
+      "line": 1,
+      "gateLine": "41.1",
+      "title": "Foundation of Desire",
+      "hero": {
+        "mainQuest": "Fantasy Initiation",
+        "sourceLine": "Purpose · Design Earth · I Ching 41.1",
+        "questState": "Beginning",
+        "atmosphericSubtitle": "The fantasy starts small. The body already feels where it wants to go."
+      },
+      "questBrief": {
+        "collapsedPreview": "The desire needs a real starting point.",
+        "mission": "Name the first desire without letting the fantasy outrun reality.",
+        "fieldPrompt": "Find the image that keeps pulling your attention forward.",
+        "livePrompt": "What desire is asking to begin?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Begin with the first desire.",
+        "whatThisQuestIsAbout": "This quest begins with the pressure of a new experience before anything has actually happened. A fantasy, image, or emotional possibility appears, and the work is to identify the real starting point underneath it.",
+        "whyThisMattersNow": "Unexamined desire becomes projection. Clean beginnings require knowing what is actually desired before the imagination builds a whole world around it.",
+        "primaryRecognitionTrigger": "You start living the future before the first step is real.",
+        "livePrompt": "Where has the fantasy moved faster than the beginning?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Fantasy can outrun the start.",
+        "questTrap": "You mistake anticipation for movement.",
+        "questAssets": [
+          "desire recognition",
+          "emotional ignition",
+          "starting-point awareness"
+        ],
+        "frictionSignals": [
+          "building the whole story too soon",
+          "confusing longing with action",
+          "avoiding the first real step"
+        ],
+        "livePrompt": "Watch where imagining replaces beginning."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Bring desire back into the body.",
+        "groundingProtocol": [
+          "soften the lower belly",
+          "release the jaw",
+          "feel both feet before choosing"
+        ],
+        "somaticShift": "The body stops chasing the imagined future and returns to the first real step.",
+        "bodyCheckPrompt": "Is your belly holding desire, or is your head already living ahead?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Start smaller than the fantasy.",
+        "questKey": "Name the desire → reduce it to one real step → act before the fantasy expands",
+        "embodiedSignal": "The body feels warm but not pulled out of the present.",
+        "ritualPrompt": "Write the desire in one sentence, then choose the smallest real action.",
+        "alignmentReminder": "A beginning is not the whole future.",
+        "livePrompt": "Find the first step beneath the fantasy."
+      },
+      "driftPattern": [
+        "living inside imagined outcomes",
+        "using anticipation as a substitute for action"
+      ]
+    },
+    {
+      "gate": 41,
+      "line": 2,
+      "gateLine": "41.2",
+      "title": "Natural Anticipation",
+      "hero": {
+        "mainQuest": "Fantasy Initiation",
+        "sourceLine": "Purpose · Design Earth · I Ching 41.2",
+        "questState": "Quickening",
+        "atmosphericSubtitle": "The desire appears on its own. The test is not turning it into a whole story."
+      },
+      "questBrief": {
+        "collapsedPreview": "The feeling arrives before the plan.",
+        "mission": "Let anticipation show what wants to begin without overbuilding the outcome.",
+        "fieldPrompt": "Notice which desire feels alive before you explain it.",
+        "livePrompt": "What feeling is already moving?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Let anticipation stay clean.",
+        "whatThisQuestIsAbout": "This line feels the beginning naturally. Desire appears quickly, often before there is a plan, proof, or structure. The signal is useful when it stays connected to what is actually alive now.",
+        "whyThisMattersNow": "The gift is clean emotional ignition. The risk is inflating a real spark into a fantasy that cannot hold reality.",
+        "primaryRecognitionTrigger": "You feel the spark, then build a life around it in your head.",
+        "livePrompt": "Where did one spark become a whole imagined future?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "The spark is not the story.",
+        "questTrap": "You turn a real feeling into a full projection.",
+        "questAssets": [
+          "natural anticipation",
+          "emotional spark",
+          "experiential readiness"
+        ],
+        "frictionSignals": [
+          "expanding one feeling into a conclusion",
+          "treating excitement as certainty",
+          "skipping the actual first contact"
+        ],
+        "livePrompt": "Watch where excitement starts making promises."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Keep the spark in your chest.",
+        "groundingProtocol": [
+          "soften the chest",
+          "slow the inhale",
+          "let the hands relax before reaching"
+        ],
+        "somaticShift": "The body lets desire stay alive without launching into performance.",
+        "bodyCheckPrompt": "Can your chest hold excitement without turning it into certainty?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Follow the spark, not the story.",
+        "questKey": "Feel the spark → make one clean contact → stop before projecting the outcome",
+        "embodiedSignal": "The body feels bright without pushing forward too fast.",
+        "ritualPrompt": "Take the first contact, then pause before imagining the rest.",
+        "alignmentReminder": "Excitement is a signal, not a contract.",
+        "livePrompt": "Let the first moment be enough."
+      },
+      "driftPattern": [
+        "turning excitement into certainty",
+        "projecting a whole future from one spark"
+      ]
+    },
+    {
+      "gate": 41,
+      "line": 3,
+      "gateLine": "41.3",
+      "title": "Fantasy Through Trial",
+      "hero": {
+        "mainQuest": "Fantasy Initiation",
+        "sourceLine": "Purpose · Design Earth · I Ching 41.3",
+        "questState": "Turbulent",
+        "atmosphericSubtitle": "The desire teaches itself by meeting what it cannot control."
+      },
+      "questBrief": {
+        "collapsedPreview": "The fantasy changes when tested.",
+        "mission": "Use the mismatch between desire and reality to refine the actual beginning.",
+        "fieldPrompt": "Track what breaks when the fantasy touches real conditions.",
+        "livePrompt": "What part of the desire fails on contact?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Reality edits the fantasy.",
+        "whatThisQuestIsAbout": "This line learns through unstable starts, changing desires, and experiences that do not match the original fantasy. The beginning may feel messy because the imagined version cannot survive contact unchanged.",
+        "whyThisMattersNow": "The mismatch is useful when it reveals what the desire really wants. It becomes costly when the same fantasy is rebuilt without learning.",
+        "primaryRecognitionTrigger": "You keep chasing the feeling, even after reality shows the fantasy is wrong.",
+        "livePrompt": "Where are you repeating the same fantasy with a new costume?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Mismatch reveals the real desire.",
+        "questTrap": "You call the new version growth while avoiding the old lesson.",
+        "questAssets": [
+          "experiential testing",
+          "desire correction",
+          "adaptive initiation"
+        ],
+        "frictionSignals": [
+          "restarting the same fantasy",
+          "ignoring what the experience disproved",
+          "confusing intensity with truth"
+        ],
+        "livePrompt": "Watch where novelty hides repetition."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let the body register the mismatch.",
+        "groundingProtocol": [
+          "lengthen the spine",
+          "release the stomach",
+          "exhale before chasing the next version"
+        ],
+        "somaticShift": "The body stops sprinting after the fantasy and feels what the experience actually taught.",
+        "bodyCheckPrompt": "Is your stomach settling into truth, or reaching for the next rush?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Let experience correct desire.",
+        "questKey": "Test the desire → name the mismatch → change the next beginning",
+        "embodiedSignal": "The body feels clearer after admitting what did not match.",
+        "ritualPrompt": "Write what the experience disproved before starting again.",
+        "alignmentReminder": "A failed fantasy can reveal a truer desire.",
+        "livePrompt": "Let the mismatch teach the next step."
+      },
+      "driftPattern": [
+        "restarting the same fantasy repeatedly",
+        "using novelty to avoid the lesson"
+      ]
+    },
+    {
+      "gate": 41,
+      "line": 4,
+      "gateLine": "41.4",
+      "title": "Shared Desire Field",
+      "hero": {
+        "mainQuest": "Fantasy Initiation",
+        "sourceLine": "Purpose · Design Earth · I Ching 41.4",
+        "questState": "Inviting",
+        "atmosphericSubtitle": "The fantasy becomes stronger when others can enter the beginning with you."
+      },
+      "questBrief": {
+        "collapsedPreview": "Desire needs a shared frame.",
+        "mission": "Translate the emotional image into an invitation others can actually respond to.",
+        "fieldPrompt": "Find the part of the fantasy that can become shared language.",
+        "livePrompt": "Who needs the invitation made real?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Make the desire shareable.",
+        "whatThisQuestIsAbout": "This line brings desire into relationship, community, and shared possibility. The fantasy becomes useful when it is translated into something others can understand, enter, or help shape.",
+        "whyThisMattersNow": "Private anticipation can loop endlessly. Shared framing turns desire into movement, response, and commitment.",
+        "primaryRecognitionTrigger": "You keep the dream vague so no one can ask what it actually requires.",
+        "livePrompt": "Where would the dream become real if someone could respond to it?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Vagueness protects the fantasy.",
+        "questTrap": "You invite people into the feeling but not the terms.",
+        "questAssets": [
+          "shared anticipation",
+          "emotional invitation",
+          "relational momentum"
+        ],
+        "frictionSignals": [
+          "keeping the vision blurry",
+          "asking for excitement without clarity",
+          "avoiding the terms of participation"
+        ],
+        "livePrompt": "Watch where inspiration avoids specifics."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Open the chest to response.",
+        "groundingProtocol": [
+          "expand breath across the chest",
+          "relax the tongue",
+          "feel both feet before inviting"
+        ],
+        "somaticShift": "The body stays open enough to share desire without hiding the real terms.",
+        "bodyCheckPrompt": "Can your chest stay open while the dream becomes specific?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Turn the feeling into an invitation.",
+        "questKey": "Name the desire → make the invitation specific → let real response shape the next step",
+        "embodiedSignal": "The body feels connected without needing the fantasy to stay vague.",
+        "ritualPrompt": "Invite one person into the actual next step, not just the feeling.",
+        "alignmentReminder": "A shared beginning needs terms, not just excitement.",
+        "livePrompt": "Make the invitation specific enough to answer."
+      },
+      "driftPattern": [
+        "keeping dreams vague to avoid response",
+        "using inspiration without defining participation"
+      ]
+    },
+    {
+      "gate": 41,
+      "line": 5,
+      "gateLine": "41.5",
+      "title": "Projected Fantasy",
+      "hero": {
+        "mainQuest": "Fantasy Initiation",
+        "sourceLine": "Purpose · Design Earth · I Ching 41.5",
+        "questState": "Magnetic",
+        "atmosphericSubtitle": "People attach their hopes to the experience before it exists."
+      },
+      "questBrief": {
+        "collapsedPreview": "The fantasy attracts projection.",
+        "mission": "Hold the power of desire without letting others turn it into a promise.",
+        "fieldPrompt": "Separate the real beginning from the hope others are placing on it.",
+        "livePrompt": "Who is making your possibility bigger than it is?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Projection gathers around desire.",
+        "whatThisQuestIsAbout": "This line can carry desire in a way others feel strongly. People may project hope, expectation, or salvation onto the beginning before anything has been proven or lived.",
+        "whyThisMattersNow": "The fantasy becomes influential here. Without clean limits, excitement becomes a contract no one consciously agreed to.",
+        "primaryRecognitionTrigger": "You let them believe in the dream because their hope feels useful.",
+        "livePrompt": "Where are you benefiting from a projection you have not clarified?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Hope can become a contract.",
+        "questTrap": "You enjoy being the symbol until the symbol starts owning you.",
+        "questAssets": [
+          "desire influence",
+          "emotional magnetism",
+          "vision clarification"
+        ],
+        "frictionSignals": [
+          "letting others overbuild the promise",
+          "avoiding correction because attention feels good",
+          "becoming responsible for someone else's hope"
+        ],
+        "livePrompt": "Watch where admiration turns into obligation."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Anchor beneath the projection.",
+        "groundingProtocol": [
+          "anchor breath in the belly",
+          "soften the sternum",
+          "slow the first sentence"
+        ],
+        "somaticShift": "The body stops rising into the role and returns to the actual beginning.",
+        "bodyCheckPrompt": "Are you speaking from the real desire, or from what they want it to mean?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Clarify before hope hardens.",
+        "questKey": "State the possibility → mark the limit → correct projection before it becomes obligation",
+        "embodiedSignal": "The body feels centered when the desire is no larger than the truth.",
+        "ritualPrompt": "Name what this beginning is not before people build on it.",
+        "alignmentReminder": "Hope is not consent to be misunderstood.",
+        "livePrompt": "Separate the beginning from the projection."
+      },
+      "driftPattern": [
+        "letting hope become obligation",
+        "accepting projection as proof of purpose"
+      ]
+    },
+    {
+      "gate": 41,
+      "line": 6,
+      "gateLine": "41.6",
+      "title": "Desire Beyond the Beginning",
+      "hero": {
+        "mainQuest": "Fantasy Initiation",
+        "sourceLine": "Purpose · Design Earth · I Ching 41.6",
+        "questState": "Releasing",
+        "atmosphericSubtitle": "Not every fantasy needs to become an experience."
+      },
+      "questBrief": {
+        "collapsedPreview": "Some desires are meant to pass through.",
+        "mission": "Discern which desires should begin, wait, transform, or dissolve.",
+        "fieldPrompt": "Notice which fantasy is complete without being acted out.",
+        "livePrompt": "What desire does not need to become real?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Do not begin every fantasy.",
+        "whatThisQuestIsAbout": "This line stands at the edge of desire and sees the larger pattern of beginnings. Some fantasies are instructions, some are emotional weather, and some are only meant to reveal what the heart has been longing for.",
+        "whyThisMattersNow": "Acting on every fantasy turns desire into compulsion. Discernment protects the difference between longing, timing, and true initiation.",
+        "primaryRecognitionTrigger": "You call it a calling because wanting it feels intense.",
+        "livePrompt": "Where are you mistaking intensity for instruction?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Intensity is not always guidance.",
+        "questTrap": "You start the experience just to discharge the feeling.",
+        "questAssets": [
+          "desire discernment",
+          "timing awareness",
+          "emotional completion"
+        ],
+        "frictionSignals": [
+          "acting to escape longing",
+          "treating every fantasy as a sign",
+          "forcing beginnings after the feeling has already taught enough"
+        ],
+        "livePrompt": "Watch where action is only emotional release."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let the desire move through.",
+        "groundingProtocol": [
+          "relax the back of the neck",
+          "settle breath down the spine",
+          "soften the lower belly"
+        ],
+        "somaticShift": "The body can feel desire fully without turning it into an immediate beginning.",
+        "bodyCheckPrompt": "Can your spine hold the feeling without moving toward it?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Choose what deserves a beginning.",
+        "questKey": "Feel the desire fully → identify its role → begin only if timing and truth align",
+        "embodiedSignal": "The body feels complete even if the fantasy is not acted out.",
+        "ritualPrompt": "Ask whether the desire wants action, waiting, expression, or release.",
+        "alignmentReminder": "Not every longing is a doorway.",
+        "livePrompt": "Let the desire reveal its role before you follow it."
+      },
+      "driftPattern": [
+        "acting on intensity as instruction",
+        "starting experiences just to escape longing"
+      ]
+    }
+  ],
+  "perkTrees": [
+    {
+      "id": "perk-tree-41-1-v2",
+      "mainQuestId": "purpose-41-1",
+      "mainQuestName": "Fantasy Initiation",
+      "sourceLine": "Purpose · Design Earth · I Ching 41.1",
+      "questState": "Beginning",
+      "subtitle": "Develop the capacities behind Foundation of Desire.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Fantasy Initiation",
+          "state": "Core",
+          "description": "This path develops the ability to work with desire, fantasy, and emotional beginnings through foundation of desire.",
+          "effect": "Anticipation becomes usable when it is grounded into truthful initiation.",
+          "developmentCue": "Notice the difference between desire, projection, timing, and action.",
+          "masteryMarker": "You can begin, wait, clarify, or release without being ruled by the fantasy."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Desire Recognition",
+          "state": "Emerging",
+          "description": "You learn to recognize what the desire is actually asking for.",
+          "effect": "Fantasy stops pretending to be the whole future.",
+          "developmentCue": "Identify the first real signal before expanding the story.",
+          "masteryMarker": "You can separate a true beginning from imagined completion."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Present-Time Starting",
+          "state": "Emerging",
+          "description": "The body learns to stay present while desire creates pressure to move forward.",
+          "effect": "Initiation becomes cleaner because it is not driven by escape, longing, or projection.",
+          "developmentCue": "Let the body feel the desire before acting from it.",
+          "masteryMarker": "You remain physically grounded while deciding whether to begin."
+        },
+        {
+          "branch": "Field",
+          "name": "Fantasy Containment",
+          "state": "Emerging",
+          "description": "The field becomes clearer when desire is named instead of inflated.",
+          "effect": "Beginnings can invite response without becoming fantasy contracts.",
+          "developmentCue": "Clarify what is real before others build on the image.",
+          "masteryMarker": "The beginning stays alive without becoming distorted by expectation."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Clean Initiation",
+          "state": "Mastery",
+          "description": "The full path matures into clean initiation without fantasy possession.",
+          "effect": "Desire becomes a doorway only when timing, truth, and embodied readiness align.",
+          "developmentCue": "Choose the beginning that can survive contact with reality.",
+          "masteryMarker": "You can honor desire without having to obey every image it creates."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-41-2-v2",
+      "mainQuestId": "purpose-41-2",
+      "mainQuestName": "Fantasy Initiation",
+      "sourceLine": "Purpose · Design Earth · I Ching 41.2",
+      "questState": "Quickening",
+      "subtitle": "Develop the capacities behind Natural Anticipation.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Fantasy Initiation",
+          "state": "Core",
+          "description": "This path develops the ability to work with desire, fantasy, and emotional beginnings through natural anticipation.",
+          "effect": "Anticipation becomes usable when it is grounded into truthful initiation.",
+          "developmentCue": "Notice the difference between desire, projection, timing, and action.",
+          "masteryMarker": "You can begin, wait, clarify, or release without being ruled by the fantasy."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Spark Recognition",
+          "state": "Emerging",
+          "description": "You learn to recognize what the desire is actually asking for.",
+          "effect": "Fantasy stops pretending to be the whole future.",
+          "developmentCue": "Identify the first real signal before expanding the story.",
+          "masteryMarker": "You can separate a true beginning from imagined completion."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Clean Contact",
+          "state": "Emerging",
+          "description": "The body learns to stay present while desire creates pressure to move forward.",
+          "effect": "Initiation becomes cleaner because it is not driven by escape, longing, or projection.",
+          "developmentCue": "Let the body feel the desire before acting from it.",
+          "masteryMarker": "You remain physically grounded while deciding whether to begin."
+        },
+        {
+          "branch": "Field",
+          "name": "Projection Control",
+          "state": "Emerging",
+          "description": "The field becomes clearer when desire is named instead of inflated.",
+          "effect": "Beginnings can invite response without becoming fantasy contracts.",
+          "developmentCue": "Clarify what is real before others build on the image.",
+          "masteryMarker": "The beginning stays alive without becoming distorted by expectation."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Alive Beginnings",
+          "state": "Mastery",
+          "description": "The full path matures into clean initiation without fantasy possession.",
+          "effect": "Desire becomes a doorway only when timing, truth, and embodied readiness align.",
+          "developmentCue": "Choose the beginning that can survive contact with reality.",
+          "masteryMarker": "You can honor desire without having to obey every image it creates."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-41-3-v2",
+      "mainQuestId": "purpose-41-3",
+      "mainQuestName": "Fantasy Initiation",
+      "sourceLine": "Purpose · Design Earth · I Ching 41.3",
+      "questState": "Turbulent",
+      "subtitle": "Develop the capacities behind Fantasy Through Trial.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Fantasy Initiation",
+          "state": "Core",
+          "description": "This path develops the ability to work with desire, fantasy, and emotional beginnings through fantasy through trial.",
+          "effect": "Anticipation becomes usable when it is grounded into truthful initiation.",
+          "developmentCue": "Notice the difference between desire, projection, timing, and action.",
+          "masteryMarker": "You can begin, wait, clarify, or release without being ruled by the fantasy."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Mismatch Detection",
+          "state": "Emerging",
+          "description": "You learn to recognize what the desire is actually asking for.",
+          "effect": "Fantasy stops pretending to be the whole future.",
+          "developmentCue": "Identify the first real signal before expanding the story.",
+          "masteryMarker": "You can separate a true beginning from imagined completion."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Experiential Correction",
+          "state": "Emerging",
+          "description": "The body learns to stay present while desire creates pressure to move forward.",
+          "effect": "Initiation becomes cleaner because it is not driven by escape, longing, or projection.",
+          "developmentCue": "Let the body feel the desire before acting from it.",
+          "masteryMarker": "You remain physically grounded while deciding whether to begin."
+        },
+        {
+          "branch": "Field",
+          "name": "Adaptive Desire",
+          "state": "Emerging",
+          "description": "The field becomes clearer when desire is named instead of inflated.",
+          "effect": "Beginnings can invite response without becoming fantasy contracts.",
+          "developmentCue": "Clarify what is real before others build on the image.",
+          "masteryMarker": "The beginning stays alive without becoming distorted by expectation."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Reality-Tested Initiation",
+          "state": "Mastery",
+          "description": "The full path matures into clean initiation without fantasy possession.",
+          "effect": "Desire becomes a doorway only when timing, truth, and embodied readiness align.",
+          "developmentCue": "Choose the beginning that can survive contact with reality.",
+          "masteryMarker": "You can honor desire without having to obey every image it creates."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-41-4-v2",
+      "mainQuestId": "purpose-41-4",
+      "mainQuestName": "Fantasy Initiation",
+      "sourceLine": "Purpose · Design Earth · I Ching 41.4",
+      "questState": "Inviting",
+      "subtitle": "Develop the capacities behind Shared Desire Field.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Fantasy Initiation",
+          "state": "Core",
+          "description": "This path develops the ability to work with desire, fantasy, and emotional beginnings through shared desire field.",
+          "effect": "Anticipation becomes usable when it is grounded into truthful initiation.",
+          "developmentCue": "Notice the difference between desire, projection, timing, and action.",
+          "masteryMarker": "You can begin, wait, clarify, or release without being ruled by the fantasy."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Shared Anticipation",
+          "state": "Emerging",
+          "description": "You learn to recognize what the desire is actually asking for.",
+          "effect": "Fantasy stops pretending to be the whole future.",
+          "developmentCue": "Identify the first real signal before expanding the story.",
+          "masteryMarker": "You can separate a true beginning from imagined completion."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Specific Invitation",
+          "state": "Emerging",
+          "description": "The body learns to stay present while desire creates pressure to move forward.",
+          "effect": "Initiation becomes cleaner because it is not driven by escape, longing, or projection.",
+          "developmentCue": "Let the body feel the desire before acting from it.",
+          "masteryMarker": "You remain physically grounded while deciding whether to begin."
+        },
+        {
+          "branch": "Field",
+          "name": "Relational Momentum",
+          "state": "Emerging",
+          "description": "The field becomes clearer when desire is named instead of inflated.",
+          "effect": "Beginnings can invite response without becoming fantasy contracts.",
+          "developmentCue": "Clarify what is real before others build on the image.",
+          "masteryMarker": "The beginning stays alive without becoming distorted by expectation."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Responsive Beginning",
+          "state": "Mastery",
+          "description": "The full path matures into clean initiation without fantasy possession.",
+          "effect": "Desire becomes a doorway only when timing, truth, and embodied readiness align.",
+          "developmentCue": "Choose the beginning that can survive contact with reality.",
+          "masteryMarker": "You can honor desire without having to obey every image it creates."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-41-5-v2",
+      "mainQuestId": "purpose-41-5",
+      "mainQuestName": "Fantasy Initiation",
+      "sourceLine": "Purpose · Design Earth · I Ching 41.5",
+      "questState": "Magnetic",
+      "subtitle": "Develop the capacities behind Projected Fantasy.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Fantasy Initiation",
+          "state": "Core",
+          "description": "This path develops the ability to work with desire, fantasy, and emotional beginnings through projected fantasy.",
+          "effect": "Anticipation becomes usable when it is grounded into truthful initiation.",
+          "developmentCue": "Notice the difference between desire, projection, timing, and action.",
+          "masteryMarker": "You can begin, wait, clarify, or release without being ruled by the fantasy."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Projection Detection",
+          "state": "Emerging",
+          "description": "You learn to recognize what the desire is actually asking for.",
+          "effect": "Fantasy stops pretending to be the whole future.",
+          "developmentCue": "Identify the first real signal before expanding the story.",
+          "masteryMarker": "You can separate a true beginning from imagined completion."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Vision Limits",
+          "state": "Emerging",
+          "description": "The body learns to stay present while desire creates pressure to move forward.",
+          "effect": "Initiation becomes cleaner because it is not driven by escape, longing, or projection.",
+          "developmentCue": "Let the body feel the desire before acting from it.",
+          "masteryMarker": "You remain physically grounded while deciding whether to begin."
+        },
+        {
+          "branch": "Field",
+          "name": "Emotional Influence",
+          "state": "Emerging",
+          "description": "The field becomes clearer when desire is named instead of inflated.",
+          "effect": "Beginnings can invite response without becoming fantasy contracts.",
+          "developmentCue": "Clarify what is real before others build on the image.",
+          "masteryMarker": "The beginning stays alive without becoming distorted by expectation."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Responsible Possibility",
+          "state": "Mastery",
+          "description": "The full path matures into clean initiation without fantasy possession.",
+          "effect": "Desire becomes a doorway only when timing, truth, and embodied readiness align.",
+          "developmentCue": "Choose the beginning that can survive contact with reality.",
+          "masteryMarker": "You can honor desire without having to obey every image it creates."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-41-6-v2",
+      "mainQuestId": "purpose-41-6",
+      "mainQuestName": "Fantasy Initiation",
+      "sourceLine": "Purpose · Design Earth · I Ching 41.6",
+      "questState": "Releasing",
+      "subtitle": "Develop the capacities behind Desire Beyond the Beginning.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Fantasy Initiation",
+          "state": "Core",
+          "description": "This path develops the ability to work with desire, fantasy, and emotional beginnings through desire beyond the beginning.",
+          "effect": "Anticipation becomes usable when it is grounded into truthful initiation.",
+          "developmentCue": "Notice the difference between desire, projection, timing, and action.",
+          "masteryMarker": "You can begin, wait, clarify, or release without being ruled by the fantasy."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Desire Discernment",
+          "state": "Emerging",
+          "description": "You learn to recognize what the desire is actually asking for.",
+          "effect": "Fantasy stops pretending to be the whole future.",
+          "developmentCue": "Identify the first real signal before expanding the story.",
+          "masteryMarker": "You can separate a true beginning from imagined completion."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Emotional Containment",
+          "state": "Emerging",
+          "description": "The body learns to stay present while desire creates pressure to move forward.",
+          "effect": "Initiation becomes cleaner because it is not driven by escape, longing, or projection.",
+          "developmentCue": "Let the body feel the desire before acting from it.",
+          "masteryMarker": "You remain physically grounded while deciding whether to begin."
+        },
+        {
+          "branch": "Field",
+          "name": "Timing Awareness",
+          "state": "Emerging",
+          "description": "The field becomes clearer when desire is named instead of inflated.",
+          "effect": "Beginnings can invite response without becoming fantasy contracts.",
+          "developmentCue": "Clarify what is real before others build on the image.",
+          "masteryMarker": "The beginning stays alive without becoming distorted by expectation."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Selective Initiation",
+          "state": "Mastery",
+          "description": "The full path matures into clean initiation without fantasy possession.",
+          "effect": "Desire becomes a doorway only when timing, truth, and embodied readiness align.",
+          "developmentCue": "Choose the beginning that can survive contact with reality.",
+          "masteryMarker": "You can honor desire without having to obey every image it creates."
+        }
+      ]
+    }
+  ],
+  "qaAudit": {
+    "referenceStandard": "59.2 V2 gold standard",
+    "contentSchema": "MainQuestContentEntryV2 + MainQuestPerkTreeV2",
+    "audits": [
+      {
+        "gateLine": "41.1",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "41.2",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "41.3",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "41.4",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "41.5",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "41.6",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      }
+    ]
+  }
+}

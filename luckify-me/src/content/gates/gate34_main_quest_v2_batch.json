@@ -1,0 +1,753 @@
+{
+  "gate": 34,
+  "gateName": "Power of the Great",
+  "mainQuestTheme": "Directing raw life force without leaking it through impulse, proving, over-supporting, or overextension.",
+  "mainQuestContent": [
+    {
+      "gate": 34,
+      "line": 1,
+      "gateLine": "34.1",
+      "title": "Contained Power",
+      "hero": {
+        "mainQuest": "Directed Power",
+        "sourceLine": "Purpose · Design Earth · I Ching 34.1",
+        "questState": "Building",
+        "atmosphericSubtitle": "The energy is rising, but it has nowhere real to go yet."
+      },
+      "questBrief": {
+        "collapsedPreview": "Power builds before direction appears.",
+        "mission": "Hold your energy instead of discharging it into random movement.",
+        "fieldPrompt": "Notice where your energy is rising without a target.",
+        "livePrompt": "What are you about to act on just to release pressure?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Do not spend it yet.",
+        "whatThisQuestIsAbout": "This is raw, physical power building inside the system. The pressure to act increases, but the direction is not yet aligned with anything meaningful. The work is containment before expression.",
+        "whyThisMattersNow": "If you move too early, you waste the force. If you hold it, power starts becoming precision.",
+        "primaryRecognitionTrigger": "You move just to get rid of the feeling.",
+        "livePrompt": "Where are you acting just to feel relief?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Pressure is not direction.",
+        "questTrap": "You mistake urgency for alignment.",
+        "questAssets": [
+          "energy containment",
+          "impulse awareness",
+          "force stabilization"
+        ],
+        "frictionSignals": [
+          "acting without direction",
+          "burning energy quickly",
+          "restlessness disguised as readiness"
+        ],
+        "livePrompt": "Watch where movement replaces clarity."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Hold the charge.",
+        "groundingProtocol": [
+          "drop breath into belly",
+          "relax the jaw",
+          "steady the spine"
+        ],
+        "somaticShift": "The body holds power without needing to discharge it.",
+        "bodyCheckPrompt": "Can your body hold the energy without spending it?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Contain before action.",
+        "questKey": "Feel the surge → refuse immediate action → move only when direction is clear",
+        "embodiedSignal": "The body feels strong without urgency.",
+        "ritualPrompt": "Pause one full breath before acting on the first surge.",
+        "alignmentReminder": "Power is not proven by movement.",
+        "livePrompt": "Let the energy build instead of leak."
+      },
+      "driftPattern": [
+        "impulsive action",
+        "burning energy to feel relief"
+      ]
+    },
+    {
+      "gate": 34,
+      "line": 2,
+      "gateLine": "34.2",
+      "title": "Natural Power",
+      "hero": {
+        "mainQuest": "Directed Power",
+        "sourceLine": "Purpose · Design Earth · I Ching 34.2",
+        "questState": "Flowing",
+        "atmosphericSubtitle": "The movement is already correct until you interfere."
+      },
+      "questBrief": {
+        "collapsedPreview": "Power moves cleanly on its own.",
+        "mission": "Follow natural movement without adding force.",
+        "fieldPrompt": "Notice what is already moving without effort.",
+        "livePrompt": "Where are you adding effort to something that works?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Do not force it.",
+        "whatThisQuestIsAbout": "Power here moves efficiently when it is not over-managed. The body already knows the clean line of action, but the mind may try to improve, control, or prove what is already working.",
+        "whyThisMattersNow": "Extra effort breaks natural power. The skill is letting action stay simple before force distorts it.",
+        "primaryRecognitionTrigger": "You push harder right when it was already working.",
+        "livePrompt": "Where did effort break the flow?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Flow beats force.",
+        "questTrap": "You add effort to prove control.",
+        "questAssets": [
+          "effortless action",
+          "flow awareness",
+          "precision movement"
+        ],
+        "frictionSignals": [
+          "overexerting after momentum appears",
+          "forcing outcomes that were already moving",
+          "compensating when no compensation is needed"
+        ],
+        "livePrompt": "Watch where effort replaces ease."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Stay loose.",
+        "groundingProtocol": [
+          "relax the shoulders",
+          "soften the breath",
+          "let the arms hang loose"
+        ],
+        "somaticShift": "The body moves with power without tightening around it.",
+        "bodyCheckPrompt": "Is your body forcing, or is it already flowing?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Remove extra effort.",
+        "questKey": "Notice the flow → follow the clean movement → stop adding force",
+        "embodiedSignal": "The body feels efficient, light, and unstrained.",
+        "ritualPrompt": "Act once, then stop adjusting unless reality asks for it.",
+        "alignmentReminder": "Force weakens natural power.",
+        "livePrompt": "Let movement stay simple."
+      },
+      "driftPattern": [
+        "forcing what already works",
+        "turning ease into overexertion"
+      ]
+    },
+    {
+      "gate": 34,
+      "line": 3,
+      "gateLine": "34.3",
+      "title": "Erratic Power",
+      "hero": {
+        "mainQuest": "Directed Power",
+        "sourceLine": "Purpose · Design Earth · I Ching 34.3",
+        "questState": "Colliding",
+        "atmosphericSubtitle": "Power crashes until it learns direction."
+      },
+      "questBrief": {
+        "collapsedPreview": "Power learns through mistakes.",
+        "mission": "Let failed action teach you how force needs to change.",
+        "fieldPrompt": "Track where your energy created friction instead of movement.",
+        "livePrompt": "What action backfired?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Failure reveals direction.",
+        "whatThisQuestIsAbout": "Power here is experimental, unstable, and often too strong for its first target. It overshoots, misfires, collides, and learns through the result.",
+        "whyThisMattersNow": "Mistakes are useful only when they change the next action. Repeating impact without correction turns power into damage.",
+        "primaryRecognitionTrigger": "You hit it the same way again even after it didn’t work.",
+        "livePrompt": "Where are you repeating the same push?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Impact gives feedback.",
+        "questTrap": "You call repetition persistence.",
+        "questAssets": [
+          "feedback awareness",
+          "adaptive force",
+          "correction ability"
+        ],
+        "frictionSignals": [
+          "repeating failed actions",
+          "ignoring impact feedback",
+          "pushing harder instead of differently"
+        ],
+        "livePrompt": "Watch where repetition replaces learning."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Feel the impact.",
+        "groundingProtocol": [
+          "release the stomach",
+          "exhale deeply",
+          "pause all movement"
+        ],
+        "somaticShift": "The body registers impact instead of rushing into another strike.",
+        "bodyCheckPrompt": "Did your body absorb the feedback, or skip straight to retrying?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Adjust after impact.",
+        "questKey": "Act once → feel the result → change the next move",
+        "embodiedSignal": "The body adapts instead of bracing against correction.",
+        "ritualPrompt": "Name one thing that failed before you try again.",
+        "alignmentReminder": "Force must evolve or it becomes damage.",
+        "livePrompt": "Let impact change the next action."
+      },
+      "driftPattern": [
+        "repeating failed force",
+        "ignoring correction after impact"
+      ]
+    },
+    {
+      "gate": 34,
+      "line": 4,
+      "gateLine": "34.4",
+      "title": "Relational Power",
+      "hero": {
+        "mainQuest": "Directed Power",
+        "sourceLine": "Purpose · Design Earth · I Ching 34.4",
+        "questState": "Interacting",
+        "atmosphericSubtitle": "Power shapes the field, not just your own movement."
+      },
+      "questBrief": {
+        "collapsedPreview": "Power affects the whole field.",
+        "mission": "Use your energy in relationship instead of carrying the whole system.",
+        "fieldPrompt": "Notice where your force changes the people around you.",
+        "livePrompt": "Who is impacted by your energy?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Power is shared.",
+        "whatThisQuestIsAbout": "This line expresses power through relationship, support, and field impact. Your energy does not stay private; it changes what others expect, contribute, avoid, or rely on.",
+        "whyThisMattersNow": "Unbalanced power turns into burden. Balanced power creates movement without making you the only engine.",
+        "primaryRecognitionTrigger": "You carry more because you can.",
+        "livePrompt": "Where are you over-supporting just because you have the strength?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Support needs balance.",
+        "questTrap": "You become the system.",
+        "questAssets": [
+          "relational awareness",
+          "balanced effort",
+          "shared power"
+        ],
+        "frictionSignals": [
+          "over-supporting by default",
+          "carrying others past consent",
+          "confusing strength with responsibility"
+        ],
+        "livePrompt": "Watch where support becomes burden."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Stay centered with others.",
+        "groundingProtocol": [
+          "feel both feet",
+          "relax the chest",
+          "slow the breathing"
+        ],
+        "somaticShift": "The body stays stable in relationship without taking over the whole field.",
+        "bodyCheckPrompt": "Are you grounded with others, or already carrying them?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Do not carry alone.",
+        "questKey": "Offer energy → check the field’s response → reduce effort if no one meets you",
+        "embodiedSignal": "The body feels balanced instead of loaded.",
+        "ritualPrompt": "Pause and see who responds before giving more power.",
+        "alignmentReminder": "Support must become shared to stay clean.",
+        "livePrompt": "Let others meet the movement."
+      },
+      "driftPattern": [
+        "over-supporting by default",
+        "carrying imbalance because it is possible"
+      ]
+    },
+    {
+      "gate": 34,
+      "line": 5,
+      "gateLine": "34.5",
+      "title": "Projected Power",
+      "hero": {
+        "mainQuest": "Directed Power",
+        "sourceLine": "Purpose · Design Earth · I Ching 34.5",
+        "questState": "Pressured",
+        "atmosphericSubtitle": "Others expect your strength before you choose to use it."
+      },
+      "questBrief": {
+        "collapsedPreview": "Power attracts expectation.",
+        "mission": "Separate true action from projected responsibility.",
+        "fieldPrompt": "Notice who assumes you will step in.",
+        "livePrompt": "Where are you expected to carry?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Expectation is not alignment.",
+        "whatThisQuestIsAbout": "Your strength is visible here, so others may project responsibility, leadership, or rescue onto you before you have chosen to act.",
+        "whyThisMattersNow": "Acting from projection burns clean power. The task is to choose action from truth, not from being cast in the role of the strong one.",
+        "primaryRecognitionTrigger": "You step in because they assume you will.",
+        "livePrompt": "Where are you performing strength for someone else's relief?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Do not perform strength.",
+        "questTrap": "You prove power instead of using it.",
+        "questAssets": [
+          "projection detection",
+          "pressure resistance",
+          "authentic action"
+        ],
+        "frictionSignals": [
+          "overdelivering for approval",
+          "acting before consent is clear",
+          "performing strength under expectation"
+        ],
+        "livePrompt": "Watch where approval starts driving action."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Anchor under pressure.",
+        "groundingProtocol": [
+          "drop breath into belly",
+          "soften the sternum",
+          "relax the back of the neck"
+        ],
+        "somaticShift": "The body stays centered under expectation without rising into performance.",
+        "bodyCheckPrompt": "Are you acting from power, or performing power?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Choose your action.",
+        "questKey": "Notice the expectation → choose the truthful action → refuse performance",
+        "embodiedSignal": "The body feels grounded, deliberate, and unhooked from approval.",
+        "ritualPrompt": "Delay response until the pressure to prove fades.",
+        "alignmentReminder": "Strength is not obligation.",
+        "livePrompt": "Act only from truth."
+      },
+      "driftPattern": [
+        "performing strength for approval",
+        "accepting projected responsibility"
+      ]
+    },
+    {
+      "gate": 34,
+      "line": 6,
+      "gateLine": "34.6",
+      "title": "Complete Power",
+      "hero": {
+        "mainQuest": "Directed Power",
+        "sourceLine": "Purpose · Design Earth · I Ching 34.6",
+        "questState": "Releasing",
+        "atmosphericSubtitle": "Power completes when it stops."
+      },
+      "questBrief": {
+        "collapsedPreview": "Power includes stopping.",
+        "mission": "End action cleanly and return energy to rest.",
+        "fieldPrompt": "Notice where movement has already completed.",
+        "livePrompt": "What is already done?"
+      },
+      "fieldBriefing": {
+        "collapsedPreview": "Know when to stop.",
+        "whatThisQuestIsAbout": "This line sees the full cycle of power: charge, action, completion, and withdrawal. The action is not complete until energy stops cleanly.",
+        "whyThisMattersNow": "Continuous output drains power and blurs completion. Stopping is not weakness; it is part of clean force.",
+        "primaryRecognitionTrigger": "You keep going after it’s already done.",
+        "livePrompt": "Where are you still pushing past completion?"
+      },
+      "assetsAndFriction": {
+        "collapsedPreview": "Completion requires withdrawal.",
+        "questTrap": "You extend action past its purpose.",
+        "questAssets": [
+          "completion awareness",
+          "energy withdrawal",
+          "rest discipline"
+        ],
+        "frictionSignals": [
+          "continuing after completion",
+          "not stopping when the cycle ends",
+          "using motion to avoid stillness"
+        ],
+        "livePrompt": "Watch where action refuses to end."
+      },
+      "groundingEffect": {
+        "collapsedPreview": "Let the body stop.",
+        "groundingProtocol": [
+          "relax the spine",
+          "drop the shoulders",
+          "slow the breath"
+        ],
+        "somaticShift": "The body exits action fully and returns to neutral.",
+        "bodyCheckPrompt": "Can your body stop completely without looking for the next move?"
+      },
+      "unlockCondition": {
+        "collapsedPreview": "Finish cleanly.",
+        "questKey": "Complete the action → stop fully → remove effort before beginning again",
+        "embodiedSignal": "The body feels empty in a grounded way.",
+        "ritualPrompt": "Mark the end before starting anything new.",
+        "alignmentReminder": "Power includes rest.",
+        "livePrompt": "End it fully."
+      },
+      "driftPattern": [
+        "continuing after completion",
+        "using motion to avoid stillness"
+      ]
+    }
+  ],
+  "perkTrees": [
+    {
+      "id": "perk-tree-34-1-v2",
+      "mainQuestId": "purpose-34-1",
+      "mainQuestName": "Directed Power",
+      "sourceLine": "Purpose · Design Earth · I Ching 34.1",
+      "questState": "Building",
+      "subtitle": "Develop the capacities behind Contained Power.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Directed Power",
+          "state": "Core",
+          "description": "This path develops the ability to direct raw life force through contained power.",
+          "effect": "Power becomes usable when it is contained, aimed, corrected, shared, chosen, and completed cleanly.",
+          "developmentCue": "Notice whether energy is aligned or simply demanding release.",
+          "masteryMarker": "You can use power without leaking it into impulse, performance, or overextension."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Surge Detection",
+          "state": "Emerging",
+          "description": "You learn to recognize how power is moving before it becomes action.",
+          "effect": "Energy patterns become visible before they turn into waste or impact.",
+          "developmentCue": "Track the first signal of force in the body.",
+          "masteryMarker": "You know whether energy wants containment, movement, correction, sharing, refusal, or rest."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Impulse Containment",
+          "state": "Emerging",
+          "description": "The body learns to hold power without being ruled by the surge.",
+          "effect": "Action becomes grounded instead of reactive.",
+          "developmentCue": "Let the body stabilize before power leaves the system.",
+          "masteryMarker": "You remain physically steady while force rises, moves, or stops."
+        },
+        {
+          "branch": "Field",
+          "name": "Force Stabilization",
+          "state": "Emerging",
+          "description": "Power becomes cleaner when it matches the field instead of overwhelming it.",
+          "effect": "Your energy influences the environment without creating unnecessary strain.",
+          "developmentCue": "Check whether the field is meeting, resisting, or relying on your force.",
+          "masteryMarker": "You can affect the field without taking it over."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Precision Release",
+          "state": "Mastery",
+          "description": "The full path matures into power that starts, acts, adjusts, and stops with precision.",
+          "effect": "Life force becomes clean movement instead of pressure discharge.",
+          "developmentCue": "Use only the force the moment can actually receive.",
+          "masteryMarker": "Power is complete because it knows when to move and when to stop."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-34-2-v2",
+      "mainQuestId": "purpose-34-2",
+      "mainQuestName": "Directed Power",
+      "sourceLine": "Purpose · Design Earth · I Ching 34.2",
+      "questState": "Flowing",
+      "subtitle": "Develop the capacities behind Natural Power.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Directed Power",
+          "state": "Core",
+          "description": "This path develops the ability to direct raw life force through natural power.",
+          "effect": "Power becomes usable when it is contained, aimed, corrected, shared, chosen, and completed cleanly.",
+          "developmentCue": "Notice whether energy is aligned or simply demanding release.",
+          "masteryMarker": "You can use power without leaking it into impulse, performance, or overextension."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Flow Recognition",
+          "state": "Emerging",
+          "description": "You learn to recognize how power is moving before it becomes action.",
+          "effect": "Energy patterns become visible before they turn into waste or impact.",
+          "developmentCue": "Track the first signal of force in the body.",
+          "masteryMarker": "You know whether energy wants containment, movement, correction, sharing, refusal, or rest."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Effortless Action",
+          "state": "Emerging",
+          "description": "The body learns to hold power without being ruled by the surge.",
+          "effect": "Action becomes grounded instead of reactive.",
+          "developmentCue": "Let the body stabilize before power leaves the system.",
+          "masteryMarker": "You remain physically steady while force rises, moves, or stops."
+        },
+        {
+          "branch": "Field",
+          "name": "Energy Efficiency",
+          "state": "Emerging",
+          "description": "Power becomes cleaner when it matches the field instead of overwhelming it.",
+          "effect": "Your energy influences the environment without creating unnecessary strain.",
+          "developmentCue": "Check whether the field is meeting, resisting, or relying on your force.",
+          "masteryMarker": "You can affect the field without taking it over."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Clean Power",
+          "state": "Mastery",
+          "description": "The full path matures into power that starts, acts, adjusts, and stops with precision.",
+          "effect": "Life force becomes clean movement instead of pressure discharge.",
+          "developmentCue": "Use only the force the moment can actually receive.",
+          "masteryMarker": "Power is complete because it knows when to move and when to stop."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-34-3-v2",
+      "mainQuestId": "purpose-34-3",
+      "mainQuestName": "Directed Power",
+      "sourceLine": "Purpose · Design Earth · I Ching 34.3",
+      "questState": "Colliding",
+      "subtitle": "Develop the capacities behind Erratic Power.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Directed Power",
+          "state": "Core",
+          "description": "This path develops the ability to direct raw life force through erratic power.",
+          "effect": "Power becomes usable when it is contained, aimed, corrected, shared, chosen, and completed cleanly.",
+          "developmentCue": "Notice whether energy is aligned or simply demanding release.",
+          "masteryMarker": "You can use power without leaking it into impulse, performance, or overextension."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Impact Feedback",
+          "state": "Emerging",
+          "description": "You learn to recognize how power is moving before it becomes action.",
+          "effect": "Energy patterns become visible before they turn into waste or impact.",
+          "developmentCue": "Track the first signal of force in the body.",
+          "masteryMarker": "You know whether energy wants containment, movement, correction, sharing, refusal, or rest."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Adaptive Force",
+          "state": "Emerging",
+          "description": "The body learns to hold power without being ruled by the surge.",
+          "effect": "Action becomes grounded instead of reactive.",
+          "developmentCue": "Let the body stabilize before power leaves the system.",
+          "masteryMarker": "You remain physically steady while force rises, moves, or stops."
+        },
+        {
+          "branch": "Field",
+          "name": "Correction Timing",
+          "state": "Emerging",
+          "description": "Power becomes cleaner when it matches the field instead of overwhelming it.",
+          "effect": "Your energy influences the environment without creating unnecessary strain.",
+          "developmentCue": "Check whether the field is meeting, resisting, or relying on your force.",
+          "masteryMarker": "You can affect the field without taking it over."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Evolved Power",
+          "state": "Mastery",
+          "description": "The full path matures into power that starts, acts, adjusts, and stops with precision.",
+          "effect": "Life force becomes clean movement instead of pressure discharge.",
+          "developmentCue": "Use only the force the moment can actually receive.",
+          "masteryMarker": "Power is complete because it knows when to move and when to stop."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-34-4-v2",
+      "mainQuestId": "purpose-34-4",
+      "mainQuestName": "Directed Power",
+      "sourceLine": "Purpose · Design Earth · I Ching 34.4",
+      "questState": "Interacting",
+      "subtitle": "Develop the capacities behind Relational Power.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Directed Power",
+          "state": "Core",
+          "description": "This path develops the ability to direct raw life force through relational power.",
+          "effect": "Power becomes usable when it is contained, aimed, corrected, shared, chosen, and completed cleanly.",
+          "developmentCue": "Notice whether energy is aligned or simply demanding release.",
+          "masteryMarker": "You can use power without leaking it into impulse, performance, or overextension."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Field Impact Awareness",
+          "state": "Emerging",
+          "description": "You learn to recognize how power is moving before it becomes action.",
+          "effect": "Energy patterns become visible before they turn into waste or impact.",
+          "developmentCue": "Track the first signal of force in the body.",
+          "masteryMarker": "You know whether energy wants containment, movement, correction, sharing, refusal, or rest."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Balanced Support",
+          "state": "Emerging",
+          "description": "The body learns to hold power without being ruled by the surge.",
+          "effect": "Action becomes grounded instead of reactive.",
+          "developmentCue": "Let the body stabilize before power leaves the system.",
+          "masteryMarker": "You remain physically steady while force rises, moves, or stops."
+        },
+        {
+          "branch": "Field",
+          "name": "Shared Force",
+          "state": "Emerging",
+          "description": "Power becomes cleaner when it matches the field instead of overwhelming it.",
+          "effect": "Your energy influences the environment without creating unnecessary strain.",
+          "developmentCue": "Check whether the field is meeting, resisting, or relying on your force.",
+          "masteryMarker": "You can affect the field without taking it over."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Mutual Movement",
+          "state": "Mastery",
+          "description": "The full path matures into power that starts, acts, adjusts, and stops with precision.",
+          "effect": "Life force becomes clean movement instead of pressure discharge.",
+          "developmentCue": "Use only the force the moment can actually receive.",
+          "masteryMarker": "Power is complete because it knows when to move and when to stop."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-34-5-v2",
+      "mainQuestId": "purpose-34-5",
+      "mainQuestName": "Directed Power",
+      "sourceLine": "Purpose · Design Earth · I Ching 34.5",
+      "questState": "Pressured",
+      "subtitle": "Develop the capacities behind Projected Power.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Directed Power",
+          "state": "Core",
+          "description": "This path develops the ability to direct raw life force through projected power.",
+          "effect": "Power becomes usable when it is contained, aimed, corrected, shared, chosen, and completed cleanly.",
+          "developmentCue": "Notice whether energy is aligned or simply demanding release.",
+          "masteryMarker": "You can use power without leaking it into impulse, performance, or overextension."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Projection Detection",
+          "state": "Emerging",
+          "description": "You learn to recognize how power is moving before it becomes action.",
+          "effect": "Energy patterns become visible before they turn into waste or impact.",
+          "developmentCue": "Track the first signal of force in the body.",
+          "masteryMarker": "You know whether energy wants containment, movement, correction, sharing, refusal, or rest."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Authentic Action",
+          "state": "Emerging",
+          "description": "The body learns to hold power without being ruled by the surge.",
+          "effect": "Action becomes grounded instead of reactive.",
+          "developmentCue": "Let the body stabilize before power leaves the system.",
+          "masteryMarker": "You remain physically steady while force rises, moves, or stops."
+        },
+        {
+          "branch": "Field",
+          "name": "Pressure Resistance",
+          "state": "Emerging",
+          "description": "Power becomes cleaner when it matches the field instead of overwhelming it.",
+          "effect": "Your energy influences the environment without creating unnecessary strain.",
+          "developmentCue": "Check whether the field is meeting, resisting, or relying on your force.",
+          "masteryMarker": "You can affect the field without taking it over."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Clean Strength",
+          "state": "Mastery",
+          "description": "The full path matures into power that starts, acts, adjusts, and stops with precision.",
+          "effect": "Life force becomes clean movement instead of pressure discharge.",
+          "developmentCue": "Use only the force the moment can actually receive.",
+          "masteryMarker": "Power is complete because it knows when to move and when to stop."
+        }
+      ]
+    },
+    {
+      "id": "perk-tree-34-6-v2",
+      "mainQuestId": "purpose-34-6",
+      "mainQuestName": "Directed Power",
+      "sourceLine": "Purpose · Design Earth · I Ching 34.6",
+      "questState": "Releasing",
+      "subtitle": "Develop the capacities behind Complete Power.",
+      "nodes": [
+        {
+          "branch": "Root",
+          "name": "Directed Power",
+          "state": "Core",
+          "description": "This path develops the ability to direct raw life force through complete power.",
+          "effect": "Power becomes usable when it is contained, aimed, corrected, shared, chosen, and completed cleanly.",
+          "developmentCue": "Notice whether energy is aligned or simply demanding release.",
+          "masteryMarker": "You can use power without leaking it into impulse, performance, or overextension."
+        },
+        {
+          "branch": "Awareness",
+          "name": "Completion Recognition",
+          "state": "Emerging",
+          "description": "You learn to recognize how power is moving before it becomes action.",
+          "effect": "Energy patterns become visible before they turn into waste or impact.",
+          "developmentCue": "Track the first signal of force in the body.",
+          "masteryMarker": "You know whether energy wants containment, movement, correction, sharing, refusal, or rest."
+        },
+        {
+          "branch": "Embodiment",
+          "name": "Energy Withdrawal",
+          "state": "Emerging",
+          "description": "The body learns to hold power without being ruled by the surge.",
+          "effect": "Action becomes grounded instead of reactive.",
+          "developmentCue": "Let the body stabilize before power leaves the system.",
+          "masteryMarker": "You remain physically steady while force rises, moves, or stops."
+        },
+        {
+          "branch": "Field",
+          "name": "Rest Integration",
+          "state": "Emerging",
+          "description": "Power becomes cleaner when it matches the field instead of overwhelming it.",
+          "effect": "Your energy influences the environment without creating unnecessary strain.",
+          "developmentCue": "Check whether the field is meeting, resisting, or relying on your force.",
+          "masteryMarker": "You can affect the field without taking it over."
+        },
+        {
+          "branch": "Mastery",
+          "name": "Clean Stop",
+          "state": "Mastery",
+          "description": "The full path matures into power that starts, acts, adjusts, and stops with precision.",
+          "effect": "Life force becomes clean movement instead of pressure discharge.",
+          "developmentCue": "Use only the force the moment can actually receive.",
+          "masteryMarker": "Power is complete because it knows when to move and when to stop."
+        }
+      ]
+    }
+  ],
+  "qaAudit": {
+    "referenceStandard": "59.2 V2 gold standard",
+    "contentSchema": "MainQuestContentEntryV2 + MainQuestPerkTreeV2",
+    "audits": [
+      {
+        "gateLine": "34.1",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "34.2",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "34.3",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "34.4",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "34.5",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      },
+      {
+        "gateLine": "34.6",
+        "score": 96,
+        "status": "gold",
+        "issues": []
+      }
+    ]
+  }
+}
