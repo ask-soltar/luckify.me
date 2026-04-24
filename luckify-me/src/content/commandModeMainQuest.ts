@@ -119,7 +119,7 @@ export type MainQuestContentEntry = {
   sphere: 'Purpose';
   gate: number;
   line: number;
-  worldLabel: 'ACTIVE QUEST';
+  worldLabel: 'MAIN QUEST';
   mainQuest: string;
   sourceLine: string;
   questState: string;
@@ -2017,7 +2017,7 @@ function mapV2ContentToEntry(content: MainQuestContentEntryV2, perkTreeId: strin
     sphere: 'Purpose',
     gate: content.gate,
     line: content.line,
-    worldLabel: 'ACTIVE QUEST',
+    worldLabel: 'MAIN QUEST',
     mainQuest: content.hero.mainQuest,
     sourceLine: content.hero.sourceLine,
     questState: content.hero.questState,
@@ -2361,7 +2361,7 @@ function mapIntegrationSeedToEntry(seed: GateLineIntegrationSeed): MainQuestCont
     sphere: 'Purpose',
     gate: seed.gate,
     line: seed.line,
-    worldLabel: 'ACTIVE QUEST',
+    worldLabel: 'MAIN QUEST',
     mainQuest: schemaPrimaryHeader,
     sourceLine: createSourceLine(seed.gate, seed.line),
     questState: 'Stirring',
@@ -2904,7 +2904,7 @@ export function buildCommandModeMainQuestModelV2(
     id: createMainQuestId(contentV2.gate, contentV2.line),
     sectionLabel: 'Main Quest',
     hero: {
-      worldLabel: 'ACTIVE QUEST',
+      worldLabel: 'MAIN QUEST',
       mainQuest: contentV2.hero.mainQuest,
       sourceLine: contentV2.hero.sourceLine,
       questState: contentV2.hero.questState,

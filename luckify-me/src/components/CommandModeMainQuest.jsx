@@ -163,7 +163,7 @@ export function CommandModeMainQuest({
   const model = getCommandModeMainQuestModel(resolvedGateLine);
   const v2PerkTree = perkTreeV2Registry[resolvedGateLine];
   const resolvedPerkTree = v2PerkTree ? mapV2PerkTreeToTree(v2PerkTree) : null;
-  const [isMainQuestCollapsed, setIsMainQuestCollapsed] = useState(false);
+  const [isMainQuestCollapsed, setIsMainQuestCollapsed] = useState(true);
   const [activeAccordion, setActiveAccordion] = useState(NO_ACTIVE_SECTION);
   const [accordionResetVersion, setAccordionResetVersion] = useState(0);
   const [view, setView] = useState('quest');
@@ -214,8 +214,6 @@ export function CommandModeMainQuest({
       data-active-accent={activeLayerAccent}
       aria-labelledby="cmd-main-quest-title"
     >
-      <div className="cmd-main-quest__section-label">{model.sectionLabel}</div>
-
       <button
         type="button"
         className="cmd-main-quest__hero cmd-main-quest__hero--resettable"
