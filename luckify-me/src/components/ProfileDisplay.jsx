@@ -581,13 +581,16 @@ export function ProfileDisplay({
             transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
           >
             {activeTab === 'loadout' && (
-              <ActiveRhythmSection
-                profile={profile}
-                profileId={profileId}
-                shouldAnimateRhythmReveal={shouldAnimateRhythmReveal}
-                humanDesign={humanDesign}
-                onLocationChange={onLocationChange}
-              />
+              <>
+                <CommandModeMainQuest gateLine={commandModePurposeGateLine} />
+                <ActiveRhythmSection
+                  profile={profile}
+                  profileId={profileId}
+                  shouldAnimateRhythmReveal={shouldAnimateRhythmReveal}
+                  humanDesign={humanDesign}
+                  onLocationChange={onLocationChange}
+                />
+              </>
             )}
 
             {activeTab === 'engine' && (
@@ -595,7 +598,6 @@ export function ProfileDisplay({
                 <LoadoutCoreModuleSection
                   {...coreCardProps}
                 />
-                  <LoadoutMainQuestSection entry={mainQuestEntry} />
                 <PassiveSkillsSection
                   decisionEngine={decisionEngine}
                   passiveSkillLoadout={passiveSkillLoadout}
@@ -613,7 +615,7 @@ export function ProfileDisplay({
                     Exploratory tools for play, pattern testing, and live interpretation.
                   </div>
 
-                  <CommandModeMainQuest gateLine={commandModePurposeGateLine} />
+                  <LoadoutMainQuestSection entry={mainQuestEntry} />
 
                   <div className="profile-exploration-controls">
                     <button
