@@ -4480,6 +4480,75 @@
   background:
     radial-gradient(ellipse at center, rgba(78,143,88,0.11) 0%, rgba(78,143,88,0.028) 28%, transparent 70%);
 }
+/* ── CMD quest theme overrides ── */
+.profile-exploration-panel--cmd .quest-shell {
+  background: linear-gradient(180deg, rgba(2, 5, 2, 0.98) 0%, rgba(1, 3, 1, 1) 100%) !important;
+  border-color: rgba(78, 143, 88, 0.28) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(78, 143, 88, 0.07),
+    0 0 20px rgba(78, 143, 88, 0.07) !important;
+  border-radius: 10px;
+}
+.profile-exploration-panel--cmd .quest-shell *,
+.profile-exploration-panel--cmd .quest-hero__title,
+.profile-exploration-panel--cmd .quest-hero__eyebrow,
+.profile-exploration-panel--cmd .quest-hero__meta-item,
+.profile-exploration-panel--cmd .quest-accordion__title,
+.profile-exploration-panel--cmd .quest-card__label,
+.profile-exploration-panel--cmd .quest-card__eyebrow,
+.profile-exploration-panel--cmd .quest-rail__label,
+.profile-exploration-panel--cmd .quest-nested-card__title,
+.profile-exploration-panel--cmd .quest-nested-card__label {
+  font-family: var(--pip-font-mono) !important;
+}
+.profile-exploration-panel--cmd .quest-hero__title {
+  color: #9eff7a !important;
+  letter-spacing: -0.01em;
+}
+.profile-exploration-panel--cmd .quest-hero__eyebrow,
+.profile-exploration-panel--cmd .quest-accordion__title,
+.profile-exploration-panel--cmd .quest-card__label,
+.profile-exploration-panel--cmd .quest-card__eyebrow,
+.profile-exploration-panel--cmd .quest-nested-card__label {
+  color: rgba(158, 255, 122, 0.6) !important;
+  letter-spacing: 0.12em;
+}
+.profile-exploration-panel--cmd .quest-hero__summary,
+.profile-exploration-panel--cmd .quest-accordion__body,
+.profile-exploration-panel--cmd .quest-card__copy,
+.profile-exploration-panel--cmd .quest-nested-card__copy,
+.profile-exploration-panel--cmd .quest-rail__copy {
+  color: rgba(158, 255, 122, 0.45) !important;
+}
+.profile-exploration-panel--cmd .quest-hero__meta-item {
+  color: rgba(158, 255, 122, 0.38) !important;
+  border-color: rgba(78, 143, 88, 0.22) !important;
+}
+.profile-exploration-panel--cmd .quest-hero {
+  border-color: rgba(78, 143, 88, 0.2) !important;
+}
+.profile-exploration-panel--cmd .quest-accordion,
+.profile-exploration-panel--cmd .quest-card,
+.profile-exploration-panel--cmd .quest-nested-card {
+  border-color: rgba(78, 143, 88, 0.14) !important;
+  background: rgba(4, 10, 4, 0.6) !important;
+}
+.profile-exploration-panel--cmd .quest-shell__chevron {
+  color: rgba(158, 255, 122, 0.5) !important;
+}
+.profile-exploration-panel--cmd .quest-icon-badge {
+  background: rgba(78, 143, 88, 0.15) !important;
+  border-color: rgba(78, 143, 88, 0.24) !important;
+  color: #9eff7a !important;
+}
+/* suppress blue/purple atmospheric tints */
+.profile-exploration-panel--cmd .quest-background__haze--top,
+.profile-exploration-panel--cmd .quest-background__haze--mid,
+.profile-exploration-panel--cmd .quest-background__stars {
+  opacity: 0 !important;
+}
+/* ── end cmd quest overrides ── */
+
 .profile-exploration-label {
   font-family: var(--pip-font-mono);
   font-size: 9px;
