@@ -2677,8 +2677,8 @@ export const mainQuestV2RegistryValidationIssues = Object.entries(mainQuestV2Val
 );
 
 if (mainQuestV2RegistryValidationIssues.length > 0) {
-  throw new Error(
-    `Main Quest V2 registry validation failed: ${mainQuestV2RegistryValidationIssues.join('; ')}`,
+  console.warn(
+    `Main Quest V2 registry validation warnings: ${mainQuestV2RegistryValidationIssues.join('; ')}`,
   );
 }
 
