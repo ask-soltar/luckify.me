@@ -14,6 +14,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { DimensionCard } from './DimensionCard.jsx';
 import { CoreConfigCard } from './CoreConfigCard.jsx';
 import { LuckyWindow } from './LuckyWindow.jsx';
+import { MainQuestScreen } from './MainQuestScreen.jsx';
 import { CommandModeMainQuest } from './CommandModeMainQuest.jsx';
 import PassiveSkillInlineCarousel from './PassiveSkillInlineCarousel.jsx';
 import { TITHI_CCE, ELEMENT_CCE, LP_CCE, getDynamic, getHumanModeContent, generateWatchFor, generateBestUse } from '../constants/coreConfig.js';
@@ -25,6 +26,7 @@ import { deriveHumanDesign } from '../utils/humanDesign.js';
 import { getDecisionEnginePayload } from '../utils/decisionEngine.js';
 import { getAuthorityLoadout } from '../constants/authorityLoadouts.js';
 import { getCommandModeMainQuestEntry } from '../content/commandModeMainQuest.ts';
+import { getMainQuestEntry, mainQuestExample592 } from '../content/mainQuest.ts';
 
 // Element color palette — grounded, permanent, different energy from zone colors
 const ELEMENT_COLORS = {
@@ -210,7 +212,7 @@ function CmdCoreLoadoutSection({
 function LoadoutMainQuestSection({ entry }) {
   return (
     <section className="profile-tab-panel profile-tab-panel--cmd-main-quest">
-      <CommandModeMainQuest seed={entry || undefined} />
+      <MainQuestScreen entry={entry || mainQuestExample592} />
     </section>
   );
 }
@@ -389,6 +391,10 @@ export function ProfileDisplay({
     watchFor,
     bestUse,
   };
+  const mainQuestEntry = useMemo(() => {
+    if (!geneKeys?.purpose) return mainQuestExample592;
+    return getMainQuestEntry(geneKeys.purpose.gate, geneKeys.purpose.line) || mainQuestExample592;
+  }, [geneKeys]);
   const commandModeMainQuestEntry = useMemo(() => {
     if (!geneKeys?.purpose) return null;
     return getCommandModeMainQuestEntry(geneKeys.purpose.gate, geneKeys.purpose.line);
@@ -591,7 +597,7 @@ export function ProfileDisplay({
                 <LoadoutCoreModuleSection
                   {...coreCardProps}
                 />
-                <LoadoutMainQuestSection entry={commandModeMainQuestEntry} />
+                  <LoadoutMainQuestSection entry={mainQuestEntry} />
                 <PassiveSkillsSection
                   decisionEngine={decisionEngine}
                   passiveSkillLoadout={passiveSkillLoadout}
@@ -608,6 +614,8 @@ export function ProfileDisplay({
                   <div className="profile-exploration-copy">
                     Exploratory tools for play, pattern testing, and live interpretation.
                   </div>
+
+                  <CommandModeMainQuest seed={commandModeMainQuestEntry || undefined} />
 
                   <div className="profile-exploration-controls">
                     <button
