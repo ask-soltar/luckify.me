@@ -201,7 +201,7 @@ export function buildMainQuestPanel(entry: MainQuestEntry): QuestPanelData {
     metadata: [
       entry.sphere,
       'Design Earth',
-      `Gene Key ${entry.gate}.${entry.line}`,
+      `I Ching ${entry.gate}.${entry.line}`,
     ],
     sections: [
       {

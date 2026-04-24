@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import {
   buildCommandModeMainQuestModel,
   COMMAND_MODE_LAYER_PRESENTATION,
+  getCommandModeMainQuestModel,
   getCommandModePerkTree,
   mainQuest592Seed,
   perkTree592Mvp,
@@ -162,7 +163,11 @@ export function CommandModeMainQuest({
   perkTree = null,
 }) {
   const resolvedPerkTree = perkTree || getCommandModePerkTree(seed) || perkTree592Mvp;
-  const model = buildCommandModeMainQuestModel(seed, resolvedPerkTree);
+  const gateLine = seed.gateLine || `${seed.gate}.${seed.line}`;
+  const model = gateLine
+    ? getCommandModeMainQuestModel(gateLine)
+    : buildCommandModeMainQuestModel(seed, resolvedPerkTree);
+  const [isMainQuestCollapsed, setIsMainQuestCollapsed] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState(NO_ACTIVE_SECTION);
   const [accordionResetVersion, setAccordionResetVersion] = useState(0);
   const [view, setView] = useState('quest');
@@ -195,7 +200,11 @@ export function CommandModeMainQuest({
   };
 
   const handleHeroReset = () => {
-    collapseAllSections();
+    setIsMainQuestCollapsed((current) => {
+      const nextCollapsed = !current;
+      collapseAllSections();
+      return nextCollapsed;
+    });
   };
 
   if (view === 'perk-tree') {
@@ -240,37 +249,49 @@ export function CommandModeMainQuest({
         <p className="cmd-main-quest__hero-subtitle">{model.hero.atmosphericSubtitle}</p>
       </button>
 
-      <div className="cmd-main-quest__stack">
-        {model.cards.map((card) => {
-          const isAccordion = accordionIds.has(card.id);
-          const isOpen = isAccordion ? activeAccordion === card.id : true;
+      <AnimatePresence initial={false}>
+        {!isMainQuestCollapsed ? (
+          <motion.div
+            className="cmd-main-quest__stack"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="cmd-main-quest__stack-inner">
+              {model.cards.map((card) => {
+                const isAccordion = accordionIds.has(card.id);
+                const isOpen = isAccordion ? activeAccordion === card.id : true;
 
-          return (
-            <QuestDataCard
-              key={`${card.id}-${accordionResetVersion}`}
-              id={card.id}
-              title={card.title}
-              tone={card.tone}
-              imagePath={card.imagePath}
-              blocks={card.blocks}
-              chips={card.chips}
-              livePrompt={card.livePrompt}
-              preview={card.preview}
-              summary={card.summary}
-              summaryRows={card.summaryRows}
-              footer={card.footer}
-              emphasis={card.emphasis}
-              collapsible={isAccordion}
-              isOpen={isOpen}
-              isActive={activeLayer === card.id}
-              hasActiveLayer={hasActiveLayer}
-              accent={sectionMeta[card.id]?.accent}
-              onToggle={isAccordion ? () => handleAccordionToggle(card.id) : undefined}
-              onDestinationActivate={card.id === 'mini-perk-preview' ? () => setView('perk-tree') : undefined}
-            />
-          );
-        })}
-      </div>
+                return (
+                  <QuestDataCard
+                    key={`${card.id}-${accordionResetVersion}`}
+                    id={card.id}
+                    title={card.title}
+                    tone={card.tone}
+                    imagePath={card.imagePath}
+                    blocks={card.blocks}
+                    chips={card.chips}
+                    livePrompt={card.livePrompt}
+                    preview={card.preview}
+                    summary={card.summary}
+                    summaryRows={card.summaryRows}
+                    footer={card.footer}
+                    emphasis={card.emphasis}
+                    collapsible={isAccordion}
+                    isOpen={isOpen}
+                    isActive={activeLayer === card.id}
+                    hasActiveLayer={hasActiveLayer}
+                    accent={sectionMeta[card.id]?.accent}
+                    onToggle={isAccordion ? () => handleAccordionToggle(card.id) : undefined}
+                    onDestinationActivate={card.id === 'mini-perk-preview' ? () => setView('perk-tree') : undefined}
+                  />
+                );
+              })}
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </section>
   );
 }

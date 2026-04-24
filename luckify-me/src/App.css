@@ -4937,6 +4937,12 @@
 .cmd-main-quest__stack {
   display: grid;
   gap: 8px;
+  overflow: hidden;
+}
+
+.cmd-main-quest__stack-inner {
+  display: grid;
+  gap: 8px;
 }
 
 .cmd-main-quest__card {

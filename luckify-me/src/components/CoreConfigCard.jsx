@@ -74,8 +74,9 @@ export function CoreConfigCard({
   bestUse,
   mode = 'human',
   defaultOpen = false,
+  headerless = false,
 }) {
-  const [open,        setOpen]        = useState(defaultOpen);
+  const [open,        setOpen]        = useState(headerless ? true : defaultOpen);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
   const isOperator = mode === 'operator';
@@ -127,27 +128,29 @@ export function CoreConfigCard({
   const expandBracketLabel = isOperator ? '[ CONFIGURATION LOGIC ]' : 'Loadout Mechanics';
 
   return (
-    <div className={`dim-card core-config-card${open ? ' open' : ''}${exploreOpen ? ' core-config-card--guidance-open' : ''} core-config-card--${mode}`}>
+    <div className={`dim-card core-config-card${open ? ' open' : ''}${exploreOpen ? ' core-config-card--guidance-open' : ''}${headerless ? ' core-config-card--headerless' : ''} core-config-card--${mode}`}>
 
       {/* ── Header ── */}
-      <div className={`dim-card-header core-config-header core-config-header--${mode}`} onClick={() => setOpen(o => !o)}>
-        <div className="dim-card-icon core-config-glyph-wrap">
-          <FoundationGlyphBadge glyph={themeName} mode={mode} title={themeName} fallback={icon} />
-        </div>
-        <div className="dim-card-titles">
-          <div className="core-config-system-label">
-            {systemLabel}
+      {!headerless && (
+        <div className={`dim-card-header core-config-header core-config-header--${mode}`} onClick={() => setOpen(o => !o)}>
+          <div className="dim-card-icon core-config-glyph-wrap">
+            <FoundationGlyphBadge glyph={themeName} mode={mode} title={themeName} fallback={icon} />
           </div>
-          <div className="core-config-theme-name">{themeTitle}</div>
-          {metaLine && <div className="core-config-meta-line">{metaLine}</div>}
+          <div className="dim-card-titles">
+            <div className="core-config-system-label">
+              {systemLabel}
+            </div>
+            <div className="core-config-theme-name">{themeTitle}</div>
+            {metaLine && <div className="core-config-meta-line">{metaLine}</div>}
+          </div>
+          <div className="core-config-header-right">
+            <div className={`dim-card-chevron${open ? ' rotated' : ''}`}>▼</div>
+          </div>
         </div>
-        <div className="core-config-header-right">
-          <div className={`dim-card-chevron${open ? ' rotated' : ''}`}>▼</div>
-        </div>
-      </div>
+      )}
 
       {/* ── Body ── */}
-      {open && (
+      {(open || headerless) && (
         <div className={`dim-card-body core-config-body${exploreOpen ? ' core-config-body--guidance-open' : ''}`}>
 
           {!isOperator ? (
