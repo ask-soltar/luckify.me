@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   getCommandModeMainQuestModel,
+  COMMAND_MODE_LAYER_PRESENTATION,
 } from '../content/commandModeMainQuest.ts';
 import { PerkTreeScreen } from './PerkTreeScreen.jsx';
 
@@ -154,9 +155,9 @@ function QuestDataCard({
 }
 
 export function CommandModeMainQuest({
-  gateLine = '59.2',
+  gateLine,
 }) {
-  const model = getCommandModeMainQuestModel(gateLine);
+  const model = getCommandModeMainQuestModel(gateLine ?? '59.2');
   const [isMainQuestCollapsed, setIsMainQuestCollapsed] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState(NO_ACTIVE_SECTION);
   const [accordionResetVersion, setAccordionResetVersion] = useState(0);
