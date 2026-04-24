@@ -4,7 +4,7 @@ import {
   getCommandModeMainQuestModel,
   COMMAND_MODE_LAYER_PRESENTATION,
   perkTreeV2Registry,
-  COMMAND_MODE_PERK_TREES,
+  mapV2PerkTreeToTree,
 } from '../content/commandModeMainQuest.ts';
 import { PerkTreeScreen } from './PerkTreeScreen.jsx';
 
@@ -161,7 +161,8 @@ export function CommandModeMainQuest({
 }) {
   const resolvedGateLine = gateLine ?? '59.2';
   const model = getCommandModeMainQuestModel(resolvedGateLine);
-  const resolvedPerkTree = perkTreeV2Registry[resolvedGateLine] ?? COMMAND_MODE_PERK_TREES[`perk-tree-${resolvedGateLine.replace('.', '-')}-v2`] ?? null;
+  const v2PerkTree = perkTreeV2Registry[resolvedGateLine];
+  const resolvedPerkTree = v2PerkTree ? mapV2PerkTreeToTree(v2PerkTree) : null;
   const [isMainQuestCollapsed, setIsMainQuestCollapsed] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState(NO_ACTIVE_SECTION);
   const [accordionResetVersion, setAccordionResetVersion] = useState(0);

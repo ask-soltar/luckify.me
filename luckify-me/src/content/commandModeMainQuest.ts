@@ -2060,7 +2060,7 @@ function mapV2ContentToEntry(content: MainQuestContentEntryV2, perkTreeId: strin
   };
 }
 
-function mapV2PerkTreeToTree(content: MainQuestPerkTreeV2): MainQuestPerkTree {
+export function mapV2PerkTreeToTree(content: MainQuestPerkTreeV2): MainQuestPerkTree {
   const rootNode = content.nodes.find((node) => node.branch === 'Root');
   const awarenessNode = content.nodes.find((node) => node.branch === 'Awareness');
   const embodimentNode = content.nodes.find((node) => node.branch === 'Embodiment');
