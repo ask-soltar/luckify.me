@@ -194,6 +194,10 @@ export function CommandModeMainQuest({
     setAccordionResetVersion((current) => current + 1);
   };
 
+  const handleHeroReset = () => {
+    collapseAllSections();
+  };
+
   if (view === 'perk-tree') {
     return <PerkTreeScreen tree={resolvedPerkTree} onBack={() => setView('quest')} />;
   }
@@ -210,7 +214,7 @@ export function CommandModeMainQuest({
       <button
         type="button"
         className="cmd-main-quest__hero cmd-main-quest__hero--resettable"
-        onClick={collapseAllSections}
+        onClick={handleHeroReset}
         aria-label="Collapse all Main Quest sections"
       >
         <div className="cmd-main-quest__hero-atmosphere" aria-hidden="true">
