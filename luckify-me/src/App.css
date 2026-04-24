@@ -4746,15 +4746,17 @@
   width: 100%;
   display: block;
   margin-bottom: 12px;
-  padding: 17px 16px 15px;
+  padding: 18px 16px 17px;
   text-align: left;
-  border: 1px solid var(--cmd-main-quest-border-strong);
-  border-color: var(--cmd-main-quest-border-strong);
+  border: 1px solid rgba(111, 88, 196, 0.22);
   background:
-    radial-gradient(circle at top right, rgba(111, 98, 202, 0.12) 0%, transparent 34%),
-    radial-gradient(circle at 14% 18%, rgba(92, 103, 188, 0.08) 0%, transparent 28%),
-    linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%),
-    linear-gradient(180deg, rgba(9, 11, 22, 0.99) 0%, rgba(5, 7, 13, 0.99) 100%);
+    radial-gradient(ellipse at 80% 0%, rgba(88, 60, 180, 0.13) 0%, transparent 42%),
+    radial-gradient(ellipse at 10% 90%, rgba(60, 70, 160, 0.07) 0%, transparent 36%),
+    linear-gradient(180deg, rgba(18, 16, 36, 0.98) 0%, rgba(6, 7, 14, 0.99) 100%);
+  box-shadow:
+    0 0 0 1px rgba(130, 110, 220, 0.05) inset,
+    0 0 28px rgba(90, 60, 180, 0.08),
+    0 18px 42px rgba(0, 0, 0, 0.38);
 }
 
 .cmd-main-quest__hero--resettable {
@@ -4789,8 +4791,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(147, 132, 234, 0.1) 0%, rgba(147, 132, 234, 0) 26%),
-    linear-gradient(90deg, rgba(255,255,255,0.035) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.02) 100%);
+    linear-gradient(180deg, rgba(120, 100, 210, 0.07) 0%, rgba(120, 100, 210, 0) 30%),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.012) 100%);
   pointer-events: none;
 }
 
@@ -4811,8 +4813,8 @@
   inset: -20% -15% auto auto;
   width: 220px;
   height: 180px;
-  background: radial-gradient(circle, rgba(116, 103, 209, 0.17) 0%, rgba(116, 103, 209, 0.05) 36%, transparent 72%);
-  filter: blur(16px);
+  background: radial-gradient(circle, rgba(90, 78, 170, 0.1) 0%, rgba(90, 78, 170, 0.03) 36%, transparent 72%);
+  filter: blur(20px);
 }
 
 .cmd-main-quest__hero-grid {
@@ -4872,6 +4874,32 @@
   opacity: 0.58;
 }
 
+.cmd-main-quest__banner {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 18px;
+  margin-bottom: 13px;
+  border: 1px solid rgba(130, 108, 210, 0.28);
+  border-radius: 999px;
+  background: rgba(80, 60, 160, 0.08);
+  box-shadow:
+    0 0 10px rgba(100, 78, 200, 0.12),
+    inset 0 1px 0 rgba(160, 140, 240, 0.06);
+}
+
+.cmd-main-quest__banner span {
+  font-family: var(--pip-font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(210, 205, 240, 0.88);
+  text-shadow: 0 0 8px rgba(140, 120, 230, 0.45);
+}
+
 .cmd-main-quest__hero-topline {
   position: relative;
   z-index: 1;
@@ -4879,6 +4907,24 @@
   grid-template-columns: auto 1fr auto;
   gap: 11px;
   align-items: center;
+}
+
+.cmd-main-quest__hero-thumb {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(120, 100, 200, 0.2);
+  background: rgba(10, 10, 20, 0.8);
+}
+
+.cmd-main-quest__hero-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.9;
 }
 
 .cmd-main-quest__artifact-icon {
@@ -4926,7 +4972,6 @@
   gap: 0;
 }
 
-.cmd-main-quest__world-label,
 .cmd-main-quest__card-kicker,
 .cmd-main-quest__block-label,
 .cmd-main-quest__perk-branch-name,
@@ -4936,32 +4981,23 @@
   letter-spacing: 0.18em;
 }
 
-.cmd-main-quest__world-label {
-  margin-bottom: 5px;
-  color: rgba(184, 191, 236, 0.76);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.17em;
-}
-
 .cmd-main-quest__hero-title {
   margin: 0;
-  color: rgba(245, 247, 255, 0.98);
+  color: rgba(238, 240, 255, 0.96);
   font-size: clamp(1.9rem, 8vw, 2.6rem);
-  line-height: 0.91;
-  letter-spacing: -0.04em;
+  line-height: 0.94;
+  letter-spacing: -0.03em;
   max-width: 8.4ch;
   text-wrap: balance;
+  text-shadow: 0 2px 18px rgba(0, 0, 8, 0.7);
 }
 
 .cmd-main-quest__source-line {
-  margin-top: 8px;
-  color: rgba(198, 204, 231, 0.68);
-  font-family: var(--pip-font-mono);
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  line-height: 1.42;
+  margin-top: 7px;
+  color: rgba(180, 186, 220, 0.62);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
 }
 
 .cmd-main-quest__state-pill {
@@ -4989,18 +5025,30 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: rgba(201, 190, 255, 0.78);
-  box-shadow: 0 0 8px rgba(154, 140, 236, 0.22);
+  background: rgba(170, 158, 230, 0.55);
+  box-shadow: 0 0 6px rgba(130, 116, 210, 0.18);
 }
 
 .cmd-main-quest__hero-subtitle {
   position: relative;
   z-index: 1;
-  margin: 13px 0 0;
-  max-width: 25ch;
-  color: rgba(231, 235, 248, 0.8);
-  font-size: 14px;
-  line-height: 1.54;
+  margin: 0;
+  padding-top: 13px;
+  border-top: 1px solid rgba(120, 110, 190, 0.1);
+  max-width: 28ch;
+  color: rgba(210, 215, 240, 0.72);
+  font-size: 13px;
+  line-height: 1.68;
+  letter-spacing: 0.01em;
+}
+
+.cmd-main-quest__hero-topline + .cmd-main-quest__hero-subtitle,
+.cmd-main-quest__hero-topline ~ .cmd-main-quest__hero-subtitle {
+  margin-top: 14px;
+}
+
+.cmd-main-quest__hero-subtitle-line {
+  display: block;
 }
 
 .cmd-main-quest__stack {

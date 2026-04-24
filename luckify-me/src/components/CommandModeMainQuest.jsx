@@ -228,10 +228,15 @@ export function CommandModeMainQuest({
           <span className="cmd-main-quest__hero-stars" />
         </div>
 
+        <div className="cmd-main-quest__banner" aria-hidden="true">
+          <span>{model.hero.worldLabel}</span>
+        </div>
+
         <div className="cmd-main-quest__hero-topline">
-          <QuestArtifactIcon />
+          <div className="cmd-main-quest__hero-thumb" aria-hidden="true">
+            <img src="/mainquest.png" alt="" className="cmd-main-quest__hero-thumb-img" />
+          </div>
           <div className="cmd-main-quest__hero-copy">
-            <div className="cmd-main-quest__world-label">{model.hero.worldLabel}</div>
             <h2 className="cmd-main-quest__hero-title" id="cmd-main-quest-title">
               {model.hero.mainQuest}
             </h2>
@@ -240,7 +245,11 @@ export function CommandModeMainQuest({
           <div className="cmd-main-quest__state-pill">{model.hero.questState}</div>
         </div>
 
-        <p className="cmd-main-quest__hero-subtitle">{model.hero.atmosphericSubtitle}</p>
+        <p className="cmd-main-quest__hero-subtitle">
+          {model.hero.atmosphericSubtitle.split(/(?<=\.)\s+/).map((sentence, i) => (
+            <span key={i} className="cmd-main-quest__hero-subtitle-line">{sentence}</span>
+          ))}
+        </p>
       </button>
 
       <AnimatePresence initial={false}>
