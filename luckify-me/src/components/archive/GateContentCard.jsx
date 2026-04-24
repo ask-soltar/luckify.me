@@ -1,14 +1,13 @@
 /**
- * GateContentCard — Purpose Frame gate content
+ * GateContentCard — archived Purpose Frame gate content
  *
- * Shows the user's Purpose gate entry from the I Ching / Gene Keys content.
- * - No birth time → Overall gate entry (header + expanded + at_the_table)
- * - Birth time present → Specific gate.line entry (all fields including edge + blind_spot)
- * - Kids toggle → switches all content to the kids version (persisted in localStorage)
+ * Archived after removing Purpose Frame from the live Cmd layer.
+ * Preserved here so the implementation can be referenced or restored later
+ * without keeping it active in the current app navigation.
  */
 
 import { useState } from 'react';
-import { PURPOSE_GATES } from '../constants/purposeGates.js';
+import { PURPOSE_GATES } from '../../constants/purposeGates.js';
 
 const KIDS_STORAGE_KEY = 'luckify_kids_mode';
 
@@ -29,33 +28,29 @@ function useKidsMode() {
   return [kidsMode, toggle];
 }
 
-// ── Adult field config ─────────────────────────────────────────
-
 const ADULT_FIELDS_BASE = [
-  { key: 'expanded',     label: null,          variant: 'prose' },
+  { key: 'expanded', label: null, variant: 'prose' },
   { key: 'at_the_table', label: 'AT THE TABLE', variant: 'prose' },
 ];
+
 const ADULT_FIELDS_LINE = [
   ...ADULT_FIELDS_BASE,
-  { key: 'edge',         label: 'EDGE',         variant: 'edge' },
-  { key: 'blind_spot',   label: 'BLIND SPOT',   variant: 'risk' },
-];
-const KIDS_FIELDS = [
-  { key: 'expanded',    label: null,          variant: 'prose' },
-  { key: 'in_the_game', label: 'IN THE GAME', variant: 'prose' },
-  { key: 'superpower',  label: 'SUPERPOWER',  variant: 'edge' },
-  { key: 'kryptonite',  label: 'KRYPTONITE',  variant: 'risk' },
+  { key: 'edge', label: 'EDGE', variant: 'edge' },
+  { key: 'blind_spot', label: 'BLIND SPOT', variant: 'risk' },
 ];
 
-// ── Component ─────────────────────────────────────────────────
+const KIDS_FIELDS = [
+  { key: 'expanded', label: null, variant: 'prose' },
+  { key: 'in_the_game', label: 'IN THE GAME', variant: 'prose' },
+  { key: 'superpower', label: 'SUPERPOWER', variant: 'edge' },
+  { key: 'kryptonite', label: 'KRYPTONITE', variant: 'risk' },
+];
 
 export function GateContentCard({ profile, geneKeys: geneKeysProp }) {
-  const [open, setOpen]     = useState(false);
+  const [open, setOpen] = useState(false);
   const [kidsMode, toggleKids] = useKidsMode();
 
   const { birthTime } = profile;
-  // Use fresh geneKeys passed from ProfileDisplay (always recomputed via useMemo).
-  // Falls back to profile.geneKeys for backwards compatibility.
   const geneKeys = geneKeysProp || profile.geneKeys;
   if (!geneKeys?.purpose) return null;
 
@@ -63,19 +58,16 @@ export function GateContentCard({ profile, geneKeys: geneKeysProp }) {
   const gateData = PURPOSE_GATES[String(gate)];
   if (!gateData) return null;
 
-  // If birthTime is set and not midnight default, use line-specific content
   const hasBirthTime = Boolean(birthTime) && birthTime !== '00:00';
-  const section      = hasBirthTime ? gateData.lines[String(line)] : gateData.overall;
+  const section = hasBirthTime ? gateData.lines[String(line)] : gateData.overall;
   if (!section) return null;
 
-  // Kids fallback: line-specific kids → overall kids → unavailable
-  const kidsSection   = section.kids?.header ? section.kids : gateData.overall?.kids;
+  const kidsSection = section.kids?.header ? section.kids : gateData.overall?.kids;
   const kidsAvailable = Boolean(kidsSection?.header);
   const effectiveKids = kidsMode && kidsAvailable;
   const content = effectiveKids ? kidsSection : section.adult;
   if (!content?.header) return null;
 
-  // Titles
   const gateId = hasBirthTime ? `${gate}.${line}` : String(gate);
   const title1 = hasBirthTime ? (section.title1 || gateData.title1) : gateData.title1;
   const title2 = hasBirthTime ? section.title2 : gateData.title2;
@@ -84,8 +76,6 @@ export function GateContentCard({ profile, geneKeys: geneKeysProp }) {
 
   return (
     <div className={`gate-card${open ? ' open' : ''}${effectiveKids ? ' kids' : ''}`}>
-
-      {/* ── Top bar: identifier + kids toggle ── */}
       <div className="gate-card-topbar">
         <div className="gate-card-click" onClick={() => setOpen(o => !o)}>
           <div className="gate-num-badge">{gateId}</div>
@@ -111,7 +101,6 @@ export function GateContentCard({ profile, geneKeys: geneKeysProp }) {
         </button>
       </div>
 
-      {/* ── Hook text — always visible ── */}
       <div className="gate-hook" onClick={() => setOpen(o => !o)}>
         <p className="gate-hook-text">{content.header}</p>
         {!open && (
@@ -121,7 +110,6 @@ export function GateContentCard({ profile, geneKeys: geneKeysProp }) {
         )}
       </div>
 
-      {/* ── Expanded body ── */}
       {open && (
         <div className="gate-body">
           {fields.map(f => {

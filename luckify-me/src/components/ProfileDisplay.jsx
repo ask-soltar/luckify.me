@@ -14,7 +14,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { DimensionCard } from './DimensionCard.jsx';
 import { CoreConfigCard } from './CoreConfigCard.jsx';
 import { LuckyWindow } from './LuckyWindow.jsx';
-import { GateContentCard } from './GateContentCard.jsx';
+import { MainQuestScreen } from './MainQuestScreen.jsx';
+import { CommandModeMainQuest } from './CommandModeMainQuest.jsx';
 import PassiveSkillInlineCarousel from './PassiveSkillInlineCarousel.jsx';
 import { TITHI_CCE, ELEMENT_CCE, LP_CCE, getDynamic, getHumanModeContent, generateWatchFor, generateBestUse } from '../constants/coreConfig.js';
 import { GENE_KEYS } from '../constants/geneKeys.js';
@@ -24,6 +25,8 @@ import { calcGeneKeys, calcAllActivations } from '../utils/geneKeys.js';
 import { deriveHumanDesign } from '../utils/humanDesign.js';
 import { getDecisionEnginePayload } from '../utils/decisionEngine.js';
 import { getAuthorityLoadout } from '../constants/authorityLoadouts.js';
+import { getCommandModeMainQuestEntry } from '../content/commandModeMainQuest.ts';
+import { getMainQuestEntry, mainQuestExample592 } from '../content/mainQuest.ts';
 
 // Element color palette — grounded, permanent, different energy from zone colors
 const ELEMENT_COLORS = {
@@ -206,6 +209,84 @@ function CmdCoreLoadoutSection({
   );
 }
 
+function LoadoutMainQuestSection({ entry }) {
+  return (
+    <section className="profile-tab-panel profile-tab-panel--cmd-main-quest">
+      <MainQuestScreen entry={entry || mainQuestExample592} />
+    </section>
+  );
+}
+
+function LoadoutCoreModuleSection({
+  element,
+  lifePathNum,
+  cceT,
+  cceEl,
+  cceLp,
+  dynamic,
+  humanModeContent,
+  watchFor,
+  bestUse,
+}) {
+  const [open, setOpen] = useState(false);
+  const moduleTitle = dynamic?.configuration_theme_name || 'Core Loadout';
+
+  return (
+    <section className="profile-tab-panel profile-tab-panel--loadout-core">
+      <div className={`loadout-core-module${open ? ' open' : ''}`}>
+        <button
+          type="button"
+          className="loadout-core-module-trigger"
+          onClick={() => setOpen(current => !current)}
+          aria-expanded={open}
+        >
+          <div className="main-quest-banner-glow main-quest-banner-glow--left" />
+          <div className="main-quest-banner-glow main-quest-banner-glow--right" />
+          <div className="main-quest-banner-arc main-quest-banner-arc--upper" />
+          <div className="main-quest-banner-arc main-quest-banner-arc--lower" />
+          <div className="main-quest-banner-sweep" />
+          <div className="main-quest-banner-grid" />
+          <div className="loadout-core-module-copy">
+            <div className="loadout-core-module-label">Core Loadout</div>
+            <div className="loadout-core-module-title">{moduleTitle}</div>
+            <div className="loadout-core-module-subline">Element · Rhythm · Trajectory</div>
+          </div>
+          <div className={`loadout-core-module-chevron${open ? ' open' : ''}`}>▼</div>
+        </button>
+
+        <AnimatePresence initial={false}>
+          {open ? (
+            <motion.div
+              className="loadout-core-module-body"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="loadout-core-module-body-inner">
+                <CoreConfigCard
+                  icon={<span style={{ fontSize: 22, lineHeight: 1 }}>◈</span>}
+                  tithi={cceT}
+                  element={cceEl}
+                  trajectoryElement={element}
+                  dynamic={dynamic}
+                  humanModeContent={humanModeContent}
+                  lifePathNum={cceLp}
+                  lifePathValue={lifePathNum}
+                  watchFor={watchFor}
+                  bestUse={bestUse}
+                  mode="human"
+                  headerless
+                />
+              </div>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+}
+
 // ── Main Component ──────────────────────────────────────
 
 function GeneKeyIcon({ gate }) {
@@ -310,6 +391,14 @@ export function ProfileDisplay({
     watchFor,
     bestUse,
   };
+  const mainQuestEntry = useMemo(() => {
+    if (!geneKeys?.purpose) return mainQuestExample592;
+    return getMainQuestEntry(geneKeys.purpose.gate, geneKeys.purpose.line) || mainQuestExample592;
+  }, [geneKeys]);
+  const commandModeMainQuestEntry = useMemo(() => {
+    if (!geneKeys?.purpose) return null;
+    return getCommandModeMainQuestEntry(geneKeys.purpose.gate, geneKeys.purpose.line);
+  }, [geneKeys]);
 
   // ── Dimension config array — IV and V only ─────────
   // Dims I/II/III are handled by CoreConfigCard above.
@@ -505,16 +594,10 @@ export function ProfileDisplay({
 
             {activeTab === 'engine' && (
               <>
-                <FoundationSection
+                <LoadoutCoreModuleSection
                   {...coreCardProps}
-                  decisionEngine={decisionEngine}
-                  passiveSkillLoadout={passiveSkillLoadout}
-                  passiveSkillOpen={passiveSkillOpen}
-                  onTogglePassiveSkill={() => setPassiveSkillOpen(open => !open)}
-                  mode="human"
-                  showDecisionEngine={false}
-                  defaultCoreOpen
                 />
+                  <LoadoutMainQuestSection entry={mainQuestEntry} />
                 <PassiveSkillsSection
                   decisionEngine={decisionEngine}
                   passiveSkillLoadout={passiveSkillLoadout}
@@ -526,12 +609,13 @@ export function ProfileDisplay({
 
             {activeTab === 'cmd' && (
               <>
-                <CmdCoreLoadoutSection {...coreCardProps} />
                 <div className="profile-exploration-panel profile-exploration-panel--cmd">
                   <div className="profile-exploration-label">Experimental Layer</div>
                   <div className="profile-exploration-copy">
                     Exploratory tools for play, pattern testing, and live interpretation.
                   </div>
+
+                  <CommandModeMainQuest seed={commandModeMainQuestEntry || undefined} />
 
                   <div className="profile-exploration-controls">
                     <button
@@ -547,19 +631,16 @@ export function ProfileDisplay({
                   <div className="profile-exploration-stack-shell">
                     <div className="profile-exploration-section-label">Module Stack</div>
                     <div className="profile-exploration-stack">
-                      {dimensions.map(dim => (
-                        <DimensionCard
-                          key={dim.key}
-                          icon={dim.icon}
-                          system={dim.system}
-                          name={dim.name}
-                          axiom={dim.axiom}
-                          tabs={dim.tabs}
-                        />
-                      ))}
-                      {geneKeys?.purpose && (
-                        <GateContentCard profile={profile} geneKeys={geneKeys} />
-                      )}
+                    {dimensions.map(dim => (
+                      <DimensionCard
+                        key={dim.key}
+                        icon={dim.icon}
+                        system={dim.system}
+                        name={dim.name}
+                        axiom={dim.axiom}
+                        tabs={dim.tabs}
+                      />
+                    ))}
                     </div>
                   </div>
                 </div>
