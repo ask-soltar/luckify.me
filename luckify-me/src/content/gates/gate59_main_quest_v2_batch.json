@@ -56,7 +56,7 @@
         "alignmentReminder": "The first step does not need to guarantee the whole bond.",
         "livePrompt": "What is the smallest true thing you could say right now?"
       },
-      "driftPattern": "You keep intimacy at the edge: close enough to imagine, not close enough to risk."
+      "driftPattern": ["keeping intimacy at the edge", "close enough to imagine but not close enough to risk"]
     },
     {
       "gate": 59,
@@ -113,7 +113,7 @@
         "alignmentReminder": "Naturalness becomes powerful when you stop hiding inside it.",
         "livePrompt": "What would shift if you let this connection ask something of you?"
       },
-      "driftPattern": "Connection opens by itself, then you reduce its weight before it can ask anything real of you."
+      "driftPattern": ["connection opens by itself", "reducing its weight before it can ask anything real"]
     },
     {
       "gate": 59,
@@ -170,7 +170,7 @@
         "alignmentReminder": "Play is the bridge, not the bond itself.",
         "livePrompt": "What sincere thing could follow this light moment?"
       },
-      "driftPattern": "You open connection with warmth, then break the settling point before it can become dependable."
+      "driftPattern": ["opening connection with warmth", "breaking the settling point before it can become dependable"]
     },
     {
       "gate": 59,
@@ -227,7 +227,7 @@
         "alignmentReminder": "Belonging becomes stronger when access is honest.",
         "livePrompt": "What boundary would make this connection more real?"
       },
-      "driftPattern": "You build a warm relational field, then let the field protect you from the one direct truth that would deepen it."
+      "driftPattern": ["building a warm relational field", "letting the field protect you from the direct truth that would deepen it"]
     },
     {
       "gate": 59,
@@ -284,7 +284,7 @@
         "alignmentReminder": "Your magnetism is cleanest when it serves trust.",
         "livePrompt": "What would you say if you were not trying to land the room?"
       },
-      "driftPattern": "You feel what the room wants, become it for a moment, then lose contact with the real bond underneath."
+      "driftPattern": ["feeling what the room wants and becoming it", "losing contact with the real bond underneath"]
     },
     {
       "gate": 59,
@@ -341,7 +341,7 @@
         "alignmentReminder": "Non-possession is not the same as non-participation.",
         "livePrompt": "What would staying look like without giving yourself away?"
       },
-      "driftPattern": "You make intimacy feel elevated while avoiding the ordinary consistency that lets someone trust your presence."
+      "driftPattern": ["making intimacy feel elevated", "avoiding the ordinary consistency that lets someone trust your presence"]
     }
   ],
   "perkTrees": [
