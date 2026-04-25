@@ -2078,7 +2078,8 @@ export function mapV2PerkTreeToTree(content: MainQuestPerkTreeV2): MainQuestPerk
   const masteryNode = content.nodes.find((node) => node.branch === 'Mastery');
 
   if (!rootNode || !awarenessNode || !embodimentNode || !fieldNode || !masteryNode) {
-    throw new Error(`Perk Tree V2 is missing a required node for ${content.id}`);
+    console.warn(`Perk Tree V2 is missing a required node for ${content.id}`);
+    return null as unknown as MainQuestPerkTree;
   }
 
   return {
