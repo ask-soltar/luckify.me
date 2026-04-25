@@ -7,6 +7,7 @@ import gate40Data from './gates/gate40_main_quest_v2_batch.json';
 import gate41Data from './gates/gate41_main_quest_v2_batch.json';
 import gate44Data from './gates/gate44_main_quest_v2_batch.json';
 import gate59Data from './gates/gate59_main_quest_v2_batch.json';
+import gate64Data from './gates/gate64_main_quest_v2_batch.json';
 
 export type MainQuestLayerId =
   | 'quest-brief'
@@ -2489,6 +2490,7 @@ const gate40 = gate40Data as unknown as { mainQuestContent: MainQuestContentEntr
 const gate41 = gate41Data as unknown as { mainQuestContent: MainQuestContentEntryV2[]; perkTrees: MainQuestPerkTreeV2[] };
 const gate44 = gate44Data as unknown as { mainQuestContent: MainQuestContentEntryV2[]; perkTrees: MainQuestPerkTreeV2[] };
 const gate59 = gate59Data as unknown as { mainQuestContent: MainQuestContentEntryV2[]; perkTrees: MainQuestPerkTreeV2[] };
+const gate64 = gate64Data as unknown as { mainQuestContent: MainQuestContentEntryV2[]; perkTrees: MainQuestPerkTreeV2[] };
 
 export const mainQuestV2Registry: Record<string, MainQuestContentEntryV2> = {
   '59.1': gate59.mainQuestContent[0],
@@ -2497,12 +2499,12 @@ export const mainQuestV2Registry: Record<string, MainQuestContentEntryV2> = {
   '59.4': gate59.mainQuestContent[3],
   '59.5': gate59.mainQuestContent[4],
   '59.6': gate59.mainQuestContent[5],
-  '64.1': mainQuest641V2,
-  '64.2': mainQuest642V2,
-  '64.3': mainQuest643V2,
-  '64.4': mainQuest644V2,
-  '64.5': mainQuest645V2,
-  '64.6': mainQuest646V2,
+  '64.1': gate64.mainQuestContent[0],
+  '64.2': gate64.mainQuestContent[1],
+  '64.3': gate64.mainQuestContent[2],
+  '64.4': gate64.mainQuestContent[3],
+  '64.5': gate64.mainQuestContent[4],
+  '64.6': gate64.mainQuestContent[5],
   '1.1': gate1.mainQuestContent[0],
   '1.2': gate1.mainQuestContent[1],
   '1.3': gate1.mainQuestContent[2],
@@ -2560,12 +2562,12 @@ export const perkTreeV2Registry: Record<string, MainQuestPerkTreeV2> = {
   '59.4': gate59.perkTrees[3],
   '59.5': gate59.perkTrees[4],
   '59.6': gate59.perkTrees[5],
-  '64.1': perkTree641V2,
-  '64.2': perkTree642V2,
-  '64.3': perkTree643V2,
-  '64.4': perkTree644V2,
-  '64.5': perkTree645V2,
-  '64.6': perkTree646V2,
+  '64.1': gate64.perkTrees[0],
+  '64.2': gate64.perkTrees[1],
+  '64.3': gate64.perkTrees[2],
+  '64.4': gate64.perkTrees[3],
+  '64.5': gate64.perkTrees[4],
+  '64.6': gate64.perkTrees[5],
   '1.1': gate1.perkTrees[0],
   '1.2': gate1.perkTrees[1],
   '1.3': gate1.perkTrees[2],
