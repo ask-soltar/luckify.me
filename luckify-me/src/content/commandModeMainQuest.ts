@@ -2491,12 +2491,12 @@ const gate44 = gate44Data as unknown as { mainQuestContent: MainQuestContentEntr
 const gate59 = gate59Data as unknown as { mainQuestContent: MainQuestContentEntryV2[]; perkTrees: MainQuestPerkTreeV2[] };
 
 export const mainQuestV2Registry: Record<string, MainQuestContentEntryV2> = {
-  '59.1': gate59.mainQuestContent[0],
-  '59.2': gate59.mainQuestContent[1],
-  '59.3': gate59.mainQuestContent[2],
-  '59.4': gate59.mainQuestContent[3],
-  '59.5': gate59.mainQuestContent[4],
-  '59.6': gate59.mainQuestContent[5],
+  '59.1': mainQuest591V2,
+  '59.2': mainQuest592V2,
+  '59.3': mainQuest593V2,
+  '59.4': mainQuest594V2,
+  '59.5': mainQuest595V2,
+  '59.6': mainQuest596V2,
   '64.1': mainQuest641V2,
   '64.2': mainQuest642V2,
   '64.3': mainQuest643V2,
@@ -2554,12 +2554,12 @@ export const mainQuestV2Registry: Record<string, MainQuestContentEntryV2> = {
 };
 
 export const perkTreeV2Registry: Record<string, MainQuestPerkTreeV2> = {
-  '59.1': gate59.perkTrees[0],
-  '59.2': gate59.perkTrees[1],
-  '59.3': gate59.perkTrees[2],
-  '59.4': gate59.perkTrees[3],
-  '59.5': gate59.perkTrees[4],
-  '59.6': gate59.perkTrees[5],
+  '59.1': perkTree591V2,
+  '59.2': perkTree592V2,
+  '59.3': perkTree593V2,
+  '59.4': perkTree594V2,
+  '59.5': perkTree595V2,
+  '59.6': perkTree596V2,
   '64.1': perkTree641V2,
   '64.2': perkTree642V2,
   '64.3': perkTree643V2,
