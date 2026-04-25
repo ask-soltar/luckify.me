@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import {
   getCommandModeMainQuestModel,
   COMMAND_MODE_LAYER_PRESENTATION,
+  mainQuestV2Registry,
   perkTreeV2Registry,
   mapV2PerkTreeToTree,
 } from '../content/commandModeMainQuest.ts';
@@ -160,6 +161,7 @@ export function CommandModeMainQuest({
   gateLine,
 }) {
   const resolvedGateLine = gateLine ?? '59.2';
+  const hasContent = Boolean(mainQuestV2Registry[resolvedGateLine]);
   const model = getCommandModeMainQuestModel(resolvedGateLine);
   const v2PerkTree = perkTreeV2Registry[resolvedGateLine];
   const resolvedPerkTree = v2PerkTree ? mapV2PerkTreeToTree(v2PerkTree) : null;
@@ -205,6 +207,24 @@ export function CommandModeMainQuest({
 
   if (view === 'perk-tree') {
     return <PerkTreeScreen tree={resolvedPerkTree} onBack={() => setView('quest')} />;
+  }
+
+  if (!hasContent) {
+    return (
+      <section className="cmd-main-quest cmd-main-quest--locked" aria-label="Main Quest">
+        <div className="cmd-main-quest__coming-soon">
+          <div className="cmd-main-quest__coming-soon-icon" aria-hidden="true">
+            <span className="cmd-main-quest__artifact-ring cmd-main-quest__artifact-ring--outer" />
+            <span className="cmd-main-quest__artifact-ring cmd-main-quest__artifact-ring--inner" />
+          </div>
+          <div className="cmd-main-quest__coming-soon-copy">
+            <div className="cmd-main-quest__coming-soon-label">Main Quest</div>
+            <div className="cmd-main-quest__coming-soon-title">Gate {resolvedGateLine}</div>
+            <div className="cmd-main-quest__coming-soon-badge">Coming Soon</div>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (
