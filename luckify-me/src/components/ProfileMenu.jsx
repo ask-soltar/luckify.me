@@ -22,10 +22,12 @@ function ProfileItem({ profile, isCurrent, onSwitch, onDelete }) {
   const profileName = profile.name || subtitle;
 
   return (
-    <button
-      type="button"
+    <div
+      role="button"
+      tabIndex={0}
       className={`menu-profile-item${isCurrent ? ' current' : ''}`}
       onClick={() => onSwitch(profile.id)}
+      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') onSwitch(profile.id); }}
       aria-current={isCurrent ? 'true' : undefined}
     >
       <div className="menu-profile-avatar">
@@ -47,7 +49,7 @@ function ProfileItem({ profile, isCurrent, onSwitch, onDelete }) {
       >
         ×
       </button>
-    </button>
+    </div>
   );
 }
 
