@@ -44,7 +44,7 @@
       },
       "groundingEffect": {
         "collapsedPreview": "From braced to present.",
-        "groundingProtocol": "Place one hand on the chest, exhale slowly, and say one true sentence without adding defense.",
+        "groundingProtocol": ["place one hand on the chest", "exhale slowly", "say one true sentence without adding defense"],
         "somaticShift": "From braced anticipation into steadier emotional contact.",
         "bodyCheckPrompt": "Where does your body tighten when connection gets close?"
       },
@@ -101,7 +101,7 @@
       },
       "groundingEffect": {
         "collapsedPreview": "From effortless to conscious.",
-        "groundingProtocol": "Relax the jaw, lower the shoulders, and let one direct response remain unpolished.",
+        "groundingProtocol": ["relax the jaw", "lower the shoulders", "let one direct response remain unpolished"],
         "somaticShift": "From effortless opening into conscious emotional availability.",
         "bodyCheckPrompt": "Where does your body soften first, then quietly step back?"
       },
@@ -158,7 +158,7 @@
       },
       "groundingEffect": {
         "collapsedPreview": "From restless to grounded warmth.",
-        "groundingProtocol": "Pause after the laugh, feel both feet, and add one sincere sentence before changing the subject.",
+        "groundingProtocol": ["pause after the laugh", "feel both feet", "add one sincere sentence before changing the subject"],
         "somaticShift": "From restless brightness into warm grounded contact.",
         "bodyCheckPrompt": "Where does your body want to move when the room gets emotionally still?"
       },
@@ -215,7 +215,7 @@
       },
       "groundingEffect": {
         "collapsedPreview": "From porous to warm containment.",
-        "groundingProtocol": "Feel the ribs expand, soften the face, and name one boundary before extending more energy.",
+        "groundingProtocol": ["feel the ribs expand", "soften the face", "name one boundary before extending more energy"],
         "somaticShift": "From porous openness into warm containment.",
         "bodyCheckPrompt": "Does this connection feel mutual, clear, and spacious?"
       },
@@ -272,7 +272,7 @@
       },
       "groundingEffect": {
         "collapsedPreview": "From projected pressure to clean authority.",
-        "groundingProtocol": "Relax the belly, slow the voice, and say the clarifying truth before adding warmth.",
+        "groundingProtocol": ["relax the belly", "slow the voice", "say the clarifying truth before adding warmth"],
         "somaticShift": "From projected pressure into clean relational authority.",
         "bodyCheckPrompt": "Am I connecting, persuading, or managing how I am seen?"
       },
@@ -329,7 +329,7 @@
       },
       "groundingEffect": {
         "collapsedPreview": "From floating to spacious presence.",
-        "groundingProtocol": "Lengthen the spine, feel the back body, and name what is true without promising what is not.",
+        "groundingProtocol": ["lengthen the spine", "feel the back body", "name what is true without promising what is not"],
         "somaticShift": "From floating detachment into spacious presence.",
         "bodyCheckPrompt": "Is this freedom creating truth, or avoiding contact?"
       },
