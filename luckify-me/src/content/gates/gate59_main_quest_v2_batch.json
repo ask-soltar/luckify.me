@@ -1,0 +1,517 @@
+{
+  "gate": 59,
+  "mainQuestContent": [
+    {
+      "gate": 59,
+      "line": 1,
+      "sourceTrace": {
+        "primarySource": "Command Mode Purpose Master CSV",
+        "primaryHeader": "Bold Intimacy",
+        "lineModifier": "Line 1 — Foundation / Inner Security",
+        "sourceStatus": "source-aligned"
+      },
+      "derivedStructure": {
+        "coreBehavior": "Initiates real connection by taking the first honest step through hesitation.",
+        "distortion": "Longs for closeness while staying protected behind caution, testing, and delay.",
+        "decisionEdge": "Begin with one honest step before certainty arrives.",
+        "somaticPattern": "Chest, throat, and breath brace at the threshold of contact.",
+        "recognitionMoment": "You get close enough to feel it, but stop right before you are seen.",
+        "correctExpression": "Courageous intimacy that starts trust without forcing depth."
+      },
+      "hero": {
+        "mainQuest": "Bold Intimacy",
+        "questState": "Testing the Waters",
+        "collapsedPreview": "You approach, but do not fully enter.",
+        "anchorPhrase": "Courage before certainty"
+      },
+      "questBrief": {
+        "mission": "Your quest is to open the first real point of contact instead of waiting until vulnerability feels completely safe.",
+        "fieldPrompt": "Where are you waiting for certainty before letting connection begin?"
+      },
+      "fieldBriefing": {
+        "whatThisQuestIsAbout": "This quest starts at the threshold between wanting closeness and risking being seen. The work is not to force intimacy. It is to notice where the first honest move is being delayed by the need to feel fully secure first.",
+        "primaryRecognitionTrigger": "You get close enough to feel it, but stop right before you are seen.",
+        "pauseMoment": "That is the doorway.",
+        "livePrompt": "Notice the moment you almost enter, then choose one honest step."
+      },
+      "assetsAndFriction": {
+        "questAssets": [
+          "Emotional courage",
+          "First-step honesty",
+          "Grounded initiation",
+          "Trust-building presence"
+        ],
+        "questTrap": "The trap is turning preparation into protection, then calling the distance wisdom.",
+        "frictionSignals": [
+          "You rehearse the conversation instead of beginning it.",
+          "You wait for proof that openness will be safe.",
+          "You test the edge but do not cross it.",
+          "You retreat right before contact becomes real."
+        ]
+      },
+      "groundingEffect": {
+        "groundingProtocol": "Place one hand on the chest, exhale slowly, and say one true sentence without adding defense.",
+        "somaticShift": "From braced anticipation into steadier emotional contact.",
+        "attentionCue": "Notice the breath right before you hide.",
+        "bodyCheckPrompt": "Where does your body tighten when connection gets close?",
+        "embodiedSignal": "You still feel nervous, but less split."
+      },
+      "unlockCondition": {
+        "questKey": "Speak one true sentence → do not secure the outcome → let contact begin",
+        "alignmentReminder": "The first step does not need to guarantee the whole bond.",
+        "microRitual": "Before retreating, say: \"One honest step is enough.\""
+      },
+      "driftPattern": "You keep intimacy at the edge: close enough to imagine, not close enough to risk.",
+      "feltExperienceAudit": {
+        "recognitionStrength": 9,
+        "specificMicroBehavior": 9,
+        "internalPause": 9,
+        "nonExplanation": 9,
+        "lineSpecificAccuracy": 9,
+        "placementDiscipline": 9,
+        "mentalismUsed": true,
+        "mentalismPlacement": ["primaryRecognitionTrigger", "pauseMoment"],
+        "mentalismJustification": "Pattern interruption sharpens the first-contact threshold without making the whole entry emotionally heavy."
+      }
+    },
+    {
+      "gate": 59,
+      "line": 2,
+      "sourceTrace": {
+        "primarySource": "Command Mode Purpose Master CSV",
+        "primaryHeader": "Transformative Connection",
+        "lineModifier": "Line 2 — Natural Expression / Projection Field",
+        "sourceStatus": "source-aligned with upgraded felt-experience seed"
+      },
+      "derivedStructure": {
+        "coreBehavior": "Creates connection naturally and helps intimacy become a field of transformation.",
+        "distortion": "Lets closeness open, then subtly limits how much it can matter.",
+        "decisionEdge": "Use the natural pull consciously instead of hiding behind ease.",
+        "somaticPattern": "The body softens quickly, then creates distance when the bond starts to matter.",
+        "recognitionMoment": "You let it get close, but not close enough to matter.",
+        "correctExpression": "Effortless intimacy that becomes conscious, honest, and growth-producing."
+      },
+      "hero": {
+        "mainQuest": "Transformative Connection",
+        "questState": "Effortless Pull",
+        "collapsedPreview": "Connection opens instantly.",
+        "anchorPhrase": "Let depth matter"
+      },
+      "questBrief": {
+        "mission": "Your quest is to let natural connection become real enough to change the space between people.",
+        "fieldPrompt": "Where does connection open easily, then quietly stop before it becomes meaningful?"
+      },
+      "fieldBriefing": {
+        "whatThisQuestIsAbout": "This quest is about the natural pull that appears before you try to manage it. You can create openings without force, but the growth happens when you stay present after the connection starts to matter.",
+        "primaryRecognitionTrigger": "You let it get close, but not close enough to matter.",
+        "pauseMoment": "The limit is subtle.",
+        "livePrompt": "Notice where ease becomes distance."
+      },
+      "assetsAndFriction": {
+        "questAssets": [
+          "Natural attraction",
+          "Relational openness",
+          "Creative intimacy",
+          "Effortless field-softening"
+        ],
+        "questTrap": "The trap is using natural ease to avoid conscious responsibility for the bond.",
+        "frictionSignals": [
+          "You act casual when the connection matters.",
+          "You let chemistry happen but avoid the next honest step.",
+          "You keep things open enough to stay safe.",
+          "You downplay the pull before anyone can name it."
+        ]
+      },
+      "groundingEffect": {
+        "groundingProtocol": "Relax the jaw, lower the shoulders, and let one direct response remain unpolished.",
+        "somaticShift": "From effortless opening into conscious emotional availability.",
+        "attentionCue": "Track the moment sincerity turns into casual distance.",
+        "bodyCheckPrompt": "Where does your body soften first, then quietly step back?",
+        "embodiedSignal": "You feel open without needing to dilute the connection."
+      },
+      "unlockCondition": {
+        "questKey": "Let the pull be real → do not make it casual → allow connection to change something",
+        "alignmentReminder": "Naturalness becomes powerful when you stop hiding inside it.",
+        "microRitual": "Ask: \"Am I letting this matter?\""
+      },
+      "driftPattern": "Connection opens by itself, then you reduce its weight before it can ask anything real of you.",
+      "feltExperienceAudit": {
+        "recognitionStrength": 10,
+        "specificMicroBehavior": 10,
+        "internalPause": 9,
+        "nonExplanation": 10,
+        "lineSpecificAccuracy": 10,
+        "placementDiscipline": 9,
+        "mentalismUsed": true,
+        "mentalismPlacement": ["primaryRecognitionTrigger", "assetsAndFriction.questTrap"],
+        "mentalismJustification": "Precision mirror is ideal for Line 2 because the distortion is subtle interference with what already works naturally."
+      }
+    },
+    {
+      "gate": 59,
+      "line": 3,
+      "sourceTrace": {
+        "primarySource": "Command Mode Purpose Master CSV",
+        "primaryHeader": "Playful Bonding",
+        "lineModifier": "Line 3 — Experimentation / Discovery",
+        "sourceStatus": "source-aligned"
+      },
+      "derivedStructure": {
+        "coreBehavior": "Uses play, warmth, and interaction to lower defenses and test connection.",
+        "distortion": "Mistakes stimulation, attention, or repeated contact for real intimacy.",
+        "decisionEdge": "Let play open the door, then stay long enough for honesty.",
+        "somaticPattern": "Restless social energy rises when tenderness starts to settle.",
+        "recognitionMoment": "You make a joke right when the truth gets close.",
+        "correctExpression": "Playful warmth that creates real entry instead of shallow movement."
+      },
+      "hero": {
+        "mainQuest": "Playful Bonding",
+        "questState": "Unstable Spark",
+        "collapsedPreview": "Connection forms, then slips before it settles.",
+        "anchorPhrase": "Play opens depth"
+      },
+      "questBrief": {
+        "mission": "Your quest is to use playfulness as the doorway into real connection, not as a replacement for it.",
+        "fieldPrompt": "Where are you keeping the vibe alive so the tenderness does not have to land?"
+      },
+      "fieldBriefing": {
+        "whatThisQuestIsAbout": "This quest learns intimacy through contact, testing, mistakes, sparks, and repair. The gift is making closeness feel easier to enter. The lesson is staying present once the warmth has opened the room.",
+        "primaryRecognitionTrigger": "You make a joke right when the truth gets close.",
+        "pauseMoment": "The laugh covered the doorway.",
+        "livePrompt": "Let one playful opening become one honest follow-up."
+      },
+      "assetsAndFriction": {
+        "questAssets": [
+          "Social warmth",
+          "Relational adaptability",
+          "Joyful contact",
+          "Ease-building presence"
+        ],
+        "questTrap": "The trap is keeping connection active so it never has to become still.",
+        "frictionSignals": [
+          "You charm the moment but avoid the follow-through.",
+          "You collect interactions instead of deepening one thread.",
+          "You move on once the bond asks for consistency.",
+          "You confuse spark with arrival."
+        ]
+      },
+      "groundingEffect": {
+        "groundingProtocol": "Pause after the laugh, feel both feet, and add one sincere sentence before changing the subject.",
+        "somaticShift": "From restless brightness into warm grounded contact.",
+        "attentionCue": "Notice when your energy speeds up near tenderness.",
+        "bodyCheckPrompt": "Where does your body want to move when the room gets emotionally still?",
+        "embodiedSignal": "Your warmth feels available instead of performative."
+      },
+      "unlockCondition": {
+        "questKey": "Use lightness to open → do not hide inside stimulation → deepen one real thread",
+        "alignmentReminder": "Play is the bridge, not the bond itself.",
+        "microRitual": "After joking, ask: \"What almost got said?\""
+      },
+      "driftPattern": "You open connection with warmth, then break the settling point before it can become dependable.",
+      "feltExperienceAudit": {
+        "recognitionStrength": 9,
+        "specificMicroBehavior": 10,
+        "internalPause": 9,
+        "nonExplanation": 9,
+        "lineSpecificAccuracy": 10,
+        "placementDiscipline": 9,
+        "mentalismUsed": true,
+        "mentalismPlacement": ["primaryRecognitionTrigger", "pauseMoment", "driftPattern"],
+        "mentalismJustification": "Implied sequence fits Line 3 because the pattern repeats through contact, spark, interruption, and repair."
+      }
+    },
+    {
+      "gate": 59,
+      "line": 4,
+      "sourceTrace": {
+        "primarySource": "Command Mode Purpose Master CSV",
+        "primaryHeader": "Trusted Openness",
+        "lineModifier": "Line 4 — Connection / Influence Network",
+        "sourceStatus": "source-aligned"
+      },
+      "derivedStructure": {
+        "coreBehavior": "Builds intimacy through trust, belonging, friendship, and emotionally safe access.",
+        "distortion": "Keeps connection social, inclusive, or familiar enough to avoid direct intimacy.",
+        "decisionEdge": "Let relationship carry truth instead of shielding from it.",
+        "somaticPattern": "Heart openness becomes porous when boundaries and directness are missing.",
+        "recognitionMoment": "You keep it social enough to avoid being truly known.",
+        "correctExpression": "Trustworthy openness that creates belonging without hiding inside the group field."
+      },
+      "hero": {
+        "mainQuest": "Trusted Openness",
+        "questState": "The Safe Circle",
+        "collapsedPreview": "Connection moves through trust, access, and belonging.",
+        "anchorPhrase": "Belonging with truth"
+      },
+      "questBrief": {
+        "mission": "Your quest is to create spaces where people can become real without losing clarity, boundaries, or directness.",
+        "fieldPrompt": "Where does staying socially connected help you avoid being personally known?"
+      },
+      "fieldBriefing": {
+        "whatThisQuestIsAbout": "This quest makes intimacy relational. It moves through friendship, group trust, shared spaces, and consistent access. The work is to let connection become a clean channel for truth, not a comfortable field where the deeper thing stays protected.",
+        "primaryRecognitionTrigger": "You keep it social enough to avoid being truly known.",
+        "pauseMoment": "The group became the cover.",
+        "livePrompt": "Notice where belonging is replacing direct contact."
+      },
+      "assetsAndFriction": {
+        "questAssets": [
+          "Trust cultivation",
+          "Emotional availability",
+          "Community warmth",
+          "Relational consistency"
+        ],
+        "questTrap": "The trap is using friendliness, loyalty, or inclusion to soften the risk of direct intimacy.",
+        "frictionSignals": [
+          "You make room for everyone but hide the personal truth.",
+          "You prioritize harmony over the honest conversation.",
+          "You stay in familiar dynamics after they stop being clean.",
+          "You offer access before checking your boundary."
+        ]
+      },
+      "groundingEffect": {
+        "groundingProtocol": "Feel the ribs expand, soften the face, and name one boundary before extending more energy.",
+        "somaticShift": "From porous openness into warm containment.",
+        "attentionCue": "Notice when your body says no after your mouth says yes.",
+        "bodyCheckPrompt": "Does this connection feel mutual, clear, and spacious?",
+        "embodiedSignal": "You feel open-hearted without feeling absorbed."
+      },
+      "unlockCondition": {
+        "questKey": "Use relationship as the channel → do not hide in the circle → let trust carry truth",
+        "alignmentReminder": "Belonging becomes stronger when access is honest.",
+        "microRitual": "Before opening more, ask: \"Is this connection clean?\""
+      },
+      "driftPattern": "You build a warm relational field, then let the field protect you from the one direct truth that would deepen it.",
+      "feltExperienceAudit": {
+        "recognitionStrength": 9,
+        "specificMicroBehavior": 9,
+        "internalPause": 9,
+        "nonExplanation": 9,
+        "lineSpecificAccuracy": 10,
+        "placementDiscipline": 9,
+        "mentalismUsed": true,
+        "mentalismPlacement": ["primaryRecognitionTrigger", "pauseMoment", "assetsAndFriction.questTrap"],
+        "mentalismJustification": "Contrast frame clarifies Line 4's gift and drift: social connection as either trust-channel or intimacy shield."
+      }
+    },
+    {
+      "gate": 59,
+      "line": 5,
+      "sourceTrace": {
+        "primarySource": "Command Mode Purpose Master CSV",
+        "primaryHeader": "Unifying Influence",
+        "lineModifier": "Line 5 — Projection / Practical Problem Solver",
+        "sourceStatus": "source-aligned"
+      },
+      "derivedStructure": {
+        "coreBehavior": "Uses relational magnetism to dissolve barriers and unify people around trust.",
+        "distortion": "Performs charm, influence, or projected intimacy instead of creating sincere unity.",
+        "decisionEdge": "Use influence to clarify the bond, not to become the role others want.",
+        "somaticPattern": "Solar plexus pressure rises when the room projects a role onto the person.",
+        "recognitionMoment": "You become more charming when you feel less certain inside.",
+        "correctExpression": "Clean relational influence that unites without managing image."
+      },
+      "hero": {
+        "mainQuest": "Unifying Influence",
+        "questState": "Projected Magnetism",
+        "collapsedPreview": "Others feel the pull before they know you.",
+        "anchorPhrase": "Influence without performance"
+      },
+      "questBrief": {
+        "mission": "Your quest is to use relational magnetism to create genuine unity without becoming trapped in projection.",
+        "fieldPrompt": "Where are you being wanted for a role instead of met as a person?"
+      },
+      "fieldBriefing": {
+        "whatThisQuestIsAbout": "This quest works through influence. Others may sense your ability to dissolve tension, create unity, or make connection happen. The mastery is using that magnetism cleanly, without turning intimacy into performance or control.",
+        "primaryRecognitionTrigger": "You become more charming when you feel less certain inside.",
+        "pauseMoment": "The charm took the role.",
+        "livePrompt": "Notice where influence appears before honesty."
+      },
+      "assetsAndFriction": {
+        "questAssets": [
+          "Relational magnetism",
+          "Trust leadership",
+          "Group coherence",
+          "Barrier-dissolving presence"
+        ],
+        "questTrap": "The trap is letting projected desire turn connection into image management.",
+        "frictionSignals": [
+          "You perform connection instead of entering it.",
+          "You accept the role because it gives leverage.",
+          "You mistake admiration for trust.",
+          "You unify people around your presence instead of shared truth."
+        ]
+      },
+      "groundingEffect": {
+        "groundingProtocol": "Relax the belly, slow the voice, and say the clarifying truth before adding warmth.",
+        "somaticShift": "From projected pressure into clean relational authority.",
+        "attentionCue": "Notice when charisma rises to cover uncertainty.",
+        "bodyCheckPrompt": "Am I connecting, persuading, or managing how I am seen?",
+        "embodiedSignal": "Your presence feels influential without becoming inflated."
+      },
+      "unlockCondition": {
+        "questKey": "Clarify the shared truth → do not become the projected role → unify through sincerity",
+        "alignmentReminder": "Your magnetism is cleanest when it serves trust.",
+        "microRitual": "Before influencing, ask: \"What is actually true here?\""
+      },
+      "driftPattern": "You feel what the room wants, become it for a moment, then lose contact with the real bond underneath.",
+      "feltExperienceAudit": {
+        "recognitionStrength": 10,
+        "specificMicroBehavior": 10,
+        "internalPause": 9,
+        "nonExplanation": 9,
+        "lineSpecificAccuracy": 10,
+        "placementDiscipline": 9,
+        "mentalismUsed": true,
+        "mentalismPlacement": ["primaryRecognitionTrigger", "driftPattern"],
+        "mentalismJustification": "Precision mirror is appropriate because Line 5 needs to expose the moment projection becomes performance."
+      }
+    },
+    {
+      "gate": 59,
+      "line": 6,
+      "sourceTrace": {
+        "primarySource": "Command Mode Purpose Master CSV",
+        "primaryHeader": "Free Intimacy",
+        "lineModifier": "Line 6 — Maturity / Embodied Example",
+        "sourceStatus": "source-aligned"
+      },
+      "derivedStructure": {
+        "coreBehavior": "Creates meaningful intimacy while allowing connection to breathe, evolve, and remain free.",
+        "distortion": "Uses distance, freedom, or selectivity to avoid grounded participation.",
+        "decisionEdge": "Let freedom serve honesty instead of escape.",
+        "somaticPattern": "The body lifts out of contact when intimacy asks for grounded presence.",
+        "recognitionMoment": "You call it freedom when part of you is already leaving.",
+        "correctExpression": "Mature spacious intimacy that stays present without possession."
+      },
+      "hero": {
+        "mainQuest": "Free Intimacy",
+        "questState": "Selective Closeness",
+        "collapsedPreview": "You observe the bond before entering it.",
+        "anchorPhrase": "Freedom with presence"
+      },
+      "questBrief": {
+        "mission": "Your quest is to prove that intimacy can stay real without becoming ownership, pressure, or escape.",
+        "fieldPrompt": "Where does your need for freedom need more honesty?"
+      },
+      "fieldBriefing": {
+        "whatThisQuestIsAbout": "This quest matures intimacy beyond possession. You are here to understand that connection can be spacious and still sincere. The test is whether freedom keeps you honest inside the bond, or quietly removes you from it.",
+        "primaryRecognitionTrigger": "You call it freedom when part of you is already leaving.",
+        "pauseMoment": "The distance arrived first.",
+        "livePrompt": "Notice whether spaciousness keeps you present or lets you disappear."
+      },
+      "assetsAndFriction": {
+        "questAssets": [
+          "Emotional spaciousness",
+          "Mature discernment",
+          "Flexible devotion",
+          "Non-possessive intimacy"
+        ],
+        "questTrap": "The trap is turning freedom into a refined exit strategy.",
+        "frictionSignals": [
+          "You resist definition even when clarity would be kind.",
+          "You stay open-ended so nothing can ask too much.",
+          "You detach when intimacy becomes ordinary.",
+          "You prefer possibility over participation."
+        ]
+      },
+      "groundingEffect": {
+        "groundingProtocol": "Lengthen the spine, feel the back body, and name what is true without promising what is not.",
+        "somaticShift": "From floating detachment into spacious presence.",
+        "attentionCue": "Notice when your body exits before you speak.",
+        "bodyCheckPrompt": "Is this freedom creating truth, or avoiding contact?",
+        "embodiedSignal": "You feel spacious and present at the same time."
+      },
+      "unlockCondition": {
+        "questKey": "Let the bond breathe → do not disappear into freedom → stay honest in contact",
+        "alignmentReminder": "Non-possession is not the same as non-participation.",
+        "microRitual": "Say: \"I can be free and still be here.\""
+      },
+      "driftPattern": "You make intimacy feel elevated while avoiding the ordinary consistency that lets someone trust your presence.",
+      "feltExperienceAudit": {
+        "recognitionStrength": 10,
+        "specificMicroBehavior": 10,
+        "internalPause": 9,
+        "nonExplanation": 9,
+        "lineSpecificAccuracy": 10,
+        "placementDiscipline": 9,
+        "mentalismUsed": true,
+        "mentalismPlacement": ["primaryRecognitionTrigger", "pauseMoment", "assetsAndFriction.questTrap"],
+        "mentalismJustification": "Pattern interruption and future echo fit Line 6 because the drift hides inside mature-sounding distance."
+      }
+    }
+  ],
+  "perkTrees": [
+    {
+      "gate": 59,
+      "line": 1,
+      "treeName": "Bold Intimacy Perk Tree",
+      "nodes": [
+        { "node": "Root", "name": "First Contact", "effect": "Recognizes the threshold where fear blocks honest entry.", "developmentCue": "Find the smallest real doorway into connection.", "masteryMarker": "You can begin without needing certainty." },
+        { "node": "Awareness", "name": "Hesitation Scan", "effect": "Detects when caution becomes avoidance.", "developmentCue": "Watch the sentence you almost say.", "masteryMarker": "You notice withdrawal before it becomes silence." },
+        { "node": "Embodiment", "name": "Chest Gate", "effect": "Uses breath and body contact to soften guarded entry.", "developmentCue": "Exhale before the honest sentence.", "masteryMarker": "Your body can stay present while nervous." },
+        { "node": "Field", "name": "Sincere Opening", "effect": "Creates trust by initiating with grounded emotional truth.", "developmentCue": "Start with one clean statement.", "masteryMarker": "Others feel invited, not pressured." },
+        { "node": "Mastery", "name": "Courageous Bond", "effect": "Turns vulnerability into a stable beginning for intimacy.", "developmentCue": "Let courage make the first bridge.", "masteryMarker": "Connection starts where fear once stopped you." }
+      ]
+    },
+    {
+      "gate": 59,
+      "line": 2,
+      "treeName": "Transformative Connection Perk Tree",
+      "nodes": [
+        { "node": "Root", "name": "Effortless Pull", "effect": "Recognizes the natural opening that appears before effort.", "developmentCue": "Let the connection register before managing it.", "masteryMarker": "You can feel the pull without reducing it." },
+        { "node": "Awareness", "name": "Distance Flicker", "effect": "Detects the moment ease becomes subtle withdrawal.", "developmentCue": "Track when casualness replaces honesty.", "masteryMarker": "You catch the retreat while the bond is still open." },
+        { "node": "Embodiment", "name": "Natural Contact", "effect": "Lets the body stay soft when connection starts to matter.", "developmentCue": "Relax the jaw before responding.", "masteryMarker": "Your presence stays simple and reachable." },
+        { "node": "Field", "name": "Growth Bridge", "effect": "Turns natural intimacy into shared development.", "developmentCue": "Stay with the opening you created.", "masteryMarker": "The bond changes the field without force." },
+        { "node": "Mastery", "name": "Conscious Intimacy", "effect": "Owns the gift of connection instead of waiting for it to be named.", "developmentCue": "Let naturalness become responsibility.", "masteryMarker": "Connection becomes transformative because you stay present." }
+      ]
+    },
+    {
+      "gate": 59,
+      "line": 3,
+      "treeName": "Playful Bonding Perk Tree",
+      "nodes": [
+        { "node": "Root", "name": "Warm Entry", "effect": "Recognizes play as an opening into connection.", "developmentCue": "Use warmth to lower defense.", "masteryMarker": "People relax into contact around you." },
+        { "node": "Awareness", "name": "Spark Loop", "effect": "Detects when stimulation replaces intimacy.", "developmentCue": "Notice when the vibe avoids tenderness.", "masteryMarker": "You know when excitement is becoming escape." },
+        { "node": "Embodiment", "name": "Still Warmth", "effect": "Keeps the body present after social energy rises.", "developmentCue": "Feel your feet after the laugh.", "masteryMarker": "You can stay warm without speeding up." },
+        { "node": "Field", "name": "Honest Follow-Up", "effect": "Converts playful openings into sincere relational threads.", "developmentCue": "Add truth after the playful moment.", "masteryMarker": "Lightness becomes a doorway to depth." },
+        { "node": "Mastery", "name": "Joyful Depth", "effect": "Makes connection feel safe, alive, and real.", "developmentCue": "Let play serve the bond.", "masteryMarker": "Your joy creates intimacy, not distraction." }
+      ]
+    },
+    {
+      "gate": 59,
+      "line": 4,
+      "treeName": "Trusted Openness Perk Tree",
+      "nodes": [
+        { "node": "Root", "name": "Open Circle", "effect": "Recognizes the gift for creating belonging through trust.", "developmentCue": "Open the field with intention.", "masteryMarker": "People feel welcomed without pressure." },
+        { "node": "Awareness", "name": "Social Shield", "effect": "Detects when belonging protects the deeper truth.", "developmentCue": "Notice where the group keeps you hidden.", "masteryMarker": "You can tell social warmth from direct intimacy." },
+        { "node": "Embodiment", "name": "Warm Boundary", "effect": "Pairs heart availability with physical containment.", "developmentCue": "Feel the ribs before extending energy.", "masteryMarker": "You remain open without leaking." },
+        { "node": "Field", "name": "Trust Channel", "effect": "Builds shared spaces where closeness can carry truth.", "developmentCue": "Make access clear before deepening.", "masteryMarker": "Belonging grows inside clean agreements." },
+        { "node": "Mastery", "name": "Safe Belonging", "effect": "Creates intimacy that is welcoming, mutual, and boundaried.", "developmentCue": "Let trust and limits grow together.", "masteryMarker": "Connection feels warm, clear, and sustainable." }
+      ]
+    },
+    {
+      "gate": 59,
+      "line": 5,
+      "treeName": "Unifying Influence Perk Tree",
+      "nodes": [
+        { "node": "Root", "name": "Magnetic Contact", "effect": "Recognizes the power to gather people through connection.", "developmentCue": "Notice the room's projection.", "masteryMarker": "You can feel influence without becoming it." },
+        { "node": "Awareness", "name": "Projection Mirror", "effect": "Detects when others assign a role before knowing you.", "developmentCue": "Watch when charm rises suddenly.", "masteryMarker": "You separate sincerity from performance." },
+        { "node": "Embodiment", "name": "Clean Authority", "effect": "Grounds influence through breath, belly, and truth.", "developmentCue": "Slow the voice before leading.", "masteryMarker": "Your presence feels steady, not inflated." },
+        { "node": "Field", "name": "Unity Signal", "effect": "Uses relational leadership to align people around shared trust.", "developmentCue": "Clarify what serves the group.", "masteryMarker": "The field coheres around truth, not image." },
+        { "node": "Mastery", "name": "Sincere Influence", "effect": "Turns projected magnetism into practical relational service.", "developmentCue": "Use influence to dissolve barriers cleanly.", "masteryMarker": "People feel united, not managed." }
+      ]
+    },
+    {
+      "gate": 59,
+      "line": 6,
+      "treeName": "Free Intimacy Perk Tree",
+      "nodes": [
+        { "node": "Root", "name": "Open Bond", "effect": "Recognizes intimacy that does not require possession.", "developmentCue": "Let connection breathe without vanishing.", "masteryMarker": "Closeness feels spacious and real." },
+        { "node": "Awareness", "name": "Freedom Check", "effect": "Detects when openness becomes avoidance.", "developmentCue": "Question the urge to stay undefined.", "masteryMarker": "You know when freedom is escape." },
+        { "node": "Embodiment", "name": "Present Space", "effect": "Grounds spaciousness through posture, breath, and back-body awareness.", "developmentCue": "Feel your back before answering.", "masteryMarker": "You can be spacious without leaving." },
+        { "node": "Field", "name": "Honest Flexibility", "effect": "Creates evolving bonds through clarity instead of control.", "developmentCue": "Name what is true now.", "masteryMarker": "Others trust your freedom because it is honest." },
+        { "node": "Mastery", "name": "Non-Possessive Depth", "effect": "Holds intimacy with maturity, freedom, and sincere presence.", "developmentCue": "Stay connected without owning the bond.", "masteryMarker": "Love remains real without becoming a cage." }
+      ]
+    }
+  ]
+}
