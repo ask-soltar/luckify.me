@@ -28,6 +28,7 @@ import { getAuthorityLoadout } from '../constants/authorityLoadouts.js';
 import { getMainQuestEntry, mainQuestExample592 } from '../content/mainQuest.ts';
 import { MainQuestUnderstandFlow } from './MainQuestUnderstandFlow.tsx';
 import { mainQuestUnderstandSeed } from '../content/mainQuestUnderstandSeed.ts';
+import { getUnderstandFlow } from '../content/mainQuestUnderstandRegistry.ts';
 
 // Element color palette — grounded, permanent, different energy from zone colors
 const ELEMENT_COLORS = {
@@ -399,6 +400,7 @@ export function ProfileDisplay({
   const commandModePurposeGateLine = geneKeys?.purpose
     ? `${geneKeys.purpose.gate}.${geneKeys.purpose.line}`
     : null;
+  const questFlow = getUnderstandFlow(commandModePurposeGateLine) ?? mainQuestUnderstandSeed;
 
   // ── Dimension config array — IV and V only ─────────
   // Dims I/II/III are handled by CoreConfigCard above.
@@ -594,7 +596,7 @@ export function ProfileDisplay({
 
             {activeTab === 'quest' && (
               <section className="profile-tab-panel profile-tab-panel--main-quest">
-                <MainQuestUnderstandFlow flow={mainQuestUnderstandSeed} />
+                <MainQuestUnderstandFlow flow={questFlow} />
               </section>
             )}
 
