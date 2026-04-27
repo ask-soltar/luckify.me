@@ -121,9 +121,9 @@ export function MainQuestRevealLoader({
   // Phase 4: show unlocked → call complete
   useEffect(() => {
     if (phase !== 'unlocked') return;
-    const t = setTimeout(onComplete, prefersReducedMotion ? 1400 : 2000);
+    const t = setTimeout(onComplete, 2800);
     return () => clearTimeout(t);
-  }, [phase, onComplete, prefersReducedMotion]);
+  }, [phase, onComplete]);
 
   return (
     <div className="mqrl">
