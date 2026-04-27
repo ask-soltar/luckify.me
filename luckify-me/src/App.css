@@ -8428,6 +8428,23 @@
   border-color: rgba(255,255,255,0.13);
 }
 
+/* Share entry — subtle ghost link, clearly below the primary action */
+.mq-btn--share-entry {
+  background: transparent;
+  color: var(--mq-text-faint);
+  border: none;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  justify-content: center;
+  padding: 10px 0;
+  opacity: 0.7;
+}
+
+.mq-btn--share-entry:hover {
+  opacity: 1;
+  color: var(--mq-text-dim);
+}
+
 /* Disabled state (all variants) */
 .mq-btn:disabled {
   opacity: 0.28;

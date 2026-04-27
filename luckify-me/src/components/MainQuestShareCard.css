@@ -1,0 +1,392 @@
+/* ── Preview wrapper: scales the 1080×1350 card to fit screen ── */
+.mqsc-preview {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── The actual 1080×1350 export card ── */
+.mqsc {
+  width: 1080px;
+  height: 1350px;
+  position: relative;
+  overflow: hidden;
+  transform-origin: top left;
+
+  /* Background: deep black-indigo */
+  background: radial-gradient(ellipse 80% 60% at 50% 20%, #110d2e 0%, #07060f 60%, #030208 100%);
+  border-radius: 32px;
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  box-shadow:
+    0 0 80px rgba(124, 58, 237, 0.12),
+    0 0 160px rgba(59, 130, 246, 0.08),
+    inset 0 1px 0 rgba(212, 175, 55, 0.15),
+    inset 0 -1px 0 rgba(124, 58, 237, 0.1);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #e8e0ff;
+}
+
+/* ── Stars layer ── */
+.mqsc__stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mqsc__star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* ── Ambient glow blobs ── */
+.mqsc__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mqsc__glow::before {
+  content: '';
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(124, 58, 237, 0.18) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.mqsc__glow::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 300px;
+  background: radial-gradient(ellipse, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* ── Inner glass panel ── */
+.mqsc__glass {
+  position: absolute;
+  inset: 40px;
+  border-radius: 20px;
+  background: rgba(10, 7, 30, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64px 72px 52px;
+  box-sizing: border-box;
+  /* Hard-clip anything that overflows — long titles / bodies stay inside card */
+  overflow: hidden;
+}
+
+/* ── Badge ── */
+.mqsc__badge {
+  font-family: 'Courier New', 'Courier', monospace;
+  font-size: 22px;
+  letter-spacing: 0.28em;
+  color: rgba(212, 175, 55, 0.9);
+  text-transform: uppercase;
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.mqsc__badge::before,
+.mqsc__badge::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 32px;
+  height: 1px;
+  background: rgba(212, 175, 55, 0.4);
+}
+
+.mqsc__badge::before { right: calc(100% + 12px); }
+.mqsc__badge::after  { left:  calc(100% + 12px); }
+
+/* ── Hero symbol area ── */
+.mqsc__hero {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mqsc__hero-glow {
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(ellipse, rgba(212, 175, 55, 0.18) 0%, rgba(124, 58, 237, 0.1) 40%, transparent 70%);
+  border-radius: 50%;
+  animation: mqsc-pulse 4s ease-in-out infinite;
+}
+
+@keyframes mqsc-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.06); }
+}
+
+/* ── Title ── */
+.mqsc__title {
+  font-size: 68px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+  text-align: center;
+  color: #f0ebff;
+  margin-bottom: 16px;
+  font-style: italic;
+  text-shadow: 0 0 40px rgba(124, 58, 237, 0.5), 0 2px 8px rgba(0, 0, 0, 0.8);
+  /* Cap at 2 lines so long titles don't collapse the section area */
+  max-height: calc(68px * 1.15 * 2 + 8px);
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+/* Gold rule under title */
+.mqsc__rule {
+  width: 240px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), transparent);
+  margin: 0 auto 52px;
+}
+
+/* ── Sections ── */
+.mqsc__sections {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: 100%;
+  flex: 1;
+  /* Allow this region to shrink if title wraps to 2 lines */
+  min-height: 0;
+  overflow: hidden;
+}
+
+.mqsc__section {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.mqsc__section-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(212, 175, 55, 0.8);
+  margin-top: 4px;
+}
+
+.mqsc__section-text {
+  flex: 1;
+}
+
+.mqsc__section-heading {
+  font-family: 'Courier New', 'Courier', monospace;
+  font-size: 20px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(212, 175, 55, 0.7);
+  margin-bottom: 10px;
+}
+
+.mqsc__section-body {
+  font-size: 34px;
+  line-height: 1.35;
+  color: #ddd6ff;
+  font-weight: 300;
+  font-style: italic;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Subtle divider between sections */
+.mqsc__section + .mqsc__section {
+  padding-top: 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 0;
+}
+
+/* ── Branding footer ── */
+.mqsc__footer {
+  margin-top: auto;
+  padding-top: 40px;
+  text-align: center;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  width: 100%;
+}
+
+.mqsc__footer-cta {
+  font-family: 'Courier New', 'Courier', monospace;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  color: rgba(200, 185, 255, 0.5);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.mqsc__footer-brand {
+  font-family: 'Courier New', 'Courier', monospace;
+  font-size: 24px;
+  letter-spacing: 0.22em;
+  color: rgba(212, 175, 55, 0.6);
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════════
+   Share prompt + buttons (outside the export card)
+   ═══════════════════════════════════════════════ */
+.mqsc-outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+}
+
+.mqsc-prompt {
+  width: 100%;
+  padding: 28px 24px 0;
+  text-align: center;
+  color: #b8b0d0;
+}
+
+.mqsc-prompt__headline {
+  font-size: 17px;
+  line-height: 1.55;
+  margin-bottom: 6px;
+  color: #ccc4e8;
+}
+
+.mqsc-prompt__sub {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.72;
+  margin-bottom: 28px;
+}
+
+.mqsc-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0 24px 32px;
+}
+
+.mqsc-btn {
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: 10px;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  font-family: 'Courier New', 'Courier', monospace;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.18s ease, transform 0.12s ease;
+}
+
+.mqsc-btn:active {
+  transform: scale(0.98);
+  opacity: 0.85;
+}
+
+.mqsc-btn--share {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.85), rgba(59, 130, 246, 0.85));
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.3);
+}
+
+.mqsc-btn--save {
+  background: transparent;
+  color: rgba(200, 185, 255, 0.6);
+  border: 1px solid rgba(200, 185, 255, 0.2);
+}
+
+.mqsc-btn--skip {
+  background: transparent;
+  color: rgba(200, 185, 255, 0.35);
+  border: none;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  padding: 10px 24px;
+}
+
+.mqsc-btn--continue {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.7), rgba(59, 130, 246, 0.7));
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.25);
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: 10px;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  font-family: 'Courier New', 'Courier', monospace;
+  cursor: pointer;
+  transition: opacity 0.18s ease, transform 0.12s ease;
+}
+
+.mqsc-btn--continue:active {
+  transform: scale(0.98);
+  opacity: 0.85;
+}
+
+/* ── Confirmation state ── */
+.mqsc-confirmed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 28px 24px 32px;
+  text-align: center;
+}
+
+.mqsc-confirmed__title {
+  font-family: 'Courier New', 'Courier', monospace;
+  font-size: 18px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(212, 175, 55, 0.85);
+}
+
+.mqsc-confirmed__body {
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(200, 185, 255, 0.65);
+  margin-bottom: 16px;
+}
+
+.mqsc-confirmed .mqsc-btn--continue {
+  width: calc(100% - 48px);
+}
+
+/* ── Share overlay — rendered on top of the current quest screen ── */
+.mq-share-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: var(--mq-bg, #0a0812);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mq-share-overlay__inner {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}

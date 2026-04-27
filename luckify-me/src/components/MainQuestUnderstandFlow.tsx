@@ -1,7 +1,45 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import type { MainQuestUnderstandFlow } from '../content/mainQuestUnderstandSeed';
+import { MainQuestShareCard } from './MainQuestShareCard.jsx';
+import { trackEvent } from '../utils/trackEvent.js';
+
+const CARD_MAX_CHARS = 120;
+
+function cap(s: string | undefined | null): string {
+  if (!s) return '';
+  return s.length > CARD_MAX_CHARS ? s.slice(0, CARD_MAX_CHARS - 1) + '…' : s;
+}
+
+function buildShareContent(flow: MainQuestUnderstandFlow) {
+  const sc = flow.shareCard;
+  return {
+    badge: 'MAIN QUEST UNLOCKED',
+    title: flow.intro?.questName || 'Your Main Quest',
+    sections: [
+      {
+        id: 'gift',
+        icon: 'compass',
+        heading: 'Your gift',
+        body: cap(sc?.giftLine ?? flow.intro?.openingStatement),
+      },
+      {
+        id: 'pattern',
+        icon: 'spiral',
+        heading: 'Your pattern',
+        body: cap(sc?.patternLine ?? flow.intro?.limitation),
+      },
+      {
+        id: 'quest',
+        icon: 'portal',
+        heading: 'Your quest',
+        body: cap(sc?.questLine ?? flow.intro?.purpose),
+      },
+    ],
+  };
+}
 
 type Screen =
+  | 'share'
   | 'intro'
   | 'patternExpansion'
   | 'realLifeExamples'
@@ -31,7 +69,10 @@ export function MainQuestUnderstandFlow({ flow, profileId }: { flow: MainQuestUn
   const storageKey = `mq-flow-${profileId ?? 'default'}-${flow.gate}-${flow.line}`;
   const saved = loadState(storageKey);
 
-  const [screen, setScreen] = useState<Screen>(saved?.screen ?? 'intro');
+  // First-time visitors start on the share screen; returning visitors resume where they left off.
+  const [screen, setScreen] = useState<Screen>(saved?.screen ?? 'share');
+  // Overlay is separate from screen state — never persisted, never resets progress.
+  const [shareOverlay, setShareOverlay] = useState(false);
   const [response, setResponse] = useState<RecognitionResponse>(saved?.response ?? null);
   const [progressionTreePrev, setProgressionTreePrev] = useState<Screen>(saved?.progressionTreePrev ?? 'responseReflection');
   const [activeIdx, setActiveIdx] = useState(saved?.activeIdx ?? 0);
@@ -47,6 +88,35 @@ export function MainQuestUnderstandFlow({ flow, profileId }: { flow: MainQuestUn
     };
     localStorage.setItem(storageKey, JSON.stringify(state));
   }, [screen, response, progressionTreePrev, activeIdx, visited, storageKey]);
+
+  const shareContent = useMemo(() => buildShareContent(flow), [flow]);
+
+  // Tracking meta shared across all events in this flow
+  const trackingBase = {
+    gate: flow.gate,
+    line: flow.line,
+    gateLine: flow.gateLine,
+    questName: flow.intro?.questName,
+  };
+
+  // Fire once when the first-time share screen is shown (guard against StrictMode double-fire)
+  const viewedFirstTimeRef = useRef(false);
+  useEffect(() => {
+    if (screen === 'share' && !viewedFirstTimeRef.current) {
+      viewedFirstTimeRef.current = true;
+      trackEvent('main_quest_share_card_viewed_first_time', { ...trackingBase, source: 'first_time' });
+    }
+  // trackingBase is stable object literals derived from flow — exhaustive deps not needed here
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [screen]);
+
+  // Fire when the returning overlay opens
+  useEffect(() => {
+    if (shareOverlay) {
+      trackEvent('main_quest_share_card_opened_returning', { ...trackingBase, source: 'returning_overlay' });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [shareOverlay]);
 
   function handleRecognitionButton(id: 'i_do_this' | 'sometimes' | 'not_really_me') {
     setResponse(id);
@@ -69,8 +139,21 @@ export function MainQuestUnderstandFlow({ flow, profileId }: { flow: MainQuestUn
 
   return (
     <div className="mq-understand">
+      {screen === 'share' && (
+        <MainQuestShareCard
+          cardId="mq-share-card-flow"
+          content={shareContent}
+          onComplete={() => setScreen('intro')}
+          trackingMeta={{ ...trackingBase, source: 'first_time' }}
+        />
+      )}
+
       {screen === 'intro' && (
-        <IntroScreen flow={flow} onUnderstand={() => setScreen('patternExpansion')} />
+        <IntroScreen
+          flow={flow}
+          onUnderstand={() => setScreen('patternExpansion')}
+          onShare={() => setShareOverlay(true)}
+        />
       )}
 
       {screen === 'patternExpansion' && (
@@ -112,6 +195,23 @@ export function MainQuestUnderstandFlow({ flow, profileId }: { flow: MainQuestUn
           backLabel={progressionTreePrev === 'patternExpansion' ? 'Field Briefing' : 'Reflection'}
         />
       )}
+
+      {shareOverlay && (
+        <div className="mq-share-overlay" role="dialog" aria-modal="true" aria-label="Share Quest Card">
+          <div className="mq-share-overlay__inner">
+            <MainQuestShareCard
+              cardId="mq-share-card-overlay"
+              content={shareContent}
+              onComplete={() => {
+                trackEvent('main_quest_share_card_closed_returning', { ...trackingBase, source: 'returning_overlay' });
+                setShareOverlay(false);
+              }}
+              skipLabel="← Back to Quest"
+              trackingMeta={{ ...trackingBase, source: 'returning_overlay' }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -148,9 +248,11 @@ function BackNav({
 function IntroScreen({
   flow,
   onUnderstand,
+  onShare,
 }: {
   flow: MainQuestUnderstandFlow;
   onUnderstand: () => void;
+  onShare?: () => void;
 }) {
   const { intro } = flow;
   return (
@@ -195,6 +297,11 @@ function IntroScreen({
           Enter Field Briefing
           <span className="mq-btn__arrow" aria-hidden="true">→</span>
         </button>
+        {onShare && (
+          <button type="button" className="mq-btn mq-btn--share-entry" onClick={onShare}>
+            Share Quest Card
+          </button>
+        )}
       </div>
     </div>
   );

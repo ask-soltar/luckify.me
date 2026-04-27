@@ -61,7 +61,7 @@ const PerkNodeButton = forwardRef(function PerkNodeButton({ node, selected, layo
   );
 });
 
-function PerkTreeCanvas({ tree, selectedId, onSelect }) {
+export function PerkTreeCanvas({ tree, selectedId, onSelect }) {
   const isMasterySelected = tree.masteryNode.id === selectedId;
   const branchNodes = tree.branchNodes || [];
   const awarenessNode = branchNodes.find((node) => node.branch === 'Awareness');

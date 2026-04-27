@@ -11,6 +11,17 @@ export type MainQuestUnderstandFlow = {
     purpose: string;
   };
 
+  /**
+   * Short, plain-language lines written specifically for the share card.
+   * When present these take priority over the intro fields.
+   * When absent the card falls back to the intro fields (trimmed if needed).
+   */
+  shareCard?: {
+    giftLine: string;
+    patternLine: string;
+    questLine: string;
+  };
+
   understandFlow: {
     patternExpansion: {
       title: string;
@@ -95,6 +106,12 @@ export const mainQuestUnderstandSeed = {
     ],
     limitation: 'But you tend to keep things comfortable instead of letting them become real.',
     purpose: 'Your purpose is to let those moments actually go somewhere.',
+  },
+
+  shareCard: {
+    giftLine: 'You create connection naturally.',
+    patternLine: 'When it starts to matter, you keep it comfortable.',
+    questLine: 'Let the moment become real.',
   },
 
   understandFlow: {
