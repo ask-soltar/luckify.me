@@ -15,7 +15,7 @@ const SCAN_MESSAGES = [
   'Main Quest found.',
 ];
 
-const SCAN_DELAYS = [320, 360, 440, 560];
+const SCAN_DELAYS = [600, 700, 800, 900];
 
 function buildRouletteSequence(
   options: QuestRevealOption[],
@@ -37,10 +37,10 @@ function buildRouletteSequence(
 function getRevealCadence(len: number): number[] {
   return Array.from({ length: len }, (_, i) => {
     const p = i / Math.max(len - 1, 1);
-    if (p < 0.35) return 90;
-    if (p < 0.7)  return 165;
-    if (p < 0.88) return 310;
-    return 520;
+    if (p < 0.35) return 160;
+    if (p < 0.7)  return 300;
+    if (p < 0.88) return 560;
+    return 900;
   });
 }
 
@@ -114,14 +114,14 @@ export function MainQuestRevealLoader({
   // Phase 3: landing pause → unlocked
   useEffect(() => {
     if (phase !== 'landing') return;
-    const t = setTimeout(() => setPhase('unlocked'), 500);
+    const t = setTimeout(() => setPhase('unlocked'), 900);
     return () => clearTimeout(t);
   }, [phase]);
 
   // Phase 4: show unlocked → call complete
   useEffect(() => {
     if (phase !== 'unlocked') return;
-    const t = setTimeout(onComplete, 2800);
+    const t = setTimeout(onComplete, 4000);
     return () => clearTimeout(t);
   }, [phase, onComplete]);
 
