@@ -610,6 +610,18 @@ export function ProfileDisplay({
 
             {activeTab === 'cmd' && (
               <>
+                <div className="cmd-header">
+                  <div className="cmd-header__eyebrow">CMD MODE</div>
+                  <div className="cmd-header__title">Experimental Layer</div>
+                  <p className="cmd-header__body">
+                    This space is intentionally unfinished. Tools, raw signals, and system views live here before they're ready. Things will be out of place. That's the point.
+                  </p>
+                  <div className="cmd-header__status">
+                    <span className="cmd-header__dot" aria-hidden="true" />
+                    LIVE · UNSTABLE
+                  </div>
+                </div>
+
                 <LoadoutCoreModuleSection
                   {...coreCardProps}
                 />

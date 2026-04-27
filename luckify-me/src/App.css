@@ -9727,3 +9727,64 @@
   color: rgba(255, 255, 255, 0.3);
   margin: 0;
 }
+
+/* ── CMD Header ─────────────────────────────────────────────────────────── */
+
+.cmd-header {
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 4px;
+}
+
+.cmd-header__eyebrow {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(74, 222, 128, 0.7);
+  margin-bottom: 6px;
+}
+
+.cmd-header__title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+
+.cmd-header__body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.38);
+  margin: 0 0 14px;
+}
+
+.cmd-header__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(74, 222, 128, 0.5);
+}
+
+.cmd-header__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(74, 222, 128, 0.7);
+  animation: cmd-dot-pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes cmd-dot-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+  50%       { opacity: 0.6; box-shadow: 0 0 0 4px rgba(74, 222, 128, 0); }
+}
