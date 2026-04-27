@@ -27,7 +27,6 @@ import { getDecisionEnginePayload } from '../utils/decisionEngine.js';
 import { getAuthorityLoadout } from '../constants/authorityLoadouts.js';
 import { getMainQuestEntry, mainQuestExample592 } from '../content/mainQuest.ts';
 import { MainQuestUnderstandFlow } from './MainQuestUnderstandFlow.tsx';
-import { mainQuestUnderstandSeed } from '../content/mainQuestUnderstandSeed.ts';
 import { getUnderstandFlow } from '../content/mainQuestUnderstandRegistry.ts';
 
 // Element color palette — grounded, permanent, different energy from zone colors
@@ -400,7 +399,7 @@ export function ProfileDisplay({
   const commandModePurposeGateLine = geneKeys?.purpose
     ? `${geneKeys.purpose.gate}.${geneKeys.purpose.line}`
     : null;
-  const questFlow = getUnderstandFlow(commandModePurposeGateLine) ?? mainQuestUnderstandSeed;
+  const questFlow = getUnderstandFlow(commandModePurposeGateLine);
 
   // ── Dimension config array — IV and V only ─────────
   // Dims I/II/III are handled by CoreConfigCard above.
@@ -596,7 +595,16 @@ export function ProfileDisplay({
 
             {activeTab === 'quest' && (
               <section className="profile-tab-panel profile-tab-panel--main-quest">
-                <MainQuestUnderstandFlow flow={questFlow} profileId={profileId} />
+                {questFlow ? (
+                  <MainQuestUnderstandFlow flow={questFlow} profileId={profileId} />
+                ) : (
+                  <div className="mq-coming-soon">
+                    <div className="mq-coming-soon__gate">{commandModePurposeGateLine ?? '—'}</div>
+                    <div className="mq-coming-soon__label">Main Quest</div>
+                    <p className="mq-coming-soon__body">Content for this gate is being prepared.</p>
+                    <p className="mq-coming-soon__sub">Check back soon.</p>
+                  </div>
+                )}
               </section>
             )}
 
