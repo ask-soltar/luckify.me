@@ -27,8 +27,8 @@ function loadState(key: string): PersistedState | null {
   }
 }
 
-export function MainQuestUnderstandFlow({ flow }: { flow: MainQuestUnderstandFlow }) {
-  const storageKey = `mq-flow-${flow.gate}-${flow.line}`;
+export function MainQuestUnderstandFlow({ flow, profileId }: { flow: MainQuestUnderstandFlow; profileId?: string }) {
+  const storageKey = `mq-flow-${profileId ?? 'default'}-${flow.gate}-${flow.line}`;
   const saved = loadState(storageKey);
 
   const [screen, setScreen] = useState<Screen>(saved?.screen ?? 'intro');

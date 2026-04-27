@@ -596,7 +596,7 @@ export function ProfileDisplay({
 
             {activeTab === 'quest' && (
               <section className="profile-tab-panel profile-tab-panel--main-quest">
-                <MainQuestUnderstandFlow flow={questFlow} />
+                <MainQuestUnderstandFlow flow={questFlow} profileId={profileId} />
               </section>
             )}
 
