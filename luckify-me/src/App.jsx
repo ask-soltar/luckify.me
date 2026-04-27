@@ -3,12 +3,28 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ProfileForm } from './components/ProfileForm.jsx';
 import { ProfileDisplay } from './components/ProfileDisplay.jsx';
 import { ProfileMenu } from './components/ProfileMenu.jsx';
-import { LuckyWindow } from './components/LuckyWindow.jsx';
+import { MainQuestRevealLoader } from './components/MainQuestRevealLoader.tsx';
 import { calculateProfile, generateId, resolveProfileName } from './utils/profileCalculator.js';
 import { useProfileStorage } from './hooks/useProfileStorage.js';
 import { calcTodayWindow } from './utils/luckyWindow.js';
+import { MAIN_QUEST_ENTRIES, getMainQuestEntry } from './content/mainQuest.ts';
 import './styles/pip-boy.css';
 import './App.css';
+
+// TODO: wire to actual purpose gate resolver when multi-gate support is ready
+function resolveMainQuestGateLine(result) {
+  const gate = result?.geneKeys?.purpose?.gate;
+  const line = result?.geneKeys?.purpose?.line;
+  if (Number.isFinite(gate) && Number.isFinite(line)) return { gate, line };
+  return null;
+}
+
+function sampleQuestOptions(excludeGateLine, count = 20) {
+  const pool = MAIN_QUEST_ENTRIES
+    .filter(e => `${e.gate}.${e.line}` !== excludeGateLine)
+    .map(e => ({ gateLine: `${e.gate}.${e.line}`, questName: e.mainQuest, subtitle: 'Purpose Signal' }));
+  return pool.sort(() => Math.random() - 0.5).slice(0, count);
+}
 
 // RGB triplets for the zone color CSS variable — used to tint the shell faintly
 const ZONE_RGB = {
@@ -35,6 +51,7 @@ export default function App() {
   const [shouldAnimateRhythmReveal, setShouldAnimateRhythmReveal] = useState(false);
   const [fullScreenRevealOpen, setFullScreenRevealOpen] = useState(false);
   const [veiled, setVeiled] = useState(false);    // full-screen threshold transition
+  const [revealQuestData, setRevealQuestData] = useState(null); // { gateLine, questName, possibleQuests }
 
   const {
     profiles,
@@ -109,6 +126,13 @@ export default function App() {
       animateReveal = true;
     }
 
+    // Resolve Main Quest for the reveal
+    const resolved = resolveMainQuestGateLine(result);
+    const questEntry = resolved ? getMainQuestEntry(resolved.gate, resolved.line) : null;
+    const resolvedGateLine = resolved ? `${resolved.gate}.${resolved.line}` : '59.2';
+    const resolvedQuestName = questEntry?.mainQuest ?? 'Your Main Quest is being prepared.';
+    const possibleQuests = sampleQuestOptions(resolvedGateLine);
+
     // Threshold: fade to void, swap content at peak black, then reveal
     setVeiled(true);
     setTimeout(() => {
@@ -116,6 +140,7 @@ export default function App() {
       setActiveProfileId(nextProfileId);
       setShouldAnimateRhythmReveal(false);
       if (animateReveal) {
+        setRevealQuestData({ gateLine: resolvedGateLine, questName: resolvedQuestName, possibleQuests });
         setFullScreenRevealOpen(true);
       } else {
         setPage('profile');
@@ -271,35 +296,26 @@ export default function App() {
       </main>
 
       <AnimatePresence>
-        {fullScreenRevealOpen && activeProfile && (
+        {fullScreenRevealOpen && activeProfile && revealQuestData && (
           <motion.div
-            className="first-reveal-overlay"
+            className="first-reveal-overlay first-reveal-overlay--quest"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
           >
             <motion.div
-              className="first-reveal-shell"
+              className="first-reveal-shell first-reveal-shell--quest"
               initial={{ opacity: 0, y: 24, scale: 0.985 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 16, scale: 0.992 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="first-reveal-kicker">Profile Unlocked</div>
-              <div className="first-reveal-title">Revealing your active rhythm</div>
-              <div className="first-reveal-copy">
-                Your permanent build stays with you. This calibrates the field you are moving through today.
-              </div>
-
-              <LuckyWindow
-                profile={activeProfile}
-                profileId={activeProfileId}
-                shouldAnimateReveal
-                onRevealComplete={handleFirstRevealComplete}
-                humanDesign={activeProfile.humanDesign || null}
-                mode="human"
-                presentation="reveal"
+              <MainQuestRevealLoader
+                resolvedGateLine={revealQuestData.gateLine}
+                resolvedQuestName={revealQuestData.questName}
+                possibleQuests={revealQuestData.possibleQuests}
+                onComplete={handleFirstRevealComplete}
               />
             </motion.div>
           </motion.div>

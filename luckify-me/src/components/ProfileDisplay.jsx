@@ -26,6 +26,8 @@ import { deriveHumanDesign } from '../utils/humanDesign.js';
 import { getDecisionEnginePayload } from '../utils/decisionEngine.js';
 import { getAuthorityLoadout } from '../constants/authorityLoadouts.js';
 import { getMainQuestEntry, mainQuestExample592 } from '../content/mainQuest.ts';
+import { MainQuestUnderstandFlow } from './MainQuestUnderstandFlow.tsx';
+import { mainQuestUnderstandSeed } from '../content/mainQuestUnderstandSeed.ts';
 
 // Element color palette — grounded, permanent, different energy from zone colors
 const ELEMENT_COLORS = {
@@ -315,7 +317,7 @@ export function ProfileDisplay({
   onLocationChange
 }) {
   const { type, element, lifePathNum, birthTime } = profile;
-  const [activeTab, setActiveTab] = useState('loadout');
+  const [activeTab, setActiveTab] = useState('quest');
   const [passiveSkillOpen, setPassiveSkillOpen] = useState(false);
 
   // Always recompute geneKeys from stored birth data so old profiles pick up
@@ -590,9 +592,14 @@ export function ProfileDisplay({
               />
             )}
 
-            {activeTab === 'engine' && (
+            {activeTab === 'quest' && (
+              <section className="profile-tab-panel profile-tab-panel--main-quest">
+                <MainQuestUnderstandFlow flow={mainQuestUnderstandSeed} />
+              </section>
+            )}
+
+            {activeTab === 'cmd' && (
               <>
-                <CommandModeMainQuest gateLine={commandModePurposeGateLine} />
                 <LoadoutCoreModuleSection
                   {...coreCardProps}
                 />
@@ -602,18 +609,13 @@ export function ProfileDisplay({
                   passiveSkillOpen={passiveSkillOpen}
                   onTogglePassiveSkill={() => setPassiveSkillOpen(open => !open)}
                 />
-              </>
-            )}
-
-            {activeTab === 'cmd' && (
-              <>
                 <div className="profile-exploration-panel profile-exploration-panel--cmd">
                   <div className="profile-exploration-label">Experimental Layer</div>
                   <div className="profile-exploration-copy">
                     Exploratory tools for play, pattern testing, and live interpretation.
                   </div>
 
-                  <LoadoutMainQuestSection entry={mainQuestEntry} />
+                  <CommandModeMainQuest gateLine={commandModePurposeGateLine} />
 
                   <div className="profile-exploration-controls">
                     <button
@@ -654,14 +656,14 @@ export function ProfileDisplay({
           className={`profile-bottom-nav-item${activeTab === 'loadout' ? ' active' : ''}`}
           onClick={() => setActiveTab('loadout')}
         >
-          <span className="profile-bottom-nav-label">Engine</span>
+          <span className="profile-bottom-nav-label">Daily Color</span>
         </button>
         <button
           type="button"
-          className={`profile-bottom-nav-item${activeTab === 'engine' ? ' active' : ''}`}
-          onClick={() => setActiveTab('engine')}
+          className={`profile-bottom-nav-item${activeTab === 'quest' ? ' active' : ''}`}
+          onClick={() => setActiveTab('quest')}
         >
-          <span className="profile-bottom-nav-label">Loadout</span>
+          <span className="profile-bottom-nav-label">Quest</span>
         </button>
         <button
           type="button"
