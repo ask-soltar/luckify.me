@@ -1,5 +1,4 @@
 import type { MainQuestUnderstandFlow } from './mainQuestUnderstandSeed';
-import { mainQuestUnderstandSeed } from './mainQuestUnderstandSeed';
 
 // ── Gate content imports ────────────────────────────────────────────────────
 // Each file may use one of three shapes:
@@ -38,8 +37,6 @@ const ALL_ENTRIES: MainQuestUnderstandFlow[] = [
   ...extractEntries(gate44Raw),
   ...extractEntries(gate52Raw),
   ...extractEntries(gate64Raw),
-  // Seed always present as fallback entry
-  mainQuestUnderstandSeed,
 ];
 
 const REGISTRY = new Map<string, MainQuestUnderstandFlow>(
