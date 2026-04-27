@@ -55,6 +55,8 @@ export function MainQuestUnderstandFlow({ flow }: { flow: MainQuestUnderstandFlo
 
   function goToProgressionTree(from: Screen) {
     setProgressionTreePrev(from);
+    setActiveIdx(0);
+    setVisited(new Set([0]));
     setScreen('progressionTree');
   }
 
