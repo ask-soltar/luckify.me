@@ -5,14 +5,21 @@ import type { MainQuestUnderstandFlow } from './mainQuestUnderstandSeed';
 //   { content: [...] }   — gate11, gate34, gate39, gate41, gate44
 //   { entries: [...] }   — gate9, gate40, gate52
 //   [...] (direct array) — gate64
+import gate1Raw   from './gates/understand/gate1_understand_flow_v2_score97';
+import gate2Raw   from './gates/understand/gate2_understand_flow_v2_score97';
+import gate3Raw   from './gates/understand/gate3_understand_flow_v2_score97';
+import { gate4UnderstandFlow as gate4Raw } from './gates/understand/gate4_understand_flow_v2_score97';
+import gate5Raw   from './gates/understand/gate5_understand_flow_v2_score97';
 import gate9Raw   from './gates/understand/gate9_understand_flow_v2_score97';
 import gate11Raw  from './gates/understand/gate11_understand_flow_v2_score97';
+import gate29Raw  from './gates/understand/gate29_understand_flow_v2_score97';
 import gate34Raw  from './gates/understand/gate34_understand_flow_v2_score97';
 import gate39Raw  from './gates/understand/gate39_understand_flow_v2_score97';
 import gate40Raw  from './gates/understand/gate40_understand_flow_v2_score97';
 import gate41Raw  from './gates/understand/gate41_understand_flow_v2_score97';
 import gate44Raw  from './gates/understand/gate44_understand_flow_v2_score97';
 import gate52Raw  from './gates/understand/gate52_understand_flow_v2_score97';
+import gate59Raw  from './gates/understand/gate59_understand_flow_v2_score97';
 import gate64Raw  from './gates/understand/gate64_understand_flow_v2_precision_scored';
 
 // ── Shape normalizer ────────────────────────────────────────────────────────
@@ -28,14 +35,21 @@ function extractEntries(raw: unknown): MainQuestUnderstandFlow[] {
 
 // ── Build registry ──────────────────────────────────────────────────────────
 const ALL_ENTRIES: MainQuestUnderstandFlow[] = [
+  ...extractEntries(gate1Raw),
+  ...extractEntries(gate2Raw),
+  ...extractEntries(gate3Raw),
+  ...extractEntries(gate4Raw),
+  ...extractEntries(gate5Raw),
   ...extractEntries(gate9Raw),
   ...extractEntries(gate11Raw),
+  ...extractEntries(gate29Raw),
   ...extractEntries(gate34Raw),
   ...extractEntries(gate39Raw),
   ...extractEntries(gate40Raw),
   ...extractEntries(gate41Raw),
   ...extractEntries(gate44Raw),
   ...extractEntries(gate52Raw),
+  ...extractEntries(gate59Raw),
   ...extractEntries(gate64Raw),
 ];
 
