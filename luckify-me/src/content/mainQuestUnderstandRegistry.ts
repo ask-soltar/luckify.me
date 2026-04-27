@@ -1,17 +1,35 @@
 import type { MainQuestUnderstandFlow } from './mainQuestUnderstandSeed';
 
 // ── Gate content imports ────────────────────────────────────────────────────
-// Each file may use one of three shapes:
-//   { content: [...] }   — gate11, gate34, gate39, gate41, gate44
-//   { entries: [...] }   — gate9, gate40, gate52
-//   [...] (direct array) — gate64
+// Shapes: { content:[...] } | { entries:[...] } | [...] (direct array)
 import gate1Raw   from './gates/understand/gate1_understand_flow_v2_score97';
 import gate2Raw   from './gates/understand/gate2_understand_flow_v2_score97';
 import gate3Raw   from './gates/understand/gate3_understand_flow_v2_score97';
 import { gate4UnderstandFlow as gate4Raw } from './gates/understand/gate4_understand_flow_v2_score97';
 import gate5Raw   from './gates/understand/gate5_understand_flow_v2_score97';
+import gate6Raw   from './gates/understand/gate6_understand_flow_v2_score97';
+import gate7Raw   from './gates/understand/gate7_understand_flow_v2_score97';
+import gate8Raw   from './gates/understand/gate8_understand_flow_v2_score97';
 import gate9Raw   from './gates/understand/gate9_understand_flow_v2_score97';
+import gate10Raw  from './gates/understand/gate10_understand_flow_v2_score97';
 import gate11Raw  from './gates/understand/gate11_understand_flow_v2_score97';
+import gate12Raw  from './gates/understand/gate12_understand_flow_v2_score97';
+import gate13Raw  from './gates/understand/gate13_understand_flow_v2_score97';
+import gate14Raw  from './gates/understand/gate14_understand_flow_v2_score97';
+import gate15Raw  from './gates/understand/gate15_understand_flow_v2_score97';
+import gate16Raw  from './gates/understand/gate16_understand_flow_v2_score97';
+import gate17Raw  from './gates/understand/gate17_understand_flow_v2_score97';
+import gate18Raw  from './gates/understand/gate18_understand_flow_v2_score97';
+import gate19Raw  from './gates/understand/gate19_understand_flow_v2_score97';
+import gate20Raw  from './gates/understand/gate20_understand_flow_v2_score97';
+import gate21Raw  from './gates/understand/gate21_understand_flow_v2_score97';
+import gate22Raw  from './gates/understand/gate22_understand_flow_v2_score97';
+import gate23Raw  from './gates/understand/gate23_understand_flow_v2_score97';
+import gate24Raw  from './gates/understand/gate24_understand_flow_v2_score97';
+import gate25Raw  from './gates/understand/gate25_understand_flow_v2_score97';
+import gate26Raw  from './gates/understand/gate26_understand_flow_v2_score97';
+import gate27Raw  from './gates/understand/gate27_understand_flow_v2_score97';
+import gate28Raw  from './gates/understand/gate28_understand_flow_v2_score97';
 import gate29Raw  from './gates/understand/gate29_understand_flow_v2_score97';
 import gate34Raw  from './gates/understand/gate34_understand_flow_v2_score97';
 import gate39Raw  from './gates/understand/gate39_understand_flow_v2_score97';
@@ -40,8 +58,29 @@ const ALL_ENTRIES: MainQuestUnderstandFlow[] = [
   ...extractEntries(gate3Raw),
   ...extractEntries(gate4Raw),
   ...extractEntries(gate5Raw),
+  ...extractEntries(gate6Raw),
+  ...extractEntries(gate7Raw),
+  ...extractEntries(gate8Raw),
   ...extractEntries(gate9Raw),
+  ...extractEntries(gate10Raw),
   ...extractEntries(gate11Raw),
+  ...extractEntries(gate12Raw),
+  ...extractEntries(gate13Raw),
+  ...extractEntries(gate14Raw),
+  ...extractEntries(gate15Raw),
+  ...extractEntries(gate16Raw),
+  ...extractEntries(gate17Raw),
+  ...extractEntries(gate18Raw),
+  ...extractEntries(gate19Raw),
+  ...extractEntries(gate20Raw),
+  ...extractEntries(gate21Raw),
+  ...extractEntries(gate22Raw),
+  ...extractEntries(gate23Raw),
+  ...extractEntries(gate24Raw),
+  ...extractEntries(gate25Raw),
+  ...extractEntries(gate26Raw),
+  ...extractEntries(gate27Raw),
+  ...extractEntries(gate28Raw),
   ...extractEntries(gate29Raw),
   ...extractEntries(gate34Raw),
   ...extractEntries(gate39Raw),

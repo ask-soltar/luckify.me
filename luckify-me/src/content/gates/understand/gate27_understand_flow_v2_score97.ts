@@ -1,67 +1,5 @@
-export type MainQuestUnderstandFlowEntry = {
-  gate: number;
-  line: number;
-  gateLine: string;
-  intro: {
-    questName: string;
-    openingStatement: string;
-    evidence: string[];
-    limitation: string;
-    purpose: string;
-  };
-  understandFlow: {
-    patternExpansion: {
-      title: string;
-      body: string[];
-      recognitionLines: string[];
-      exploreCtaLabel: string;
-      skipCtaLabel: string;
-    };
-    realLifeExamples: {
-      title: string;
-      examples: string[];
-      closingLines: string[];
-      buttons: { id: "i_do_this" | "sometimes" | "not_really_me"; label: string }[];
-    };
-    responseReflection: {
-      i_do_this: { title: string; body: string[]; ctaLabel: string };
-      sometimes: { title: string; body: string[]; ctaLabel: string };
-      not_really_me: { title: string; body: string[]; ctaLabel: string };
-    };
-    recognitionProgressionTree: {
-      title: string;
-      introLine: string;
-      levels: {
-        level: number;
-        universalName: "The Gift" | "The Afterglow" | "The Catch" | "The Shift" | "The Embodiment";
-        questName: string;
-        body: string[];
-      }[];
-      finalCompletion: {
-        badge: string;
-        title: string;
-        body: string[];
-        cta: { label: string; enabled: boolean; nextScreen: "practice" };
-        secondaryAction: { label: string; targetScreen: string };
-      };
-    };
-  };
-};
-
-export type MainQuestUnderstandFlowGate = {
-  gate: number;
-  quality: {
-    score: number;
-    schemaValidation: "PASS" | "FAIL";
-    status: string;
-    target: string;
-    standard: string;
-  };
-  entries: MainQuestUnderstandFlowEntry[];
-};
-
-export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
-  "gate": 59,
+export const gate27UnderstandFlow = {
+  "gate": 27,
   "quality": {
     "score": 97,
     "schemaValidation": "PASS",
@@ -71,32 +9,32 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
   },
   "entries": [
     {
-      "gate": 59,
+      "gate": 27,
       "line": 1,
-      "gateLine": "59.1",
+      "gateLine": "27.1",
       "intro": {
-        "questName": "Bold Intimacy",
-        "openingStatement": "You’re naturally good at opening the door to real connection.",
+        "questName": "Self-Nourishment",
+        "openingStatement": "You’re naturally good at knowing what support requires.",
         "evidence": [
-          "You can feel when closeness wants to begin.",
-          "You often notice the moment before someone else does.",
-          "You have the courage to make connection possible."
+          "You notice when people need care.",
+          "You can take responsibility when something needs to be held.",
+          "You understand that real support needs energy behind it."
         ],
-        "limitation": "But you tend to wait for certainty before taking the first honest step.",
-        "purpose": "Your purpose is to initiate real contact before fear turns it into distance."
+        "limitation": "But you tend to care for others before you have checked what you actually have available.",
+        "purpose": "Your purpose is to support from fullness, not depletion."
       },
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
           "body": [
-            "You can sense when a connection is ready to open.",
-            "You notice the first moment where honesty could begin.",
-            "You know when the space between people is asking for a step.",
-            "Your gift starts when you choose contact before everything feels safe."
+            "You understand care as something real, not just emotional.",
+            "You know support takes time, energy, attention, and resources.",
+            "You can sense what needs to be protected or fed.",
+            "Your gift gets stronger when your own base is steady first."
           ],
           "recognitionLines": [
-            "But this is where it usually stops.",
-            "You almost say the honest thing, then wait for the moment to feel safer."
+            "But this is where it usually starts to leak.",
+            "You move to help before checking whether you are actually nourished enough to give."
           ],
           "exploreCtaLabel": "Explore the Pattern in Detail",
           "skipCtaLabel": "Skip to Growth Path"
@@ -104,10 +42,10 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
         "realLifeExamples": {
           "title": "Where this shows up",
           "examples": [
-            "You want to reach out, but you wait until the reason feels perfect.",
-            "A conversation gets close, then you hold back the real question.",
-            "You feel the opening, but you let the other person go first.",
-            "You know the first step is yours, but you delay it until the moment passes."
+            "Someone needs help, and you say yes before looking at your own capacity.",
+            "You skip rest because another person’s need feels more urgent.",
+            "You give advice, time, money, or energy, then feel resentful afterward.",
+            "You keep showing up for others while your own basics fall behind."
           ],
           "closingLines": [
             "Nothing goes wrong.",
@@ -133,8 +71,8 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
             "title": "You’ve seen it",
             "body": [
               "That’s the pattern.",
-              "You do not lack the ability to connect.",
-              "You stop at the threshold when closeness starts asking for courage.",
+              "You do not lack care.",
+              "You move to help before checking whether you are actually nourished enough to give.",
               "This is where your quest lives.",
               "You’ll start noticing this faster now."
             ],
@@ -143,9 +81,9 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
           "sometimes": {
             "title": "This shows up quietly",
             "body": [
-              "It can feel normal in the moment.",
-              "It may look like keeping things easy, safe, useful, or smooth.",
-              "Connection is ready, but you wait for certainty first.",
+              "It can look responsible.",
+              "It can feel like keeping things handled.",
+              "But those are the moments where support starts becoming depletion.",
               "You’ll start noticing this faster now."
             ],
             "ctaLabel": "Show my growth path"
@@ -153,10 +91,10 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
           "not_really_me": {
             "title": "It may look different for you",
             "body": [
-              "This pattern may not show up in the obvious way.",
-              "It may appear in small moments where connection begins and then changes shape.",
+              "This pattern may not look obvious at first.",
+              "It may show up in what you take on, give, manage, or withhold.",
               "The core is the same:",
-              "Connection is ready, but you wait for certainty first.",
+              "You move to help before checking whether you are actually nourished enough to give.",
               "You’ll start noticing this faster now."
             ],
             "ctaLabel": "Show my growth path"
@@ -169,11 +107,11 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
             {
               "level": 1,
               "universalName": "The Gift",
-              "questName": "First Contact",
+              "questName": "Natural Care",
               "body": [
-                "You can feel the beginning of connection.",
-                "You notice when a wall starts to soften.",
-                "You understand that closeness needs someone to begin.",
+                "You see what needs care.",
+                "You want people to be supported.",
+                "You can take responsibility when something matters.",
                 "This is where you already have the gift."
               ]
             },
@@ -182,221 +120,43 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
               "universalName": "The Afterglow",
               "questName": "Catching It After",
               "body": [
-                "You notice it after the moment is gone.",
-                "You think: “I could have reached out there.”",
-                "You think: “That was the opening.”",
-                "The moment passes, but you start seeing the threshold."
-              ]
-            },
-            {
-              "level": 3,
-              "universalName": "The Catch",
-              "questName": "Catching The Threshold",
-              "body": [
-                "You notice it while it is happening.",
-                "You feel the chance to speak, reach out, or make contact.",
-                "This is the turning point."
-              ]
-            },
-            {
-              "level": 4,
-              "universalName": "The Shift",
-              "questName": "Taking The First Step",
-              "body": [
-                "You stop waiting for perfect safety.",
-                "You say the honest thing sooner.",
-                "You let closeness begin before you can control the outcome.",
-                "You make the first clean move.",
-                "The connection has somewhere to go."
-              ]
-            },
-            {
-              "level": 5,
-              "universalName": "The Embodiment",
-              "questName": "Bold Intimacy",
-              "body": [
-                "You do not hide behind hesitation anymore.",
-                "You initiate real connection with courage.",
-                "People feel the sincerity of your first step.",
-                "Closeness begins because you are willing to enter."
-              ]
-            }
-          ],
-          "finalCompletion": {
-            "badge": "Path Revealed",
-            "title": "You’ve seen the full progression.",
-            "body": [
-              "You’ve seen how this quest develops.",
-              "The next step is using it in real life.",
-              "When connection is ready to begin, take the first honest step."
-            ],
-            "cta": {
-              "label": "Start Live Quest",
-              "enabled": false,
-              "nextScreen": "practice"
-            },
-            "secondaryAction": {
-              "label": "Return to Quest Brief",
-              "targetScreen": "intro"
-            }
-          }
-        }
-      }
-    },
-    {
-      "gate": 59,
-      "line": 2,
-      "gateLine": "59.2",
-      "intro": {
-        "questName": "Transformative Connection",
-        "openingStatement": "You’re naturally good at creating connection.",
-        "evidence": [
-          "Things open quickly around you.",
-          "People respond to you.",
-          "Opportunities show up."
-        ],
-        "limitation": "But you tend to keep things comfortable instead of letting them become real.",
-        "purpose": "Your purpose is to let those moments actually go somewhere."
-      },
-      "shareCard": {
-        "giftLine": "You create connection naturally.",
-        "patternLine": "When it starts to matter, you keep it comfortable.",
-        "questLine": "Let the moment become real."
-      },
-      "understandFlow": {
-        "patternExpansion": {
-          "title": "What this means",
-          "body": [
-            "You create connection easily.",
-            "People open up.",
-            "Conversations warm up.",
-            "Opportunities start naturally."
-          ],
-          "recognitionLines": [
-            "But this is where it usually stops.",
-            "You keep things comfortable instead of letting them become real."
-          ],
-          "exploreCtaLabel": "Explore the Pattern in Detail",
-          "skipCtaLabel": "Skip to Growth Path"
-        },
-        "realLifeExamples": {
-          "title": "Where this shows up",
-          "examples": [
-            "A conversation gets personal, then you change the tone.",
-            "Someone opens up, but you don’t respond honestly.",
-            "An opportunity appears, but you don’t take the next step.",
-            "Something meaningful starts, but you leave it there."
-          ],
-          "closingLines": [
-            "Nothing goes wrong.",
-            "It just doesn’t go anywhere."
-          ],
-          "buttons": [
-            {
-              "id": "i_do_this",
-              "label": "I do this"
-            },
-            {
-              "id": "sometimes",
-              "label": "Sometimes"
-            },
-            {
-              "id": "not_really_me",
-              "label": "Not really me"
-            }
-          ]
-        },
-        "responseReflection": {
-          "i_do_this": {
-            "title": "You’ve seen it",
-            "body": [
-              "That’s the pattern.",
-              "You don’t struggle to create connection.",
-              "You just stop it before it becomes real.",
-              "This is where your quest lives.",
-              "You’ll start noticing this faster now."
-            ],
-            "ctaLabel": "Show my growth path"
-          },
-          "sometimes": {
-            "title": "This shows up more than you think",
-            "body": [
-              "It’s subtle.",
-              "It often feels like keeping things smooth or keeping things easy.",
-              "But those are the moments that could have gone further.",
-              "You’ll start noticing this faster now."
-            ],
-            "ctaLabel": "Show my growth path"
-          },
-          "not_really_me": {
-            "title": "It may look different for you",
-            "body": [
-              "This pattern isn’t always obvious.",
-              "But the core is the same:",
-              "Something opens, and it doesn’t get taken further.",
-              "Watch for that.",
-              "You’ll start noticing this faster now."
-            ],
-            "ctaLabel": "Show my growth path"
-          }
-        },
-        "recognitionProgressionTree": {
-          "title": "Your Growth Path",
-          "introLine": "You’ll start noticing this faster now.",
-          "levels": [
-            {
-              "level": 1,
-              "universalName": "The Gift",
-              "questName": "Natural Connection",
-              "body": [
-                "Connection happens easily.",
-                "People open up.",
-                "Things begin without effort.",
-                "This is where you already have the gift."
-              ]
-            },
-            {
-              "level": 2,
-              "universalName": "The Afterglow",
-              "questName": "Catching It After",
-              "body": [
-                "You notice it after it’s over.",
-                "You think: “I could have said something there.”",
-                "You think: “That could have gone somewhere.”",
+                "You notice it after you feel drained.",
+                "You think: “I gave more than I had.”",
+                "You think: “I should have checked myself first.”",
                 "The moment is gone, but you start seeing the pattern."
               ]
             },
             {
               "level": 3,
               "universalName": "The Catch",
-              "questName": "Catching It In The Moment",
+              "questName": "Catching The Reach",
               "body": [
-                "You notice it while it’s happening.",
-                "You feel the moment opening, and you hesitate.",
+                "You notice it while it is happening.",
+                "You feel yourself about to help before checking your own base.",
                 "This is the turning point."
               ]
             },
             {
               "level": 4,
               "universalName": "The Shift",
-              "questName": "Taking The Step",
+              "questName": "Care From Capacity",
               "body": [
-                "You start acting in the moment.",
-                "You say it.",
-                "You follow up.",
-                "You stay instead of leaving.",
-                "Things begin to move."
+                "You pause before giving.",
+                "You check what you actually have available.",
+                "You support without abandoning yourself.",
+                "You let care have a boundary.",
+                "Your help becomes cleaner."
               ]
             },
             {
               "level": 5,
               "universalName": "The Embodiment",
-              "questName": "Transformative Presence",
+              "questName": "Self-Nourished Support",
               "body": [
-                "You don’t stop it anymore.",
-                "Connection becomes real.",
-                "Things move forward.",
-                "Moments change outcomes."
+                "You do not give from depletion anymore.",
+                "Your own needs stay included.",
+                "Support comes from steadiness.",
+                "People receive more because you are not disappearing into the care."
               ]
             }
           ],
@@ -406,7 +166,7 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
             "body": [
               "You’ve seen how this quest develops.",
               "The next step is using it in real life.",
-              "When something opens, don’t stop it early."
+              "Before you support someone, check what you actually have available."
             ],
             "cta": {
               "label": "Start Live Quest",
@@ -422,32 +182,205 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
       }
     },
     {
-      "gate": 59,
+      "gate": 27,
+      "line": 2,
+      "gateLine": "27.2",
+      "intro": {
+        "questName": "Responsible Care",
+        "openingStatement": "You’re naturally good at caring without making a big performance out of it.",
+        "evidence": [
+          "You can sense what people need.",
+          "You often provide support before anyone asks clearly.",
+          "You know how to make care feel steady and normal."
+        ],
+        "limitation": "But you tend to downplay how much responsibility you are carrying until the balance starts to slip.",
+        "purpose": "Your purpose is to care consciously, without creating dependency or losing yourself."
+      },
+      "understandFlow": {
+        "patternExpansion": {
+          "title": "What this means",
+          "body": [
+            "Care comes naturally to you.",
+            "You can notice needs without needing attention for it.",
+            "You often make support feel simple, practical, and quiet.",
+            "Your gift matures when you own the responsibility instead of hiding inside ease."
+          ],
+          "recognitionLines": [
+            "But this is where it usually becomes unclear.",
+            "You act like it is no big deal, while quietly becoming the one everyone relies on."
+          ],
+          "exploreCtaLabel": "Explore the Pattern in Detail",
+          "skipCtaLabel": "Skip to Growth Path"
+        },
+        "realLifeExamples": {
+          "title": "Where this shows up",
+          "examples": [
+            "You keep helping because it feels easy at first, then realize people expect it from you.",
+            "You handle the small things until they quietly become your job.",
+            "You support someone so well that they stop learning how to support themselves.",
+            "You say it is fine, but your body already knows the balance is off."
+          ],
+          "closingLines": [
+            "Nothing goes wrong.",
+            "It just doesn’t go anywhere."
+          ],
+          "buttons": [
+            {
+              "id": "i_do_this",
+              "label": "I do this"
+            },
+            {
+              "id": "sometimes",
+              "label": "Sometimes"
+            },
+            {
+              "id": "not_really_me",
+              "label": "Not really me"
+            }
+          ]
+        },
+        "responseReflection": {
+          "i_do_this": {
+            "title": "You’ve seen it",
+            "body": [
+              "That’s the pattern.",
+              "You do not lack responsible care.",
+              "You act like it is no big deal, while quietly becoming the one everyone relies on.",
+              "This is where your quest lives.",
+              "You’ll start noticing this faster now."
+            ],
+            "ctaLabel": "Show my growth path"
+          },
+          "sometimes": {
+            "title": "This shows up quietly",
+            "body": [
+              "It can look responsible.",
+              "It can feel like keeping things handled.",
+              "But those are the moments where natural care becomes hidden obligation.",
+              "You’ll start noticing this faster now."
+            ],
+            "ctaLabel": "Show my growth path"
+          },
+          "not_really_me": {
+            "title": "It may look different for you",
+            "body": [
+              "This pattern may not look obvious at first.",
+              "It may show up in what you take on, give, manage, or withhold.",
+              "The core is the same:",
+              "You act like it is no big deal, while quietly becoming the one everyone relies on.",
+              "You’ll start noticing this faster now."
+            ],
+            "ctaLabel": "Show my growth path"
+          }
+        },
+        "recognitionProgressionTree": {
+          "title": "Your Growth Path",
+          "introLine": "You’ll start noticing this faster now.",
+          "levels": [
+            {
+              "level": 1,
+              "universalName": "The Gift",
+              "questName": "Natural Support",
+              "body": [
+                "Care comes easily.",
+                "You notice needs quickly.",
+                "You can help without making it heavy.",
+                "This is where you already have the gift."
+              ]
+            },
+            {
+              "level": 2,
+              "universalName": "The Afterglow",
+              "questName": "Catching It After",
+              "body": [
+                "You notice it after the support has become expected.",
+                "You think: “I did not mean to become responsible for all of that.”",
+                "You think: “They started leaning on me more than I realized.”",
+                "The moment is gone, but you start seeing the pattern."
+              ]
+            },
+            {
+              "level": 3,
+              "universalName": "The Catch",
+              "questName": "Catching The Dependency",
+              "body": [
+                "You notice it while it is forming.",
+                "You feel the moment where help could become an unspoken job.",
+                "This is the turning point."
+              ]
+            },
+            {
+              "level": 4,
+              "universalName": "The Shift",
+              "questName": "Balanced Support",
+              "body": [
+                "You name what you can give.",
+                "You leave room for others to carry their part.",
+                "You support without taking over.",
+                "You stop hiding responsibility inside casual help.",
+                "The balance becomes clearer."
+              ]
+            },
+            {
+              "level": 5,
+              "universalName": "The Embodiment",
+              "questName": "Conscious Care",
+              "body": [
+                "You care without disappearing.",
+                "You help without creating reliance.",
+                "You include your own needs in the system.",
+                "Support becomes steady because responsibility is shared."
+              ]
+            }
+          ],
+          "finalCompletion": {
+            "badge": "Path Revealed",
+            "title": "You’ve seen the full progression.",
+            "body": [
+              "You’ve seen how this quest develops.",
+              "The next step is using it in real life.",
+              "Let support stay balanced instead of becoming an unspoken job."
+            ],
+            "cta": {
+              "label": "Start Live Quest",
+              "enabled": false,
+              "nextScreen": "practice"
+            },
+            "secondaryAction": {
+              "label": "Return to Quest Brief",
+              "targetScreen": "intro"
+            }
+          }
+        }
+      }
+    },
+    {
+      "gate": 27,
       "line": 3,
-      "gateLine": "59.3",
+      "gateLine": "27.3",
       "intro": {
-        "questName": "Playful Bonding",
-        "openingStatement": "You’re naturally good at making connection feel easy.",
+        "questName": "True Nourishment",
+        "openingStatement": "You’re naturally good at finding what actually restores people.",
         "evidence": [
-          "You can warm up a room without forcing it.",
-          "People loosen up around your energy.",
-          "You know how to make contact feel less heavy."
+          "You learn through trying things in real life.",
+          "You notice when something looks helpful but leaves people drained.",
+          "You can turn difficult experiences into better support."
         ],
-        "limitation": "But you tend to let playfulness replace depth instead of leading into it.",
-        "purpose": "Your purpose is to use warmth and ease to help real connection develop."
+        "limitation": "But you tend to test the wrong sources of nourishment before recognizing what truly helps.",
+        "purpose": "Your purpose is to learn what genuinely supports growth and stop feeding what drains it."
       },
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
           "body": [
-            "You bring movement into connection.",
-            "You help people relax.",
-            "You make the first layer of closeness feel safe.",
-            "Your gift opens the door through lightness."
+            "You discover care through experience.",
+            "You learn what helps by seeing what does not.",
+            "You can turn mistakes, needs, and discomfort into better choices.",
+            "Your gift grows when you read the feedback instead of repeating the same source."
           ],
           "recognitionLines": [
-            "But this is where it can scatter.",
-            "You get the spark going, then keep it playful so it never has to settle."
+            "But this is where the lesson gets messy.",
+            "You keep reaching for what gives quick relief, then wonder why you still feel empty."
           ],
           "exploreCtaLabel": "Explore the Pattern in Detail",
           "skipCtaLabel": "Skip to Growth Path"
@@ -455,10 +388,10 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
         "realLifeExamples": {
           "title": "Where this shows up",
           "examples": [
-            "You joke when the conversation starts getting real.",
-            "You create a fun moment, but avoid the follow-up.",
-            "You keep many connections active, but few become deeper.",
-            "You feel the bond forming, then turn it into entertainment."
+            "You use food, scrolling, spending, attention, or distraction to feel better, but it does not last.",
+            "You keep returning to a person or habit that soothes you briefly and drains you later.",
+            "You try to help someone in a way that creates more chaos than support.",
+            "You realize after the fact that what looked nourishing was actually another leak."
           ],
           "closingLines": [
             "Nothing goes wrong.",
@@ -484,8 +417,8 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
             "title": "You’ve seen it",
             "body": [
               "That’s the pattern.",
-              "You do not lack warmth or social ease.",
-              "You can leave the connection at the spark instead of letting it deepen.",
+              "You do not lack resourcefulness.",
+              "You keep reaching for what gives quick relief, then wonder why you still feel empty.",
               "This is where your quest lives.",
               "You’ll start noticing this faster now."
             ],
@@ -494,9 +427,9 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
           "sometimes": {
             "title": "This shows up quietly",
             "body": [
-              "It can feel normal in the moment.",
-              "It may look like keeping things easy, safe, useful, or smooth.",
-              "Connection opens through play, but you keep it from landing.",
+              "It can look responsible.",
+              "It can feel like keeping things handled.",
+              "But those are the moments where feedback is showing you what is not truly nourishing.",
               "You’ll start noticing this faster now."
             ],
             "ctaLabel": "Show my growth path"
@@ -504,10 +437,10 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
           "not_really_me": {
             "title": "It may look different for you",
             "body": [
-              "This pattern may not show up in the obvious way.",
-              "It may appear in small moments where connection begins and then changes shape.",
+              "This pattern may not look obvious at first.",
+              "It may show up in what you take on, give, manage, or withhold.",
               "The core is the same:",
-              "Connection opens through play, but you keep it from landing.",
+              "You keep reaching for what gives quick relief, then wonder why you still feel empty.",
               "You’ll start noticing this faster now."
             ],
             "ctaLabel": "Show my growth path"
@@ -520,11 +453,11 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
             {
               "level": 1,
               "universalName": "The Gift",
-              "questName": "Warm Contact",
+              "questName": "Resourceful Care",
               "body": [
-                "You bring ease into connection.",
-                "People relax around you.",
-                "The mood becomes lighter.",
+                "You search for what helps.",
+                "You are willing to try different forms of support.",
+                "You can learn from what goes wrong.",
                 "This is where you already have the gift."
               ]
             },
@@ -533,43 +466,43 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
               "universalName": "The Afterglow",
               "questName": "Catching It After",
               "body": [
-                "You notice it after the interaction ends.",
-                "You think: “That was fun, but it stayed on the surface.”",
-                "You think: “I could have stayed with that a little longer.”",
-                "The moment passes, but you start seeing the pattern."
+                "You notice it after the relief fades.",
+                "You think: “That did not actually help.”",
+                "You think: “I have been feeding the wrong thing.”",
+                "The moment is gone, but you start seeing the pattern."
               ]
             },
             {
               "level": 3,
               "universalName": "The Catch",
-              "questName": "Catching The Spark",
+              "questName": "Catching The False Fix",
               "body": [
-                "You notice it while the spark is happening.",
-                "You feel the choice between keeping it light and letting it deepen.",
+                "You notice it while you are reaching for the old source.",
+                "You feel the pull toward quick relief before real nourishment.",
                 "This is the turning point."
               ]
             },
             {
               "level": 4,
               "universalName": "The Shift",
-              "questName": "Letting Warmth Land",
+              "questName": "Choosing True Support",
               "body": [
-                "You keep the ease, but stop using it to escape.",
-                "You let the conversation stay real for a little longer.",
-                "You follow the spark into honest contact.",
-                "You stop spreading your energy too thin.",
-                "The bond starts to strengthen."
+                "You stop repeating what drains you.",
+                "You ask what actually helps after the moment passes.",
+                "You choose support that restores instead of distracts.",
+                "You let feedback change the pattern.",
+                "Your care becomes more honest."
               ]
             },
             {
               "level": 5,
               "universalName": "The Embodiment",
-              "questName": "Playful Bonding",
+              "questName": "True Nourishment",
               "body": [
-                "Your warmth opens real connection.",
-                "Play becomes a doorway, not a hiding place.",
-                "People feel safe and seen around you.",
-                "Joy and depth can exist together."
+                "You recognize what genuinely feeds growth.",
+                "You stop confusing relief with support.",
+                "You use experience as correction.",
+                "Your choices become nourishing because they are tested by real life."
               ]
             }
           ],
@@ -579,7 +512,7 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
             "body": [
               "You’ve seen how this quest develops.",
               "The next step is using it in real life.",
-              "When play opens the door, stay long enough for connection to deepen."
+              "When something gives relief, check whether it actually restores you afterward."
             ],
             "cta": {
               "label": "Start Live Quest",
@@ -595,32 +528,32 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
       }
     },
     {
-      "gate": 59,
+      "gate": 27,
       "line": 4,
-      "gateLine": "59.4",
+      "gateLine": "27.4",
       "intro": {
-        "questName": "Trusted Openness",
-        "openingStatement": "You’re naturally good at creating trust between people.",
+        "questName": "Generous Giving",
+        "openingStatement": "You’re naturally good at sharing what you have with the people around you.",
         "evidence": [
-          "You help others feel welcomed.",
-          "You notice what makes connection feel safe.",
-          "You can turn friendliness into belonging."
+          "You notice who needs support in your circle.",
+          "You can give warmth, time, resources, or attention generously.",
+          "You understand that care often moves through trust and relationship."
         ],
-        "limitation": "But you tend to open the door without keeping the connection clear.",
-        "purpose": "Your purpose is to build intimacy where openness and boundaries grow together."
+        "limitation": "But you tend to keep giving to preserve connection, even when the giving is no longer clean.",
+        "purpose": "Your purpose is to let generosity move through trust without overextending yourself."
       },
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
           "body": [
-            "You create connection through trust.",
-            "People feel included around you.",
-            "You make closeness feel less threatening.",
-            "Your gift helps belonging become possible."
+            "Your care often travels through relationship.",
+            "You give more easily when trust is present.",
+            "People may feel supported by your steadiness and availability.",
+            "Your gift gets stronger when generosity stays connected to truth."
           ],
           "recognitionLines": [
-            "But this is where it can blur.",
-            "You make it feel safe for everyone, then forget to keep the connection clean for yourself."
+            "But this is where relationship can blur the signal.",
+            "You keep giving because the connection matters, even after your body has already said enough."
           ],
           "exploreCtaLabel": "Explore the Pattern in Detail",
           "skipCtaLabel": "Skip to Growth Path"
@@ -628,10 +561,10 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
         "realLifeExamples": {
           "title": "Where this shows up",
           "examples": [
-            "You say yes to closeness before you know what you actually want.",
-            "You keep a friendship warm, but avoid the honest boundary.",
-            "A group feels comfortable, but the real issue stays unspoken.",
-            "You let people in, then feel responsible for the emotional mess."
+            "A friend asks for support, and you give more than you meant to because you care about the bond.",
+            "You keep saying yes to familiar people even when the pattern is old.",
+            "You offer time or emotional energy to keep the relationship smooth.",
+            "You feel close to someone, so you ignore the cost of continuing to give."
           ],
           "closingLines": [
             "Nothing goes wrong.",
@@ -657,8 +590,8 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
             "title": "You’ve seen it",
             "body": [
               "That’s the pattern.",
-              "You do not lack openness or care.",
-              "You can confuse being available with being clearly connected.",
+              "You do not lack generosity.",
+              "You keep giving because the connection matters, even after your body has already said enough.",
               "This is where your quest lives.",
               "You’ll start noticing this faster now."
             ],
@@ -667,9 +600,9 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
           "sometimes": {
             "title": "This shows up quietly",
             "body": [
-              "It can feel normal in the moment.",
-              "It may look like keeping things easy, safe, useful, or smooth.",
-              "Connection feels safe, but the boundary is unclear.",
+              "It can look responsible.",
+              "It can feel like keeping things handled.",
+              "But those are the moments where generosity needs honesty to stay clean.",
               "You’ll start noticing this faster now."
             ],
             "ctaLabel": "Show my growth path"
@@ -677,10 +610,10 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
           "not_really_me": {
             "title": "It may look different for you",
             "body": [
-              "This pattern may not show up in the obvious way.",
-              "It may appear in small moments where connection begins and then changes shape.",
+              "This pattern may not look obvious at first.",
+              "It may show up in what you take on, give, manage, or withhold.",
               "The core is the same:",
-              "Connection feels safe, but the boundary is unclear.",
+              "You keep giving because the connection matters, even after your body has already said enough.",
               "You’ll start noticing this faster now."
             ],
             "ctaLabel": "Show my growth path"
@@ -693,11 +626,11 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
             {
               "level": 1,
               "universalName": "The Gift",
-              "questName": "Trust Builder",
+              "questName": "Relational Care",
               "body": [
-                "You know how to create warmth.",
-                "People feel more open around you.",
-                "You make belonging easier.",
+                "You give naturally inside relationships.",
+                "People feel supported by your presence.",
+                "You notice what your circle needs.",
                 "This is where you already have the gift."
               ]
             },
@@ -706,43 +639,43 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
               "universalName": "The Afterglow",
               "questName": "Catching It After",
               "body": [
-                "You notice it after the connection becomes confusing.",
-                "You think: “I let that get too blurry.”",
-                "You think: “I should have been clearer earlier.”",
-                "The moment passes, but you start seeing the pattern."
+                "You notice it after you feel stretched.",
+                "You think: “I gave because I did not want the connection to change.”",
+                "You think: “I should have been more honest about my limit.”",
+                "The moment is gone, but you start seeing the pattern."
               ]
             },
             {
               "level": 3,
               "universalName": "The Catch",
-              "questName": "Catching The Blur",
+              "questName": "Catching The Overgive",
               "body": [
-                "You notice it while closeness is forming.",
-                "You feel the moment where trust needs a boundary.",
+                "You notice it while someone familiar is asking for more.",
+                "You feel the pull to protect the bond by giving past your limit.",
                 "This is the turning point."
               ]
             },
             {
               "level": 4,
               "universalName": "The Shift",
-              "questName": "Keeping Connection Clean",
+              "questName": "Honest Generosity",
               "body": [
-                "You stay open without overextending.",
-                "You speak the boundary sooner.",
-                "You let trust include honesty.",
-                "You stop protecting comfort at the cost of clarity.",
-                "The connection becomes healthier."
+                "You give what is true.",
+                "You stop using generosity to avoid discomfort.",
+                "You let the relationship handle your boundary.",
+                "You support without becoming the supply.",
+                "Connection becomes more honest."
               ]
             },
             {
               "level": 5,
               "universalName": "The Embodiment",
-              "questName": "Trusted Openness",
+              "questName": "Abundant Boundaries",
               "body": [
-                "You create intimacy people can trust.",
-                "Your openness has structure.",
-                "Belonging feels safe without becoming tangled.",
-                "Connection deepens because it stays clean."
+                "You give from real abundance.",
+                "You protect the relationship by staying truthful.",
+                "Your generosity has shape.",
+                "People can trust your care because it is not secretly costing you yourself."
               ]
             }
           ],
@@ -752,7 +685,7 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
             "body": [
               "You’ve seen how this quest develops.",
               "The next step is using it in real life.",
-              "When closeness grows, let honesty keep it clean."
+              "Let generosity stay honest, especially with people you care about."
             ],
             "cta": {
               "label": "Start Live Quest",
@@ -768,32 +701,32 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
       }
     },
     {
-      "gate": 59,
+      "gate": 27,
       "line": 5,
-      "gateLine": "59.5",
+      "gateLine": "27.5",
       "intro": {
-        "questName": "Unifying Influence",
-        "openingStatement": "You’re naturally good at bringing people together.",
+        "questName": "Responsible Distribution",
+        "openingStatement": "You’re naturally good at seeing where care and resources need to go.",
         "evidence": [
-          "People often respond to your warmth or presence.",
-          "You can dissolve tension in a room.",
-          "You know how to turn separation into shared direction."
+          "People may look to you when things need to be handled.",
+          "You can organize support under pressure.",
+          "You understand that care has to be distributed, not just felt."
         ],
-        "limitation": "But you tend to become the connector people expect instead of checking what is actually sincere.",
-        "purpose": "Your purpose is to use influence to create genuine unity, not just agreement."
+        "limitation": "But you tend to become the person everyone expects to manage the needs, even when the demand is too much.",
+        "purpose": "Your purpose is to distribute support responsibly without becoming the whole system."
       },
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
           "body": [
-            "Your connection has impact.",
-            "People may look to you to create harmony.",
-            "You can help a room move from distance into trust.",
-            "Your gift becomes useful when it serves something real."
+            "You can see what needs to be handled.",
+            "You can make care practical.",
+            "You often become useful when people are overwhelmed.",
+            "Your gift matures when usefulness has a boundary."
           ],
           "recognitionLines": [
-            "But this is where projection enters.",
-            "You become the person who can bring everyone together before asking whether the bond is honest."
+            "But this is where projection gets heavy.",
+            "You become the one who handles it before checking whether it is actually yours to carry."
           ],
           "exploreCtaLabel": "Explore the Pattern in Detail",
           "skipCtaLabel": "Skip to Growth Path"
@@ -801,10 +734,10 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
         "realLifeExamples": {
           "title": "Where this shows up",
           "examples": [
-            "A group expects you to smooth things over, so you do.",
-            "Someone is drawn to your warmth, and you keep the charm going.",
-            "You create unity quickly, but avoid naming what is not sincere.",
-            "You feel responsible for keeping people connected even when the connection is weak."
+            "Everyone looks to you to decide who gets help, time, money, or attention.",
+            "You take charge because no one else seems organized enough.",
+            "You keep managing the needs until people assume you will always do it.",
+            "You feel responsible for making sure everyone is okay, even when the system is too big."
           ],
           "closingLines": [
             "Nothing goes wrong.",
@@ -830,8 +763,8 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
             "title": "You’ve seen it",
             "body": [
               "That’s the pattern.",
-              "You do not lack influence or magnetism.",
-              "You can start serving the projection instead of the truth of the connection.",
+              "You do not lack practical support.",
+              "You become the one who handles it before checking whether it is actually yours to carry.",
               "This is where your quest lives.",
               "You’ll start noticing this faster now."
             ],
@@ -840,9 +773,9 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
           "sometimes": {
             "title": "This shows up quietly",
             "body": [
-              "It can feel normal in the moment.",
-              "It may look like keeping things easy, safe, useful, or smooth.",
-              "People gather around you, but sincerity has to lead.",
+              "It can look responsible.",
+              "It can feel like keeping things handled.",
+              "But those are the moments where usefulness needs limits.",
               "You’ll start noticing this faster now."
             ],
             "ctaLabel": "Show my growth path"
@@ -850,10 +783,10 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
           "not_really_me": {
             "title": "It may look different for you",
             "body": [
-              "This pattern may not show up in the obvious way.",
-              "It may appear in small moments where connection begins and then changes shape.",
+              "This pattern may not look obvious at first.",
+              "It may show up in what you take on, give, manage, or withhold.",
               "The core is the same:",
-              "People gather around you, but sincerity has to lead.",
+              "You become the one who handles it before checking whether it is actually yours to carry.",
               "You’ll start noticing this faster now."
             ],
             "ctaLabel": "Show my growth path"
@@ -866,11 +799,11 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
             {
               "level": 1,
               "universalName": "The Gift",
-              "questName": "Magnetic Connection",
+              "questName": "Practical Care",
               "body": [
-                "People respond to your presence.",
-                "You can create warmth quickly.",
-                "You help barriers soften.",
+                "You can see what support is needed.",
+                "You know how to make care useful.",
+                "You can organize resources when pressure rises.",
                 "This is where you already have the gift."
               ]
             },
@@ -879,43 +812,43 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
               "universalName": "The Afterglow",
               "questName": "Catching It After",
               "body": [
-                "You notice it after you have carried the room.",
-                "You think: “I made that work, but was it real?”",
-                "You think: “I became what they needed.”",
-                "The moment passes, but you start seeing the pattern."
+                "You notice it after the demand grows.",
+                "You think: “I became responsible for too much.”",
+                "You think: “They expected me to keep handling it.”",
+                "The moment is gone, but you start seeing the pattern."
               ]
             },
             {
               "level": 3,
               "universalName": "The Catch",
-              "questName": "Catching The Projection",
+              "questName": "Catching The Role",
               "body": [
-                "You notice it while others are looking to you.",
-                "You feel the pressure to charm, fix, unite, or smooth things over.",
+                "You notice it while people are assigning you the responsibility.",
+                "You feel the moment where support could turn into a role you did not choose.",
                 "This is the turning point."
               ]
             },
             {
               "level": 4,
               "universalName": "The Shift",
-              "questName": "Leading With Sincerity",
+              "questName": "Bounded Distribution",
               "body": [
-                "You stop using warmth to manage the room.",
-                "You let connection be honest before it becomes unified.",
-                "You create harmony without performing it.",
-                "You set the boundary before taking the role.",
-                "The field becomes more real."
+                "You clarify what you can manage.",
+                "You distribute responsibility instead of absorbing it.",
+                "You help the system without becoming the system.",
+                "You let others carry their part.",
+                "Support becomes more sustainable."
               ]
             },
             {
               "level": 5,
               "universalName": "The Embodiment",
-              "questName": "Unifying Influence",
+              "questName": "Responsible Distribution",
               "body": [
-                "Your influence creates genuine trust.",
-                "People come together around something sincere.",
-                "You can lead connection without becoming the projection.",
-                "Unity becomes grounded instead of performed."
+                "You manage care with clear limits.",
+                "You know what belongs to you and what does not.",
+                "Resources move where they need to go.",
+                "People benefit without making you the entire answer."
               ]
             }
           ],
@@ -925,7 +858,7 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
             "body": [
               "You’ve seen how this quest develops.",
               "The next step is using it in real life.",
-              "When people look to you to unite the field, make sincerity the first condition."
+              "When people expect you to handle it, define what is actually yours."
             ],
             "cta": {
               "label": "Start Live Quest",
@@ -941,32 +874,32 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
       }
     },
     {
-      "gate": 59,
+      "gate": 27,
       "line": 6,
-      "gateLine": "59.6",
+      "gateLine": "27.6",
       "intro": {
-        "questName": "Free Intimacy",
-        "openingStatement": "You’re naturally good at letting connection be real without needing to own it.",
+        "questName": "Holistic Guardianship",
+        "openingStatement": "You’re naturally good at seeing the whole care system, not just the immediate need.",
         "evidence": [
-          "You can feel the value of a moment without forcing it to last.",
-          "You understand that some bonds need space to breathe.",
-          "You can allow connection to change without making it wrong."
+          "You can step back and notice what support will create over time.",
+          "You understand that protection needs both care and boundaries.",
+          "You can sense when help is becoming too tight or too controlling."
         ],
-        "limitation": "But you tend to use freedom as a way to leave before intimacy becomes grounded.",
-        "purpose": "Your purpose is to honor connection fully, whether it lasts for a moment or a lifetime."
+        "limitation": "But you tend to turn wisdom about care into rules that can restrict natural growth.",
+        "purpose": "Your purpose is to protect growth without controlling it."
       },
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
           "body": [
-            "You understand the changing nature of connection.",
-            "You can let intimacy breathe.",
-            "You can value a bond without trapping it.",
-            "Your gift is spacious closeness."
+            "You can see the bigger pattern of support.",
+            "You understand that care needs wisdom, not just effort.",
+            "You can tell when a person, project, or relationship needs room to grow.",
+            "Your gift matures when perspective returns to real-life care."
           ],
           "recognitionLines": [
-            "But this is where it can disappear.",
-            "You call it freedom, but part of you is already leaving before the connection can deepen."
+            "But this is where maturity can become rigid.",
+            "You call it protection, but the care has started closing around the thing you want to help grow."
           ],
           "exploreCtaLabel": "Explore the Pattern in Detail",
           "skipCtaLabel": "Skip to Growth Path"
@@ -974,10 +907,10 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
         "realLifeExamples": {
           "title": "Where this shows up",
           "examples": [
-            "A connection feels meaningful, then you avoid the next grounded step.",
-            "You keep things open-ended so nothing has to be named.",
-            "You move on quickly and tell yourself the moment served its purpose.",
-            "You want closeness, but resist the responsibility that comes with it."
+            "You make rules to protect someone, then realize they have less room to learn.",
+            "You know the better way, but your standards make support feel tight.",
+            "You step back to see the whole picture, then delay participating directly.",
+            "You try to prevent harm so strongly that growth has no space to breathe."
           ],
           "closingLines": [
             "Nothing goes wrong.",
@@ -1003,8 +936,8 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
             "title": "You’ve seen it",
             "body": [
               "That’s the pattern.",
-              "You do not lack depth or sensitivity.",
-              "You can leave too early and call it freedom.",
+              "You do not lack wise care.",
+              "You call it protection, but the care has started closing around the thing you want to help grow.",
               "This is where your quest lives.",
               "You’ll start noticing this faster now."
             ],
@@ -1013,9 +946,9 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
           "sometimes": {
             "title": "This shows up quietly",
             "body": [
-              "It can feel normal in the moment.",
-              "It may look like keeping things easy, safe, useful, or smooth.",
-              "Connection can be fluid, but it still needs presence.",
+              "It can look responsible.",
+              "It can feel like keeping things handled.",
+              "But those are the moments where wisdom needs to return to living contact.",
               "You’ll start noticing this faster now."
             ],
             "ctaLabel": "Show my growth path"
@@ -1023,10 +956,10 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
           "not_really_me": {
             "title": "It may look different for you",
             "body": [
-              "This pattern may not show up in the obvious way.",
-              "It may appear in small moments where connection begins and then changes shape.",
+              "This pattern may not look obvious at first.",
+              "It may show up in what you take on, give, manage, or withhold.",
               "The core is the same:",
-              "Connection can be fluid, but it still needs presence.",
+              "You call it protection, but the care has started closing around the thing you want to help grow.",
               "You’ll start noticing this faster now."
             ],
             "ctaLabel": "Show my growth path"
@@ -1039,11 +972,11 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
             {
               "level": 1,
               "universalName": "The Gift",
-              "questName": "Spacious Connection",
+              "questName": "Whole-System Care",
               "body": [
-                "You can connect without trying to control the bond.",
-                "You respect the natural movement of relationships.",
-                "You understand that closeness needs room.",
+                "You can see the wider care pattern.",
+                "You notice what support creates over time.",
+                "You understand the need for both nourishment and boundaries.",
                 "This is where you already have the gift."
               ]
             },
@@ -1052,43 +985,43 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
               "universalName": "The Afterglow",
               "questName": "Catching It After",
               "body": [
-                "You notice it after you have already stepped away.",
-                "You think: “I left before I knew what that was.”",
-                "You think: “That may have needed more presence.”",
-                "The moment passes, but you start seeing the pattern."
+                "You notice it after the care feels too tight.",
+                "You think: “I was trying to protect it.”",
+                "You think: “I may have left too little room for growth.”",
+                "The moment is gone, but you start seeing the pattern."
               ]
             },
             {
               "level": 3,
               "universalName": "The Catch",
-              "questName": "Catching The Exit",
+              "questName": "Catching The Tightness",
               "body": [
-                "You notice it while you are beginning to pull back.",
-                "You feel the difference between giving space and leaving early.",
+                "You notice it while protection is becoming control.",
+                "You feel the moment where care starts closing instead of supporting.",
                 "This is the turning point."
               ]
             },
             {
               "level": 4,
               "universalName": "The Shift",
-              "questName": "Staying Without Owning",
+              "questName": "Room To Grow",
               "body": [
-                "You stay present without trying to trap the connection.",
-                "You name what is real without demanding permanence.",
-                "You let freedom include responsibility.",
-                "You stop using openness to avoid depth.",
-                "The bond can breathe and still matter."
+                "You keep the boundary without tightening the whole field.",
+                "You support growth without controlling every step.",
+                "You return from observation into real contact.",
+                "You let care breathe.",
+                "Support becomes wiser and more alive."
               ]
             },
             {
               "level": 5,
               "universalName": "The Embodiment",
-              "questName": "Free Intimacy",
+              "questName": "Holistic Guardianship",
               "body": [
-                "You honor connection without possession.",
-                "You can stay present inside change.",
-                "Brief bonds and lasting bonds both become meaningful.",
-                "Freedom serves honesty instead of escape."
+                "You protect without suffocating.",
+                "You nourish without taking over.",
+                "You hold the long view while staying present.",
+                "Growth feels supported, not managed into stillness."
               ]
             }
           ],
@@ -1098,7 +1031,7 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
             "body": [
               "You’ve seen how this quest develops.",
               "The next step is using it in real life.",
-              "When connection changes shape, stay honest before you step away."
+              "Protect the growth, but leave enough room for it to move."
             ],
             "cta": {
               "label": "Start Live Quest",
@@ -1116,4 +1049,4 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
   ]
 } as const;
 
-export default gate59UnderstandFlow;
+export default gate27UnderstandFlow;
