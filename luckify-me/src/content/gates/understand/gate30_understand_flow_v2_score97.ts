@@ -23,6 +23,12 @@ export const gate30UnderstandFlow = {
         "limitation": "But you tend to control the feeling so tightly that it stops moving.",
         "purpose": "Your purpose is to use emotional discipline without shutting yourself down."
       },
+  "shareCard": {
+    "giftLine": "You stay steady when feelings around you run high.",
+    "patternLine": "You control the feeling so tightly it stops moving.",
+    "questLine": "Stay disciplined without shutting yourself down."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -196,6 +202,12 @@ export const gate30UnderstandFlow = {
         "limitation": "But you tend to add extra force when the desire starts to matter.",
         "purpose": "Your purpose is to let intensity sharpen the move instead of taking over the move."
       },
+  "shareCard": {
+    "giftLine": "You use passion without losing what you're aiming for.",
+    "patternLine": "Extra force comes in when the desire starts to matter.",
+    "questLine": "Let intensity sharpen the move, not take it over."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -369,6 +381,12 @@ export const gate30UnderstandFlow = {
         "limitation": "But you tend to fight the feeling before you understand what it is teaching you.",
         "purpose": "Your purpose is to accept the experience fully enough to turn it into strength."
       },
+  "shareCard": {
+    "giftLine": "You get stronger through the hard emotional moments.",
+    "patternLine": "You resist the feeling before it has finished teaching you.",
+    "questLine": "Accept the experience fully enough to turn it into strength."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -542,6 +560,12 @@ export const gate30UnderstandFlow = {
         "limitation": "But you tend to overextend when people or situations pull on your intensity.",
         "purpose": "Your purpose is to pace your emotional energy so your commitment can last."
       },
+  "shareCard": {
+    "giftLine": "You keep commitment alive through consistent pacing.",
+    "patternLine": "Intensity pulls you past what you meant to give.",
+    "questLine": "Pace yourself so the commitment can actually last."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -715,6 +739,12 @@ export const gate30UnderstandFlow = {
         "limitation": "But you tend to stay inside old feelings after they have already shown you the lesson.",
         "purpose": "Your purpose is to use emotional depth as a doorway forward, not a place to remain."
       },
+  "shareCard": {
+    "giftLine": "You find real insight inside strong emotion.",
+    "patternLine": "You stay inside old feelings after they have taught you.",
+    "questLine": "Move forward through what the feeling showed you."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -888,6 +918,12 @@ export const gate30UnderstandFlow = {
         "limitation": "But you tend to let emotional residue linger longer than it needs to.",
         "purpose": "Your purpose is to release what clouds your judgment so the next move becomes clean."
       },
+  "shareCard": {
+    "giftLine": "You clear emotional intensity and return to sharp focus.",
+    "patternLine": "Emotional residue lingers past the point it needs to.",
+    "questLine": "Release what clouds your judgment. The next move needs it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

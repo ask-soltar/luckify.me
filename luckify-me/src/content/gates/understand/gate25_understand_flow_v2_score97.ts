@@ -25,6 +25,12 @@ export const gate25UnderstandFlow = {
         "limitation": "But you tend to check how you are being seen instead of staying free inside the moment.",
         "purpose": "Your purpose is to act from a clean heart without turning the moment into a performance."
       },
+  "shareCard": {
+    "giftLine": "You bring something pure and unforced into the moment.",
+    "patternLine": "You check how you're being seen instead of staying free.",
+    "questLine": "Act from a clean place. Don't turn it into a performance."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate25UnderstandFlow = {
         "limitation": "But you tend to leave the present when you start wanting a result to arrive faster.",
         "purpose": "Your purpose is to trust the moment you are in before reaching for what comes next."
       },
+  "shareCard": {
+    "giftLine": "You're fully here when you stop chasing the outcome.",
+    "patternLine": "You leave the moment when results start to feel too slow.",
+    "questLine": "Trust the moment you're in before reaching for the next."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate25UnderstandFlow = {
         "limitation": "But you tend to let one setback define the whole experience before the lesson has finished showing itself.",
         "purpose": "Your purpose is to recover with grace and let the setback become useful."
       },
+  "shareCard": {
+    "giftLine": "You recover your heart after things don't go your way.",
+    "patternLine": "One setback starts to define the whole experience.",
+    "questLine": "Recover with grace. Let the setback become useful."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate25UnderstandFlow = {
         "limitation": "But you tend to become rigid or distant when you are trying to protect what is right.",
         "purpose": "Your purpose is to hold your values without closing your heart to people."
       },
+  "shareCard": {
+    "giftLine": "You stand for what feels clean and right in a group.",
+    "patternLine": "You become rigid or distant when protecting your values.",
+    "questLine": "Hold your values without closing your heart to people."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate25UnderstandFlow = {
         "limitation": "But you tend to take responsibility for fixing people instead of letting your presence support them.",
         "purpose": "Your purpose is to help without becoming the solution everyone depends on."
       },
+  "shareCard": {
+    "giftLine": "You bring calm back when things get tense or strained.",
+    "patternLine": "You take on the fixing when your presence was enough.",
+    "questLine": "Help without becoming the solution everyone depends on."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate25UnderstandFlow = {
         "limitation": "But you tend to turn devotion into perfectionism when the ideal feels threatened.",
         "purpose": "Your purpose is to live your values without using them to separate from life."
       },
+  "shareCard": {
+    "giftLine": "You stay devoted to what matters even over the long run.",
+    "patternLine": "Devotion turns into perfectionism when the ideal feels off.",
+    "questLine": "Live your values without using them to separate from life."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

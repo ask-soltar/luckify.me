@@ -25,6 +25,12 @@ export const gate28UnderstandFlow = {
         "limitation": "But you tend to scatter your energy when the challenge feels urgent.",
         "purpose": "Your purpose is to use your resourcefulness without wasting yourself in the process."
       },
+  "shareCard": {
+    "giftLine": "You find a way through when the situation gets difficult.",
+    "patternLine": "When the challenge feels urgent, you scatter yourself.",
+    "questLine": "Use the resourcefulness. Don't waste yourself in the process."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate28UnderstandFlow = {
         "limitation": "But you tend to consider quick support even when it does not feel fully right.",
         "purpose": "Your purpose is to trust the allies that strengthen you without betraying your values."
       },
+  "shareCard": {
+    "giftLine": "You sense where real support can actually come from.",
+    "patternLine": "Quick support feels tempting even when something is off.",
+    "questLine": "Trust the ally that strengthens you without costing you."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate28UnderstandFlow = {
         "limitation": "But you tend to move too fast when fear, pressure, or impatience gets loud.",
         "purpose": "Your purpose is to read the risk before you throw yourself into it."
       },
+  "shareCard": {
+    "giftLine": "You learn which risks are actually worth taking.",
+    "patternLine": "Pressure and impatience make you move before you're ready.",
+    "questLine": "Read the risk before you throw yourself into it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate28UnderstandFlow = {
         "limitation": "But you tend to push through for the group even when the strategy is no longer working.",
         "purpose": "Your purpose is to use strength with the people around you, not against your own clarity."
       },
+  "shareCard": {
+    "giftLine": "You stay strong when people around you need steadiness.",
+    "patternLine": "You keep pushing through even when the approach is spent.",
+    "questLine": "Use your strength with people, not against what you know."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate28UnderstandFlow = {
         "limitation": "But you tend to carry the pressure to make trust work, even when the alliance is not clean.",
         "purpose": "Your purpose is to build trust that benefits everyone without becoming trapped in the role of managing it."
       },
+  "shareCard": {
+    "giftLine": "You know when trust can become a useful foundation.",
+    "patternLine": "You force the alliance to work even when it isn't clean.",
+    "questLine": "Build trust that benefits everyone. Leave the rest."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate28UnderstandFlow = {
         "limitation": "But you tend to rise above the struggle before fully staying with what it requires now.",
         "purpose": "Your purpose is to turn struggle into renewal by living the vision, not only seeing it."
       },
+  "shareCard": {
+    "giftLine": "You see how struggle can become something meaningful.",
+    "patternLine": "You rise above the struggle before fully living what it asks.",
+    "questLine": "Stay inside the struggle. That's where the vision lives."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

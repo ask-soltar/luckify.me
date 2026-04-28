@@ -25,6 +25,12 @@ export const gate26UnderstandFlow = {
         "limitation": "But you tend to act too soon when waiting starts to feel unsafe.",
         "purpose": "Your purpose is to prepare fully, then move with clean timing."
       },
+  "shareCard": {
+    "giftLine": "You wait until the moment is genuinely ready.",
+    "patternLine": "You move too soon when waiting starts to feel uncomfortable.",
+    "questLine": "Prepare fully. Then move with clean timing."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate26UnderstandFlow = {
         "limitation": "But you tend to interrupt your own strategy when results do not appear fast enough.",
         "purpose": "Your purpose is to keep building what has real lasting value."
       },
+  "shareCard": {
+    "giftLine": "You build influence steadily over time.",
+    "patternLine": "You interrupt the strategy when results take longer.",
+    "questLine": "Keep building. Steady is what makes it last."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate26UnderstandFlow = {
         "limitation": "But you tend to overestimate what is ready and then have to rebuild support.",
         "purpose": "Your purpose is to guide influence through feedback, not force."
       },
+  "shareCard": {
+    "giftLine": "You bring people and resources together through real contact.",
+    "patternLine": "You overestimate what's ready and then have to rebuild.",
+    "questLine": "Guide through feedback, not through force."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate26UnderstandFlow = {
         "limitation": "But you tend to manage information to keep things comfortable instead of keeping trust clean.",
         "purpose": "Your purpose is to use discernment in a way that protects truth and relationship together."
       },
+  "shareCard": {
+    "giftLine": "You protect trust by handling information carefully.",
+    "patternLine": "Information gets managed for comfort instead of kept clean.",
+    "questLine": "Use discernment to protect both honesty and relationship."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate26UnderstandFlow = {
         "limitation": "But you tend to keep using the old play because people expect you to have the answer.",
         "purpose": "Your purpose is to adapt your influence to what the moment actually needs."
       },
+  "shareCard": {
+    "giftLine": "You stay useful by not clinging to what no longer works.",
+    "patternLine": "You hold the old strategy because people expect you to.",
+    "questLine": "Adapt the approach to what the moment actually needs."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate26UnderstandFlow = {
         "limitation": "But you tend to step into the symbol of authority before the substance is fully lived.",
         "purpose": "Your purpose is to embody influence so people trust the power behind it."
       },
+  "shareCard": {
+    "giftLine": "You earn influence through lived integrity over time.",
+    "patternLine": "You step into the symbol before the substance is there.",
+    "questLine": "Embody the influence. That's when it becomes real."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

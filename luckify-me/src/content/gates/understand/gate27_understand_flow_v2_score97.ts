@@ -23,6 +23,12 @@ export const gate27UnderstandFlow = {
         "limitation": "But you tend to care for others before you have checked what you actually have available.",
         "purpose": "Your purpose is to support from fullness, not depletion."
       },
+  "shareCard": {
+    "giftLine": "You know what real support actually requires.",
+    "patternLine": "You care for others before checking what you have available.",
+    "questLine": "Fill yourself first. That's what makes support real."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -196,6 +202,12 @@ export const gate27UnderstandFlow = {
         "limitation": "But you tend to downplay how much responsibility you are carrying until the balance starts to slip.",
         "purpose": "Your purpose is to care consciously, without creating dependency or losing yourself."
       },
+  "shareCard": {
+    "giftLine": "You care without needing to make a performance of it.",
+    "patternLine": "You downplay the load until the balance starts to slip.",
+    "questLine": "Care consciously. Notice what it costs before it tilts."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -369,6 +381,12 @@ export const gate27UnderstandFlow = {
         "limitation": "But you tend to test the wrong sources of nourishment before recognizing what truly helps.",
         "purpose": "Your purpose is to learn what genuinely supports growth and stop feeding what drains it."
       },
+  "shareCard": {
+    "giftLine": "You find what actually restores, not just what fills.",
+    "patternLine": "You test the wrong sources before finding what truly helps.",
+    "questLine": "Learn what genuinely supports. Stop feeding what drains it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -542,6 +560,12 @@ export const gate27UnderstandFlow = {
         "limitation": "But you tend to keep giving to preserve connection, even when the giving is no longer clean.",
         "purpose": "Your purpose is to let generosity move through trust without overextending yourself."
       },
+  "shareCard": {
+    "giftLine": "You share what you have with the people around you.",
+    "patternLine": "You keep giving to hold connection past when it's clean.",
+    "questLine": "Let generosity move through trust, not through obligation."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -715,6 +739,12 @@ export const gate27UnderstandFlow = {
         "limitation": "But you tend to become the person everyone expects to manage the needs, even when the demand is too much.",
         "purpose": "Your purpose is to distribute support responsibly without becoming the whole system."
       },
+  "shareCard": {
+    "giftLine": "You see clearly where care and resources need to go.",
+    "patternLine": "You become the manager of everyone's needs by default.",
+    "questLine": "Distribute what's yours to distribute. Not all of it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -888,6 +918,12 @@ export const gate27UnderstandFlow = {
         "limitation": "But you tend to turn wisdom about care into rules that can restrict natural growth.",
         "purpose": "Your purpose is to protect growth without controlling it."
       },
+  "shareCard": {
+    "giftLine": "You see the whole care system, not just the immediate need.",
+    "patternLine": "Wisdom about care becomes rules that restrict natural growth.",
+    "questLine": "Protect growth without controlling how it happens."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

@@ -26,6 +26,12 @@ export const gate24UnderstandFlow = {
         "limitation": "But you tend to stay in the review stage instead of taking the first clear step.",
         "purpose": "Your purpose is to return to the thought, find the real point, and begin from there."
       },
+  "shareCard": {
+    "giftLine": "You return to a thought until the real point becomes clear.",
+    "patternLine": "You stay reviewing instead of taking the first step.",
+    "questLine": "Return, find the real point, and begin from there."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -199,6 +205,12 @@ export const gate24UnderstandFlow = {
         "limitation": "But you tend to interfere with the answer when it starts to feel too easy or too quiet.",
         "purpose": "Your purpose is to trust the natural return of clarity without trying to force it into shape."
       },
+  "shareCard": {
+    "giftLine": "Answers arrive on their own when you give them space.",
+    "patternLine": "When the answer comes quietly, you step in and disturb it.",
+    "questLine": "Trust the return. Don't force clarity into shape."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -372,6 +384,12 @@ export const gate24UnderstandFlow = {
         "limitation": "But you tend to restart the mental loop instead of using the feedback to adjust.",
         "purpose": "Your purpose is to let friction refine the thought instead of making you start over."
       },
+  "shareCard": {
+    "giftLine": "You learn what an idea really means once it's been tested.",
+    "patternLine": "Feedback triggers a restart instead of an adjustment.",
+    "questLine": "Let friction refine the thought. Don't start over."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -545,6 +563,12 @@ export const gate24UnderstandFlow = {
         "limitation": "But you tend to keep the conversation comfortable instead of bringing the real point into the room.",
         "purpose": "Your purpose is to let relationship become a place where unclear thoughts can become honest and clear."
       },
+  "shareCard": {
+    "giftLine": "You help ideas become clearer through real conversation.",
+    "patternLine": "Comfort keeps the real point from entering the room.",
+    "questLine": "Let the conversation go somewhere honest."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -718,6 +742,12 @@ export const gate24UnderstandFlow = {
         "limitation": "But you tend to carry the pressure to be certain before the answer is fully true.",
         "purpose": "Your purpose is to offer useful clarity without becoming responsible for everyone’s certainty."
       },
+  "shareCard": {
+    "giftLine": "You turn confusing thoughts into answers people can use.",
+    "patternLine": "You push for certainty before the answer has fully arrived.",
+    "questLine": "Offer the clarity. Not being certain is also useful."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -891,6 +921,12 @@ export const gate24UnderstandFlow = {
         "limitation": "But you tend to stay above the thought instead of bringing the understanding back into real life.",
         "purpose": "Your purpose is to live the understanding, not just observe it from a distance."
       },
+  "shareCard": {
+    "giftLine": "Thought becomes wisdom once you've actually lived it.",
+    "patternLine": "You stay above the thought instead of bringing it into life.",
+    "questLine": "Live the understanding. Don't just observe it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

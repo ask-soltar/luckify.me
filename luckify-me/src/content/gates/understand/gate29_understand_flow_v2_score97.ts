@@ -27,6 +27,12 @@ export const gate29UnderstandFlow = {
         "limitation": "But you tend to keep testing the commitment instead of entering it fully.",
         "purpose": "Your purpose is to say yes when the base is real, then stay with it long enough to build something."
       },
+  "shareCard": {
+    "giftLine": "You sense when a yes needs a real foundation first.",
+    "patternLine": "You keep testing the commitment instead of entering it.",
+    "questLine": "Say yes when the base is real. Then stay and build."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -200,6 +206,12 @@ export const gate29UnderstandFlow = {
         "limitation": "But you tend to downplay your devotion or let it happen unconsciously.",
         "purpose": "Your purpose is to own your yes instead of letting it run your life quietly."
       },
+  "shareCard": {
+    "giftLine": "You give yourself fully to what feels right.",
+    "patternLine": "Devotion runs your life before you've consciously chosen it.",
+    "questLine": "Own your yes. Don't let it carry you without your knowing."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -373,6 +385,12 @@ export const gate29UnderstandFlow = {
         "limitation": "But you tend to treat friction like proof that the commitment was wrong.",
         "purpose": "Your purpose is to adjust your yes instead of abandoning the lesson inside it."
       },
+  "shareCard": {
+    "giftLine": "Real experience teaches you what commitment actually means.",
+    "patternLine": "Friction makes you think the commitment was the problem.",
+    "questLine": "Adjust the yes. Don't abandon what the friction is teaching."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -546,6 +564,12 @@ export const gate29UnderstandFlow = {
         "limitation": "But you tend to stay loyal to commitments because of people, even when the truth has changed.",
         "purpose": "Your purpose is to let trust carry the right yes, not protect the wrong one."
       },
+  "shareCard": {
+    "giftLine": "You build commitment through trust and shared direction.",
+    "patternLine": "Loyalty to people keeps you in commitments that have changed.",
+    "questLine": "Let trust carry the right yes, not protect the wrong one."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -719,6 +743,12 @@ export const gate29UnderstandFlow = {
         "limitation": "But you tend to become the commitment others expect before checking if it is yours.",
         "purpose": "Your purpose is to deliver reliability without becoming trapped inside the role."
       },
+  "shareCard": {
+    "giftLine": "You become the reliable one when commitment is needed.",
+    "patternLine": "You take on commitments before checking if they're yours.",
+    "questLine": "Deliver reliability without becoming trapped in the role."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -892,6 +922,12 @@ export const gate29UnderstandFlow = {
         "limitation": "But you tend to stay above the commitment until you are sure it is worthy enough.",
         "purpose": "Your purpose is to return from observation and live the yes that has proven itself."
       },
+  "shareCard": {
+    "giftLine": "You see clearly which commitments are worth a lifetime.",
+    "patternLine": "You stay above the commitment until it proves its worth.",
+    "questLine": "Return and live the yes that has already proven itself."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

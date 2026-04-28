@@ -23,6 +23,12 @@ export const gate31UnderstandFlow = {
         "limitation": "But you tend to wait for too much certainty before offering direction.",
         "purpose": "Your purpose is to speak the next direction once the base is clear enough."
       },
+  "shareCard": {
+    "giftLine": "You sense when direction needs a stronger base first.",
+    "patternLine": "You wait for too much certainty before offering the direction.",
+    "questLine": "Speak the direction once the base is clear enough."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -196,6 +202,12 @@ export const gate31UnderstandFlow = {
         "limitation": "But you tend to downplay your influence because it feels too easy to count.",
         "purpose": "Your purpose is to own the direction your voice naturally carries."
       },
+  "shareCard": {
+    "giftLine": "Your voice carries direction without needing to push.",
+    "patternLine": "You downplay the influence because it came too easily.",
+    "questLine": "Own the direction your voice naturally carries."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -369,6 +381,12 @@ export const gate31UnderstandFlow = {
         "limitation": "But you tend to treat messy feedback as proof that you should stop speaking.",
         "purpose": "Your purpose is to refine your influence through contact instead of retreating from it."
       },
+  "shareCard": {
+    "giftLine": "Feedback teaches you how to make your influence land.",
+    "patternLine": "Messy feedback makes you think you should stop speaking.",
+    "questLine": "Refine through contact. Don't retreat from the feedback."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -542,6 +560,12 @@ export const gate31UnderstandFlow = {
         "limitation": "But you tend to keep the connection comfortable instead of saying the direction clearly.",
         "purpose": "Your purpose is to let trust carry honest direction, not soften it away."
       },
+  "shareCard": {
+    "giftLine": "You guide people through the trust you've built.",
+    "patternLine": "Connection gets kept comfortable instead of clear.",
+    "questLine": "Say the direction clearly. The trust can hold it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -715,6 +739,12 @@ export const gate31UnderstandFlow = {
         "limitation": "But you tend to become the answer people expect before checking what is actually true.",
         "purpose": "Your purpose is to offer useful direction without becoming trapped in the role of leader."
       },
+  "shareCard": {
+    "giftLine": "People look to your voice when direction is needed.",
+    "patternLine": "You become the expected answer before checking what's true.",
+    "questLine": "Offer useful direction. Don't become the role that holds it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -888,6 +918,12 @@ export const gate31UnderstandFlow = {
         "limitation": "But you tend to stay above the process instead of entering it with your voice.",
         "purpose": "Your purpose is to return from observation and model the direction through action."
       },
+  "shareCard": {
+    "giftLine": "You see what real leadership should look like over time.",
+    "patternLine": "You observe from above instead of stepping in to lead.",
+    "questLine": "Return to the work. Lead through action, not from above."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
