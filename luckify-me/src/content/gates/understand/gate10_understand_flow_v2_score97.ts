@@ -25,6 +25,12 @@ export const gate10UnderstandFlow = {
         "limitation": "But you tend to feel diminished when your place is not recognized.",
         "purpose": "Your purpose is to protect your integrity without turning humility into self-diminishment."
       },
+  "shareCard": {
+    "giftLine": "You stay true without needing to prove it.",
+    "patternLine": "When your place goes unrecognized, you shrink.",
+    "questLine": "Hold your standard without needing acknowledgment."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate10UnderstandFlow = {
         "limitation": "But you tend to turn independence into distance when contact starts to feel compromising.",
         "purpose": "Your purpose is to use solitude to refine your truth, then still live it with others."
       },
+  "shareCard": {
+    "giftLine": "You know who you are when no one is watching.",
+    "patternLine": "Independence becomes distance when contact feels risky.",
+    "questLine": "Use solitude to refine yourself. Then come back in."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate10UnderstandFlow = {
         "limitation": "But you tend to make the struggle itself the point when you feel misunderstood.",
         "purpose": "Your purpose is to stand for what matters without turning pain into your identity."
       },
+  "shareCard": {
+    "giftLine": "You stay true when life pushes back.",
+    "patternLine": "The struggle becomes the point when you feel unseen.",
+    "questLine": "Stand for what matters without making pain your story."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate10UnderstandFlow = {
         "limitation": "But you tend to adapt too much when timing becomes socially complicated.",
         "purpose": "Your purpose is to use timing to protect integrity, not to hide it."
       },
+  "shareCard": {
+    "giftLine": "You read when change will actually land.",
+    "patternLine": "Social complexity makes you adapt more than you meant.",
+    "questLine": "Use timing to protect your standards, not hide them."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate10UnderstandFlow = {
         "limitation": "But you tend to challenge harder when people expect you to be the bold one.",
         "purpose": "Your purpose is to confront false standards without turning disruption into identity."
       },
+  "shareCard": {
+    "giftLine": "You challenge what doesn't hold up to real standards.",
+    "patternLine": "Expectation makes you challenge harder than needed.",
+    "questLine": "Confront what's off without making disruption your mark."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate10UnderstandFlow = {
         "limitation": "But you tend to speak from ideals before checking whether your life is fully matching them.",
         "purpose": "Your purpose is to make your values believable by living them."
       },
+  "shareCard": {
+    "giftLine": "You show what integrity looks like in everyday life.",
+    "patternLine": "You speak from ideals before your life fully matches.",
+    "questLine": "Live it first. That's when it becomes believable."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

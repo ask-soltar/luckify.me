@@ -27,6 +27,12 @@ export const gate14UnderstandFlow = {
         "limitation": "But you tend to wait for outside proof before trusting your own drive.",
         "purpose": "Your purpose is to move from inner fuel instead of external validation."
       },
+  "shareCard": {
+    "giftLine": "Your drive comes from inside, not from what others say.",
+    "patternLine": "You wait for outside proof before trusting your own drive.",
+    "questLine": "Move from inside. The fuel is already there."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -200,6 +206,12 @@ export const gate14UnderstandFlow = {
         "limitation": "But you tend to take on too much because receiving help can feel like weakness.",
         "purpose": "Your purpose is to let shared support become part of your strength."
       },
+  "shareCard": {
+    "giftLine": "You use support without losing what makes you strong.",
+    "patternLine": "Receiving help can feel like losing something.",
+    "questLine": "Let support be part of what makes you strong."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -373,6 +385,12 @@ export const gate14UnderstandFlow = {
         "limitation": "But you tend to test whether giving will cost you too much before you fully contribute.",
         "purpose": "Your purpose is to use your power in a way that strengthens more than just yourself."
       },
+  "shareCard": {
+    "giftLine": "You make your strengths useful to the people around you.",
+    "patternLine": "You check whether giving will cost you before committing.",
+    "questLine": "Contribute what you have. It makes everyone stronger."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -546,6 +564,12 @@ export const gate14UnderstandFlow = {
         "limitation": "But you tend to stay with what feels safe instead of letting your capacity adapt in relationship to what is needed now.",
         "purpose": "Your purpose is to use your foundation as support for flexible, reliable action."
       },
+  "shareCard": {
+    "giftLine": "You build strength that people can count on.",
+    "patternLine": "Safety keeps you from adapting to what's actually needed.",
+    "questLine": "Let your foundation flex when what's needed changes."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -719,6 +743,12 @@ export const gate14UnderstandFlow = {
         "limitation": "But you tend to feel the pressure to prove your power when others expect you to lead, win, or perform.",
         "purpose": "Your purpose is to use success in a way that keeps dignity, respect, and impact intact."
       },
+  "shareCard": {
+    "giftLine": "You carry strength in a way others can feel.",
+    "patternLine": "Expectation to lead or win makes you prove instead of act.",
+    "questLine": "Use your wins with dignity. That's what lasts."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -892,6 +922,12 @@ export const gate14UnderstandFlow = {
         "limitation": "But you tend to step back and measure success from a distance instead of letting your influence actively encourage others.",
         "purpose": "Your purpose is to turn your wins, resources, and perspective into real uplift."
       },
+  "shareCard": {
+    "giftLine": "You turn what you've built into something others can use.",
+    "patternLine": "You step back and observe instead of sharing the gain.",
+    "questLine": "Let what you've built actively lift others."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

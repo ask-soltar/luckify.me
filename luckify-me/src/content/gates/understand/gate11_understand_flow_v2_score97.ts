@@ -40,6 +40,12 @@ export const gate11UnderstandFlowV2Score97 = {
         "limitation": "But you tend to hold ideas back when you are not sure they will be received.",
         "purpose": "Your purpose is to place your ideas where they can be supported and developed."
       },
+  "shareCard": {
+    "giftLine": "You sense where an idea actually belongs.",
+    "patternLine": "Uncertainty about reception keeps the idea back.",
+    "questLine": "Place the idea. Let it find its ground."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -213,6 +219,12 @@ export const gate11UnderstandFlowV2Score97 = {
         "limitation": "But you tend to disturb your own peace when stillness starts to feel too quiet.",
         "purpose": "Your purpose is to protect clarity without creating conflict just to feel movement."
       },
+  "shareCard": {
+    "giftLine": "Your mind sees clearly when it stays calm.",
+    "patternLine": "Stillness starts to feel too quiet, so you add movement.",
+    "questLine": "Protect the clarity. Don't create noise to fill it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -386,6 +398,12 @@ export const gate11UnderstandFlowV2Score97 = {
         "limitation": "But you tend to hold onto the ideal version too long after the situation has changed.",
         "purpose": "Your purpose is to let your ideas mature through contact with real life."
       },
+  "shareCard": {
+    "giftLine": "You update ideas when real life gives you new data.",
+    "patternLine": "The ideal version stays long after the situation changed.",
+    "questLine": "Let the idea mature through contact with what's real."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -559,6 +577,12 @@ export const gate11UnderstandFlowV2Score97 = {
         "limitation": "But you tend to lose impact when you keep the idea too complex, too coded, or too inside your own head.",
         "purpose": "Your purpose is to make vision clear enough for people to receive and use."
       },
+  "shareCard": {
+    "giftLine": "You translate ideas into language people can use.",
+    "patternLine": "Complexity keeps the idea inside your head instead.",
+    "questLine": "Make it clear enough for others to receive it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -732,6 +756,12 @@ export const gate11UnderstandFlowV2Score97 = {
         "limitation": "But you tend to become the voice people expect before checking whether the idea is truly yours to carry.",
         "purpose": "Your purpose is to share useful vision without becoming the role others project onto you."
       },
+  "shareCard": {
+    "giftLine": "You offer ideas that help people see a better way.",
+    "patternLine": "You become the voice before checking if the idea is yours.",
+    "questLine": "Share the useful idea. Don't become the role."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -905,6 +935,12 @@ export const gate11UnderstandFlowV2Score97 = {
         "limitation": "But you tend to stay open so long that the idea loses shape before it becomes lived.",
         "purpose": "Your purpose is to stay flexible while still choosing the vision you are ready to embody."
       },
+  "shareCard": {
+    "giftLine": "You see how ideas shift and develop over time.",
+    "patternLine": "Staying open too long lets the idea lose its shape.",
+    "questLine": "Let the idea evolve. Then live the version that's ready."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

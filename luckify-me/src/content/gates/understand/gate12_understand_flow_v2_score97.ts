@@ -25,6 +25,12 @@ export const gate12UnderstandFlow = {
         "limitation": "But you tend to pull too far inward when pressure builds.",
         "purpose": "Your purpose is to turn inner calm into steady presence people can actually feel."
       },
+  "shareCard": {
+    "giftLine": "You stay steady when emotions get loud.",
+    "patternLine": "Pressure pulls you further inward than needed.",
+    "questLine": "Let your calm be felt, not hidden."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate12UnderstandFlow = {
         "limitation": "But you tend to make your integrity rigid when the situation needs a little more movement.",
         "purpose": "Your purpose is to keep your values clear without closing off from reality."
       },
+  "shareCard": {
+    "giftLine": "You stay true to what feels right even under pressure.",
+    "patternLine": "Integrity becomes rigid when the situation needs movement.",
+    "questLine": "Keep your values clear without closing the door."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate12UnderstandFlow = {
         "limitation": "But you tend to turn reflection into self-criticism when the lesson feels personal.",
         "purpose": "Your purpose is to use setbacks as refinement, not punishment."
       },
+  "shareCard": {
+    "giftLine": "You learn from what didn't go smoothly.",
+    "patternLine": "When the lesson feels personal, reflection turns inward.",
+    "questLine": "Use the setback. Don't use it against yourself."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate12UnderstandFlow = {
         "limitation": "But you tend to lose people when your vision is not grounded in what they can understand right now.",
         "purpose": "Your purpose is to translate foresight into something others can actually use."
       },
+  "shareCard": {
+    "giftLine": "You sense what's coming before others see it.",
+    "patternLine": "Your vision loses people when it's not grounded yet.",
+    "questLine": "Translate what you see into something others can hold."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate12UnderstandFlow = {
         "limitation": "But you tend to let old caution delay the right move.",
         "purpose": "Your purpose is to use experience for timing, not avoidance."
       },
+  "shareCard": {
+    "giftLine": "You know when to wait and when it's time to move.",
+    "patternLine": "Old caution delays the move that was actually ready.",
+    "questLine": "Use your experience for timing, not for holding still."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate12UnderstandFlow = {
         "limitation": "But you tend to stay above the change instead of living the transformation yourself.",
         "purpose": "Your purpose is to embody the new possibility, not just recognize it."
       },
+  "shareCard": {
+    "giftLine": "You see when the old way has reached its end.",
+    "patternLine": "You recognize the change but stay above it.",
+    "questLine": "Live the transformation. Don't just see it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

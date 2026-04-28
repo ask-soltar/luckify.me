@@ -25,6 +25,12 @@ export const gate2UnderstandFlow = {
         "limitation": "But you tend to react to the first signal before you have fully read it.",
         "purpose": "Your purpose is to let sensitivity become clear direction before you act."
       },
+  "shareCard": {
+    "giftLine": "You sense the quiet signal before others name it.",
+    "patternLine": "You act on the first read before it's fully clear.",
+    "questLine": "Let the signal settle. Then move."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate2UnderstandFlow = {
         "limitation": "But you tend to become too certain when your natural knowing starts working.",
         "purpose": "Your purpose is to trust your guidance without closing yourself to input."
       },
+  "shareCard": {
+    "giftLine": "You know which way to go without having to force it.",
+    "patternLine": "When your knowing kicks in, you stop taking input.",
+    "questLine": "Stay open even when you already know."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate2UnderstandFlow = {
         "limitation": "But you tend to get impatient when the direction takes longer to mature.",
         "purpose": "Your purpose is to let experience teach you the right direction without rushing the process."
       },
+  "shareCard": {
+    "giftLine": "Direction develops naturally through your experience.",
+    "patternLine": "Impatience moves in when the direction takes longer.",
+    "questLine": "Let it take the time it needs to mature."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate2UnderstandFlow = {
         "limitation": "But you tend to speak too soon when the pressure in the relationship builds.",
         "purpose": "Your purpose is to let timing protect the truth instead of leaking it too early."
       },
+  "shareCard": {
+    "giftLine": "You know when to speak and when to hold.",
+    "patternLine": "Relationship pressure pulls the words out too early.",
+    "questLine": "Timing is part of what you know. Use it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate2UnderstandFlow = {
         "limitation": "But you tend to use your direction to secure your own position before serving the wider field.",
         "purpose": "Your purpose is to turn personal insight into shared progress."
       },
+  "shareCard": {
+    "giftLine": "You see the direction that moves the whole group.",
+    "patternLine": "You secure your position before serving the field.",
+    "questLine": "Offer the direction. Let the group benefit first."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate2UnderstandFlow = {
         "limitation": "But you tend to fixate on one direction when fear starts closing the field.",
         "purpose": "Your purpose is to keep your awareness wide enough for real guidance to arrive."
       },
+  "shareCard": {
+    "giftLine": "You see direction from a wider view than most.",
+    "patternLine": "When the field narrows, you fixate on one path.",
+    "questLine": "Keep the view wide. Real direction needs space."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

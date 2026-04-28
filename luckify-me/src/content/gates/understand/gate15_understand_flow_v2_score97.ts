@@ -23,6 +23,12 @@ export const gate15UnderstandFlow = {
         "limitation": "But you tend to tighten around your standards instead of letting them stay humble and useful.",
         "purpose": "Your purpose is to live your integrity without turning it into separation."
       },
+  "shareCard": {
+    "giftLine": "You hold yourself to a real standard quietly.",
+    "patternLine": "Your standards become a wall instead of staying useful.",
+    "questLine": "Live the standard. Don't make it a separation."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -196,6 +202,12 @@ export const gate15UnderstandFlow = {
         "limitation": "But you tend to lose your rhythm when patience starts to feel like passivity.",
         "purpose": "Your purpose is to stay present without forcing or collapsing."
       },
+  "shareCard": {
+    "giftLine": "You stay steady through changing conditions.",
+    "patternLine": "When patience starts to feel passive, you lose your rhythm.",
+    "questLine": "Stay present without forcing or giving in."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -369,6 +381,12 @@ export const gate15UnderstandFlow = {
         "limitation": "But you tend to hide your strength behind modesty when the moment asks you to be clear.",
         "purpose": "Your purpose is to let humility stay real while your strength becomes visible."
       },
+  "shareCard": {
+    "giftLine": "You earn trust through what you actually do.",
+    "patternLine": "Modesty keeps your strength hidden when clarity is needed.",
+    "questLine": "Let modesty stay while your strength shows up."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -542,6 +560,12 @@ export const gate15UnderstandFlow = {
         "limitation": "But you tend to perform steadiness when the relationship actually needs your real presence.",
         "purpose": "Your purpose is to become a reliable center without hiding what is true."
       },
+  "shareCard": {
+    "giftLine": "People feel steadier when you are in the room.",
+    "patternLine": "You perform steadiness when real presence is what they need.",
+    "questLine": "Be actually present. That's what steadies people."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -715,6 +739,12 @@ export const gate15UnderstandFlow = {
         "limitation": "But you tend to become corrective when people do not grow on your timing.",
         "purpose": "Your purpose is to guide others without turning support into pressure."
       },
+  "shareCard": {
+    "giftLine": "You help people find their rhythm again.",
+    "patternLine": "When growth doesn't happen on your timing, you correct.",
+    "questLine": "Guide without correcting. Their timing is their own."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -888,6 +918,12 @@ export const gate15UnderstandFlow = {
         "limitation": "But you tend to carry the responsibility so heavily that the example becomes pressure.",
         "purpose": "Your purpose is to lead through lived balance instead of burden."
       },
+  "shareCard": {
+    "giftLine": "You show what balanced leadership looks like in practice.",
+    "patternLine": "Responsibility carried too heavily becomes pressure.",
+    "questLine": "Lead through how you live it, not how heavy it feels."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

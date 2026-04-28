@@ -25,6 +25,12 @@ export const gate6UnderstandFlow = {
         "limitation": "But you tend to retreat before the tension has taught you anything.",
         "purpose": "Your purpose is to meet conflict with enough steadiness to turn it into growth."
       },
+  "shareCard": {
+    "giftLine": "You sense when tension needs care before it spreads.",
+    "patternLine": "You retreat before the tension has finished teaching.",
+    "questLine": "Hold steady. The tension is still teaching."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate6UnderstandFlow = {
         "limitation": "But you tend to absorb the tension instead of resolving it cleanly.",
         "purpose": "Your purpose is to help conflict become understanding without losing yourself inside it."
       },
+  "shareCard": {
+    "giftLine": "You soften tension before it has a chance to spread.",
+    "patternLine": "You absorb the tension instead of resolving it.",
+    "questLine": "Release it cleanly. Don't carry what isn't yours."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate6UnderstandFlow = {
         "limitation": "But you tend to pull away when insecurity makes support feel risky.",
         "purpose": "Your purpose is to stay engaged long enough for steadiness to become shared strength."
       },
+  "shareCard": {
+    "giftLine": "You create steadiness when emotions get unstable.",
+    "patternLine": "When support feels risky, you pull back.",
+    "questLine": "Stay engaged. Your steadiness is the bond."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate6UnderstandFlow = {
         "limitation": "But you tend to push for control when the emotional field feels unstable.",
         "purpose": "Your purpose is to guide conflict without overpowering the people inside it."
       },
+  "shareCard": {
+    "giftLine": "You lead people through charged moments with ease.",
+    "patternLine": "Control tightens when the emotional field feels off.",
+    "questLine": "Guide without gripping. That's where the impact is."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate6UnderstandFlow = {
         "limitation": "But you tend to become too detached when people need emotional contact as well as fairness.",
         "purpose": "Your purpose is to bring balance that restores both clarity and connection."
       },
+  "shareCard": {
+    "giftLine": "You see both sides of a conflict without losing either.",
+    "patternLine": "Fairness tips into distance when people need contact.",
+    "questLine": "Stay balanced and close. Both matter."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate6UnderstandFlow = {
         "limitation": "But you tend to overthink or react too soon when emotional uncertainty builds.",
         "purpose": "Your purpose is to use calm timing so conflict is handled with precision instead of urgency."
       },
+  "shareCard": {
+    "giftLine": "You sense the right moment to enter a conflict.",
+    "patternLine": "Uncertainty makes you overthink or move too soon.",
+    "questLine": "Wait for the right moment. You already know it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

@@ -27,6 +27,12 @@ export const gate13UnderstandFlow = {
         "limitation": "But you tend to take in too much instead of keeping your own center clear.",
         "purpose": "Your purpose is to listen deeply without losing yourself."
       },
+  "shareCard": {
+    "giftLine": "You make people feel genuinely understood.",
+    "patternLine": "You take in too much and lose your own center.",
+    "questLine": "Listen deeply. Keep yourself in the room too."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -200,6 +206,12 @@ export const gate13UnderstandFlow = {
         "limitation": "But you tend to stay neutral too long instead of helping the truth move forward.",
         "purpose": "Your purpose is to use fairness to create clarity, not delay."
       },
+  "shareCard": {
+    "giftLine": "You hear all sides without rushing to judge.",
+    "patternLine": "Neutrality keeps the clarity from moving forward.",
+    "questLine": "Use fairness to create movement, not delay."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -373,6 +385,12 @@ export const gate13UnderstandFlow = {
         "limitation": "But you tend to close off after disappointment instead of using it as information.",
         "purpose": "Your purpose is to let discernment protect connection without becoming isolation."
       },
+  "shareCard": {
+    "giftLine": "You notice who can actually be trusted.",
+    "patternLine": "Disappointment closes you off before it can teach you.",
+    "questLine": "Let discernment protect connection, not replace it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -546,6 +564,12 @@ export const gate13UnderstandFlow = {
         "limitation": "But you tend to listen too widely instead of choosing where your care can actually help.",
         "purpose": "Your purpose is to support the right people at the right time without draining yourself."
       },
+  "shareCard": {
+    "giftLine": "You hear what matters inside the right relationships.",
+    "patternLine": "Listening too widely spreads your care too thin.",
+    "questLine": "Choose where your care can actually land."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -719,6 +743,12 @@ export const gate13UnderstandFlow = {
         "limitation": "But you tend to become responsible for too much instead of placing your care where it has real impact.",
         "purpose": "Your purpose is to support the whole without becoming the person who saves everyone."
       },
+  "shareCard": {
+    "giftLine": "You see how to include and support people well.",
+    "patternLine": "You take on more than your share of the caring.",
+    "questLine": "Support where it counts. Not everything is yours."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -892,6 +922,12 @@ export const gate13UnderstandFlow = {
         "limitation": "But you tend to assume mutual understanding before it has been proven.",
         "purpose": "Your purpose is to keep faith in people while still seeing them clearly."
       },
+  "shareCard": {
+    "giftLine": "You see what people could become together.",
+    "patternLine": "You assume shared understanding before it's proven.",
+    "questLine": "Keep the faith. See people clearly at the same time."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
