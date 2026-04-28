@@ -92,7 +92,19 @@
       "Bash(PYTHONIOENCODING=utf-8 /c/Users/crzzy/AppData/Local/Programs/Python/Python311/python.exe matchup_screener_signals_only.py)",
       "Bash(PYTHONIOENCODING=utf-8 /c/Users/crzzy/AppData/Local/Programs/Python/Python311/python.exe validate_signals_2025_2026.py)",
       "Bash(PYTHONIOENCODING=utf-8 /c/Users/crzzy/AppData/Local/Programs/Python/Python311/python.exe analyze_orange_adj_his_par.py)",
-      "Bash(/c/Users/crzzy/AppData/Local/Programs/Python/Python311/Scripts/python.exe test_1a_1b_orange_talent_equalizer_2025_2026.py)"
+      "Bash(/c/Users/crzzy/AppData/Local/Programs/Python/Python311/Scripts/python.exe test_1a_1b_orange_talent_equalizer_2025_2026.py)",
+      "Bash(clasp -V)",
+      "Bash(ls -lh phase9_*.csv)",
+      "Bash(\"/c/Users/crzzy/AppData/Local/Programs/Python/Python311/python.exe\" analyze_round_type_relationships.py)",
+      "Bash(PYTHONIOENCODING=utf-8 \"/c/Users/crzzy/AppData/Local/Programs/Python/Python311/python.exe\" analyze_round_type_relationships.py)",
+      "Bash(npm run:*)",
+      "Read(//c/Users/crzzy/Downloads/Project Soltar/**)",
+      "Bash(npx vite *)",
+      "WebSearch",
+      "WebFetch(domain:www.barneyandflow.com)",
+      "Read(//d/Projects/luckify-horoscope/GeneKeyPurpose/**)",
+      "Bash(node scripts/parse_purpose.js)",
+      "Bash(git push *)"
     ],
     "additionalDirectories": [
       "d:\\Users\\crzzy\\.claude\\projects\\d--Projects-luckify-me\\memory",

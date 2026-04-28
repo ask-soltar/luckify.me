@@ -76,6 +76,15 @@ function onOpen() {
   mainMenu.addSubMenu(conditionsMenu)
     .addSeparator();
 
+  // ── TOURNAMENT SCORE ──
+  const tournamentMenu = ui.createMenu("🏆 Tournament Score");
+  tournamentMenu.addItem("▶ Fill Blank (Colors + Scores)", "TS_FILL_ALL")
+    .addItem("🎨 Fill Blank Colors Only", "TS_FILL_COLORS")
+    .addItem("📊 Fill Blank Scores Only", "TS_FILL_SCORES")
+    .addItem("🔁 Force Recompute Everything", "TS_FORCE_RECOMPUTE_ALL");
+  mainMenu.addSubMenu(tournamentMenu)
+    .addSeparator();
+
   // ── DEBUG ──
   const debugMenu = ui.createMenu("🧪 Debug");
   debugMenu.addItem("Test Single Row", "TEST_SINGLE_ROW")
@@ -128,4 +137,25 @@ function START_OVERNIGHT_FROM_ROW() {
       ui.alert("Invalid row number. Must be >= " + GA.START_ROW);
     }
   }
+}
+
+/* =========================
+   TOURNAMENT SCORE ENTRY POINTS
+   Calls the tournament score writer (tournament_score_writer.gs)
+========================= */
+
+function TS_FILL_ALL() {
+  _fillTournamentScore_(false, true, true);
+}
+
+function TS_FILL_COLORS() {
+  _fillTournamentScore_(false, true, false);
+}
+
+function TS_FILL_SCORES() {
+  _fillTournamentScore_(false, false, true);
+}
+
+function TS_FORCE_RECOMPUTE_ALL() {
+  _fillTournamentScore_(true, true, true);
 }

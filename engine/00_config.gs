@@ -406,6 +406,47 @@ const GA = {
 };
 
 /* =========================
+   TOURNAMENT SCORE SHEET CONFIG
+   Column numbers for the Tournament Score sheet.
+   Similar to Golf_Analytics but single event per row (4 rounds per row).
+========================= */
+
+const TS = {
+  SHEET: "tournament score",
+  START_ROW: 4,
+
+  // ── Input columns (C:O) — engine reads these ──
+  COL_BIRTHDAY:     3,    // C  Player birthday
+  COL_BDAY_GMT:     4,    // D  Birth GMT offset
+  COL_ELEMENT:      5,    // E  Wu Xing element (for reference)
+  COL_TITHI_TYPE:   6,    // F  Tithi type (for reference)
+  COL_ZODIAC:       7,    // G  Chinese zodiac (for reference)
+  COL_HOROSCOPE:    8,    // H  Western horoscope (for reference)
+  COL_LIFE_PATH:    9,    // I  Life path number (for reference)
+  COL_PERSONAL_YEAR: 10,  // J  Personal year (for reference)
+  COL_EVENT_GMT:    11,   // K  Event venue GMT (constant for all 4 rounds)
+  COL_R1_DATE:      12,   // L  Round 1 date
+  COL_R2_DATE:      13,   // M  Round 2 date
+  COL_R3_DATE:      14,   // N  Round 3 date
+  COL_R4_DATE:      15,   // O  Round 4 date
+
+  // ── Engine output (P:AE) — engine writes these ──
+  COL_COLOR_START:  16,   // P  R1 Color; Q=R2, R=R3, S=R4
+  COL_SCORE_START:  20,   // T  R1 Exec; U=R1 Upside; V=R1 Peak
+                          // W=R2 Exec; X=R2 Upside; Y=R2 Peak
+                          // Z=R3 Exec; AA=R3 Upside; AB=R3 Peak
+                          // AC=R4 Exec; AD=R4 Upside; AE=R4 Peak
+
+  READ_START_COL:   3,    // C (birthday)
+  READ_NUM_COLS:    13,   // C:O — columns read (13 total)
+  OUTPUT_NUM_COLS:  16,   // P:AE — columns written by engine (16 total)
+
+  TEEOFF_TIME:  "9:00",
+  BOUNDARY:     "ZI",
+  PRESET:       "CLASSIC"
+};
+
+/* =========================
    OVERNIGHT RUNNER — PERFORMANCE & STATE
    Controls batch size, timing, and property key names.
 ========================= */
