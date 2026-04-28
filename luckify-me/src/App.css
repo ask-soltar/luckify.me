@@ -9809,7 +9809,9 @@
 /* ── Dev Share Card Gallery ─────────────────────────────────────────────── */
 
 .dev-gallery {
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   background: #080810;
   color: rgba(255, 255, 255, 0.85);
   font-family: 'Space Grotesk', system-ui, sans-serif;
