@@ -1,8 +1,20 @@
+/* ── Outer shell — constrains width, prevents page overflow ── */
+.mqsc-outer {
+  width: min(92vw, 420px);
+  margin: 0 auto;
+  /* Belt-and-suspenders: never let the card punch through page width */
+  max-width: 100%;
+  overflow: hidden;
+}
+
 /* ── Preview wrapper: scales the 1080×1350 card to fit screen ── */
 .mqsc-preview {
-  width: 100%;
+  width: 100%;       /* inherits the constrained mqsc-outer width */
   overflow: hidden;
   position: relative;
+  border-radius: 24px;
+  /* aspect-ratio keeps the container at 4:5 even before JS runs */
+  aspect-ratio: 4 / 5;
 }
 
 /* ── The actual 1080×1350 export card ── */
