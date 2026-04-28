@@ -21,6 +21,12 @@ export const gate43UnderstandFlow = {
         "limitation": "But you tend to hold the insight in preparation too long instead of letting the breakthrough become usable.",
         "purpose": "Your purpose is to take the first grounded step."
       },
+  "shareCard": {
+    "giftLine": "You see the breakthrough before anyone else does.",
+    "patternLine": "Preparation becomes a way to avoid the first step.",
+    "questLine": "Take the first grounded step now."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -194,6 +200,12 @@ export const gate43UnderstandFlow = {
         "limitation": "But you tend to downplay what you already see clearly instead of letting the breakthrough become usable.",
         "purpose": "Your purpose is to trust the insight without needing others to name it first."
       },
+  "shareCard": {
+    "giftLine": "You see the truth before you can explain it.",
+    "patternLine": "You wait for someone else to name what you already know.",
+    "questLine": "Trust what you see without waiting for proof."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -367,6 +379,12 @@ export const gate43UnderstandFlow = {
         "limitation": "But you tend to turn feedback into self-protection instead of letting the breakthrough become usable.",
         "purpose": "Your purpose is to test the insight, adjust it, and keep moving."
       },
+  "shareCard": {
+    "giftLine": "Feedback sharpens your thinking.",
+    "patternLine": "Criticism becomes something to defend against.",
+    "questLine": "Test it, adjust it, keep going."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -540,6 +558,12 @@ export const gate43UnderstandFlow = {
         "limitation": "But you tend to keep the insight inside familiar circles instead of letting the breakthrough become usable.",
         "purpose": "Your purpose is to let the right relationships help the breakthrough land."
       },
+  "shareCard": {
+    "giftLine": "Insight moves further when trust is part of it.",
+    "patternLine": "You keep the idea inside safe circles.",
+    "questLine": "Let the right people help it land."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -713,6 +737,12 @@ export const gate43UnderstandFlow = {
         "limitation": "But you tend to rush to prove the breakthrough is useful instead of letting the breakthrough become usable.",
         "purpose": "Your purpose is to deliver the insight without becoming responsible for everyone’s reaction."
       },
+  "shareCard": {
+    "giftLine": "You turn unusual insight into something people can use.",
+    "patternLine": "You rush to prove it works before it's settled.",
+    "questLine": "Deliver the insight. Their reaction is theirs."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -886,6 +916,12 @@ export const gate43UnderstandFlow = {
         "limitation": "But you tend to stay above the process because you can already see the pattern instead of letting the breakthrough become usable.",
         "purpose": "Your purpose is to bring the insight back into real use."
       },
+  "shareCard": {
+    "giftLine": "You refine insight until it becomes something real.",
+    "patternLine": "You stay above it instead of bringing it down.",
+    "questLine": "Step back in. Make it useful."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

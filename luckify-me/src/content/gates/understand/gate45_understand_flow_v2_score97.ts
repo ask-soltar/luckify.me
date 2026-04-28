@@ -26,6 +26,12 @@ export const gate45UnderstandFlow = {
         "limitation": "But you tend to wait until you feel fully secure before you claim responsibility for the shared field.",
         "purpose": "Your purpose is to create enough structure for resources, people, and responsibility to move clearly."
       },
+  "shareCard": {
+    "giftLine": "You sense what needs organizing before others do.",
+    "patternLine": "You wait for full security before stepping in.",
+    "questLine": "Claim the structure. People need you to."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -199,6 +205,12 @@ export const gate45UnderstandFlow = {
         "limitation": "But you tend to downplay your natural influence until someone else names it first.",
         "purpose": "Your purpose is to consciously gather what already moves toward you."
       },
+  "shareCard": {
+    "giftLine": "People and resources gather around you naturally.",
+    "patternLine": "You minimize it until someone else points it out.",
+    "questLine": "Own what already comes to you."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -372,6 +384,12 @@ export const gate45UnderstandFlow = {
         "limitation": "But you tend to treat conflict, waste, or uneven effort as proof that the whole structure is wrong.",
         "purpose": "Your purpose is to use friction to build a better way of sharing power and resources."
       },
+  "shareCard": {
+    "giftLine": "Pressure teaches you how things should really work.",
+    "patternLine": "Friction makes you think the whole thing is broken.",
+    "questLine": "Use the friction to build something better."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -545,6 +563,12 @@ export const gate45UnderstandFlow = {
         "limitation": "But you tend to protect comfort or loyalty when the shared field needs clearer truth.",
         "purpose": "Your purpose is to let trust carry honest stewardship, not hidden obligation."
       },
+  "shareCard": {
+    "giftLine": "People trust you to hold the group together.",
+    "patternLine": "Keeping people comfortable gets in the way of truth.",
+    "questLine": "Let trust hold honest responsibility, not just comfort."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -718,6 +742,12 @@ export const gate45UnderstandFlow = {
         "limitation": "But you tend to become the manager, provider, or answer before checking what is actually yours to carry.",
         "purpose": "Your purpose is to direct resources clearly without becoming trapped inside the role people project onto you."
       },
+  "shareCard": {
+    "giftLine": "When resources need direction, people look to you.",
+    "patternLine": "You take on the whole load before checking what's yours.",
+    "questLine": "Direct what's yours. Leave the rest."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -891,6 +921,12 @@ export const gate45UnderstandFlow = {
         "limitation": "But you tend to step back from the shared field when the responsibility feels too political, messy, or human.",
         "purpose": "Your purpose is to return from observation and model a cleaner way to share power."
       },
+  "shareCard": {
+    "giftLine": "You see how power and resources should really move.",
+    "patternLine": "You step back when things get messy or political.",
+    "questLine": "Come back in and model the cleaner way."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

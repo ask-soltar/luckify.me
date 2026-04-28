@@ -23,6 +23,12 @@ export const gate46UnderstandFlow = {
         "limitation": "But you tend to keep preparing your body for the right moment instead of stepping into the experience.",
         "purpose": "Your purpose is to trust enough physical readiness to enter life instead of waiting for perfect conditions."
       },
+  "shareCard": {
+    "giftLine": "Your body knows when it's time to move.",
+    "patternLine": "You keep preparing instead of stepping in.",
+    "questLine": "Enough readiness is enough. Enter the experience."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -196,6 +202,12 @@ export const gate46UnderstandFlow = {
         "limitation": "But you tend to interfere with that natural placement when you start questioning whether it counts.",
         "purpose": "Your purpose is to trust the places, moments, and experiences your body naturally recognizes."
       },
+  "shareCard": {
+    "giftLine": "You end up in the right place without planning it.",
+    "patternLine": "You question whether it counts and disrupt the placement.",
+    "questLine": "Trust where your body already is."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -369,6 +381,12 @@ export const gate46UnderstandFlow = {
         "limitation": "But you tend to treat physical friction as a sign that the whole path is wrong.",
         "purpose": "Your purpose is to read the experience, adjust, and keep learning through the body."
       },
+  "shareCard": {
+    "giftLine": "Direct experience is where you learn best.",
+    "patternLine": "Friction makes you think you're on the wrong path.",
+    "questLine": "Adjust and keep learning. The friction is the lesson."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -542,6 +560,12 @@ export const gate46UnderstandFlow = {
         "limitation": "But you tend to keep belonging comfortable instead of letting the body tell the truth.",
         "purpose": "Your purpose is to let real presence create honest connection, not just familiar comfort."
       },
+  "shareCard": {
+    "giftLine": "Your presence creates real belonging.",
+    "patternLine": "Comfort keeps people close but keeps truth out.",
+    "questLine": "Be fully present. That's what people actually need."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -715,6 +739,12 @@ export const gate46UnderstandFlow = {
         "limitation": "But you tend to become the person who makes everything happen, even when the pressure is not yours to carry.",
         "purpose": "Your purpose is to offer grounded momentum without becoming responsible for everyone’s movement."
       },
+  "shareCard": {
+    "giftLine": "You move people from stuck to moving.",
+    "patternLine": "You end up carrying momentum that belongs to others.",
+    "questLine": "Give the push. Don't carry the whole journey."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -888,6 +918,12 @@ export const gate46UnderstandFlow = {
         "limitation": "But you tend to observe life from a distance instead of returning fully into the next experience.",
         "purpose": "Your purpose is to live what you have learned, not just understand it from above."
       },
+  "shareCard": {
+    "giftLine": "You understand how a life fully lived matures.",
+    "patternLine": "You watch from above instead of stepping back in.",
+    "questLine": "Live what you know, don't just observe it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

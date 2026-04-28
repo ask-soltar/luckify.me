@@ -25,6 +25,12 @@ export const gate50UnderstandFlow = {
         "limitation": "But you tend to keep checking the foundation instead of making the first clean change instead of letting your values become clear and useful.",
         "purpose": "Your purpose is to start fresh without losing what still matters."
       },
+  "shareCard": {
+    "giftLine": "You notice when the foundation needs rebuilding.",
+    "patternLine": "You keep checking instead of making the change.",
+    "questLine": "Start fresh. Keep what still holds."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate50UnderstandFlow = {
         "limitation": "But you tend to harden when your values feel challenged instead of letting your values become clear and useful.",
         "purpose": "Your purpose is to hold your ground without becoming rigid."
       },
+  "shareCard": {
+    "giftLine": "You stand for what matters without making noise.",
+    "patternLine": "When challenged, you harden instead of staying open.",
+    "questLine": "Hold your ground. Don't close yourself off."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate50UnderstandFlow = {
         "limitation": "But you tend to bend your values to avoid conflict or regain approval instead of letting your values become clear and useful.",
         "purpose": "Your purpose is to let pressure clarify what you actually stand for."
       },
+  "shareCard": {
+    "giftLine": "Pressure teaches you what you actually stand for.",
+    "patternLine": "You bend your values to keep the peace.",
+    "questLine": "Let the friction clarify what's real for you."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate50UnderstandFlow = {
         "limitation": "But you tend to adjust too much for the room or enforce values too mechanically instead of letting your values become clear and useful.",
         "purpose": "Your purpose is to make integrity usable without watering it down."
       },
+  "shareCard": {
+    "giftLine": "You help people live their values, not just hold them.",
+    "patternLine": "You either bend too much or enforce too mechanically.",
+    "questLine": "Make it usable without watering it down."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate50UnderstandFlow = {
         "limitation": "But you tend to rush judgment because others expect you to know what is right instead of letting your values become clear and useful.",
         "purpose": "Your purpose is to make clean evaluations without becoming careless or over-sure."
       },
+  "shareCard": {
+    "giftLine": "You see which values actually serve the outcome.",
+    "patternLine": "Others expect you to have the answer, so you rush it.",
+    "questLine": "Evaluate clearly. Don't let expectation rush you."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate50UnderstandFlow = {
         "limitation": "But you tend to step into guidance before your own example is steady instead of letting your values become clear and useful.",
         "purpose": "Your purpose is to become a visible example of the values you want to protect."
       },
+  "shareCard": {
+    "giftLine": "The way you live shows others what's possible.",
+    "patternLine": "You guide before your own example is fully steady.",
+    "questLine": "Be the example before you teach it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

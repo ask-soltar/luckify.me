@@ -28,6 +28,12 @@ export const gate7UnderstandFlow = {
         "limitation": "But you tend to tighten around authority when you do not feel fully ready.",
         "purpose": "Your purpose is to guide with clarity without turning leadership into control."
       },
+  "shareCard": {
+    "giftLine": "People follow your direction naturally.",
+    "patternLine": "You grip authority when you feel unready.",
+    "questLine": "Lead clearly without needing to control."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -201,6 +207,12 @@ export const gate7UnderstandFlow = {
         "limitation": "But you tend to downplay your own guidance and wait for others to recognize it first.",
         "purpose": "Your purpose is to lead inclusively without hiding inside consensus."
       },
+  "shareCard": {
+    "giftLine": "You bring people with you when you lead.",
+    "patternLine": "You hold back until someone else names it first.",
+    "questLine": "Lead without waiting for permission."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -374,6 +386,12 @@ export const gate7UnderstandFlow = {
         "limitation": "But you tend to treat friction like a reason to keep changing before the lesson is clear.",
         "purpose": "Your purpose is to adapt the direction without losing the center."
       },
+  "shareCard": {
+    "giftLine": "You adapt when the situation changes.",
+    "patternLine": "Friction becomes an excuse to keep shifting.",
+    "questLine": "Stay flexible without losing your center."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -547,6 +565,12 @@ export const gate7UnderstandFlow = {
         "limitation": "But you tend to keep the role longer when the relationship, group, or identity still feels attached to it.",
         "purpose": "Your purpose is to guide transitions without clinging to position."
       },
+  "shareCard": {
+    "giftLine": "You know when it's time to pass the baton.",
+    "patternLine": "You hold the role past the moment it was yours.",
+    "questLine": "Let the position move on when its time comes."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -720,6 +744,12 @@ export const gate7UnderstandFlow = {
         "limitation": "But you tend to absorb the expectation to be strong, certain, and in charge before checking what is actually yours to carry.",
         "purpose": "Your purpose is to give trustworthy direction without becoming the projected authority role."
       },
+  "shareCard": {
+    "giftLine": "People trust you to have the answer.",
+    "patternLine": "You carry certainty that was never yours to hold.",
+    "questLine": "Be the steady one without becoming everyone's answer."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -893,6 +923,12 @@ export const gate7UnderstandFlow = {
         "limitation": "But you tend to stay above the mess too long, refining the strategy instead of bringing it into the room.",
         "purpose": "Your purpose is to return with clarity that people can actually use."
       },
+  "shareCard": {
+    "giftLine": "You see the bigger direction clearly.",
+    "patternLine": "You stay above the work instead of bringing it in.",
+    "questLine": "Bring the clarity down into the room."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

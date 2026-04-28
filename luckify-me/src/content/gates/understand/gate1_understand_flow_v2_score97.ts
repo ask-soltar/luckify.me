@@ -25,6 +25,12 @@ export const gate1UnderstandFlow = {
         "limitation": "But you tend to rush the expression before it has enough shape to land.",
         "purpose": "Your purpose is to let originality move through you without losing coherence."
       },
+  "shareCard": {
+    "giftLine": "Originality comes through you naturally.",
+    "patternLine": "You rush it out before it's fully formed.",
+    "questLine": "Let it take shape before you let it go."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate1UnderstandFlow = {
         "limitation": "But you tend to dilute that vision when approval, desire, or attention starts pulling on it.",
         "purpose": "Your purpose is to create from alignment instead of chasing the reaction."
       },
+  "shareCard": {
+    "giftLine": "You know when something is actually true.",
+    "patternLine": "Approval pulls you off what you really saw.",
+    "questLine": "Create from your center, not for the reaction."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate1UnderstandFlow = {
         "limitation": "But you tend to turn the creative process into proof that you are succeeding fast enough.",
         "purpose": "Your purpose is to use friction as refinement instead of turning effort into self-pressure."
       },
+  "shareCard": {
+    "giftLine": "You push creative work through resistance.",
+    "patternLine": "Progress becomes something you have to prove.",
+    "questLine": "Use the friction. Don't fight yourself with it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate1UnderstandFlow = {
         "limitation": "But you tend to stay alone too long or let feedback feel like a threat to the work.",
         "purpose": "Your purpose is to protect your originality without cutting it off from real connection."
       },
+  "shareCard": {
+    "giftLine": "Your best work happens away from the crowd.",
+    "patternLine": "Isolation protects the work but keeps it hidden.",
+    "questLine": "Share it before it becomes too personal to show."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate1UnderstandFlow = {
         "limitation": "But you tend to feel the pressure to become the version of you people want to keep watching.",
         "purpose": "Your purpose is to use visibility to express truth, not to perform for approval."
       },
+  "shareCard": {
+    "giftLine": "Authentic expression draws people in.",
+    "patternLine": "Visibility becomes a role you feel you have to keep up.",
+    "questLine": "Be seen for what is real, not what performs."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate1UnderstandFlow = {
         "limitation": "But you tend to step back into overthinking, self-judgment, or watching yourself create.",
         "purpose": "Your purpose is to become clear enough for inspiration to move through you without being blocked by self-conscious control."
       },
+  "shareCard": {
+    "giftLine": "Inspiration moves through you when you step aside.",
+    "patternLine": "You watch yourself create and the flow stops.",
+    "questLine": "Clear the interference. Let it move through."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

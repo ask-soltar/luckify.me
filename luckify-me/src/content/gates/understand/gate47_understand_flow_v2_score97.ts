@@ -25,6 +25,12 @@ export const gate47UnderstandFlow: MainQuestUnderstandGate = {
         "limitation": "But you tend to treat limits as proof that the situation is already lost.",
         "purpose": "Your purpose is to accept what is real and use it as the starting point for movement."
       },
+  "shareCard": {
+    "giftLine": "You see reality clearly when others look away.",
+    "patternLine": "Limits feel like the end of the road.",
+    "questLine": "Accept what's real. That's where movement starts."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate47UnderstandFlow: MainQuestUnderstandGate = {
         "limitation": "But you tend to interfere with your own clarity by collecting more noise.",
         "purpose": "Your purpose is to trust the inner signal before confusion pulls you away from it."
       },
+  "shareCard": {
+    "giftLine": "You find the clear signal inside the noise.",
+    "patternLine": "You add more input instead of trusting what's clear.",
+    "questLine": "Trust the signal before confusion takes over."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate47UnderstandFlow: MainQuestUnderstandGate = {
         "limitation": "But you tend to turn pressure into self-attack instead of information.",
         "purpose": "Your purpose is to let pressure refine you without letting it consume you."
       },
+  "shareCard": {
+    "giftLine": "Mental pressure sharpens you.",
+    "patternLine": "The pressure turns inward and becomes self-attack.",
+    "questLine": "Let it refine you. Don't let it consume you."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate47UnderstandFlow: MainQuestUnderstandGate = {
         "limitation": "But you tend to let outside opinions shake your center when connection is on the line.",
         "purpose": "Your purpose is to stay rooted in who you are so your steadiness can help others too."
       },
+  "shareCard": {
+    "giftLine": "You stay steady when everyone else is uncertain.",
+    "patternLine": "Outside opinions shake you when connection matters.",
+    "questLine": "Stay rooted. Your steadiness is a gift to others."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate47UnderstandFlow: MainQuestUnderstandGate = {
         "limitation": "But you tend to perform certainty when others need an answer from you.",
         "purpose": "Your purpose is to offer direction without pretending everything is already solved."
       },
+  "shareCard": {
+    "giftLine": "When people are confused, you give direction.",
+    "patternLine": "You perform certainty instead of admitting the real state.",
+    "questLine": "Offer direction without pretending it's fully solved."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate47UnderstandFlow: MainQuestUnderstandGate = {
         "limitation": "But you tend to step back into hopeless thinking before the breakthrough has time to form.",
         "purpose": "Your purpose is to stay with confusion long enough for a deeper insight to emerge."
       },
+  "shareCard": {
+    "giftLine": "You find meaning inside confusion.",
+    "patternLine": "Hopeless thinking cuts off the breakthrough too early.",
+    "questLine": "Stay with it. The insight needs time to form."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
