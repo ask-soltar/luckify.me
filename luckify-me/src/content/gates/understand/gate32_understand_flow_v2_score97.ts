@@ -23,6 +23,12 @@ export const gate32UnderstandFlow = {
         "limitation": "But you tend to push harder when you are not sure the path will last.",
         "purpose": "Your purpose is to build what endures without forcing the timing."
       },
+  "shareCard": {
+    "giftLine": "You stay with what can become real over time.",
+    "patternLine": "You push harder when the path feels uncertain.",
+    "questLine": "Build what endures without forcing the timing."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -196,6 +202,12 @@ export const gate32UnderstandFlow = {
         "limitation": "But you tend to lose your own balance when outside pressure gets loud.",
         "purpose": "Your purpose is to protect what matters by refusing unnecessary swings."
       },
+  "shareCard": {
+    "giftLine": "You stay steady while things around you are changing.",
+    "patternLine": "Outside pressure makes you lose the balance you built.",
+    "questLine": "Protect what matters by refusing unnecessary swings."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -369,6 +381,12 @@ export const gate32UnderstandFlow = {
         "limitation": "But you tend to overreact when challenge starts to feel like collapse.",
         "purpose": "Your purpose is to read pressure clearly and preserve what is actually worth keeping."
       },
+  "shareCard": {
+    "giftLine": "You stay anchored when conditions get messy.",
+    "patternLine": "Challenge starts to feel like collapse, and you overreact.",
+    "questLine": "Read the pressure. Keep what's actually worth keeping."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -542,6 +560,12 @@ export const gate32UnderstandFlow = {
         "limitation": "But you tend to protect familiar expectations instead of naming the practical adjustment.",
         "purpose": "Your purpose is to let relationship carry honest evaluation without losing the long-term aim."
       },
+  "shareCard": {
+    "giftLine": "You help people stay realistic when things shift.",
+    "patternLine": "Familiar expectations get protected instead of adjusted.",
+    "questLine": "Name the practical adjustment. The long view can hold it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -715,6 +739,12 @@ export const gate32UnderstandFlow = {
         "limitation": "But you tend to become the strategist everyone expects before checking what the change actually requires.",
         "purpose": "Your purpose is to adapt with clarity without forcing the outcome."
       },
+  "shareCard": {
+    "giftLine": "You find the practical strategy when conditions shift.",
+    "patternLine": "You become the strategist before checking what's needed.",
+    "questLine": "Adapt with clarity. Don't force the outcome."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -888,6 +918,12 @@ export const gate32UnderstandFlow = {
         "limitation": "But you tend to stay in observation when the change needs lived participation.",
         "purpose": "Your purpose is to witness change calmly and still move with it."
       },
+  "shareCard": {
+    "giftLine": "You see change from a wider and calmer view.",
+    "patternLine": "Observation becomes a substitute for participating.",
+    "questLine": "Witness it calmly. Then move with it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

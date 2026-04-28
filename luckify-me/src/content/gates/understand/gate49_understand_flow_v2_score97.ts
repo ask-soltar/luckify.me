@@ -25,6 +25,12 @@ export const gate49UnderstandFlow: MainQuestUnderstandFlowGate = {
         "limitation": "But you tend to wait too long for certainty or move too early to relieve pressure.",
         "purpose": "Your purpose is to act when the threshold is real, not when the pressure is loud."
       },
+  "shareCard": {
+    "giftLine": "You sense when a real threshold is forming.",
+    "patternLine": "You wait for certainty or move too early to relieve pressure.",
+    "questLine": "Act when the threshold is real, not when pressure is loud."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate49UnderstandFlow: MainQuestUnderstandFlowGate = {
         "limitation": "But you tend to downplay that certainty or become too rigid once you finally act.",
         "purpose": "Your purpose is to stand firm without needing to prove why."
       },
+  "shareCard": {
+    "giftLine": "You know when something has run its course.",
+    "patternLine": "You downplay the certainty or become rigid once you act.",
+    "questLine": "Stand firm without needing to explain yourself."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate49UnderstandFlow: MainQuestUnderstandFlowGate = {
         "limitation": "But you tend to create extra disruption or repeat the same emotional mistake before the lesson lands.",
         "purpose": "Your purpose is to read the feedback and turn friction into clearer change."
       },
+  "shareCard": {
+    "giftLine": "You learn which limits hold through real contact.",
+    "patternLine": "The disruption repeats before the lesson actually lands.",
+    "questLine": "Read the feedback. Turn friction into cleaner change."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate49UnderstandFlow: MainQuestUnderstandFlowGate = {
         "limitation": "But you tend to protect comfort instead of preparing people for the truth.",
         "purpose": "Your purpose is to let relationship carry necessary change, not hide it."
       },
+  "shareCard": {
+    "giftLine": "You prepare people for change through trust.",
+    "patternLine": "Comfort gets protected instead of people being prepared.",
+    "questLine": "Let relationship carry necessary change, not hide from it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate49UnderstandFlow: MainQuestUnderstandFlowGate = {
         "limitation": "But you tend to take responsibility for everyone’s adjustment or push the change too hard.",
         "purpose": "Your purpose is to lead change with clarity and care, not control."
       },
+  "shareCard": {
+    "giftLine": "You guide people through change when they need direction.",
+    "patternLine": "You carry everyone's adjustment or push the change too hard.",
+    "questLine": "Lead change with care, not control."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate49UnderstandFlow: MainQuestUnderstandFlowGate = {
         "limitation": "But you tend to step back too far, expect the transition to be perfect, or disengage before the real work is done.",
         "purpose": "Your purpose is to model mature change by staying present through the whole cycle."
       },
+  "shareCard": {
+    "giftLine": "You see the whole cycle of change without leaving it.",
+    "patternLine": "You step back or disengage before the real work is done.",
+    "questLine": "Model mature change by staying present through all of it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

@@ -23,6 +23,12 @@ export const gate48UnderstandFlow = {
         "limitation": "But you tend to spend depth on things that do not really deserve it.",
         "purpose": "Your purpose is to build depth where it will actually create value."
       },
+  "shareCard": {
+    "giftLine": "You notice what actually matters, not just what's visible.",
+    "patternLine": "You spend real depth on things that don't deserve it.",
+    "questLine": "Build depth where it will actually create value."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -196,6 +202,12 @@ export const gate48UnderstandFlow = {
         "limitation": "But you tend to compare yourself or drift away before your gift has time to deepen.",
         "purpose": "Your purpose is to keep refining what already has potential."
       },
+  "shareCard": {
+    "giftLine": "You improve through experience when you stay with it.",
+    "patternLine": "Comparison or drift pulls you away before the gift deepens.",
+    "questLine": "Keep refining what already has potential."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -369,6 +381,12 @@ export const gate48UnderstandFlow = {
         "limitation": "But you tend to hold back when recognition does not come quickly.",
         "purpose": "Your purpose is to keep developing until your value becomes undeniable."
       },
+  "shareCard": {
+    "giftLine": "You build real value over time.",
+    "patternLine": "You hold back when recognition doesn't come quickly.",
+    "questLine": "Keep developing until the value becomes undeniable."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -542,6 +560,12 @@ export const gate48UnderstandFlow = {
         "limitation": "But you tend to overextend and call it commitment.",
         "purpose": "Your purpose is to protect your depth by restoring the source it comes from."
       },
+  "shareCard": {
+    "giftLine": "Your depth renews when you actually give yourself space.",
+    "patternLine": "You overextend and call it commitment.",
+    "questLine": "Protect the source your depth comes from."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -715,6 +739,12 @@ export const gate48UnderstandFlow = {
         "limitation": "But you tend to doubt your own method or act from insecurity instead of depth.",
         "purpose": "Your purpose is to use your depth in ways that create real change."
       },
+  "shareCard": {
+    "giftLine": "You turn insight into something real and useful.",
+    "patternLine": "You doubt your method instead of using what you know.",
+    "questLine": "Use your depth in ways that create real change."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -888,6 +918,12 @@ export const gate48UnderstandFlow = {
         "limitation": "But you tend to withhold until you feel fully certain that what you have is enough.",
         "purpose": "Your purpose is to let your depth become something that nourishes others."
       },
+  "shareCard": {
+    "giftLine": "You turn your depth into real support for others.",
+    "patternLine": "You withhold until you feel certain you have enough to give.",
+    "questLine": "Let your depth become something others can draw from."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

@@ -25,6 +25,12 @@ export const gate33UnderstandFlow = {
         "limitation": "But you tend to keep reviewing the past instead of taking the first clear step from it.",
         "purpose": "Your purpose is to use reflection as a foundation, then re-enter life with what you learned."
       },
+  "shareCard": {
+    "giftLine": "You step back to understand what actually happened.",
+    "patternLine": "The review keeps going instead of becoming the first step.",
+    "questLine": "Use the reflection as a foundation. Then re-enter."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate33UnderstandFlow = {
         "limitation": "But you tend to downplay your natural memory until someone else names its value.",
         "purpose": "Your purpose is to trust what you remember and let the right story become useful."
       },
+  "shareCard": {
+    "giftLine": "You remember what matters without forcing the story.",
+    "patternLine": "You downplay your memory until someone else names its value.",
+    "questLine": "Trust what you remember. Let the right story become useful."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate33UnderstandFlow = {
         "limitation": "But you tend to turn friction into a reason to retreat instead of adjusting from what it taught you.",
         "purpose": "Your purpose is to read the experience, make the correction, and re-enter differently."
       },
+  "shareCard": {
+    "giftLine": "You learn from messy experiences once the dust settles.",
+    "patternLine": "Friction becomes a reason to retreat instead of adjust.",
+    "questLine": "Read the experience, correct, and re-enter differently."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate33UnderstandFlow = {
         "limitation": "But you tend to keep the peace by holding the story privately instead of letting truth move through the relationship.",
         "purpose": "Your purpose is to use memory to create honest connection, not quiet distance."
       },
+  "shareCard": {
+    "giftLine": "You hold stories that help people understand each other.",
+    "patternLine": "You keep the story quiet to keep the peace.",
+    "questLine": "Let the memory create honest connection, not quiet distance."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate33UnderstandFlow = {
         "limitation": "But you tend to become the person who explains the lesson before checking whether the role belongs to you.",
         "purpose": "Your purpose is to share useful memory without becoming responsible for everyone’s meaning."
       },
+  "shareCard": {
+    "giftLine": "You turn past experience into something useful for others.",
+    "patternLine": "You explain the lesson before checking if the role is yours.",
+    "questLine": "Share useful memory without carrying everyone's meaning."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate33UnderstandFlow = {
         "limitation": "But you tend to stay above the story instead of returning to live the wisdom it gave you.",
         "purpose": "Your purpose is to let reflection become embodied wisdom in the way you show up now."
       },
+  "shareCard": {
+    "giftLine": "You see which stories still matter after time has passed.",
+    "patternLine": "You stay above the story instead of returning to live it.",
+    "questLine": "Let reflection become how you show up now."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

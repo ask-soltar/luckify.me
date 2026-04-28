@@ -26,6 +26,12 @@ export const gate42UnderstandFlow = {
         "limitation": "But you tend to scatter your energy when other people’s needs pull at you.",
         "purpose": "Your purpose is to finish what matters without trying to satisfy every demand."
       },
+  "shareCard": {
+    "giftLine": "You grow through bringing things to completion.",
+    "patternLine": "Other people's needs scatter you before things are done.",
+    "questLine": "Finish what matters without trying to satisfy every demand."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -199,6 +205,12 @@ export const gate42UnderstandFlow = {
         "limitation": "But you tend to lose that inner signal when outside expectations get loud.",
         "purpose": "Your purpose is to trust what is genuinely beneficial and let that guide what grows."
       },
+  "shareCard": {
+    "giftLine": "You sense what actually supports real growth.",
+    "patternLine": "Outside expectations drown the inner signal.",
+    "questLine": "Trust what's genuinely useful. Let that guide what grows."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -372,6 +384,12 @@ export const gate42UnderstandFlow = {
         "limitation": "But you tend to treat difficulty as proof that the growth is failing.",
         "purpose": "Your purpose is to stay with the process long enough for the lesson to become useful."
       },
+  "shareCard": {
+    "giftLine": "You learn through the messy, unfinished parts of growth.",
+    "patternLine": "Difficulty reads as proof the growth is not working.",
+    "questLine": "Stay with the process long enough for the lesson to land."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -545,6 +563,12 @@ export const gate42UnderstandFlow = {
         "limitation": "But you tend to let loyalty, preference, or comfort bend your judgment.",
         "purpose": "Your purpose is to guide shared growth with honesty that people can trust."
       },
+  "shareCard": {
+    "giftLine": "You help growth happen through trust.",
+    "patternLine": "Loyalty or comfort bends your judgment instead of honesty.",
+    "questLine": "Guide shared growth with honesty people can trust."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -718,6 +742,12 @@ export const gate42UnderstandFlow = {
         "limitation": "But you tend to overextend when people project their needs onto your kindness.",
         "purpose": "Your purpose is to support growth without becoming responsible for everyone’s progress."
       },
+  "shareCard": {
+    "giftLine": "You help people grow with genuine care.",
+    "patternLine": "People project needs onto your kindness and you carry them.",
+    "questLine": "Support growth without becoming responsible for all of it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -891,6 +921,12 @@ export const gate42UnderstandFlow = {
         "limitation": "But you tend to step back, protect your own growth, or let the exchange become one-sided.",
         "purpose": "Your purpose is to make growth mutual, balanced, and beneficial for everyone involved."
       },
+  "shareCard": {
+    "giftLine": "You see whether growth is balanced and fair.",
+    "patternLine": "You step back or let the exchange become one-sided.",
+    "questLine": "Make growth mutual. That's the whole point."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

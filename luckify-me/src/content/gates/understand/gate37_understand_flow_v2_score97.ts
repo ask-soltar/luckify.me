@@ -25,6 +25,12 @@ export const gate37UnderstandFlow: { gate: number; quality: { score: number; sch
         "limitation": "But you tend to hold back until the relationship feels completely secure.",
         "purpose": "Your purpose is to build enough trust to make the next honest move."
       },
+  "shareCard": {
+    "giftLine": "You sense what a relationship needs to feel safe.",
+    "patternLine": "You hold back until the relationship feels completely secure.",
+    "questLine": "Build enough trust to make the next honest move."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate37UnderstandFlow: { gate: number; quality: { score: number; sch
         "limitation": "But you tend to downplay the warmth you bring or wait for others to name it first.",
         "purpose": "Your purpose is to own your ability to create belonging consciously."
       },
+  "shareCard": {
+    "giftLine": "You make people feel included without forcing it.",
+    "patternLine": "You downplay the warmth you bring or wait for it to be named.",
+    "questLine": "Own your ability to create belonging. It's real."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate37UnderstandFlow: { gate: number; quality: { score: number; sch
         "limitation": "But you tend to treat relational friction like the bond is failing instead of showing you what needs to change.",
         "purpose": "Your purpose is to use friction to make trust cleaner."
       },
+  "shareCard": {
+    "giftLine": "You learn what a relationship needs through real contact.",
+    "patternLine": "Friction makes you think the bond is struggling.",
+    "questLine": "Use friction to make trust cleaner."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate37UnderstandFlow: { gate: number; quality: { score: number; sch
         "limitation": "But you tend to protect comfort in the relationship instead of naming what the agreement really requires.",
         "purpose": "Your purpose is to let trust carry truth, not hide from it."
       },
+  "shareCard": {
+    "giftLine": "You build trust through loyalty and shared agreements.",
+    "patternLine": "Comfort keeps you from naming what the agreement requires.",
+    "questLine": "Let trust carry honesty, not hide from it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate37UnderstandFlow: { gate: number; quality: { score: number; sch
         "limitation": "But you tend to become the support others expect before checking what you actually agreed to carry.",
         "purpose": "Your purpose is to offer support without becoming responsible for everyone’s stability."
       },
+  "shareCard": {
+    "giftLine": "You become the person others trust to hold things together.",
+    "patternLine": "You take on more support than you actually agreed to.",
+    "questLine": "Offer support without becoming everyone's stability."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate37UnderstandFlow: { gate: number; quality: { score: number; sch
         "limitation": "But you tend to step back and observe the relationship instead of returning to participate in it honestly.",
         "purpose": "Your purpose is to become a living example of mature, reciprocal trust."
       },
+  "shareCard": {
+    "giftLine": "You see what makes relationships mature over time.",
+    "patternLine": "You step back from the relationship instead of participating.",
+    "questLine": "Become a living example of mature, honest connection."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

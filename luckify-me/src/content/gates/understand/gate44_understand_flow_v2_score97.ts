@@ -40,6 +40,12 @@ export const gate44UnderstandFlowV2Score97 = {
         "limitation": "But you tend to tense up around what you notice instead of staying calm enough to use it.",
         "purpose": "Your purpose is to read early signals without turning alertness into fear."
       },
+  "shareCard": {
+    "giftLine": "You notice small shifts before other people do.",
+    "patternLine": "What you notice makes you tense instead of staying clear.",
+    "questLine": "Read the signal calmly. That's when it becomes useful."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -213,6 +219,12 @@ export const gate44UnderstandFlowV2Score97 = {
         "limitation": "But you tend to ignore your own sensitivity when you want to move faster.",
         "purpose": "Your purpose is to trust your instinct enough to respond carefully."
       },
+  "shareCard": {
+    "giftLine": "You read what a situation needs before others see it.",
+    "patternLine": "You push past your sensitivity when speed feels urgent.",
+    "questLine": "Trust the instinct enough to respond with care."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -386,6 +398,12 @@ export const gate44UnderstandFlowV2Score97 = {
         "limitation": "But you tend to either hesitate too long or move too quickly when the pressure rises.",
         "purpose": "Your purpose is to use feedback to time your response better."
       },
+  "shareCard": {
+    "giftLine": "You learn when to act and when to hold back.",
+    "patternLine": "Pressure makes you hesitate too long or move too fast.",
+    "questLine": "Use feedback to time your response better."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -559,6 +577,12 @@ export const gate44UnderstandFlowV2Score97 = {
         "limitation": "But you tend to keep the peace too long when a boundary needs to be clear.",
         "purpose": "Your purpose is to keep connection healthy, not just comfortable."
       },
+  "shareCard": {
+    "giftLine": "You keep relationships steady through complicated moments.",
+    "patternLine": "Keeping the peace outlasts the moment a limit is needed.",
+    "questLine": "Keep connection honest. Not just comfortable."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -732,6 +756,12 @@ export const gate44UnderstandFlowV2Score97 = {
         "limitation": "But you tend to carry influence in a way that can become control if you are not clear inside yourself.",
         "purpose": "Your purpose is to guide through integrity, not pressure."
       },
+  "shareCard": {
+    "giftLine": "You influence the direction of a room naturally.",
+    "patternLine": "Influence becomes control when you're not clear inside.",
+    "questLine": "Guide through integrity, not pressure."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -905,6 +935,12 @@ export const gate44UnderstandFlowV2Score97 = {
         "limitation": "But you tend to withdraw so far that useful distance becomes disconnection.",
         "purpose": "Your purpose is to protect your energy without disappearing from what still matters."
       },
+  "shareCard": {
+    "giftLine": "You know when distance protects your clarity.",
+    "patternLine": "You withdraw so far that useful distance becomes disappearing.",
+    "questLine": "Create the distance you need. Stay present where it matters."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

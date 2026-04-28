@@ -25,6 +25,12 @@ export const gate38UnderstandFlow: { gate: number; quality: { score: number; sch
         "limitation": "But you tend to hold back until you are sure the struggle is justified.",
         "purpose": "Your purpose is to choose the fight that matters and take the first real step."
       },
+  "shareCard": {
+    "giftLine": "You sense when something is genuinely worth fighting for.",
+    "patternLine": "You hold back until you're sure the struggle is justified.",
+    "questLine": "Choose the fight that matters. Take the first real step."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate38UnderstandFlow: { gate: number; quality: { score: number; sch
         "limitation": "But you tend to downplay your own resolve or wait for the struggle to name itself.",
         "purpose": "Your purpose is to own what matters without needing pressure to prove it."
       },
+  "shareCard": {
+    "giftLine": "You hold steady when something actually matters.",
+    "patternLine": "You downplay your resolve or wait for pressure to prove it.",
+    "questLine": "Own what matters without needing pressure to confirm it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate38UnderstandFlow: { gate: number; quality: { score: number; sch
         "limitation": "But you tend to read friction as a sign that the whole path is wrong.",
         "purpose": "Your purpose is to learn from resistance instead of restarting before the lesson lands."
       },
+  "shareCard": {
+    "giftLine": "You learn through resistance.",
+    "patternLine": "Friction reads as a sign the whole path is off.",
+    "questLine": "Learn from resistance instead of restarting before it lands."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate38UnderstandFlow: { gate: number; quality: { score: number; sch
         "limitation": "But you tend to protect comfort in the relationship instead of naming the fight that matters.",
         "purpose": "Your purpose is to let trust carry honest courage."
       },
+  "shareCard": {
+    "giftLine": "You stand for what matters through the people you trust.",
+    "patternLine": "Protecting comfort keeps the real fight unnamed.",
+    "questLine": "Let trust carry honest courage into the right moment."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate38UnderstandFlow: { gate: number; quality: { score: number; sch
         "limitation": "But you tend to become the fighter others project onto you before checking if the fight is truly yours.",
         "purpose": "Your purpose is to stand for what matters without becoming every battle’s answer."
       },
+  "shareCard": {
+    "giftLine": "People expect you to be the one who stands strong.",
+    "patternLine": "You become the fighter before checking if the fight is yours.",
+    "questLine": "Stand for what matters. Not every battle is yours."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate38UnderstandFlow: { gate: number; quality: { score: number; sch
         "limitation": "But you tend to step back and judge the struggle instead of returning to participate in the one that matters.",
         "purpose": "Your purpose is to become a living example of strength used wisely."
       },
+  "shareCard": {
+    "giftLine": "You see which struggles become meaningful over time.",
+    "patternLine": "You observe the struggle instead of returning to participate.",
+    "questLine": "Return to it. Show what strength looks like when it counts."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
