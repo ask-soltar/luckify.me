@@ -31,22 +31,51 @@ import gate26Raw  from './gates/understand/gate26_understand_flow_v2_score97';
 import gate27Raw  from './gates/understand/gate27_understand_flow_v2_score97';
 import gate28Raw  from './gates/understand/gate28_understand_flow_v2_score97';
 import gate29Raw  from './gates/understand/gate29_understand_flow_v2_score97';
+import gate30Raw  from './gates/understand/gate30_understand_flow_v2_score97';
+import gate31Raw  from './gates/understand/gate31_understand_flow_v2_score97';
+import gate32Raw  from './gates/understand/gate32_understand_flow_v2_score97';
+import gate33Raw  from './gates/understand/gate33_understand_flow_v2_score97';
 import gate34Raw  from './gates/understand/gate34_understand_flow_v2_score97';
+import gate35Raw  from './gates/understand/gate35_understand_flow_v2_score97';
+import gate36Raw  from './gates/understand/gate36_understand_flow_v2_score97';
+import gate37Raw  from './gates/understand/gate37_understand_flow_v2_score97';
+import gate38Raw  from './gates/understand/gate38_understand_flow_v2_score97';
 import gate39Raw  from './gates/understand/gate39_understand_flow_v2_score97';
 import gate40Raw  from './gates/understand/gate40_understand_flow_v2_score97';
 import gate41Raw  from './gates/understand/gate41_understand_flow_v2_score97';
+import gate42Raw  from './gates/understand/gate42_understand_flow_v2_score97';
+import gate43Raw  from './gates/understand/gate43_understand_flow_v2_score96';
 import gate44Raw  from './gates/understand/gate44_understand_flow_v2_score97';
+import gate45Raw  from './gates/understand/gate45_understand_flow_v2_score97';
+import gate46Raw  from './gates/understand/gate46_understand_flow_v2_score97';
+import gate47Raw  from './gates/understand/gate47_understand_flow_v2_score97';
+import gate48Raw  from './gates/understand/gate48_understand_flow_v2_score97';
+import gate49Raw  from './gates/understand/gate49_understand_flow_v2_score97';
+import gate50Raw  from './gates/understand/gate50_understand_flow_v2_score97';
+import gate51Raw  from './gates/understand/gate51_understand_flow_v2_score97';
 import gate52Raw  from './gates/understand/gate52_understand_flow_v2_score97';
+import gate53Raw  from './gates/understand/gate53_understand_flow_v2_score97';
+import { gate54UnderstandFlow as gate54Raw } from './gates/understand/gate54_understand_flow_v2_score97';
+import gate55Raw  from './gates/understand/gate55_understand_flow_v2_score97';
+import gate56Raw  from './gates/understand/gate56_understand_flow_v2_score97';
+import gate57Raw  from './gates/understand/gate57_understand_flow_v2_score96';
+import { gate58UnderstandFlow as gate58Raw } from './gates/understand/gate58_understand_flow_v2_score96';
 import gate59Raw  from './gates/understand/gate59_understand_flow_v2_score97';
+import gate60Raw  from './gates/understand/gate60_understand_flow_v2_score96';
+import gate61Raw  from './gates/understand/gate61_understand_flow_v2_score96';
+import gate62Raw  from './gates/understand/gate62_understand_flow_v2_score95';
+import gate63Raw  from './gates/understand/gate63_understand_flow_v2_score95';
 import gate64Raw  from './gates/understand/gate64_understand_flow_v2_precision_scored';
 
 // ── Shape normalizer ────────────────────────────────────────────────────────
+// Handles: { content:[...] } | { entries:[...] } | { flows:[...] } | [...]
 function extractEntries(raw: unknown): MainQuestUnderstandFlow[] {
   if (Array.isArray(raw)) return raw as MainQuestUnderstandFlow[];
   if (raw && typeof raw === 'object') {
     const r = raw as Record<string, unknown>;
     if (Array.isArray(r.content)) return r.content as MainQuestUnderstandFlow[];
     if (Array.isArray(r.entries)) return r.entries as MainQuestUnderstandFlow[];
+    if (Array.isArray(r.flows))   return r.flows   as MainQuestUnderstandFlow[];
   }
   return [];
 }
@@ -82,13 +111,40 @@ const ALL_ENTRIES: MainQuestUnderstandFlow[] = [
   ...extractEntries(gate27Raw),
   ...extractEntries(gate28Raw),
   ...extractEntries(gate29Raw),
+  ...extractEntries(gate30Raw),
+  ...extractEntries(gate31Raw),
+  ...extractEntries(gate32Raw),
+  ...extractEntries(gate33Raw),
   ...extractEntries(gate34Raw),
+  ...extractEntries(gate35Raw),
+  ...extractEntries(gate36Raw),
+  ...extractEntries(gate37Raw),
+  ...extractEntries(gate38Raw),
   ...extractEntries(gate39Raw),
   ...extractEntries(gate40Raw),
   ...extractEntries(gate41Raw),
+  ...extractEntries(gate42Raw),
+  ...extractEntries(gate43Raw),
   ...extractEntries(gate44Raw),
+  ...extractEntries(gate45Raw),
+  ...extractEntries(gate46Raw),
+  ...extractEntries(gate47Raw),
+  ...extractEntries(gate48Raw),
+  ...extractEntries(gate49Raw),
+  ...extractEntries(gate50Raw),
+  ...extractEntries(gate51Raw),
   ...extractEntries(gate52Raw),
+  ...extractEntries(gate53Raw),
+  ...extractEntries(gate54Raw),
+  ...extractEntries(gate55Raw),
+  ...extractEntries(gate56Raw),
+  ...extractEntries(gate57Raw),
+  ...extractEntries(gate58Raw),
   ...extractEntries(gate59Raw),
+  ...extractEntries(gate60Raw),
+  ...extractEntries(gate61Raw),
+  ...extractEntries(gate62Raw),
+  ...extractEntries(gate63Raw),
   ...extractEntries(gate64Raw),
 ];
 
