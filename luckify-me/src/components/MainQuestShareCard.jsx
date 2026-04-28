@@ -110,42 +110,59 @@ function IconPortal() {
 function HeroSymbol() {
   return (
     <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Outermost faint ring */}
-      <circle cx="100" cy="100" r="92" stroke="rgba(124,58,237,0.1)" strokeWidth="1" />
-      <circle cx="100" cy="100" r="78" stroke="rgba(59,130,246,0.15)" strokeWidth="1" />
-      <circle cx="100" cy="100" r="62" stroke="rgba(212,175,55,0.12)" strokeWidth="1" />
+      <defs>
+        {/* Wide soft glow — two-pass blur composited under source */}
+        <filter id="mqsc-star-glow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="wide" />
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="tight" />
+          <feMerge>
+            <feMergeNode in="wide" />
+            <feMergeNode in="tight" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        {/* Tight halo for center dot */}
+        <filter id="mqsc-dot-glow" x="-150%" y="-150%" width="400%" height="400%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
 
-      {/* Mirrored violet arc — top half */}
-      <path d="M28 100 A72 72 0 0 1 172 100"
-        stroke="rgba(124,58,237,0.65)" strokeWidth="1.5" strokeLinecap="round" />
-      {/* Mirrored blue arc — bottom half */}
-      <path d="M28 100 A72 72 0 0 0 172 100"
-        stroke="rgba(59,130,246,0.65)" strokeWidth="1.5" strokeLinecap="round" />
+      {/* ── Layer 1: three thin concentric rings ── */}
+      <circle cx="100" cy="100" r="83" stroke="rgba(139,92,246,0.08)" strokeWidth="0.75" />
+      <circle cx="100" cy="100" r="61" stroke="rgba(59,130,246,0.10)" strokeWidth="0.75" />
+      <circle cx="100" cy="100" r="42" stroke="rgba(212,175,55,0.13)" strokeWidth="0.75" />
 
-      {/* Inner tighter violet arc */}
-      <path d="M46 100 A54 54 0 0 1 154 100"
-        stroke="rgba(124,58,237,0.35)" strokeWidth="1" strokeLinecap="round" />
-      {/* Inner tighter blue arc */}
-      <path d="M46 100 A54 54 0 0 0 154 100"
-        stroke="rgba(59,130,246,0.35)" strokeWidth="1" strokeLinecap="round" />
+      {/* ── Layer 2: two subtle orbit arcs + minimal cardinal ticks ── */}
+      <ellipse cx="100" cy="100" rx="76" ry="18"
+        stroke="rgba(139,92,246,0.22)" strokeWidth="1" fill="none"
+        transform="rotate(-22 100 100)" />
+      <ellipse cx="100" cy="100" rx="76" ry="18"
+        stroke="rgba(59,130,246,0.16)" strokeWidth="1" fill="none"
+        transform="rotate(22 100 100)" />
 
-      {/* Subtle radial lines */}
-      <line x1="100" y1="28" x2="100" y2="44" stroke="rgba(212,175,55,0.3)" strokeWidth="1" />
-      <line x1="100" y1="156" x2="100" y2="172" stroke="rgba(212,175,55,0.3)" strokeWidth="1" />
-      <line x1="28" y1="100" x2="44" y2="100" stroke="rgba(212,175,55,0.3)" strokeWidth="1" />
-      <line x1="156" y1="100" x2="172" y2="100" stroke="rgba(212,175,55,0.3)" strokeWidth="1" />
+      {/* Cardinal ticks — hair-thin, quarter-opacity */}
+      <line x1="100" y1="16" x2="100" y2="26" stroke="rgba(212,175,55,0.22)" strokeWidth="0.75" strokeLinecap="round" />
+      <line x1="100" y1="174" x2="100" y2="184" stroke="rgba(212,175,55,0.22)" strokeWidth="0.75" strokeLinecap="round" />
+      <line x1="16"  y1="100" x2="26"  y2="100" stroke="rgba(212,175,55,0.22)" strokeWidth="0.75" strokeLinecap="round" />
+      <line x1="174" y1="100" x2="184" y2="100" stroke="rgba(212,175,55,0.22)" strokeWidth="0.75" strokeLinecap="round" />
 
-      {/* 4-point star */}
+      {/* ── Layer 3: geometrically precise 8-point star + center dot ── */}
+      {/* Outer r=38, inner r=16 — calculated at 22.5° offsets from 90° start */}
       <path
-        d="M100 60 L103.5 96.5 L140 100 L103.5 103.5 L100 140 L96.5 103.5 L60 100 L96.5 96.5 Z"
-        fill="rgba(212,175,55,0.85)"
-        stroke="rgba(212,175,55,0.4)"
+        d="M100,62 L106.1,85.2 L126.9,73.1 L114.8,93.9
+           L138,100 L114.8,106.1 L126.9,126.9 L106.1,114.8
+           L100,138 L93.9,114.8 L73.1,126.9 L85.2,106.1
+           L62,100 L85.2,93.9 L73.1,73.1 L93.9,85.2 Z"
+        fill="rgba(212,175,55,0.84)"
+        stroke="rgba(255,225,110,0.18)"
         strokeWidth="0.5"
+        filter="url(#mqsc-star-glow)"
       />
-
-      {/* Glow dot at center */}
-      <circle cx="100" cy="100" r="5" fill="#d4af37" />
-      <circle cx="100" cy="100" r="10" fill="rgba(212,175,55,0.2)" />
+      <circle cx="100" cy="100" r="5" fill="rgba(255,232,130,0.96)" filter="url(#mqsc-dot-glow)" />
     </svg>
   );
 }

@@ -96,6 +96,20 @@ export default function App() {
     });
   }
 
+  // Dev shortcut: ?dev in URL auto-submits a preset profile, skipping the form
+  useEffect(() => {
+    if (!window.location.search.includes('dev')) return;
+    handleCalculate({
+      year: 1990, month: 6, day: 15,
+      hour12: 9, minute: 30, ampm: 'AM',
+      birthGMT: 0, birthTzId: 'UTC',
+      currentGMT: 0, currentTzId: 'UTC',
+      birthLat: 51.5074, birthLng: -0.1278,
+      displayName: 'Dev User',
+    });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // Called when form submits — threshold transition before reveal
   function handleCalculate(formData) {
     const result = calculateProfile({

@@ -1,0 +1,137 @@
+/* ── Quest Reveal Overlay ───────────────────────────────────────────────────
+   Single cinematic screen shown once on first Main Quest visit.
+   The mandala/key image is a faint background layer — not a separate reveal.
+   Foreground: ambient glow + cycling text only.
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* Match this to EXIT_START (2350ms) so the zoom ends as the overlay exits */
+:root {
+  --mqr-duration: 2600ms;
+}
+
+.mqr-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #07060f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  overflow: hidden;
+  animation: mqr-fade-in 0.5s ease both;
+  pointer-events: none;
+}
+
+.mqr-overlay--exiting {
+  animation: mqr-exit 0.65s ease forwards;
+}
+
+/* ── Background: mandala zooming in ── */
+
+.mqr-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.88) 68%),
+    url('/assets/main-quest/quest-reveal-mandala-key.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.35;
+  filter: brightness(0.55) saturate(0.85);
+  transform-origin: center center;
+  animation: mqr-mandala-zoom var(--mqr-duration) ease-in-out forwards;
+  pointer-events: none;
+}
+
+/* ── Foreground: ambient radial glow ── */
+
+.mqr-glow-ring {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(139, 92, 246, 0.14) 0%,
+    rgba(59, 130, 246, 0.06) 40%,
+    transparent 68%
+  );
+  animation: mqr-glow-breathe 2.4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* ── Message text ── */
+
+.mqr-message {
+  position: relative;
+  font-family: var(--font-mono, 'JetBrains Mono', 'Courier New', monospace);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(212, 175, 55, 0.72);
+  text-align: center;
+  margin: 0;
+  /* key-driven re-animation on each message swap */
+  animation: mqr-text-in 0.45s ease both;
+}
+
+/* ── Keyframes ───────────────────────────────────────────────────────────── */
+
+@keyframes mqr-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Overlay exit: slight scale-down + fade, evoking collapse toward the hero symbol */
+@keyframes mqr-exit {
+  0%   { opacity: 1; transform: scale(1); }
+  40%  { opacity: 0.5; transform: scale(0.96); }
+  100% { opacity: 0; transform: scale(0.90); }
+}
+
+/* Mandala: start slightly zoomed out, slowly push in, fade to black at the end */
+@keyframes mqr-mandala-zoom {
+  from {
+    transform: scale(1);
+    opacity: 0.18;
+  }
+  30% {
+    opacity: 0.42;
+  }
+  to {
+    transform: scale(1.32);
+    opacity: 0;
+  }
+}
+
+@keyframes mqr-glow-breathe {
+  from { opacity: 0.5; }
+  to   { opacity: 1;   }
+}
+
+@keyframes mqr-text-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* ── Reduced motion — static faint background, no zoom or rotation ── */
+@media (prefers-reduced-motion: reduce) {
+  .mqr-bg {
+    animation: none;
+    opacity: 0.22;
+    transform: scale(1.08);
+  }
+
+  .mqr-glow-ring {
+    animation: none;
+    opacity: 0.7;
+  }
+
+  .mqr-overlay--exiting {
+    animation: mqr-exit-simple 0.3s ease forwards;
+  }
+
+  @keyframes mqr-exit-simple {
+    to { opacity: 0; }
+  }
+}

@@ -8036,6 +8036,10 @@
 /* ─── Main Quest Understand Flow — Cinematic RPG ──────────────────────────── */
 
 :root {
+  /* Portal focal point — tune these until the mandala's black center is the zoom target */
+  --mq-portal-x: 50%;
+  --mq-portal-y: 22%;
+
   --mq-purple:       #8b5cf6;
   --mq-purple-dim:   rgba(139, 92, 246, 0.18);
   --mq-purple-glow:  rgba(139, 92, 246, 0.28);
@@ -9415,8 +9419,8 @@
 
 .first-reveal-shell--quest {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: stretch;
   width: 100%;
   min-height: 100%;
   padding: 0;
@@ -9430,14 +9434,108 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  flex: 1;
   min-height: 340px;
   padding: 48px 28px;
   overflow: hidden;
 }
 
+/* ── Portal layer — mandala zooms inward like a black-hole pull ── */
+
+.mq-portal-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #02030a;
+}
+
+.mq-portal-image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(125vw, 125vh);
+  height: min(125vw, 125vh);
+  transform: translate(-50%, -50%) scale(0.9);
+  transform-origin: var(--mq-portal-x, 50%) var(--mq-portal-y, 58%);
+  background-image: url('/assets/main-quest/quest-reveal-mandala-key.jpg');
+  background-size: cover;
+  /* Pull the mandala's black center to the focal point — adjust --mq-portal-y to taste */
+  background-position: var(--mq-portal-x, 50%) var(--mq-portal-y, 58%);
+  border-radius: 50%;
+  opacity: 0.14;
+  filter: brightness(0.45) saturate(0.75) contrast(1.05);
+  mix-blend-mode: screen;
+  animation: mqPortalImageZoom 8000ms ease-in-out forwards;
+}
+
+.mq-portal-core {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+    rgba(0, 0, 0, 0.98)  0%,
+    rgba(0, 0, 0, 0.82) 10%,
+    rgba(0, 0, 0, 0.22) 32%,
+    rgba(0, 0, 0, 0.90) 76%
+  );
+  opacity: 0.65;
+  animation: mqPortalCorePull 8000ms ease-in-out forwards;
+}
+
+.mq-portal-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+    transparent        0%,
+    rgba(0, 0, 0, 0.18) 34%,
+    rgba(0, 0, 0, 0.95) 82%
+  );
+  opacity: 0.9;
+}
+
+@keyframes mqPortalImageZoom {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.10;
+    filter: brightness(0.38) saturate(0.65) blur(2px);
+  }
+  35% {
+    opacity: 0.34;
+    filter: brightness(0.48) saturate(0.85) blur(0px);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.05);
+    opacity: 0;
+    filter: brightness(0.2) saturate(0.5) blur(4px);
+  }
+}
+
+@keyframes mqPortalCorePull {
+  0%  { opacity: 0.45; transform: scale(0.85); }
+  45% { opacity: 0.62; }
+  100% { opacity: 1;   transform: scale(1.35); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mq-portal-image {
+    animation: none;
+    opacity: 0.16;
+    transform: translate(-50%, -50%) scale(1.05);
+    transform-origin: var(--mq-portal-x, 50%) var(--mq-portal-y, 58%);
+    filter: brightness(0.45) saturate(0.75) contrast(1.05);
+  }
+
+  .mq-portal-core {
+    animation: none;
+    opacity: 0.70;
+  }
+}
+
 .mqrl__cosmos {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background:
     radial-gradient(ellipse at 50% 35%, rgba(139, 92, 246, 0.14) 0%, transparent 60%),
     radial-gradient(ellipse at 20% 80%, rgba(67, 56, 202, 0.08) 0%, transparent 50%),
@@ -9454,6 +9552,8 @@
 /* ── Scan phase ── */
 
 .mqrl__scan-phase {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -9515,6 +9615,8 @@
 /* ── Roulette phase ── */
 
 .mqrl__roulette {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9628,6 +9730,8 @@
 /* ── Unlocked phase ── */
 
 .mqrl__unlocked {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -127,6 +127,12 @@ export function MainQuestRevealLoader({
 
   return (
     <div className="mqrl">
+      {/* Portal layer — mandala zooms inward like a black-hole pull */}
+      <div className="mq-portal-layer" aria-hidden="true">
+        <div className="mq-portal-image" />
+        <div className="mq-portal-core" />
+        <div className="mq-portal-vignette" />
+      </div>
       <div className="mqrl__cosmos" aria-hidden="true" />
 
       {phase === 'scanning' && (
