@@ -25,6 +25,12 @@ export const gate9UnderstandFlow = {
         "limitation": "But you tend to push harder when progress gets interrupted instead of calmly beginning again.",
         "purpose": "Your purpose is to keep meaningful growth moving through steady recommitment."
       },
+  "shareCard": {
+    "giftLine": "You come back to what matters, every time.",
+    "patternLine": "Interruptions make you push instead of restart clean.",
+    "questLine": "Come back steady, not harder."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate9UnderstandFlow = {
         "limitation": "But you tend to include too much input until the shared focus gets diluted.",
         "purpose": "Your purpose is to help people gather around what actually matters."
       },
+  "shareCard": {
+    "giftLine": "You help groups focus on what actually matters.",
+    "patternLine": "Too much input dilutes the shared focus.",
+    "questLine": "Name the one thing. Hold everyone to that."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate9UnderstandFlow = {
         "limitation": "But you tend to get caught in minor details when the pressure to improve gets loud.",
         "purpose": "Your purpose is to know which small things actually matter."
       },
+  "shareCard": {
+    "giftLine": "You spot the detail that changes everything.",
+    "patternLine": "Pressure pulls you into details that don't matter.",
+    "questLine": "Find the one detail that shifts the whole."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate9UnderstandFlow = {
         "limitation": "But you tend to lose presence under pressure and leave important details unfinished.",
         "purpose": "Your purpose is to make focus reliable enough that people can count on it."
       },
+  "shareCard": {
+    "giftLine": "People rely on you to see things through.",
+    "patternLine": "Pressure pulls you away before it is fully done.",
+    "questLine": "Finish what you started. That is what builds trust."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate9UnderstandFlow = {
         "limitation": "But you tend to doubt the process when results are slow and people expect certainty from you.",
         "purpose": "Your purpose is to keep focus steady long enough for the value to reveal itself."
       },
+  "shareCard": {
+    "giftLine": "You stay with work that hasn't shown results yet.",
+    "patternLine": "Slow results and outside pressure shake your trust.",
+    "questLine": "Stay in the process. The value will show up."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate9UnderstandFlow = {
         "limitation": "But you tend to let the good feeling become a distraction from the detail that still needs care.",
         "purpose": "Your purpose is to let joy support the work instead of replacing it."
       },
+  "shareCard": {
+    "giftLine": "Appreciation keeps your focus alive longer.",
+    "patternLine": "The good feeling becomes a distraction from the detail.",
+    "questLine": "Let joy stay in the work, not away from it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

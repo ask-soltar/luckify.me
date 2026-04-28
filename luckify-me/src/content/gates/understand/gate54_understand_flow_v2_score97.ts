@@ -27,6 +27,12 @@ export const gate54UnderstandFlow = {
         "limitation": "But you tend to keep building the base instead of stepping toward the opportunity.",
         "purpose": "Your purpose is to stabilize your ambition, then take the first real step."
       },
+  "shareCard": {
+    "giftLine": "You sense when a bigger path needs a solid base.",
+    "patternLine": "You keep building the base instead of stepping up.",
+    "questLine": "Stable enough. Take the step."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -200,6 +206,12 @@ export const gate54UnderstandFlow = {
         "limitation": "But you tend to downplay the opening, or interfere with it by trying to prove you deserve it.",
         "purpose": "Your purpose is to let your ambition be seen without performing for it."
       },
+  "shareCard": {
+    "giftLine": "The right opening comes when you stop forcing it.",
+    "patternLine": "You downplay or over-prove when the opening arrives.",
+    "questLine": "Let it be seen. Stop working to earn it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -373,6 +385,12 @@ export const gate54UnderstandFlow = {
         "limitation": "But you tend to treat friction like a sign that the whole path is wrong.",
         "purpose": "Your purpose is to read the feedback, adjust, and keep moving toward the right growth."
       },
+  "shareCard": {
+    "giftLine": "Friction shows you which ambitions are real.",
+    "patternLine": "Resistance makes you think the path was wrong.",
+    "questLine": "Read it. Adjust. Keep going."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -546,6 +564,12 @@ export const gate54UnderstandFlow = {
         "limitation": "But you tend to stay loyal to familiar dynamics even when they no longer support your growth.",
         "purpose": "Your purpose is to let the right relationships carry the next level, without hiding inside comfort."
       },
+  "shareCard": {
+    "giftLine": "The right relationships carry your growth further.",
+    "patternLine": "You stay loyal to dynamics that no longer fit.",
+    "questLine": "Let the right connections take you to the next level."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -719,6 +743,12 @@ export const gate54UnderstandFlow = {
         "limitation": "But you tend to become the role people project onto you before checking whether it is actually yours.",
         "purpose": "Your purpose is to deliver value without becoming everyone’s ladder."
       },
+  "shareCard": {
+    "giftLine": "People look to you when they need momentum.",
+    "patternLine": "You become the role before checking if it's yours.",
+    "questLine": "Deliver what's real. You're not everyone's ladder."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -892,6 +922,12 @@ export const gate54UnderstandFlow = {
         "limitation": "But you tend to stay above the desire instead of entering the path that is actually true.",
         "purpose": "Your purpose is to return from perspective and live the ambition that still matters."
       },
+  "shareCard": {
+    "giftLine": "You see clearly which ambitions are worth living.",
+    "patternLine": "You stay above the desire instead of entering it.",
+    "questLine": "Enter the path that still matters. That is enough."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

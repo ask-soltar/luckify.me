@@ -16,6 +16,12 @@ export const gate60UnderstandFlow = {
         "limitation": "But you tend to wait for better conditions instead of using what is already available.",
         "purpose": "Your purpose is to begin with enough structure, not perfect conditions."
       },
+  "shareCard": {
+    "giftLine": "You sense what's actually possible before moving.",
+    "patternLine": "You wait for better conditions before starting.",
+    "questLine": "Work with what's here. Conditions won't get perfect."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -189,6 +195,12 @@ export const gate60UnderstandFlow = {
         "limitation": "But you tend to interfere with this natural timing by trying to prove you are doing enough.",
         "purpose": "Your purpose is to trust the quiet discipline that already works."
       },
+  "shareCard": {
+    "giftLine": "You work with limits without fighting them.",
+    "patternLine": "You interrupt your own rhythm trying to prove enough.",
+    "questLine": "The discipline is already there. Let it work."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -362,6 +374,12 @@ export const gate60UnderstandFlow = {
         "limitation": "But you tend to treat friction like failure instead of feedback.",
         "purpose": "Your purpose is to use the limit as information and adjust."
       },
+  "shareCard": {
+    "giftLine": "Testing limits shows you what actually holds.",
+    "patternLine": "Resistance reads as failure instead of feedback.",
+    "questLine": "Let the limit teach you. Adjust from there."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -535,6 +553,12 @@ export const gate60UnderstandFlow = {
         "limitation": "But you tend to protect comfort instead of naming the limit everyone is already feeling.",
         "purpose": "Your purpose is to let relationship carry honest structure."
       },
+  "shareCard": {
+    "giftLine": "You create stability through the right relationships.",
+    "patternLine": "Comfort keeps you from naming what everyone feels.",
+    "questLine": "Name the limit. Let the relationship hold it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -708,6 +732,12 @@ export const gate60UnderstandFlow = {
         "limitation": "But you tend to become responsible for fixing the limit instead of naming what is actually possible.",
         "purpose": "Your purpose is to deliver value without becoming the boundary for everyone else."
       },
+  "shareCard": {
+    "giftLine": "You stay useful even when things are constrained.",
+    "patternLine": "You become responsible for fixing what isn't yours.",
+    "questLine": "Name what's possible. Leave the rest to others."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -881,6 +911,12 @@ export const gate60UnderstandFlow = {
         "limitation": "But you tend to step back too far and call it wisdom before you have participated fully.",
         "purpose": "Your purpose is to live inside reality instead of observing it from a distance."
       },
+  "shareCard": {
+    "giftLine": "You see the whole pattern and return to work with it.",
+    "patternLine": "You call stepping back wisdom before you've engaged.",
+    "questLine": "Come back in. The work needs your presence."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

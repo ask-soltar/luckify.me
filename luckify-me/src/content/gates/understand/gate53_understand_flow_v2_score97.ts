@@ -25,6 +25,12 @@ export const gate53UnderstandFlow = {
         "limitation": "But you tend to keep preparing the beginning instead of actually entering it.",
         "purpose": "Your purpose is to begin with enough structure, then let the cycle start."
       },
+  "shareCard": {
+    "giftLine": "You know when something is ready to begin.",
+    "patternLine": "Preparation replaces the actual beginning.",
+    "questLine": "Enough structure. Begin now."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate53UnderstandFlow = {
         "limitation": "But you tend to treat that natural momentum like it does not matter until someone else notices it.",
         "purpose": "Your purpose is to own the beginning while it is still alive."
       },
+  "shareCard": {
+    "giftLine": "You begin things when the opening is there.",
+    "patternLine": "You wait for someone else to notice the start.",
+    "questLine": "Own the beginning while it's still alive."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate53UnderstandFlow = {
         "limitation": "But you tend to treat early friction like proof that the beginning was wrong.",
         "purpose": "Your purpose is to read the feedback and keep developing the cycle."
       },
+  "shareCard": {
+    "giftLine": "Real contact teaches you what a new cycle needs.",
+    "patternLine": "Early friction makes you think the start was wrong.",
+    "questLine": "Read the feedback. Keep developing."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate53UnderstandFlow = {
         "limitation": "But you tend to keep the beginning inside familiar comfort instead of letting it become a real shared commitment.",
         "purpose": "Your purpose is to let trust carry the beginning forward."
       },
+  "shareCard": {
+    "giftLine": "New beginnings grow stronger through the right trust.",
+    "patternLine": "Familiarity keeps the beginning from becoming real.",
+    "questLine": "Let the trust carry the start forward."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate53UnderstandFlow = {
         "limitation": "But you tend to become the person responsible for starting everything instead of choosing what is actually yours to begin.",
         "purpose": "Your purpose is to initiate the useful next cycle without becoming trapped inside the role."
       },
+  "shareCard": {
+    "giftLine": "You see what needs to start before others do.",
+    "patternLine": "You become responsible for starting everything.",
+    "questLine": "Start what's yours. Leave the rest."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate53UnderstandFlow = {
         "limitation": "But you tend to stay above the beginning until you are sure the whole path is worth entering.",
         "purpose": "Your purpose is to return from perspective and begin what can truly mature."
       },
+  "shareCard": {
+    "giftLine": "You see how beginnings become full over time.",
+    "patternLine": "You wait for certainty before entering the first step.",
+    "questLine": "Begin. What matures will show itself."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

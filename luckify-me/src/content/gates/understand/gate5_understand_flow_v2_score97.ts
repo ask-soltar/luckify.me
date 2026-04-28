@@ -27,6 +27,12 @@ export const gate5UnderstandFlow = {
         "limitation": "But you tend to lose your rhythm when outside pressure makes you question your pace.",
         "purpose": "Your purpose is to stay loyal to your timing long enough for steady progress to become real."
       },
+  "shareCard": {
+    "giftLine": "Progress builds naturally when you keep your rhythm.",
+    "patternLine": "Outside pressure pulls you off the pace you know.",
+    "questLine": "Stay with your rhythm. Progress is building."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -200,6 +206,12 @@ export const gate5UnderstandFlow = {
         "limitation": "But you tend to disturb your own calm when uncertainty starts to feel unsafe.",
         "purpose": "Your purpose is to let waiting become a source of peace instead of pressure."
       },
+  "shareCard": {
+    "giftLine": "You hold calm while others rush.",
+    "patternLine": "Uncertainty makes you disrupt the calm you built.",
+    "questLine": "Let the waiting be steady, not something to fix."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -373,6 +385,12 @@ export const gate5UnderstandFlow = {
         "limitation": "But you tend to create movement just to escape the discomfort of waiting.",
         "purpose": "Your purpose is to turn restlessness into prepared patience."
       },
+  "shareCard": {
+    "giftLine": "Pressure makes you more ready, not less.",
+    "patternLine": "You create movement to escape the waiting.",
+    "questLine": "Stay with the discomfort. It's building something."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -546,6 +564,12 @@ export const gate5UnderstandFlow = {
         "limitation": "But you tend to stay loyal to a plan after the timing has already changed.",
         "purpose": "Your purpose is to keep your rhythm rooted while letting your strategy adapt."
       },
+  "shareCard": {
+    "giftLine": "You use timing as a tool, not a constraint.",
+    "patternLine": "You hold the old plan past the moment it fits.",
+    "questLine": "Stay rooted. Let the strategy shift when needed."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -719,6 +743,12 @@ export const gate5UnderstandFlow = {
         "limitation": "But you tend to take on the pressure to prove that waiting is useful.",
         "purpose": "Your purpose is to model calm timing without becoming responsible for everyone else’s impatience."
       },
+  "shareCard": {
+    "giftLine": "Your patience steadies the people around you.",
+    "patternLine": "You feel pressure to prove that waiting is worthwhile.",
+    "questLine": "Model the calm. Their impatience isn't yours to fix."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -892,6 +922,12 @@ export const gate5UnderstandFlow = {
         "limitation": "But you tend to resist the pressure until it becomes heavier than it needed to be.",
         "purpose": "Your purpose is to let pressure refine your timing without breaking your center."
       },
+  "shareCard": {
+    "giftLine": "Pressure teaches you when to yield and when to hold.",
+    "patternLine": "You resist past the point where yielding would have helped.",
+    "questLine": "Let it teach you when to move."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

@@ -20,6 +20,12 @@ export const gate63UnderstandFlow = {
         "limitation": "But you tend to hold the first step until every doubt has been answered.",
         "purpose": "Your purpose is to test the signal enough to begin, not enough to feel perfectly certain."
       },
+  "shareCard": {
+    "giftLine": "You check signals before committing to them.",
+    "patternLine": "You hold the step until every doubt is gone.",
+    "questLine": "Test enough to begin. Not enough to feel certain."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -193,6 +199,12 @@ export const gate63UnderstandFlow = {
         "limitation": "But you tend to downplay the signal because it came too easily.",
         "purpose": "Your purpose is to trust the clean check without making it prove itself forever."
       },
+  "shareCard": {
+    "giftLine": "You notice what's off without looking for it.",
+    "patternLine": "It came too easily, so you don't trust it.",
+    "questLine": "Trust the clean signal. It doesn't need proof."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -366,6 +378,12 @@ export const gate63UnderstandFlow = {
         "limitation": "But you tend to treat every correction like proof that the whole thing was wrong.",
         "purpose": "Your purpose is to let doubt improve the move instead of resetting it."
       },
+  "shareCard": {
+    "giftLine": "Real checks and corrections make you sharper.",
+    "patternLine": "Every correction makes you want to start over.",
+    "questLine": "Let the correction improve it, not restart it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -539,6 +557,12 @@ export const gate63UnderstandFlow = {
         "limitation": "But you tend to keep the question inside safe circles instead of bringing it where it matters.",
         "purpose": "Your purpose is to let honest questions strengthen trust, not quietly protect comfort."
       },
+  "shareCard": {
+    "giftLine": "Conversation helps you verify what's actually true.",
+    "patternLine": "You keep the question safe instead of taking it further.",
+    "questLine": "Bring the question where it matters."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -712,6 +736,12 @@ export const gate63UnderstandFlow = {
         "limitation": "But you tend to carry the pressure to be certain before you are actually clear.",
         "purpose": "Your purpose is to verify what is yours to verify without becoming everyone’s certainty."
       },
+  "shareCard": {
+    "giftLine": "People expect you to be the one who checks.",
+    "patternLine": "You carry the pressure to be certain before you are.",
+    "questLine": "Verify what's yours. Leave the rest unclaimed."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -885,6 +915,12 @@ export const gate63UnderstandFlow = {
         "limitation": "But you tend to step back so far that you stop participating in the question itself.",
         "purpose": "Your purpose is to live the clarity you have earned instead of staying above the uncertainty."
       },
+  "shareCard": {
+    "giftLine": "You see the larger pattern without losing the moment.",
+    "patternLine": "You step so far back you leave the question.",
+    "questLine": "Stay in the question. Live the clarity you've found."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

@@ -25,6 +25,12 @@ export const gate8UnderstandFlow = {
         "limitation": "But you tend to give past your real capacity instead of keeping your contribution sustainable.",
         "purpose": "Your purpose is to serve in a way that helps others without abandoning yourself."
       },
+  "shareCard": {
+    "giftLine": "You give in ways that make the whole stronger.",
+    "patternLine": "You give past what you have to give.",
+    "questLine": "Help sustainably. The work needs you to last."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate8UnderstandFlow = {
         "limitation": "But you tend to overdo your reliability instead of letting your natural support be enough.",
         "purpose": "Your purpose is to support steadily without proving your worth through excess."
       },
+  "shareCard": {
+    "giftLine": "People count on you without asking twice.",
+    "patternLine": "You overdo the support trying to prove you're enough.",
+    "questLine": "Your steady presence is already what is needed."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate8UnderstandFlow = {
         "limitation": "But you tend to test different versions of yourself instead of staying with the honest one.",
         "purpose": "Your purpose is to let your real expression build trust through lived honesty."
       },
+  "shareCard": {
+    "giftLine": "Honesty comes naturally when you're being you.",
+    "patternLine": "You try on versions of yourself instead of staying true.",
+    "questLine": "The honest version is the one that builds trust."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate8UnderstandFlow = {
         "limitation": "But you tend to seek approval through recognition instead of staying honest in the relationship.",
         "purpose": "Your purpose is to uplift others without losing your own authenticity."
       },
+  "shareCard": {
+    "giftLine": "You make people feel genuinely seen.",
+    "patternLine": "Recognition becomes something you seek in return.",
+    "questLine": "Lift others without trading your honesty for it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate8UnderstandFlow = {
         "limitation": "But you tend to push your standard onto others instead of letting your example invite growth.",
         "purpose": "Your purpose is to lead by example without becoming responsible for everyone else’s growth."
       },
+  "shareCard": {
+    "giftLine": "People look at how you do things and learn.",
+    "patternLine": "The standard becomes something you push instead of model.",
+    "questLine": "Show the way. Their growth is theirs to do."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate8UnderstandFlow = {
         "limitation": "But you tend to over-manage the dynamic instead of returning people to the shared purpose.",
         "purpose": "Your purpose is to unify contribution without getting pulled into every tension."
       },
+  "shareCard": {
+    "giftLine": "You see how people fit together and work.",
+    "patternLine": "You manage every dynamic instead of returning to the point.",
+    "questLine": "Point people back. Step out of the middle."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

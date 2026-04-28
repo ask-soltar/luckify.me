@@ -24,6 +24,12 @@ export const gate62UnderstandFlow = {
         "limitation": "But you tend to keep refining the details instead of saying the thing clearly.",
         "purpose": "Your purpose is to create enough clarity to begin, then let the message move."
       },
+  "shareCard": {
+    "giftLine": "You build clarity before you speak.",
+    "patternLine": "Refining the detail keeps you from saying the thing.",
+    "questLine": "Enough clarity. Let the message move."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -197,6 +203,12 @@ export const gate62UnderstandFlow = {
         "limitation": "But you tend to downplay that gift or start overworking what already made sense.",
         "purpose": "Your purpose is to trust the simple detail that already lands."
       },
+  "shareCard": {
+    "giftLine": "Things become clear around you without effort.",
+    "patternLine": "You overwork what already made sense.",
+    "questLine": "Trust the version that already landed."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -370,6 +382,12 @@ export const gate62UnderstandFlow = {
         "limitation": "But you tend to treat unclear attempts like failure instead of information.",
         "purpose": "Your purpose is to use feedback to make the message clearer next time."
       },
+  "shareCard": {
+    "giftLine": "Messy attempts make your thinking clearer.",
+    "patternLine": "Unclear attempts feel like failure instead of steps.",
+    "questLine": "Use the attempt. Clearer is just next time."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -543,6 +561,12 @@ export const gate62UnderstandFlow = {
         "limitation": "But you tend to soften or skip the precise thing to keep the relationship comfortable.",
         "purpose": "Your purpose is to let clear words support connection instead of protecting comfort."
       },
+  "shareCard": {
+    "giftLine": "You make the specific detail clear inside relationships.",
+    "patternLine": "Comfort keeps you from saying the exact thing.",
+    "questLine": "Say the clear thing. It helps more than softening."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -716,6 +740,12 @@ export const gate62UnderstandFlow = {
         "limitation": "But you tend to carry the pressure to explain everything perfectly for everyone.",
         "purpose": "Your purpose is to make the useful detail clear without becoming responsible for everyone’s understanding."
       },
+  "shareCard": {
+    "giftLine": "People expect you to explain things clearly.",
+    "patternLine": "You carry the pressure to get it right for everyone.",
+    "questLine": "Make the useful thing clear. The rest isn't yours."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -889,6 +919,12 @@ export const gate62UnderstandFlow = {
         "limitation": "But you tend to stay above the conversation when the real practice is saying it clearly now.",
         "purpose": "Your purpose is to bring refined understanding back into simple, usable words."
       },
+  "shareCard": {
+    "giftLine": "You turn clear thinking into real expression.",
+    "patternLine": "You stay above the moment instead of speaking it.",
+    "questLine": "Say it simply now. That is the whole practice."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

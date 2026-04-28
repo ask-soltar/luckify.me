@@ -25,6 +25,12 @@ export const gate3UnderstandFlow = {
         "limitation": "But you tend to keep arranging the foundation instead of taking the first real step.",
         "purpose": "Your purpose is to turn confusion into simple order that can actually begin."
       },
+  "shareCard": {
+    "giftLine": "You bring order to messy beginnings.",
+    "patternLine": "You keep arranging instead of starting.",
+    "questLine": "Create enough structure, then begin."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate3UnderstandFlow = {
         "limitation": "But you tend to lose trust in your own timing when outside voices get louder.",
         "purpose": "Your purpose is to let growth mature through steady self-trust."
       },
+  "shareCard": {
+    "giftLine": "Growth becomes stable around you over time.",
+    "patternLine": "Outside voices shake what you already know.",
+    "questLine": "Stay with your timing. It knows the way."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate3UnderstandFlow = {
         "limitation": "But you tend to get pulled into ideals, theories, or fixes that do not match what is happening.",
         "purpose": "Your purpose is to help change evolve through what is practical and true."
       },
+  "shareCard": {
+    "giftLine": "You see what actually works inside the mess.",
+    "patternLine": "Theories pull you away from what's real.",
+    "questLine": "Stay with what works, not what sounds right."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate3UnderstandFlow = {
         "limitation": "But you tend to involve people because they are familiar, available, or reassuring instead of truly aligned.",
         "purpose": "Your purpose is to build support systems that help the new order take root."
       },
+  "shareCard": {
+    "giftLine": "You attract the right support for new starts.",
+    "patternLine": "Comfort pulls you toward familiar over right.",
+    "questLine": "Choose support that fits, not just what's close."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate3UnderstandFlow = {
         "limitation": "But you tend to carry the pressure to interpret everything correctly before anyone else can move.",
         "purpose": "Your purpose is to bring clear direction without becoming responsible for the whole transition."
       },
+  "shareCard": {
+    "giftLine": "You read a changing situation before others do.",
+    "patternLine": "You carry the pressure to get it exactly right.",
+    "questLine": "Give the direction. The rest isn't yours to carry."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate3UnderstandFlow = {
         "limitation": "But you tend to step back into the vision so far that you lose contact with the next real move.",
         "purpose": "Your purpose is to renew order by staying connected to the process while holding the long view."
       },
+  "shareCard": {
+    "giftLine": "You hold the vision while things are still forming.",
+    "patternLine": "You step so far back you lose the next real move.",
+    "questLine": "Hold the vision. Stay close enough to act."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

@@ -25,6 +25,12 @@ export const gate4UnderstandFlow = {
         "limitation": "But you tend to push for a solution before the foundation is steady enough.",
         "purpose": "Your purpose is to let understanding become usable before you act on it."
       },
+  "shareCard": {
+    "giftLine": "You sense when an answer isn't ready yet.",
+    "patternLine": "You push for the answer before the ground is steady.",
+    "questLine": "Let understanding settle before you move."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate4UnderstandFlow = {
         "limitation": "But you tend to interfere with that gift when you use insight to steer the room instead of support it.",
         "purpose": "Your purpose is to make intelligence useful through care."
       },
+  "shareCard": {
+    "giftLine": "You make understanding feel human.",
+    "patternLine": "You steer with insight when people needed support.",
+    "questLine": "Offer the understanding. Don't run the room."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate4UnderstandFlow = {
         "limitation": "But you tend to grab the convenient answer when the deeper problem takes more effort to solve.",
         "purpose": "Your purpose is to turn curiosity into solutions that are practical enough to matter."
       },
+  "shareCard": {
+    "giftLine": "You test ideas until you find what works.",
+    "patternLine": "The convenient answer replaces the real one.",
+    "questLine": "Go deeper. The real solution is worth finding."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate4UnderstandFlow = {
         "limitation": "But you tend to over-explain or justify every angle instead of letting clarity move forward.",
         "purpose": "Your purpose is to turn thought into usable direction."
       },
+  "shareCard": {
+    "giftLine": "You turn complexity into a clear next step.",
+    "patternLine": "You justify every angle when the step is already clear.",
+    "questLine": "Say the clear thing. Let it move."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate4UnderstandFlow = {
         "limitation": "But you tend to bend the answer toward what people will accept instead of what is actually true.",
         "purpose": "Your purpose is to solve problems broadly without losing your center."
       },
+  "shareCard": {
+    "giftLine": "You find answers that work across the room.",
+    "patternLine": "You bend the answer toward what people will accept.",
+    "questLine": "Solve broadly without giving the center away."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate4UnderstandFlow = {
         "limitation": "But you tend to stay in the mental maze when the answer needs real-world humility.",
         "purpose": "Your purpose is to mature intelligence into wisdom people can actually live with."
       },
+  "shareCard": {
+    "giftLine": "You see how answers fit the bigger picture.",
+    "patternLine": "The mental maze keeps you from the real step.",
+    "questLine": "Bring it out of theory. Make it livable."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

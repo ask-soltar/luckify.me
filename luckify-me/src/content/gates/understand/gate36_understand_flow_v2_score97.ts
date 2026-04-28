@@ -23,6 +23,12 @@ export const gate36UnderstandFlowV2Score97 = {
         "limitation": "But you tend to wait for total emotional certainty before entering the experience.",
         "purpose": "Your purpose is to build enough inner steadiness to meet the experience honestly."
       },
+  "shareCard": {
+    "giftLine": "You sense when something real is starting.",
+    "patternLine": "You wait for certainty before entering.",
+    "questLine": "Step in with enough readiness, not perfection."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -196,6 +202,12 @@ export const gate36UnderstandFlowV2Score97 = {
         "limitation": "But you tend to interfere with your own honesty when the feeling becomes visible.",
         "purpose": "Your purpose is to let honest feeling move cleanly, without performing or hiding it."
       },
+  "shareCard": {
+    "giftLine": "Real feelings move through you when you let them.",
+    "patternLine": "When feelings become visible, you step in the way.",
+    "questLine": "Let the honest feeling move. Don't manage it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -369,6 +381,12 @@ export const gate36UnderstandFlowV2Score97 = {
         "limitation": "But you tend to treat emotional friction like a reason to reset everything.",
         "purpose": "Your purpose is to learn from the experience instead of abandoning it too early."
       },
+  "shareCard": {
+    "giftLine": "Intense experiences teach you without breaking you.",
+    "patternLine": "Emotional friction makes you want to start over.",
+    "questLine": "Stay long enough for the learning to arrive."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -542,6 +560,12 @@ export const gate36UnderstandFlowV2Score97 = {
         "limitation": "But you tend to protect the relationship from the truth that would make it real.",
         "purpose": "Your purpose is to let honest feeling move through connection instead of keeping everything comfortable."
       },
+  "shareCard": {
+    "giftLine": "You bring real honesty into close relationships.",
+    "patternLine": "Protecting the relationship keeps the real thing out.",
+    "questLine": "Let honest feeling in. That's what makes it real."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -715,6 +739,12 @@ export const gate36UnderstandFlowV2Score97 = {
         "limitation": "But you tend to become the emotional answer before checking what is actually yours to carry.",
         "purpose": "Your purpose is to offer clarity without absorbing everyone else’s intensity."
       },
+  "shareCard": {
+    "giftLine": "You bring clarity to moments others find overwhelming.",
+    "patternLine": "You become everyone's answer before checking.",
+    "questLine": "Offer the clarity. Don't absorb the rest."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -888,6 +918,12 @@ export const gate36UnderstandFlowV2Score97 = {
         "limitation": "But you tend to rise above the experience before you have fully lived it.",
         "purpose": "Your purpose is to return from perspective and embody the wisdom in real life."
       },
+  "shareCard": {
+    "giftLine": "You see the full arc and still choose to participate.",
+    "patternLine": "You rise above the experience before living it.",
+    "questLine": "Come back down. Live what you already understand."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

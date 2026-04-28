@@ -16,6 +16,12 @@ export const gate61UnderstandFlow = {
         "limitation": "But you tend to keep searching for certainty instead of taking the first grounded step.",
         "purpose": "Your purpose is to stabilize the question, then move with the truth you already have."
       },
+  "shareCard": {
+    "giftLine": "You sense when a question needs grounding first.",
+    "patternLine": "You keep searching for certainty before moving.",
+    "questLine": "Stabilize. Move with what you already know."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -188,6 +194,12 @@ export const gate61UnderstandFlow = {
         "limitation": "But you tend to downplay what you know because it came too easily.",
         "purpose": "Your purpose is to trust the quiet answer without forcing it to prove itself."
       },
+  "shareCard": {
+    "giftLine": "You sense the answer before you can explain it.",
+    "patternLine": "It came too easily, so you second-guess it.",
+    "questLine": "Trust the quiet answer. It doesn't need proof."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -360,6 +372,12 @@ export const gate61UnderstandFlow = {
         "limitation": "But you tend to treat confusion as failure instead of feedback.",
         "purpose": "Your purpose is to let the messy test refine the truth instead of restarting the search."
       },
+  "shareCard": {
+    "giftLine": "Friction sharpens what you actually know.",
+    "patternLine": "Confusion feels like failure instead of the process.",
+    "questLine": "Let the test refine it. Don't restart the search."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -532,6 +550,12 @@ export const gate61UnderstandFlow = {
         "limitation": "But you tend to protect the relationship instead of letting the real question enter the room.",
         "purpose": "Your purpose is to let truth move through trust, not hide behind comfort."
       },
+  "shareCard": {
+    "giftLine": "Conversation brings out what you actually know.",
+    "patternLine": "You protect the relationship from the real question.",
+    "questLine": "Let the question enter. The trust can hold it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -704,6 +728,12 @@ export const gate61UnderstandFlow = {
         "limitation": "But you tend to become the answer people expect before checking what is actually true for you.",
         "purpose": "Your purpose is to offer useful clarity without carrying everyone’s pressure to know."
       },
+  "shareCard": {
+    "giftLine": "You clarify questions others can't get out of.",
+    "patternLine": "You become the answer before checking what you know.",
+    "questLine": "Offer what's clear. Don't take on the rest."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -876,6 +906,12 @@ export const gate61UnderstandFlow = {
         "limitation": "But you tend to stay above the question instead of living the truth it reveals.",
         "purpose": "Your purpose is to bring your understanding back into real choices."
       },
+  "shareCard": {
+    "giftLine": "You see the larger pattern behind a question.",
+    "patternLine": "You stay above it instead of living what it shows.",
+    "questLine": "Bring it into your choices. That is what it is for."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

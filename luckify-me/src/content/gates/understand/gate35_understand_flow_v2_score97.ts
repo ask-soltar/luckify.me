@@ -37,6 +37,12 @@ export const gate35UnderstandFlow = {
         "limitation": "But you tend to let early rejection or difficulty shake your trust in the path.",
         "purpose": "Your purpose is to turn setbacks into fuel instead of proof that you should stop."
       },
+  "shareCard": {
+    "giftLine": "You stay with progress even when it gets hard.",
+    "patternLine": "Early difficulty makes you question the whole path.",
+    "questLine": "Use the setback. It's not a sign to stop."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -210,6 +216,12 @@ export const gate35UnderstandFlow = {
         "limitation": "But you tend to interfere with your own patience when progress is not visible.",
         "purpose": "Your purpose is to move when the timing is clean enough for effort to land."
       },
+  "shareCard": {
+    "giftLine": "You sense when progress needs patience, not push.",
+    "patternLine": "You interfere when you can't see the movement yet.",
+    "questLine": "Wait for the clean moment. Then move."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -383,6 +395,12 @@ export const gate35UnderstandFlow = {
         "limitation": "But you tend to make the progress too centered on your own role when the group dynamic gets messy.",
         "purpose": "Your purpose is to turn friction into shared movement instead of personal proof."
       },
+  "shareCard": {
+    "giftLine": "You move things forward through collective effort.",
+    "patternLine": "Group friction makes it about your role instead.",
+    "questLine": "Make it shared movement, not personal proof."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -556,6 +574,12 @@ export const gate35UnderstandFlow = {
         "limitation": "But you tend to chase more movement when your drive loses its clear direction.",
         "purpose": "Your purpose is to channel ambition into progress that can actually last."
       },
+  "shareCard": {
+    "giftLine": "Strong drive moves things when it's clear.",
+    "patternLine": "When direction blurs, movement replaces it.",
+    "questLine": "Get the direction clear before you push again."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -729,6 +753,12 @@ export const gate35UnderstandFlow = {
         "limitation": "But you tend to overgive when others expect you to keep everything moving.",
         "purpose": "Your purpose is to contribute to progress without losing yourself inside the role."
       },
+  "shareCard": {
+    "giftLine": "You help people move when they're stuck.",
+    "patternLine": "Others expect you to carry all the momentum.",
+    "questLine": "Contribute what's yours. Leave the rest."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -902,6 +932,12 @@ export const gate35UnderstandFlow = {
         "limitation": "But you tend to personalize failure before the lesson has a chance to mature.",
         "purpose": "Your purpose is to turn setbacks into refinement instead of shame."
       },
+  "shareCard": {
+    "giftLine": "Experience turns into something useful in you.",
+    "patternLine": "Setbacks feel personal before the lesson can form.",
+    "questLine": "Let the setback teach you, not define you."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
