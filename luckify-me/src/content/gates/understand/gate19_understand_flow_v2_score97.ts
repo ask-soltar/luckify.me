@@ -25,6 +25,12 @@ export const gate19UnderstandFlow = {
         "limitation": "But you tend to lose your center when other people’s needs start pulling on you.",
         "purpose": "Your purpose is to build meaningful connection without abandoning yourself."
       },
+  "shareCard": {
+    "giftLine": "You sense what people need and stay close enough to help.",
+    "patternLine": "Other people's needs pull you away from your own center.",
+    "questLine": "Build real connection without abandoning your own ground."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate19UnderstandFlow = {
         "limitation": "But you tend to over-adapt when belonging starts to matter too much.",
         "purpose": "Your purpose is to cooperate without trading away what is true for you."
       },
+  "shareCard": {
+    "giftLine": "You create cooperation without needing to force it.",
+    "patternLine": "You over-adapt when belonging starts to feel urgent.",
+    "questLine": "Cooperate on your own terms. That's what stays real."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate19UnderstandFlow = {
         "limitation": "But you tend to get tangled when being needed starts feeling like proof that you matter.",
         "purpose": "Your purpose is to offer the right support in the right way."
       },
+  "shareCard": {
+    "giftLine": "You notice when involvement could actually help.",
+    "patternLine": "Being needed starts feeling like proof you matter.",
+    "questLine": "Offer the right support. Check the need before stepping in."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate19UnderstandFlow = {
         "limitation": "But you tend to protect smoothness when the relationship field needs honesty.",
         "purpose": "Your purpose is to create cooperation that is stable because it is honest."
       },
+  "shareCard": {
+    "giftLine": "You sense what a group needs to function well together.",
+    "patternLine": "Smoothness gets protected when honesty is what is needed.",
+    "questLine": "Let honesty be part of the harmony. It makes it real."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate19UnderstandFlow = {
         "limitation": "But you tend to either carry too much yourself or hand things off before trust is clear.",
         "purpose": "Your purpose is to help the right people carry the right things well."
       },
+  "shareCard": {
+    "giftLine": "You see what people can carry when they're trusted properly.",
+    "patternLine": "You carry too much yourself or hand things off too soon.",
+    "questLine": "Help the right people carry the right things."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate19UnderstandFlow = {
         "limitation": "But you tend to withdraw when your guidance is not received the way you hoped.",
         "purpose": "Your purpose is to share wisdom with compassion instead of protecting it through distance."
       },
+  "shareCard": {
+    "giftLine": "You understand what people need from a wider view.",
+    "patternLine": "When guidance isn't received as hoped, you withdraw.",
+    "questLine": "Share the wisdom. Stay even when it lands differently."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

@@ -25,6 +25,12 @@ export const gate18UnderstandFlowV2Score97 = {
         "limitation": "But you tend to wait for the problem to feel fully understood before you make the first correction.",
         "purpose": "Your purpose is to improve what is outdated without losing what is essential."
       },
+  "shareCard": {
+    "giftLine": "You notice what needs improving before others name it.",
+    "patternLine": "You wait until the problem is fully understood before acting.",
+    "questLine": "Make the first correction. Improve from there."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate18UnderstandFlowV2Score97 = {
         "limitation": "But you tend to absorb the emotion around the pattern instead of staying clear enough to help it heal.",
         "purpose": "Your purpose is to repair old patterns with compassion and clear boundaries."
       },
+  "shareCard": {
+    "giftLine": "You sense where old patterns are affecting things now.",
+    "patternLine": "You take on the emotion instead of staying clear.",
+    "questLine": "Repair with compassion and clear limits."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate18UnderstandFlowV2Score97 = {
         "limitation": "But you tend to attack the problem before you understand what actually needs correction.",
         "purpose": "Your purpose is to use friction as feedback and reform what is outdated with clarity."
       },
+  "shareCard": {
+    "giftLine": "You push against what clearly isn't working anymore.",
+    "patternLine": "You attack the problem before knowing what needs fixing.",
+    "questLine": "Use the friction as feedback. Reform from clarity."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate18UnderstandFlowV2Score97 = {
         "limitation": "But you tend to manage the details around the problem instead of guiding the relationship back to the root.",
         "purpose": "Your purpose is to help people correct what is truly off without getting lost in surface noise."
       },
+  "shareCard": {
+    "giftLine": "You help people see what is really causing the problem.",
+    "patternLine": "You manage the surface instead of going to the root.",
+    "questLine": "Point to the root. The surface noise won't resolve itself."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate18UnderstandFlowV2Score97 = {
         "limitation": "But you tend to focus on fixing what is wrong outside of you before checking your own part in the pattern.",
         "purpose": "Your purpose is to make correction healing by beginning with honest self-awareness."
       },
+  "shareCard": {
+    "giftLine": "You see what needs correcting for balance to return.",
+    "patternLine": "You fix what's off outside before checking your own part.",
+    "questLine": "Start with yourself. Correction lands cleanest there."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate18UnderstandFlowV2Score97 = {
         "limitation": "But you tend to rise above the mess so much that your correction can feel distant or hard to reach.",
         "purpose": "Your purpose is to guide correction with wisdom that stays humble, human, and connected."
       },
+  "shareCard": {
+    "giftLine": "You see what needs correcting from a wider and calmer view.",
+    "patternLine": "Rising above the mess makes your correction hard to reach.",
+    "questLine": "Stay close enough for the correction to actually land."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

@@ -25,6 +25,12 @@ export const gate23UnderstandFlow = {
         "limitation": "But you tend to hold back or react when you feel overlooked instead of letting the truth stay clear.",
         "purpose": "Your purpose is to express what is true with humility, timing, and clarity."
       },
+  "shareCard": {
+    "giftLine": "You say the real thing without taking over the room.",
+    "patternLine": "When you feel overlooked, you hold back or react.",
+    "questLine": "Say it with timing and humility. That is what lands."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate23UnderstandFlow = {
         "limitation": "But you tend to retreat or harden when your truth feels threatened instead of staying open and steady.",
         "purpose": "Your purpose is to protect your authenticity without losing connection."
       },
+  "shareCard": {
+    "giftLine": "You stay true to yourself even when pressure builds.",
+    "patternLine": "You retreat or harden when things feel like a challenge.",
+    "questLine": "Protect what's real without cutting off connection."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate23UnderstandFlow = {
         "limitation": "But you tend to express difference too sharply when friction appears instead of letting people adjust to it.",
         "purpose": "Your purpose is to make your uniqueness clear without turning it into conflict."
       },
+  "shareCard": {
+    "giftLine": "You bring a genuinely different perspective into the room.",
+    "patternLine": "Friction makes the difference come out sharper than needed.",
+    "questLine": "Make the difference clear without turning it into a clash."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate23UnderstandFlow = {
         "limitation": "But you tend to diverge too quickly when you feel boxed in instead of making the difference useful to the people around you.",
         "purpose": "Your purpose is to use difference deliberately so it opens a new path."
       },
+  "shareCard": {
+    "giftLine": "You see when the familiar path has become too limited.",
+    "patternLine": "You diverge too quickly when you feel boxed in.",
+    "questLine": "Use the difference deliberately. Make it open something."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate23UnderstandFlow = {
         "limitation": "But you tend to adapt too much when you want your contribution to be accepted instead of keeping the original truth intact.",
         "purpose": "Your purpose is to bring your insight into the collective without losing yourself."
       },
+  "shareCard": {
+    "giftLine": "You make your insight useful to the group around you.",
+    "patternLine": "You adapt too much when you want the contribution accepted.",
+    "questLine": "Bring the insight in. Keep the original intact."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate23UnderstandFlow = {
         "limitation": "But you tend to include too much when you want everyone to be represented instead of distilling the message into something clear.",
         "purpose": "Your purpose is to turn diversity into coherent direction."
       },
+  "shareCard": {
+    "giftLine": "You turn many different viewpoints into one clear direction.",
+    "patternLine": "Including too many voices blurs the message.",
+    "questLine": "Distill it. Clarity is the whole point."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

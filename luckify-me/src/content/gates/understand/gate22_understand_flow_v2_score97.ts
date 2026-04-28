@@ -25,6 +25,12 @@ export const gate22UnderstandFlow = {
         "limitation": "But you tend to overextend when openness starts feeling like an invitation to take on too much.",
         "purpose": "Your purpose is to stay gracious without losing your inner clarity."
       },
+  "shareCard": {
+    "giftLine": "You stay open without losing what holds you steady.",
+    "patternLine": "Openness starts feeling like an invitation to take on more.",
+    "questLine": "Stay gracious. Keep the inner clarity."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate22UnderstandFlow = {
         "limitation": "But you tend to hide behind charm when the real feeling underneath needs to be named.",
         "purpose": "Your purpose is to let charm deepen authenticity instead of replacing it."
       },
+  "shareCard": {
+    "giftLine": "You make connection feel warmer and more alive.",
+    "patternLine": "Charm hides what actually needs to be said.",
+    "questLine": "Let the charm deepen honesty instead of replacing it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate22UnderstandFlow = {
         "limitation": "But you tend to treat awkward moments like failure instead of feedback.",
         "purpose": "Your purpose is to let lived experience refine your emotional expression."
       },
+  "shareCard": {
+    "giftLine": "You learn how to move with people through real contact.",
+    "patternLine": "Awkward moments read as mistakes instead of steps.",
+    "questLine": "Let lived experience refine how you show up."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate22UnderstandFlow = {
         "limitation": "But you tend to manage the atmosphere when you are afraid the connection will lose its ease.",
         "purpose": "Your purpose is to use charisma to uplift connection, not control it."
       },
+  "shareCard": {
+    "giftLine": "You create emotional ease through the way you show up.",
+    "patternLine": "You manage the atmosphere when you sense the ease slipping.",
+    "questLine": "Use the magnetism to uplift, not to keep things smooth."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate22UnderstandFlow = {
         "limitation": "But you tend to become the image people project onto you instead of staying connected to your real feeling.",
         "purpose": "Your purpose is to let your presence empower others without becoming trapped inside the projection."
       },
+  "shareCard": {
+    "giftLine": "Your presence shifts the atmosphere in a room.",
+    "patternLine": "You become the projected image instead of staying real.",
+    "questLine": "Let your presence stay connected to what you actually feel."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate22UnderstandFlow = {
         "limitation": "But you tend to use distance as protection when the moment asks for connected presence.",
         "purpose": "Your purpose is to model emotional poise without leaving the human moment."
       },
+  "shareCard": {
+    "giftLine": "You stay composed when the emotions around you are high.",
+    "patternLine": "Distance becomes protection when presence is what is needed.",
+    "questLine": "Stay composed and present. Both are possible at once."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

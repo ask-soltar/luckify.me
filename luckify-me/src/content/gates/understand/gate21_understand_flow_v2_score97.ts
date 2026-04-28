@@ -27,6 +27,12 @@ export const gate21UnderstandFlow = {
         "limitation": "But you tend to keep building the rules instead of taking the first responsible step.",
         "purpose": "Your purpose is to create enough structure to handle responsibility without waiting for total certainty."
       },
+  "shareCard": {
+    "giftLine": "You see what needs structure before it can be handled well.",
+    "patternLine": "You keep building the rules instead of taking the first step.",
+    "questLine": "Create enough structure. Then step into responsibility."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -200,6 +206,12 @@ export const gate21UnderstandFlow = {
         "limitation": "But you tend to downplay your authority or interfere with what already works naturally.",
         "purpose": "Your purpose is to own your natural stewardship without turning it into control."
       },
+  "shareCard": {
+    "giftLine": "You manage what is in your care with natural authority.",
+    "patternLine": "You downplay your authority or interfere with what works.",
+    "questLine": "Own the stewardship. It came naturally for a reason."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -373,6 +385,12 @@ export const gate21UnderstandFlow = {
         "limitation": "But you tend to treat pushback like proof that you need more control or none at all.",
         "purpose": "Your purpose is to adjust your authority instead of resetting the whole system."
       },
+  "shareCard": {
+    "giftLine": "Pressure teaches you how to hold responsibility well.",
+    "patternLine": "Pushback makes you grip tighter or let go entirely.",
+    "questLine": "Adjust the authority. Don't reset the whole system."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -546,6 +564,12 @@ export const gate21UnderstandFlow = {
         "limitation": "But you tend to protect the relationship by avoiding the harder boundary.",
         "purpose": "Your purpose is to let trust carry clear authority, not hidden control."
       },
+  "shareCard": {
+    "giftLine": "You create order through trust and shared agreement.",
+    "patternLine": "Protecting the relationship keeps the real limit hidden.",
+    "questLine": "Let trust carry the clear limit, not hide it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -719,6 +743,12 @@ export const gate21UnderstandFlow = {
         "limitation": "But you tend to become the authority others project onto you before checking the boundary.",
         "purpose": "Your purpose is to take command without becoming responsible for everything."
       },
+  "shareCard": {
+    "giftLine": "You take charge clearly when something needs a decision.",
+    "patternLine": "You become the authority before checking what's yours to hold.",
+    "questLine": "Take command of what's yours. Leave the rest."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -892,6 +922,12 @@ export const gate21UnderstandFlow = {
         "limitation": "But you tend to stay above the mess of responsibility until the system seems worthy enough.",
         "purpose": "Your purpose is to return from observation and practice authority as mature stewardship."
       },
+  "shareCard": {
+    "giftLine": "You see what authority should become when it matures.",
+    "patternLine": "You stay above the mess until the system feels worthy.",
+    "questLine": "Return to the work. Practice authority as what it should be."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

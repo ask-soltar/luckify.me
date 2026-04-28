@@ -27,6 +27,12 @@ export const gate16UnderstandFlow = {
         "limitation": "But you tend to hold your energy back until you know exactly where it should go.",
         "purpose": "Your purpose is to stabilize your enthusiasm, then use it to move the right thing forward."
       },
+  "shareCard": {
+    "giftLine": "You bring genuine enthusiasm to what actually matters.",
+    "patternLine": "You hold back until you know exactly where to aim it.",
+    "questLine": "Commit the enthusiasm. Let it move something forward."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -200,6 +206,12 @@ export const gate16UnderstandFlow = {
         "limitation": "But you tend to downplay your clarity or turn it into quiet criticism.",
         "purpose": "Your purpose is to use discernment to steady movement, not shut it down."
       },
+  "shareCard": {
+    "giftLine": "You see what is actually happening before others do.",
+    "patternLine": "Your clarity becomes quiet criticism instead of movement.",
+    "questLine": "Use the discernment to move things, not just assess them."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -373,6 +385,12 @@ export const gate16UnderstandFlow = {
         "limitation": "But you tend to lose trust in your drive when friction or lack of response shows up.",
         "purpose": "Your purpose is to keep refining your rhythm instead of needing the outside world to keep you going."
       },
+  "shareCard": {
+    "giftLine": "You build momentum from inside when external signals fade.",
+    "patternLine": "Friction or silence makes you doubt your own drive.",
+    "questLine": "Keep refining your rhythm. Outside response is secondary."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -546,6 +564,12 @@ export const gate16UnderstandFlow = {
         "limitation": "But you tend to keep the group energized while avoiding the honest direction the group actually needs.",
         "purpose": "Your purpose is to let encouragement carry truth, not just comfort."
       },
+  "shareCard": {
+    "giftLine": "You lift people through shared enthusiasm and connection.",
+    "patternLine": "You keep the group warm instead of giving it real direction.",
+    "questLine": "Let encouragement carry honesty, not just warmth."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -719,6 +743,12 @@ export const gate16UnderstandFlow = {
         "limitation": "But you tend to carry the role of supporter before checking what kind of support is actually yours to give.",
         "purpose": "Your purpose is to encourage others with clear boundaries and honest belief."
       },
+  "shareCard": {
+    "giftLine": "People look to you when they need steady encouragement.",
+    "patternLine": "You carry the supporter role before checking what's yours.",
+    "questLine": "Encourage with clear limits and honest belief."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -892,6 +922,12 @@ export const gate16UnderstandFlow = {
         "limitation": "But you tend to stay in the big-picture view instead of returning to the practical next step.",
         "purpose": "Your purpose is to turn inspiration into a path people can actually follow."
       },
+  "shareCard": {
+    "giftLine": "You see what's possible and what can actually work.",
+    "patternLine": "The big picture keeps you from the practical next step.",
+    "questLine": "Bring the vision down. Show people the next real move."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

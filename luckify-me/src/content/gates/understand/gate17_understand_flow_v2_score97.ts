@@ -25,6 +25,12 @@ export const gate17UnderstandFlow = {
         "limitation": "But you tend to hold back until your view feels fully supported instead of letting it be tested in real time.",
         "purpose": "Your purpose is to form clear opinions that stay open to correction."
       },
+  "shareCard": {
+    "giftLine": "You see what needs evaluating before decisions are made.",
+    "patternLine": "You wait for full support before testing your view.",
+    "questLine": "Form the opinion. Let it be tested in real time."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate17UnderstandFlow = {
         "limitation": "But you tend to downplay that discernment or turn it into quiet distance instead of using it consciously.",
         "purpose": "Your purpose is to choose quality connections without closing off the field."
       },
+  "shareCard": {
+    "giftLine": "You sense which connections and ideas are worth trusting.",
+    "patternLine": "Discernment turns into distance instead of conscious choice.",
+    "questLine": "Choose quality connections. Keep the field open."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate17UnderstandFlow = {
         "limitation": "But you tend to rush past the basics when you want the answer to work faster.",
         "purpose": "Your purpose is to build insight from the ground up so it can hold under pressure."
       },
+  "shareCard": {
+    "giftLine": "You turn ideas into things that can actually work.",
+    "patternLine": "You rush past the basics when you want results faster.",
+    "questLine": "Build from the ground up. That's what holds under pressure."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate17UnderstandFlow = {
         "limitation": "But you tend to manage the plan around people instead of having the direct conversation that would align them.",
         "purpose": "Your purpose is to use understanding to create cleaner alignment in the group."
       },
+  "shareCard": {
+    "giftLine": "You see how people, roles, and plans could fit together.",
+    "patternLine": "You manage around people instead of talking directly.",
+    "questLine": "Have the direct conversation. That's what creates real fit."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate17UnderstandFlow = {
         "limitation": "But you tend to become the answer too quickly instead of making room for the inputs that complete the vision.",
         "purpose": "Your purpose is to synthesize complexity without turning your view into the only view."
       },
+  "shareCard": {
+    "giftLine": "You turn many viewpoints into one clear direction.",
+    "patternLine": "You become the answer before the inputs are in.",
+    "questLine": "Make room for what completes the picture before you land it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate17UnderstandFlow = {
         "limitation": "But you tend to become certain about the right way instead of staying close enough to guide real people through it.",
         "purpose": "Your purpose is to offer guidance that creates unity without forcing sameness."
       },
+  "shareCard": {
+    "giftLine": "You see the larger pattern and help people orient around it.",
+    "patternLine": "Certainty about the right way keeps you from real people.",
+    "questLine": "Guide with enough humility to stay close to the people."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

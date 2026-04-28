@@ -16,6 +16,12 @@ export const gate20UnderstandFlow = {
         "limitation": "But you tend to make things too simple when the situation asks for more honesty or detail.",
         "purpose": "Your purpose is to use simplicity for clear action, not as a way to avoid complexity."
       },
+  "shareCard": {
+    "giftLine": "You bring things back to what matters right now.",
+    "patternLine": "Simplicity becomes a way to sidestep what's actually complex.",
+    "questLine": "Use simplicity for action, not to sidestep the real thing."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -189,6 +195,12 @@ export const gate20UnderstandFlow = {
         "limitation": "But you tend to underestimate the impact of your timing when the moment feels casual.",
         "purpose": "Your purpose is to let your insight arrive when it can actually help."
       },
+  "shareCard": {
+    "giftLine": "You notice the right moment to speak or act.",
+    "patternLine": "The casual feeling makes you underestimate your impact.",
+    "questLine": "Trust the timing. Let your insight arrive when it can help."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -362,6 +374,12 @@ export const gate20UnderstandFlow = {
         "limitation": "But you tend to become self-conscious when reflection turns into watching yourself too closely.",
         "purpose": "Your purpose is to use self-awareness to adjust, not to freeze."
       },
+  "shareCard": {
+    "giftLine": "You learn in real time while things are unfolding.",
+    "patternLine": "Reflection turns into watching yourself too closely.",
+    "questLine": "Use the reflection to adjust, not to freeze."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -535,6 +553,12 @@ export const gate20UnderstandFlow = {
         "limitation": "But you tend to stay in explanation when the moment asks for demonstration.",
         "purpose": "Your purpose is to make wisdom usable through action people can follow."
       },
+  "shareCard": {
+    "giftLine": "You turn what you know into something people can use.",
+    "patternLine": "Explanation stays longer than the moment needs it.",
+    "questLine": "Demonstrate it. Showing lands harder than telling."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -708,6 +732,12 @@ export const gate20UnderstandFlow = {
         "limitation": "But you tend to get frustrated when reality does not match what should be happening.",
         "purpose": "Your purpose is to meet the real conditions and make the next workable move."
       },
+  "shareCard": {
+    "giftLine": "You see what is workable in the moment and move with it.",
+    "patternLine": "You get stuck when reality doesn't match the plan.",
+    "questLine": "Meet real conditions. Make the next workable move."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -881,6 +911,12 @@ export const gate20UnderstandFlow = {
         "limitation": "But you tend to overanalyze details until your perspective becomes harder to use.",
         "purpose": "Your purpose is to turn mature observation into clear guidance that helps people act."
       },
+  "shareCard": {
+    "giftLine": "You see the bigger pattern without leaving the moment.",
+    "patternLine": "Overanalysis makes your perspective harder to use.",
+    "questLine": "Turn the observation into guidance others can act on."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
