@@ -161,5 +161,8 @@ export function getUnderstandFlow(gateLine: string | null | undefined): MainQues
   return REGISTRY.get(gateLine) ?? null;
 }
 
+/** All registered flow entries — used by dev gallery. */
+export { ALL_ENTRIES as ALL_UNDERSTAND_FLOWS };
+
 /** All registered gateLine keys — useful for debugging. */
 export const REGISTERED_GATE_LINES = [...REGISTRY.keys()];

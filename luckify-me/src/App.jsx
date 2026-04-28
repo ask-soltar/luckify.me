@@ -4,6 +4,7 @@ import { ProfileForm } from './components/ProfileForm.jsx';
 import { ProfileDisplay } from './components/ProfileDisplay.jsx';
 import { ProfileMenu } from './components/ProfileMenu.jsx';
 import { MainQuestRevealLoader } from './components/MainQuestRevealLoader.tsx';
+import { DevShareCardGallery } from './components/DevShareCardGallery.jsx';
 import { calculateProfile, generateId, resolveProfileName } from './utils/profileCalculator.js';
 import { useProfileStorage } from './hooks/useProfileStorage.js';
 import { calcTodayWindow } from './utils/luckyWindow.js';
@@ -42,7 +43,22 @@ function getRevealStorageKey(profileId) {
   return `rhythmRevealSeen_${profileId}`;
 }
 
+const IS_DEV_GALLERY = typeof window !== 'undefined' &&
+  new URLSearchParams(window.location.search).get('dev') === 'gallery';
+
 export default function App() {
+  if (IS_DEV_GALLERY) {
+    return (
+      <DevShareCardGallery
+        onClose={() => {
+          const url = new URL(window.location.href);
+          url.searchParams.delete('dev');
+          window.location.href = url.toString();
+        }}
+      />
+    );
+  }
+
   const scrollAreaRef = useRef(null);
   const [page, setPage] = useState('calc');       // 'calc' | 'profile'
   const [menuOpen, setMenuOpen] = useState(false);
