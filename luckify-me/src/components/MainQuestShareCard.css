@@ -1,20 +1,14 @@
-/* ── Outer shell — constrains width, prevents page overflow ── */
-.mqsc-outer {
-  width: min(92vw, 420px);
-  margin: 0 auto;
-  /* Belt-and-suspenders: never let the card punch through page width */
-  max-width: 100%;
-  overflow: hidden;
-}
-
-/* ── Preview wrapper: scales the 1080×1350 card to fit screen ── */
+/* ── Preview wrapper: scales the 1080×1350 card to fit ── */
+/* Width is constrained here so wrapperRef measures the right value */
 .mqsc-preview {
-  width: 100%;       /* inherits the constrained mqsc-outer width */
+  width: min(92vw, 420px);
+  max-width: 100%;
+  /* height is set inline by JS: 1350 * scale — no aspect-ratio needed */
   overflow: hidden;
   position: relative;
   border-radius: 24px;
-  /* aspect-ratio keeps the container at 4:5 even before JS runs */
-  aspect-ratio: 4 / 5;
+  flex-shrink: 0;
+  align-self: center;
 }
 
 /* ── The actual 1080×1350 export card ── */
@@ -262,12 +256,15 @@
 /* ═══════════════════════════════════════════════
    Share prompt + buttons (outside the export card)
    ═══════════════════════════════════════════════ */
+/* ── Outer shell — flex column, no width/overflow constraint here ── */
+/* Scroll belongs to the parent overlay/screen, not the card. */
 .mqsc-outer {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0;
   width: 100%;
+  /* No overflow: hidden — that would clip the buttons below the preview */
 }
 
 .mqsc-prompt {

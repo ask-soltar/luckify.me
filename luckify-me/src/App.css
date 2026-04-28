@@ -8059,6 +8059,8 @@
   font-family: var(--mq-font-body);
   max-width: 420px;
   margin: 0 auto;
+  /* Prevent any child card from creating horizontal scroll */
+  overflow-x: hidden;
 }
 
 /* ── Screen shell ──────────────────────────────────────────────────────── */
