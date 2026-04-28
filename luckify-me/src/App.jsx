@@ -232,7 +232,7 @@ export default function App() {
       setPage('profile');
       setFullScreenRevealOpen(false);
       scrollAppToTop();
-    }, 420);
+    }, 700);
   }
 
   const currentP = getCurrentProfile();
@@ -332,14 +332,14 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.35, ease: 'easeOut' }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
             <motion.div
               className="first-reveal-shell first-reveal-shell--quest"
               initial={{ opacity: 0, y: 24, scale: 0.985 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 16, scale: 0.992 }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              exit={{ opacity: 0, y: 8, scale: 0.996 }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             >
               <MainQuestRevealLoader
                 resolvedGateLine={revealQuestData.gateLine}

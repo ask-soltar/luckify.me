@@ -6,7 +6,7 @@ export type QuestRevealOption = {
   subtitle?: string;
 };
 
-type Phase = 'scanning' | 'roulette' | 'landing' | 'unlocked';
+type Phase = 'scanning' | 'roulette' | 'landing';
 
 const SCAN_MESSAGES = [
   'Reading birth pattern…',
@@ -66,7 +66,7 @@ export function MainQuestRevealLoader({
     subtitle: 'Purpose Signal · Design Earth',
   };
 
-  const [phase, setPhase] = useState<Phase>(prefersReducedMotion ? 'unlocked' : 'scanning');
+  const [phase, setPhase] = useState<Phase>(prefersReducedMotion ? 'landing' : 'scanning');
   const [scanIdx, setScanIdx] = useState(0);
   const [displayQuest, setDisplayQuest] = useState<QuestRevealOption>(
     prefersReducedMotion ? resolved : (possibleQuests[0] ?? resolved),
@@ -111,19 +111,15 @@ export function MainQuestRevealLoader({
     return () => clearTimeout(t);
   }, [phase]);
 
-  // Phase 3: landing pause → unlocked
+  // Phase 3: landing — ring emerges, then hand off to share card
   useEffect(() => {
     if (phase !== 'landing') return;
-    const t = setTimeout(() => setPhase('unlocked'), 900);
+    const delay = prefersReducedMotion ? 400 : 2800;
+    const t = setTimeout(onComplete, delay);
     return () => clearTimeout(t);
-  }, [phase]);
+  }, [phase, onComplete, prefersReducedMotion]);
 
-  // Phase 4: show unlocked → call complete
-  useEffect(() => {
-    if (phase !== 'unlocked') return;
-    const t = setTimeout(onComplete, 4000);
-    return () => clearTimeout(t);
-  }, [phase, onComplete]);
+  const isLanding = phase === 'landing';
 
   return (
     <div className="mqrl">
@@ -158,30 +154,45 @@ export function MainQuestRevealLoader({
       )}
 
       {(phase === 'roulette' || phase === 'landing') && (
-        <div className={`mqrl__roulette${phase === 'landing' ? ' mqrl__roulette--landing' : ''}`}>
-          <div className="mqrl__roulette-eyebrow">Scanning possible quests</div>
-          <div
-            className="mqrl__roulette-card"
-            key={displayQuest.gateLine + displayQuest.questName}
-          >
-            <div className="mqrl__roulette-gate">{displayQuest.gateLine}</div>
-            <div className="mqrl__roulette-name">{displayQuest.questName}</div>
-            <div className="mqrl__roulette-sub">
-              {displayQuest.subtitle ?? 'Purpose Signal'}
+        <div
+          className={[
+            'mqrl__roulette',
+            isLanding ? 'mqrl__roulette--landing' : '',
+            isLanding ? 'mqrl__roulette--unlocked' : '',
+          ].filter(Boolean).join(' ')}
+          role={isLanding ? 'status' : undefined}
+          aria-live={isLanding ? 'polite' : undefined}
+        >
+          <div className={`mqrl__roulette-eyebrow${isLanding ? ' mqrl__roulette-eyebrow--unlocked' : ''}`}>
+            {isLanding ? 'MAIN QUEST UNLOCKED' : 'Scanning possible quests'}
+          </div>
+
+          {/* Wrap card in mq-title-reveal during landing so ring positions correctly */}
+          <div className={isLanding ? 'mq-title-reveal' : undefined}>
+            {isLanding && (
+              <div className="mq-emergence-ring" aria-hidden="true">
+                <span className="mq-ring mq-ring-1" />
+                <span className="mq-ring mq-ring-2" />
+                <span className="mq-ring mq-ring-3" />
+              </div>
+            )}
+            <div
+              className="mqrl__roulette-card"
+              key={displayQuest.gateLine + displayQuest.questName}
+            >
+              <div className="mqrl__roulette-gate">{displayQuest.gateLine}</div>
+              <div className="mqrl__roulette-name">{displayQuest.questName}</div>
+              <div className="mqrl__roulette-sub">
+                {displayQuest.subtitle ?? 'Purpose Signal'}
+              </div>
             </div>
           </div>
-          <div className="mqrl__roulette-dots" aria-hidden="true">
-            <span /><span /><span />
-          </div>
-        </div>
-      )}
 
-      {phase === 'unlocked' && (
-        <div className="mqrl__unlocked" role="status">
-          <div className="mqrl__unlocked-badge">MAIN QUEST UNLOCKED</div>
-          <div className="mqrl__unlocked-name">{resolvedQuestName}</div>
-          <div className="mqrl__unlocked-gate">{resolvedGateLine}</div>
-          <div className="mqrl__unlocked-sub">Purpose Signal · Design Earth</div>
+          {!isLanding && (
+            <div className="mqrl__roulette-dots" aria-hidden="true">
+              <span /><span /><span />
+            </div>
+          )}
         </div>
       )}
     </div>
