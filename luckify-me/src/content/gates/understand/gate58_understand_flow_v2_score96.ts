@@ -22,6 +22,12 @@ export const gate58UnderstandFlow = {
         "limitation": "But you tend to wait for the mood to feel stable before you let your joy lead.",
         "purpose": "Your purpose is to bring life back without chasing a perfect feeling."
       },
+  "shareCard": {
+    "giftLine": "You keep joy steady even when the mood shifts.",
+    "patternLine": "You wait for the mood to feel stable before letting joy lead.",
+    "questLine": "Bring life back without chasing a perfect feeling."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -195,6 +201,12 @@ export const gate58UnderstandFlow = {
         "limitation": "But you tend to chase what looks exciting when your real joy feels too quiet.",
         "purpose": "Your purpose is to choose what deepens joy instead of what only stimulates it."
       },
+  "shareCard": {
+    "giftLine": "You sense what genuinely feels alive underneath.",
+    "patternLine": "You chase what looks exciting when real joy feels too quiet.",
+    "questLine": "Choose what deepens joy instead of what only stimulates it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -368,6 +380,12 @@ export const gate58UnderstandFlow = {
         "limitation": "But you tend to scatter your energy across too many new things before one becomes useful.",
         "purpose": "Your purpose is to turn excitement into focused progress."
       },
+  "shareCard": {
+    "giftLine": "You bring fresh presence into what needs movement.",
+    "patternLine": "Too many new things pull you before one becomes useful.",
+    "questLine": "Turn excitement into focused progress."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -541,6 +559,12 @@ export const gate58UnderstandFlow = {
         "limitation": "But you tend to respond to too many possibilities when the field gets exciting.",
         "purpose": "Your purpose is to choose the opening that actually serves growth."
       },
+  "shareCard": {
+    "giftLine": "You sense which opening is actually worth moving on.",
+    "patternLine": "Too many possibilities pull you when the field gets exciting.",
+    "questLine": "Choose the opening that actually serves growth."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -714,6 +738,12 @@ export const gate58UnderstandFlow = {
         "limitation": "But you tend to become either too guarded or too available when people expect your warmth.",
         "purpose": "Your purpose is to protect joy without closing your heart to real support."
       },
+  "shareCard": {
+    "giftLine": "You protect what actually keeps life healthy.",
+    "patternLine": "You guard too much or open too wide when warmth is expected.",
+    "questLine": "Protect what matters without closing your heart."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -887,6 +917,12 @@ export const gate58UnderstandFlow = {
         "limitation": "But you tend to chase the response your joy creates instead of staying rooted in the joy itself.",
         "purpose": "Your purpose is to become an example of joy that attracts what is truly aligned."
       },
+  "shareCard": {
+    "giftLine": "You attract people through genuine, unforced aliveness.",
+    "patternLine": "You chase the response your joy creates instead of the joy.",
+    "questLine": "Stay in the joy itself. Let it attract what belongs."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

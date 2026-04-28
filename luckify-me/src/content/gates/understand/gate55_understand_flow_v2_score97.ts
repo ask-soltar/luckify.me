@@ -22,6 +22,12 @@ export const gate55UnderstandFlow = {
         "limitation": "But you tend to wait for perfect inner certainty before taking the first step.",
         "purpose": "Your purpose is to create enough inner steadiness to begin without pretending you feel perfect."
       },
+  "shareCard": {
+    "giftLine": "You sense when your inner state isn't ready to be rushed.",
+    "patternLine": "You wait for perfect inner certainty before the first step.",
+    "questLine": "Create enough steadiness to begin without forcing it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -195,6 +201,12 @@ export const gate55UnderstandFlow = {
         "limitation": "But you tend to downplay your natural spirit when it becomes visible.",
         "purpose": "Your purpose is to let your aliveness matter without forcing it."
       },
+  "shareCard": {
+    "giftLine": "You bring life back into a room naturally.",
+    "patternLine": "You downplay your aliveness when it becomes visible.",
+    "questLine": "Let your aliveness matter without forcing it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -368,6 +380,12 @@ export const gate55UnderstandFlow = {
         "limitation": "But you tend to treat emotional swings like proof that something is wrong.",
         "purpose": "Your purpose is to read the wave, learn from it, and adjust without abandoning yourself."
       },
+  "shareCard": {
+    "giftLine": "You learn through the changing weather of your emotions.",
+    "patternLine": "Emotional swings read as proof that something is off.",
+    "questLine": "Read the wave, learn from it, and adjust."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -541,6 +559,12 @@ export const gate55UnderstandFlow = {
         "limitation": "But you tend to protect connection by managing the mood instead of naming what is real.",
         "purpose": "Your purpose is to let emotional truth move through relationship cleanly."
       },
+  "shareCard": {
+    "giftLine": "You create real warmth through connection.",
+    "patternLine": "You manage the mood instead of naming what is real.",
+    "questLine": "Let honest feeling move through the connection cleanly."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -714,6 +738,12 @@ export const gate55UnderstandFlow = {
         "limitation": "But you tend to become responsible for everyone else’s emotional state.",
         "purpose": "Your purpose is to bring hope without becoming the emotional supply."
       },
+  "shareCard": {
+    "giftLine": "You become a visible source of hope for people around you.",
+    "patternLine": "You become responsible for everyone else's emotional state.",
+    "questLine": "Bring hope without becoming the emotional supply."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -887,6 +917,12 @@ export const gate55UnderstandFlow = {
         "limitation": "But you tend to step back from the emotional process before fully living it.",
         "purpose": "Your purpose is to return to the moment and embody the spirit you understand."
       },
+  "shareCard": {
+    "giftLine": "You see how emotional seasons change and what they bring.",
+    "patternLine": "You step back from the process before fully living it.",
+    "questLine": "Return to the moment. Embody the spirit you understand."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

@@ -23,6 +23,12 @@ export const gate56UnderstandFlow = {
         "limitation": "But you tend to keep preparing the story instead of saying the useful part clearly.",
         "purpose": "Your purpose is to make your words grounded enough to help people move forward."
       },
+  "shareCard": {
+    "giftLine": "You make experience easier for people to understand.",
+    "patternLine": "You keep preparing instead of saying the useful part.",
+    "questLine": "Make your words grounded enough to help people move forward."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -196,6 +202,12 @@ export const gate56UnderstandFlow = {
         "limitation": "But you tend to interfere with that natural flexibility when you feel challenged.",
         "purpose": "Your purpose is to use words as a bridge instead of a weapon."
       },
+  "shareCard": {
+    "giftLine": "You adjust your words naturally to the moment.",
+    "patternLine": "When challenged, you interfere with your own flexibility.",
+    "questLine": "Use words as a bridge, not a weapon."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -369,6 +381,12 @@ export const gate56UnderstandFlow = {
         "limitation": "But you tend to push your voice so hard that people stop hearing the truth inside it.",
         "purpose": "Your purpose is to stand in your own voice without losing connection to others."
       },
+  "shareCard": {
+    "giftLine": "You find your own voice through lived experience.",
+    "patternLine": "You push your voice so hard people stop hearing what's in it.",
+    "questLine": "Stand in your own voice without losing connection to others."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -542,6 +560,12 @@ export const gate56UnderstandFlow = {
         "limitation": "But you tend to polish the message so much that the real truth gets softened or hidden.",
         "purpose": "Your purpose is to use story to create trust, not just comfort."
       },
+  "shareCard": {
+    "giftLine": "You shape words so people can understand what matters.",
+    "patternLine": "The polish softens what the message is really saying.",
+    "questLine": "Use story to create trust, not just comfort."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -715,6 +739,12 @@ export const gate56UnderstandFlow = {
         "limitation": "But you tend to let the attention become the point instead of using it to open real understanding.",
         "purpose": "Your purpose is to use visibility to spark meaningful curiosity."
       },
+  "shareCard": {
+    "giftLine": "You capture attention with what you say.",
+    "patternLine": "The attention becomes the point instead of the message.",
+    "questLine": "Use visibility to spark real curiosity."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -888,6 +918,12 @@ export const gate56UnderstandFlow = {
         "limitation": "But you tend to change the story before the new truth has fully landed.",
         "purpose": "Your purpose is to let your truth evolve while keeping your message coherent."
       },
+  "shareCard": {
+    "giftLine": "You see how meaning shifts and changes over time.",
+    "patternLine": "You change the story before the new version has fully landed.",
+    "questLine": "Let it evolve while keeping the message clear."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

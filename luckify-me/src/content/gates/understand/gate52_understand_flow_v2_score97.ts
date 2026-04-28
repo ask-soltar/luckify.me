@@ -24,6 +24,12 @@ export const gate52UnderstandFlow = {
         "limitation": "But you tend to rush the first step when stillness starts to feel unsafe.",
         "purpose": "Your purpose is to let clear intention form before you move."
       },
+  "shareCard": {
+    "giftLine": "You pause before acting when others would rush in.",
+    "patternLine": "You rush the first step when stillness starts to feel unsafe.",
+    "questLine": "Let clear intention form before you move."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -197,6 +203,12 @@ export const gate52UnderstandFlow = {
         "limitation": "But you tend to give the noise too much authority when it starts pulling on you.",
         "purpose": "Your purpose is to trust your inner stillness more than the movement around you."
       },
+  "shareCard": {
+    "giftLine": "You stay centered when the outside world gets loud.",
+    "patternLine": "The noise gets too much authority when it pulls on you.",
+    "questLine": "Trust your stillness more than the movement around you."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -370,6 +382,12 @@ export const gate52UnderstandFlow = {
         "limitation": "But you tend to manufacture activity when stillness starts to feel like being stuck.",
         "purpose": "Your purpose is to use non-action as renewal instead of filling it with reaction."
       },
+  "shareCard": {
+    "giftLine": "You use stillness to restore what movement has spent.",
+    "patternLine": "Stillness feels like being stuck, so you manufacture activity.",
+    "questLine": "Use non-action as renewal. Not as a reason to react."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -543,6 +561,12 @@ export const gate52UnderstandFlow = {
         "limitation": "But you tend to break your steadiness when frustration or doubt starts moving through the room.",
         "purpose": "Your purpose is to let your restraint become a stabilizing force for yourself and others."
       },
+  "shareCard": {
+    "giftLine": "You become steady when other people feel the pressure.",
+    "patternLine": "Frustration or doubt in the room breaks your steadiness.",
+    "questLine": "Let your restraint become the steadying force."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -716,6 +740,12 @@ export const gate52UnderstandFlow = {
         "limitation": "But you tend to speak too much or too soon when others expect you to guide the moment.",
         "purpose": "Your purpose is to let stillness choose the timing of your words and actions."
       },
+  "shareCard": {
+    "giftLine": "You know when one clear word can shift everything.",
+    "patternLine": "You speak too much or too soon when others expect guidance.",
+    "questLine": "Let stillness choose the timing of your words."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -889,6 +919,12 @@ export const gate52UnderstandFlow = {
         "limitation": "But you tend to withdraw or feel trapped when outer conditions become too heavy.",
         "purpose": "Your purpose is to embody inner peace without leaving the human moment."
       },
+  "shareCard": {
+    "giftLine": "You find calm beneath what others find overwhelming.",
+    "patternLine": "You withdraw or feel trapped when conditions get heavy.",
+    "questLine": "Embody the calm without leaving the human moment."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

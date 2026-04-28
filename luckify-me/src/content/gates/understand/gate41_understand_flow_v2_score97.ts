@@ -36,6 +36,12 @@ export const gate41UnderstandFlow = {
         "limitation": "But you tend to wait for the base to feel safer before you start using what you have.",
         "purpose": "Your purpose is to turn constraint into a workable beginning."
       },
+  "shareCard": {
+    "giftLine": "You turn limits into starting points.",
+    "patternLine": "You wait for the base to feel safer before using what you have.",
+    "questLine": "Turn constraint into a workable beginning now."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -209,6 +215,12 @@ export const gate41UnderstandFlow = {
         "limitation": "But you tend to give more when you want to feel valued, needed, or recognized.",
         "purpose": "Your purpose is to give from balance, not from depletion."
       },
+  "shareCard": {
+    "giftLine": "You offer support that actually helps things grow.",
+    "patternLine": "You give more when you want to feel valued or needed.",
+    "questLine": "Give from what you have, not from what you want to feel."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -382,6 +394,12 @@ export const gate41UnderstandFlow = {
         "limitation": "But you tend to get pulled into exciting connections before checking whether they can actually hold the beginning.",
         "purpose": "Your purpose is to choose alliances that can carry real growth."
       },
+  "shareCard": {
+    "giftLine": "You find which connections can create real momentum.",
+    "patternLine": "You join exciting connections before checking if they hold.",
+    "questLine": "Choose the alliance that can actually carry real growth."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -555,6 +573,12 @@ export const gate41UnderstandFlow = {
         "limitation": "But you tend to protect comfort in the relationship field by making the problem external before owning your part.",
         "purpose": "Your purpose is to use honest accountability as the beginning of real growth."
       },
+  "shareCard": {
+    "giftLine": "You turn honest self-awareness into real growth.",
+    "patternLine": "You make the problem external before owning your part.",
+    "questLine": "Use honest accountability as the beginning of growth."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -728,6 +752,12 @@ export const gate41UnderstandFlow = {
         "limitation": "But you tend to measure your value by whether others notice, need, or recognize what you give.",
         "purpose": "Your purpose is to serve clearly without becoming trapped by recognition."
       },
+  "shareCard": {
+    "giftLine": "You create value through useful, direct service.",
+    "patternLine": "You measure your value by whether others notice it.",
+    "questLine": "Serve clearly without becoming trapped by recognition."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -901,6 +931,12 @@ export const gate41UnderstandFlow = {
         "limitation": "But you tend to hold back your potential when visibility, responsibility, or expansion feels too exposed.",
         "purpose": "Your purpose is to expand wisely instead of staying small for safety."
       },
+  "shareCard": {
+    "giftLine": "You see how resources can create real shared growth.",
+    "patternLine": "Visibility or responsibility makes you hold back.",
+    "questLine": "Expand wisely instead of staying small for safety."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

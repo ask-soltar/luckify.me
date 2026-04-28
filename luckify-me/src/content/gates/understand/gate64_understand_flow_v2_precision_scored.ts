@@ -42,6 +42,12 @@ export const gate64UnderstandFlow = [
       "limitation": "But you tend to wait for the ground to feel completely stable before you begin.",
       "purpose": "Your purpose is to create enough composure to take the first clear step."
     },
+  "shareCard": {
+    "giftLine": "You stay steady when the next step isn't clear yet.",
+    "patternLine": "You wait for completely stable ground before you begin.",
+    "questLine": "Create enough composure. Take the first clear step."
+  },
+
     "understandFlow": {
       "patternExpansion": {
         "title": "What this means",
@@ -215,6 +221,12 @@ export const gate64UnderstandFlow = [
       "limitation": "But you tend to interfere with your own patience when uncertainty starts to feel uncomfortable.",
       "purpose": "Your purpose is to let clarity form before you move."
     },
+  "shareCard": {
+    "giftLine": "You wait until things actually become clear.",
+    "patternLine": "You interfere with your own patience when uncertainty builds.",
+    "questLine": "Let the picture form. Move when it is actually clear."
+  },
+
     "understandFlow": {
       "patternExpansion": {
         "title": "What this means",
@@ -388,6 +400,12 @@ export const gate64UnderstandFlow = [
       "limitation": "But you tend to keep pushing an outdated plan after the moment has already changed.",
       "purpose": "Your purpose is to treat confusion as feedback and renew the strategy."
     },
+  "shareCard": {
+    "giftLine": "You find a new way when the old plan stops working.",
+    "patternLine": "You keep pushing the outdated plan past the moment it changed.",
+    "questLine": "Treat confusion as feedback. Renew the strategy."
+  },
+
     "understandFlow": {
       "patternExpansion": {
         "title": "What this means",
@@ -561,6 +579,12 @@ export const gate64UnderstandFlow = [
       "limitation": "But you tend to absorb the confusion around you until your own focus gets noisy.",
       "purpose": "Your purpose is to hold a clear line long enough for the group to find its way through."
     },
+  "shareCard": {
+    "giftLine": "You help people stay focused while things are unclear.",
+    "patternLine": "You absorb the confusion around you and lose your own focus.",
+    "questLine": "Hold a clear line long enough for the group to find its way."
+  },
+
     "understandFlow": {
       "patternExpansion": {
         "title": "What this means",
@@ -734,6 +758,12 @@ export const gate64UnderstandFlow = [
       "limitation": "But you tend to become the person who has to know, explain, or justify the direction for everyone else.",
       "purpose": "Your purpose is to guide through uncertainty without becoming trapped inside the expectation to have all the answers."
     },
+  "shareCard": {
+    "giftLine": "You stay committed to the path before the outcome is clear.",
+    "patternLine": "You become the one who has to explain it for everyone.",
+    "questLine": "Guide through uncertainty. You don't need all the answers."
+  },
+
     "understandFlow": {
       "patternExpansion": {
         "title": "What this means",
@@ -907,6 +937,12 @@ export const gate64UnderstandFlow = [
       "limitation": "But you tend to treat the breakthrough as the finish line instead of integrating what it revealed.",
       "purpose": "Your purpose is to honor success without losing the next level of clarity."
     },
+  "shareCard": {
+    "giftLine": "You see what a breakthrough means once the confusion clears.",
+    "patternLine": "The breakthrough reads as the finish line instead of a step.",
+    "questLine": "Honor the success. Then look for the next level of clarity."
+  },
+
     "understandFlow": {
       "patternExpansion": {
         "title": "What this means",

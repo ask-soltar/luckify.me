@@ -85,6 +85,12 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
         "limitation": "But you tend to wait for certainty before taking the first honest step.",
         "purpose": "Your purpose is to initiate real contact before fear turns it into distance."
       },
+  "shareCard": {
+    "giftLine": "You open the door to real connection.",
+    "patternLine": "You wait for certainty before taking the first honest step.",
+    "questLine": "Initiate real contact before hesitation turns it into distance."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -436,6 +442,12 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
         "limitation": "But you tend to let playfulness replace depth instead of leading into it.",
         "purpose": "Your purpose is to use warmth and ease to help real connection develop."
       },
+  "shareCard": {
+    "giftLine": "You make connection feel easy and natural.",
+    "patternLine": "Playfulness replaces depth instead of leading into it.",
+    "questLine": "Let warmth and ease help real connection develop."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -609,6 +621,12 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
         "limitation": "But you tend to open the door without keeping the connection clear.",
         "purpose": "Your purpose is to build intimacy where openness and boundaries grow together."
       },
+  "shareCard": {
+    "giftLine": "You create real trust between the people around you.",
+    "patternLine": "You open the door without keeping the connection clear.",
+    "questLine": "Build intimacy where openness and limits grow together."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -782,6 +800,12 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
         "limitation": "But you tend to become the connector people expect instead of checking what is actually sincere.",
         "purpose": "Your purpose is to use influence to create genuine unity, not just agreement."
       },
+  "shareCard": {
+    "giftLine": "You bring people together with genuine pull.",
+    "patternLine": "You become the expected connector before checking what's real.",
+    "questLine": "Use the pull to create genuine unity, not just agreement."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -955,6 +979,12 @@ export const gate59UnderstandFlow: MainQuestUnderstandFlowGate = {
         "limitation": "But you tend to use freedom as a way to leave before intimacy becomes grounded.",
         "purpose": "Your purpose is to honor connection fully, whether it lasts for a moment or a lifetime."
       },
+  "shareCard": {
+    "giftLine": "You let connection be real without needing to own it.",
+    "patternLine": "You use freedom to leave before the connection gets grounded.",
+    "questLine": "Honor the connection fully, however long it lasts."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

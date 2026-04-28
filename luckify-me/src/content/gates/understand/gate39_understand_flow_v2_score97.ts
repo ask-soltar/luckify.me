@@ -36,6 +36,12 @@ export const gate39UnderstandFlow = {
         "limitation": "But you tend to use distance as control instead of using it for clarity.",
         "purpose": "Your purpose is to engage only when your presence will make the situation cleaner."
       },
+  "shareCard": {
+    "giftLine": "You stay clear when situations get emotionally charged.",
+    "patternLine": "Distance becomes a way to control instead of find clarity.",
+    "questLine": "Engage when your presence makes things cleaner."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -209,6 +215,12 @@ export const gate39UnderstandFlow = {
         "limitation": "But you tend to retreat when the challenge feels too personal.",
         "purpose": "Your purpose is to let pressure strengthen you instead of making you leave."
       },
+  "shareCard": {
+    "giftLine": "You face what feels difficult without needing it to be easy.",
+    "patternLine": "You retreat when the challenge starts to feel personal.",
+    "questLine": "Let pressure strengthen you instead of making you leave."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -382,6 +394,12 @@ export const gate39UnderstandFlow = {
         "limitation": "But you tend to turn every obstacle into a battle of principle.",
         "purpose": "Your purpose is to meet challenge with integrity without becoming rigid."
       },
+  "shareCard": {
+    "giftLine": "You stand for what feels true when it comes under pressure.",
+    "patternLine": "Every obstacle becomes a battle of principle.",
+    "questLine": "Meet the challenge with integrity without becoming rigid."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -555,6 +573,12 @@ export const gate39UnderstandFlow = {
         "limitation": "But you tend to push too soon when the pressure builds.",
         "purpose": "Your purpose is to use challenge at the right time, in the right relationship, for the right opening."
       },
+  "shareCard": {
+    "giftLine": "You sense when pressure can move a situation forward.",
+    "patternLine": "You push too soon when the pressure starts building.",
+    "questLine": "Use challenge at the right time, for the right opening."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -728,6 +752,12 @@ export const gate39UnderstandFlow = {
         "limitation": "But you tend to carry the whole challenge alone instead of letting support join the solution.",
         "purpose": "Your purpose is to turn friction into inventive movement without becoming isolated by the problem."
       },
+  "shareCard": {
+    "giftLine": "You find creative paths through when obstacles appear.",
+    "patternLine": "You carry the challenge alone instead of letting support in.",
+    "questLine": "Turn friction into movement without becoming isolated by it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -901,6 +931,12 @@ export const gate39UnderstandFlow = {
         "limitation": "But you tend to solve before you are invited or before you fully understand what is needed.",
         "purpose": "Your purpose is to offer solutions with timing, sensitivity, and respect for the real need."
       },
+  "shareCard": {
+    "giftLine": "You see what problem actually needs real attention.",
+    "patternLine": "You solve before you're invited or fully understand the need.",
+    "questLine": "Offer solutions with timing and respect for the real need."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

@@ -25,6 +25,12 @@ export const gate40UnderstandFlow = {
         "limitation": "But you tend to push through fatigue when stopping feels like losing ground.",
         "purpose": "Your purpose is to restore your strength before depletion starts making the decisions."
       },
+  "shareCard": {
+    "giftLine": "You know how to recover and come back stronger.",
+    "patternLine": "You push through when stopping feels like losing ground.",
+    "questLine": "Restore first. That keeps the decisions clear."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -198,6 +204,12 @@ export const gate40UnderstandFlow = {
         "limitation": "But you tend to resist the adjustment when familiar patterns still feel safer.",
         "purpose": "Your purpose is to stay independent by moving with change instead of hardening against it."
       },
+  "shareCard": {
+    "giftLine": "You stay free by adjusting when things change.",
+    "patternLine": "Familiar patterns feel safer than adjusting to what is real.",
+    "questLine": "Move with the change instead of hardening against it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -371,6 +383,12 @@ export const gate40UnderstandFlow = {
         "limitation": "But you tend to make the release visible when part of you wants recognition for finally choosing yourself.",
         "purpose": "Your purpose is to free yourself cleanly without inviting the old pressure back in."
       },
+  "shareCard": {
+    "giftLine": "You free yourself without needing to make it loud.",
+    "patternLine": "Part of you wants recognition for finally choosing yourself.",
+    "questLine": "Free yourself cleanly. Don't invite the old pressure back."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -544,6 +562,12 @@ export const gate40UnderstandFlow = {
         "limitation": "But you tend to over-manage the structure until freedom becomes another thing to control.",
         "purpose": "Your purpose is to build support systems that serve freedom instead of replacing it."
       },
+  "shareCard": {
+    "giftLine": "You build systems that protect your independence.",
+    "patternLine": "Over-managing the structure makes freedom feel like control.",
+    "questLine": "Build what serves independence. Don't let it become a cage."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -717,6 +741,12 @@ export const gate40UnderstandFlow = {
         "limitation": "But you tend to stay entangled when other people expect you to keep carrying the role.",
         "purpose": "Your purpose is to release what compromises your freedom without turning hard or bitter."
       },
+  "shareCard": {
+    "giftLine": "You make the clear cut when independence depends on it.",
+    "patternLine": "Others' expectations keep you in it past the right moment.",
+    "questLine": "Release what keeps you in. Stay clear, not hard."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -890,6 +920,12 @@ export const gate40UnderstandFlow = {
         "limitation": "But you tend to use too much force when the obstacle starts to feel intolerable.",
         "purpose": "Your purpose is to remove what blocks freedom with clarity, restraint, and balance."
       },
+  "shareCard": {
+    "giftLine": "You clear what truly blocks your independence.",
+    "patternLine": "Too much force comes in when the obstacle feels intolerable.",
+    "questLine": "Remove the block with clarity. Restraint is part of it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

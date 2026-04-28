@@ -22,6 +22,12 @@ export const gate57UnderstandFlow = {
         "limitation": "But you tend to hold back until everything feels safe enough to trust.",
         "purpose": "Your purpose is to stay steady enough to use what you already noticed."
       },
+  "shareCard": {
+    "giftLine": "You stay clear when the room around you gets tense.",
+    "patternLine": "You hold back until everything feels safe enough to trust.",
+    "questLine": "Stay steady enough to use what you already noticed."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -195,6 +201,12 @@ export const gate57UnderstandFlow = {
         "limitation": "But you tend to downplay what you see, or push too hard once you trust it.",
         "purpose": "Your purpose is to use insight to clarify, not control."
       },
+  "shareCard": {
+    "giftLine": "You see what is underneath the surface.",
+    "patternLine": "You downplay what you see or push too hard once you trust it.",
+    "questLine": "Use insight to clarify, not to control."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -368,6 +380,12 @@ export const gate57UnderstandFlow = {
         "limitation": "But you tend to get flooded by signals and lose track of what is actually real.",
         "purpose": "Your purpose is to turn sensitivity into grounded real-time clarity."
       },
+  "shareCard": {
+    "giftLine": "You notice subtle shifts before they become obvious.",
+    "patternLine": "Too many signals flood in and you lose what's real.",
+    "questLine": "Turn sensitivity into grounded real-time clarity."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -541,6 +559,12 @@ export const gate57UnderstandFlow = {
         "limitation": "But you tend to push the vision before trust and timing are ready.",
         "purpose": "Your purpose is to let clarity move through relationship, not pressure."
       },
+  "shareCard": {
+    "giftLine": "You help people move when the next step feels unclear.",
+    "patternLine": "You push the vision before trust and timing are ready.",
+    "questLine": "Let clarity move through relationship, not through pressure."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -714,6 +738,12 @@ export const gate57UnderstandFlow = {
         "limitation": "But you tend to absorb the expectation to fix the tension and become sharper than you meant to be.",
         "purpose": "Your purpose is to deliver clarity without losing gentleness."
       },
+  "shareCard": {
+    "giftLine": "You calm tense situations with precise, well-timed clarity.",
+    "patternLine": "You absorb the expectation to fix it and overshoot.",
+    "questLine": "Deliver clarity without losing the gentleness."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -887,6 +917,12 @@ export const gate57UnderstandFlow = {
         "limitation": "But you tend to turn wisdom into distance, control, or waiting too long.",
         "purpose": "Your purpose is to live your intuitive judgment in the moment, not hover above it."
       },
+  "shareCard": {
+    "giftLine": "You know when to act, when to wait, and how to navigate.",
+    "patternLine": "Wisdom turns into distance, control, or waiting too long.",
+    "questLine": "Live your judgment in the moment, not above it."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

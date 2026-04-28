@@ -36,6 +36,12 @@ export const gate34UnderstandFlowV2Score97 = {
         "limitation": "But you tend to act before the foundation is stable enough to hold the force.",
         "purpose": "Your purpose is to use power deliberately from the very beginning."
       },
+  "shareCard": {
+    "giftLine": "You start with strength from the very beginning.",
+    "patternLine": "You act before the foundation is ready to hold the force.",
+    "questLine": "Use your strength deliberately. Start from solid ground."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -209,6 +215,12 @@ export const gate34UnderstandFlowV2Score97 = {
         "limitation": "But you tend to spend extra energy when part of you wants your strength to be seen.",
         "purpose": "Your purpose is to use your power in a way that lasts."
       },
+  "shareCard": {
+    "giftLine": "You carry steady, reliable strength.",
+    "patternLine": "You spend more than needed when part of you wants to be seen.",
+    "questLine": "Use your strength in a way that lasts."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -382,6 +394,12 @@ export const gate34UnderstandFlowV2Score97 = {
         "limitation": "But you tend to swing too hard or hold back too much before you find the right amount.",
         "purpose": "Your purpose is to use exactly the strength the moment requires."
       },
+  "shareCard": {
+    "giftLine": "You calibrate your strength through lived experience.",
+    "patternLine": "You overshoot or hold back before finding the right level.",
+    "questLine": "Use exactly the strength the moment requires."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -555,6 +573,12 @@ export const gate34UnderstandFlowV2Score97 = {
         "limitation": "But you tend to let success become bigger than the relationship it was meant to strengthen.",
         "purpose": "Your purpose is to use victory gracefully, so your power uplifts the field instead of dominating it."
       },
+  "shareCard": {
+    "giftLine": "You carry visible strength through the people around you.",
+    "patternLine": "Success grows past the relationship it was meant to serve.",
+    "questLine": "Use victory gracefully so it lifts the whole field."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -728,6 +752,12 @@ export const gate34UnderstandFlowV2Score97 = {
         "limitation": "But you tend to keep using force after the real obstacle has already been removed.",
         "purpose": "Your purpose is to act strongly when needed, then release the force when the work is done."
       },
+  "shareCard": {
+    "giftLine": "You clear what blocks movement with direct force.",
+    "patternLine": "You keep using force after the real obstacle is gone.",
+    "questLine": "Act strongly when needed. Release when the work is done."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -901,6 +931,12 @@ export const gate34UnderstandFlowV2Score97 = {
         "limitation": "But you tend to override your own wisdom when momentum, pressure, or enthusiasm pulls you past the limit.",
         "purpose": "Your purpose is to preserve strength by knowing when to act and when to stop."
       },
+  "shareCard": {
+    "giftLine": "You see how to keep strength going over time.",
+    "patternLine": "Momentum or enthusiasm pulls you past the limit you know.",
+    "questLine": "Know when to stop. That's what preserves the strength."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",

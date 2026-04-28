@@ -21,6 +21,12 @@ export const gate51UnderstandFlow = {
         "limitation": "But you tend to wait for more certainty before making the first brave move.",
         "purpose": "Your purpose is to stabilize yourself enough to act when the moment asks for courage."
       },
+  "shareCard": {
+    "giftLine": "You sense when a moment needs courage.",
+    "patternLine": "You wait for certainty before making the brave move.",
+    "questLine": "Stabilize and act when the moment asks for courage."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -194,6 +200,12 @@ export const gate51UnderstandFlow = {
         "limitation": "But you tend to downplay the impact of your courage when it comes naturally.",
         "purpose": "Your purpose is to own the wake-up effect you already carry."
       },
+  "shareCard": {
+    "giftLine": "You open movement without needing to force it.",
+    "patternLine": "You minimize the impact when your courage shows up easily.",
+    "questLine": "Own the wake-up effect you already carry."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -367,6 +379,12 @@ export const gate51UnderstandFlow = {
         "limitation": "But you tend to treat the shock of friction as proof that something went wrong.",
         "purpose": "Your purpose is to read the feedback and adjust without abandoning the move."
       },
+  "shareCard": {
+    "giftLine": "You learn through charged moments and real correction.",
+    "patternLine": "The shock of friction reads as proof that something went wrong.",
+    "questLine": "Read the feedback and adjust without abandoning the move."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -540,6 +558,12 @@ export const gate51UnderstandFlow = {
         "limitation": "But you tend to protect the connection from the very truth that would strengthen it.",
         "purpose": "Your purpose is to let relationship carry the brave moment instead of avoiding it."
       },
+  "shareCard": {
+    "giftLine": "You bring courage through trust and real connection.",
+    "patternLine": "You protect the connection from what would make it stronger.",
+    "questLine": "Let the relationship carry the brave moment."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -713,6 +737,12 @@ export const gate51UnderstandFlow = {
         "limitation": "But you tend to become the shock, answer, or rescuer people expect from you.",
         "purpose": "Your purpose is to deliver the brave move without becoming the projection."
       },
+  "shareCard": {
+    "giftLine": "You respond to what is needed without becoming the role.",
+    "patternLine": "You become the shock or answer others project onto you.",
+    "questLine": "Deliver the brave move without becoming the projection."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
@@ -886,6 +916,12 @@ export const gate51UnderstandFlow = {
         "limitation": "But you tend to observe the charged moment from a distance instead of fully entering it.",
         "purpose": "Your purpose is to bring mature perspective back into lived action."
       },
+  "shareCard": {
+    "giftLine": "You hold the long view and return to the moment.",
+    "patternLine": "You observe the charged moment from a distance.",
+    "questLine": "Bring mature perspective back into lived action."
+  },
+
       "understandFlow": {
         "patternExpansion": {
           "title": "What this means",
